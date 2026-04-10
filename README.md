@@ -147,7 +147,7 @@ npm run preview
 
 ## 📄 License
 
-This portfolio is personal work. All design and code © Srinidhi Chaturvedi.
+This portfolio is personal work. All design and code © Srinidhi Chakravarthy.
 
 ---
 

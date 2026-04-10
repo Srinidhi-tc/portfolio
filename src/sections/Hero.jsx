@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="hero-layout">
           <div>
             <p className="eyebrow" style={{ marginBottom: "var(--space-sm)" }}>SRI</p>
-            <h1 className="hero-name">Srinidhi Chaturvedi</h1>
+            <h1 className="hero-name">Srinidhi Chakravarthy</h1>
             <p className="hero-subtitle">
               UX Design Professional — Master's in UX from Purdue University and
               Psychology Undergrad.

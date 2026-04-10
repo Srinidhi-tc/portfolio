@@ -9,11 +9,11 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-left">
-          <p className="footer-title">Srinidhi Chaturvedi — UX Portfolio</p>
+          <p className="footer-title">Srinidhi Chakravarthy — UX Portfolio</p>
           <p className="footer-text">
             Designed and built from scratch in React for cleaner structure and smoother interactions.
           </p>
-          <p className="footer-text">© {new Date().getFullYear()} Srinidhi Chaturvedi. All rights reserved.</p>
+          <p className="footer-text">© {new Date().getFullYear()} Srinidhi Chakravarthy. All rights reserved.</p>
         </div>
         <div className="footer-links">
           <a

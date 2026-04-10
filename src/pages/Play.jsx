@@ -10,13 +10,14 @@ export default function Play() {
           title="PLAY"
           subtitle="Blurring The Line Between Work and Play!"
         />
-        <div className="grid-2">
+        <div className="grid-3">
           {playProjects.map((project) => (
             <ProjectCard
               key={project.slug}
               title={project.title}
               description={project.cardDescription}
               image={project.image}
+              video={project.video}
               to={`/play/${project.slug}`}
             />
           ))}

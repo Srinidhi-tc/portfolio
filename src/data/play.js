@@ -1,15 +1,21 @@
-import playVrInterior from "../assets/play-vr-interior.gif";
-import playHeartOfInsomnia from "../assets/play-heart-of-insomnia.gif";
-import playButterfly from "../assets/play-butterfly.gif";
-import playBranding from "../assets/play-branding.gif";
-import playDigitalConfetti from "../assets/play-digital-confetti.gif";
+import playVrInteriorPoster from "../assets/play-vr-interior.jpg";
+import playVrInteriorVideo from "../assets/play-vr-interior.mp4";
+import playHeartOfInsomniaPoster from "../assets/play-heart-of-insomnia.jpg";
+import playHeartOfInsomniaVideo from "../assets/play-heart-of-insomnia.mp4";
+import playButterflyPoster from "../assets/play-butterfly.jpg";
+import playButterflyVideo from "../assets/play-butterfly.mp4";
+import playBrandingPoster from "../assets/play-branding.jpg";
+import playBrandingVideo from "../assets/play-branding.mp4";
+import playDigitalConfettiPoster from "../assets/play-digital-confetti.jpg";
+import playDigitalConfettiVideo from "../assets/play-digital-confetti.mp4";
 
 export const playProjects = [
   {
     slug: "vr-interior",
     title: "Interior Design: VR",
     subtitle: "Before: Chaos, After: Calm",
-    image: playVrInterior,
+    image: playVrInteriorPoster,
+    video: playVrInteriorVideo,
     cardDescription:
       "Before: Chaos, After: calm—The Beginner's Cost of Managing Design Business Right.",
     overview:
@@ -39,7 +45,8 @@ export const playProjects = [
     slug: "heart-of-insomnia",
     title: "Heart of Insomnia",
     subtitle: "Touch. See. Breathe.",
-    image: playHeartOfInsomnia,
+    image: playHeartOfInsomniaPoster,
+    video: playHeartOfInsomniaVideo,
     cardDescription:
       "Touch. See. Breathe. The Heart That Helps You Sleep.",
     overview:
@@ -74,7 +81,8 @@ export const playProjects = [
     slug: "butterfly",
     title: "Butterfly Feeder",
     subtitle: "Nature's Missing Piece",
-    image: playButterfly,
+    image: playButterflyPoster,
+    video: playButterflyVideo,
     cardDescription:
       "Why aren't butterflies fed like birds? Nature's Missing Piece Finally Arrives.",
     overview:
@@ -106,7 +114,8 @@ export const playProjects = [
     slug: "branding",
     title: "Branding Projects",
     subtitle: "Three Visions, One Brand",
-    image: playBranding,
+    image: playBrandingPoster,
+    video: playBrandingVideo,
     cardDescription:
       "Three Visions But One Brand. The Stakeholder Tug-Of-War in Stakeholders We Resolved.",
     overview:
@@ -135,7 +144,8 @@ export const playProjects = [
     slug: "digital-confetti",
     title: "Digital Confetti",
     subtitle: "Party's Newest Secret Weapon",
-    image: playDigitalConfetti,
+    image: playDigitalConfettiPoster,
+    video: playDigitalConfettiVideo,
     cardDescription: "Party's Newest Secret Weapon.",
     overview:
       "An interactive digital alternative to traditional confetti using projection mapping technology, triggered by motion detection and physical buttons. Traditional confetti takes a toll on environment — the pops fail sometimes, clutter the cake and floor, and is NOT interactive because it lasts less than a second.",

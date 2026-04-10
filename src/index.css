@@ -194,10 +194,10 @@ img {
 }
 
 .hero-name {
-  font-size: var(--text-hero);
+  font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  letter-spacing: -0.03em;
+  line-height: 1;
   margin: 0;
 }
 

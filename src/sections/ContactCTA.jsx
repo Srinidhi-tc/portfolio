@@ -9,7 +9,7 @@ export default function ContactCTA() {
           If you want help with making your website, connect with me on LinkedIn!
         </h2>
         <div style={{ display: "flex", justifyContent: "center", gap: "var(--space-md)", flexWrap: "wrap" }}>
-          <Button href="https://www.linkedin.com/in/tcsrinidhi/" variant="primary">
+          <Button href="https://www.linkedin.com/in/srinidhi-chakravarthy/" variant="primary">
             LinkedIn
           </Button>
           <Button href="mailto:srinidhi.saas@gmail.com" variant="outline">

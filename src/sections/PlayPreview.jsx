@@ -18,6 +18,7 @@ export default function PlayPreview() {
               title={project.title}
               description={project.cardDescription}
               image={project.image}
+              video={project.video}
               to={`/play/${project.slug}`}
             />
           ))}

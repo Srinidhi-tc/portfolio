@@ -7,7 +7,7 @@ A clean, modern portfolio website built with React, Vite, and custom CSS. Showca
 - **13 Pages** — Home, Work (3 case studies), Play (5 projects), Community, About, + 404
 - **Responsive Design** — Mobile-first, works on all devices
 - **Smooth Interactions** — Hover effects, scroll-to-top, fade transitions
-- **Optimized Assets** — AVIF & WebP images, animated profile photo
+- **Optimized Assets** — AVIF & WebP images, MP4 video for play projects, lazy-loaded mascot
 - **Fast Build** — Vite + React for instant HMR during development
 
 ## 🚀 Getting Started
@@ -58,7 +58,7 @@ src/
 │   └── play/           # 5 project detail pages
 ├── sections/           # Hero, FeaturedProjects, PlayPreview, etc.
 ├── data/               # projects.js, play.js, community.js
-├── assets/             # Images (AVIF, WebP, GIF)
+├── assets/             # Images (AVIF, WebP) and play project MP4s
 ├── styles/             # tokens.css, utilities.css
 ├── App.jsx             # Router configuration
 ├── main.jsx            # Entry point
@@ -133,7 +133,7 @@ Images stored in `src/assets/`:
 - `profile.avif` — Profile photo (static)
 - `profile(animated).webp` — Profile photo (animated, hover effect)
 - `work-*.avif` — Work project images
-- `play-*.gif` — Play project images
+- `play-*.mp4` + `play-*.jpg` — Play project videos with poster images
 
 ## ✅ Quality Checks
 
@@ -147,7 +147,7 @@ npm run preview
 
 ## 📄 License
 
-This portfolio is personal work. All design and code © Srinidhi.
+This portfolio is personal work. All design and code © Srinidhi Chakravarthy.
 
 ---
 

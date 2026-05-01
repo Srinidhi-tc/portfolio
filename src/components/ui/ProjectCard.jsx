@@ -1,13 +1,33 @@
 import { Link } from "react-router-dom";
 
-export default function ProjectCard({ title, description, tags, to, company, image }) {
+export default function ProjectCard({ title, description, tags, to, company, image, video }) {
+  const mediaStyle = {
+    width: "100%",
+    aspectRatio: "4 / 3",
+    objectFit: "cover",
+    display: "block",
+  };
+
   return (
     <Link to={to} className="card" style={{ display: "block", textDecoration: "none" }}>
-      {image ? (
+      {video ? (
+        <video
+          src={video}
+          poster={image}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          style={mediaStyle}
+        />
+      ) : image ? (
         <img
           src={image}
           alt={title}
-          style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
+          loading="lazy"
+          decoding="async"
+          style={mediaStyle}
         />
       ) : (
         <div className="img-placeholder img-placeholder--card">

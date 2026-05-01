@@ -8,6 +8,7 @@ export default function CaseStudyLayout({
   title,
   subtitle,
   image,
+  video,
   overview,
   problem,
   audiences,
@@ -49,10 +50,23 @@ export default function CaseStudyLayout({
 
       {/* Hero Image */}
       <div className="container">
-        {image ? (
+        {video ? (
+          <video
+            src={video}
+            poster={image}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", borderRadius: "var(--radius)", display: "block" }}
+          />
+        ) : image ? (
           <img
             src={image}
             alt={title}
+            loading="lazy"
+            decoding="async"
             style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", borderRadius: "var(--radius)", display: "block" }}
           />
         ) : (

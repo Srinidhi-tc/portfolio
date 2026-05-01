@@ -10,6 +10,7 @@ export default function Butterfly() {
       backLabel="Play"
       title={project.title}
       image={project.image}
+      video={project.video}
       subtitle={project.subtitle}
       overview={project.overview}
       outcomes={project.outcomes}

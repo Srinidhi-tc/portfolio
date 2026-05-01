@@ -70,7 +70,7 @@ export default function About() {
             Want to chat? I'd love to connect.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "var(--space-md)", marginTop: "var(--space-xl)" }}>
-            <Button href="https://www.linkedin.com/in/tcsrinidhi/" variant="primary">
+            <Button href="https://www.linkedin.com/in/srinidhi-chakravarthy/" variant="primary">
               LinkedIn
             </Button>
             <Button href="mailto:srinidhi.saas@gmail.com" variant="outline">

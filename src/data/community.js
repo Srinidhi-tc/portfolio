@@ -17,7 +17,7 @@ export const community = {
     emoji: "<3",
   },
   social: {
-    linkedin: "https://www.linkedin.com/in/tcsrinidhi/",
+    linkedin: "https://www.linkedin.com/in/srinidhi-chakravarthy/",
     email: "srinidhi.saas@gmail.com",
   },
 };

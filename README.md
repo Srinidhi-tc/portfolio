@@ -2,8 +2,11 @@
 
 A clean, modern portfolio website built with React, Vite, and custom CSS. Showcasing UX case studies, experimental projects, and design philosophy.
 
-## 🎯 Features
-
+## 🎯 Interesting Features
+- **Play Volleyball with my dog** —landing page , my dog is context-aware, says what's going on in each page.
+- **Special Toggle** — A toggle that shows design tradeoffs, challenges, problem-solution right on page 1 for all projects
+- **Leave a comment** — I love my people.
+- **Storytelling** — All my case studies are Manga that you could flow through.
 - **13 Pages** — Home, Work (3 case studies), Play (5 projects), Community, About, + 404
 - **Responsive Design** — Mobile-first, works on all devices
 - **Smooth Interactions** — Hover effects, scroll-to-top, fade transitions

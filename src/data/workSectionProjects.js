@@ -126,6 +126,33 @@ export const workSectionProjects = [
       },
     },
   },
+  {
+    id: "psychosis-literacy",
+    brand: "Purdue Capstone",
+    title: "Psychosis Psychoeducation App",
+    keyword: "Youth Mental Health",
+    image: null,
+    imageLabel: "Capstone",
+    to: "/work/psychosis-literacy",
+    states: {
+      problem: {
+        subheading: "Care doesn't reach youth",
+        body: "Cost, stigma, and time keep teens from timely psychosis care; existing tools live in research, not app stores.",
+      },
+      decisions: {
+        subheading: "Modular & co-designed",
+        body: "Animated explainers, EMA self-checks, moderated peer pathways — content designed to be updateable and youth-led.",
+      },
+      tradeoffs: {
+        subheading: "Rigor vs. engagement",
+        body: "Each module is a translation layer: clinical scaffolding underneath, age-appropriate framing on top.",
+      },
+      impact: {
+        subheading: "Targets, not vibes",
+        body: "Scoped to <3 taps to crisis pathways, 70%+ recall after 90s modules, and 0 unsupervised peer surfaces.",
+      },
+    },
+  },
 ];
 
 /** @type {readonly { id: WorkViewState; label: string }[]} */

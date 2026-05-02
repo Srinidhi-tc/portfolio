@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Microsoft from "./pages/work/Microsoft";
 import AiCoding from "./pages/work/AiCoding";
 import Strabospot from "./pages/work/Strabospot";
+import PsychosisLiteracy from "./pages/work/PsychosisLiteracy";
 
 import VrInterior from "./pages/play/VrInterior";
 import HeartOfInsomnia from "./pages/play/HeartOfInsomnia";
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/work/microsoft" element={<Microsoft />} />
         <Route path="/work/ai-coding" element={<AiCoding />} />
         <Route path="/work/strabospot" element={<Strabospot />} />
+        <Route path="/work/psychosis-literacy" element={<PsychosisLiteracy />} />
         <Route path="/play" element={<Play />} />
         <Route path="/play/vr-interior" element={<VrInterior />} />
         <Route path="/play/heart-of-insomnia" element={<HeartOfInsomnia />} />

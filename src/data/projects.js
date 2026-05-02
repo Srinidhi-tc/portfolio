@@ -154,4 +154,59 @@ export const projects = [
     keyLearning:
       "Gained experience as a design lead in a startup environment, learning to translate design thinking into business metrics and cross-collaborate across disciplines.",
   },
+  {
+    slug: "psychosis-literacy",
+    title: "Psychosis Psychoeducation App",
+    company: "Purdue Capstone",
+    image: null,
+    subtitle:
+      "Closing the gap between research-grade psychosis care and the apps teens actually open.",
+    cardDescription:
+      "A youth-first mobile companion (ages 15–25) for early-psychosis education, EMA self-checks, and safe peer/caregiver pathways.",
+    overview:
+      "A capstone-driven mobile app concept for ages 15–25 designed to expand access to early-psychosis education and self-management. Surfaces age-appropriate psychoeducation, simulations, symptom tracking, and moderated peer/caregiver pathways — building a low-stigma bridge between research-grade interventions and an app a young person will actually open.",
+    problem:
+      "Adolescence is when most mental-health problems emerge, yet cost, geography, stigma, and time keep youth from timely care. Existing psychosis apps live in research, not app stores, and the few public ones aren't maintained or designed for how teens actually learn.",
+    audiences: [
+      {
+        label: "Primary",
+        description:
+          "Young people 15–25 with first-episode psychosis, clinical high-risk (CHR) states, or early prodromal symptoms.",
+      },
+      {
+        label: "Secondary",
+        description:
+          "Caregivers and family members supporting a young person at risk.",
+      },
+      {
+        label: "Tertiary",
+        description:
+          "Clinicians and youth-program staff who want a take-home companion to reinforce in-session education.",
+      },
+    ],
+    outcomes: [
+      "70%+ recall of three psychosis warning signs after a single 90-second animated module (design target, grounded in adolescent micro-learning research).",
+      "2× engagement retention vs. dense clinical content via modular EMA check-ins under 60 seconds (design target).",
+      "<3 taps from any screen to a crisis-escalation pathway, validated against safety-by-design heuristics.",
+      "0 unsupervised peer-to-peer surfaces in the architecture — every social touchpoint routes through moderation.",
+      "iOS + Android parity with offline-readable psychoeducation modules so reach isn't gated on connectivity.",
+    ],
+    methodology: [
+      "Literature synthesis",
+      "Gap analysis",
+      "Co-design framing",
+      "Youth-centered content design",
+      "Safety & privacy review",
+      "EMA / symptom-tracking design",
+    ],
+    tools: ["Figma", "Miro", "Notion", "Zotero", "Otter", "Claude"],
+    designApproach:
+      "Designed around a chasm in the literature: psychosis tools mature in research never reach the consumer market, and the public ones go stale fast. The app was scoped to be co-designed, modular, and updateable — animated explainers and lived-experience narratives to reduce stigma, EMA self-checks tied to clinical scales, in-app crisis escalation, and moderated social pathways with safety controls. Privacy-by-design and clear care handoffs were treated as load-bearing, not optional.",
+    challenge:
+      "The hardest tension was between evidence rigor and youth-friendly engagement: clinical-grade content tends to be dense and stigmatizing, while engaging youth content can drift from the evidence base. I resolved it by treating each module as a translation layer — clinical scaffolding underneath, age-appropriate framing on top — and by explicitly building safe-by-default escalation paths so the engagement layer never replaces professional care.",
+    client: "Dr. Shobham Shah (Faculty Advisor) · Purdue HCI",
+    team: ["Solo (individual contributor)"],
+    keyLearning:
+      "Designing for youth mental health means accepting that engagement and evidence pull in opposite directions — and the job is to make them load-bearing for each other, not pick one.",
+  },
 ];

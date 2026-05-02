@@ -1,6 +1,8 @@
 import workMicrosoft from "../assets/work-microsoft.avif";
 import workAiCoding from "../assets/work-ai-coding.avif";
 import workStrabospot from "../assets/work-strabospot.avif";
+import workPsychosis from "../assets/work-psychosis.jpg";
+import workPsychosisVideo from "../assets/work-psychosis.mp4";
 
 export const projects = [
   {
@@ -158,7 +160,8 @@ export const projects = [
     slug: "psychosis-literacy",
     title: "Psychosis Psychoeducation App",
     company: "Purdue Capstone",
-    image: null,
+    image: workPsychosis,
+    video: workPsychosisVideo,
     subtitle:
       "Closing the gap between research-grade psychosis care and the apps teens actually open.",
     cardDescription:

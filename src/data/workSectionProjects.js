@@ -1,5 +1,6 @@
 import workMicrosoft from "../assets/work-microsoft.avif";
 import workStrabospot from "../assets/work-strabospot.avif";
+import workPsychosis from "../assets/work-psychosis.jpg";
 
 /** @typedef {'problem' | 'decisions' | 'tradeoffs' | 'impact'} WorkViewState */
 
@@ -131,7 +132,7 @@ export const workSectionProjects = [
     brand: "Purdue Capstone",
     title: "Psychosis Psychoeducation App",
     keyword: "Youth Mental Health",
-    image: null,
+    image: workPsychosis,
     imageLabel: "Capstone",
     to: "/work/psychosis-literacy",
     states: {

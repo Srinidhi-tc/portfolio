@@ -11,6 +11,7 @@ export default function PsychosisLiteracy() {
       eyebrow={project.company}
       title={project.title}
       image={project.image}
+      video={project.video}
       subtitle={project.subtitle}
       overview={project.overview}
       problem={project.problem}

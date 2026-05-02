@@ -19,13 +19,10 @@ export default function Hero() {
             </p>
             <div className="hero-actions">
               <Button
-                href="https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing"
+                href="https://srinidhi-tc.github.io/portfolio/work"
                 variant="primary"
               >
-                Resume
-              </Button>
-              <Button href="mailto:srinidhi.saas@gmail.com" variant="outline">
-                Email Me
+                See My Work
               </Button>
             </div>
           </div>

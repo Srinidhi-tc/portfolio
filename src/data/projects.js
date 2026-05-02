@@ -4,6 +4,31 @@ import workStrabospot from "../assets/work-strabospot.avif";
 
 export const projects = [
   {
+    slug: "defenseark",
+    title: "DefenseARK Ransomware Portal",
+    company: "DefenseARK",
+    image: null,
+    subtitle: "Threat Response — Urgent-First UX",
+    cardDescription:
+      "Replacing email-based intake with an instant upload portal to accelerate ransomware threat response.",
+    problem:
+      "Email-based intake slowed threat response, reduced trust, and limited enterprise client acquisition (~20% drop-off).",
+    overview:
+      "Designed an urgent-first landing experience that surfaces an instant file upload at the top of the funnel, using behavioral urgency patterns documented in incident-response workflows.",
+    outcomes: [
+      "Increased inbound leads ~30%",
+      "Improved enterprise trust during high-risk security incidents",
+      "Web-first decision avoided app-install friction",
+    ],
+    methodology: [
+      "Behavioral urgency pattern analysis",
+      "Funnel drop-off review",
+      "Comparative analysis of incident-response intake flows",
+    ],
+    keyLearning:
+      "When time-on-task is critical, prioritizing access (web) over richness (app) protects trust during stressful moments.",
+  },
+  {
     slug: "microsoft",
     title: "Health Observability Monitor",
     company: "Microsoft Azure",

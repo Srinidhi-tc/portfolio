@@ -11,8 +11,8 @@ export default function PlayPreview() {
           title="Play"
           subtitle="Blurring The Line Between Work and Play!"
         />
-        <div className="grid-3">
-          {playProjects.slice(0, 3).map((project) => (
+        <div className="grid-4">
+          {playProjects.slice(0, 4).map((project) => (
             <ProjectCard
               key={project.slug}
               title={project.title}

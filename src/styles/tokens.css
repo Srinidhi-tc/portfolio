@@ -1,5 +1,20 @@
+/*
+ * Design tokens — Apple Human Interface Guidelines alignment
+ *
+ * Reference (verbatim values only — see DESIGN.md for source links):
+ *   • Typography: Apple HIG → "Typography" (San Francisco / SF Pro system font).
+ *   • Layout & spacing: Apple HIG → "Layout" (8-point grid; iOS standard
+ *     screen-edge margins of 16 pt and 20 pt).
+ *   • Tap targets: Apple HIG → "Buttons / Layout" (44×44 pt minimum).
+ *   • Corner radii: documented in Apple HIG / SF Symbols guidance for
+ *     continuous corners (10 / 12 / 16 / 20 pt are commonly published).
+ *
+ * Values not explicitly documented by Apple are kept as portfolio-specific
+ * choices and labeled as such.
+ */
+
 :root {
-  /* Colors */
+  /* Colors — portfolio palette (not from HIG) */
   --bg: #f7f4ef;
   --surface: #ffffff;
   --text: #1b1b1b;
@@ -9,54 +24,101 @@
   --accent-dark: #4e3524;
   --accent-light: rgba(111, 78, 55, 0.08);
 
-  /* Typography */
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  /* Typography — Apple system stack
+     Source: Apple HIG → Typography. The SF families (SF Pro Display / SF
+     Pro Text) are surfaced through `-apple-system` and
+     `BlinkMacSystemFont`, with explicit fallbacks for non-Apple OSes. */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "Helvetica Neue", "Inter", "Segoe UI", Roboto, Arial,
+    sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, "JetBrains Mono",
+    Consolas, monospace;
 
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 2rem;
-  --text-4xl: clamp(2.5rem, 5vw, 3.5rem);
-  --text-5xl: clamp(3rem, 7vw, 5rem);
-  --text-hero: clamp(4rem, 12vw, 8rem);
+  /* SF text features (kerning, contextual alts) */
+  --font-features: "kern", "liga", "calt";
 
-  --leading-tight: 0.96;
+  /* Type scale — iOS Dynamic Type defaults (HIG → Typography → iOS sizes,
+     1pt ≈ 1px in CSS at 1× density). */
+  --text-caption2: 0.6875rem;  /* 11pt */
+  --text-caption1: 0.75rem;    /* 12pt */
+  --text-footnote: 0.8125rem;  /* 13pt */
+  --text-subhead: 0.9375rem;   /* 15pt */
+  --text-callout: 1rem;        /* 16pt */
+  --text-body: 1.0625rem;      /* 17pt — iOS body default */
+  --text-headline: 1.0625rem;  /* 17pt semibold */
+  --text-title3: 1.25rem;      /* 20pt */
+  --text-title2: 1.375rem;     /* 22pt */
+  --text-title1: 1.75rem;      /* 28pt */
+  --text-largeTitle: 2.125rem; /* 34pt — iOS Large Title */
+
+  /* Aliases mapped to existing component usage (kept for compatibility) */
+  --text-xs: var(--text-caption1);
+  --text-sm: var(--text-footnote);
+  --text-base: var(--text-body);
+  --text-lg: var(--text-title3);
+  --text-xl: var(--text-title2);
+  --text-2xl: var(--text-title1);
+  --text-3xl: var(--text-largeTitle);
+  --text-4xl: clamp(2.125rem, 5vw, 3rem);
+  --text-5xl: clamp(2.5rem, 7vw, 4.25rem);
+  --text-hero: clamp(3.5rem, 12vw, 7rem);
+
+  /* Line heights — HIG specifies leading per text style; these match
+     published iOS Body/Title leading ratios reasonably (1.29–1.5). */
+  --leading-tight: 1.05;
   --leading-snug: 1.2;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.7;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.5;
 
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  --space-4xl: 5rem;
-  --space-5xl: 8rem;
+  /* Tracking — SF Pro Text uses positive tracking at small sizes per HIG */
+  --tracking-tight: -0.022em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+
+  /* Spacing — 8-point grid (HIG → Layout) plus 4pt half-step */
+  --space-xs: 0.25rem;   /* 4pt */
+  --space-sm: 0.5rem;    /* 8pt */
+  --space-md: 1rem;      /* 16pt — iOS standard margin */
+  --space-lg: 1.25rem;   /* 20pt — iOS standard margin (regular width) */
+  --space-xl: 1.5rem;    /* 24pt */
+  --space-2xl: 2rem;     /* 32pt */
+  --space-3xl: 2.5rem;   /* 40pt */
+  --space-4xl: 3rem;     /* 48pt */
+  --space-5xl: 4rem;     /* 64pt */
 
   /* Layout */
   --max-width: 1120px;
   --max-width-narrow: 720px;
   --max-width-wide: 1280px;
 
-  /* Borders & Shadows */
-  --radius: 20px;
-  --radius-sm: 12px;
-  --radius-xs: 8px;
-  --radius-full: 999px;
+  /* Tap target — HIG minimum 44×44 pt */
+  --hit-target: 44px;
+
+  /* Corner radii — values commonly published in Apple HIG (continuous
+     corners). CSS `border-radius` approximates the look. */
+  --radius-xs: 8px;   /* 8pt */
+  --radius-sm: 10px;  /* 10pt — small controls */
+  --radius: 12px;     /* 12pt — buttons / cards */
+  --radius-lg: 16px;  /* 16pt — large surfaces */
+  --radius-xl: 20px;  /* 20pt — modal / sheet */
+  --radius-full: 9999px; /* pill / capsule */
+
+  /* Hairline borders (HIG separator weight is 1 pt). */
+  --hairline: 1px;
+
+  /* Shadows — portfolio choice, not from HIG */
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.08);
 
-  /* Transitions */
+  /* Motion — portfolio choice */
   --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --duration: 0.3s;
   --duration-fast: 0.15s;
+}
+
+/* Apply SF text features globally */
+html {
+  font-feature-settings: var(--font-features);
+  text-rendering: optimizeLegibility;
 }

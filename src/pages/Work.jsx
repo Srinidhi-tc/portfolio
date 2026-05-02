@@ -9,7 +9,7 @@ export default function Work() {
       <section className="page-section">
         <div className="container">
           <SectionTitle title="WORK" />
-          <div className="grid-3">
+          <div className="grid-4">
             {projects.map((project) => (
               <ProjectCard
                 key={project.slug}

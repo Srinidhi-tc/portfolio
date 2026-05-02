@@ -13,10 +13,6 @@ export default function Hero() {
               UX Design Professional — Master's in UX from Purdue University and
               Psychology Undergrad.
             </p>
-            <p className="hero-subtitle" style={{ marginTop: "var(--space-sm)" }}>
-              Two years of 0-1 Startup experience and Internships in college,
-              looking forward to do data-driven work.
-            </p>
             <p className="hero-interests">
               Mixed Methods Research • Statistics • Human-Centered Health Tech • I
               use AI with care

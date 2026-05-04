@@ -6,7 +6,7 @@ import { testimonials } from "../data/testimonials";
  * https://formspree.io and created a form delivering to srinidhi.saas@gmail.com.
  * Until it's set, the form falls back to a mailto link so submissions still work.
  */
-const FORMSPREE_FORM_ID = ""; // e.g. "xayzwvut"
+const FORMSPREE_FORM_ID = "xjglyydy";
 
 const FORMSPREE_ENDPOINT = FORMSPREE_FORM_ID
   ? `https://formspree.io/f/${FORMSPREE_FORM_ID}`

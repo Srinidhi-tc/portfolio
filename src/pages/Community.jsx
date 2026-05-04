@@ -1,5 +1,6 @@
 import { community } from "../data/community";
 import Button from "../components/ui/Button";
+import CollaboratorNotes from "../sections/CollaboratorNotes";
 
 export default function Community() {
   const { newsletter, ama, social } = community;
@@ -49,6 +50,8 @@ export default function Community() {
           </div>
         </div>
       </div>
+
+      <CollaboratorNotes />
     </section>
   );
 }

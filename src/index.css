@@ -933,3 +933,242 @@ img {
     animation: none;
   }
 }
+
+/* ----------------------------------------------------------------- */
+/* Notes from Collaborators — Apple HIG aligned                       */
+/* Spacing on 8-pt grid; 44pt min hit targets on inputs/buttons;      */
+/* hairline borders; 12pt cards; type from token scale.               */
+/* ----------------------------------------------------------------- */
+
+.collab-notes-section {
+  padding: var(--space-4xl) 0;
+  border-top: var(--hairline) solid var(--border);
+  margin-top: var(--space-3xl);
+}
+
+.collab-notes-title {
+  margin: var(--space-sm) 0 0;
+  text-align: center;
+  font-size: var(--text-title1);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+}
+
+.collab-notes-intro {
+  margin: var(--space-md) auto 0;
+  max-width: 560px;
+  text-align: center;
+  font-size: var(--text-callout);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+}
+
+.collab-notes-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3xl) auto 0;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.collab-note-card {
+  position: relative;
+  padding: var(--space-xl);
+  background: var(--surface);
+  border: var(--hairline) solid var(--border);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: var(--shadow-sm);
+}
+
+.collab-note-card::before {
+  /* Quote-mark accent — small, decorative */
+  content: "“";
+  position: absolute;
+  top: 0.25rem;
+  left: var(--space-md);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.collab-note-quote {
+  margin: 0;
+  padding: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--text);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.collab-note-meta {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: var(--hairline) solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-md);
+}
+
+.collab-note-name {
+  margin: 0;
+  font-size: var(--text-subhead);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.collab-note-role {
+  margin: 0;
+  font-size: var(--text-footnote);
+  color: var(--muted);
+  flex: 1 1 auto;
+}
+
+.collab-note-tag {
+  font-size: var(--text-caption1);
+}
+
+/* ---- Form ---- */
+.collab-notes-form-wrapper {
+  margin: var(--space-4xl) auto 0;
+  max-width: 640px;
+  padding: var(--space-2xl);
+  background: var(--surface);
+  border: var(--hairline) solid var(--border);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: var(--shadow-sm);
+}
+
+.collab-notes-form-title {
+  margin: 0;
+  font-size: var(--text-title3);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+.collab-notes-form-help {
+  margin: var(--space-sm) 0 var(--space-xl);
+  font-size: var(--text-footnote);
+  line-height: var(--leading-normal);
+  color: var(--muted);
+}
+
+.collab-notes-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.collab-notes-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.collab-notes-field label {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: var(--tracking-normal);
+}
+
+.collab-notes-field input,
+.collab-notes-field select,
+.collab-notes-field textarea {
+  width: 100%;
+  min-height: var(--hit-target);
+  padding: 0.6875rem 0.875rem; /* 11pt × 14pt — keeps a 17pt body input on the 44pt grid */
+  border: var(--hairline) solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  transition:
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease),
+    background var(--duration) var(--ease);
+}
+
+.collab-notes-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.collab-notes-field input::placeholder,
+.collab-notes-field textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.collab-notes-field input:focus,
+.collab-notes-field select:focus,
+.collab-notes-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 4px rgba(111, 78, 55, 0.12);
+}
+
+.collab-notes-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 560px) {
+  .collab-notes-field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.collab-notes-submit-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.collab-notes-form-footer {
+  margin: 0;
+  font-size: var(--text-caption1);
+  color: var(--muted);
+}
+
+.collab-notes-error {
+  margin: 0;
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(198, 107, 74, 0.08);
+  border: var(--hairline) solid rgba(198, 107, 74, 0.4);
+  border-radius: var(--radius);
+  color: #8a3d24;
+  font-size: var(--text-footnote);
+}
+
+.collab-notes-success {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.collab-notes-success-title {
+  margin: 0;
+  font-size: var(--text-title3);
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.collab-notes-success-body {
+  margin: var(--space-sm) 0 var(--space-xl);
+  font-size: var(--text-callout);
+  color: var(--muted);
+  line-height: var(--leading-relaxed);
+}

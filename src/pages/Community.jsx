@@ -6,7 +6,22 @@ export default function Community() {
   const { newsletter, ama, social } = community;
 
   return (
-    <section className="page-section">
+  
+        <div className="ama-section">
+          <h2 className="ama-heading">
+            {ama.heading} {ama.emoji}
+          </h2>
+          <div style={{ marginTop: "var(--space-xl)" }}>
+            <Button href={`mailto:${social.email}`} variant="outline">
+              Ask a Question
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <CollaboratorNotes />
+    </section>
+        <section className="page-section">
       <div className="container">
         <div className="community-hero">
           <h1 className="page-title" style={{ maxWidth: "none", fontSize: "var(--text-4xl)" }}>
@@ -38,20 +53,5 @@ export default function Community() {
             </Button>
           </div>
         </div>
-
-        <div className="ama-section">
-          <h2 className="ama-heading">
-            {ama.heading} {ama.emoji}
-          </h2>
-          <div style={{ marginTop: "var(--space-xl)" }}>
-            <Button href={`mailto:${social.email}`} variant="outline">
-              Ask a Question
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      <CollaboratorNotes />
-    </section>
   );
 }

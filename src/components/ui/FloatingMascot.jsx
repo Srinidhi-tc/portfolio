@@ -222,18 +222,33 @@ export default function FloatingMascot() {
     };
   }, []);
 
-  // React when the volleyball lands: jump + small bubble + tiny squash.
+  // Volleyball interaction:
+  //   • "approaching" (~70% of flight) → small anticipation wiggle, no bubble
+  //   • "kicked" (on impact) → jump + "Got it!" bubble + tail wag follow-up
   useEffect(() => {
-    const handler = () => {
+    const onApproach = () => {
+      setTrick("wiggle");
+      clearTimeout(trickTimer.current);
+      trickTimer.current = setTimeout(() => setTrick(null), 320);
+    };
+    const onKick = () => {
       setTrick("jump");
       clearTimeout(trickTimer.current);
-      trickTimer.current = setTimeout(() => setTrick(null), 700);
+      trickTimer.current = setTimeout(() => {
+        // Tail wag (wiggle) after the jump as a follow-through.
+        setTrick("wiggle");
+        trickTimer.current = setTimeout(() => setTrick(null), 600);
+      }, 600);
       setBubble("Got it!");
       clearTimeout(bubbleTimer.current);
-      bubbleTimer.current = setTimeout(() => setBubble(null), 1200);
+      bubbleTimer.current = setTimeout(() => setBubble(null), 1400);
     };
-    window.addEventListener("volleyball:kicked", handler);
-    return () => window.removeEventListener("volleyball:kicked", handler);
+    window.addEventListener("volleyball:approaching", onApproach);
+    window.addEventListener("volleyball:kicked", onKick);
+    return () => {
+      window.removeEventListener("volleyball:approaching", onApproach);
+      window.removeEventListener("volleyball:kicked", onKick);
+    };
   }, []);
 
   const showBubble = (text, duration = 2000) => {

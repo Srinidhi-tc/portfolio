@@ -1,5 +1,6 @@
 import Button from "../components/ui/Button";
 import ProfilePhoto from "../components/ui/ProfilePhoto";
+import VolleyballToy from "../components/ui/VolleyballToy";
 
 export default function Hero() {
   return (
@@ -7,8 +8,11 @@ export default function Hero() {
       <div className="container">
         <div className="hero-layout">
           <div>
-            <p className="eyebrow" style={{ marginBottom: "var(--space-sm)" }}>SRI</p>
-            <h1 className="hero-name">Srinidhi Chakravarthy</h1>
+            <h1 className="hero-title">
+              <span className="hero-title__text">SRI</span>
+              <VolleyballToy />
+            </h1>
+            <p className="hero-fullname">Srinidhi Chakravarthy</p>
             <p className="hero-subtitle">
               UX Design Professional — Master's in UX from Purdue University and
               Psychology Undergrad.

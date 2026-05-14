@@ -222,6 +222,20 @@ export default function FloatingMascot() {
     };
   }, []);
 
+  // React when the volleyball lands: jump + small bubble + tiny squash.
+  useEffect(() => {
+    const handler = () => {
+      setTrick("jump");
+      clearTimeout(trickTimer.current);
+      trickTimer.current = setTimeout(() => setTrick(null), 700);
+      setBubble("Got it!");
+      clearTimeout(bubbleTimer.current);
+      bubbleTimer.current = setTimeout(() => setBubble(null), 1200);
+    };
+    window.addEventListener("volleyball:kicked", handler);
+    return () => window.removeEventListener("volleyball:kicked", handler);
+  }, []);
+
   const showBubble = (text, duration = 2000) => {
     setBubble(text);
     clearTimeout(bubbleTimer.current);

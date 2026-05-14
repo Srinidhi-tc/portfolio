@@ -201,6 +201,35 @@ img {
   margin: 0;
 }
 
+/* New hero title — SRI dominates, full name reads as a subtitle below. */
+.hero-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin: 0;
+  line-height: 0.92;
+}
+
+.hero-title__text {
+  font-size: var(--text-hero);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  background: linear-gradient(180deg, var(--text) 0%, var(--accent-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-fullname {
+  margin: var(--space-md) 0 0;
+  font-size: clamp(1.25rem, 2.5vw, var(--text-title1));
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text);
+  line-height: var(--leading-snug);
+}
+
 .hero-subtitle {
   margin: var(--space-lg) 0 0;
   font-size: var(--text-xl);
@@ -931,6 +960,119 @@ img {
   .floating-mascot.trick-jump .floating-mascot__body,
   .floating-mascot.trick-bark .floating-mascot__body {
     animation: none;
+  }
+}
+
+/* ----------------------------------------------------------------- */
+/* Volleyball toy — hero interactive easter egg                       */
+/* Circular button sized for the 44pt hit target; flying ball is a    */
+/* fixed-positioned overlay animated via the Web Animations API.      */
+/* ----------------------------------------------------------------- */
+
+.volleyball-btn {
+  /* Match the visual rhythm next to the giant SRI letters. Size scales
+     with viewport so it stays proportional, but min/max are bounded. */
+  --vb-size: clamp(44px, 6.5vw, 72px);
+  width: var(--vb-size);
+  height: var(--vb-size);
+  min-width: var(--hit-target);
+  min-height: var(--hit-target);
+  padding: 0;
+  border: var(--hairline) solid rgba(58, 47, 37, 0.15);
+  border-radius: var(--radius-full);
+  background:
+    radial-gradient(circle at 30% 30%, #ffffff 0%, #f4ecdf 65%, #d9c8a8 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 8px 18px rgba(58, 47, 37, 0.18),
+    0 2px 4px rgba(58, 47, 37, 0.1);
+  cursor: pointer;
+  transform: translateZ(0);
+  transition:
+    transform var(--duration-fast) var(--ease),
+    box-shadow var(--duration) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+  align-self: end; /* sits at the baseline of SRI */
+  margin-bottom: 0.15em;
+}
+
+.volleyball-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 12px 24px rgba(58, 47, 37, 0.22),
+    0 3px 6px rgba(58, 47, 37, 0.12);
+}
+
+.volleyball-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.volleyball-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.volleyball-btn:disabled {
+  cursor: default;
+}
+
+.volleyball-btn__visual {
+  display: block;
+  width: 78%;
+  height: 78%;
+  margin: 11%;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+/* During flight/return: hide the button's ball so the flying one reads
+   as the same physical ball traveling. */
+.volleyball-btn--flying .volleyball-btn__visual,
+.volleyball-btn--kicked .volleyball-btn__visual,
+.volleyball-btn--returning .volleyball-btn__visual {
+  opacity: 0;
+}
+
+/* Anticipation: subtle wobble that telegraphs the throw. */
+.volleyball-btn--anticipate {
+  animation: vb-anticipate 140ms var(--ease) both;
+}
+
+@keyframes vb-anticipate {
+  0% { transform: scale(1); }
+  60% { transform: scale(0.92) rotate(-6deg); }
+  100% { transform: scale(1.02) rotate(-2deg); }
+}
+
+/* The flying ball — fixed to the viewport; its transform is set by JS. */
+.volleyball-fly {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 60; /* above mascot (45), under modals if any */
+  will-change: transform, opacity;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.18));
+  transition: opacity 120ms var(--ease);
+}
+
+.volleyball-fly svg { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .volleyball-btn,
+  .volleyball-btn:hover,
+  .volleyball-btn:active {
+    transition: none;
+    transform: none;
+  }
+  .volleyball-btn--anticipate {
+    animation: none;
+  }
+  .volleyball-fly {
+    display: none; /* JS skips the arc; only mascot reaction plays. */
   }
 }
 

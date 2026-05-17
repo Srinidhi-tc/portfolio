@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import volleyballImg from "../../assets/VolleyballToy.webp";
 
 /**
  * Interactive volleyball toy in the hero.
@@ -28,10 +29,9 @@ import { useEffect, useRef, useState } from "react";
  *   Until then, a recolored SVG stands in.
  */
 
-// Set to a real import path once the user uploads volleyball.png:
-//   import volleyballPng from "../../assets/volleyball.png";
-//   const BALL_IMAGE_SRC = volleyballPng;
-const BALL_IMAGE_SRC = null;
+// The uploaded volleyball texture is wired in here. The SVG fallback below
+// is kept as a safety net in case the asset fails to load.
+const BALL_IMAGE_SRC = volleyballImg;
 
 export default function VolleyballToy() {
   const buttonRef = useRef(null);

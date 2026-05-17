@@ -223,9 +223,26 @@ export default function FloatingMascot() {
   }, []);
 
   // Volleyball interaction:
+  //   • "tracking" (each outbound frame) → lean slightly toward ball X
   //   • "approaching" (~70% of flight) → small anticipation wiggle, no bubble
   //   • "kicked" (on impact) → jump + "Got it!" bubble + tail wag follow-up
   useEffect(() => {
+    let mascotEl = null;
+    const onTrack = (e) => {
+      if (!mascotEl) mascotEl = document.querySelector(".floating-mascot");
+      if (!mascotEl) return;
+      const ballX = e.detail?.x;
+      if (ballX == null) {
+        mascotEl.style.setProperty("--mascot-lean", "0deg");
+        return;
+      }
+      const r = mascotEl.getBoundingClientRect();
+      const mascotCenterX = r.left + r.width / 2;
+      // Map delta-X to a small rotation in degrees. Clamped to ±9°.
+      const delta = ballX - mascotCenterX;
+      const lean = Math.max(-9, Math.min(9, delta / 60));
+      mascotEl.style.setProperty("--mascot-lean", `${lean}deg`);
+    };
     const onApproach = () => {
       setTrick("wiggle");
       clearTimeout(trickTimer.current);
@@ -235,17 +252,18 @@ export default function FloatingMascot() {
       setTrick("jump");
       clearTimeout(trickTimer.current);
       trickTimer.current = setTimeout(() => {
-        // Tail wag (wiggle) after the jump as a follow-through.
-        setTrick("wiggle");
+        setTrick("wiggle"); // tail wag follow-through
         trickTimer.current = setTimeout(() => setTrick(null), 600);
       }, 600);
       setBubble("Got it!");
       clearTimeout(bubbleTimer.current);
       bubbleTimer.current = setTimeout(() => setBubble(null), 1400);
     };
+    window.addEventListener("volleyball:tracking", onTrack);
     window.addEventListener("volleyball:approaching", onApproach);
     window.addEventListener("volleyball:kicked", onKick);
     return () => {
+      window.removeEventListener("volleyball:tracking", onTrack);
       window.removeEventListener("volleyball:approaching", onApproach);
       window.removeEventListener("volleyball:kicked", onKick);
     };

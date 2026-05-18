@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import volleyballImg from "../../assets/VolleyballToy.webp";
+// The .webp file is kept on disk as a reference asset but the icon now
+// renders as a 2D animated SVG (cleaner at icon sizes; red/blue only).
 
 /**
  * Interactive volleyball toy in the hero.
@@ -29,9 +30,9 @@ import volleyballImg from "../../assets/VolleyballToy.webp";
  *   Until then, a recolored SVG stands in.
  */
 
-// The uploaded volleyball texture is wired in here. The SVG fallback below
-// is kept as a safety net in case the asset fails to load.
-const BALL_IMAGE_SRC = volleyballImg;
+// Render path: clean 2D SVG icon (no raster image). Setting BALL_IMAGE_SRC to
+// a non-null value would switch the renderer back to <img>; null keeps the SVG.
+const BALL_IMAGE_SRC = null;
 
 export default function VolleyballToy() {
   const buttonRef = useRef(null);
@@ -386,55 +387,85 @@ function VolleyballIcon() {
     );
   }
 
-  // Placeholder SVG — three panels (red/white/blue) visible in front view,
-  // with three curved seams + a top-left specular highlight.
+  // Clean 2D volleyball icon — red ball, blue sweeping seams, single specular.
+  // Sized in a 100×100 viewBox so the curve math reads at a glance.
+  // Rotation animation is applied via CSS at .volleyball-btn__visual svg.
   return (
     <svg
-      viewBox="0 0 24 24"
+      className="vb-icon"
+      viewBox="0 0 100 100"
       width="100%"
       height="100%"
       role="presentation"
       focusable="false"
     >
       <defs>
-        {/* Top-left highlight giving a 3D feel */}
-        <radialGradient id="vb-hi" cx="0.3" cy="0.28" r="0.85">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.55)" />
-          <stop offset="60%" stopColor="rgba(255,255,255,0)" />
+        {/* Red ball gradient — bright top-left, deeper bottom-right (3D feel) */}
+        <radialGradient id="vb-red" cx="0.35" cy="0.32" r="0.85">
+          <stop offset="0%" stopColor="#ff6b6b" />
+          <stop offset="55%" stopColor="#e23838" />
+          <stop offset="100%" stopColor="#a91d24" />
         </radialGradient>
-        <linearGradient id="vb-red" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#e23a3a" />
-          <stop offset="100%" stopColor="#b1232a" />
-        </linearGradient>
-        <linearGradient id="vb-blue" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#2c5fcf" />
+        {/* Blue gradient for the seams — slightly deepens toward edges */}
+        <linearGradient id="vb-blue" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#3a7bff" />
           <stop offset="100%" stopColor="#1d3f95" />
         </linearGradient>
-        <linearGradient id="vb-white" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#fbfbfb" />
-          <stop offset="100%" stopColor="#dddee2" />
-        </linearGradient>
+        {/* Specular highlight in the upper-left third */}
+        <radialGradient id="vb-hi" cx="0.3" cy="0.26" r="0.55">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.7)" />
+          <stop offset="60%" stopColor="rgba(255,255,255,0.05)" />
+          <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+        </radialGradient>
         <clipPath id="vb-clip">
-          <circle cx="12" cy="12" r="10.5" />
+          <circle cx="50" cy="50" r="46" />
         </clipPath>
       </defs>
 
       <g clipPath="url(#vb-clip)">
-        {/* Three vertical sectors with curved boundaries. */}
-        <path d="M -2 -2 L 9 -2 C 6 8 6 16 9 26 L -2 26 Z" fill="url(#vb-blue)" />
-        <path d="M 9 -2 C 6 8 6 16 9 26 L 15 26 C 18 16 18 8 15 -2 Z" fill="url(#vb-white)" />
-        <path d="M 15 -2 C 18 8 18 16 15 26 L 26 26 L 26 -2 Z" fill="url(#vb-red)" />
+        {/* Base ball */}
+        <circle cx="50" cy="50" r="46" fill="url(#vb-red)" />
 
-        {/* Subtle curved seams */}
-        <path d="M 9 -2 C 6 8 6 16 9 26" fill="none" stroke="rgba(20,20,28,0.55)" strokeWidth="0.45" />
-        <path d="M 15 -2 C 18 8 18 16 15 26" fill="none" stroke="rgba(20,20,28,0.55)" strokeWidth="0.45" />
+        {/*
+          Three sweeping blue seams form the classic volleyball pattern.
+          Each is a wide stroke so it reads at small icon sizes.
+        */}
+        <path
+          d="M 8 50 C 30 36 70 36 92 50"
+          fill="none"
+          stroke="url(#vb-blue)"
+          strokeWidth="6"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 50 8 C 36 30 36 70 50 92"
+          fill="none"
+          stroke="url(#vb-blue)"
+          strokeWidth="6"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 20 18 C 50 38 50 62 80 82"
+          fill="none"
+          stroke="url(#vb-blue)"
+          strokeWidth="6"
+          strokeLinecap="round"
+          opacity="0.9"
+        />
 
-        {/* Top-left specular highlight */}
-        <rect x="0" y="0" width="24" height="24" fill="url(#vb-hi)" />
+        {/* Specular highlight overlay */}
+        <ellipse cx="35" cy="32" rx="26" ry="16" fill="url(#vb-hi)" />
       </g>
 
-      {/* Outer rim */}
-      <circle cx="12" cy="12" r="10.5" fill="none" stroke="rgba(20,20,28,0.6)" strokeWidth="0.55" />
+      {/* Outer rim for definition */}
+      <circle
+        cx="50"
+        cy="50"
+        r="46"
+        fill="none"
+        stroke="rgba(20, 20, 28, 0.28)"
+        strokeWidth="1.2"
+      />
     </svg>
   );
 }

@@ -985,14 +985,12 @@ img {
   min-width: var(--hit-target);
   min-height: var(--hit-target);
   padding: 0;
-  border: none;
+  border: var(--hairline) solid rgba(20, 20, 28, 0.08);
   border-radius: var(--radius-full);
-  /* Transparent — the ball image carries its own colors and shape.
-     The drop-shadow gives the ball lift without a coin-like ring. */
   background: transparent;
-  box-shadow: none;
-  filter: drop-shadow(0 8px 14px rgba(58, 47, 37, 0.22))
-          drop-shadow(0 2px 4px rgba(58, 47, 37, 0.14));
+  box-shadow:
+    0 8px 18px rgba(58, 47, 37, 0.16),
+    0 2px 4px rgba(58, 47, 37, 0.08);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   align-self: end;
@@ -1013,8 +1011,9 @@ img {
 .volleyball-btn:hover {
   translate: 0 -2px;
   scale: 1.06;
-  filter: drop-shadow(0 12px 22px rgba(58, 47, 37, 0.26))
-          drop-shadow(0 3px 6px rgba(58, 47, 37, 0.16));
+  box-shadow:
+    0 14px 26px rgba(58, 47, 37, 0.22),
+    0 3px 6px rgba(58, 47, 37, 0.12);
 }
 
 .volleyball-btn:active {
@@ -1069,6 +1068,26 @@ img {
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+/* Slow idle rotation — scoped to the button so the flying ball (which the
+   JS animates with its own rotation) doesn't double-spin. */
+.volleyball-btn__visual > svg {
+  animation: vb-icon-spin 14s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes vb-icon-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Pause the idle spin during flight (the visual is hidden anyway, but this
+   prevents the GPU from spending cycles on offscreen animation). */
+.volleyball-btn--flying  .volleyball-btn__visual > svg,
+.volleyball-btn--kicked  .volleyball-btn__visual > svg,
+.volleyball-btn--returning .volleyball-btn__visual > svg,
+.volleyball-btn--snap    .volleyball-btn__visual > svg {
+  animation-play-state: paused;
 }
 
 @keyframes vb-float {

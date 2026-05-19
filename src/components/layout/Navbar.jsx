@@ -27,17 +27,6 @@ export default function Navbar() {
               {item.label}
             </NavLink>
           ))}
-          <a
-            href="https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link"
-          >
-            Resume
-          </a>
-          <a href="mailto:srinidhi.saas@gmail.com" className="nav-link">
-            Email
-          </a>
         </nav>
       </div>
     </header>

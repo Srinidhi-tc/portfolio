@@ -14,7 +14,7 @@ export default function Hero() {
             </h1>
             <p className="hero-fullname">Srinidhi Chakravarthy</p>
             <p className="hero-subtitle">
-              UX Design Professional — Master's in UX from Purdue University and
+              Professional Product Designer | Master's in UX Design from Purdue University and
               Psychology Undergrad.
             </p>
             <p className="hero-interests">

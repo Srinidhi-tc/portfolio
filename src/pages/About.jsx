@@ -22,14 +22,25 @@ export default function About() {
               helps me uncover hidden insights that shape meaningful products.
             </p>
           </div>
-          <ProfilePhoto />
-        </div>
-         </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "var(--space-md)", marginTop: "var(--space-xl)" }}>
-        <Button href=="https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing" variant="primary">
-              RESUME
-          </Button>  
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "stretch",
+              gap: "var(--space-md)",
+            }}
+          >
+            <ProfilePhoto />
+            <Button
+              href="https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing"
+              variant="primary"
+              style={{ alignSelf: "stretch", justifyContent: "center" }}
+            >
+              Resume
+            </Button>
           </div>
+        </div>
+
         <div className="about-section" style={{ marginTop: "var(--space-3xl)" }}>
           <h2 className="about-heading">
             Connecting Empathy with Execution

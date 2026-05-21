@@ -1,6 +1,6 @@
 import playVrInteriorPoster from "../assets/play-vr-interior.jpg";
 import playVrInteriorVideo from "../assets/play-vr-interior.mp4";
-import playHeartOfInsomniaPoster from "../assets/play-heart-of-insomnia.jpg";
+import playHeartOfInsomniaPoster from "../assets/hoi-hero.jpg";
 import playHeartOfInsomniaVideo from "../assets/play-heart-of-insomnia.mp4";
 import playButterflyPoster from "../assets/play-butterfly.jpg";
 import playButterflyVideo from "../assets/play-butterfly.mp4";
@@ -44,11 +44,11 @@ export const playProjects = [
   {
     slug: "heart-of-insomnia",
     title: "Heart of Insomnia",
-    subtitle: "Touch. See. Breathe.",
+    subtitle: "A creative heartbeat visualiser.",
     image: playHeartOfInsomniaPoster,
     video: playHeartOfInsomniaVideo,
     cardDescription:
-      "Touch. See. Breathe. The Heart That Helps You Sleep.",
+      "A 3D-printed anatomical heart that listens to a racing pulse, then answers in colour and calm. CHI 2026.",
     overview:
       "A sensory design project addressing the anxiety and racing heartbeats experienced by insomnia sufferers through physical prototypes with visual and tactile feedback. Not a medical intervention — creating a space where users feel seen, understood and represented during stress episodes.",
     outcomes: [

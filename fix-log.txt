@@ -1,0 +1,102 @@
+Run started: 20-05-2026 23:54:10.73 
+=== Where are we? ===
+ M index.html
+ M src/data/play.js
+ M src/pages/About.jsx
+ M src/pages/play/HeartOfInsomnia.jsx
+?? cleanup-strays.bat
+?? fix-log.txt
+?? fix-state.bat
+?? push-changes.bat
+?? push-log.txt
+?? "src/assets/Sri_ capstone_2026_ppt.mp4"
+?? src/assets/VolleyBallToy.png
+?? src/assets/hoi-banner.jpg
+?? src/assets/hoi-debugging.jpg
+?? src/assets/hoi-demo.mp4
+?? src/assets/hoi-hero.jpg
+?? src/assets/hoi-phases.jpg
+?? src/assets/hoi-prototype.jpg
+?? src/assets/hoi-ui.jpg
+?? src/assets/work.jpg
+?? src/styles/heart-of-insomnia.css
+main
+
+=== Force-removing residual rebase / merge state folders ===
+Done cleaning state folders.
+
+=== Status after cleanup ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   index.html
+	modified:   src/data/play.js
+	modified:   src/pages/About.jsx
+	modified:   src/pages/play/HeartOfInsomnia.jsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	cleanup-strays.bat
+	fix-log.txt
+	fix-state.bat
+	push-changes.bat
+	push-log.txt
+	src/assets/Sri_ capstone_2026_ppt.mp4
+	src/assets/VolleyBallToy.png
+	src/assets/hoi-banner.jpg
+	src/assets/hoi-debugging.jpg
+	src/assets/hoi-demo.mp4
+	src/assets/hoi-hero.jpg
+	src/assets/hoi-phases.jpg
+	src/assets/hoi-prototype.jpg
+	src/assets/hoi-ui.jpg
+	src/assets/work.jpg
+	src/styles/heart-of-insomnia.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+=== Fetching latest from origin ===
+
+=== Fast-forwarding main to origin/main ===
+From https://github.com/Srinidhi-tc/portfolio
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+=== Final status ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   index.html
+	modified:   src/data/play.js
+	modified:   src/pages/About.jsx
+	modified:   src/pages/play/HeartOfInsomnia.jsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	cleanup-strays.bat
+	fix-log.txt
+	fix-state.bat
+	push-changes.bat
+	push-log.txt
+	src/assets/Sri_ capstone_2026_ppt.mp4
+	src/assets/VolleyBallToy.png
+	src/assets/hoi-banner.jpg
+	src/assets/hoi-debugging.jpg
+	src/assets/hoi-demo.mp4
+	src/assets/hoi-hero.jpg
+	src/assets/hoi-phases.jpg
+	src/assets/hoi-prototype.jpg
+	src/assets/hoi-ui.jpg
+	src/assets/work.jpg
+	src/styles/heart-of-insomnia.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+77bee58 Update HeartOfInsomnia.jsx
+91346e4 Update About.jsx
+92a3e87 Update About.jsx

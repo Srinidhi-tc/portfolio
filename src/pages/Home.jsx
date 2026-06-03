@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <WorkSection />
       <PlayPreview />
-      <CommunityPreview />
+    {/*  <CommunityPreview /> */}
       <ContactCTA />
     </>
   );

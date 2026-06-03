@@ -1,4 +1,4 @@
-export const community = {
+{/* export const community = {
   newsletter: {
     heading: "Subscribe to Grow Everyday",
     emoji: "💛",
@@ -20,4 +20,4 @@ export const community = {
     linkedin: "https://www.linkedin.com/in/srinidhi-chakravarthy/",
     email: "srinidhi.saas@gmail.com",
   },
-};
+}; */}

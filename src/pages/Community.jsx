@@ -1,4 +1,4 @@
-import { community } from "../data/community";
+{/* import { community } from "../data/community";
 import Button from "../components/ui/Button";
 import CollaboratorNotes from "../sections/CollaboratorNotes";
 
@@ -64,4 +64,4 @@ export default function Community() {
       <CollaboratorNotes />
     </section>
   );
-}
+} */}

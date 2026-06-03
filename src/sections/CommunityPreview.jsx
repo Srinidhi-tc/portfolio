@@ -1,4 +1,4 @@
-import Button from "../components/ui/Button";
+{/* import Button from "../components/ui/Button";
 
 export default function CommunityPreview() {
   return (
@@ -18,4 +18,4 @@ export default function CommunityPreview() {
       </div>
     </section>
   );
-}
+} */}

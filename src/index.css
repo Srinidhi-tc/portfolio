@@ -113,14 +113,14 @@ img {
   display: flex;
   align-items: center;
   gap: 0.15rem;
-  padding: 0.25rem;
+  padding: 0.3rem;
 }
 
 .nav-link {
-  padding: 0.45rem 1rem;
+  padding: 0.6rem 1.35rem;
   border-radius: var(--radius-full);
   color: var(--muted);
-  font-size: var(--text-sm);
+  font-size: var(--text-callout);
   font-weight: 500;
   transition: background var(--duration) var(--ease),
     color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);

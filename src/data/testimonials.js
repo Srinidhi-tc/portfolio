@@ -11,15 +11,13 @@
  *   relationship – (optional) "Manager", "Collaborator", "Client", etc.
  */
 export const testimonials = [
-  // Seed example — feel free to delete once a real one is in.
   {
-    id: "seed-example",
-    name: "Sample Collaborator",
-    role: "Senior Designer",
-    org: "Project Name · Org",
-    relationship: "Collaborator",
+    id: "mehul-srivastava",
+    name: "Mehul Srivastava",
+    role: "Software Engineer",
+    org: "Microsoft",
     quote:
-      "Replace this with a real note from a collaborator. Keep it 1–4 sentences. The form on this page sends new notes to Sri's inbox; she'll add the verified ones here.",
-    date: "2025-01-01",
+      "As an engineer, I've always been struck by how Sri designs. She thinks in systems, with edge cases considered and intent communicated clearly, which makes handing her work off to engineering genuinely painless. Beyond the craft, she cares about the people on the other side of the screen, and it shows in everything she ships.",
+    date: "2026-06-08",
   },
 ];

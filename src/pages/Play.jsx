@@ -9,8 +9,9 @@ export default function Play() {
         <SectionTitle
           title="PLAY"
           subtitle="Blurring The Line Between Work and Play!"
+          titleHidden
         />
-        <div className="grid-3">
+        <div className="grid-2">
           {playProjects.map((project) => (
             <ProjectCard
               key={project.slug}

@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import PageShell from "./components/layout/PageShell";
-import Home from "./pages/Home";
+// import Home from "./pages/Home"; // retired — "/" now redirects to /work
 import Work from "./pages/Work";
 import Play from "./pages/Play";
 // import Community from "./pages/Community";
@@ -22,7 +22,7 @@ export default function App() {
   return (
     <Routes>
       <Route element={<PageShell />}>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/work" replace />} />
         <Route path="/work" element={<Work />} />
         <Route path="/work/microsoft" element={<Microsoft />} />
         <Route path="/work/ai-coding" element={<AiCoding />} />

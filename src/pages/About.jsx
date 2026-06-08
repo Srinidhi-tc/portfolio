@@ -1,4 +1,3 @@
-import Button from "../components/ui/Button";
 import ProfilePhoto from "../components/ui/ProfilePhoto";
 import CollaboratorNotes from "../sections/CollaboratorNotes";
 
@@ -9,7 +8,7 @@ export default function About() {
       <div className="container">
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-3xl)", alignItems: "start" }}>
           <div>
-            <p className="eyebrow">About</p>
+            <p className="eyebrow" style={{ visibility: "hidden" }}>About</p>
             <h1 className="page-title" style={{ maxWidth: "none" }}>
               Health + AI + Research
             </h1>
@@ -33,13 +32,6 @@ export default function About() {
             }}
           >
             <ProfilePhoto />
-            <Button
-              href="https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing"
-              variant="primary"
-              style={{ alignSelf: "stretch", justifyContent: "center" }}
-            >
-              Resume
-            </Button>
           </div>
         </div>
 
@@ -80,20 +72,6 @@ export default function About() {
                 </span>
               )
             )}
-          </div>
-        </div>
-
-        <div className="about-section" style={{ textAlign: "center" }}>
-          <p className="about-text" style={{ margin: "0 auto" }}>
-            Want to chat? I'd love to connect.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "var(--space-md)", marginTop: "var(--space-xl)" }}>
-            <Button href="https://www.linkedin.com/in/srinidhi-chakravarthy/" variant="primary">
-              LinkedIn
-            </Button>
-            <Button href="mailto:srinidhi.saas@gmail.com" variant="outline">
-              Email Me
-            </Button>
           </div>
         </div>
       </div>

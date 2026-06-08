@@ -14,15 +14,27 @@
  */
 
 :root {
-  /* Colors — portfolio palette (not from HIG) */
-  --bg: #f7f4ef;
-  --surface: #ffffff;
-  --text: #1b1b1b;
-  --muted: #5f5a55;
-  --border: #d9d1c7;
-  --accent: #6f4e37;
-  --accent-dark: #4e3524;
-  --accent-light: rgba(111, 78, 55, 0.08);
+  /* Colors — cool-neutral palette, inspired by emily.jennett.com / Apple.
+     Previously a warm cream + coffee-brown scheme; now near-white + graphite
+     so that colour comes mainly from project imagery (the reference's trick). */
+  --bg: #fbfbfd;
+  --surface: #f1f1f4;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --border: #d2d2d7;
+  --accent: #1d1d1f;
+  --accent-dark: #000000;
+  --accent-light: rgba(0, 0, 0, 0.05);
+
+  /* Aliases for the --color-* names ProjectCard expects (these were never
+     defined → cards rendered with no surface). Mapped to the neutral palette
+     so work/play cards get the soft light-grey card + proper text hierarchy. */
+  --color-bg-card: var(--surface);
+  --color-bg-secondary: #e8e8ed;
+  --color-hover-bg: rgba(0, 0, 0, 0.05);
+  --color-text-primary: var(--text);
+  --color-text-secondary: var(--muted);
+  --color-text-tertiary: #86868b;
 
   /* Typography — Apple system stack
      Source: Apple HIG → Typography. The SF families (SF Pro Display / SF
@@ -99,7 +111,7 @@
   --radius-xs: 8px;   /* 8pt */
   --radius-sm: 10px;  /* 10pt — small controls */
   --radius: 12px;     /* 12pt — buttons / cards */
-  --radius-lg: 16px;  /* 16pt — large surfaces */
+  --radius-lg: 20px;  /* 20px — softer cards (emily.jennett.com-inspired) */
   --radius-xl: 20px;  /* 20pt — modal / sheet */
   --radius-full: 9999px; /* pill / capsule */
 

@@ -66,7 +66,7 @@ export default function WorkSection() {
       aria-labelledby="work-section-heading"
     >
       <div className="container">
-        <SectionTitle title="Work" id="work-section-heading" />
+        <SectionTitle title="Work" id="work-section-heading" titleHidden />
 
         <div className="work-section-sticky">
           <div

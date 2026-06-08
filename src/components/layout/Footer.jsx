@@ -27,6 +27,14 @@ export default function Footer() {
           <a href="mailto:srinidhi.saas@gmail.com" className="footer-link">
             Email
           </a>
+          <a
+            href="https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-link"
+          >
+            Resume
+          </a>
           {/* <Link to="/community" className="footer-link">
             Community
           </Link> */}

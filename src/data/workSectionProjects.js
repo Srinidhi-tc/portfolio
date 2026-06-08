@@ -1,4 +1,5 @@
 import workMicrosoft from "../assets/work-microsoft.avif";
+import workAiCoding from "../assets/work-ai-coding.avif";
 import workStrabospot from "../assets/work-strabospot.avif";
 import workPsychosis from "../assets/work-psychosis.jpg";
 
@@ -72,6 +73,32 @@ export const workSectionProjects = [
       impact: {
         subheading: "Faster debugging",
         body: "Reduced detection time ~25% and improved incident response efficiency across distributed cloud systems.",
+      },
+    },
+  },
+  {
+    id: "ai-coding",
+    brand: "Purdue CS",
+    title: "AI Coding Interviewer",
+    keyword: "AI Interaction",
+    image: workAiCoding,
+    to: "/work/ai-coding",
+    states: {
+      problem: {
+        subheading: "Hidden capabilities",
+        body: "Poor UX hid what the AI could do, so adoption stayed low and students never leveraged the coding-interview tool's full potential.",
+      },
+      decisions: {
+        subheading: "Heuristic-led redesign",
+        body: "Grounded changes in heuristic evaluation and comparative analysis, adding guided onboarding and structured responses to clarify system behavior.",
+      },
+      tradeoffs: {
+        subheading: "Results over process",
+        body: "Surfaced outcomes first instead of exposing the full AI pipeline — users wanted clear feedback, not the model's inner workings.",
+      },
+      impact: {
+        subheading: "Clearer & stickier",
+        body: "Cut onboarding friction and cognitive load, turning opaque AI outputs into learnable feedback that supports continuous learning.",
       },
     },
   },

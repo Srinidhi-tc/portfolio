@@ -3,7 +3,7 @@ import PageShell from "./components/layout/PageShell";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Play from "./pages/Play";
-import Community from "./pages/Community";
+// import Community from "./pages/Community";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
@@ -34,7 +34,7 @@ export default function App() {
         <Route path="/play/butterfly" element={<Butterfly />} />
         <Route path="/play/branding" element={<Branding />} />
         <Route path="/play/digital-confetti" element={<DigitalConfetti />} />
-        <Route path="/community" element={<Community />} />
+        {/* <Route path="/community" element={<Community />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>

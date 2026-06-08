@@ -27,9 +27,9 @@ export default function Footer() {
           <a href="mailto:srinidhi.saas@gmail.com" className="footer-link">
             Email
           </a>
-          <Link to="/community" className="footer-link">
+          {/* <Link to="/community" className="footer-link">
             Community
-          </Link>
+          </Link> */}
           <button
             onClick={scrollToTop}
             className="footer-link"

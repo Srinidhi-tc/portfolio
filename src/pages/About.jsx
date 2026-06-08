@@ -1,9 +1,11 @@
 import Button from "../components/ui/Button";
 import ProfilePhoto from "../components/ui/ProfilePhoto";
+import CollaboratorNotes from "../sections/CollaboratorNotes";
 
 export default function About() {
   return (
-    <section className="page-section">
+    <>
+      <section className="page-section">
       <div className="container">
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-3xl)", alignItems: "start" }}>
           <div>
@@ -95,6 +97,9 @@ export default function About() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+
+      <CollaboratorNotes />
+    </>
   );
 }

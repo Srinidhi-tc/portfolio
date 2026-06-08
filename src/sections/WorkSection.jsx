@@ -66,7 +66,7 @@ export default function WorkSection() {
       aria-labelledby="work-section-heading"
     >
       <div className="container">
-        <SectionTitle eyebrow="Selected Work" title="Work" id="work-section-heading" />
+        <SectionTitle title="Work" id="work-section-heading" />
 
         <div className="work-section-sticky">
           <div

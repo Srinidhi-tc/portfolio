@@ -119,6 +119,30 @@ img {
   padding: var(--space-4xl) 0;
 }
 
+/* Scroll reveal — scoped to RevealGroup so a stray [data-reveal] is never
+   hidden when rendered outside a group. See components/ui/useReveal.jsx. */
+.reveal-group [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-group [data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-group [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .eyebrow {
   margin: 0 0 0.75rem;
   text-transform: uppercase;

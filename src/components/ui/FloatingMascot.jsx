@@ -52,13 +52,13 @@ const PAGE_MESSAGES = {
       "Calm. Thoughtful. Ships things.",
     ],
   },
-  "/community": {
+  /* "/community": {
     greeting: "Where Sri gives back.",
     messages: [
       "Writes, mentors, shows up.",
       "Generous with what she knows.",
     ],
-  },
+  }, */
   "/work/microsoft": {
     greeting: "Microsoft × Agentic AI.",
     messages: [

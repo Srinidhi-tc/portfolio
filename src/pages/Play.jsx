@@ -111,9 +111,9 @@ export default function Play() {
           </p>
           <div className="pgs">
             {[
-              { value: "4",          label: "completed projects" },
-              { value: "3 yrs",      label: "independent studio" },
-              { value: "End-to-end", label: "design to handover" },
+              { value: "8",          label: "Clients" },
+              { value: "2 yrs",      label: "Independent Studio" },
+              { value: "End-to-end", label: "Design to Handover" },
             ].map(({ value, label }) => (
               <div key={label} style={{ background: "#F5F5F7", borderRadius: 10, padding: "14px 16px" }}>
                 <span style={{ display: "block", fontSize: "clamp(16px,2.5vw,22px)", fontWeight: 600, letterSpacing: "-0.2px", color: "#1D1D1F", marginBottom: 2 }}>
@@ -171,8 +171,8 @@ export default function Play() {
         <div data-reveal style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "clamp(24px,4vw,64px)" }}>
           {[
             { label: "Work type",    value: "Residential interiors" },
-            { label: "Deliverables", value: "Plans · Procurement · Handover" },
-            { label: "Location",     value: "Bangalore, India" },
+            { label: "Deliverables", value: "Plans · Procurement · Save Budget · Handover" },
+            { label: "Location",     value: "Chennai, India" },
           ].map(({ label, value }) => (
             <div key={label}>
               <p style={{ fontSize: 11, color: "#86868B", marginBottom: 4 }}>{label}</p>

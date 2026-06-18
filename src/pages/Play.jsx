@@ -1,5 +1,15 @@
 import { useEffect, useRef } from "react";
 
+import p1 from "../assets/play/p1.jpg";
+import p2 from "../assets/play/p2.jpg";
+import p3 from "../assets/play/p3.jpg";
+import p4 from "../assets/play/p4.jpg";
+import p5 from "../assets/play/p5.jpg";
+import p6 from "../assets/play/p6.jpg";
+import p7 from "../assets/play/p7.jpg";
+import p8 from "../assets/play/p8.jpg";
+import p9 from "../assets/play/p9.jpg";
+
 function useReveal(selector = "[data-reveal]") {
   const containerRef = useRef(null);
   useEffect(() => {
@@ -29,28 +39,30 @@ function useReveal(selector = "[data-reveal]") {
   return containerRef;
 }
 
-function Cell({ src, alt = "", style = {} }) {
+function Cell({ src, alt = "" }) {
   return (
     <div
       data-reveal
       style={{
-        borderRadius: 12,
+        borderRadius: 10,
         overflow: "hidden",
-        background: "#E8E8E8",
-        position: "relative",
-        ...style,
+        background: "#F0F0F0",
+        padding: 8,
       }}
     >
-      {src ? (
-        <img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-        />
-      ) : (
-        <div style={{ width: "100%", height: "100%", background: "#E8E8E8" }} />
-      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        style={{
+          width: "100%",
+          height: "auto",
+          display: "block",
+          borderRadius: 4,
+          /* crops white space by letting image dictate height */
+          objectFit: "cover",
+        }}
+      />
     </div>
   );
 }
@@ -70,15 +82,15 @@ export default function Play() {
       }}
     >
       <style>{`
+        .pg3  { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 6px; }
+        .pg21 { display: grid; grid-template-columns: 2fr 1fr;     gap: 6px; margin-bottom: 6px; }
+        .pg12 { display: grid; grid-template-columns: 1fr 2fr;     gap: 6px; margin-bottom: 6px; }
+        .pgs  { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; max-width: 480px; }
         @media (max-width: 640px) {
           .pg3  { grid-template-columns: 1fr 1fr !important; }
-          .pg12 { grid-template-columns: 1fr !important; }
           .pg21 { grid-template-columns: 1fr !important; }
+          .pg12 { grid-template-columns: 1fr !important; }
           .pgs  { grid-template-columns: 1fr 1fr !important; }
-        }
-        @media (max-width: 400px) {
-          .pg3 { grid-template-columns: 1fr !important; }
-          .pgs { grid-template-columns: 1fr !important; }
         }
         @media (prefers-reduced-motion: reduce) {
           [data-reveal] { transition: none !important; }
@@ -86,27 +98,25 @@ export default function Play() {
       `}</style>
 
       {/* ZONE 1 — HERO */}
-      <section style={{ padding: "clamp(72px, 10vw, 140px) clamp(24px, 8vw, 160px) clamp(40px, 5vw, 72px)" }}>
+      <section style={{ padding: "clamp(72px,10vw,140px) clamp(24px,8vw,160px) clamp(40px,5vw,72px)" }}>
         <div data-reveal>
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.10em", textTransform: "uppercase", color: "#86868B", marginBottom: 16 }}>
-            Creative Practice
+            Creative practice
           </p>
-          <h1 style={{ fontSize: "clamp(40px, 6vw, 72px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, color: "#1D1D1F", marginBottom: 16 }}>
+          <h1 style={{ fontSize: "clamp(40px,6vw,72px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, color: "#1D1D1F", marginBottom: 16 }}>
             Play
           </h1>
-          <p style={{ fontSize: "clamp(15px, 2vw, 19px)", fontWeight: 400, color: "#6E6E73", letterSpacing: "-0.1px", lineHeight: 1.4, marginBottom: 40, maxWidth: 480 }}>
-            Interior Design Studio, 2022-2024.
+          <p style={{ fontSize: "clamp(15px,2vw,19px)", fontWeight: 400, color: "#6E6E73", letterSpacing: "-0.1px", lineHeight: 1.4, marginBottom: 40, maxWidth: 480 }}>
+            Independent design studio, 2019–2022.
           </p>
-
-          {/* 3-stat strip */}
-          <div className="pgs" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, maxWidth: 480 }}>
+          <div className="pgs">
             {[
-              { value: "8",     label: "completed projects" },
-              { value: "60-70  ", label: "Teammates" },
-              { value: "End-to -End",label: "Complete Handovers" },
+              { value: "4",          label: "completed projects" },
+              { value: "3 yrs",      label: "independent studio" },
+              { value: "End-to-end", label: "design to handover" },
             ].map(({ value, label }) => (
               <div key={label} style={{ background: "#F5F5F7", borderRadius: 10, padding: "14px 16px" }}>
-                <span style={{ display: "block", fontSize: "clamp(18px, 2.5vw, 24px)", fontWeight: 600, letterSpacing: "-0.2px", color: "#1D1D1F", marginBottom: 2 }}>
+                <span style={{ display: "block", fontSize: "clamp(16px,2.5vw,22px)", fontWeight: 600, letterSpacing: "-0.2px", color: "#1D1D1F", marginBottom: 2 }}>
                   {value}
                 </span>
                 <span style={{ fontSize: 12, color: "#86868B", lineHeight: 1.4 }}>{label}</span>
@@ -117,55 +127,55 @@ export default function Play() {
       </section>
 
       {/* ZONE 2 — GALLERY */}
-      <section style={{ padding: "0 clamp(24px, 8vw, 160px) clamp(40px, 6vw, 80px)" }}>
+      <section style={{ padding: "0 clamp(24px,8vw,160px) clamp(40px,6vw,80px)" }}>
 
-        {/* Row A — full width */}
+        {/* Row A — full width hero */}
         <div style={{ marginBottom: 6 }}>
-          <Cell alt="Cinematic bedroom render" style={{ height: "clamp(220px, 40vw, 520px)" }} />
+          <Cell src={p1} alt="Cinematic bedroom" />
         </div>
 
         {/* Row B — 3 equal */}
-        <div className="pg3" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6, marginBottom: 6 }}>
-          <Cell alt="Lavender bedroom render" style={{ height: "clamp(120px, 18vw, 240px)" }} />
-          <Cell alt="Entrance sketch" style={{ height: "clamp(120px, 18vw, 240px)" }} />
-          <Cell alt="Red bench detail" style={{ height: "clamp(120px, 18vw, 240px)" }} />
+        <div className="pg3">
+          <Cell src={p2} alt="Lavender bedroom render" />
+          <Cell src={p3} alt="Entrance sketch" />
+          <Cell src={p4} alt="Red bench detail" />
         </div>
 
         {/* Row C — 2/3 + 1/3 */}
-        <div className="pg21" style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 6, marginBottom: 6 }}>
-          <Cell alt="Heritage corridor" style={{ height: "clamp(160px, 24vw, 340px)" }} />
-          <Cell alt="Marble elevation plan" style={{ height: "clamp(160px, 24vw, 340px)" }} />
+        <div className="pg21">
+          <Cell src={p5} alt="Heritage corridor" />
+          <Cell src={p6} alt="Marble elevation plan" />
         </div>
 
         {/* Row D — 1/3 + 2/3 */}
-        <div className="pg12" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 6, marginBottom: 6 }}>
-          <Cell alt="Bedroom line sketch" style={{ height: "clamp(130px, 20vw, 280px)" }} />
-          <Cell alt="Real entrance wide" style={{ height: "clamp(130px, 20vw, 280px)" }} />
+        <div className="pg12">
+          <Cell src={p7} alt="Bedroom line sketch" />
+          <Cell src={p8} alt="Real entrance wide" />
         </div>
 
         {/* Row E — 3 equal small */}
-        <div className="pg3" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6, marginBottom: 6 }}>
-          <Cell alt="TV unit sketch" style={{ height: "clamp(100px, 14vw, 180px)" }} />
-          <Cell alt="Autumn colour palette" style={{ height: "clamp(100px, 14vw, 180px)" }} />
-          <Cell alt="Chair detail" style={{ height: "clamp(100px, 14vw, 180px)" }} />
+        <div className="pg3">
+          <Cell src={p9}  alt="TV unit sketch" />
+          <Cell src={p10} alt="Autumn colour palette" />
+          <Cell src={p11} alt="Chair detail" />
         </div>
 
         {/* Row F — full width closer */}
         <div>
-          <Cell alt="Warli mural" style={{ height: "clamp(140px, 20vw, 280px)" }} />
+          <Cell src={p12} alt="Warli mural" />
         </div>
       </section>
 
       {/* ZONE 3 — FOOTER STRIP */}
-      <section style={{ padding: "clamp(28px, 4vw, 48px) clamp(24px, 8vw, 160px)", borderTop: "0.5px solid rgba(0,0,0,0.10)" }}>
-        <div data-reveal className="pg3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(24px, 4vw, 64px)" }}>
+      <section style={{ padding: "clamp(28px,4vw,48px) clamp(24px,8vw,160px)", borderTop: "0.5px solid rgba(0,0,0,0.10)" }}>
+        <div data-reveal style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "clamp(24px,4vw,64px)" }}>
           {[
-            { label: "Work type",    value: "Spatial Design Execution" },
-            { label: "Deliverables", value: "Design · Procurement · Save Budget · Handover" },
-            { label: "Location",     value: "Chennai, India" },
+            { label: "Work type",    value: "Residential interiors" },
+            { label: "Deliverables", value: "Plans · Procurement · Handover" },
+            { label: "Location",     value: "Bangalore, India" },
           ].map(({ label, value }) => (
             <div key={label}>
-              <p style={{ fontSize: 11, color: "#86868B", marginBottom: 4, letterSpacing: "0.02em" }}>{label}</p>
+              <p style={{ fontSize: 11, color: "#86868B", marginBottom: 4 }}>{label}</p>
               <p style={{ fontSize: 14, fontWeight: 500, color: "#1D1D1F" }}>{value}</p>
             </div>
           ))}

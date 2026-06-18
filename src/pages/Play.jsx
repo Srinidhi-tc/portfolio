@@ -153,18 +153,17 @@ export default function Play() {
           <Cell src={p8} alt="Real entrance wide" />
         </div>
 
-        {/* Row E — 3 equal small */}
+     {/* Row E — 3 equal small */}
         <div className="pg3">
-          <Cell src={p9}  alt="TV unit sketch" />
-          <Cell src={p10} alt="Autumn colour palette" />
-          <Cell src={p11} alt="Chair detail" />
+          <Cell src={p7} alt="Bedroom sketch" />
+          <Cell src={p8} alt="Real entrance" />
+          <Cell src={p9} alt="Entrance detail" />
         </div>
 
         {/* Row F — full width closer */}
         <div>
-          <Cell src={p12} alt="Warli mural" />
+          <Cell src={p6} alt="Elevation plan" />
         </div>
-      </section>
 
       {/* ZONE 3 — FOOTER STRIP */}
       <section style={{ padding: "clamp(28px,4vw,48px) clamp(24px,8vw,160px)", borderTop: "0.5px solid rgba(0,0,0,0.10)" }}>

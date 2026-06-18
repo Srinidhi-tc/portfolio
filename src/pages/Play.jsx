@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
 
-import p1 from "../assets/play/p1.jpg";
-import p2 from "../assets/play/p2.jpg";
-import p3 from "../assets/play/p3.jpg";
-import p4 from "../assets/play/p4.jpg";
-import p5 from "../assets/play/p5.jpg";
-import p6 from "../assets/play/p6.jpg";
-import p7 from "../assets/play/p7.jpg";
-import p8 from "../assets/play/p8.jpg";
-import p9 from "../assets/play/p9.jpg";
+import p1 from "../assets/play/p1.png";
+import p2 from "../assets/play/p2.png";
+import p3 from "../assets/play/p3.png";
+import p4 from "../assets/play/p4.png";
+import p5 from "../assets/play/p5.png";
+import p6 from "../assets/play/p6.png";
+import p7 from "../assets/play/p7.png";
+import p8 from "../assets/play/p8.png";
+import p9 from "../assets/play/p9.png";
 
 function useReveal(selector = "[data-reveal]") {
   const containerRef = useRef(null);

@@ -89,21 +89,21 @@ export default function Play() {
       <section style={{ padding: "clamp(72px, 10vw, 140px) clamp(24px, 8vw, 160px) clamp(40px, 5vw, 72px)" }}>
         <div data-reveal>
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.10em", textTransform: "uppercase", color: "#86868B", marginBottom: 16 }}>
-            Side work
+            Creative Practice
           </p>
           <h1 style={{ fontSize: "clamp(40px, 6vw, 72px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, color: "#1D1D1F", marginBottom: 16 }}>
             Play
           </h1>
           <p style={{ fontSize: "clamp(15px, 2vw, 19px)", fontWeight: 400, color: "#6E6E73", letterSpacing: "-0.1px", lineHeight: 1.4, marginBottom: 40, maxWidth: 480 }}>
-            Interior design consultancy, 2019–2022.
+            Interior Design Studio, 2022-2024.
           </p>
 
           {/* 3-stat strip */}
           <div className="pgs" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, maxWidth: 480 }}>
             {[
-              { value: "4",     label: "completed projects" },
-              { value: "3 yrs", label: "running the studio" },
-              { value: "₹ real",label: "client budgets managed" },
+              { value: "8",     label: "completed projects" },
+              { value: "60-70  ", label: "Teammates" },
+              { value: "End-to -End",label: "Complete Handovers" },
             ].map(({ value, label }) => (
               <div key={label} style={{ background: "#F5F5F7", borderRadius: 10, padding: "14px 16px" }}>
                 <span style={{ display: "block", fontSize: "clamp(18px, 2.5vw, 24px)", fontWeight: 600, letterSpacing: "-0.2px", color: "#1D1D1F", marginBottom: 2 }}>
@@ -160,9 +160,9 @@ export default function Play() {
       <section style={{ padding: "clamp(28px, 4vw, 48px) clamp(24px, 8vw, 160px)", borderTop: "0.5px solid rgba(0,0,0,0.10)" }}>
         <div data-reveal className="pg3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(24px, 4vw, 64px)" }}>
           {[
-            { label: "Work type",    value: "Residential interiors" },
-            { label: "Deliverables", value: "Plans · Procurement · Handover" },
-            { label: "Location",     value: "Bangalore, India" },
+            { label: "Work type",    value: "Spatial Design Execution" },
+            { label: "Deliverables", value: "Design · Procurement · Save Budget · Handover" },
+            { label: "Location",     value: "Chennai, India" },
           ].map(({ label, value }) => (
             <div key={label}>
               <p style={{ fontSize: 11, color: "#86868B", marginBottom: 4, letterSpacing: "0.02em" }}>{label}</p>

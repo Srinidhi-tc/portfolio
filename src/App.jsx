@@ -29,11 +29,11 @@ export default function App() {
         <Route path="/work/strabospot" element={<Strabospot />} />
         <Route path="/work/psychosis-literacy" element={<PsychosisLiteracy />} />
         <Route path="/play" element={<Play />} />
-        <Route path="/play/vr-interior" element={<VrInterior />} />
-        <Route path="/play/heart-of-insomnia" element={<HeartOfInsomnia />} />
-        <Route path="/play/butterfly" element={<Butterfly />} />
-        <Route path="/play/branding" element={<Branding />} />
-        <Route path="/play/digital-confetti" element={<DigitalConfetti />} />
+        {/* <Route path="/play/vr-interior" element={<VrInterior />} />*/}
+        {/* <Route path="/play/heart-of-insomnia" element={<HeartOfInsomnia />} />*/}
+        {/* <Route path="/play/butterfly" element={<Butterfly />} />*/}
+        {/* <Route path="/play/branding" element={<Branding />} /> */}
+        {/* <Route path="/play/digital-confetti" element={<DigitalConfetti />} /> */}
         {/* <Route path="/community" element={<Community />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />

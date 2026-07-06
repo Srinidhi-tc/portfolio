@@ -189,4 +189,85 @@ export const workSectionViews = [
   { id: "decisions", label: "Decisions" },
   { id: "tradeoffs", label: "Tradeoffs" },
   { id: "impact", label: "Impact" },
+  {
+    id: "malli",
+    brand: "Sanitary Health",
+    title: "Malli 2.0 — Toilet Cleaning Device",
+    keyword: "Product Design",
+    image: null,
+    imageLabel: "Malli",
+    to: "/work/malli",
+    states: {
+      problem: {
+        subheading: "Cleaning gets avoided",
+        body: "Toilet cleaning is skipped due to disgust and effort — the challenge was making it happen without a conscious decision.",
+      },
+      decisions: {
+        subheading: "Habit by design",
+        body: "Applied behavioral economics to embed cleaning into existing rituals, removing the moment of choice entirely.",
+      },
+      tradeoffs: {
+        subheading: "Invisible vs visible",
+        body: "Chose to hide the mechanism over showcasing it — effectiveness mattered more than product visibility.",
+      },
+      impact: {
+        subheading: "Zero friction hygiene",
+        body: "Reduced cognitive load of cleaning ritual and increased accessibility to a clean toilet without behavior change.",
+      },
+    },
+  },
+  {
+    id: "bee-feeder",
+    brand: "Solidworks",
+    title: "Bee Feeder — Parametric 3D Design",
+    keyword: "Parametric Design",
+    image: null,
+    imageLabel: "Bee Feeder",
+    to: "/work/bee-feeder",
+    states: {
+      problem: {
+        subheading: "Feeders ignore vision",
+        body: "Standard feeders ignore how pollinators perceive the world — butterflies navigate using UV light, not visible colour.",
+      },
+      decisions: {
+        subheading: "UV-led redesign",
+        body: "Journey mapping for butterfly vision revealed UV light as the primary wayfinding signal, redirecting the entire product scope.",
+      },
+      tradeoffs: {
+        subheading: "Science over aesthetics",
+        body: "Sacrificed conventional feeder aesthetics to prioritise UV-reflective geometry that actually works for pollinators.",
+      },
+      impact: {
+        subheading: "Research-led pivot",
+        body: "Parametric model adaptable across sizes — designed for pollinator behaviour, not human preference.",
+      },
+    },
+  },
+  {
+    id: "hearts-of-insomnia",
+    brand: "Arduino · 3D Fabrication",
+    title: "CHI 2026 — Hearts of Insomnia",
+    keyword: "Physical Computing",
+    image: null,
+    imageLabel: "CHI 2026",
+    to: "/work/hearts-of-insomnia",
+    states: {
+      problem: {
+        subheading: "2am panic has no solution",
+        body: "Late-night panic and insomnia are worsened by harsh lighting and the absence of calming environmental cues.",
+      },
+      decisions: {
+        subheading: "Light therapy lamp",
+        body: "Combined Arduino, 3D fabrication, and circadian rhythm research to modulate colour temperature by time of night.",
+      },
+      tradeoffs: {
+        subheading: "Soft over smart",
+        body: "Chose passive light modulation over app-controlled brightness — reducing friction at 2am was the priority.",
+      },
+      impact: {
+        subheading: "CHI 2026 submitted",
+        body: "Working prototype with light therapy modes, 3D fabricated enclosure, submitted to CHI 2026.",
+      },
+    },
+  },
 ];

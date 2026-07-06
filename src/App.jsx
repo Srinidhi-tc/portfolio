@@ -9,7 +9,7 @@ import AiCoding from "./pages/work/AiCoding";
 import Strabospot from "./pages/work/Strabospot";
 import PsychosisLiteracy from "./pages/work/PsychosisLiteracy";
 import Malli from "./pages/work/Malli";
-import BeeFeeder from "./pages/work/BeeFeeder";
+import BeeFeeder from "./pages/work/Beefeeder";
 import HeartsOfInsomnia from "./pages/work/HeartsOfInsomnia";
 
 export default function App() {

@@ -212,4 +212,64 @@ export const projects = [
     keyLearning:
       "Designing for youth mental health means accepting that engagement and evidence pull in opposite directions — and the job is to make them load-bearing for each other, not pick one.",
   },
+  {
+    slug: "malli",
+    title: "Malli 2.0 — Toilet Cleaning Device",
+    company: "Sanitary Health",
+    image: null,
+    subtitle: "Making Cleaning Happen Without Thinking",
+    cardDescription:
+      "Analyzing the challenge of cleaning ritual as a chore and making it happen without thinking for increasing accessibility to a clean toilet.",
+    problem:
+      "Toilet cleaning is avoided due to disgust and effort. The challenge was to redesign the ritual so it requires zero conscious decision-making.",
+    overview:
+      "A product design exploration into behavioral economics and habit design applied to sanitary health. Reframing cleaning as automatic rather than deliberate.",
+    outcomes: [
+      "Reduced cognitive load of cleaning ritual",
+      "Increased accessibility to hygiene for low-effort users",
+      "Behavioral design framework for chore automation",
+    ],
+    keyLearning:
+      "The best product intervention is one the user never has to think about.",
+  },
+  {
+    slug: "bee-feeder",
+    title: "Bee Feeder — Parametric 3D Design",
+    company: "Solidworks",
+    image: null,
+    subtitle: "Journey Mapping for Butterflies Changed Everything",
+    cardDescription:
+      "Journey mapping for butterflies revealed they use UV light for vision — and that changed the entire product scope.",
+    problem:
+      "Standard feeders ignore how pollinators actually perceive and navigate to food sources, reducing effectiveness.",
+    overview:
+      "A parametric 3D design project using Solidworks. Journey mapping for butterfly vision — specifically UV light perception — fundamentally redirected the product design from aesthetics to sensory science.",
+    outcomes: [
+      "UV-informed design language for pollinator products",
+      "Parametric model adaptable across feeder sizes",
+      "Research-led pivot that changed product scope entirely",
+    ],
+    keyLearning:
+      "Journey mapping non-human users forces you to abandon assumptions faster than any other research method.",
+  },
+  {
+    slug: "hearts-of-insomnia",
+    title: "CHI 2026 — Hearts of Insomnia",
+    company: "Arduino · 3D Fabrication",
+    image: null,
+    subtitle: "A Nightlamp That Solves Late-Night Panic",
+    cardDescription:
+      "A nightlamp that solves insomnia and late-night panic using light therapy — submitted to CHI 2026.",
+    problem:
+      "Late-night panic and insomnia are worsened by harsh lighting and the absence of calming environmental cues at 2am.",
+    overview:
+      "Physical computing project combining Arduino, 3D fabrication, and light therapy research. The lamp modulates color temperature and intensity based on circadian rhythms to reduce cortisol and ease the user back to sleep.",
+    outcomes: [
+      "CHI 2026 submission",
+      "Working Arduino prototype with light therapy modes",
+      "3D fabricated enclosure designed for bedside use",
+    ],
+    keyLearning:
+      "Physical prototyping forces design decisions that Figma will never surface — material, weight, and light diffusion all change the experience.",
+  },
 ];

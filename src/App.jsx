@@ -8,6 +8,9 @@ import Microsoft from "./pages/work/Microsoft";
 import AiCoding from "./pages/work/AiCoding";
 import Strabospot from "./pages/work/Strabospot";
 import PsychosisLiteracy from "./pages/work/PsychosisLiteracy";
+import Malli from "./pages/work/Malli";
+import BeeFeeder from "./pages/work/BeeFeeder";
+import HeartsOfInsomnia from "./pages/work/HeartsOfInsomnia";
 
 export default function App() {
   return (
@@ -22,6 +25,9 @@ export default function App() {
         <Route path="/play" element={<Play />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/work/malli" element={<Malli />} />
+        <Route path="/work/bee-feeder" element={<BeeFeeder />} />
+        <Route path="/work/hearts-of-insomnia" element={<HeartsOfInsomnia />} />
       </Route>
     </Routes>
   );

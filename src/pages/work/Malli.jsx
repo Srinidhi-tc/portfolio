@@ -1,6 +1,3 @@
-No — the file is broken. You pasted the JSX code into the middle of the `sections` array. Select all → paste this entire clean version → commit:
-
-```jsx
 import selfclean from "../../assets/Experience Details Selfclean System.png";
 import cmf from "../../assets/CMF.png";
 import architecture from "../../assets/Internal Architecture.png";

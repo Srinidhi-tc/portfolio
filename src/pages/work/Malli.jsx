@@ -11,6 +11,7 @@ import journey from "../../assets/Process Exporation with User Journey.png";
 import early from "../../assets/Early Concept Exploration.png";
 import usergroup from "../../assets/Usergroup.png";
 import form from "../../assets/Form Exploration.png";
+import battery from "../../assets/battery.png";
 
 const s = { fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "#86868B", marginBottom: 6 };
 const c = { fontSize: 16, color: "#6E6E73", lineHeight: 1.6, maxWidth: 640 };
@@ -82,6 +83,7 @@ export default function Malli() {
         <Block src={mfg1} subheading="Cost Estimation" caption="I also explored how the product could realistically be cost estimated rather than existing only as a concept render." />
         <Block src={chargingWall} subheading="Charging Dock Iterations" caption="A wall mounted charging dock because most bathrooms dont have a lot of floor space." />
         <SideBySide
+          left={{ src: battery, subheading: "Battery Supported ", caption: "Alternative floor-mounted charging configuration." }}
           right={{ src: chargingFloor, subheading: "Charging Dock — Floor Model", caption: "Alternative floor-mounted charging configuration." }}
         />
         <Block src={journey} subheading="Experience Through Journey Mapping" caption="Designed around existing habits, not new ones. That question led me to rethink the entire experience instead of redesigning another toilet brush." />

@@ -80,8 +80,7 @@ export default function Malli() {
         <Block src={modular} subheading="Modular System" caption="The brush system became modular so different cleaning tasks could be solved without redesigning the entire product. The replaceable brushes create repeatable small scale revenue." />
         <Block src={mfg2} subheading="Manufacturing Details" caption="Every split line and wall thickness was considered with cost effective assembly in mind." />
         <Block src={mfg1} subheading="Cost Estimation" caption="I also explored how the product could realistically be cost estimated rather than existing only as a concept render." />
-        <Block src={Charging Dock} subheading="Charging Dock Iterations" caption="A wall mounted charging dock because most bathrooms dont have a lot of floor space." />
-      
+        <Block src={chargingWall} subheading="Charging Dock Iterations" caption="A wall mounted charging dock because most bathrooms dont have a lot of floor space." />
         <SideBySide
           right={{ src: chargingFloor, subheading: "Charging Dock — Floor Model", caption: "Alternative floor-mounted charging configuration." }}
         />

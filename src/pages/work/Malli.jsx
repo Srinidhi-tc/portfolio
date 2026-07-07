@@ -74,14 +74,15 @@ export default function Malli() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
         <Block src={selfclean} subheading="Experience Details and Outcomes" caption="One system. One seamless experience. A self-cleaning robotic toilet cleaner. The final prototype brings together product design, mechanical packaging, user experience, and manufacturability into a single cohesive system." />
-        <Block src={cmf} subheading="CMF Exploration" caption="Material and finish were used to communicate cleanliness — soft matte surfaces where users interact, durable gloss where hygiene matters most." />
-        <Block src={architecture} subheading="Internal Architecture" caption="Once the exterior felt right, I designed around the inside — finding space for motors, spray paths, sensors, and removable modules without increasing the footprint." />
+        <Block src={cmf} subheading="CMF Exploration" caption="Material and finish were used to communicate cleanliness. A soft matte surfaces where users interact, durable gloss because user perception of hygiene matters most." />
+        <Block src={architecture} subheading="Internal Architecture" caption="Once the exterior felt right, I designed around the inside for finding space for motors, spray paths, sensors, and removable modules without increasing the footprint." />
         <Block src={mechanical} subheading="Manufacturing" caption="Every part designed with assembly in mind." />
         <Block src={modular} subheading="Modular System" caption="The brush system became modular so different cleaning tasks could be solved without redesigning the entire product. The replaceable brushes create repeatable small scale revenue." />
         <Block src={mfg2} subheading="Manufacturing Details" caption="Every split line and wall thickness was considered with cost effective assembly in mind." />
         <Block src={mfg1} subheading="Cost Estimation" caption="I also explored how the product could realistically be cost estimated rather than existing only as a concept render." />
+        <Block src={Charging Dock} subheading="Charging Dock Iterations" caption="A wall mounted charging dock because most bathrooms dont have a lot of floor space." />
+      
         <SideBySide
-          left={{  src: chargingWall,  subheading: "Charging Dock — Wall Model",  caption: "A few choices for charging dock." }}
           right={{ src: chargingFloor, subheading: "Charging Dock — Floor Model", caption: "Alternative floor-mounted charging configuration." }}
         />
         <Block src={journey} subheading="Experience Through Journey Mapping" caption="Designed around existing habits, not new ones. That question led me to rethink the entire experience instead of redesigning another toilet brush." />

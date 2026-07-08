@@ -29,7 +29,7 @@ export default function App() {
         <Route path="/work/malli" element={<Malli />} />
         <Route path="/work/bee-feeder" element={<BeeFeeder />} />
         <Route path="/work/hearts-of-insomnia" element={<HeartsOfInsomnia />} />
-        <Route path="/work/defenseark" element={<defenseark />} />
+        <Route path="/work/defenseark" element={<DefenseArk />} />
       </Route>
     </Routes>
   );

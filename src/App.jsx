@@ -23,13 +23,13 @@ export default function App() {
         <Route path="/work/ai-coding" element={<AiCoding />} />
         <Route path="/work/strabospot" element={<Strabospot />} />
         <Route path="/work/psychosis-literacy" element={<PsychosisLiteracy />} />
-        <Route path="/play" element={<Play />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/work/malli" element={<Malli />} />
         <Route path="/work/bee-feeder" element={<BeeFeeder />} />
         <Route path="/work/hearts-of-insomnia" element={<HeartsOfInsomnia />} />
         <Route path="/work/defenseark" element={<DefenseArk />} />
+        <Route path="/play" element={<Play />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

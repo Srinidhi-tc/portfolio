@@ -55,14 +55,15 @@ export default function BeeFeeder() {
         Parametric Butterfly and Bee Feeder
       </p>
       <p style={{ fontSize: 16, color: "#6E6E73", marginBottom: 64, maxWidth: 600, lineHeight: 1.6 }}>
-        Journey mapping for pollinators revealed they navigate using UV light — not visible colour. That single biological insight redirected the entire product scope from aesthetic to functional design.
+        Journey mapping for pollinators revealed they navigate using UV light ... not a visible colour. That single biological insight redirected the entire product scope from aesthetic to functional design. 
+        This Bee-feeder could be placed in gardens, flower pots on a balcony, or on pavement soil. It helps as bridge to reduce distance between real flowers.
       </p>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, maxWidth: 480, marginBottom: 80 }}>
         {[
           { value: "Parametric", label: "design system" },
-          { value: "UV-guided",  label: "pollinator experience" },
-          { value: "3D printed", label: "functional prototype" },
+          { value: "UV-guided",  label: "Animal User Experience" },
+          { value: "3D Printed", label: "Functional Product" },
         ].map(({ value, label }) => (
           <div key={label} style={{ background: "#F5F5F7", borderRadius: 10, padding: "14px 16px" }}>
             <span style={{ display: "block", fontSize: 20, fontWeight: 600, color: "#1D1D1F", marginBottom: 2 }}>{value}</span>
@@ -76,19 +77,19 @@ export default function BeeFeeder() {
         <Block
           src={img1}
           subheading="Project Overview"
-          caption="Pollinators are losing access to nectar in urban environments. This feeder doesn't mimic nature — it improves on it. By combining biological research, parametric modelling, and UV-guided visual design, the result is a functional object that works for insects, not just humans looking at it."
+          caption="Pollinators are losing access to nectar in urban environments. This feeder mimics nature... it improves on it. By combining biological research, parametric modelling, and UV-guided visual design, the result is a functional object that works for insects as primary user group, and humans looking at it as secondary users."
         />
 
         <SideBySide
           left={{
             src: img2,
             subheading: "Studying Real Flowers",
-            caption: "Yellow coneflowers were the reference point — measured for petal geometry, flower diameter, and center proportions. Natural dimensions became parametric inputs, not decorative references.",
+            caption: "Yellow coneflowers were the reference point. Measured for petal geometry, flower diameter, and center proportions. Natural dimensions became parametric inputs, more than decorative references.",
           }}
           right={{
             src: img3,
             subheading: "The UV Insight",
-            caption: "Butterflies see ultraviolet light invisible to humans. Real flowers use UV patterns as landing guides. UV paint applied to the feeder makes it recognisable to pollinators at distance — invisible intervention, measurable impact.",
+            caption: "Butterflies see ultraviolet light invisible to humans. Real flowers use UV patterns as landing guides. UV paint applied to the feeder makes it recognisable to pollinators at distance. THIS invisible intervention, measurable impact!!!",
           }}
         />
 
@@ -96,12 +97,12 @@ export default function BeeFeeder() {
           left={{
             src: img4a,
             subheading: "Parametric Model — View A",
-            caption: "Built in Blender with fully editable parameters: petal count, length, angle, bowl diameter, and overall scale. Every dimension is a variable — changing one updates the entire system.",
+            caption: "Built in Blender Software (It's free :) with fully editable parameters: petal count, length, angle, bowl diameter, and overall scale. Every dimension is a variable... changing one updates the version.",
           }}
           right={{
             src: img4b,
             subheading: "Parametric Model — View B",
-            caption: "The same model from a different angle showing how petal geometry and bowl depth relate. No fixed dimensions — only relationships.",
+            caption: "The same model from a different angle showing how petal geometry and bowl depth relate.",
           }}
         />
 
@@ -109,7 +110,7 @@ export default function BeeFeeder() {
           left={{
             src: img5a,
             subheading: "Exploded View",
-            caption: "Three components: outer petal structure, centre bowl, and removable sponge insert. The 21mm bowl holds sugar water via sponge — safer and cleaner than open nectar pools that attract contamination.",
+            caption: "Three components: outer petal structure, centre bowl, and removable sponge insert. The 21mm bowl holds sugar water via sponge... safer and cleaner than open nectar pools that attract contamination.",
           }}
           right={{
             src: img5b,
@@ -121,7 +122,7 @@ export default function BeeFeeder() {
         <Block
           src={img6}
           subheading="Parametric Exploration"
-          caption="Twelve variations tested across petal spacing, length, flower diameter, and bowl depth. Parametric design compressed weeks of iteration into hours — each variable changed independently while the system updated automatically."
+          caption="Twelve variations tested across petal spacing, length, flower diameter, and bowl depth. Parametric design compressed weeks of iteration into hours . Each A/B testing changed independently while the product progressed."
         />
 
         <SideBySide
@@ -133,7 +134,7 @@ export default function BeeFeeder() {
           right={{
             src: img7b,
             subheading: "3D Printed Prototype",
-            caption: "First physical prototype revealed petal flex under load and confirmed bowl volume. Printing exposed what parametric modelling couldn't — material behaviour at scale.",
+            caption: "First physical prototype revealed petal flex under load and confirmed bowl volume. Printing exposed what parametric modelling couldn't... material behaviour at scale.",
           }}
         />
 
@@ -146,7 +147,7 @@ export default function BeeFeeder() {
         <Block
           src={img9}
           subheading="Reflection"
-          caption="Parametric design changed how I think about iteration. When dimensions are relationships rather than fixed values, exploration becomes systematic. The UV insight — derived from biological research, not aesthetic preference — is what separates this from a decorative object. Design that works for its user, even when the user is a butterfly."
+          caption="Parametric design changed how I think about iteration. When dimensions are relationships rather than fixed values, exploration becomes systematic. The UV insight derived from biological research, not aesthetic preference.. is what separates this from a decorative object. Design that works for its user, even when the user is a butterfly."
         />
 
       </div>

@@ -3,6 +3,7 @@ import img2 from "../../assets/flowercone2.png";
 import img3 from "../../assets/flowerUV3.png";
 import img4a from "../../assets/flowerblender4a.png";
 import img4b from "../../assets/flowerblender4b.png";
+import img4c from "../../assets/flower4c.png";
 import img5a from "../../assets/flowerexploded5.png";
 import img5b from "../../assets/flowerparametric5b.png";
 import img6 from "../../assets/flowerparametric6a.png";
@@ -121,6 +122,7 @@ export default function BeeFeeder() {
 
         <Block
           src={img6}
+          src={img4c}
           subheading="Parametric Exploration"
           caption="Twelve variations tested across petal spacing, length, flower diameter, and bowl depth. Parametric design compressed weeks of iteration into hours . Each A/B testing changed independently while the product progressed."
         />

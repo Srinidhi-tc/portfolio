@@ -1,4 +1,4 @@
-export default function DefenseArk() {
+export default function defenseark() {
   return (
     <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "#1D1D1F", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
 

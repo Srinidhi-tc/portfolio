@@ -8,6 +8,7 @@ import heart8 from "../../assets/heart8.png";
 import heart9 from "../../assets/heart9.png";
 import heart10 from "../../assets/heart10.png";
 import heart11 from "../../assets/heart11.png";
+import heart12 from "../../assets/heart12.png";
 
 const s = { fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "#86868B", marginBottom: 6 };
 const c = { fontSize: 16, color: "#6E6E73", lineHeight: 1.6, maxWidth: 640 };
@@ -36,7 +37,7 @@ export default function HeartsOfInsomnia() {
         CHI 2026 — Arduino · 3D Fabrication
       </p>
       <p style={{ fontSize: 16, color: "#6E6E73", marginBottom: 64, maxWidth: 600, lineHeight: 1.6 }}>
-        A nightlamp that solves insomnia and late-night panic by using light therapy — making invisible anxiety visible and understandable through light, sound, and interaction.
+        A nightlamp that solves insomnia and late-night panic by using light therapy, making invisible anxiety visible and understandable through light, sound, and interaction.
       </p>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, maxWidth: 480, marginBottom: 80 }}>
@@ -57,19 +58,19 @@ export default function HeartsOfInsomnia() {
         <Block
           src={heart1}
           subheading="Final Product Visualization"
-          caption="We transformed a prototype into a product concept that represents comfort during stressful moments. The heart responds to panic and calm states as a bedside companion — designed to help users feel seen, heard, and comforted through light and sound."
+          caption="We transformed a prototype into a product concept that represents comfort during stressful moments. The heart responds to panic and calm states as a bedside companion... designed to help users feel seen, heard, and comforted through light and sound."
         />
 
         <Block
           src={null}
           subheading="Problem Statement"
-          caption="We wanted to make invisible anxiety during insomnia visible and understandable. We explored how racing thoughts and elevated heart rates feel when someone struggles to fall asleep — then designed a heart-based artifact that shows the emotional journey from panic to calm through light, sound, and interaction."
+          caption="We wanted to make invisible anxiety during insomnia visible and understandable. We explored how racing thoughts and elevated heart rates feel when someone struggles to fall asleep.. then designed a heart-based artifact that shows the emotional journey from panic to calm through light, sound, and interaction."
         />
 
         <Block
           src={heart3}
           subheading="Design Thinking Process"
-          caption="We needed to understand how technology could translate personal sleep experiences into meaningful interactions. We researched heart-rate sensors, LEDs, speakers, and interactive devices — narrowing from multiple sensors into a focused system using heart-rate input, lighting, and audio feedback."
+          caption="We needed to understand how technology could translate personal sleep experiences into meaningful interactions. We researched heart-rate sensors, LEDs, speakers, and interactive devices, narrowing from multiple sensors into a focused system using heart-rate input, lighting, and audio feedback."
         />
 
         <Block
@@ -87,7 +88,7 @@ export default function HeartsOfInsomnia() {
         <Block
           src={heart6}
           subheading="Arduino Integration"
-          caption="We needed a reliable bridge between the user's heartbeat and the physical artifact. We used an Arduino board with a pulse sensor to capture heart-rate changes — developing LED behaviors that transform biological data into expressive visual states."
+          caption="We needed a reliable bridge between the user's heartbeat and the physical artifact. We used an Arduino board with a pulse sensor to capture heart-rate changes... developing LED behaviors that transform biological data into expressive visual states."
         />
 
         <Block
@@ -99,31 +100,31 @@ export default function HeartsOfInsomnia() {
         <Block
           src={heart8}
           subheading="3D Modeling the Heart"
-          caption="We chose a physical heart instead of a digital screen to create an emotional and human connection. We modelled an anatomical heart in Blender and designed internal space for electronics — optimising shape, thickness, and structure to balance realism, printing limits, and light diffusion."
+          caption="We chose a physical heart instead of a digital screen to create an emotional and human connection. We modelled an anatomical heart in Blender and designed internal space for electronics. Focusing on optimising shape, thickness, and structure to balance realism, printing limits, and light diffusion."
         />
 
         <Block
           src={heart9}
           subheading="Prototype Assembly"
-          caption="We needed the physical form to support both function and emotional storytelling. We built the pedestal to securely hold the heart while hiding wires and electronics — adjusting materials, dimensions, and internal structures through multiple fabrication tests."
+          caption="We needed the physical form to support both function and emotional storytelling. We built the pedestal to securely hold the heart while hiding wires and electronics (adjusting materials, dimensions, and internal structures through multiple fabrication tests)."
         />
 
         <Block
           src={heart10}
           subheading="Lighting Exploration and Audio Interaction"
-          caption="We used light as a language to communicate emotional states without overwhelming users with data. Red and blue flashes represent panic — soft rainbow transitions represent calm. Audio moved from Arduino speakers to a p5.js system after testing showed better control and quality."
+          caption="We used light as a language to communicate emotional states without overwhelming users with data. Red and blue flashes represent panic, soft rainbow transitions represent calm. Audio moved from Arduino speakers to a p5.js system after testing showed better control and quality."
         />
 
         <Block
           src={heart11}
           subheading="Iteration and Debugging"
-          caption="We learned that meaningful experiences require constant refinement between technology and design. We solved challenges with audio communication, sensor reliability, and prototype dimensions — improving the model by simplifying structures and prioritising user experience."
+          caption="We learned that meaningful experiences require constant refinement between technology and design. We solved challenges with audio communication, sensor reliability, and prototype dimensions improving the model by simplifying structures and prioritising user experience."
         />
 
         <Block
-          src={null}
+          src={heart12}
           subheading="Public Interaction Concept"
-          caption="We explored how a small tangible object could create emotional support beyond the bedroom. We transformed the heart into a handheld keychain concept for personal reflection — showing how users could carry a reminder that anxiety can change and settle."
+          caption="We explored how a small tangible object could create emotional support beyond the bedroom. We transformed the heart into a handheld keychain concept for personal reflection, showing how users could carry a reminder that anxiety can change and settle."
         />
 
       </div>

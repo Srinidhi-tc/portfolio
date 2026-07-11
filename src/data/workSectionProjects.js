@@ -3,9 +3,9 @@ import workAiCoding from "../assets/work-ai-coding.avif";
 import workStrabospot from "../assets/work-strabospot.avif";
 import workPsychosis from "../assets/work-psychosis.jpg";
 import workBeeFeeder from "../assets/beefeedermain.png";
-import workMalli from "../assets/mallimain.png";
-import workDefenseArk from "../assets/ransomwaremain.png";
-import workHeartsOfInsomnia from "../assets/heartmain.png";
+import workHeartsOfInsomnia from "../assets/work-Hearts-Of-Insomnia.png";
+import workMalli from "../assets/work-Malli.png";
+import workDefenseArk from "../assets/work-DefenseArk.png";
 
 export const workSectionProjects = [
   {

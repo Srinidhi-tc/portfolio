@@ -2,6 +2,10 @@ import workMicrosoft from "../assets/work-microsoft.avif";
 import workAiCoding from "../assets/work-ai-coding.avif";
 import workStrabospot from "../assets/work-strabospot.avif";
 import workPsychosis from "../assets/work-psychosis.jpg";
+import workBeeFeeder from "../assets/beefeedermain.png";
+import workMalli from "../assets/Mallimain.png";
+import workDefenseArk from "../assets/ransomwaremain.png";
+import workHeartsOfInsomnia from "../assets/heartmain.png";
 
 export const workSectionProjects = [
   {
@@ -51,8 +55,7 @@ export const workSectionProjects = [
     brand: "Arduino · 3D Fabrication",
     title: "CHI 2026 — Hearts of Insomnia",
     keyword: "Physical Computing",
-    image: null,
-    imageLabel: "CHI 2026",
+    image: workHeartsOfInsomnia,
     to: "/work/hearts-of-insomnia",
     states: {
       problem: { subheading: "2am panic has no solution", body: "Late-night panic and insomnia are worsened by harsh lighting and the absence of calming environmental cues." },
@@ -66,8 +69,7 @@ export const workSectionProjects = [
     brand: "Sanitary Health",
     title: "Malli 2.0 — Toilet Cleaning Device",
     keyword: "Product Design",
-    image: null,
-    imageLabel: "Malli",
+    image: workMalli,
     to: "/work/malli",
     states: {
       problem: { subheading: "Cleaning gets avoided", body: "Toilet cleaning is skipped due to disgust and effort — the challenge was making it happen without a conscious decision." },
@@ -81,7 +83,7 @@ export const workSectionProjects = [
     brand: "Solidworks · Blender",
     title: "Bee Feeder — Parametric 3D Design",
     keyword: "Parametric Design",
-    image: null,
+    image: workBeeFeeder,
     imageLabel: "Bee Feeder",
     to: "/work/bee-feeder",
     states: {
@@ -111,7 +113,7 @@ export const workSectionProjects = [
     brand: "DefenseARK",
     title: "Ransomware Portal",
     keyword: "NDA",
-    image: null,
+    image: workDefenseArk,
     imageLabel: "DefenseARK",
     to: "/work/defenseark",
     states: {

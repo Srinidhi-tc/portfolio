@@ -37,20 +37,6 @@ export const workSectionProjects = [
     },
   },
   {
-    id: "oura",
-    brand: "Oura Ring",
-    title: "Behavioral Health UX",
-    keyword: "Behavioral Loop",
-    image: null,
-    imageLabel: "Oura",
-    states: {
-      problem: { subheading: "Missing motivation", body: "Health tracking ignored emotional drivers, reducing long-term engagement in behavioral health loops." },
-      decisions: { subheading: "Emotion-first", body: "Introduced emotional mapping and conversation tracking to reinforce positive behavioral feedback loops." },
-      tradeoffs: { subheading: "Limited scope", body: "Launched English-only interaction tracking to validate behavioral model before scaling globally." },
-      impact: { subheading: "Engagement boost", body: "Increased motivation signals ~18% in testing, improving perceived value of social health tracking." },
-    },
-  },
-  {
     id: "hearts-of-insomnia",
     brand: "Arduino · 3D Fabrication",
     title: "CHI 2026 — Hearts of Insomnia",

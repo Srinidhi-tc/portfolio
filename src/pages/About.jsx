@@ -1,8 +1,3 @@
-// ── ABOUT PAGE REWRITE ─────────────────────────────────────────────────────
-// Drop-in replacement for your current About.jsx copy.
-// Keeps your voice and structure. Adds metrics, scale signals, and Meta-relevant framing.
-// Only the text strings change — all component imports and layout stay identical.
-
 import ProfilePhoto from "../components/ui/ProfilePhoto";
 import CollaboratorNotes from "../sections/CollaboratorNotes";
 
@@ -14,29 +9,15 @@ export default function About() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-3xl)", alignItems: "start" }}>
           <div>
             <p className="eyebrow" style={{ visibility: "hidden" }}>About</p>
-
-            {/* CHANGED: was "Health + AI + Research" — too vague for a hiring manager scan */}
             <h1 className="page-title" style={{ maxWidth: "none" }}>
-              Product Designer. Researcher. Built on Psychology.
+              I started in psychology. I ended up in design. Both ask the same question.
             </h1>
-
-            {/* CHANGED: added MS graduation date, named outcomes, removed passive "I believe" opener */}
             <p className="page-copy">
-              I'm a product designer completing my Master's in User Experience
-              Design at Purdue University (May 2026), with an undergraduate
-              degree in Psychology. I've spent 4+ years turning complex,
-              ambiguous product problems into high-craft experiences that ship
-              — across AI systems, cybersecurity platforms, and enterprise tools
-              serving 10,000+ users.
+              Why does this feel harder than it should?
             </p>
-
-            {/* CHANGED: added what the psychology background actually produces (metrics) */}
             <p className="page-copy">
-              My psychology and statistics background isn't decorative — it's
-              how I run mixed-methods research, model user behavior, and make
-              design decisions that hold up under scrutiny. It's why my work
-              at DefenseARK reduced decision latency by 30%, and why the
-              interfaces I designed at Microsoft Azure cut alert fatigue by 35%.
+              I'm Srinidhi
+              A product designer with a Master's in UX from Purdue and a background in statistics and psychology. I've designed across AI systems, cybersecurity platforms, enterprise tools, physical products, and residential interiors. I'm drawn to complexity wherever it lives.
             </p>
           </div>
           <div
@@ -52,46 +33,37 @@ export default function About() {
         </div>
 
         <div className="about-section" style={{ marginTop: "var(--space-3xl)" }}>
-          {/* CHANGED: was "Connecting Empathy with Execution" — kept the idea, made it concrete */}
-          <h2 className="about-heading">
-            Empathy is the Starting Point. Execution is the Job.
-          </h2>
+          <h2 className="about-heading">What makes me unusual</h2>
+          <div className="hobbies-list" style={{ flexDirection: "column", alignItems: "flex-start", gap: "12px" }}>
+            {[
+              "I ran an interior design consultancy for 2 years — real clients, real budgets, real construction",
+              "I designed a robotic toilet cleaner from CMF to manufacturing",
+              "I've done UX for cybersecurity platforms under NDA and youth mental health apps going to CHI 2026",
+              "My psychology degree is a differentiator, it's visible in how I frame problems",
+              "I think restraint is a skill. The best interfaces are the ones you stop noticing",
+            ].map((item, i) => (
+              <div key={i} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+                <span style={{ color: "var(--color-text-tertiary, #86868B)", flexShrink: 0, marginTop: 2 }}>—</span>
+                <p className="about-text" style={{ margin: 0 }}>{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-          {/* CHANGED: added "at scale," removed "soft" — signals readiness for large-scale products */}
+        <div className="about-section">
+          <h2 className="about-heading">How I work</h2>
           <p className="about-text">
-            I align user needs with business outcomes — at scale. Good design
-            doesn't just solve problems; it changes how people experience
-            something they couldn't imagine being different. I build for that
-            moment: when a product stops feeling like software and starts
-            feeling like it was made for exactly this person, right now.
+            I move between research and craft without losing either. I can run a usability study and redesign the component it exposes in the same week. I care about the 8pt grid and I care about whether the product actually changes someone's day.
           </p>
           <p className="about-text">
-            I create interfaces that feel intentional and trustworthy — where
-            users move without friction, make decisions with confidence, and
-            come back because the experience earned it.
+            I'm drawn to problems where the stakes are real — healthcare, security, things people use when something matters.
           </p>
         </div>
 
         <div className="about-section">
-          {/* KEPT: this section works well — just tightened the answer */}
-          <h2 className="about-heading">
-            How is Psychology Connected to Design?
-          </h2>
-          <p className="about-text">
-            Psychology gives me the lens to understand why people behave the
-            way they do — cognitive load, decision fatigue, trust signals,
-            habit formation. Design gives me the tools to work with those
-            patterns, not against them. Together, they let me build products
-            that aren't just usable: they're predictable, trustworthy, and
-            quietly delightful to the people using them every day.
-          </p>
-        </div>
-
-        <div className="about-section">
-          {/* KEPT: hobbies section is fine — shows personality without oversharing */}
-          <h2 className="about-heading">Outside of Design</h2>
+          <h2 className="about-heading">Outside of design</h2>
           <div className="hobbies-list">
-            {["Gym", "Museums", "Libraries", "Architecture Walks"].map(
+            {["Gym", "Museums", "Libraries", "Architectural Walks"].map(
               (hobby) => (
                 <span key={hobby} className="tag">
                   {hobby}
@@ -106,48 +78,3 @@ export default function About() {
     </>
   );
 }
-
-// ── CHANGE SUMMARY ──────────────────────────────────────────────────────────
-//
-// h1 headline
-//   BEFORE: "Health + AI + Research"
-//   AFTER:  "Product Designer. Researcher. Built on Psychology."
-//   WHY:    Hiring managers need to know what you are in 2 seconds.
-//           The new headline names the role, names the differentiator.
-//
-// Paragraph 1
-//   BEFORE: "I believe small design decisions compound into real human outcomes."
-//   AFTER:  4+ years, May 2026, 10,000+ users — specific, scannable, credible.
-//   WHY:    "I believe" is an opinion. Hiring managers want evidence.
-//
-// Paragraph 2
-//   BEFORE: "My background in psychology... helps me uncover hidden insights"
-//   AFTER:  Same idea + 30% decision latency reduction + 35% alert fatigue reduction
-//   WHY:    The psychology claim needs proof. Two metrics from your resume
-//           turn a soft claim into a demonstrated capability.
-//
-// Section heading 1
-//   BEFORE: "Connecting Empathy with Execution"
-//   AFTER:  "Empathy is the Starting Point. Execution is the Job."
-//   WHY:    More direct. Signals you know the difference between caring
-//           about users and actually shipping — which Meta evaluates for.
-//
-// Section body 1
-//   BEFORE: "interfaces that feel soft, intentional, and safe"
-//   AFTER:  "interfaces that feel intentional and trustworthy" + "at scale"
-//   WHY:    "Soft" reads as junior. "At scale" signals Meta-level ambition.
-//           "Trustworthy" is a stronger word for the same intent.
-//
-// Psychology section
-//   BEFORE: "products that aren't just usable — they're deeply human"
-//   AFTER:  Named the specific psychology concepts (cognitive load, decision
-//           fatigue, trust signals, habit formation) + "predictable, trustworthy"
-//   WHY:    Naming the concepts proves you have the knowledge, not just
-//           the interest. Hiring managers from Meta's research-heavy teams
-//           will recognise these terms and trust the claim.
-//
-// KEPT UNCHANGED:
-//   - All imports, component structure, layout, grid, spacing
-//   - Hobbies section (personality signal — leave it)
-//   - CollaboratorNotes component
-//   - All className and style props

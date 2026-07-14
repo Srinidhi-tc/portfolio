@@ -438,7 +438,7 @@ img {
   margin-bottom: var(--space-2xl);
   padding-top: var(--space-xs);
   padding-bottom: var(--space-xs);
-  background: transparent;
+    background: var(--bg);
 }
 
 .work-section-process {

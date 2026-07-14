@@ -432,21 +432,22 @@ img {
 
 /* Work section — glass process toggle + artifact cards */
 .work-section-sticky {
+ .work-section-sticky {
   position: sticky;
   top: 52px;
   z-index: 100;
   margin-bottom: var(--space-2xl);
   padding-top: var(--space-xs);
   padding-bottom: var(--space-xs);
-  background: rgba(249, 249, 251, 0.82);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: transparent;
+}
 }
 
 .work-section-process {
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
+  padding: 8px 0;
 }
 
 .work-section-process-glass {
@@ -460,12 +461,15 @@ img {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 4px;
 }
 
 .work-section-process-rail {
   position: relative;
   min-width: min(100%, 520px);
-  padding: 5px;
+  padding: 8px;
   border-radius: inherit;
 }
 

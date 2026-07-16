@@ -207,13 +207,14 @@ img {
   position: relative;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  aspect-ratio: 1;
+  aspect-ratio: 9 / 16;
 }
 
 .profile-photo img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
   display: block;
 }
 
@@ -222,6 +223,8 @@ img {
   inset: 0;
   opacity: 0;
   transition: opacity var(--duration) var(--ease);
+  object-fit: cover;
+  object-position: center;
 }
 
 .profile-photo:hover .profile-photo__animated {

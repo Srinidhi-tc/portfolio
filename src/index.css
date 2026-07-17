@@ -2,6 +2,11 @@
 @import "./styles/utilities.css";
 @import "tailwindcss";
 
+.work-section-process-glass {
+  -webkit-backdrop-filter: blur(60px) saturate(2.5) brightness(1.1) !important;
+  backdrop-filter: blur(60px) saturate(2.5) brightness(1.1) !important;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -453,13 +458,13 @@ img {
 
 .work-section-process-glass {
   border-radius: var(--radius-full);
-  border: 0.5px solid rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(60px) saturate(3) brightness(1.15);
-  -webkit-backdrop-filter: blur(60px) saturate(3) brightness(1.15);
+  border: 0.5px solid rgba(255, 255, 255, 0.7);
+  background: rgba(245, 245, 247, 0.75);
+  backdrop-filter: blur(60px) saturate(2.5) brightness(1.1) !important;
+  -webkit-backdrop-filter: blur(60px) saturate(2.5) brightness(1.1) !important;
   box-shadow: 
-    0 0 0 0.5px rgba(255,255,255,0.4) inset,
-    0 4px 32px rgba(0, 0, 0, 0.04);
+    0 0 0 0.5px rgba(255,255,255,0.5) inset,
+    0 4px 32px rgba(0, 0, 0, 0.05);
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;

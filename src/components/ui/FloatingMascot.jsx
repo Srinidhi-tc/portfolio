@@ -262,10 +262,25 @@ export default function FloatingMascot() {
     window.addEventListener("volleyball:tracking", onTrack);
     window.addEventListener("volleyball:approaching", onApproach);
     window.addEventListener("volleyball:kicked", onKick);
-    return () => {
+   
+    // Tennis ball impact — dog jumps then wags tail
+const onTennisBall = () => {
+  setTrick("jump");
+  clearTimeout(trickTimer.current);
+  trickTimer.current = setTimeout(() => {
+    setTrick("wiggle");
+    trickTimer.current = setTimeout(() => setTrick(null), 600);
+  }, 500);
+  setBubble("🎾 !");
+  clearTimeout(bubbleTimer.current);
+  bubbleTimer.current = setTimeout(() => setBubble(null), 1200);
+};
+window.addEventListener("tennisball:impact", onTennisBall);
+return () => {
       window.removeEventListener("volleyball:tracking", onTrack);
       window.removeEventListener("volleyball:approaching", onApproach);
       window.removeEventListener("volleyball:kicked", onKick);
+      window.removeEventListener("tennisball:impact", onTennisBall);
     };
   }, []);
 

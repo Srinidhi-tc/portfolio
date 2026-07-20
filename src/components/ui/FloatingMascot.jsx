@@ -5,7 +5,6 @@ import dogIdle from "../../assets/cute-doggie.json";
 
 const TRICKS = ["roll", "jump", "bark", "wiggle"];
 
-// Calm, witty observations from a thoughtful tour guide
 const CLICK_MESSAGES = [
   "Hi.",
   "You found me.",
@@ -19,104 +18,47 @@ const CLICK_MESSAGES = [
   "I'll be here if you need me.",
 ];
 
-// Each page has its own greeting + tour-guide messages
 const PAGE_MESSAGES = {
   "/": {
     greeting: "Welcome. Glad you stopped by.",
-    messages: [
-      "Start with the case studies →",
-      "Sri shows over tells.",
-      "Take your time.",
-    ],
+    messages: ["Start with the case studies →", "Sri shows over tells.", "Take your time."],
   },
   "/work": {
     greeting: "Three case studies. Pick any.",
-    messages: [
-      "Each one has the full process.",
-      "Look for the outcomes section.",
-      "Microsoft's my favorite.",
-    ],
+    messages: ["Each one has the full process.", "Look for the outcomes section.", "Microsoft's my favorite."],
   },
   "/play": {
     greeting: "Side projects. The fun stuff.",
-    messages: [
-      "Curiosity says a lot about a designer.",
-      "She tinkers with hardware too.",
-      "Play is research in disguise.",
-    ],
+    messages: ["Curiosity says a lot about a designer.", "She tinkers with hardware too.", "Play is research in disguise."],
   },
   "/about": {
     greeting: "The short version of Sri.",
-    messages: [
-      "Psychology background. It shows.",
-      "Calm. Thoughtful. Ships things.",
-    ],
+    messages: ["Psychology background. It shows.", "Calm. Thoughtful. Ships things."],
   },
-  /* "/community": {
-    greeting: "Where Sri gives back.",
-    messages: [
-      "Writes, mentors, shows up.",
-      "Generous with what she knows.",
-    ],
-  }, */
   "/work/microsoft": {
     greeting: "Microsoft × Agentic AI.",
-    messages: [
-      "Research-led, end to end.",
-      "Note the methodology section.",
-      "Built for neurodivergent users.",
-    ],
+    messages: ["Research-led, end to end.", "Note the methodology section.", "Built for neurodivergent users."],
   },
   "/work/ai-coding": {
     greeting: "AI Coding Interviewer.",
-    messages: [
-      "Heuristic eval done properly.",
-      "Watch how she frames trade-offs.",
-    ],
+    messages: ["Heuristic eval done properly.", "Watch how she frames trade-offs."],
   },
   "/work/strabospot": {
     greeting: "StraboSpot. 12k geologists.",
-    messages: [
-      "Domain-deep UX. The hard kind.",
-      "See how she reduced friction.",
-    ],
-  },
-  "/play/vr-interior": {
-    greeting: "VR interior design.",
-    messages: ["18% under budget.", "98% client satisfaction."],
-  },
-  "/play/heart-of-insomnia": {
-    greeting: "A sensory sleep aid.",
-    messages: ["Arduino + Blender.", "40% faster sleep onset."],
-  },
-  "/play/butterfly": {
-    greeting: "A 3D-printed butterfly feeder.",
-    messages: ["Doubled garden visitation.", "Bio-mimicry in action."],
-  },
-  "/play/branding": {
-    greeting: "School branding work.",
-    messages: ["100% stakeholder approval.", "VR pitch — 75% faster decisions."],
-  },
-  "/play/digital-confetti": {
-    greeting: "Projection-mapped confetti.",
-    messages: ["Zero waste.", "p5.js + Arduino + motion."],
+    messages: ["Domain-deep UX. The hard kind.", "See how she reduced friction."],
   },
 };
 
 const DEFAULT_MESSAGES = {
   greeting: "Welcome.",
-  messages: [
-    "Take a look around.",
-    "I'll be in the corner if you need me.",
-  ],
+  messages: ["Take a look around.", "I'll be in the corner if you need me."],
 };
 
-// Special milestone messages — playful but not pleading
 const MILESTONES = {
-  5: { text: "We're friends now.", confetti: false },
-  10: { text: "Ten pets. Distinguished company. 🎉", confetti: true },
-  25: { text: "Twenty-five. You're really committed.", confetti: true },
-  50: { text: "Fifty pets. I'm legally your dog now.", confetti: true },
+  5:   { text: "We're friends now.", confetti: false },
+  10:  { text: "Ten pets. Distinguished company. 🎉", confetti: true },
+  25:  { text: "Twenty-five. You're really committed.", confetti: true },
+  50:  { text: "Fifty pets. I'm legally your dog now.", confetti: true },
   100: { text: "One hundred. This is my whole personality now.", confetti: true },
 };
 
@@ -135,28 +77,24 @@ export default function FloatingMascot() {
     style: { width: "100%", height: "100%" },
   });
 
-  const [trick, setTrick] = useState(null);
-  const [bubble, setBubble] = useState(null);
+  const [trick,      setTrick]      = useState(null);
+  const [bubble,     setBubble]     = useState(null);
   const [clickCount, setClickCount] = useState(0);
-  const [confetti, setConfetti] = useState(false);
+  const [confetti,   setConfetti]   = useState(false);
   const [walkOffset, setWalkOffset] = useState(0);
-  const [entered, setEntered] = useState(false);
+  const [entered,    setEntered]    = useState(false);
 
-  const trickTimer = useRef(null);
-  const bubbleTimer = useRef(null);
+  const trickTimer    = useRef(null);
+  const bubbleTimer   = useRef(null);
   const confettiTimer = useRef(null);
-  const greetTimer = useRef(null);
-  const idleTimer = useRef(null);
-  const wanderTimer = useRef(null);
+  const greetTimer    = useRef(null);
+  const idleTimer     = useRef(null);
+  const wanderTimer   = useRef(null);
 
-  // Entrance: dog walks in from off-screen on first load (per session)
+  // Entrance walk-in
   useEffect(() => {
     const alreadyEntered = sessionStorage.getItem("mascot-entered") === "1";
-    if (alreadyEntered) {
-      setEntered(true);
-      return;
-    }
-    // Trigger the CSS walk-in animation
+    if (alreadyEntered) { setEntered(true); return; }
     const t = setTimeout(() => {
       setEntered(true);
       sessionStorage.setItem("mascot-entered", "1");
@@ -164,14 +102,13 @@ export default function FloatingMascot() {
     return () => clearTimeout(t);
   }, []);
 
-  // Greet on every page navigation. Wait for entrance walk-in on first load.
+  // Page greeting
   useEffect(() => {
     clearTimeout(greetTimer.current);
     setBubble(null);
     const isFirstLoad = sessionStorage.getItem("mascot-greeted") !== "1";
     const delay = isFirstLoad ? 2800 : 900;
     sessionStorage.setItem("mascot-greeted", "1");
-
     greetTimer.current = setTimeout(() => {
       setBubble(pageData.greeting);
       clearTimeout(bubbleTimer.current);
@@ -180,7 +117,7 @@ export default function FloatingMascot() {
     return () => clearTimeout(greetTimer.current);
   }, [pathname, pageData.greeting]);
 
-  // Subtle idle motion — small wiggle every 30-60s
+  // Idle wiggle
   useEffect(() => {
     const scheduleNext = () => {
       const delay = 30000 + Math.random() * 30000;
@@ -195,12 +132,11 @@ export default function FloatingMascot() {
     return () => clearTimeout(idleTimer.current);
   }, [pathname]);
 
-  // Wander: dog paces left a bit then back, every 25-45s
+  // Wander
   useEffect(() => {
     const scheduleNext = () => {
       const delay = 25000 + Math.random() * 20000;
       wanderTimer.current = setTimeout(() => {
-        // Walk left ~50px, pause, then walk back
         setWalkOffset(-50);
         setTimeout(() => setWalkOffset(0), 2200);
         scheduleNext();
@@ -210,7 +146,7 @@ export default function FloatingMascot() {
     return () => clearTimeout(wanderTimer.current);
   }, []);
 
-  // Cleanup all timers on unmount
+  // Cleanup timers
   useEffect(() => {
     return () => {
       clearTimeout(trickTimer.current);
@@ -222,12 +158,10 @@ export default function FloatingMascot() {
     };
   }, []);
 
-  // Volleyball interaction:
-  //   • "tracking" (each outbound frame) → lean slightly toward ball X
-  //   • "approaching" (~70% of flight) → small anticipation wiggle, no bubble
-  //   • "kicked" (on impact) → jump + "Got it!" bubble + tail wag follow-up
+  // Volleyball + tennis ball events
   useEffect(() => {
     let mascotEl = null;
+
     const onTrack = (e) => {
       if (!mascotEl) mascotEl = document.querySelector(".floating-mascot");
       if (!mascotEl) return;
@@ -237,40 +171,51 @@ export default function FloatingMascot() {
         return;
       }
       const r = mascotEl.getBoundingClientRect();
-      const mascotCenterX = r.left + r.width / 2;
-      // Map delta-X to a small rotation in degrees. Clamped to ±9°.
-      const delta = ballX - mascotCenterX;
+      const delta = ballX - (r.left + r.width / 2);
       const lean = Math.max(-9, Math.min(9, delta / 60));
       mascotEl.style.setProperty("--mascot-lean", `${lean}deg`);
     };
+
     const onApproach = () => {
       setTrick("wiggle");
       clearTimeout(trickTimer.current);
       trickTimer.current = setTimeout(() => setTrick(null), 320);
     };
+
     const onKick = () => {
       setTrick("jump");
       clearTimeout(trickTimer.current);
       trickTimer.current = setTimeout(() => {
-        setTrick("wiggle"); // tail wag follow-through
+        setTrick("wiggle");
         trickTimer.current = setTimeout(() => setTrick(null), 600);
       }, 600);
       setBubble("Got it!");
       clearTimeout(bubbleTimer.current);
       bubbleTimer.current = setTimeout(() => setBubble(null), 1400);
     };
-    window.addEventListener("volleyball:tracking", onTrack);
+
+    // Tennis ball — no bubble, just jump + wiggle
+    const onTennisBall = () => {
+      setTrick("jump");
+      clearTimeout(trickTimer.current);
+      trickTimer.current = setTimeout(() => {
+        setTrick("wiggle");
+        trickTimer.current = setTimeout(() => setTrick(null), 600);
+      }, 500);
+    };
+
+    window.addEventListener("volleyball:tracking",   onTrack);
     window.addEventListener("volleyball:approaching", onApproach);
-    window.addEventListener("volleyball:kicked", onKick);
-   
-  const onTennisBall = () => {
-  setTrick("jump");
-  clearTimeout(trickTimer.current);
-  trickTimer.current = setTimeout(() => {
-    setTrick("wiggle");
-    trickTimer.current = setTimeout(() => setTrick(null), 600);
-  }, 500);
-};
+    window.addEventListener("volleyball:kicked",      onKick);
+    window.addEventListener("tennisball:impact",      onTennisBall);
+
+    return () => {
+      window.removeEventListener("volleyball:tracking",   onTrack);
+      window.removeEventListener("volleyball:approaching", onApproach);
+      window.removeEventListener("volleyball:kicked",      onKick);
+      window.removeEventListener("tennisball:impact",      onTennisBall);
+    };
+  }, []);
 
   const showBubble = (text, duration = 2000) => {
     setBubble(text);
@@ -287,22 +232,16 @@ export default function FloatingMascot() {
   const handleClick = () => {
     const nextCount = clickCount + 1;
     setClickCount(nextCount);
-
-    // Random trick animation
     const nextTrick = pickRandom(TRICKS);
     setTrick(nextTrick);
     clearTimeout(trickTimer.current);
     trickTimer.current = setTimeout(() => setTrick(null), 800);
-
-    // Milestone takes priority over normal messages
     const milestone = MILESTONES[nextCount];
     if (milestone) {
       showBubble(milestone.text, 3000);
       if (milestone.confetti) triggerConfetti(2000);
       return;
     }
-
-    // 60% chance: a generic click message; 40%: a page-specific one
     const useGeneric = Math.random() < 0.6;
     const message = useGeneric
       ? pickRandom(CLICK_MESSAGES)

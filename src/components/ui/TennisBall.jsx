@@ -1,67 +1,128 @@
-// TennisBall.jsx — v2
-// Fixed: ball now starts exactly at the nav button position using
-// getBoundingClientRect() + position:fixed translate, not offset from (0,0).
+// TennisBall.jsx — v3
+// Icon: Apple-minimal 3D tennis ball traced from reference images.
+//   - Radial gradient: bright yellow-green highlight top-left → deep green bottom-right
+//   - Single wide white seam curve (bottom-left → top-right arc)
+//   - Soft elliptical drop shadow
+//   - Slight specular glint top-left for 3D depth
+// Animation: ball flies from exact nav position → dog head → kicked back → snaps to nav.
 
 import { useRef, useState, useCallback } from "react";
 
-function TennisBallSVG({ size = 20 }) {
+// ── Tennis ball SVG icon ────────────────────────────────────────────────────
+function TennisBallSVG({ size = 24 }) {
+  const id = "tb";
   return (
-    <svg width={size} height={size} viewBox="0 0 20 20" fill="none"
-         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="10" cy="10" r="9.5" fill="#C7F464" stroke="#A8D43A" strokeWidth="0.5"/>
-      <path d="M3.5 6.5 C5 4, 8 3.5, 10 5 C12 6.5, 13 9, 12 11.5"
-            stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.85"/>
-      <path d="M16.5 13.5 C15 16, 12 16.5, 10 15 C8 13.5, 7 11, 8 8.5"
-            stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.85"/>
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      style={{ display: "block" }}
+    >
+      <defs>
+        {/* Main body gradient — bright top-left, deep bottom-right */}
+        <radialGradient id={`${id}-body`} cx="35%" cy="30%" r="70%" fx="30%" fy="25%">
+          <stop offset="0%"   stopColor="#D4F06B" />
+          <stop offset="35%"  stopColor="#AADB35" />
+          <stop offset="75%"  stopColor="#7DB52A" />
+          <stop offset="100%" stopColor="#5A8A1A" />
+        </radialGradient>
+
+        {/* Specular glint — tiny bright spot top-left */}
+        <radialGradient id={`${id}-glint`} cx="30%" cy="28%" r="30%">
+          <stop offset="0%"  stopColor="white" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="white" stopOpacity="0" />
+        </radialGradient>
+
+        {/* Shadow blur */}
+        <filter id={`${id}-shadow`} x="-20%" y="-20%" width="150%" height="160%">
+          <feDropShadow dx="0.5" dy="2.5" stdDeviation="2"
+                        floodColor="#4A7010" floodOpacity="0.35" />
+        </filter>
+
+        {/* Clip to circle */}
+        <clipPath id={`${id}-clip`}>
+          <circle cx="16" cy="15.5" r="13.5" />
+        </clipPath>
+      </defs>
+
+      {/* Soft elliptical ground shadow */}
+      <ellipse cx="16" cy="29" rx="10" ry="2.5"
+               fill="#3A6010" opacity="0.18" />
+
+      {/* Ball body with drop shadow */}
+      <circle cx="16" cy="15.5" r="13.5"
+              fill={`url(#${id}-body)`}
+              filter={`url(#${id}-shadow)`} />
+
+      {/* White seam — single wide curve, bottom-left arc to top-right */}
+      {/* Traced from reference: smooth S-like path across the ball */}
+      <g clipPath={`url(#${id}-clip)`}>
+        <path
+          d="M 4 22 C 7 18, 10 10, 18 8 C 22 7, 26 8, 28 10"
+          stroke="white"
+          strokeWidth="2.8"
+          fill="none"
+          strokeLinecap="round"
+          opacity="0.92"
+        />
+        {/* Seam inner edge — very subtle darker line for depth */}
+        <path
+          d="M 4 22 C 7 18, 10 10, 18 8 C 22 7, 26 8, 28 10"
+          stroke="rgba(255,255,255,0.4)"
+          strokeWidth="1.2"
+          fill="none"
+          strokeLinecap="round"
+        />
+      </g>
+
+      {/* Specular glint overlay */}
+      <circle cx="16" cy="15.5" r="13.5"
+              fill={`url(#${id}-glint)`}
+              clipPath={`url(#${id}-clip)`} />
     </svg>
   );
 }
 
-// Quadratic bezier point at t
-function bezier(t, p0, p1, p2) {
-  return (1 - t) ** 2 * p0 + 2 * (1 - t) * t * p1 + t * t * p2;
+// ── Bezier helpers ───────────────────────────────────────────────────────────
+function bezierPoint(t, p0, cp, p1) {
+  return (1 - t) ** 2 * p0 + 2 * (1 - t) * t * cp + t * t * p1;
 }
 
-// easing
-const easeInOut = t => t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
-const easeOut   = t => 1 - (1-t)**3;
+const easeInOut = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+const easeOut   = t => 1 - (1 - t) ** 3;
 
-const BALL_SIZE = 22;
+const BALL_SIZE = 26;
 
-function animateArc({ flyEl, fromX, fromY, toX, toY, arcHeight, duration, rotations, easing, onProgress, onComplete }) {
+function animateArc({ flyEl, fromX, fromY, toX, toY, cpY, duration, rotations, easing, onComplete }) {
   const start = performance.now();
-
-  // Control point for the bezier curve — midpoint lifted by arcHeight
-  const cpX = (fromX + toX) / 2;
-  const cpY = Math.min(fromY, toY) + arcHeight; // arcHeight is negative = upward
+  const cpX   = (fromX + toX) / 2;
 
   function frame(now) {
     const raw = Math.min((now - start) / duration, 1);
     const t   = easing(raw);
 
-    const x = bezier(t, fromX, cpX, toX);
-    const y = bezier(t, fromY, cpY, toY);
+    const x     = bezierPoint(t, fromX, cpX, toX);
+    const y     = bezierPoint(t, fromY, cpY, toY);
     const angle = raw * rotations * 360;
 
-    // position: fixed, top:0, left:0 — translate moves from viewport origin
     flyEl.style.transform = `translate(${x - BALL_SIZE / 2}px, ${y - BALL_SIZE / 2}px) rotate(${angle}deg)`;
-    onProgress?.(x, y, raw);
 
-    if (raw < 1) {
-      requestAnimationFrame(frame);
-    } else {
-      onComplete?.();
-    }
+    if (raw < 1) requestAnimationFrame(frame);
+    else onComplete?.();
   }
   requestAnimationFrame(frame);
 }
 
+// ── Component ────────────────────────────────────────────────────────────────
 export default function TennisBall() {
-  const btnRef  = useRef(null);  // the visible nav ball
-  const flyRef  = useRef(null);  // fixed flying clone
+  const btnRef  = useRef(null);
+  const flyRef  = useRef(null);
   const running = useRef(false);
-  const [hovered, setHovered] = useState(false);
-  const [visible, setVisible] = useState(true); // nav ball visibility
+  const [hovered,  setHovered]  = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
 
   const prefersReduced =
     typeof window !== "undefined" &&
@@ -70,119 +131,125 @@ export default function TennisBall() {
   const launch = useCallback(() => {
     if (running.current) return;
 
-    // Reduced motion — just trigger reaction, no flight
     if (prefersReduced) {
       window.dispatchEvent(new CustomEvent("tennisball:impact"));
       return;
     }
 
-    // ── Measure positions at the moment of click ──────────
+    // ── 1. Measure positions ────────────────────────────
     const btnRect = btnRef.current?.getBoundingClientRect();
     const dogEl   = document.querySelector(".floating-mascot");
     const dogRect = dogEl?.getBoundingClientRect();
-
     if (!btnRect || !dogRect) return;
 
     running.current = true;
 
-    // Centre of the nav ball
+    // Nav ball centre — exact start point
     const fromX = btnRect.left + btnRect.width  / 2;
     const fromY = btnRect.top  + btnRect.height / 2;
 
-    // Aim at the dog's upper-centre (head area)
-    const toX   = dogRect.left + dogRect.width  / 2;
-    const toY   = dogRect.top  + dogRect.height * 0.25;
+    // Dog head — top-centre of the mascot element
+    const toX = dogRect.left + dogRect.width  / 2;
+    const toY = dogRect.top  + 16; // just above the dog's head
 
     const fly = flyRef.current;
 
-    // Place the flying ball exactly on the nav ball before making it visible
-    fly.style.transform = `translate(${fromX - BALL_SIZE/2}px, ${fromY - BALL_SIZE/2}px)`;
-    fly.style.opacity   = "1";
-    fly.style.display   = "block";
+    // ── 2. Pre-position flying ball exactly on nav ball ──
+    fly.style.transition  = "";
+    fly.style.transform   = `translate(${fromX - BALL_SIZE / 2}px, ${fromY - BALL_SIZE / 2}px)`;
+    fly.style.display     = "block";
+    fly.style.opacity     = "1";
 
-    // Hide the original nav ball
-    setVisible(false);
+    // Hide original nav ball
+    setNavVisible(false);
 
-    // ── Phase 1 — fly TO dog ─────────────────────────────
+    // Arc control point — peak of the arc (above midpoint)
+    const outboundCpY = Math.min(fromY, toY) - 140;
+
+    // ── 3. Phase 1 — fly TO dog head ────────────────────
     animateArc({
-      flyEl:      fly,
+      flyEl: fly,
       fromX, fromY,
       toX, toY,
-      arcHeight:  -Math.abs(toY - fromY) * 0.7 - 60, // arc upward
-      duration:   800,
-      rotations:  2,
-      easing:     easeInOut,
+      cpY:       outboundCpY,
+      duration:  750,
+      rotations: 2.5,
+      easing:    easeInOut,
       onComplete() {
-        // ── Phase 2 — dog reacts ─────────────────────────
+
+        // ── 4. Phase 2 — dog reacts ──────────────────────
         window.dispatchEvent(new CustomEvent("tennisball:impact"));
 
         setTimeout(() => {
-          // Re-measure nav ball (user may have scrolled)
-          const btnRect2 = btnRef.current?.getBoundingClientRect();
-          if (!btnRect2) { cleanup(); return; }
+          // Re-measure nav ball (scroll may have moved it)
+          const r2 = btnRef.current?.getBoundingClientRect();
+          if (!r2) { cleanup(); return; }
 
-          const backX = btnRect2.left + btnRect2.width  / 2;
-          const backY = btnRect2.top  + btnRect2.height / 2;
+          const backX = r2.left + r2.width  / 2;
+          const backY = r2.top  + r2.height / 2;
 
-          // ── Phase 3 — fly BACK from dog to nav ──────────
+          // Arc control point for return — slightly different trajectory
+          const returnCpY = Math.min(toY, backY) - 100;
+
+          // ── 5. Phase 3 — fly BACK to nav ─────────────
           animateArc({
-            flyEl:     fly,
+            flyEl: fly,
             fromX:     toX,
             fromY:     toY,
             toX:       backX,
             toY:       backY,
-            arcHeight: -Math.abs(backY - toY) * 0.5 - 40,
-            duration:  560,     // slightly faster return
-            rotations: -1.5,    // reverse spin
+            cpY:       returnCpY,
+            duration:  580,
+            rotations: -2,     // reverse spin on return
             easing:    easeOut,
             onComplete: cleanup,
           });
-        }, 420); // wait for dog jump animation
+        }, 380);
       },
     });
 
     function cleanup() {
-      // Snap to exact nav position before hiding
+      // Snap to exact nav position before fading
       const r = btnRef.current?.getBoundingClientRect();
       if (r) {
-        fly.style.transform = `translate(${r.left + r.width/2 - BALL_SIZE/2}px, ${r.top + r.height/2 - BALL_SIZE/2}px)`;
+        fly.style.transform = `translate(${r.left + r.width / 2 - BALL_SIZE / 2}px, ${r.top + r.height / 2 - BALL_SIZE / 2}px)`;
       }
-      // Fade out flying ball
-      fly.style.transition = "opacity 120ms ease";
+      fly.style.transition = "opacity 100ms ease";
       fly.style.opacity    = "0";
       setTimeout(() => {
         fly.style.display    = "none";
         fly.style.transition = "";
-        // Fade original ball back in
-        setVisible(true);
+        setNavVisible(true);
         running.current = false;
-      }, 130);
+      }, 110);
     }
   }, [prefersReduced]);
 
   return (
     <>
-      {/* ── Nav ball ─────────────────────────────────── */}
+      {/* ── Nav tennis ball button ──────────────────────── */}
       <button
         ref={btnRef}
         onClick={launch}
-        aria-label="Throw ball to dog"
-        title="Throw ball to dog 🎾"
+        aria-label="Throw tennis ball to dog"
+        title="🎾 Throw to dog"
         style={{
           background:     "none",
           border:         "none",
           cursor:         "pointer",
-          padding:        "4px",
+          padding:        "3px",
           display:        "flex",
           alignItems:     "center",
           justifyContent: "center",
           borderRadius:   "50%",
-          transform:      hovered ? "scale(1.15) rotate(8deg)" : "scale(1) rotate(0deg)",
-          transition:     "transform 180ms ease-out, opacity 120ms ease",
           outline:        "none",
-          marginLeft:     "4px",
-          opacity:        visible ? 1 : 0,
-          pointerEvents:  visible ? "auto" : "none",
+          marginLeft:     "6px",
+          opacity:        navVisible ? 1 : 0,
+          pointerEvents:  navVisible ? "auto" : "none",
+          transform:      hovered
+            ? "scale(1.18) rotate(10deg)"
+            : "scale(1) rotate(0deg)",
+          transition:     "transform 180ms ease-out, opacity 100ms ease",
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -192,7 +259,7 @@ export default function TennisBall() {
         <TennisBallSVG size={BALL_SIZE} />
       </button>
 
-      {/* ── Fixed flying ball — hidden until launched ─── */}
+      {/* ── Fixed flying ball — hidden until launched ───── */}
       <div
         ref={flyRef}
         aria-hidden="true"
@@ -206,8 +273,7 @@ export default function TennisBall() {
           opacity:       0,
           pointerEvents: "none",
           zIndex:        9999,
-          willChange:    "transform",
-          filter:        "drop-shadow(0 4px 10px rgba(0,0,0,0.22))",
+          willChange:    "transform, opacity",
         }}
       >
         <TennisBallSVG size={BALL_SIZE} />

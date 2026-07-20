@@ -175,21 +175,37 @@ export default function TennisBall() {
       duration:  750,
       rotations: 2.5,
       easing:    easeInOut,
-      onComplete() {
-
-        // ── 4. Phase 2 — dog reacts ──────────────────────
+      onComplete() {onComplete() {
         window.dispatchEvent(new CustomEvent("tennisball:impact"));
 
         setTimeout(() => {
-          // Re-measure nav ball (scroll may have moved it)
           const r2 = btnRef.current?.getBoundingClientRect();
           if (!r2) { cleanup(); return; }
 
           const backX = r2.left + r2.width  / 2;
           const backY = r2.top  + r2.height / 2;
-
-          // Arc control point for return — slightly different trajectory
           const returnCpY = Math.min(toY, backY) - 100;
+
+          // Re-anchor flying ball at dog position before return arc
+          fly.style.transition = "";
+          fly.style.transform  = `translate(${toX - BALL_SIZE / 2}px, ${toY - BALL_SIZE / 2}px)`;
+
+          requestAnimationFrame(() => {
+            animateArc({
+              flyEl:     fly,
+              fromX:     toX,
+              fromY:     toY,
+              toX:       backX,
+              toY:       backY,
+              cpY:       returnCpY,
+              duration:  580,
+              rotations: -2,
+              easing:    easeOut,
+              onComplete: cleanup,
+            });
+          });
+        }, 380);
+      },
 
           // ── 5. Phase 3 — fly BACK to nav ─────────────
           animateArc({

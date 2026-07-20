@@ -77,13 +77,12 @@ export default function TennisBall() {
     };
   };
 
-  const launch = async () => {
+ const launch = async () => {
     if (phase !== "idle") return;
 
     const btn    = btnRef.current;
-    const fly    = flyRef.current;
     const mascot = document.querySelector(".floating-mascot");
-    if (!btn || !fly || !mascot) return;
+    if (!btn || !mascot) return;
 
     if (reducedRef.current) {
       window.dispatchEvent(new CustomEvent("tennisball:impact"));
@@ -94,25 +93,40 @@ export default function TennisBall() {
     const mRect = mascot.getBoundingClientRect();
     const BALL  = 26;
 
-    // Start: centre of the nav tennis ball button
     const startPt = {
       x: bRect.left + bRect.width  / 2 - BALL / 2,
       y: bRect.top  + bRect.height / 2 - BALL / 2,
     };
-
-    // End: top-centre of the dog (head area)
     const endPt = {
       x: mRect.left + mRect.width  / 2 - BALL / 2,
       y: mRect.top  + 10 - BALL / 2,
     };
 
-    const dist     = Math.hypot(endPt.x - startPt.x, endPt.y - startPt.y);
-    const outLift  = dist * 0.45;
-    const retLift  = dist * 0.38;
-    const outSpin  = 600 + Math.random() * 200;
-    const retSpin  = -(500 + Math.random() * 200);
+    const dist    = Math.hypot(endPt.x - startPt.x, endPt.y - startPt.y);
+    const outLift = dist * 0.45;
+    const retLift = dist * 0.38;
+    const outSpin = 600 + Math.random() * 200;
+    const retSpin = -(500 + Math.random() * 200);
 
-    // ── 1. Anticipation ─────────────────────────────────
+    // ── Create flying ball directly on body ──────────────
+    const fly = document.createElement("span");
+    fly.setAttribute("aria-hidden", "true");
+    fly.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: ${BALL}px;
+      height: ${BALL}px;
+      pointer-events: none;
+      z-index: 9999;
+      will-change: transform, opacity, filter;
+      transform: translate3d(${startPt.x}px,${startPt.y}px,0);
+      opacity: 1;
+    `;
+    fly.innerHTML = `<svg viewBox="0 0 100 100" width="26" height="26" role="presentation"><defs><radialGradient id="tb2-body" cx="35%" cy="30%" r="70%" fx="30%" fy="25%"><stop offset="0%" stop-color="#D4F06B"/><stop offset="35%" stop-color="#AADB35"/><stop offset="75%" stop-color="#7DB52A"/><stop offset="100%" stop-color="#5A8A1A"/></radialGradient><radialGradient id="tb2-glint" cx="30%" cy="28%" r="30%"><stop offset="0%" stop-color="white" stop-opacity="0.55"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient><clipPath id="tb2-clip"><circle cx="50" cy="50" r="46"/></clipPath></defs><g clip-path="url(#tb2-clip)"><circle cx="50" cy="50" r="46" fill="url(#tb2-body)"/><path d="M 12 72 C 22 58, 32 32, 56 24 C 68 20, 80 24, 88 32" stroke="white" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.92"/><circle cx="50" cy="50" r="46" fill="url(#tb2-glint)"/></g><circle cx="50" cy="50" r="46" fill="none" stroke="rgba(20,20,28,0.15)" stroke-width="1.2"/></svg>`;
+    document.body.appendChild(fly);
+
+    // ── 1. Anticipation ──────────────────────────────────
     setPhase("anticipate");
     await tween(140, (t) => {
       const wave = Math.sin(t * Math.PI);
@@ -123,30 +137,26 @@ export default function TennisBall() {
     btn.style.translate = "";
     btn.style.rotate    = "";
     btn.style.scale     = "";
-
-    // Hide the nav ball, show the flying one
-    btn.style.opacity    = "0";
+    btn.style.opacity   = "0";
     btn.style.pointerEvents = "none";
-    fly.style.opacity    = "1";
 
-    // ── 2. Outbound arc ─────────────────────────────────
+    // ── 2. Outbound arc ──────────────────────────────────
     setPhase("flying");
-
     const dx = endPt.x - startPt.x;
     const p0 = { ...startPt };
     const p1 = { x: startPt.x + dx * 0.2,  y: startPt.y - outLift };
-    const p2 = { x: startPt.x + dx * 0.78, y: endPt.y   - outLift * 0.5 };
+    const p2 = { x: startPt.x + dx * 0.78, y: endPt.y - outLift * 0.5 };
     const p3 = { ...endPt };
 
     let prev = { ...startPt };
     let spin = 0;
 
     await tween(760, (t) => {
-      const pt   = bezierPoint(t, p0, p1, p2, p3);
-      const seg  = Math.hypot(pt.x - prev.x, pt.y - prev.y);
-      spin      += (seg / 4.5) * (outSpin / 120);
-      prev       = pt;
-      const spd  = Math.min(seg / 9, 1);
+      const pt  = bezierPoint(t, p0, p1, p2, p3);
+      const seg = Math.hypot(pt.x - prev.x, pt.y - prev.y);
+      spin     += (seg / 4.5) * (outSpin / 120);
+      prev      = pt;
+      const spd = Math.min(seg / 9, 1);
       fly.style.transform = `translate3d(${pt.x}px,${pt.y}px,0) rotate(${spin}deg)`;
       fly.style.filter    = `drop-shadow(0 ${6+spd*4}px ${10+spd*6}px rgba(58,47,37,.22)) blur(${spd*1.2}px)`;
     });
@@ -163,11 +173,10 @@ export default function TennisBall() {
 
     // ── 4. Return arc ────────────────────────────────────
     setPhase("returning");
-
     const rdx = startPt.x - endPt.x;
     const r0  = { ...endPt };
-    const r1  = { x: endPt.x   + rdx * 0.18, y: endPt.y   - retLift * 0.9 };
-    const r2  = { x: endPt.x   + rdx * 0.72, y: startPt.y - retLift * 0.4 };
+    const r1  = { x: endPt.x + rdx * 0.18, y: endPt.y   - retLift * 0.9 };
+    const r2  = { x: endPt.x + rdx * 0.72, y: startPt.y - retLift * 0.4 };
     const r3  = { ...startPt };
 
     prev = { ...endPt };
@@ -192,16 +201,12 @@ export default function TennisBall() {
     });
 
     // ── 6. Settle ────────────────────────────────────────
-    fly.style.opacity       = "0";
-    fly.style.filter        = "";
-    fly.style.transform     = `translate3d(${startPt.x}px,${startPt.y}px,0)`;
+    fly.remove();
     btn.style.opacity       = "1";
     btn.style.pointerEvents = "";
     setPhase("idle");
   };
-
-  useEffect(() => () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); }, []);
-
+  
   return (
     <>
       {/* Nav tennis ball button */}
@@ -231,26 +236,6 @@ export default function TennisBall() {
       >
         <TennisBallIcon />
       </button>
-
-      {/* Fixed flying ball — positioned by JS every frame */}
-      <span
-        ref={flyRef}
-        aria-hidden="true"
-        style={{
-          position:      "fixed",
-          top:           0,
-          left:          0,
-          width:         26,
-          height:        26,
-          display:       "block",
-          opacity:       0,
-          pointerEvents: "none",
-          zIndex:        9999,
-          willChange:    "transform, opacity, filter",
-        }}
-      >
-        <TennisBallIcon />
-      </span>
     </>
   );
 }

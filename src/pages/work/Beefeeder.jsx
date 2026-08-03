@@ -49,7 +49,7 @@ export default function BeeFeeder() {
       <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
         Parametric Product Design · Environmental Design
       </p>
-      <h1 style={{ fontSize: 56, fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
+      <h1 style={{ fontSize: "clamp(34px, 11vw, 56px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
         Bee Feeder
       </h1>
       <p style={{ fontSize: 19, color: "#6E6E73", marginBottom: 16, maxWidth: 600 }}>

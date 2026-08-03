@@ -249,6 +249,23 @@
   }
 }
 
+/* Outbound links in a case study's company block. Was an inline style; moved
+   here so the touch target can be raised without touching the desktop size. */
+.ext-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .ext-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 720px) {
   .grid-2,

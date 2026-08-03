@@ -5,7 +5,7 @@ export default function DefenseArk() {
       <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
         Cybersecurity · Enterprise UX
       </p>
-      <h1 style={{ fontSize: 56, fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
+      <h1 style={{ fontSize: "clamp(34px, 11vw, 56px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
         DefenseARK
       </h1>
       <p style={{ fontSize: 19, color: "#6E6E73", marginBottom: 16, maxWidth: 600 }}>
@@ -48,13 +48,13 @@ export default function DefenseArk() {
       <div style={{ borderTop: "0.5px solid rgba(0,0,0,0.10)", paddingTop: 40, display: "flex", gap: 40, flexWrap: "wrap" }}>
         <div>
           <p className="fine-print" style={{ color: "#86868B", marginBottom: 8 }}>Company</p>
-          <a href="https://www.defenseark.com/" target="_blank" rel="noreferrer" style={{ fontSize: 14, fontWeight: 500, color: "#0066CC", textDecoration: "none" }}>
+          <a href="https://www.defenseark.com/" target="_blank" rel="noreferrer" className="ext-link">
             defenseark.com ↗
           </a>
         </div>
         <div>
           <p className="fine-print" style={{ color: "#86868B", marginBottom: 8 }}>Product</p>
-          <a href="https://enigma.defenseark.com/en" target="_blank" rel="noreferrer" style={{ fontSize: 14, fontWeight: 500, color: "#0066CC", textDecoration: "none" }}>
+          <a href="https://enigma.defenseark.com/en" target="_blank" rel="noreferrer" className="ext-link">
             Enigma Platform ↗
           </a>
         </div>

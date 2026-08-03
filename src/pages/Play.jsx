@@ -15,7 +15,7 @@ export default function Play() {
 
       {/* HERO */}
       <p className="fine-print fine-print--eyebrow" style={{marginBottom:12}}>Creative practice</p>
-      <h1 style={{fontSize:64,fontWeight:700,letterSpacing:"-0.5px",lineHeight:1.05,marginBottom:16}}>Play</h1>
+      <h1 style={{fontSize:"clamp(38px, 12.5vw, 64px)",fontWeight:700,letterSpacing:"-0.5px",lineHeight:1.05,marginBottom:16}}>Play</h1>
       <p style={{fontSize:19,color:"#6E6E73",marginBottom:40}}>Independent Design Studio, 2022–2024.</p>
 
       {/* STATS */}

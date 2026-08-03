@@ -27,7 +27,7 @@ export default function HeartsOfInsomnia() {
   return (
     <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "#1D1D1F", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
 
-      <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.10em", textTransform: "uppercase", color: "#86868B", marginBottom: 12 }}>
+      <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
         Physical Computing · Emotional Design
       </p>
       <h1 style={{ fontSize: 56, fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
@@ -40,14 +40,14 @@ export default function HeartsOfInsomnia() {
         A nightlamp that solves insomnia and late-night panic by using light therapy, making invisible anxiety visible and understandable through light, sound, and interaction.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, maxWidth: 480, marginBottom: 80 }}>
+      <div className="stat-grid" style={{ marginBottom: 80 }}>
         {[
           { value: "Arduino",    label: "physical computing" },
           { value: "CHI 2026",   label: "submitted research" },
           { value: "Light + Sound", label: "multi-sensory UX" },
         ].map(({ value, label }) => (
           <div key={label} style={{ background: "#F5F5F7", borderRadius: 10, padding: "14px 16px" }}>
-            <span style={{ display: "block", fontSize: 20, fontWeight: 600, color: "#1D1D1F", marginBottom: 2 }}>{value}</span>
+            <span style={{ display: "block", fontSize: "clamp(16px, 4.4vw, 20px)", fontWeight: 600, color: "#1D1D1F", marginBottom: 2 }}>{value}</span>
             <span style={{ fontSize: 12, color: "#86868B" }}>{label}</span>
           </div>
         ))}
@@ -129,14 +129,14 @@ export default function HeartsOfInsomnia() {
 
       </div>
 
-      <div style={{ borderTop: "0.5px solid rgba(0,0,0,0.10)", paddingTop: 40, marginTop: 80, display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 40 }}>
+      <div className="meta-grid" style={{ borderTop: "0.5px solid rgba(0,0,0,0.10)", paddingTop: 40, marginTop: 80 }}>
         {[
           { label: "Type",  value: "Physical Computing · UX Research" },
           { label: "Tools", value: "Arduino · Blender · p5.js · 3D Printing" },
           { label: "Focus", value: "Emotional Design · Bio-feedback · Prototyping" },
         ].map(({ label, value }) => (
           <div key={label}>
-            <p style={{ fontSize: 11, color: "#86868B", marginBottom: 4 }}>{label}</p>
+            <p className="fine-print" style={{ color: "#86868B", marginBottom: 4 }}>{label}</p>
             <p style={{ fontSize: 14, fontWeight: 500 }}>{value}</p>
           </div>
         ))}

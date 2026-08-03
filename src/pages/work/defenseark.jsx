@@ -2,7 +2,7 @@ export default function DefenseArk() {
   return (
     <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "#1D1D1F", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
 
-      <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.10em", textTransform: "uppercase", color: "#86868B", marginBottom: 12 }}>
+      <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
         Cybersecurity · Enterprise UX
       </p>
       <h1 style={{ fontSize: 56, fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
@@ -47,23 +47,23 @@ export default function DefenseArk() {
       {/* COMPANY LINKS */}
       <div style={{ borderTop: "0.5px solid rgba(0,0,0,0.10)", paddingTop: 40, display: "flex", gap: 40, flexWrap: "wrap" }}>
         <div>
-          <p style={{ fontSize: 11, color: "#86868B", marginBottom: 8 }}>Company</p>
+          <p className="fine-print" style={{ color: "#86868B", marginBottom: 8 }}>Company</p>
           <a href="https://www.defenseark.com/" target="_blank" rel="noreferrer" style={{ fontSize: 14, fontWeight: 500, color: "#0066CC", textDecoration: "none" }}>
             defenseark.com ↗
           </a>
         </div>
         <div>
-          <p style={{ fontSize: 11, color: "#86868B", marginBottom: 8 }}>Product</p>
+          <p className="fine-print" style={{ color: "#86868B", marginBottom: 8 }}>Product</p>
           <a href="https://enigma.defenseark.com/en" target="_blank" rel="noreferrer" style={{ fontSize: 14, fontWeight: 500, color: "#0066CC", textDecoration: "none" }}>
             Enigma Platform ↗
           </a>
         </div>
         <div>
-          <p style={{ fontSize: 11, color: "#86868B", marginBottom: 8 }}>Role</p>
+          <p className="fine-print" style={{ color: "#86868B", marginBottom: 8 }}>Role</p>
           <p style={{ fontSize: 14, fontWeight: 500, color: "#1D1D1F" }}>Principal UX Researcher & Designer</p>
         </div>
         <div>
-          <p style={{ fontSize: 11, color: "#86868B", marginBottom: 8 }}>Duration</p>
+          <p className="fine-print" style={{ color: "#86868B", marginBottom: 8 }}>Duration</p>
           <p style={{ fontSize: 14, fontWeight: 500, color: "#1D1D1F" }}>2 years</p>
         </div>
       </div>

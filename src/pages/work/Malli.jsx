@@ -47,7 +47,7 @@ export default function Malli() {
   return (
     <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "#1D1D1F", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
 
-      <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.10em", textTransform: "uppercase", color: "#86868B", marginBottom: 12 }}>
+      <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
         Product Design · Human Robot Interaction
       </p>
       <h1 style={{ fontSize: 56, fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
@@ -60,14 +60,14 @@ export default function Malli() {
         Analyzing the challenge of cleaning ritual as a chore and making it happen without thinking for increasing accessibility to a clean toilet.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, maxWidth: 480, marginBottom: 80 }}>
+      <div className="stat-grid" style={{ marginBottom: 80 }}>
         {[
           { value: "2.0",          label: "Shipped June 2026" },
           { value: "Self-clean",   label: "core feature" },
           { value: "Replaceable",  label: "brush system" },
         ].map(({ value, label }) => (
           <div key={label} style={{ background: "#F5F5F7", borderRadius: 10, padding: "14px 16px" }}>
-            <span style={{ display: "block", fontSize: 22, fontWeight: 600, color: "#1D1D1F", marginBottom: 2 }}>{value}</span>
+            <span style={{ display: "block", fontSize: "clamp(17px, 4.8vw, 22px)", fontWeight: 600, color: "#1D1D1F", marginBottom: 2 }}>{value}</span>
             <span style={{ fontSize: 12, color: "#86868B" }}>{label}</span>
           </div>
         ))}
@@ -94,14 +94,14 @@ export default function Malli() {
         <Block src={form} subheading="Form Exploration" caption="I iterated through dozens of proportions and layouts to balance comfort, stability, and visual simplicity." />
       </div>
 
-      <div style={{ borderTop: "0.5px solid rgba(0,0,0,0.10)", paddingTop: 40, marginTop: 80, display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 40 }}>
+      <div className="meta-grid" style={{ borderTop: "0.5px solid rgba(0,0,0,0.10)", paddingTop: 40, marginTop: 80 }}>
         {[
           { label: "Type",  value: "Product Design" },
           { label: "Tools", value: "SolidWorks · Keyshot · Figma" },
           { label: "Focus", value: "Behavioral Design · CMF · DFM" },
         ].map(({ label, value }) => (
           <div key={label}>
-            <p style={{ fontSize: 11, color: "#86868B", marginBottom: 4 }}>{label}</p>
+            <p className="fine-print" style={{ color: "#86868B", marginBottom: 4 }}>{label}</p>
             <p style={{ fontSize: 14, fontWeight: 500 }}>{value}</p>
           </div>
         ))}

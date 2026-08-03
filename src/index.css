@@ -764,12 +764,31 @@ img {
     gap: 0.5rem;
   }
 
+  /* Tap targets — Apple HIG minimum is 44x44pt (see tokens.css). These are all
+     comfortably above it on desktop pointer input; only the phone layout, which
+     shrinks the padding above, falls short. Scoped here so desktop is untouched. */
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.4rem 0.72rem;
+  }
+
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
   .brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-size: 1rem;
   }
 
-  .nav-link {
-    padding: 0.4rem 0.72rem;
+  .work-section-process-step {
+    min-height: 44px;
   }
 
   .page-section {
@@ -871,6 +890,28 @@ img {
   max-width: 240px;
   text-align: center;
   line-height: 1.3;
+}
+
+/* The mascot is position:fixed, so it always floats over the content column.
+   At 180px wide with a 240px bubble that means it lands squarely on body copy
+   on a phone. Scaling both down on small screens keeps the character present
+   while clearing the text; desktop sizing is untouched. */
+@media (max-width: 768px) {
+  .floating-mascot {
+    width: 112px;
+    height: 82px;
+    bottom: var(--space-md);
+    right: var(--space-md);
+  }
+
+  .floating-mascot__bubble {
+    font-size: var(--text-sm);
+    padding: 8px 12px;
+    border-radius: 16px;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 var(--text);
+    max-width: 150px;
+  }
 }
 
 .floating-mascot__bubble::before {

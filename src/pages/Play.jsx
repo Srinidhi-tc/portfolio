@@ -14,19 +14,19 @@ export default function Play() {
     <div style={{padding:"80px 40px",fontFamily:"-apple-system,BlinkMacSystemFont,sans-serif",color:"#1D1D1F"}}>
 
       {/* HERO */}
-      <p style={{fontSize:11,fontWeight:600,letterSpacing:"0.10em",textTransform:"uppercase",color:"#86868B",marginBottom:12}}>Creative practice</p>
+      <p className="fine-print fine-print--eyebrow" style={{marginBottom:12}}>Creative practice</p>
       <h1 style={{fontSize:64,fontWeight:700,letterSpacing:"-0.5px",lineHeight:1.05,marginBottom:16}}>Play</h1>
       <p style={{fontSize:19,color:"#6E6E73",marginBottom:40}}>Independent Design Studio, 2022–2024.</p>
 
       {/* STATS */}
-      <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:12,maxWidth:480,marginBottom:80}}>
+      <div className="stat-grid" style={{marginBottom:80}}>
         {[
           {value:"8",label:"completed projects"},
           {value:"2 yrs",label:"Active"},
           {value:"End-to-end",label:"Design to Handover"},
         ].map(({value,label})=>(
           <div key={label} style={{background:"#F5F5F7",borderRadius:10,padding:"14px 16px"}}>
-            <span style={{display:"block",fontSize:22,fontWeight:600,color:"#1D1D1F",marginBottom:2}}>{value}</span>
+            <span style={{display:"block",fontSize:"clamp(17px, 4.8vw, 22px)",fontWeight:600,color:"#1D1D1F",marginBottom:2}}>{value}</span>
             <span style={{fontSize:12,color:"#86868B"}}>{label}</span>
           </div>
         ))}
@@ -40,14 +40,14 @@ export default function Play() {
       </div>
 
       {/* FOOTER */}
-      <div style={{borderTop:"0.5px solid rgba(0,0,0,0.10)",paddingTop:40,display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:40}}>
+      <div className="meta-grid" style={{borderTop:"0.5px solid rgba(0,0,0,0.10)",paddingTop:40}}>
         {[
           {label:"Work type",value:"Spatial Redesign"},
           {label:"Deliverables",value:"Plans · Procurement · Increase Property Value · Handover"},
           {label:"Location",value:"Chennai, India"},
         ].map(({label,value})=>(
           <div key={label}>
-            <p style={{fontSize:11,color:"#86868B",marginBottom:4}}>{label}</p>
+            <p className="fine-print" style={{color:"#86868B",marginBottom:4}}>{label}</p>
             <p style={{fontSize:14,fontWeight:500}}>{value}</p>
           </div>
         ))}

@@ -249,3 +249,73 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Case-study stat + meta grids ----------
+ * These were inline `repeat(3,1fr)` on the case-study pages. `1fr` expands to
+ * `minmax(auto, 1fr)`, and an `auto` minimum refuses to shrink below the track's
+ * min-content width — i.e. its longest unbreakable word. On the Malli page
+ * "Replaceable" (~123px at 22px semibold) exceeded the available track, so the
+ * whole document widened to 383px on a 360-375px phone and the browser zoomed
+ * the page out to compensate.
+ *
+ * `minmax(0, 1fr)` lets the tracks shrink, which removes the blowout; the
+ * media queries then reduce the column count before the cards get cramped.
+ */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 480px;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+/* Grid items default to min-width:auto too — same blowout, one level down. */
+.stat-grid > *,
+.meta-grid > * {
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .meta-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* Below this the two-up cards get too tight for a long word like "Replaceable". */
+@media (max-width: 340px) {
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Case-study fine print ----------
+ * Was an inline `fontSize: 11` on the case-study pages. 11px holds up on a
+ * desktop monitor but reads as too small on a phone, so the size lives here
+ * now: desktop keeps exactly the previous 11px, phones get 13px.
+ */
+.fine-print {
+  font-size: 11px;
+}
+
+.fine-print--eyebrow {
+  color: #86868b;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .fine-print {
+    font-size: 13px;
+  }
+}

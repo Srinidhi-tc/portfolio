@@ -241,6 +241,14 @@
   color: var(--accent);
 }
 
+/* The only navigation control on a CaseStudyLayout page, so it needs to clear
+   the 44px minimum on touch just like the nav and footer links do. */
+@media (max-width: 768px) {
+  .back-link {
+    min-height: 44px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 720px) {
   .grid-2,

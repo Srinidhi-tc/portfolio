@@ -132,20 +132,17 @@ export default function ProjectCard({
           </p>
         )}
 
-        {/* Tags */}
-        {tags.length > 0 && (
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-            {tags.map((t) => (
-              <span
-                key={t}
-                style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  color: "var(--color-text-secondary)",
-                  background: "var(--color-hover-bg)",
-                  padding: "4px 12px",
-                  borderRadius: "9999px",
-                }}
+                {tags && tags.length > 0 && (
+          <p style={{
+            margin: "var(--space-sm) 0 0",
+            fontSize: "0.75rem",
+            color: "var(--muted)",
+            letterSpacing: "0.02em",
+            lineHeight: 1.55,
+          }}>
+            {tags.join(" · ")}
+          </p>
+        )}}
               >
                 {t}
               </span>

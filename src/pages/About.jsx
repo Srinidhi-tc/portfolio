@@ -205,20 +205,26 @@ function TimelinePanel() {
             </div>
           </div>
         ))}
-
-        {/* Year axis */}
-        <div style={{ position: "relative", height: 16, marginTop: 2 }}>
-          {YEARS.map(yr => (
-            <span key={yr} style={{
-              position:  "absolute",
-              left:      pct(yr),
-              transform: "translateX(-50%)",
-              fontSize:  9,
-              color:     "#86868B",
-            }}>
-              {yr}
-            </span>
-          ))}
+    {/* Year axis */}
+        <div style={{ position: "relative", height: 24, marginTop: 4 }}>
+          {YEARS.map((yr, i) => {
+            const label = i === 0 || i === YEARS.length - 1
+              ? String(yr)
+              : `'${String(yr).slice(2)}`;
+            return (
+              <span key={yr} className="gantt-year-label" style={{
+                position:  "absolute",
+                left:      pct(yr),
+                transform: "translateX(-50%)",
+                fontSize:  10,
+                color:     "#86868B",
+                whiteSpace: "nowrap",
+                top: 0,
+              }}>
+                {label}
+              </span>
+            );
+          })}
           <span style={{
             position:   "absolute",
             left:       pct(NOW),
@@ -253,6 +259,7 @@ function TimelinePanel() {
         borderRadius: 16,
         overflow:     "hidden",
         background:   "#F5F5F7",
+        padding:      24,     
         aspectRatio:  "4 / 3",
         display:      "flex",
         alignItems:   "center",
@@ -271,7 +278,7 @@ function TimelinePanel() {
                 alt={activeItem.label}
                 style={{
                   width: "100%", height: "100%",
-                  objectFit: "cover",
+                  objectFit: "contain",
                   animation: "fadeIn 220ms ease",
                 }}
               />
@@ -309,10 +316,15 @@ function TimelinePanel() {
         )}
       </div>
 
-      <style>{`
+            <style>{`
         @keyframes fadeIn { from { opacity:0; transform:scale(1.02); } to { opacity:1; transform:scale(1); } }
         @media (max-width: 680px) {
           .about-timeline-grid { grid-template-columns: 1fr !important; }
+          .gantt-year-label {
+            transform: translateX(-50%) rotate(-55deg) !important;
+            transform-origin: center top !important;
+            top: 4px !important;
+          }
         }
       `}</style>
     </div>

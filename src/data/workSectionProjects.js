@@ -14,7 +14,7 @@ export const workSectionProjects = [
     title: "Azure Health UX",
     image: workMicrosoft,
     to: "/work/microsoft",
-        tags: ["Enterprise AI", "Cross-functional lead", "LLM Prompt Design", "Enterprise Dashboards", "Decision User Flows"],
+        tags: ["Enterprise AI", "Cross-functional lead", "LLM Prompt Design", "API Dashboards", "Decision User Flows"],
     states: {
       problem: { subheading: "Low visibility", body: "Engineers needed 4–5 steps to detect failures, increasing latency in SRE system health monitoring." },
       decisions: { subheading: "Signal clarity", body: "Introduced radial indicators and prioritized degraded signals aligned with SRE mental models." },
@@ -28,7 +28,7 @@ export const workSectionProjects = [
     title: "AI Coding Interviewer",
     image: workAiCoding,
     to: "/work/ai-coding",
-        tags: ["Enterprise AI", "Cross-functional lead", "LLM Prompt Design", "Enterprise Dashboards", "Decision Flows"],
+        tags: ["Conversation Design", "Summarisation UX", "Human-in-the loop", "Heuristic Evaluation", "Visual Design"],
     states: {
       problem: { subheading: "Hidden capabilities", body: "Poor UX hid what the AI could do, so adoption stayed low and students never leveraged the coding-interview tool's full potential." },
       decisions: { subheading: "Heuristic-led redesign", body: "Grounded changes in heuristic evaluation and comparative analysis, adding guided onboarding and structured responses to clarify system behavior." },
@@ -71,7 +71,7 @@ export const workSectionProjects = [
     image: workBeeFeeder,
     imageLabel: "Bee Feeder",
     to: "/work/bee-feeder",
-    tags: ["Eco-friendly", "Parametric Design Iteration", "Usability Testing Principles", "Data Analytics", "Journey maps"]
+    tags: ["Eco-friendly", "Parametric Design Iteration", "Usability Testing Principles", "Data Analytics", "Journey maps"],
     states: {
       problem: { subheading: "Feeders ignore vision", body: "Standard feeders ignore how pollinators perceive the world — butterflies navigate using UV light, not visible colour." },
       decisions: { subheading: "UV-led redesign", body: "Journey mapping for butterfly vision revealed UV light as the primary wayfinding signal, redirecting the entire product scope." },

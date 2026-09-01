@@ -139,7 +139,18 @@ export default function WorkSection() {
                   <div className="work-section-card-copy">
                     <p className="work-section-brand">{project.brand}</p>
                     <h3 className="work-section-title">{project.title}</h3>
-                    {project.keyword ? <span className="tag work-section-keyword">{project.keyword}</span> : null}
+                                      {project.tags && project.tags.length > 0 && (
+                      <p style={{
+                        margin: "4px 0 0",
+                        fontSize: "0.7rem",
+                        color: "var(--muted)",
+                        letterSpacing: "0.02em",
+                        lineHeight: 1.5,
+                        fontWeight: 400,
+                      }}>
+                        {project.tags.join(" · ")}
+                      </p>
+                    )}
                     <div key={view} className="work-section-card-body" style={{ transitionTimingFunction: CONTENT_EASE }}>
                       <p className="work-section-subheading">{copy.subheading}</p>
                       <p className="work-section-body">{copy.body}</p>

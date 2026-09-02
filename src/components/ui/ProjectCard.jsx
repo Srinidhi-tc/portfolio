@@ -133,9 +133,8 @@ export default function ProjectCard({
         )}
 
                 {tags && tags.length > 0 && (
-          <p style={{
+          <p className="project-card-tags" style={{
             margin: "var(--space-sm) 0 0",
-            fontSize: "0.75rem",
             color: "var(--muted)",
             letterSpacing: "0.02em",
             lineHeight: 1.55,

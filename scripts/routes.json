@@ -2,15 +2,13 @@
   "site": {
     "origin": "https://srinidhi-tc.github.io",
     "base": "/portfolio",
-    "author": "Srinidhi Chakravarthy",
-    "defaultImage": "/portfolio/og/default.png"
+    "author": "Srinidhi Chakravarthy"
   },
   "routes": [
     {
       "path": "/",
       "title": "Srinidhi Chakravarthy — Product Designer",
       "description": "Product designer with a background in psychology and UX research. Master's in UX from Purdue. Case studies from Microsoft, AI research tools, and scientific software.",
-      "image": "/portfolio/og/default.png",
       "og": "default",
       "eyebrow": "PORTFOLIO",
       "source": "src/assets/work-microsoft.avif"
@@ -19,7 +17,6 @@
       "path": "/work",
       "title": "Work — Srinidhi Chakravarthy",
       "description": "Case studies across AI systems, cybersecurity, enterprise observability, scientific software, and physical product design.",
-      "image": "/portfolio/og/work.png",
       "og": "work",
       "eyebrow": "SELECTED WORK",
       "source": "src/assets/work-microsoft.avif"
@@ -28,7 +25,6 @@
       "path": "/about",
       "title": "About — Srinidhi Chakravarthy",
       "description": "I started in psychology, pivoted to design. Both ask the same question: how could I give someone more agency? Master's in UX from Purdue.",
-      "image": "/portfolio/og/about.png",
       "og": "about",
       "eyebrow": "ABOUT",
       "source": "src/assets/profile(animated).webp"
@@ -37,7 +33,6 @@
       "path": "/play",
       "title": "Play — Srinidhi Chakravarthy",
       "description": "Side projects and experiments: physical computing, VR interiors, parametric fabrication, and generative visuals.",
-      "image": "/portfolio/og/play.png",
       "og": "play",
       "eyebrow": "PLAY",
       "source": "src/assets/p1.webp"
@@ -46,7 +41,6 @@
       "path": "/work/microsoft",
       "title": "Health Observability Monitor — Microsoft Azure",
       "description": "Improving system health status by reducing the time it takes to make decisions. Cut detection time ~25% for SRE incident response.",
-      "image": "/portfolio/og/microsoft.png",
       "og": "microsoft",
       "eyebrow": "MICROSOFT AZURE",
       "source": "src/assets/work-microsoft.avif"
@@ -55,7 +49,6 @@
       "path": "/work/ai-coding",
       "title": "AI Coding Interviewer — Purdue CS",
       "description": "How we boosted noticeability and traffic in an existing AI coding-interview tool for a CS course at Purdue.",
-      "image": "/portfolio/og/ai-coding.png",
       "og": "ai-coding",
       "eyebrow": "PURDUE CS",
       "source": "src/assets/work-ai-coding.avif"
@@ -64,7 +57,6 @@
       "path": "/work/strabospot",
       "title": "StraboSpot — GIS Data — Srinidhi Chakravarthy",
       "description": "UX secrets to making geo-data feel human again: increasing intuitive use through heuristic analysis and interviews.",
-      "image": "/portfolio/og/strabospot.png",
       "og": "strabospot",
       "eyebrow": "SCIENTIFIC SOFTWARE",
       "source": "src/assets/work-strabospot.avif"
@@ -73,7 +65,6 @@
       "path": "/work/psychosis-literacy",
       "title": "Psychosis Psychoeducation App — Srinidhi Chakravarthy",
       "description": "A youth-first mobile companion (ages 15–25) for early-psychosis education, EMA self-checks, and safe peer/caregiver pathways.",
-      "image": "/portfolio/og/psychosis-literacy.png",
       "og": "psychosis-literacy",
       "eyebrow": "HEALTH · CAPSTONE",
       "source": "src/assets/work-psychosis.jpg"
@@ -82,7 +73,6 @@
       "path": "/work/malli",
       "title": "Malli 2.0 — Toilet Cleaning Device",
       "description": "Analyzing the cleaning ritual as a chore and making it happen without thinking, to increase accessibility to a clean toilet.",
-      "image": "/portfolio/og/malli.png",
       "og": "malli",
       "eyebrow": "PRODUCT DESIGN",
       "source": "src/assets/Experience Details Selfclean System.png"
@@ -91,7 +81,6 @@
       "path": "/work/bee-feeder",
       "title": "Bee Feeder — Parametric 3D Design",
       "description": "Journey mapping for butterflies revealed they use UV light for vision — and that changed the entire product scope.",
-      "image": "/portfolio/og/bee-feeder.png",
       "og": "bee-feeder",
       "eyebrow": "PARAMETRIC DESIGN",
       "source": "src/assets/flowerfinal1.png"
@@ -100,7 +89,6 @@
       "path": "/work/hearts-of-insomnia",
       "title": "Hearts of Insomnia — CHI 2026",
       "description": "A nightlamp that solves insomnia and late-night panic using light therapy — submitted to CHI 2026.",
-      "image": "/portfolio/og/hearts-of-insomnia.png",
       "og": "hearts-of-insomnia",
       "eyebrow": "PHYSICAL COMPUTING",
       "source": "src/assets/heart1.png"
@@ -109,7 +97,6 @@
       "path": "/work/defenseark",
       "title": "DefenseARK Ransomware Portal",
       "description": "Replacing email-based intake with an instant upload portal to accelerate ransomware threat response. Inbound leads up ~30%.",
-      "image": "/portfolio/og/defenseark.png",
       "og": "defenseark",
       "eyebrow": "CYBERSECURITY",
       "source": "src/assets/work-DefenseArk.png"

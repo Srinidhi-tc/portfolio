@@ -16,6 +16,9 @@ Every card's artwork is the image that route actually renders on the page,
 confirmed against the live site - not stock or generated stand-in art.
 """
 
+import glob
+import hashlib
+import io
 import json
 import os
 import shutil
@@ -210,15 +213,42 @@ def main():
     with open(os.path.join(ROOT, "scripts", "routes.json")) as f:
         manifest = json.load(f)
 
+    base = manifest["site"]["base"]
     os.makedirs(OUT_DIR, exist_ok=True)
+    index = {}
+
     for route in manifest["routes"]:
         name = route["og"]
         card = build_card(route, manifest["site"])
-        out = os.path.join(OUT_DIR, f"{name}.png")
-        card.save(out, "PNG", optimize=True)
-        print(f"  wrote public/og/{name}.png  ({os.path.getsize(out) // 1024} KB)")
+
+        # Hash the encoded bytes so the filename changes if and only if the
+        # picture changes. Social platforms cache an image by URL, so reusing
+        # "microsoft.png" for new artwork can leave a re-scrape still serving
+        # the stale card; a content-addressed name makes that impossible.
+        buf = io.BytesIO()
+        card.save(buf, "PNG", optimize=True)
+        data = buf.getvalue()
+        fname = f"{name}-{hashlib.sha256(data).hexdigest()[:8]}.png"
+
+        # Drop older revisions of this same card, and the legacy unhashed file.
+        for stale in glob.glob(os.path.join(OUT_DIR, f"{name}-*.png")):
+            if os.path.basename(stale) != fname:
+                os.remove(stale)
+        legacy = os.path.join(OUT_DIR, f"{name}.png")
+        if os.path.exists(legacy):
+            os.remove(legacy)
+
+        with open(os.path.join(OUT_DIR, fname), "wb") as fh:
+            fh.write(data)
+        index[name] = f"{base}/og/{fname}"
+        print(f"  wrote public/og/{fname}  ({len(data) // 1024} KB)")
+
+    with open(os.path.join(ROOT, "scripts", "og-manifest.json"), "w") as fh:
+        json.dump(index, fh, indent=2, sort_keys=True)
+        fh.write("\n")
 
     print(f"\nGenerated {len(manifest['routes'])} OG cards into public/og/")
+    print("Wrote scripts/og-manifest.json (read by scripts/prerender.mjs)")
     if failures:
         print("\nWARNING - these routes fell back to a text-only card:")
         for f in failures:

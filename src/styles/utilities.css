@@ -441,7 +441,35 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+  /* The wrapper itself must not swallow clicks: .navbar sets pointer-events
+     none and each control re-enables it. On phones this box spans the full
+     row, so leaving it "auto" would blanket the whole header. */
+  pointer-events: none;
+}
+
+.navbar-left > * {
   pointer-events: auto;
+}
+
+/* Phones: the nav pill is fixed and centred on the VIEWPORT, so as the screen
+   narrows its left edge creeps into this column and covers the wordmark — at
+   320px it hid "SRI" completely. Span the full row instead and push the two
+   controls to opposite ends, which puts the wordmark at the far left where
+   nothing can reach it and leaves the pill centred between them. */
+@media (max-width: 600px) {
+  .navbar-left {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar-left .brand {
+    order: 1;
+  }
+
+  .navbar-left .theme-toggle {
+    order: 2;
+  }
 }
 
 /* ---------- Theme toggle ----------

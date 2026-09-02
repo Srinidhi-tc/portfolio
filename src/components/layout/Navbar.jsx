@@ -1,6 +1,7 @@
 // Navbar.jsx — unchanged except TennisBall added after nav links
 import { NavLink } from "react-router-dom";
 import TennisBall from "../ui/TennisBall";
+import ThemeToggle from "../ui/ThemeToggle";
 
 const navItems = [
   { label: "Work",  to: "/work"  },
@@ -12,9 +13,14 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar-inner">
-        <NavLink to="/" className="brand">
-          SRI
-        </NavLink>
+        {/* Toggle sits immediately before the wordmark so the eye lands on
+            the control and carries straight into the name. */}
+        <div className="navbar-left">
+          <ThemeToggle />
+          <NavLink to="/" className="brand">
+            SRI
+          </NavLink>
+        </div>
         <nav className="nav-links" aria-label="Main navigation"
              style={{ display: "flex", alignItems: "center" }}>
           {navItems.map((item) => (

@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fbfbfd" />
 
+    <!-- Resolve the theme before first paint.
+
+         This has to be an inline, render-blocking script: if the class were
+         applied by React instead, the page would paint light and then snap to
+         dark on hydration. Reads an explicit stored choice first, falls back to
+         the OS setting, and keeps <meta name="theme-color"> in step so the
+         mobile browser chrome matches the page rather than flashing white. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t !== "dark" && t !== "light") {
+            t = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+          document.documentElement.dataset.theme = t;
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute("content", t === "dark" ? "#1a1b1e" : "#fbfbfd");
+        } catch (e) {
+          /* storage blocked or matchMedia missing: stay on the light default */
+        }
+      })();
+    </script>
+
     <!-- Fonts: Playfair Display (editorial headlines for Heart of Insomnia)
          + Inter (body, already in the system stack but loaded here for weight access).
          Only loaded once; takes effect via CSS font-family. -->

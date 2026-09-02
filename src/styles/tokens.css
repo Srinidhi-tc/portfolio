@@ -25,6 +25,39 @@
   --accent: #1d1d1f;
   --accent-dark: #000000;
   --accent-light: rgba(0, 0, 0, 0.05);
+  --on-accent: #ffffff;    /* text/icons sitting ON --accent */
+
+  /* Semantic colours that used to be hardcoded in component inline styles.
+     Naming them here is what makes a dark theme possible: a literal #fff card
+     or rgba(0,0,0,.1) hairline cannot invert. */
+  --card: #ffffff;          /* raised surface above --bg (cards, panels)  */
+  --hairline: rgba(0, 0, 0, 0.10);  /* 0.5-1px separators                 */
+  --hairline-strong: rgba(0, 0, 0, 0.12);
+  --hairline-weak: rgba(0, 0, 0, 0.08);
+  --hairline-soft: rgba(0, 0, 0, 0.05);
+  --surface-2: #f5f5f7;     /* the lighter of the two greys in use          */
+  --link: #0055b3;          /* inline text links                          */
+  --scrim: rgba(0, 0, 0, 0.55);     /* overlay behind floating content    */
+
+  /* Frosted-glass surfaces (nav pill, work panels, cards). These layer a
+     translucent white over the page, which is precisely what cannot survive a
+     theme flip unchanged — named here so the dark theme can restate them. */
+  --glass-bg: rgba(240, 240, 243, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  --panel-bg: rgba(255, 255, 255, 0.78);
+  --process-bg: rgba(245, 245, 247, 0.75);
+  --process-border: rgba(255, 255, 255, 0.7);
+  --card-glass-bg: rgba(255, 255, 255, 0.72);
+  --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 6px 16px rgba(0, 0, 0, 0.05);
+  --hairline-faint: rgba(0, 0, 0, 0.06);
+  --panel-bg-soft: rgba(255, 255, 255, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.35);
+  --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  --panel-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.09), 0 1px 0 rgba(255, 255, 255, 0.95) inset;
+  --media-wash: linear-gradient(165deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.06) 100%);
+  --pill-active-bg: #ffffff;
+  --pill-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.04);
 
   /* Aliases for the --color-* names ProjectCard expects (these were never
      defined → cards rendered with no surface). Mapped to the neutral palette
@@ -133,4 +166,135 @@
 html {
   font-feature-settings: var(--font-features);
   text-rendering: optimizeLegibility;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Dark theme
+   ───────────────────────────────────────────────────────────────────────────
+   Three states, in this order:
+
+     1. :root                       light palette (defined above)
+     2. prefers-color-scheme: dark  follow the OS, unless the reader has
+                                    explicitly chosen light
+     3. [data-theme="dark"]         an explicit choice wins in both directions
+
+   Only tokens change here; no component defines a colour of its own.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    /* Material 3 tonal surfaces, tinted cool-neutral to match the light
+       palette (M3's own baseline carries a purple tint this site has no use
+       for). M3 moved off the flat #121212 of Material 2: elevation is now
+       expressed as a progressively LIGHTER tone rather than a shadow, since
+       shadows barely register on a dark ground. Hence bg -> surface -> card
+       climbing #1a1b1e -> #212327 -> #26282c. Pure black is avoided
+       deliberately: it causes harsh contrast, OLED smearing, and kills any
+       sense of depth. */
+    --bg: #1a1b1e;
+    --surface: #212327;
+    --surface-2: #2a2c31;
+    --card: #26282c;
+    --text: #e6e7ea;          /* off-white, not #fff: cuts glare/halation */
+    --muted: #b0b3b9;
+    --border: #3a3d43;
+    --accent: #e6e7ea;
+    --accent-dark: #ffffff;
+    --accent-light: rgba(255, 255, 255, 0.08);
+    --on-accent: #1a1b1e;
+
+    --color-bg-card: var(--surface);
+    --color-bg-secondary: #2f3136;
+    --color-hover-bg: rgba(255, 255, 255, 0.07);
+    --color-text-tertiary: #9a9da3;
+
+    --hairline: rgba(255, 255, 255, 0.12);
+    --hairline-strong: rgba(255, 255, 255, 0.16);
+    --hairline-weak: rgba(255, 255, 255, 0.09);
+    --hairline-faint: rgba(255, 255, 255, 0.07);
+    --hairline-soft: rgba(255, 255, 255, 0.06);
+    --link: #7ab3ff;
+    --scrim: rgba(0, 0, 0, 0.7);
+
+    --glass-bg: rgba(33, 35, 39, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.10);
+    --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --panel-bg: rgba(38, 40, 44, 0.78);
+    --panel-bg-soft: rgba(33, 35, 39, 0.6);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+    --panel-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    --process-bg: rgba(33, 35, 39, 0.78);
+    --process-border: rgba(255, 255, 255, 0.09);
+    --card-glass-bg: rgba(38, 40, 44, 0.72);
+    --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 6px 16px rgba(0, 0, 0, 0.45);
+    --media-wash: linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --pill-active-bg: #3f4248;
+    --pill-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(0, 0, 0, 0.3);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+    /* Material 3 tonal surfaces, tinted cool-neutral to match the light
+       palette (M3's own baseline carries a purple tint this site has no use
+       for). M3 moved off the flat #121212 of Material 2: elevation is now
+       expressed as a progressively LIGHTER tone rather than a shadow, since
+       shadows barely register on a dark ground. Hence bg -> surface -> card
+       climbing #1a1b1e -> #212327 -> #26282c. Pure black is avoided
+       deliberately: it causes harsh contrast, OLED smearing, and kills any
+       sense of depth. */
+    --bg: #1a1b1e;
+    --surface: #212327;
+    --surface-2: #2a2c31;
+    --card: #26282c;
+    --text: #e6e7ea;          /* off-white, not #fff: cuts glare/halation */
+    --muted: #b0b3b9;
+    --border: #3a3d43;
+    --accent: #e6e7ea;
+    --accent-dark: #ffffff;
+    --accent-light: rgba(255, 255, 255, 0.08);
+    --on-accent: #1a1b1e;
+
+    --color-bg-card: var(--surface);
+    --color-bg-secondary: #2f3136;
+    --color-hover-bg: rgba(255, 255, 255, 0.07);
+    --color-text-tertiary: #9a9da3;
+
+    --hairline: rgba(255, 255, 255, 0.12);
+    --hairline-strong: rgba(255, 255, 255, 0.16);
+    --hairline-weak: rgba(255, 255, 255, 0.09);
+    --hairline-faint: rgba(255, 255, 255, 0.07);
+    --hairline-soft: rgba(255, 255, 255, 0.06);
+    --link: #7ab3ff;
+    --scrim: rgba(0, 0, 0, 0.7);
+
+    --glass-bg: rgba(33, 35, 39, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.10);
+    --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --panel-bg: rgba(38, 40, 44, 0.78);
+    --panel-bg-soft: rgba(33, 35, 39, 0.6);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+    --panel-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    --process-bg: rgba(33, 35, 39, 0.78);
+    --process-border: rgba(255, 255, 255, 0.09);
+    --card-glass-bg: rgba(38, 40, 44, 0.72);
+    --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 6px 16px rgba(0, 0, 0, 0.45);
+    --media-wash: linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --pill-active-bg: #3f4248;
+    --pill-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(0, 0, 0, 0.3);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
 }

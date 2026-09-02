@@ -12,7 +12,7 @@ import CollaboratorNotes from "../sections/CollaboratorNotes";
 import imgDefenseArk  from "../assets/ransomwaremain.png";
 import imgInterior    from "../assets/p1.webp";
 import imgPurdue      from "../assets/work-psychosis.jpg";
-import imgMicrosoft   from "../assets/work-microsoft.avif";
+import imgMicrosoft   from "../assets/work-microsoft.webp";
 // Placeholders — add these files to src/assets/ and uncomment:
 // import imgIonixx    from "../assets/ionixx.jpg";
 // import imgFreelance from "../assets/freelance.jpg";
@@ -137,7 +137,7 @@ function TimelinePanel() {
               fontWeight: 600,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "#86868B",
+              color: "var(--color-text-tertiary)",
               marginBottom: 6,
             }}>
               {lane.label}
@@ -147,7 +147,7 @@ function TimelinePanel() {
             <div style={{
               position:     "relative",
               height:       24,
-              background:   "#F5F5F7",
+              background:   "var(--surface-2)",
               borderRadius: 6,
             }}>
               {/* Grid lines */}
@@ -157,7 +157,7 @@ function TimelinePanel() {
                   left:       pct(yr),
                   top: 0, bottom: 0,
                   width:      1,
-                  background: "rgba(0,0,0,0.05)",
+                  background: "var(--hairline-soft)",
                   pointerEvents: "none",
                 }} />
               ))}
@@ -168,7 +168,7 @@ function TimelinePanel() {
                 left:       pct(NOW),
                 top: -2, bottom: -2,
                 width:      1.5,
-                background: "#1D1D1F",
+                background: "var(--text)",
                 borderRadius: 1,
                 pointerEvents: "none",
                 zIndex: 2,
@@ -217,7 +217,7 @@ function TimelinePanel() {
                 left:      pct(yr),
                 transform: "translateX(-50%)",
                 fontSize:  10,
-                color:     "#86868B",
+                color:     "var(--color-text-tertiary)",
                 whiteSpace: "nowrap",
                 top: 0,
               }}>
@@ -231,7 +231,7 @@ function TimelinePanel() {
             transform:  "translateX(-50%)",
             fontSize:   9,
             fontWeight: 700,
-            color:      "#1D1D1F",
+            color:      "var(--text)",
           }}>
             Now
           </span>
@@ -242,12 +242,12 @@ function TimelinePanel() {
           {LANES.map(lane => (
             <div key={lane.label} style={{ display:"flex", alignItems:"center", gap:5 }}>
               <div style={{ width:8, height:8, borderRadius:2, background:lane.color }} />
-              <span style={{ fontSize:10, color:"#6E6E73" }}>{lane.label}</span>
+              <span style={{ fontSize:10, color:"var(--muted)" }}>{lane.label}</span>
             </div>
           ))}
         </div>
 
-        <p className="fine-print gantt-hint" style={{ color:"#86868B", marginTop:10 }}>
+        <p className="fine-print gantt-hint" style={{ color:"var(--color-text-tertiary)", marginTop:10 }}>
           <span className="gantt-hint-pointer">Hover</span>
           <span className="gantt-hint-touch">Tap</span>
           {" any bar to see the project \u2192"}
@@ -260,7 +260,7 @@ function TimelinePanel() {
         top:          80,
         borderRadius: 16,
         overflow:     "hidden",
-        background:   "#F5F5F7",
+        background:   "var(--surface-2)",
         padding:      24,     
         aspectRatio:  "4 / 3",
         display:      "flex",
@@ -268,7 +268,7 @@ function TimelinePanel() {
         justifyContent: "center",
         transition:   "box-shadow 300ms ease",
         boxShadow:    activeItem
-          ? "0 12px 40px rgba(0,0,0,0.12)"
+          ? "0 12px 40px var(--hairline-strong)"
           : "none",
       }}>
         {activeItem ? (
@@ -286,10 +286,10 @@ function TimelinePanel() {
               />
             ) : (
               <div style={{ textAlign:"center", padding:"0 24px" }}>
-                <p style={{ fontSize:12, fontWeight:600, color:"#1D1D1F", marginBottom:6 }}>
+                <p style={{ fontSize:12, fontWeight:600, color:"var(--text)", marginBottom:6 }}>
                   {activeItem.label}
                 </p>
-                <p style={{ fontSize:11, color:"#86868B" }}>
+                <p style={{ fontSize:11, color:"var(--color-text-tertiary)" }}>
                   No image yet — add one to src/assets/ and update CareerTimeline imports
                 </p>
               </div>
@@ -298,7 +298,7 @@ function TimelinePanel() {
             <div style={{
               position:   "absolute",
               bottom:     0, left:0, right:0,
-              background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)",
+              background: "linear-gradient(to top, var(--scrim) 0%, transparent 100%)",
               padding:    "24px 16px 14px",
             }}>
               <p style={{ fontSize:12, fontWeight:600, color:"#fff", margin:0 }}>
@@ -311,7 +311,7 @@ function TimelinePanel() {
           </>
         ) : (
           <div style={{ textAlign:"center", padding:24 }}>
-            <p style={{ fontSize:13, color:"#86868B", lineHeight:1.6 }}>
+            <p style={{ fontSize:13, color:"var(--color-text-tertiary)", lineHeight:1.6 }}>
               Hover a bar on the left<br/>to see the project
             </p>
           </div>
@@ -346,7 +346,7 @@ export default function About() {
             fontWeight:    700,
             letterSpacing: "-0.5px",
             lineHeight:    1.05,
-            color:         "#1D1D1F",
+            color:         "var(--text)",
             marginBottom:  "clamp(48px, 6vw, 80px)",
             maxWidth:      "12ch",
           }}>
@@ -362,7 +362,7 @@ export default function About() {
           <div className="about-profile-grid" style={{
             display:   "grid",
             alignItems:"start",
-            borderTop: "0.5px solid rgba(0,0,0,0.08)",
+            borderTop: "0.5px solid var(--hairline-weak)",
             paddingTop: 48,
           }}>
             {/* Profile photo flip */}
@@ -373,7 +373,7 @@ export default function About() {
               <p style={{
                 fontSize:   "clamp(17px, 2vw, 21px)",
                 fontWeight: 400,
-                color:      "#1D1D1F",
+                color:      "var(--text)",
                 lineHeight: 1.5,
                 letterSpacing: "-0.1px",
                 marginBottom: 24,
@@ -401,7 +401,7 @@ export default function About() {
                     style={{
                       fontSize:   14,
                       fontWeight: 500,
-                      color:      "#0055B3",
+                      color:      "var(--link)",
                       textDecoration: "none",
                       display:    "flex",
                       alignItems: "center",

@@ -1,6 +1,6 @@
-import workMicrosoft from "../assets/work-microsoft.avif";
-import workAiCoding from "../assets/work-ai-coding.avif";
-import workStrabospot from "../assets/work-strabospot.avif";
+import workMicrosoft from "../assets/work-microsoft.webp";
+import workAiCoding from "../assets/work-ai-coding.webp";
+import workStrabospot from "../assets/work-strabospot.webp";
 import workPsychosis from "../assets/work-psychosis.jpg";
 import workPsychosisVideo from "../assets/work-psychosis.mp4";
 

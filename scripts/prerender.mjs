@@ -35,6 +35,27 @@ const DIST = join(ROOT, "dist");
 const manifest = JSON.parse(readFileSync(join(ROOT, "scripts", "routes.json"), "utf8"));
 const { site, routes } = manifest;
 
+/**
+ * Content-addressed OG card filenames, written by scripts/gen-og-images.py.
+ *
+ * The card images live under hashed names so that changing a card's artwork
+ * changes its URL. Social platforms cache preview images by URL, so a stable
+ * filename can leave even a forced re-scrape serving the previous picture.
+ * This is the single source of truth for og:image -- routes.json deliberately
+ * no longer carries an `image` field, so the two cannot drift apart.
+ */
+const ogImages = JSON.parse(readFileSync(join(ROOT, "scripts", "og-manifest.json"), "utf8"));
+
+function imageFor(route) {
+  const rel = ogImages[route.og];
+  if (!rel) {
+    throw new Error(
+      `no OG image for route ${route.path} (key "${route.og}") in scripts/og-manifest.json — run: npm run og`
+    );
+  }
+  return site.origin + rel;
+}
+
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -57,7 +78,7 @@ const urlFor = (route) =>
 
 function metaBlock(route) {
   const url = urlFor(route);
-  const img = site.origin + (route.image || site.defaultImage);
+  const img = imageFor(route);
   const t = esc(route.title);
   const d = esc(route.description);
 

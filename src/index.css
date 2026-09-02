@@ -91,12 +91,12 @@ img {
 /* Nav pill — frosted capsule (the brand is plain text, no pill) */
 .nav-links {
   pointer-events: auto;
-  background: rgba(240, 240, 243, 0.72);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px) saturate(1.5);
   -webkit-backdrop-filter: blur(16px) saturate(1.5);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  box-shadow: var(--glass-shadow);
 }
 
 /* Brand is just the name — plain text, no pill/button (still links home) */
@@ -137,9 +137,9 @@ img {
 
 /* Active = white "pill-in-pill" that pops on the grey capsule */
 .nav-link.active {
-  background: #fff;
+  background: var(--pill-active-bg);
   color: var(--text);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--pill-active-shadow);
 }
 
 /* Page sections */
@@ -311,7 +311,7 @@ img {
 /* Footer */
 .footer {
   border-top: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--panel-bg-soft);
 }
 
 .footer-inner {
@@ -458,8 +458,8 @@ img {
 
 .work-section-process-glass {
   border-radius: var(--radius-full);
-  border: 0.5px solid rgba(255, 255, 255, 0.7);
-  background: rgba(245, 245, 247, 0.75);
+  border: 0.5px solid var(--process-border);
+  background: var(--process-bg);
   backdrop-filter: blur(60px) saturate(2.5) brightness(1.1) !important;
   -webkit-backdrop-filter: blur(60px) saturate(2.5) brightness(1.1) !important;
   box-shadow: 
@@ -487,8 +487,8 @@ img {
   left: 5px;
   width: calc((100% - 10px) / 4);
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 6px 16px rgba(0, 0, 0, 0.05);
+  background: var(--card-glass-bg);
+  box-shadow: var(--card-glass-shadow);
   z-index: 0;
   pointer-events: none;
   transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
@@ -582,7 +582,7 @@ img {
   text-decoration: none;
   color: inherit;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--panel-border);
   overflow: hidden;
   opacity: 0;
   transform: translateY(14px);
@@ -595,16 +595,16 @@ img {
 }
 
 .work-section-card--surface {
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--panel-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  box-shadow: var(--panel-shadow);
 }
 
 .work-section--revealed .work-section-card--in:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.09), 0 1px 0 rgba(255, 255, 255, 0.95) inset;
-  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: var(--panel-shadow-hover);
+  border-color: var(--hairline-weak);
   transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
     border-color 0.35s ease;
 }
@@ -623,8 +623,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(165deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.06) 100%);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: var(--media-wash);
+  border-bottom: 1px solid var(--hairline-soft);
 }
 
 .work-section-media img {
@@ -687,7 +687,7 @@ img {
   margin-top: var(--space-md);
   padding-top: var(--space-md);
   width: 100%;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid var(--hairline-faint);
   animation: workSectionContentIn 0.25s cubic-bezier(0.25, 0.1, 0.25, 1) both;
 }
 
@@ -874,7 +874,7 @@ img {
   position: absolute;
   bottom: calc(100% - 4px);
   right: 12px;
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -921,7 +921,7 @@ img {
   right: 28px;
   width: 18px;
   height: 18px;
-  background: #fff;
+  background: var(--card);
   border-right: 2.5px solid var(--text);
   border-bottom: 2.5px solid var(--text);
   transform: rotate(45deg);
@@ -935,7 +935,7 @@ img {
   right: 18px;
   width: 8px;
   height: 8px;
-  background: #fff;
+  background: var(--card);
   border: 2.5px solid var(--text);
   border-radius: 50%;
 }
@@ -1526,4 +1526,20 @@ img {
   font-size: var(--text-callout);
   color: var(--muted);
   line-height: var(--leading-relaxed);
+}
+
+/* The nav pill is centred and fixed; the theme toggle is pinned right. Below
+   ~380px the pill grows wide enough to run under the toggle, so tighten it.
+   Stacking already keeps the toggle clickable — this is about it not looking
+   like the two controls collided. */
+@media (max-width: 380px) {
+  .nav-links {
+    gap: 0;
+    padding: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.4rem;
+    font-size: var(--text-subhead);
+  }
 }

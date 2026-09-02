@@ -12,8 +12,8 @@ import img7b from "../../assets/flowerSTL7b.png";
 import img8 from "../../assets/flowerfinal8.png";
 import img9 from "../../assets/flowertimeline9.png";
 
-const s = { fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "#86868B", marginBottom: 6 };
-const c = { fontSize: 16, color: "#6E6E73", lineHeight: 1.6, maxWidth: 640 };
+const s = { fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", marginBottom: 6 };
+const c = { fontSize: 16, color: "var(--muted)", lineHeight: 1.6, maxWidth: 640 };
 
 function Block({ src, subheading, caption }) {
   return (
@@ -44,7 +44,7 @@ function SideBySide({ left, right }) {
 
 export default function BeeFeeder() {
   return (
-    <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "#1D1D1F", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
+    <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "var(--text)", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
 
       <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
         Parametric Product Design · Environmental Design
@@ -52,10 +52,10 @@ export default function BeeFeeder() {
       <h1 style={{ fontSize: "clamp(34px, 11vw, 56px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
         Bee Feeder
       </h1>
-      <p style={{ fontSize: 19, color: "#6E6E73", marginBottom: 16, maxWidth: 600 }}>
+      <p style={{ fontSize: 19, color: "var(--muted)", marginBottom: 16, maxWidth: 600 }}>
         Parametric Butterfly and Bee Feeder
       </p>
-      <p style={{ fontSize: 16, color: "#6E6E73", marginBottom: 64, maxWidth: 600, lineHeight: 1.6 }}>
+      <p style={{ fontSize: 16, color: "var(--muted)", marginBottom: 64, maxWidth: 600, lineHeight: 1.6 }}>
         Journey mapping for pollinators revealed they navigate using UV light ... not a visible colour. That single biological insight redirected the entire product scope from aesthetic to functional design. 
         This Bee-feeder could be placed in gardens, flower pots on a balcony, or on pavement soil. It helps as bridge to reduce distance between real flowers.
       </p>
@@ -66,9 +66,9 @@ export default function BeeFeeder() {
           { value: "UV-guided",  label: "Animal User Experience" },
           { value: "3D Printed", label: "Functional Product" },
         ].map(({ value, label }) => (
-          <div key={label} style={{ background: "#F5F5F7", borderRadius: 10, padding: "14px 16px" }}>
-            <span style={{ display: "block", fontSize: "clamp(16px, 4.4vw, 20px)", fontWeight: 600, color: "#1D1D1F", marginBottom: 2 }}>{value}</span>
-            <span style={{ fontSize: 12, color: "#86868B" }}>{label}</span>
+          <div key={label} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "14px 16px" }}>
+            <span style={{ display: "block", fontSize: "clamp(16px, 4.4vw, 20px)", fontWeight: 600, color: "var(--text)", marginBottom: 2 }}>{value}</span>
+            <span style={{ fontSize: 12, color: "var(--color-text-tertiary)" }}>{label}</span>
           </div>
         ))}
       </div>
@@ -154,14 +154,14 @@ export default function BeeFeeder() {
 
       </div>
 
-      <div className="meta-grid" style={{ borderTop: "0.5px solid rgba(0,0,0,0.10)", paddingTop: 40, marginTop: 80 }}>
+      <div className="meta-grid" style={{ borderTop: "0.5px solid var(--hairline-weak)", paddingTop: 40, marginTop: 80 }}>
         {[
           { label: "Type",  value: "Parametric Product Design" },
           { label: "Tools", value: "Blender · SolidWorks · 3D Printing" },
           { label: "Focus", value: "Bio-inspired Design · Pollinator Health" },
         ].map(({ label, value }) => (
           <div key={label}>
-            <p className="fine-print" style={{ color: "#86868B", marginBottom: 4 }}>{label}</p>
+            <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>{label}</p>
             <p style={{ fontSize: 14, fontWeight: 500 }}>{value}</p>
           </div>
         ))}

@@ -129,7 +129,9 @@
 
 .btn--primary {
   background: var(--accent);
-  color: #fff;
+  /* Not #fff: --accent inverts to near-white in dark, which left this label
+     white-on-white (contrast 1.09). --on-accent flips with it. */
+  color: var(--on-accent);
 }
 
 .btn--primary:hover {
@@ -254,7 +256,7 @@
 .ext-link {
   font-size: 14px;
   font-weight: 500;
-  color: #0066cc;
+  color: var(--link);
   text-decoration: none;
 }
 
@@ -425,5 +427,115 @@
   .about-profile-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 32px;
+  }
+}
+
+/* Toggle + wordmark share the navbar's first column. They are wrapped in one
+   flex box rather than left to grid auto-placement, because the nav pill
+   between them is position:fixed and auto-placement skips out-of-flow
+   children — two loose items would land in columns 1 and 2, putting the
+   second one directly under the pill, which then swallows its clicks. */
+.navbar-left {
+  grid-column: 1;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  pointer-events: auto;
+}
+
+/* ---------- Theme toggle ----------
+ * Sits in the navbar's third grid column, which was previously empty spacing.
+ * Matches the nav pill's frosted treatment so it reads as part of the same
+ * control cluster rather than a bolted-on widget.
+ */
+.theme-toggle {
+  pointer-events: auto; /* .navbar disables these and re-enables per control */
+  position: relative;
+  z-index: 61; /* .nav-links is 60 and is centred over the same row */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  box-shadow: var(--glass-shadow);
+  color: var(--text);
+  cursor: pointer;
+  transition: background var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    transform var(--duration-fast) var(--ease);
+}
+
+.theme-toggle:hover {
+  background: var(--color-hover-bg);
+  border-color: var(--border);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Both glyphs occupy the same cell; only one is visible at a time. */
+.theme-toggle__icon {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle__sun,
+.theme-toggle__moon {
+  position: absolute;
+  inset: 0;
+  transition: opacity var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
+}
+
+/* Light theme: sun showing, moon parked. */
+.theme-toggle__sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle__moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+/* Dark theme: the two swap. */
+:root[data-theme="dark"] .theme-toggle__sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+:root[data-theme="dark"] .theme-toggle__moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle__sun,
+  .theme-toggle__moon {
+    transition: none;
+  }
+}
+
+/* 44px minimum touch target, consistent with the nav and footer links. */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 44px;
+    height: 44px;
   }
 }

@@ -10,8 +10,8 @@ import heart10 from "../../assets/heart10.png";
 import heart11 from "../../assets/heart11.png";
 import heart12 from "../../assets/heart12.png";
 
-const s = { fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "#86868B", marginBottom: 6 };
-const c = { fontSize: 16, color: "#6E6E73", lineHeight: 1.6, maxWidth: 640 };
+const s = { fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", marginBottom: 6 };
+const c = { fontSize: 16, color: "var(--muted)", lineHeight: 1.6, maxWidth: 640 };
 
 function Block({ src, subheading, caption }) {
   return (
@@ -25,7 +25,7 @@ function Block({ src, subheading, caption }) {
 
 export default function HeartsOfInsomnia() {
   return (
-    <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "#1D1D1F", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
+    <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "var(--text)", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
 
       <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
         Physical Computing · Emotional Design
@@ -33,10 +33,10 @@ export default function HeartsOfInsomnia() {
       <h1 style={{ fontSize: "clamp(34px, 11vw, 56px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
         Hearts of Insomnia
       </h1>
-      <p style={{ fontSize: 19, color: "#6E6E73", marginBottom: 16, maxWidth: 600 }}>
+      <p style={{ fontSize: 19, color: "var(--muted)", marginBottom: 16, maxWidth: 600 }}>
         CHI 2026 — Arduino · 3D Fabrication
       </p>
-      <p style={{ fontSize: 16, color: "#6E6E73", marginBottom: 64, maxWidth: 600, lineHeight: 1.6 }}>
+      <p style={{ fontSize: 16, color: "var(--muted)", marginBottom: 64, maxWidth: 600, lineHeight: 1.6 }}>
         A nightlamp that solves insomnia and late-night panic by using light therapy, making invisible anxiety visible and understandable through light, sound, and interaction.
       </p>
 
@@ -46,9 +46,9 @@ export default function HeartsOfInsomnia() {
           { value: "CHI 2026",   label: "submitted research" },
           { value: "Light + Sound", label: "multi-sensory UX" },
         ].map(({ value, label }) => (
-          <div key={label} style={{ background: "#F5F5F7", borderRadius: 10, padding: "14px 16px" }}>
-            <span style={{ display: "block", fontSize: "clamp(16px, 4.4vw, 20px)", fontWeight: 600, color: "#1D1D1F", marginBottom: 2 }}>{value}</span>
-            <span style={{ fontSize: 12, color: "#86868B" }}>{label}</span>
+          <div key={label} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "14px 16px" }}>
+            <span style={{ display: "block", fontSize: "clamp(16px, 4.4vw, 20px)", fontWeight: 600, color: "var(--text)", marginBottom: 2 }}>{value}</span>
+            <span style={{ fontSize: 12, color: "var(--color-text-tertiary)" }}>{label}</span>
           </div>
         ))}
       </div>
@@ -129,14 +129,14 @@ export default function HeartsOfInsomnia() {
 
       </div>
 
-      <div className="meta-grid" style={{ borderTop: "0.5px solid rgba(0,0,0,0.10)", paddingTop: 40, marginTop: 80 }}>
+      <div className="meta-grid" style={{ borderTop: "0.5px solid var(--hairline-weak)", paddingTop: 40, marginTop: 80 }}>
         {[
           { label: "Type",  value: "Physical Computing · UX Research" },
           { label: "Tools", value: "Arduino · Blender · p5.js · 3D Printing" },
           { label: "Focus", value: "Emotional Design · Bio-feedback · Prototyping" },
         ].map(({ label, value }) => (
           <div key={label}>
-            <p className="fine-print" style={{ color: "#86868B", marginBottom: 4 }}>{label}</p>
+            <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>{label}</p>
             <p style={{ fontSize: 14, fontWeight: 500 }}>{value}</p>
           </div>
         ))}

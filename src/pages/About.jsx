@@ -120,7 +120,7 @@ function TimelinePanel() {
   const activeItem = LANES.flatMap(l => l.items).find(i => i.id === active);
 
   return (
-    <div style={{
+    <div className="about-timeline-grid" style={{
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
       gap: 32,
@@ -247,8 +247,10 @@ function TimelinePanel() {
           ))}
         </div>
 
-        <p style={{ fontSize:11, color:"#86868B", marginTop:10 }}>
-          Hover any bar to see the project →
+        <p className="fine-print gantt-hint" style={{ color:"#86868B", marginTop:10 }}>
+          <span className="gantt-hint-pointer">Hover</span>
+          <span className="gantt-hint-touch">Tap</span>
+          {" any bar to see the project \u2192"}
         </p>
       </div>
 
@@ -357,10 +359,8 @@ export default function About() {
           </div>
 
           {/* ZONE 3 — Profile + paragraph + links */}
-          <div style={{
+          <div className="about-profile-grid" style={{
             display:   "grid",
-            gridTemplateColumns: "200px 1fr",
-            gap:       48,
             alignItems:"start",
             borderTop: "0.5px solid rgba(0,0,0,0.08)",
             paddingTop: 48,
@@ -397,6 +397,7 @@ export default function About() {
                     href={href}
                     target={label !== "Email" ? "_blank" : undefined}
                     rel="noopener noreferrer"
+                    className="about-contact-link"
                     style={{
                       fontSize:   14,
                       fontWeight: 500,

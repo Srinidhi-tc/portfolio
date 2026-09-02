@@ -344,3 +344,86 @@
     font-size: 13px;
   }
 }
+
+/* ---------- Project card tags ----------
+ * Was an inline `fontSize: "0.75rem"`, which computes to ~11px against this
+ * page's root size — below a comfortable reading size on a phone. Desktop keeps
+ * the original value; phones get a floor.
+ */
+.project-card-tags {
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+}
+
+@media (max-width: 600px) {
+  .project-card-tags {
+    font-size: 13px;
+  }
+}
+
+/* ---------- About: contact links ----------
+ * Email / LinkedIn / Resume rendered as ~17px-tall inline links. They are the
+ * only way to actually contact anyone from this site, so they are the last
+ * targets that should be hard to hit on a phone.
+ */
+@media (max-width: 768px) {
+  .about-contact-link {
+    min-height: 44px;
+  }
+}
+
+/* ---------- About: Gantt hint ----------
+ * The hint read "Hover any bar", but hover does not exist on a touch screen,
+ * so on a phone it described an interaction the reader could not perform.
+ * Show the wording that matches the device's actual primary input.
+ */
+.gantt-hint-touch {
+  display: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .gantt-hint-pointer {
+    display: none;
+  }
+
+  .gantt-hint-touch {
+    display: inline;
+  }
+}
+
+/* ---------- Work section card tags ----------
+ * Inline `fontSize: "0.7rem"` computed to 11.2px — the smallest text on the
+ * landing page, and it carries the discipline labels for each case study.
+ * Desktop keeps 0.7rem; phones get a floor.
+ */
+.work-section-card-tags {
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .work-section-card-tags {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+}
+
+/* ---------- About: profile + paragraph + links ----------
+ * This was an inline `gridTemplateColumns: "200px 1fr"`. A fixed 200px track
+ * plus a 48px gap leaves nothing for the second column on a 320px phone, so
+ * the document widened to 370px and the browser zoomed the page out. Stack the
+ * two below the point where the fixed track stops fitting.
+ */
+.about-profile-grid {
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 600px) {
+  .about-profile-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}

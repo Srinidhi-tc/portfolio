@@ -11,7 +11,7 @@ import CollaboratorNotes from "../sections/CollaboratorNotes";
 // Swap filenames here when you add new images to src/assets/
 import imgDefenseArk  from "../assets/ransomwaremain.png";
 import imgInterior    from "../assets/p1.webp";
-import imgPurdue      from "../assets/work-psychosis.jpg";
+import imgPurdue      from "../assets/work-psychosis.webp";
 import imgMicrosoft   from "../assets/work-microsoft.webp";
 // Placeholders — add these files to src/assets/ and uncomment:
 // import imgIonixx    from "../assets/ionixx.jpg";

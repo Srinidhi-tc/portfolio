@@ -1,7 +1,7 @@
 import workMicrosoft from "../assets/work-microsoft.webp";
 import workAiCoding from "../assets/work-ai-coding.webp";
 import workStrabospot from "../assets/work-strabospot.webp";
-import workPsychosis from "../assets/work-psychosis.jpg";
+import workPsychosis from "../assets/work-psychosis.webp";
 import workPsychosisVideo from "../assets/work-psychosis.mp4";
 
 export const projects = [

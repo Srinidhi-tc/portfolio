@@ -13,7 +13,7 @@
       "image": "/portfolio/og/default.png",
       "og": "default",
       "eyebrow": "PORTFOLIO",
-      "source": "public/hero/oura.png"
+      "source": "src/assets/work-microsoft.avif"
     },
     {
       "path": "/work",
@@ -22,7 +22,7 @@
       "image": "/portfolio/og/work.png",
       "og": "work",
       "eyebrow": "SELECTED WORK",
-      "source": "public/hero/microsoft.png"
+      "source": "src/assets/work-microsoft.avif"
     },
     {
       "path": "/about",
@@ -40,7 +40,7 @@
       "image": "/portfolio/og/play.png",
       "og": "play",
       "eyebrow": "PLAY",
-      "source": "src/assets/play-butterfly.jpg"
+      "source": "src/assets/p1.webp"
     },
     {
       "path": "/work/microsoft",
@@ -49,7 +49,7 @@
       "image": "/portfolio/og/microsoft.png",
       "og": "microsoft",
       "eyebrow": "MICROSOFT AZURE",
-      "source": "public/hero/microsoft.png"
+      "source": "src/assets/work-microsoft.avif"
     },
     {
       "path": "/work/ai-coding",
@@ -58,7 +58,7 @@
       "image": "/portfolio/og/ai-coding.png",
       "og": "ai-coding",
       "eyebrow": "PURDUE CS",
-      "source": null
+      "source": "src/assets/work-ai-coding.avif"
     },
     {
       "path": "/work/strabospot",
@@ -67,7 +67,7 @@
       "image": "/portfolio/og/strabospot.png",
       "og": "strabospot",
       "eyebrow": "SCIENTIFIC SOFTWARE",
-      "source": "public/hero/strabospot.png"
+      "source": "src/assets/work-strabospot.avif"
     },
     {
       "path": "/work/psychosis-literacy",
@@ -85,7 +85,7 @@
       "image": "/portfolio/og/malli.png",
       "og": "malli",
       "eyebrow": "PRODUCT DESIGN",
-      "source": "src/assets/work-Malli.png"
+      "source": "src/assets/Experience Details Selfclean System.png"
     },
     {
       "path": "/work/bee-feeder",
@@ -94,7 +94,7 @@
       "image": "/portfolio/og/bee-feeder.png",
       "og": "bee-feeder",
       "eyebrow": "PARAMETRIC DESIGN",
-      "source": "src/assets/beefeedermain.png"
+      "source": "src/assets/flowerfinal1.png"
     },
     {
       "path": "/work/hearts-of-insomnia",
@@ -103,7 +103,7 @@
       "image": "/portfolio/og/hearts-of-insomnia.png",
       "og": "hearts-of-insomnia",
       "eyebrow": "PHYSICAL COMPUTING",
-      "source": "src/assets/work-Hearts-Of-Insomnia.png"
+      "source": "src/assets/heart1.png"
     },
     {
       "path": "/work/defenseark",
@@ -112,7 +112,7 @@
       "image": "/portfolio/og/defenseark.png",
       "og": "defenseark",
       "eyebrow": "CYBERSECURITY",
-      "source": "public/hero/defenseark.png"
+      "source": "src/assets/work-DefenseArk.png"
     }
   ]
 }

@@ -10,13 +10,22 @@ Output lands in public/og/ and is COMMITTED to the repo. It deliberately does
 not run in CI: it depends on Pillow and on macOS system fonts, neither of which
 is available on the ubuntu-latest GitHub Actions runner. Keeping generation
 local means the deploy build stays pure Node and cannot break on a missing font.
+Decoding AVIF additionally shells out to ffmpeg (or sips on macOS).
+
+Every card's artwork is the image that route actually renders on the page,
+confirmed against the live site - not stock or generated stand-in art.
 """
 
 import json
 import os
+import shutil
+import subprocess
 import sys
+import tempfile
 
 from PIL import Image, ImageDraw, ImageFont
+
+failures = []
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.join(ROOT, "public", "og")
@@ -31,10 +40,44 @@ BG = (251, 251, 253)
 INK = (29, 29, 31)
 MUTED = (110, 110, 115)
 BORDER = (210, 210, 215)
+SURFACE = (241, 241, 244)
 
 FONT_DIR = "/System/Library/Fonts/Supplemental"
 F_BOLD = os.path.join(FONT_DIR, "Arial Bold.ttf")
 F_REG = os.path.join(FONT_DIR, "Arial.ttf")
+
+
+def load_image(path):
+    """Open `path`, falling back to an external decoder for formats Pillow lacks.
+
+    The project's hero art is AVIF, which this Pillow build cannot read. Earlier
+    revisions silently fell back to a text-only card for those routes, so three
+    case studies shipped with placeholder art instead of the screenshot the page
+    actually shows. Decode through ffmpeg (or sips) instead of skipping.
+    """
+    try:
+        im = Image.open(path)
+        im.load()
+        return im
+    except Exception:
+        pass
+
+    tmp = os.path.join(tempfile.mkdtemp(), "decoded.png")
+    for cmd in (
+        ["ffmpeg", "-y", "-loglevel", "error", "-i", path, "-frames:v", "1", tmp],
+        ["sips", "-s", "format", "png", path, "--out", tmp],
+    ):
+        if shutil.which(cmd[0]) is None:
+            continue
+        try:
+            subprocess.run(cmd, check=True, capture_output=True)
+            im = Image.open(tmp)
+            im.load()
+            return im
+        except Exception:
+            continue
+
+    raise OSError(f"no decoder could read {path}")
 
 
 def font(path, size):
@@ -74,6 +117,23 @@ def cover(im, box_w, box_h):
     return im.crop((left, top, left + box_w, top + box_h))
 
 
+def contain(im, box_w, box_h):
+    """Fit all of `im` inside box_w x box_h, matted on the surface tone.
+
+    These sources are product screenshots and renders whose aspect ratios vary
+    from 1200x681 landscape to 1024x1024 square. Cropping them to fill a
+    portrait panel cut the sides off the Azure dashboard and the StraboSpot map,
+    which is exactly the detail the card is meant to show, so letterbox instead.
+    """
+    im = im.convert("RGB")
+    scale = min(box_w / im.width, box_h / im.height)
+    new_w, new_h = max(1, int(im.width * scale)), max(1, int(im.height * scale))
+    im = im.resize((new_w, new_h), Image.LANCZOS)
+    panel = Image.new("RGB", (box_w, box_h), SURFACE)
+    panel.paste(im, ((box_w - new_w) // 2, (box_h - new_h) // 2))
+    return panel
+
+
 def rounded_mask(size, radius):
     mask = Image.new("L", size, 0)
     ImageDraw.Draw(mask).rounded_rectangle([0, 0, size[0] - 1, size[1] - 1], radius, fill=255)
@@ -91,11 +151,14 @@ def build_card(route, site):
         if os.path.exists(src_abs):
             try:
                 panel_w, panel_h = IMG_W, H - PAD * 2
-                art = cover(Image.open(src_abs), panel_w, panel_h)
+                art = contain(load_image(src_abs), panel_w, panel_h)
                 card.paste(art, (W - PAD - panel_w, PAD), rounded_mask((panel_w, panel_h), 24))
                 has_img = True
             except Exception as e:  # noqa: BLE001 - fall back to a text-only card
                 print(f"  ! could not use {src_rel}: {type(e).__name__}: {e}")
+                failures.append(f"{src_rel}: {e}")
+        else:
+            failures.append(f"{src_rel}: file not found")
 
     text_w = TEXT_W if has_img else W - PAD * 2
 
@@ -123,9 +186,13 @@ def build_card(route, site):
         d.text((PAD, y), ln, font=f_title, fill=INK)
         y += int(size * 1.18)
 
-    # Description — up to 3 lines
+    # Description — up to 4 lines, ellipsised rather than cut mid-sentence
     y += 14
-    for ln in wrap(d, route["description"], f_desc, text_w)[:3]:
+    desc_lines = wrap(d, route["description"], f_desc, text_w)
+    shown = desc_lines[:4]
+    if len(desc_lines) > 4:
+        shown[-1] = shown[-1].rstrip(" ,.;:") + "\u2026"
+    for ln in shown:
         d.text((PAD, y), ln, font=f_desc, fill=MUTED)
         y += 38
 
@@ -152,6 +219,12 @@ def main():
         print(f"  wrote public/og/{name}.png  ({os.path.getsize(out) // 1024} KB)")
 
     print(f"\nGenerated {len(manifest['routes'])} OG cards into public/og/")
+    if failures:
+        print("\nWARNING - these routes fell back to a text-only card:")
+        for f in failures:
+            print(f"  - {f}")
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

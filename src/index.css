@@ -764,31 +764,12 @@ img {
     gap: 0.5rem;
   }
 
-  /* Tap targets — Apple HIG minimum is 44x44pt (see tokens.css). These are all
-     comfortably above it on desktop pointer input; only the phone layout, which
-     shrinks the padding above, falls short. Scoped here so desktop is untouched. */
   .nav-link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
     padding: 0.4rem 0.72rem;
   }
 
-  .footer-link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-  }
-
   .brand {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
     font-size: 1rem;
-  }
-
-  .work-section-process-step {
-    min-height: 44px;
   }
 
   .page-section {
@@ -1541,5 +1522,26 @@ img {
   .nav-link {
     padding: 0.4rem 0.4rem;
     font-size: var(--text-subhead);
+  }
+}
+
+/* Touch targets — Apple HIG minimum is 44x44pt (cited in tokens.css).
+   Keyed to the POINTER, not the viewport: a tablet is a touch device at ~834px,
+   so the previous width-only query left iPads with mouse-sized targets while
+   phones were fine. A fine pointer keeps the tighter desktop sizing, which is
+   correct — 44px is a finger guideline, not a cursor one. These live outside
+   the phone layout block on purpose, so a tablet gains the bigger targets
+   without also inheriting the stacked phone layout. */
+@media (max-width: 720px), (pointer: coarse) {
+  .nav-link,
+  .footer-link,
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .work-section-process-step {
+    min-height: 44px;
   }
 }

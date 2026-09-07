@@ -11,7 +11,7 @@
       "description": "Product designer with a background in psychology and UX research. Master's in UX from Purdue. Case studies from Microsoft, AI research tools, and scientific software.",
       "og": "default",
       "eyebrow": "PORTFOLIO",
-      "source": "src/assets/work-microsoft.avif"
+      "source": "src/assets/work-microsoft.webp"
     },
     {
       "path": "/work",
@@ -19,7 +19,7 @@
       "description": "Case studies across AI systems, cybersecurity, enterprise observability, scientific software, and physical product design.",
       "og": "work",
       "eyebrow": "SELECTED WORK",
-      "source": "src/assets/work-microsoft.avif"
+      "source": "src/assets/work-microsoft.webp"
     },
     {
       "path": "/about",
@@ -43,7 +43,7 @@
       "description": "Improving system health status by reducing the time it takes to make decisions. Cut detection time ~25% for SRE incident response.",
       "og": "microsoft",
       "eyebrow": "MICROSOFT AZURE",
-      "source": "src/assets/work-microsoft.avif"
+      "source": "src/assets/work-microsoft.webp"
     },
     {
       "path": "/work/ai-coding",
@@ -51,7 +51,7 @@
       "description": "How we boosted noticeability and traffic in an existing AI coding-interview tool for a CS course at Purdue.",
       "og": "ai-coding",
       "eyebrow": "PURDUE CS",
-      "source": "src/assets/work-ai-coding.avif"
+      "source": "src/assets/work-ai-coding.webp"
     },
     {
       "path": "/work/strabospot",
@@ -59,7 +59,7 @@
       "description": "UX secrets to making geo-data feel human again: increasing intuitive use through heuristic analysis and interviews.",
       "og": "strabospot",
       "eyebrow": "SCIENTIFIC SOFTWARE",
-      "source": "src/assets/work-strabospot.avif"
+      "source": "src/assets/work-strabospot.webp"
     },
     {
       "path": "/work/psychosis-literacy",

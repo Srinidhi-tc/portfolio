@@ -128,12 +128,16 @@ def contain(im, box_w, box_h):
     portrait panel cut the sides off the Azure dashboard and the StraboSpot map,
     which is exactly the detail the card is meant to show, so letterbox instead.
     """
-    im = im.convert("RGB")
+    # Several sources now carry an alpha channel (their white canvas was
+    # knocked out for dark mode). convert("RGB") would discard that and reveal
+    # the original white, so composite through the mask instead and let the
+    # panel tone show where the image is transparent.
+    im = im.convert("RGBA")
     scale = min(box_w / im.width, box_h / im.height)
     new_w, new_h = max(1, int(im.width * scale)), max(1, int(im.height * scale))
     im = im.resize((new_w, new_h), Image.LANCZOS)
     panel = Image.new("RGB", (box_w, box_h), SURFACE)
-    panel.paste(im, ((box_w - new_w) // 2, (box_h - new_h) // 2))
+    panel.paste(im, ((box_w - new_w) // 2, (box_h - new_h) // 2), im)
     return panel
 
 
@@ -242,6 +246,16 @@ def main():
             fh.write(data)
         index[name] = f"{base}/og/{fname}"
         print(f"  wrote public/og/{fname}  ({len(data) // 1024} KB)")
+
+    # A stable, non-hashed alias of the work card. The external short-URL
+    # forwarder references this: it cannot be redeployed every time a card is
+    # regenerated, so it needs one filename that never changes. Everything the
+    # site itself references still uses the content-hashed names above.
+    work_card = index.get("work")
+    if work_card:
+        src = os.path.join(OUT_DIR, os.path.basename(work_card))
+        shutil.copyfile(src, os.path.join(OUT_DIR, "share.png"))
+        print(f"  wrote public/og/share.png  (stable alias of {os.path.basename(work_card)})")
 
     with open(os.path.join(ROOT, "scripts", "og-manifest.json"), "w") as fh:
         json.dump(index, fh, indent=2, sort_keys=True)

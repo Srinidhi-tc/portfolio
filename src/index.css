@@ -441,12 +441,12 @@ img {
 /* Work section — glass process toggle + artifact cards */
 .work-section-sticky {
   position: sticky;
-  top: 72px;
+  bottom: 24px;
   z-index: 55;
   margin-bottom: var(--space-2xl);
   padding-top: var(--space-xs);
   padding-bottom: var(--space-xs);
-  background: transparent;
+  background: rgba(249, 249, 251, 0.01);
 }
 
 .work-section-process {

@@ -4,7 +4,6 @@ import SectionTitle from "../components/ui/SectionTitle";
 import { workSectionProjects, workSectionViews } from "../data/workSectionProjects";
 
 const PANEL_ID = "work-section-panel";
-
 const CONTENT_EASE = "cubic-bezier(0.25, 0.1, 0.25, 1)";
 
 export default function WorkSection() {
@@ -16,14 +15,10 @@ export default function WorkSection() {
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
-
     const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setSectionRevealed(true);
-      },
+      ([entry]) => { if (entry.isIntersecting) setSectionRevealed(true); },
       { root: null, rootMargin: "0px 0px -8% 0px", threshold: [0, 0.08, 0.15] },
     );
-
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
@@ -35,24 +30,12 @@ export default function WorkSection() {
     (e) => {
       const idx = workSectionViews.findIndex((v) => v.id === view);
       if (idx < 0) return;
-
       let next = idx;
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-        e.preventDefault();
-        next = (idx + 1) % workSectionViews.length;
-      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-        e.preventDefault();
-        next = (idx - 1 + workSectionViews.length) % workSectionViews.length;
-      } else if (e.key === "Home") {
-        e.preventDefault();
-        next = 0;
-      } else if (e.key === "End") {
-        e.preventDefault();
-        next = workSectionViews.length - 1;
-      } else {
-        return;
-      }
-
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); next = (idx + 1) % workSectionViews.length; }
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); next = (idx - 1 + workSectionViews.length) % workSectionViews.length; }
+      else if (e.key === "Home") { e.preventDefault(); next = 0; }
+      else if (e.key === "End") { e.preventDefault(); next = workSectionViews.length - 1; }
+      else return;
       setView(workSectionViews[next].id);
       document.getElementById(`${baseId}-tab-${workSectionViews[next].id}`)?.focus();
     },
@@ -68,6 +51,57 @@ export default function WorkSection() {
       <div className="container">
         <SectionTitle title="Work" id="work-section-heading" titleHidden />
 
+        {/* Grid first — toggle moves below */}
+        <div
+          id={PANEL_ID}
+          role="tabpanel"
+          aria-labelledby={`${baseId}-tab-${view}`}
+          className="work-section-panel"
+        >
+          <div className="work-section-grid">
+            {workSectionProjects.map((project, i) => {
+              const copy = project.states[view];
+              const media = (
+                <div className={`work-section-media${!project.image ? " work-section-media--placeholder" : ""}`}>
+                  {project.image ? (
+                    <img src={project.image} alt="" decoding="async" loading="lazy" />
+                  ) : (
+                    <span className="work-section-media-placeholder-text">{project.imageLabel ?? project.brand}</span>
+                  )}
+                </div>
+              );
+
+              const body = (
+                <>
+                  {media}
+                  <div className="work-section-card-copy">
+                    <p className="work-section-brand">{project.brand}</p>
+                    <h3 className="work-section-title">{project.title}</h3>
+                    {project.tags && project.tags.length > 0 && (
+                      <p className="work-section-card-tags" style={{ margin:"4px 0 0", color:"var(--muted)", fontWeight:400 }}>
+                        {project.tags.join(" · ")}
+                      </p>
+                    )}
+                    <div key={view} className="work-section-card-body" style={{ transitionTimingFunction: CONTENT_EASE }}>
+                      <p className="work-section-subheading">{copy.subheading}</p>
+                      <p className="work-section-body">{copy.body}</p>
+                    </div>
+                  </div>
+                </>
+              );
+
+              const cardClass = "work-section-card work-section-card--surface" + (sectionRevealed ? " work-section-card--in" : "");
+              const style = { "--stagger": String(i) };
+
+              if (project.to) {
+                return <Link key={project.id} to={project.to} className={cardClass} style={style}>{body}</Link>;
+              }
+              return <article key={project.id} className={cardClass} style={style}>{body}</article>;
+            })}
+          </div>
+        </div>
+
+        {/* Toggle sits AFTER the grid — sticky bottom */}
         <div className="work-section-sticky">
           <div
             className="work-section-process"
@@ -107,82 +141,6 @@ export default function WorkSection() {
           </div>
         </div>
 
-        <div
-          id={PANEL_ID}
-          role="tabpanel"
-          aria-labelledby={`${baseId}-tab-${view}`}
-          className="work-section-panel"
-        >
-          <div className="work-section-grid">
-            {workSectionProjects.map((project, i) => {
-              const copy = project.states[view];
-              const media = (
-                <div
-                  className={`work-section-media${!project.image ? " work-section-media--placeholder" : ""}`}
-                >
-                  {project.image ? (
-                    <img
-                      src={project.image}
-                      alt=""
-                      decoding="async"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <span className="work-section-media-placeholder-text">{project.imageLabel ?? project.brand}</span>
-                  )}
-                </div>
-              );
-
-              const body = (
-                <>
-                  {media}
-                  <div className="work-section-card-copy">
-                    <p className="work-section-brand">{project.brand}</p>
-                    <h3 className="work-section-title">{project.title}</h3>
-                                      {project.tags && project.tags.length > 0 && (
-                      <p className="work-section-card-tags" style={{
-                        margin: "4px 0 0",
-                        color: "var(--muted)",
-                        fontWeight: 400,
-                      }}>
-                        {project.tags.join(" · ")}
-                      </p>
-                    )}
-                    <div key={view} className="work-section-card-body" style={{ transitionTimingFunction: CONTENT_EASE }}>
-                      <p className="work-section-subheading">{copy.subheading}</p>
-                      <p className="work-section-body">{copy.body}</p>
-                    </div>
-                  </div>
-                </>
-              );
-
-              const cardClass =
-                "work-section-card work-section-card--surface" +
-                (sectionRevealed ? " work-section-card--in" : "");
-
-              const style = { "--stagger": String(i) };
-
-              if (project.to) {
-                return (
-                  <Link
-                    key={project.id}
-                    to={project.to}
-                    className={cardClass}
-                    style={style}
-                  >
-                    {body}
-                  </Link>
-                );
-              }
-
-              return (
-                <article key={project.id} className={cardClass} style={style}>
-                  {body}
-                </article>
-              );
-            })}
-          </div>
-        </div>
       </div>
     </section>
   );

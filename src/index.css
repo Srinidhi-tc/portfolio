@@ -1545,3 +1545,80 @@ img {
     min-height: 44px;
   }
 }
+
+/* adding projectrow on top nav bar scroll and styling.*/
+/* Project widget row — Apple-style nav strip above the detailed grid.
+   No cards, no borders, no hover motion. Height-normalized, width-auto. */
+
+.project-row {
+  margin: 0 0 var(--space-2xl);
+}
+
+.project-row-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--space-xs);
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+}
+
+.project-row-list::-webkit-scrollbar {
+  display: none;
+}
+
+.project-row-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.project-row-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  color: inherit;
+  /* No hover transform/scale/shadow by design — see spec. */
+}
+
+.project-row-img {
+  height: clamp(84px, 11vw, 132px);
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+
+.project-row-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.project-row-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Mobile: roughly 3 full items + a peeking 4th as a continuation cue.
+   Exact counts depend on each PNG's real aspect ratio once assets land —
+   revisit clamp() bounds after dropping in the actual renders. */
+@media (max-width: 720px) {
+  .project-row-list {
+    gap: 1.25rem;
+  }
+
+  .project-row-img {
+    height: 92px;
+  }
+}

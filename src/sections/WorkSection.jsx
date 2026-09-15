@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../components/ui/SectionTitle";
+import ProjectRow from "../components/ProjectRow";
 import { workSectionProjects, workSectionViews } from "../data/workSectionProjects";
 
 const PANEL_ID = "work-section-panel";
@@ -50,6 +51,8 @@ export default function WorkSection() {
     >
       <div className="container">
         <SectionTitle title="Work" id="work-section-heading" titleHidden />
+
+        <ProjectRow />
 
         {/* Grid first — toggle moves below */}
         <div

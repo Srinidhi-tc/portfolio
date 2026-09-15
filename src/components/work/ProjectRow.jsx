@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 
-// Renders live in src/assets/, imported like every other project image so
-// Vite hashes/bundles them the same way as the rest of the site.
-import azureRender from "../assets/project-renders/azure.webp";
-import tutorRender from "../assets/project-renders/tutor.webp";
-import pulseRender from "../assets/project-renders/pulse.webp";
-import malliRender from "../assets/project-renders/malli.webp";
-import bloomRender from "../assets/project-renders/bloom.webp";
-import mindRender from "../assets/project-renders/mind.webp";
-import defenseArkRender from "../assets/project-renders/defenseark.webp";
+// Renders live directly in src/assets/, imported like every other project
+// image so Vite hashes/bundles them the same way as the rest of the site.
+import azureRender from "../assets/Azure.png";
+import tutorRender from "../assets/Tutor.png";
+import pulseRender from "../assets/Pulse.png";
+import malliRender from "../assets/Malli.png";
+import bloomRender from "../assets/Bloom.png";
+import mindRender from "../assets/Mind.png";
+import defenseArkRender from "../assets/DefenseARK.png";
 
 // Maps each new render + one-word label onto the EXISTING project data
 // (by id) so `to`, `title`, etc. stay a single source of truth.

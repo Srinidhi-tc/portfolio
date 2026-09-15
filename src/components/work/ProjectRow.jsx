@@ -3,13 +3,13 @@ import { workSectionProjects } from "../../data/workSectionProjects";
 
 // Renders live directly in src/assets/, imported like every other project
 // image so Vite hashes/bundles them the same way as the rest of the site.
-import azureRender from "../../assets/azuretop.png";
-import tutorRender from "../../assets/tutortop.png";
-import pulseRender from "../../assets/pulsetop.png";
-import malliRender from "../../assets/mallitop.png";
-import bloomRender from "../../assets/bloomtop.png";
-import mindRender from "../../assets/mindtop.png";
-import defenseArkRender from "../../assets/defensearktop.png";
+import azureRender from "../../assets/azuretop.webp";
+import tutorRender from "../../assets/tutortop.webp";
+import pulseRender from "../../assets/pulsetop.webp";
+import malliRender from "../../assets/mallitop.webp";
+import bloomRender from "../../assets/bloomtop.webp";
+import mindRender from "../../assets/mindtop.webp";
+import defenseArkRender from "../../assets/defensearktop.webp";
 
 // Maps each new render + one-word label onto the EXISTING project data
 // (by id) so `to`, `title`, etc. stay a single source of truth.

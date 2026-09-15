@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../components/ui/SectionTitle";
-import ProjectRow from "../components/ProjectRow";
+import ProjectRow from "../components/work/ProjectRow";
 import { workSectionProjects, workSectionViews } from "../data/workSectionProjects";
 
 const PANEL_ID = "work-section-panel";

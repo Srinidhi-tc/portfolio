@@ -1,22 +1,26 @@
 import { Link } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 
-// Vite's configured base ("/portfolio/") so paths resolve correctly on
-// GitHub Pages without hardcoding the subpath.
-const BASE = import.meta.env.BASE_URL;
+// Renders live in src/assets/, imported like every other project image so
+// Vite hashes/bundles them the same way as the rest of the site.
+import azureRender from "../assets/project-renders/azure.webp";
+import tutorRender from "../assets/project-renders/tutor.webp";
+import pulseRender from "../assets/project-renders/pulse.webp";
+import malliRender from "../assets/project-renders/malli.webp";
+import bloomRender from "../assets/project-renders/bloom.webp";
+import mindRender from "../assets/project-renders/mind.webp";
+import defenseArkRender from "../assets/project-renders/defenseark.webp";
 
-// Maps each new render file + one-word label onto the EXISTING project data
-// (by id) so `to`, `title`, etc. stay a single source of truth. No new
-// project data is created here — this only adds display metadata for the
-// row itself.
+// Maps each new render + one-word label onto the EXISTING project data
+// (by id) so `to`, `title`, etc. stay a single source of truth.
 const ROW_ITEMS = [
-  { id: "microsoft",          label: "Azure",      file: "azure.png" },
-  { id: "ai-coding",          label: "Tutor",       file: "tutor.png" },
-  { id: "hearts-of-insomnia", label: "Pulse",       file: "pulse.png" },
-  { id: "malli",              label: "Malli",       file: "malli.png" },
-  { id: "bee-feeder",         label: "Bloom",       file: "bloom.png" },
-  { id: "psychosis-literacy", label: "Mind",        file: "mind.png" },
-  { id: "defenseark",         label: "DefenseARK",  file: "defenseark.png" },
+  { id: "microsoft",          label: "Azure",      image: azureRender },
+  { id: "ai-coding",          label: "Tutor",       image: tutorRender },
+  { id: "hearts-of-insomnia", label: "Pulse",       image: pulseRender },
+  { id: "malli",              label: "Malli",       image: malliRender },
+  { id: "bee-feeder",         label: "Bloom",       image: bloomRender },
+  { id: "psychosis-literacy", label: "Mind",        image: mindRender },
+  { id: "defenseark",         label: "DefenseARK",  image: defenseArkRender },
 ];
 
 export default function ProjectRow() {
@@ -35,7 +39,7 @@ export default function ProjectRow() {
                 aria-label={`${project.title} project`}
               >
                 <img
-                  src={`${BASE}project-renders/${item.file}`}
+                  src={item.image}
                   alt={`${project.title} project`}
                   className="project-row-img"
                   loading="lazy"

@@ -109,58 +109,243 @@ function SectionHeading({ number, children }) {
   );
 }
 
-function EmpathyMap() {
-  const items = [
-    {
-      label: "Thoughts",
-      text: "Where is the next flower?",
-    },
-    {
-      label: "Behaviour",
-      text: "Search, approach, land, feed.",
-    },
-    {
-      label: "Feelings",
-      text: "Curious, selective, ready to feed.",
-    },
-    {
-      label: "Senses",
-      text: "Visible colour plus ultraviolet cues.",
-    },
-  ];
+function JourneyLabel({ children }) {
+  return (
+    <p
+      style={{
+        fontSize: 11,
+        fontWeight: 650,
+        letterSpacing: "0.07em",
+        textTransform: "uppercase",
+        color: "var(--color-text-tertiary)",
+        margin: 0,
+      }}
+    >
+      {children}
+    </p>
+  );
+}
 
+function JourneyCell({ children, highlighted = false, label }) {
   return (
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gap: 12,
-        marginTop: 28,
+        background: highlighted ? "#fff7c7" : "var(--surface-2)",
+        borderRadius: 12,
+        padding: "16px 15px",
+        minHeight: 96,
+        border: highlighted
+          ? "1px solid rgba(170, 140, 0, 0.28)"
+          : "1px solid transparent",
+        position: "relative",
       }}
     >
-      {items.map(({ label, text }) => (
+      {highlighted && (
         <div
-          key={label}
           style={{
-            background: "var(--surface-2)",
-            borderRadius: 12,
-            padding: "18px 16px",
-            minHeight: 120,
+            position: "absolute",
+            top: 10,
+            right: 10,
+            fontSize: 9,
+            fontWeight: 700,
+            letterSpacing: "0.06em",
+            color: "#766400",
           }}
         >
-          <p style={{ ...eyebrow, marginBottom: 10 }}>{label}</p>
-          <p
+          KEY INSIGHT
+        </div>
+      )}
+
+      {label && <JourneyLabel>{label}</JourneyLabel>}
+
+      <p
+        style={{
+          fontSize: 14,
+          color: "var(--text)",
+          lineHeight: 1.45,
+          margin: label ? "8px 0 0" : 0,
+          maxWidth: 230,
+        }}
+      >
+        {children}
+      </p>
+    </div>
+  );
+}
+
+function ButterflyJourneyChart() {
+  const stages = [
+    {
+      title: "Searching",
+      thoughts: "Where is the next flower?",
+      behaviour: "Moves through the garden looking for food.",
+      feelings: "Alert and selective.",
+      senses: "Scans the environment for visual cues.",
+    },
+    {
+      title: "Approaching",
+      thoughts: "Could this be food?",
+      behaviour: "Moves closer to a possible flower.",
+      feelings: "Interested, but evaluating.",
+      senses: "Colour, shape, and other visual signals.",
+    },
+    {
+      title: "Landing",
+      thoughts: "Is this a place to feed?",
+      behaviour: "Positions on the flower surface.",
+      feelings: "Ready to inspect the flower.",
+      senses: "Landing geometry becomes important.",
+    },
+    {
+      title: "Finding food",
+      thoughts: "Where is the nectar?",
+      behaviour: "Locates the feeding area.",
+      feelings: "Focused on the food source.",
+      senses: "UV VISION",
+      highlighted: true,
+    },
+    {
+      title: "Feeding",
+      thoughts: "This is a usable food source.",
+      behaviour: "Feeds from the flower centre.",
+      feelings: "Settled and engaged.",
+      senses:
+        "Continues responding to the flower and feeding setup.",
+    },
+  ];
+
+  const rows = [
+    { label: "Thoughts", key: "thoughts" },
+    { label: "Behaviour", key: "behaviour" },
+    { label: "Feelings", key: "feelings" },
+    { label: "Senses", key: "senses" },
+  ];
+
+  return (
+    <div style={{ marginTop: 32 }}>
+      <div style={{ marginBottom: 18 }}>
+        <JourneyLabel>Butterfly customer journey</JourneyLabel>
+
+        <p
+          style={{
+            ...body,
+            margin: "8px 0 0",
+            maxWidth: 720,
+          }}
+        >
+          Qualitative journey map connecting prototype observations with
+          biological research and design hypotheses.
+        </p>
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "110px repeat(5, minmax(0, 1fr))",
+          gap: 8,
+          overflowX: "auto",
+          paddingBottom: 4,
+        }}
+      >
+        <div />
+
+        {stages.map((stage) => (
+          <div
+            key={stage.title}
             style={{
-              fontSize: 15,
-              color: "var(--text)",
-              lineHeight: 1.45,
-              margin: 0,
+              padding: "8px 12px",
+              minWidth: 145,
             }}
           >
-            {text}
-          </p>
-        </div>
-      ))}
+            <p
+              style={{
+                fontSize: 14,
+                fontWeight: 650,
+                margin: 0,
+                color: "var(--text)",
+              }}
+            >
+              {stage.title}
+            </p>
+          </div>
+        ))}
+
+        {rows.map((row) => (
+          <div key={row.label} style={{ display: "contents" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "0 10px 0 0",
+                minWidth: 100,
+              }}
+            >
+              <JourneyLabel>{row.label}</JourneyLabel>
+            </div>
+
+            {stages.map((stage) => (
+              <JourneyCell
+                key={`${row.key}-${stage.title}`}
+                highlighted={
+                  stage.highlighted && row.key === "senses"
+                }
+              >
+                {stage[row.key]}
+              </JourneyCell>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function UVInsightCard() {
+  return (
+    <div
+      style={{
+        marginTop: 28,
+        padding: "24px 24px 26px",
+        borderRadius: 16,
+        background: "var(--surface-2)",
+        border: "1px solid var(--hairline-weak)",
+      }}
+    >
+      <JourneyLabel>The turning point</JourneyLabel>
+
+      <p
+        style={{
+          fontSize: "clamp(20px, 4vw, 28px)",
+          lineHeight: 1.25,
+          letterSpacing: "-0.25px",
+          fontWeight: 600,
+          margin: "10px 0 24px",
+          maxWidth: 650,
+        }}
+      >
+        The flower looked right to humans. It still missed a butterfly cue.
+      </p>
+
+      <div
+        style={{
+          borderTop: "1px solid var(--hairline-weak)",
+          paddingTop: 18,
+        }}
+      >
+        <JourneyLabel>UV vision</JourneyLabel>
+
+        <p
+          style={{
+            ...body,
+            margin: "8px 0 0",
+            maxWidth: 700,
+          }}
+        >
+          Butterflies can perceive ultraviolet information that is not visible
+          to humans. The discovery shifted the surface treatment from simply
+          looking like a flower to communicating through another visual cue.
+        </p>
+      </div>
     </div>
   );
 }
@@ -184,6 +369,7 @@ function RoleImpact() {
       }}
     >
       <p style={eyebrow}>MY ROLE</p>
+
       <h2
         style={{
           fontSize: "clamp(28px, 7vw, 40px)",
@@ -217,7 +403,16 @@ function RoleImpact() {
                 marginTop: 9,
               }}
             />
-            <p style={{ ...body, margin: 0, maxWidth: 700 }}>{item}</p>
+
+            <p
+              style={{
+                ...body,
+                margin: 0,
+                maxWidth: 700,
+              }}
+            >
+              {item}
+            </p>
           </div>
         ))}
       </div>
@@ -305,6 +500,7 @@ export default function BeeFeeder() {
             >
               {value}
             </span>
+
             <span
               style={{
                 fontSize: 12,
@@ -317,7 +513,13 @@ export default function BeeFeeder() {
         ))}
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 88 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 88,
+        }}
+      >
         <section>
           <SectionHeading number="01 — STARTING POINT">
             A garden accessory needed a user.
@@ -395,7 +597,7 @@ export default function BeeFeeder() {
             caption="Instead of treating the butterfly as a passive recipient, the journey was mapped around what it might notice, do, feel, and sense while searching for food. The most important gap was sensory: a flower designed for human vision may not communicate the same way to a butterfly."
           />
 
-          <EmpathyMap />
+          <ButterflyJourneyChart />
         </section>
 
         <section>
@@ -408,6 +610,8 @@ export default function BeeFeeder() {
             subheading="The yellow flower was incomplete."
             caption="Butterflies can see ultraviolet light that humans cannot. Natural flowers can use ultraviolet patterns as visual guides. The plain yellow 3D-printed flower reproduced the visible colour, but not the cue that could make the flower more recognizable to its intended user."
           />
+
+          <UVInsightCard />
         </section>
 
         <section>
@@ -480,8 +684,14 @@ export default function BeeFeeder() {
       >
         {[
           { label: "Type", value: "Parametric Product Design" },
-          { label: "Tools", value: "Blender · SolidWorks · 3D Printing" },
-          { label: "Focus", value: "Bio-inspired Design · Animal Experience" },
+          {
+            label: "Tools",
+            value: "Blender · SolidWorks · 3D Printing",
+          },
+          {
+            label: "Focus",
+            value: "Bio-inspired Design · Animal Experience",
+          },
         ].map(({ label, value }) => (
           <div key={label}>
             <p
@@ -493,7 +703,10 @@ export default function BeeFeeder() {
             >
               {label}
             </p>
-            <p style={{ fontSize: 14, fontWeight: 500 }}>{value}</p>
+
+            <p style={{ fontSize: 14, fontWeight: 500 }}>
+              {value}
+            </p>
           </div>
         ))}
       </div>

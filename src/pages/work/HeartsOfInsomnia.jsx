@@ -10,138 +10,318 @@ import heart10 from "../../assets/heart10.png";
 import heart11 from "../../assets/heart11.png";
 import heart12 from "../../assets/heart12.png";
 
-const s = { fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", marginBottom: 6 };
-const c = { fontSize: 16, color: "var(--muted)", lineHeight: 1.6, maxWidth: 640 };
+const eyebrow = {
+  fontSize: 13,
+  fontWeight: 600,
+  letterSpacing: "0.06em",
+  textTransform: "uppercase",
+  color: "var(--color-text-tertiary)",
+  marginBottom: 8,
+};
 
-function Block({ src, subheading, caption }) {
+const body = {
+  fontSize: 16,
+  color: "var(--muted)",
+  lineHeight: 1.6,
+  maxWidth: 640,
+  margin: 0,
+};
+
+const title = {
+  fontSize: "clamp(24px, 6vw, 34px)",
+  fontWeight: 600,
+  letterSpacing: "-0.02em",
+  lineHeight: 1.12,
+  color: "var(--text)",
+  margin: "0 0 14px",
+};
+
+function Block({ src, subheading, caption, alt }) {
   return (
-    <div>
-      {src && <img src={src} alt={subheading} style={{ width: "100%", borderRadius: 12, display: "block", marginBottom: 16 }} />}
-      <p style={s}>{subheading}</p>
-      <p style={c}>{caption}</p>
-    </div>
+    <section>
+      {src && (
+        <img
+          src={src}
+          alt={alt || subheading}
+          style={{
+            width: "100%",
+            borderRadius: 12,
+            display: "block",
+            marginBottom: 20,
+          }}
+        />
+      )}
+      <p style={eyebrow}>{subheading}</p>
+      <p style={body}>{caption}</p>
+    </section>
   );
 }
 
+function ImpactBox() {
+  return (
+    <section
+      style={{
+        background: "var(--surface-2)",
+        borderRadius: 16,
+        padding: "24px 24px 26px",
+      }}
+    >
+      <p style={{ ...eyebrow, marginBottom: 10 }}>Role & Impact</p>
+      <h2 style={{ ...title, fontSize: "clamp(22px, 5.5vw, 30px)", marginBottom: 14 }}>
+        The physical experience depended on both form and system.
+      </h2>
+      <p style={body}>
+        3D modeling shaped the anatomical heart and its internal structure.
+        Bambu Lab tools supported fabrication and iteration. Coding issues
+        during hardware integration were resolved, and the paper documentation
+        for CHI 2026 was written as part of the project submission.
+      </p>
+
+      {PROJECT_DOC_URL && (
+        <a
+          href={PROJECT_DOC_URL}
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            marginTop: 18,
+            fontSize: 13,
+            fontWeight: 600,
+            color: "var(--text)",
+            textDecoration: "none",
+          }}
+        >
+          Project documentation ↗
+        </a>
+      )}
+    </section>
+  );
+}
+
+const PROJECT_DOC_URL = "";
+
 export default function HeartsOfInsomnia() {
   return (
-    <div style={{ fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif", color: "var(--text)", padding: "80px 40px", maxWidth: 900, margin: "0 auto" }}>
+    <div
+      style={{
+        fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif",
+        color: "var(--text)",
+        padding: "80px 40px",
+        maxWidth: 900,
+        margin: "0 auto",
+      }}
+    >
+      <header style={{ marginBottom: 72 }}>
+        <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
+          Physical Computing · Emotional Design
+        </p>
 
-      <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
-        Physical Computing · Emotional Design
-      </p>
-      <h1 style={{ fontSize: "clamp(34px, 11vw, 56px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.05, marginBottom: 16 }}>
-        Hearts of Insomnia
-      </h1>
-      <p style={{ fontSize: 19, color: "var(--muted)", marginBottom: 16, maxWidth: 600 }}>
-        CHI 2026 — Arduino · 3D Fabrication
-      </p>
-      <p style={{ fontSize: 16, color: "var(--muted)", marginBottom: 64, maxWidth: 600, lineHeight: 1.6 }}>
-        A nightlamp that solves insomnia and late-night panic by using light therapy, making invisible anxiety visible and understandable through light, sound, and interaction.
-      </p>
+        <h1
+          style={{
+            fontSize: "clamp(34px, 11vw, 56px)",
+            fontWeight: 700,
+            letterSpacing: "-0.5px",
+            lineHeight: 1.05,
+            marginBottom: 16,
+          }}
+        >
+          Hearts of Insomnia
+        </h1>
 
-      <div className="stat-grid" style={{ marginBottom: 80 }}>
-        {[
-          { value: "Arduino",    label: "physical computing" },
-          { value: "CHI 2026",   label: "submitted research" },
-          { value: "Light + Sound", label: "multi-sensory UX" },
-        ].map(({ value, label }) => (
-          <div key={label} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "14px 16px" }}>
-            <span style={{ display: "block", fontSize: "clamp(16px, 4.4vw, 20px)", fontWeight: 600, color: "var(--text)", marginBottom: 2 }}>{value}</span>
-            <span style={{ fontSize: 12, color: "var(--color-text-tertiary)" }}>{label}</span>
-          </div>
-        ))}
-      </div>
+        <p
+          style={{
+            fontSize: 19,
+            color: "var(--muted)",
+            marginBottom: 16,
+            maxWidth: 600,
+          }}
+        >
+          CHI 2026 — Interactive Demo
+        </p>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
+        <p
+          style={{
+            fontSize: 18,
+            color: "var(--muted)",
+            marginBottom: 32,
+            maxWidth: 640,
+            lineHeight: 1.55,
+          }}
+        >
+          What if a bedside lamp could notice when the body starts to change,
+          without turning the moment into another notification?
+        </p>
 
+        <ImpactBox />
+      </header>
+
+      <main style={{ display: "flex", flexDirection: "column", gap: 88 }}>
         <Block
           src={heart1}
-          subheading="Final Product Visualization"
-          caption="We transformed a prototype into a product concept that represents comfort during stressful moments. The heart responds to panic and calm states as a bedside companion... designed to help users feel seen, heard, and comforted through light and sound."
+          subheading="The Starting Point"
+          caption="Racing thoughts, a fast heartbeat, and the strange quiet of being awake at night became the starting point. The concept focused on a bedside object that could make a physical change easier to notice without requiring a phone screen."
         />
 
         <Block
           src={null}
-          subheading="Problem Statement"
-          caption="We wanted to make invisible anxiety during insomnia visible and understandable. We explored how racing thoughts and elevated heart rates feel when someone struggles to fall asleep.. then designed a heart-based artifact that shows the emotional journey from panic to calm through light, sound, and interaction."
+          subheading="Why a Heart"
+          caption="A heart-rate number tells a person what happened. A physical heart can show that change as an experience. The anatomical form became both the object and the visual language, connecting something measurable to something immediately familiar."
         />
 
         <Block
           src={heart3}
-          subheading="Design Thinking Process"
-          caption="We needed to understand how technology could translate personal sleep experiences into meaningful interactions. We researched heart-rate sensors, LEDs, speakers, and interactive devices, narrowing from multiple sensors into a focused system using heart-rate input, lighting, and audio feedback."
+          subheading="The First Direction"
+          caption="Early concepts combined an anatomical heart, light, sensors, and sound. Extra interactions were removed as the direction became clearer: heart-rate input, ambient light, and audio were enough to carry the experience."
         />
 
         <Block
           src={heart4}
-          subheading="Research and Exploration"
-          caption="We placed the heart at the center because it represents the physical feeling of anxiety during sleepless nights. Early sketches combined a heart model, LED blood flow visualization, sensors, and sound — refined by removing unnecessary interactions and focusing on emotional connection."
+          subheading="The Signal Had to Feel Natural"
+          caption="The bedside setting changed the design. Most of the time, the object should behave like a lamp rather than a health dashboard. The response could stay in the environment until a meaningful heart-rate change occurred."
         />
 
         <Block
           src={heart5}
-          subheading="Hardware Exploration"
-          caption="We wanted users to see the connection between their body and the digital experience. We tested Arduino components, pulse sensors, LEDs, and audio systems to build real-time feedback — connecting physiological input with visual storytelling instead of only displaying numbers."
+          subheading="The Prototype Got Messy"
+          caption="Sensor readings were not always stable. Code, wiring, LEDs, and audio had to work together before the physical interaction could make sense. The unreliable signal became a design problem, not only a technical one."
         />
 
         <Block
           src={heart6}
-          subheading="Arduino Integration"
-          caption="We needed a reliable bridge between the user's heartbeat and the physical artifact. We used an Arduino board with a pulse sensor to capture heart-rate changes... developing LED behaviors that transform biological data into expressive visual states."
+          subheading="A Noisy Input Changes the Experience"
+          caption="A dramatic light response only works when the input can be trusted. Unstable readings raised a difficult question: should every fluctuation trigger an obvious reaction? The interaction was kept expressive without treating every reading as an alarm."
         />
 
         <Block
           src={heart7}
-          subheading="Sensor Testing"
-          caption="We wanted the interaction to feel personal while remaining simple for users. We tested different ways to capture heart-rate input and improve connection between the person and the heart. Sensor accuracy needed improvement, but the interaction successfully created curiosity and engagement."
+          subheading="The Form Had to Hold the System"
+          caption="The heart looked simple from the outside. Inside, it had to make room for electronics while preserving an anatomical shape and allowing light to travel through the material. Size, wall thickness, internal structure, and print behavior kept changing together."
         />
 
         <Block
           src={heart8}
-          subheading="3D Modeling the Heart"
-          caption="We chose a physical heart instead of a digital screen to create an emotional and human connection. We modelled an anatomical heart in Blender and designed internal space for electronics. Focusing on optimising shape, thickness, and structure to balance realism, printing limits, and light diffusion."
+          subheading="The Print Became Part of the Design"
+          caption="Fabrication exposed details that were easy to miss on screen. A visible seam appeared between printed sections and became difficult to hide. The heart and pedestal were adjusted through repeated physical tests instead of treating the first print as final."
         />
 
         <Block
           src={heart9}
-          subheading="Prototype Assembly"
-          caption="We needed the physical form to support both function and emotional storytelling. We built the pedestal to securely hold the heart while hiding wires and electronics (adjusting materials, dimensions, and internal structures through multiple fabrication tests)."
+          subheading="The Pedestal Changed Too"
+          caption="The pedestal started as a structural support, then became part of the visual composition. Slants, bevels, dimensions, and internal space were adjusted to keep the heart stable while hiding wires and electronics."
         />
 
         <Block
           src={heart10}
-          subheading="Lighting Exploration and Audio Interaction"
-          caption="We used light as a language to communicate emotional states without overwhelming users with data. Red and blue flashes represent panic, soft rainbow transitions represent calm. Audio moved from Arduino speakers to a p5.js system after testing showed better control and quality."
+          subheading="Light Became the Language"
+          caption="Five ambient light phases carried the main interaction. A normal state stayed close to an ordinary lamp. Changes in heart-rate input could move the heart into more noticeable states, while the return toward a calmer state was shown through softer transitions."
         />
 
         <Block
           src={heart11}
-          subheading="Iteration and Debugging"
-          caption="We learned that meaningful experiences require constant refinement between technology and design. We solved challenges with audio communication, sensor reliability, and prototype dimensions improving the model by simplifying structures and prioritising user experience."
+          subheading="Sound Needed More Control"
+          caption="Audio started inside the hardware setup. Testing exposed limits in control and quality, so the audio interaction moved into a separate interactive layer. Separating the sound layer from the physical input made the final experience easier to tune."
+        />
+
+        <Block
+          src={null}
+          subheading="Privacy Changed the Interaction"
+          caption="A heart-rate number does not always need to be visible. A bedside object can communicate that something changed without displaying a personal measurement to everyone nearby. The signal became ambient: noticeable when useful, quiet when not."
         />
 
         <Block
           src={heart12}
-          subheading="Public Interaction Concept"
-          caption="We explored how a small tangible object could create emotional support beyond the bedroom. We transformed the heart into a handheld keychain concept for personal reflection, showing how users could carry a reminder that anxiety can change and settle."
+          subheading="The Idea Left the Nightstand"
+          caption="A smaller heart was also explored as a handheld keychain. The form made the interaction portable and opened possibilities beyond the bedside setting. This direction remained an exploration rather than a final product path."
         />
 
-      </div>
+        <section
+          style={{
+            borderTop: "0.5px solid var(--hairline-weak)",
+            paddingTop: 48,
+          }}
+        >
+          <p style={eyebrow}>Pilot & Outcome</p>
+          <h2 style={title}>Five people tested the concept.</h2>
+          <p style={body}>
+            The pilot produced a positive response and supported the core idea
+            of using a physical object to make heart-rate changes easier to
+            perceive. The prototype also surfaced open questions around sensor
+            reliability, privacy, and how much information an ambient object
+            should communicate.
+          </p>
+        </section>
 
-      <div className="meta-grid" style={{ borderTop: "0.5px solid var(--hairline-weak)", paddingTop: 40, marginTop: 80 }}>
-        {[
-          { label: "Type",  value: "Physical Computing · UX Research" },
-          { label: "Tools", value: "Arduino · Blender · p5.js · 3D Printing" },
-          { label: "Focus", value: "Emotional Design · Bio-feedback · Prototyping" },
-        ].map(({ label, value }) => (
-          <div key={label}>
-            <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>{label}</p>
-            <p style={{ fontSize: 14, fontWeight: 500 }}>{value}</p>
+        <section
+          style={{
+            background: "var(--surface-2)",
+            borderRadius: 16,
+            padding: "28px 24px",
+          }}
+        >
+          <p style={{ ...eyebrow, marginBottom: 10 }}>Final Interaction</p>
+          <h2 style={title}>Body → signal → light → awareness.</h2>
+          <p style={body}>
+            The final concept turns heart-rate input into an ambient physical
+            response designed to help a person notice a change and observe the
+            transition back toward a calmer state. It does not diagnose a
+            condition or replace clinical monitoring.
+          </p>
+        </section>
+
+        <section
+          style={{
+            borderTop: "0.5px solid var(--hairline-weak)",
+            paddingTop: 40,
+            marginTop: 8,
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gap: 28,
+            }}
+          >
+            <div>
+              <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
+                Team
+              </p>
+              <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>
+                Srinidhi Chakravarthy · Bri Baehl
+              </p>
+            </div>
+
+            <div>
+              <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
+                Tools
+              </p>
+              <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>
+                Arduino · Blender · p5.js · 3D Printing
+              </p>
+            </div>
+
+            <div>
+              <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
+                Project
+              </p>
+              <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>
+                Physical Computing · UX Research
+              </p>
+            </div>
+
+            <div>
+              <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
+                Submission
+              </p>
+              <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>
+                CHI 2026 Interactive Demo
+              </p>
+            </div>
           </div>
-        ))}
-      </div>
-
+        </section>
+      </main>
     </div>
   );
 }

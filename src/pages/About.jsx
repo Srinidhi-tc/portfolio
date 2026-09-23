@@ -106,14 +106,15 @@ function Bar({ item, laneColor, anyActive }) {
         boxShadow:  hovered ? `0 2px 14px ${laneColor}66` : "none",
       }} />
 
-      {/* Popup — only for bars with images */}
-      {hasImage && hovered && (
+     
+            {/* Popup — image card for bars with images, text card for bars without */}
+      {hovered && (
         <div style={{
           position:     "absolute",
           bottom:       "calc(100% + 10px)",
           left:         "50%",
           transform:    "translateX(-50%)",
-          width:        200,
+          width:        hasImage ? 200 : 220,
           borderRadius: 10,
           overflow:     "hidden",
           boxShadow:    "0 8px 32px rgba(0,0,0,0.18)",
@@ -122,14 +123,15 @@ function Bar({ item, laneColor, anyActive }) {
           pointerEvents:"none",
           zIndex:       20,
         }}>
-          <img src={item.image} alt={item.label}
-               style={{ width:"100%", height:120, objectFit:"cover", display:"block" }} />
-          <div style={{ padding:"10px 12px 12px" }}>
+          {hasImage && (
+            <img src={item.image} alt={item.label}
+                 style={{ width:"100%", height:120, objectFit:"cover", display:"block" }} />
+          )}
+          <div style={{ padding: hasImage ? "10px 12px 12px" : "12px 14px 14px" }}>
             <p style={{ fontSize:11, fontWeight:600, color:"#1D1D1F", margin:0 }}>{item.label}</p>
             <p style={{ fontSize:10, color:"#86868B", margin:"2px 0 0", lineHeight:1.4 }}>{item.sub}</p>
             <p style={{ fontSize:10, color:"#3A3A3C", margin:"6px 0 0", lineHeight:1.5 }}>{item.note}</p>
           </div>
-          {/* Arrow */}
           <div style={{
             position:"absolute", bottom:-6, left:"50%",
             transform:"translateX(-50%)",

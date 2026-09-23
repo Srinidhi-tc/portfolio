@@ -27,17 +27,50 @@ const LANES = [
     ],
   },
   {
-    label: "Practice",
+    label: "Work",
     color: "#B85C38",
     items: [
       { id:"freelance", label:"Freelance — Wedding Invites Design", sub:"Self-directed · 2019–2020",            from:y(2019),    to:y(2020),    image:null,         note:"Designed wedding invites to fund my first laptop and phone." },
       { id:"ionixx",    label:"UX Design Intern",               sub:"Ionixx Technologies · Jan–Jul 2020",  from:y(2020,1),  to:y(2020,7),  image:null,         note:"Fintech & health UX. First professional product design role." },
       { id:"defenseark",label:"Product Designer",               sub:"DefenseARK · May 2021–May 2023",       from:y(2021,5),  to:y(2023,5),  image:imgDefenseArk,note:"Founding design hire. Enigma, Brightscan, Torus — cybersecurity UX." },
       { id:"microsoft", label:"UX Designer",                    sub:"Microsoft Azure · 2023–2024",          from:y(2023,9),  to:y(2024,1),  image:imgMicrosoft, note:"Health Observability Monitor — SRE system redesign." },
+     
+      {
+        id:    "tapinto",
+        label: "TAPD-INTO — NSF STEM Accessibility",
+        sub:   "Purdue · Fall 2024",
+        from:  y(2024, 8), to: y(2024, 12),
+        image: null,
+        note:  "NSF-funded accessibility research for STEM education. Audited tools for neurodivergent and disabled learners.",
+      },
+       {
+        id:    "ta-pm",
+        label: "Graduate TA — Project Management",
+        sub:   "Purdue Daniels School of Business · Spring 2025",
+        from:  y(2025, 1), to: y(2025, 5),
+        image: null,
+        note:  "TA for graduate-level project management. Supported 80+ MS students with curriculum and lab sessions.",
+      },
+      {
+        id:    "sgx3",
+        label: "UX Consultant — SGX3 / StraboSpot",
+        sub:   "TACC · Fall 2025",
+        from:  y(2025, 8), to: y(2025, 12),
+        image: imgMicrosoft,
+        note:  "UX consultancy for StraboSpot geospatial platform — 12,000+ geologists. Heuristic eval + expert interviews.",
+      },
+      {
+        id:    "ta-db",
+        label: "Graduate TA — Database Management",
+        sub:   "Purdue · Spring 2026",
+        from:  y(2026, 1), to: y(2026, 5),
+        image: null,
+        note:  "TA for database management and SQL. Designed curriculum materials and led data modelling labs.",
+      },
     ],
   },
   {
-    label: "Studio",
+    label: "Freelance",
     color: "#8C7A4E",
     items: [
       { id:"interior", label:"Interior Design Studio", sub:"Independent · Jul 2023–Jul 2024", from:y(2023,7), to:y(2024,7), image:imgInterior, note:"4 residential projects — floor plan to handover. Real clients, real budgets." },
@@ -222,7 +255,7 @@ export default function About() {
                 maxWidth:      "52ch",
               }}>
                 I started in psychology and ended up in design because both ask the same
-                question — How could I make someone life better? That instinct led me
+                question — How could I make someone's life better? That instinct led me
                 from India to Purdue, through cybersecurity, interiors, health tech, and
                 physical products.
               </p>

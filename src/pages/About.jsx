@@ -4,8 +4,8 @@ import CollaboratorNotes from "../sections/CollaboratorNotes";
 
 import imgDefenseArk from "../assets/ransomwaremain.png";
 import imgInterior   from "../assets/p1.webp";
-import imgPurdue     from "../assets/work-psychosis.jpg";
-import imgMicrosoft  from "../assets/work-microsoft.avif";
+import imgPurdue     from "../assets/work-psychosis.webp";
+import imgMicrosoft  from "../assets/work-microsoft.webp";
 
 const YEAR_START = 2017;
 const YEAR_END   = 2026.5;

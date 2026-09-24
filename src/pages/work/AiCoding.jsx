@@ -113,7 +113,7 @@ function ClientSwitcher() {
             fontWeight: 600,
           }}
         >
-          StraboSpot →
+          StraboSpot Inc →
         </a>
       </div>
     </div>
@@ -150,7 +150,7 @@ function Hero() {
         A capable AI system needed a clearer learning model.
       </p>
       <p style={{ ...body, fontSize: 17 }}>
-        TACC's AI coding interview tool had useful AI capability, but the interface left students unsure where to start, what the chatbot was for, and what to do next.
+        Texas Advanced Computing Centre TACC AI coding interview tool had useful AI capability, but the interface left students unsure where to start, what the chatbot was for, and what to do next.
       </p>
     </header>
   );

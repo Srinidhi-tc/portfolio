@@ -60,7 +60,7 @@ function ClientSwitcher() {
       backdropFilter: "blur(16px)",
     }}>
       <div style={{ minWidth: 0 }}>
-        <p style={{ ...label, fontSize: 10, marginBottom: 2 }}>SGX3 · Two concurrent client engagements</p>
+        <p style={{ ...label, fontSize: 10, marginBottom: 2 }}>SGX3 · Two Concurrent Clients </p>
         <p style={{ margin: 0, fontSize: 13, fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
           Client 01 · AI Coding Tutor
         </p>
@@ -99,7 +99,7 @@ function RoleAtTop() {
     ["Role", "UX Consultant"],
     ["Client", "Dr. Bobby Hodgkinson · TACC"],
     ["SGX3 TEAM", "Paul Parsons · Linh Pham · Claire Stirm (Stakeholder)"],
-    ["My Impact", "Suggestion of Progress Bar Idea · competitive analysis · interaction recommendations · A rubric/AI harness for grading framework"],
+    ["My Impact", "Design of Progress Bar · competitive analysis · interaction recommendations · A rubric/AI harness for grading framework"],
   ];
   return (
     <section style={{ marginBottom: 88, padding: "28px 0 32px", borderTop: "1px solid var(--hairline-weak)", borderBottom: "1px solid var(--hairline-weak)" }}>
@@ -200,8 +200,15 @@ export default function TACC() {
             intro="The engagement covered an AI-powered coding interview tool. The highest-leverage opportunity was the chatbot experience, so the work centered there."
           />
           <Slide src={tacc2} number={2} caption="Engagement summary" />
-          <div style={{ marginTop: 22 }}>
+                    <div style={{ marginTop: 22 }}>
             <Slide src={tacc3} number={3} caption="Scope and sequence" />
+          </div>
+          <div style={{ marginTop: 14 }}>
+            <a href="https://www.figma.com/design/JwsjQAq1Q5UnJpDNrTqkks/AI-Coder-final-recommendation?node-id=0-1"
+               target="_blank" rel="noopener noreferrer"
+               style={{ fontSize:13, fontWeight:500, color:"#0055B3", textDecoration:"none" }}>
+              View full Figma recommendation ↗
+            </a>
           </div>
           <InsightLine>
             The first consulting move was scope: improve the interaction around the AI, not the AI itself.

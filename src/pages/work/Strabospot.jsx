@@ -20,6 +20,7 @@ import str17 from "../../assets/str17.jpg";
 import str18 from "../../assets/str18.jpg";
 import str19 from "../../assets/str19.jpg";
 import str20 from "../../assets/str20.jpg";
+import straboCover from "../../assets/work-strabospot.webp";
 
 const label = {
   fontSize: 12,
@@ -76,7 +77,7 @@ function ClientSwitcher() {
             textOverflow: "ellipsis",
           }}
         >
-          Client 02 · GIS Mapping Tool
+          Client 02 · GIS Tool
         </p>
       </div>
 
@@ -89,7 +90,8 @@ function ClientSwitcher() {
             padding: "9px 13px",
             borderRadius: 999,
             border: "1px solid var(--hairline-weak)",
-            color: "var(--text)",
+            color: "#fff",
+            background: "rgba(255,255,255,.08)",
             textDecoration: "none",
             fontSize: 12,
             fontWeight: 600,
@@ -103,8 +105,9 @@ function ClientSwitcher() {
             alignItems: "center",
             padding: "9px 13px",
             borderRadius: 999,
-            background: "var(--text)",
-            color: "var(--background)",
+            background: "rgba(255,255,255,.14)",
+            color: "#fff",
+            border: "1px solid rgba(255,255,255,.18)",
             fontSize: 12,
             fontWeight: 650,
           }}
@@ -148,6 +151,13 @@ function Hero() {
       <p style={{ ...body, fontSize: 17 }}>
         The engagement examined StraboSpot's search experience through a UI/UX audit, five user interviews, task analysis, and design recommendations for a more unified search workflow.
       </p>
+      <figure style={{ margin: "34px 0 0" }}>
+        <img
+          src={straboCover}
+          alt="StraboSpot laptop mockup"
+          style={{ ...slideBase, width: "100%", borderRadius: 24 }}
+        />
+      </figure>
     </header>
   );
 }
@@ -244,22 +254,6 @@ function Slide({ src, number, caption }) {
   );
 }
 
-function SlidePair({ left, right, leftNumber, rightNumber, leftCaption, rightCaption }) {
-  return (
-    <div
-      className="str-slide-pair"
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-        gap: 18,
-      }}
-    >
-      <Slide src={left} number={leftNumber} caption={leftCaption} />
-      <Slide src={right} number={rightNumber} caption={rightCaption} />
-    </div>
-  );
-}
-
 function InsightLine({ children }) {
   return (
     <div
@@ -340,6 +334,101 @@ function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
   );
 }
 
+function DecisionTradeoff({ decision, tradeoff }) {
+  return (
+    <div
+      className="str-decision-grid"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        gap: 18,
+        marginTop: 28,
+      }}
+    >
+      <div
+        style={{
+          padding: "20px 22px",
+          border: "1px solid var(--hairline-weak)",
+          borderRadius: 18,
+          background: "var(--surface-2)",
+        }}
+      >
+        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>DECISION</p>
+        <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5 }}>{decision}</p>
+      </div>
+      <div
+        style={{
+          padding: "20px 22px",
+          border: "1px solid var(--hairline-weak)",
+          borderRadius: 18,
+          background: "var(--surface-2)",
+        }}
+      >
+        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>TRADE-OFF</p>
+        <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5 }}>{tradeoff}</p>
+      </div>
+    </div>
+  );
+}
+
+function CaseStudyToggle() {
+  const items = [
+    ["01", "Problem", "#frame"],
+    ["02", "Audit", "#audit"],
+    ["03", "Research", "#research"],
+    ["04", "Decisions", "#decisions"],
+    ["05", "Recommendations", "#recommendations"],
+  ];
+
+  return (
+    <nav
+      aria-label="Case study navigation"
+      className="str-case-toggle"
+      style={{
+        position: "fixed",
+        left: "50%",
+        bottom: 18,
+        transform: "translateX(-50%)",
+        zIndex: 40,
+        display: "flex",
+        alignItems: "center",
+        gap: 4,
+        padding: 5,
+        maxWidth: "calc(100vw - 28px)",
+        overflowX: "auto",
+        border: "1px solid rgba(255,255,255,.14)",
+        borderRadius: 999,
+        background: "rgba(20,20,20,.82)",
+        backdropFilter: "blur(18px)",
+        boxShadow: "0 10px 34px rgba(0,0,0,.18)",
+      }}
+    >
+      {items.map(([num, text, href]) => (
+        <a
+          key={num}
+          href={href}
+          style={{
+            flex: "0 0 auto",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            padding: "8px 11px",
+            borderRadius: 999,
+            color: "#fff",
+            textDecoration: "none",
+            fontSize: 11,
+            fontWeight: 650,
+            whiteSpace: "nowrap",
+          }}
+        >
+          <span style={{ opacity: 0.55 }}>{num}</span>
+          {text}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 function FinalTakeaway() {
   return (
     <section
@@ -387,47 +476,40 @@ export default function StraboSpot() {
       <RoleAtTop />
 
       <main style={{ display: "flex", flexDirection: "column", gap: 112 }}>
-        {/* 01 */}
-        <section>
+        <section id="frame">
           <SectionHeading
             number="01 — FRAME THE ENGAGEMENT"
             title="The search experience needed a closer look."
             intro="The engagement began with a UI/UX audit of StraboSpot's current search tools, then moved into task analysis interviews and a design recommendation for a more unified search experience."
           />
-          <SlidePair
-            left={str2}
-            right={str3}
-            leftNumber={2}
-            rightNumber={3}
-            leftCaption="Engagement summary"
-            rightCaption="Audit → interview → recommendation"
-          />
+          <Slide src={str2} number={2} caption="Engagement summary" />
+          <div style={{ marginTop: 28 }}><Slide src={str3} number={3} caption="Audit → interview → recommendation" /></div>
           <InsightLine>
             Start broad. Find where the interface creates friction. Then ask users why it matters.
           </InsightLine>
+          <DecisionTradeoff
+            decision="Begin with the existing search experience before proposing a new one."
+            tradeoff="A broad audit exposed interface issues quickly, but could not tell which issues mattered most to researchers."
+          />
         </section>
 
-        {/* 02 */}
-        <section>
+        <section id="audit">
           <SectionHeading
             number="02 — AUDIT THE SURFACE"
             title="The first pass exposed friction quickly."
             intro="Nielsen's 10 usability principles provided a common lens for repeated reviews of key pages and search flows. Screenshots and annotations made the issues concrete for the team."
           />
-          <SlidePair
-            left={str4}
-            right={str5}
-            leftNumber={4}
-            rightNumber={5}
-            leftCaption="01 / UI/UX Audit"
-            rightCaption="Audit method and review approach"
-          />
+          <Slide src={str4} number={4} caption="01 / UI/UX Audit" />
+          <div style={{ marginTop: 28 }}><Slide src={str5} number={5} caption="Audit method and review approach" /></div>
           <InsightLine>
             The audit was not the answer. It was the map to the questions that needed real users.
           </InsightLine>
+          <DecisionTradeoff
+            decision="Use heuristics as a shared diagnostic lens, not as a substitute for user research."
+            tradeoff="The method created consistency across reviews while leaving room for domain-specific issues to surface later."
+          />
         </section>
 
-        {/* 03 */}
         <section>
           <SectionHeading
             number="03 — SEE WHERE SEARCH BREAKS"
@@ -435,12 +517,8 @@ export default function StraboSpot() {
             intro="Search results became harder to interpret when labels overlapped, interaction cues were weak, and technical names competed with the map itself."
           />
           <Slide src={str6} number={6} caption="Map view · visual clutter, weak interaction cues, technical naming" />
-          <div style={{ marginTop: 24 }}>
-            <Slide src={str7} number={7} caption="Search filter · dense results, restart friction, unexpected navigation" />
-          </div>
-          <div style={{ marginTop: 24 }}>
-            <Slide src={str8} number={8} caption="All Strabo Data · search/filter ambiguity and result relevance" />
-          </div>
+          <div style={{ marginTop: 28 }}><Slide src={str7} number={7} caption="Search filter · dense results, restart friction, unexpected navigation" /></div>
+          <div style={{ marginTop: 28 }}><Slide src={str8} number={8} caption="All Strabo Data · search/filter ambiguity and result relevance" /></div>
           <TwoColumnNote
             leftLabel="WHAT THE AUDIT SHOWED"
             left="Too much density, too many competing controls, and unclear relationships between search results and the map."
@@ -449,35 +527,27 @@ export default function StraboSpot() {
           />
         </section>
 
-        {/* 04 */}
-        <section>
+        <section id="research">
           <SectionHeading
             number="04 — ASK THE PEOPLE USING IT"
             title="The audit needed a human check."
             intro="Five Zoom interviews with current StraboSpot users, mostly field geologists at different levels, shifted the work from interface symptoms to task needs."
           />
-          <SlidePair
-            left={str9}
-            right={str10}
-            leftNumber={9}
-            rightNumber={10}
-            leftCaption="02 / Interview & Task Analysis"
-            rightCaption="Five user interviews · open-ended and participant-driven"
-          />
+          <Slide src={str9} number={9} caption="02 / Interview & Task Analysis" />
+          <div style={{ marginTop: 28 }}><Slide src={str10} number={10} caption="Five user interviews · open-ended and participant-driven" /></div>
           <InsightLine>
             The key question became: what helps a researcher decide that a piece of data is worth opening?
           </InsightLine>
         </section>
 
-        {/* 05 */}
-        <section>
+        <section id="decisions">
           <SectionHeading
             number="05 — TURN INTERVIEWS INTO PRIORITIES"
             title="Researchers needed visual context and trust."
             intro="The interviews surfaced recurring needs around images, authorship, maps, labels, filter visibility, and familiar mental models for search."
           />
           <Slide src={str11} number={11} caption="Interview key findings · visual learning, credibility, maps, labels, filters, familiar mental models" />
-          <div style={{ marginTop: 26 }}>
+          <div style={{ marginTop: 28 }}>
             <TwoColumnNote
               leftLabel="VISUAL CONTEXT"
               left="Images and colour-rich maps were central to how participants understood geological information."
@@ -488,29 +558,29 @@ export default function StraboSpot() {
           <InsightLine>
             The redesign was not about making search look simpler. It was about making the important evidence easier to see.
           </InsightLine>
+          <DecisionTradeoff
+            decision="Prioritize visual context, credibility, and direct map interaction in the recommendation."
+            tradeoff="Adding more information could improve confidence, but too much information would recreate the density the audit exposed."
+          />
         </section>
 
-        {/* 06 */}
-        <section>
+        <section id="recommendations">
           <SectionHeading
             number="06 — REDESIGN THE SEARCH MOMENT"
             title="Search became the hero feature."
             intro="The recommendation reduced competing decisions, clarified filters, made saved spots more visible, and replaced ambiguous actions with language closer to the user's mental model."
           />
-          <SlidePair
-            left={str12}
-            right={str13}
-            leftNumber={12}
-            rightNumber={13}
-            leftCaption="03 / Design Recommendations"
-            rightCaption="Intuitive search page · list/map view, filters, bookmarks, help"
-          />
+          <Slide src={str12} number={12} caption="03 / Design Recommendations" />
+          <div style={{ marginTop: 28 }}><Slide src={str13} number={13} caption="Intuitive search page · list/map view, filters, bookmarks, help" /></div>
           <InsightLine>
             Reduce decision points. Keep the search task visible. Make actions say what they actually do.
           </InsightLine>
+          <DecisionTradeoff
+            decision="Make Search the hero feature and move secondary resources and controls out of the way."
+            tradeoff="Less visible chrome creates focus, but important help and saved content still need clear entry points."
+          />
         </section>
 
-        {/* 07 */}
         <section>
           <SectionHeading
             number="07 — DESIGN AROUND HOW GEOLOGISTS LOOK"
@@ -518,15 +588,16 @@ export default function StraboSpot() {
             intro="The recommendations gave visually rich maps a stronger default position, simplified map switching, and treated image collections and credits as part of the research experience."
           />
           <Slide src={str14} number={14} caption="Unifying navigation between maps" />
-          <div style={{ marginTop: 24 }}>
-            <Slide src={str15} number={15} caption="Image gallery, navigation, ownership and credits" />
-          </div>
+          <div style={{ marginTop: 28 }}><Slide src={str15} number={15} caption="Image gallery, navigation, ownership and credits" /></div>
           <InsightLine>
             Visual information was not decoration. It was part of how the work was understood.
           </InsightLine>
+          <DecisionTradeoff
+            decision="Keep the visually rich geological map prominent while making alternate layers one click away."
+            tradeoff="A strong default supports recognition and curiosity, while alternate layers preserve the depth expert users need."
+          />
         </section>
 
-        {/* 08 */}
         <section>
           <SectionHeading
             number="08 — BRING THE SEARCH SYSTEM TOGETHER"
@@ -534,25 +605,22 @@ export default function StraboSpot() {
             intro="The final recommendation unified keyword search, filters, map and list views, result ownership, previews, and direct map navigation into one search workflow."
           />
           <Slide src={str16} number={16} caption="Unified search tool · map view" />
-          <div style={{ marginTop: 24 }}>
-            <Slide src={str17} number={17} caption="Map detail · visibility, zoom behaviour, and base-map controls" />
-          </div>
-          <div style={{ marginTop: 24 }}>
-            <Slide src={str18} number={18} caption="Search bar · filters, spacing, typography, and map/list toggle" />
-          </div>
-          <div style={{ marginTop: 24 }}>
-            <Slide src={str19} number={19} caption="List view · sortable results with preview and map actions" />
-          </div>
-          <div style={{ marginTop: 24 }}>
-            <Slide src={str20} number={20} caption="List detail · preview a result before opening it on the map" />
-          </div>
+          <div style={{ marginTop: 28 }}><Slide src={str17} number={17} caption="Map detail · visibility, zoom behaviour, and base-map controls" /></div>
+          <div style={{ marginTop: 28 }}><Slide src={str18} number={18} caption="Search bar · filters, spacing, typography, and map/list toggle" /></div>
+          <div style={{ marginTop: 28 }}><Slide src={str19} number={19} caption="List view · sortable results with preview and map actions" /></div>
+          <div style={{ marginTop: 28 }}><Slide src={str20} number={20} caption="List detail · preview a result before opening it on the map" /></div>
           <InsightLine>
             The final system lets a researcher move from question → result → context → location without losing the thread.
           </InsightLine>
+          <DecisionTradeoff
+            decision="Connect map and list views instead of making them separate search destinations."
+            tradeoff="The unified model adds flexibility without forcing researchers to repeatedly restart the search when they need another view."
+          />
         </section>
       </main>
 
       <FinalTakeaway />
+      <CaseStudyToggle />
 
       <div
         className="str-meta-grid"
@@ -581,7 +649,7 @@ export default function StraboSpot() {
         @media (max-width: 760px) {
           .str-role-grid,
           .str-note-grid,
-          .str-slide-pair,
+          .str-decision-grid,
           .str-meta-grid {
             grid-template-columns: 1fr !important;
           }

@@ -68,7 +68,7 @@ img {
 }
 
 /* Navbar */
-/* Centered floating pill nav (emily.jennett.com-inspired). The brand is plain
+/* Centered floating pill nav. The brand is plain
    text in normal flow (it scrolls away with the page); only the nav pill is
    position:fixed, so it alone keeps floating — frosted + legible — over the
    content, without the brand ever overlapping the text. */
@@ -76,7 +76,9 @@ img {
   position: relative;
   z-index: 50;
   padding-top: var(--space-md);
-  background: transparent;
+background: "color-mix(in srgb, var(--background) 88%, transparent)",
+backdropFilter: "blur(16px)",
+border: "1px solid var(--hairline-weak)",
   pointer-events: none; /* re-enabled on the brand + pill */
 }
 
@@ -110,15 +112,12 @@ img {
 }
 
 .nav-links {
-  position: fixed;
-  top: var(--space-md);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 60;
-  display: flex;
-  align-items: center;
-  gap: 0.15rem;
-  padding: 0.3rem;
+  pointer-events: auto;
+  background: color-mix(in srgb, var(--background) 88%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--hairline-weak);
+  border-radius: var(--radius-full);
 }
 
 .nav-link {

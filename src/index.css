@@ -76,9 +76,9 @@ img {
   position: relative;
   z-index: 50;
   padding-top: var(--space-md);
-background: "color-mix(in srgb, var(--background) 88%, transparent)",
-backdropFilter: "blur(16px)",
-border: "1px solid var(--hairline-weak)",
+background: "color-mix(in srgb, var(--background) 88%, transparent)";
+backdropFilter: "blur(16px)";
+border: "1px solid var(--hairline-weak)";
   pointer-events: none; /* re-enabled on the brand + pill */
 }
 

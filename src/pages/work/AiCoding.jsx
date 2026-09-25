@@ -66,9 +66,9 @@ function ClientSwitcher() {
         </p>
       </div>
       <div style={{ display: "flex", gap: 6, flexShrink: 0 }}>
-        <span style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, background: "var(--text)", color: "var(--background)", fontSize: 12, fontWeight: 650 }}>
-          AI Coding Tutor
-        </span>
+      <span style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, border: "1px solid var(--text)", color: "var(--text)", background: "transparent", fontSize: 12, fontWeight: 650 }}>
+  AI Coding Tutor
+</span>
         <a href="/portfolio/work/strabospot" style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, border: "1px solid var(--hairline-weak)", color: "var(--text)", textDecoration: "none", fontSize: 12, fontWeight: 600 }}>
           StraboSpot Inc →
         </a>

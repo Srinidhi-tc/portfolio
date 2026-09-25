@@ -100,7 +100,7 @@ export default function PsychosisLiteracy() {
           How You See Matters.
         </p>
         <p style={{ ...body, fontSize: 18, color: "#6E6E73" }}>
-          A psychoeducation tool that builds basic awareness about psychosis — visual and auditory hallucinations — for students and office-goers ages 15–25, before onset.
+          A psychoeducation tool that builds basic awareness about psychosis — visual and auditory hallucinations for students and office-goers ages 15–25, at in schools and workplaces, before onset education.
         </p>
       </header>
 
@@ -114,8 +114,8 @@ export default function PsychosisLiteracy() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginBottom: 80, paddingTop: 32, borderTop: "1px solid #E5E5EA" }}>
         {[
           ["Role", "UX Designer · Solo Capstone"],
-          ["Advisors", "Prof. Rua · Prof. Paul · Prof. Anastasia · Prof. Nancy · Prof. Shobhan"],
-          ["Methods", "Information architecture · Expert interviews · Usability testing · Computer vision integration"],
+          ["Committee", "Prof. Rua · Prof. Paul · Prof. Anastasia · Prof. Nancy · Prof. Shobhan shah (Advisor)"],
+          ["My Role", "Information architecture · Expert interviews · Usability testing · Computer vision integration · Base44: Vibe-Coding"],
         ].map(([k, v]) => (
           <div key={k}>
             <p style={{ ...label, fontSize: 10, marginBottom: 6 }}>{k}</p>
@@ -126,7 +126,7 @@ export default function PsychosisLiteracy() {
 
       {/* 01 THE PROBLEM */}
       <Section
-        number="01 — THE PROBLEM"
+        number="01 — THE GAP"
         title="50% of US schools have no psychoeducator. 100,000+ teenagers develop psychosis each year."
         intro="Psychosis begins in late teens to mid-20s. Without education, students turn to substances, self-harm, and isolation. Crime rates increase 2.5× in populations with untreated psychosis. The awareness gap is the design problem."
       >
@@ -137,7 +137,7 @@ export default function PsychosisLiteracy() {
           { value: "2.5×", label: "increase in crime rate with untreated psychosis" },
           { value: "70%", label: "of patients with psychosis experience insomnia" },
         ]} />
-        <Insight>The problem is not treatment. It is awareness before onset, for ages 15–25 while still in school.</Insight>
+        <Insight>The gap is NOT treatment. It is awareness before onset, for ages 15–25 while still in school. </Insight>
       </Section>
 
       {/* 02 RESEARCH */}
@@ -163,11 +163,11 @@ export default function PsychosisLiteracy() {
         <Insight>Touch point: School is the right intervention moment. Value education, art class, biology, mental health day. Awareness needs to land before onset.</Insight>
       </Section>
 
-      {/* 03 INFORMATION ARCHITECTURE */}
+      {/* 03 resolving ambiguity */}
       <Section
-        number="03 — INFORMATION ARCHITECTURE"
-        title="A flowchart, not interviews, decided which hallucinations to include."
-        intro="I used information architecture to narrow down which hallucination effects were clinically validated. A flowchart forces correct categorisation and prevents misrepresentation — something interviews alone cannot guarantee."
+        number="03 — RESOLVING AMBIGUITY"
+        title="At interviews were descriptive about experiences"
+        intro="I used information architecture to narrow down which hallucination effects were clinically validated. A flowchart forces correct categorisation and prevents misrepresentation — something verbal interviews alone cannot guarantee."
       >
         <Slide src={cap22} caption="Section 1 of the visual hallucination image architecture — categories: neutral, shadows, hands, fireworks, smoke, shaky/blurred, animals, slight distortions, colours, random patterns. Each validated against medical case studies." />
         <Insight>The architecture decision: show only what psychologists validate. Every visual effect was checked against clinical evidence before inclusion.</Insight>
@@ -177,22 +177,22 @@ export default function PsychosisLiteracy() {
       <Section
         number="04 — THE SOLUTION"
         title="Show, don't tell. Use the back camera."
-        intro="Instead of describing hallucinations in text, Percepta uses the device camera to place hallucination effects on the user's real environment. Back camera is used by default — that is how people with hallucinations see the world."
+        intro="Instead of describing hallucinations in text, Percepta uses the device camera to place hallucination effects on the user's real environment. Back camera is used by default — to show how people with hallucinations see the world."
       >
         <Slide src={cap14} caption="Percepta onboarding: '100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.' — Designed for ages 15–25 · Educational purposes only." />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 24 }}>
+          <div style={{ marginTop: 20 }}>
           <Slide src={cap19} caption="5 types of visual hallucination: Colours, Blur, Smoke, Bubbles, Shadows, Faces & Hands." />
           <Slide src={cap20} caption="5 types of auditory hallucination: Whispers, Self-Talk, Two Voices, Footsteps, Commands." />
-        </div>
-        <div style={{ marginTop: 20 }}>
+          </div>
+          <div style={{ marginTop: 20 }}>
           <Slide src={cap18} caption="Filter selection screen — UX Heuristic: Match between system and real world. Filters work like gallery filters. 'Did anything feel off?' — reflection prompt after the experience." />
-        </div>
+          </div>
         <Insight>Back camera is the right choice. Hallucinations happen in the external world, not the face. Designing for the right point of view changes everything.</Insight>
       </Section>
 
-      {/* 05 EXPERT VALIDATION */}
+      {/* 05 TESTING */}
       <Section
-        number="05 — EXPERT VALIDATION"
+        number="05 — TESTING  WITH EXPERTS"
         title="5 psychologists from Purdue Psychological Sciences and CAPS."
         intro="I interviewed 5 psychologists from Purdue's Psychology department and CAPS to validate the hallucination architecture and messaging approach."
       >

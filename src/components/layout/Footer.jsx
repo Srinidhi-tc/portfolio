@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="footer-left">
           <p className="footer-title">Srinidhi Chakravarthy — UX Portfolio</p>
           <p className="footer-text">
-            Designed and built from scratch in React for cleaner structure and smoother interactions.
+           I used artificial-intelligence-driven web design, you might know VS Code + Claude, to turn ideas into working experiences quickly.
           </p>
           <p className="footer-text">© {new Date().getFullYear()} Srinidhi Chakravarthy. All rights reserved.</p>
         </div>

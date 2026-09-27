@@ -131,7 +131,7 @@ export default function Microsoft() {
           <p style={{ fontSize:17, color:"#1D1D1F", lineHeight:1.6, margin:0, maxWidth:720 }}>
             I own the entity editing flow and the AI Ops research. That includes SRE interviews, contextual inquiry,
             think-aloud testing, the radial health indicators, SLA phone alerts, and the Add New Signal button.
-            Everything on this page is my work.
+            Everything on this page is my contribution.
           </p>
         </div>
         <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:24 }}>
@@ -156,7 +156,7 @@ export default function Microsoft() {
               Norah Miller · Heuristics and Timestamps Visual<br />
               Priscilla Tam · Icons, and Hover States<br />
               Ashmi Roy · Health Status Graphs<br />
-              Ani Berry · Drag and Select
+              Ani Berry · Drag and Select motion animation
             </p>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function Microsoft() {
 
         <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16, marginTop:28 }}>
           <Slide src={micEmail}  caption="Research outreach with Geoffrey Lentner, Purdue RCAC." />
-          <Slide src={micSketch} caption="Interview notes. I sketch engineers' mental models while they talk." />
+          {/*<Slide src={micSketch} caption="Interview notes. I sketch engineers' mental models while they talk." />*/}
           <Slide src={micCall}   caption="Remote interview session with SRE engineers." />
         </div>
 

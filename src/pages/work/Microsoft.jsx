@@ -17,10 +17,10 @@ import mic75     from "../../assets/mic75.jpg";
 import mic76     from "../../assets/mic76.jpg";
 import mic77     from "../../assets/mic77.jpg";
 import mic78     from "../../assets/mic78.jpg";
-import micTeam   from "../../assets/mic-team.jpg";
-import micEmail  from "../../assets/mic-email.png";
-//import micSketch from "../../assets/mic-sketch.jpg";
-import micCall   from "../../assets/mic-call.jpg";
+import micTeam   from "../../assets/mic-team.jpeg";
+import micEmail  from "../../assets/mic-email.jpeg";
+//import micSketch from "../../assets/mic-sketch.jpeg";
+import micCall   from "../../assets/mic-call.jpeg";
 import micWcag   from "../../assets/mic-wcag.svg";
 
 const font = `-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif`;

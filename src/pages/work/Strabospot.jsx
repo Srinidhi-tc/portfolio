@@ -61,7 +61,7 @@ function ClientSwitcher() {
         padding: "8px 10px 8px 14px",
         border: "1px solid var(--hairline-weak)",
         borderRadius: 999,
-        background: "color-mix(in srgb, var(--background) 88%, transparent)",
+        background: "color-mix(in srgb, var(--bg) 88%, transparent)",
         backdropFilter: "blur(16px)",
       }}
     >
@@ -272,7 +272,6 @@ function InsightLine({ children }) {
 function EvidenceLinks() {
   const links = [
     ["View Figma Design File ↗", "https://www.figma.com/design/8UaP0xVxXyXx0FzdMHae9e/Strabospot?node-id=0-1&p=f"],
-    ["User Interview Recordings ↗", "https://purdue0-my.sharepoint.com/personal/pham132_purdue_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fpham132%5Fpurdue%5Fedu%2FDocuments%2FStraboSpot%5FInterviews%2Ezip&parent=%2Fpersonal%2Fpham132%5Fpurdue%5Fedu%2FDocuments&ga=1"],
   ];
 
   return (

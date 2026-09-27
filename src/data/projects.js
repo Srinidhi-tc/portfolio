@@ -14,11 +14,11 @@ export const projects = [
     cardDescription:
       "Replacing email-based intake with an instant upload portal to accelerate ransomware threat response.",
     problem:
-      "Email-based intake slowed threat response, reduced trust, and limited enterprise client acquisition (~20% drop-off).",
+      "Email-based intake slowed threat response, reduced trust, and limited enterprise client acquisition.",
     overview:
       "Designed an urgent-first landing experience that surfaces an instant file upload at the top of the funnel, using behavioral urgency patterns documented in incident-response workflows.",
     outcomes: [
-      "Increased inbound leads ~30%",
+      "Faster path from threat discovery to submission",
       "Improved enterprise trust during high-risk security incidents",
       "Web-first decision avoided app-install friction",
     ],
@@ -35,7 +35,7 @@ export const projects = [
     title: "Health Observability Monitor",
     company: "Microsoft Azure",
     image: workMicrosoft,
-    subtitle: "Agentic AI for Neurodivergent Social Confidence",
+    subtitle: "System Health Observability for Azure SREs",
     cardDescription:
       "Improving System Health Status by Reducing Time It Takes to Make Decisions",
     problem:

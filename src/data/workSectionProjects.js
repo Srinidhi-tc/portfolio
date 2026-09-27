@@ -19,7 +19,7 @@ export const workSectionProjects = [
       problem: { subheading: "Low visibility", body: "Engineers needed 4–5 steps to detect failures, increasing latency in SRE system health monitoring." },
       decisions: { subheading: "Signal clarity", body: "Introduced radial indicators and prioritized degraded signals aligned with SRE mental models." },
       tradeoffs: { subheading: "API limits", body: "Reduced real-time signals to top failures, balancing API cost with system visibility." },
-      impact: { subheading: "Faster debugging", body: "Reduced detection time ~25% and improved incident response efficiency across distributed cloud systems." },
+      impact: { subheading: "Designed for faster debugging", body: "Cut the path to spotting a failure from 4–5 steps to a single glance, handed over to the Azure team for validation." },
     },
   },
   {

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import ProfilePhoto from "../components/ui/ProfilePhoto";
-import CollaboratorNotes from "../sections/CollaboratorNotes";
+// import CollaboratorNotes from "../sections/CollaboratorNotes"; // re-enable at 3+ notes
 
 import imgDefenseArk from "../assets/ransomwaremain.png";
 import imgInterior   from "../assets/p1.webp";
@@ -128,9 +128,9 @@ function Bar({ item, laneColor, anyActive }) {
                  style={{ width:"100%", height:120, objectFit:"cover", display:"block" }} />
           )}
           <div style={{ padding: hasImage ? "10px 12px 12px" : "12px 14px 14px" }}>
-            <p style={{ fontSize:11, fontWeight:600, color:"#1D1D1F", margin:0 }}>{item.label}</p>
-            <p style={{ fontSize:10, color:"#86868B", margin:"2px 0 0", lineHeight:1.4 }}>{item.sub}</p>
-            <p style={{ fontSize:10, color:"#3A3A3C", margin:"6px 0 0", lineHeight:1.5 }}>{item.note}</p>
+            <p style={{ fontSize:11, fontWeight:600, color:"var(--text)", margin:0 }}>{item.label}</p>
+            <p style={{ fontSize:10, color:"var(--color-text-tertiary)", margin:"2px 0 0", lineHeight:1.4 }}>{item.sub}</p>
+            <p style={{ fontSize:10, color:"var(--muted)", margin:"6px 0 0", lineHeight:1.5 }}>{item.note}</p>
           </div>
           <div style={{
             position:"absolute", bottom:-6, left:"50%",
@@ -166,10 +166,10 @@ function GanttChart() {
       {LANES.map((lane) => (
         <div key={lane.label} style={{ marginBottom:24 }}>
           <p style={{ fontSize:10, fontWeight:600, letterSpacing:"0.08em",
-                      textTransform:"uppercase", color:"#86868B", marginBottom:8 }}>
+                      textTransform:"uppercase", color:"var(--color-text-tertiary)", marginBottom:8 }}>
             {lane.label}
           </p>
-          <div style={{ position:"relative", height:28, background:"#F5F5F7", borderRadius:8 }}
+          <div style={{ position:"relative", height:28, background:"var(--surface-2)", borderRadius:8 }}
                onMouseLeave={() => setActive(null)}>
             {/* Year grid */}
             {YEARS.map(yr => (
@@ -178,7 +178,7 @@ function GanttChart() {
             ))}
             {/* Now */}
             <div style={{ position:"absolute", left:pct(NOW), top:-3, bottom:-3,
-                          width:2, background:"#1D1D1F", borderRadius:1,
+                          width:2, background:"var(--text)", borderRadius:1,
                           pointerEvents:"none", zIndex:5 }} />
             {/* Bars */}
             {lane.items.map(item => (
@@ -194,12 +194,12 @@ function GanttChart() {
         {YEARS.map(yr => (
           <span key={yr} style={{ position:"absolute", left:pct(yr),
                                    transform:"translateX(-50%)",
-                                   fontSize:9, color:"#86868B", whiteSpace:"nowrap" }}>
+                                   fontSize:9, color:"var(--color-text-tertiary)", whiteSpace:"nowrap" }}>
             {yr}
           </span>
         ))}
         <span style={{ position:"absolute", left:pct(NOW), transform:"translateX(-50%)",
-                        fontSize:9, fontWeight:700, color:"#1D1D1F" }}>Now</span>
+                        fontSize:9, fontWeight:700, color:"var(--text)" }}>Now</span>
       </div>
 
       {/* Legend */}
@@ -207,12 +207,12 @@ function GanttChart() {
         {LANES.map(lane => (
           <div key={lane.label} style={{ display:"flex", alignItems:"center", gap:5 }}>
             <div style={{ width:8, height:8, borderRadius:2, background:lane.color }} />
-            <span style={{ fontSize:10, color:"#6E6E73" }}>{lane.label}</span>
+            <span style={{ fontSize:10, color:"var(--muted)" }}>{lane.label}</span>
           </div>
         ))}
       </div>
 
-      <p style={{ fontSize:11, color:"#86868B", marginTop:10 }}>
+      <p style={{ fontSize:11, color:"var(--color-text-tertiary)", marginTop:10 }}>
         Hover coloured bars with images to see the project ↑
       </p>
     </div>
@@ -241,7 +241,7 @@ export default function About() {
                 fontWeight:    700,
                 letterSpacing: "-0.4px",
                 lineHeight:    1.08,
-                color:         "#1D1D1F",
+                color:         "var(--text)",
                 marginBottom:  20,
                 maxWidth:      "14ch",
               }}>
@@ -250,7 +250,7 @@ export default function About() {
               <p style={{
                 fontSize:      "clamp(16px, 1.8vw, 19px)",
                 fontWeight:    400,
-                color:         "#3A3A3C",
+                color:         "var(--muted)",
                 lineHeight:    1.6,
                 letterSpacing: "-0.1px",
                 marginBottom:  24,
@@ -288,7 +288,7 @@ export default function About() {
             width:       "80%",
           }}>
             <p style={{ fontSize:11, fontWeight:600, letterSpacing:"0.10em",
-                        textTransform:"uppercase", color:"#86868B", marginBottom:16 }}>
+                        textTransform:"uppercase", color:"var(--color-text-tertiary)", marginBottom:16 }}>
               Career timeline
             </p>
             <GanttChart />
@@ -297,7 +297,7 @@ export default function About() {
         </div>
       </section>
 
-      <CollaboratorNotes />
+      {/* <CollaboratorNotes /> */}
     </>
   );
 }

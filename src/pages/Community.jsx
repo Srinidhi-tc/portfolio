@@ -1,6 +1,6 @@
 {/* import { community } from "../data/community";
 import Button from "../components/ui/Button";
-import CollaboratorNotes from "../sections/CollaboratorNotes";
+// import CollaboratorNotes from "../sections/CollaboratorNotes"; // re-enable at 3+ notes
 
 export default function Community() {
   const { newsletter, ama, social } = community;
@@ -61,7 +61,7 @@ export default function Community() {
         </div>
       </div>
 
-      <CollaboratorNotes />
+      {/* <CollaboratorNotes /> */}
     </section>
   );
 } */}

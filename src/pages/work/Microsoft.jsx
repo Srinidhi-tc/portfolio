@@ -24,17 +24,17 @@ import micCall   from "../../assets/mic-call.jpeg";
 import micWcag   from "../../assets/mic-wcag.svg";
 
 const font = `-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif`;
-const lbl  = { fontSize:11, fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"#86868B", margin:0 };
-const bd   = { fontSize:16, lineHeight:1.65, color:"#3A3A3C", margin:0, maxWidth:680 };
-const card = { background:"#F5F5F7", borderRadius:12, padding:"18px 20px" };
+const lbl  = { fontSize:11, fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
+const bd   = { fontSize:16, lineHeight:1.65, color:"var(--muted)", margin:0, maxWidth:680 };
+const card = { background:"var(--surface-2)", borderRadius:12, padding:"18px 20px" };
 
 function Slide({ src, caption }) {
   return (
     <figure style={{ margin:"0 0 10px" }}>
       <img src={src} alt={caption || ""} loading="lazy"
-           style={{ width:"100%", display:"block", borderRadius:14, background:"#F5F5F7" }} />
+           style={{ width:"100%", display:"block", borderRadius:14, background:"var(--surface-2)" }} />
       {caption && (
-        <figcaption style={{ marginTop:8, fontSize:12, color:"#86868B", lineHeight:1.5 }}>{caption}</figcaption>
+        <figcaption style={{ marginTop:8, fontSize:12, color:"var(--color-text-tertiary)", lineHeight:1.5 }}>{caption}</figcaption>
       )}
     </figure>
   );
@@ -42,17 +42,17 @@ function Slide({ src, caption }) {
 
 function Insight({ children }) {
   return (
-    <div style={{ margin:"28px 0", padding:"16px 0", borderTop:"1px solid #E5E5EA", borderBottom:"1px solid #E5E5EA" }}>
-      <p style={{ margin:0, fontSize:16, fontWeight:600, color:"#1D1D1F", lineHeight:1.5 }}>{children}</p>
+    <div style={{ margin:"28px 0", padding:"16px 0", borderTop:"1px solid var(--hairline-weak)", borderBottom:"1px solid var(--hairline-weak)" }}>
+      <p style={{ margin:0, fontSize:16, fontWeight:600, color:"var(--text)", lineHeight:1.5 }}>{children}</p>
     </div>
   );
 }
 
 function Quote({ text, source }) {
   return (
-    <div style={{ ...card, margin:"24px 0", borderLeft:"3px solid #0066CC", borderRadius:"0 12px 12px 0" }}>
-      <p style={{ margin:"0 0 8px", fontSize:17, fontStyle:"italic", color:"#1D1D1F", lineHeight:1.55 }}>"{text}"</p>
-      <p style={{ margin:0, fontSize:12, color:"#86868B", fontWeight:600 }}>{source}</p>
+    <div style={{ ...card, margin:"24px 0", borderLeft:"3px solid var(--link)", borderRadius:"0 12px 12px 0" }}>
+      <p style={{ margin:"0 0 8px", fontSize:17, fontStyle:"italic", color:"var(--text)", lineHeight:1.55 }}>"{text}"</p>
+      <p style={{ margin:0, fontSize:12, color:"var(--color-text-tertiary)", fontWeight:600 }}>{source}</p>
     </div>
   );
 }
@@ -62,8 +62,8 @@ function Cards({ items, cols = 3 }) {
     <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:`repeat(${cols},1fr)`, gap:16, marginTop:24 }}>
       {items.map(([title, text]) => (
         <div key={title} style={card}>
-          <p style={{ fontSize:13, fontWeight:600, color:"#1D1D1F", margin:"0 0 6px" }}>{title}</p>
-          <p style={{ fontSize:14, color:"#6E6E73", lineHeight:1.6, margin:0 }}>{text}</p>
+          <p style={{ fontSize:13, fontWeight:600, color:"var(--text)", margin:"0 0 6px" }}>{title}</p>
+          <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.6, margin:0 }}>{text}</p>
         </div>
       ))}
     </div>
@@ -75,8 +75,8 @@ function StatRow({ stats }) {
     <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:`repeat(${stats.length},1fr)`, gap:16, margin:"28px 0" }}>
       {stats.map(({ value, label }) => (
         <div key={label} style={card}>
-          <span style={{ display:"block", fontSize:"clamp(22px,3vw,32px)", fontWeight:700, color:"#1D1D1F", marginBottom:4 }}>{value}</span>
-          <span style={{ fontSize:12, color:"#86868B", lineHeight:1.4 }}>{label}</span>
+          <span style={{ display:"block", fontSize:"clamp(22px,3vw,32px)", fontWeight:700, color:"var(--text)", marginBottom:4 }}>{value}</span>
+          <span style={{ fontSize:12, color:"var(--color-text-tertiary)", lineHeight:1.4 }}>{label}</span>
         </div>
       ))}
     </div>
@@ -88,7 +88,7 @@ function Section({ number, title, intro, children }) {
     <section style={{ marginBottom:96 }}>
       <div style={{ marginBottom:24, maxWidth:720 }}>
         <p style={{ ...lbl, marginBottom:10 }}>{number}</p>
-        <h2 style={{ margin:"0 0 14px", fontSize:"clamp(26px,4vw,40px)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"#1D1D1F" }}>
+        <h2 style={{ margin:"0 0 14px", fontSize:"clamp(26px,4vw,40px)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"var(--text)" }}>
           {title}
         </h2>
         {intro && <p style={bd}>{intro}</p>}
@@ -100,7 +100,7 @@ function Section({ number, title, intro, children }) {
 
 export default function Microsoft() {
   return (
-    <div style={{ fontFamily:font, color:"#1D1D1F", maxWidth:1000, margin:"0 auto", padding:"32px 28px 120px", WebkitFontSmoothing:"antialiased" }}>
+    <div style={{ fontFamily:font, color:"var(--text)", maxWidth:1000, margin:"0 auto", padding:"32px 28px 120px", WebkitFontSmoothing:"antialiased" }}>
 
       {/* HERO ... team presenting photo as background */}
       <header style={{
@@ -125,10 +125,10 @@ export default function Microsoft() {
       </header>
 
       {/* TEAM + ROLE */}
-      <section style={{ marginBottom:80, paddingBottom:40, borderBottom:"1px solid #E5E5EA" }}>
+      <section style={{ marginBottom:80, paddingBottom:40, borderBottom:"1px solid var(--hairline-weak)" }}>
         <div style={{ ...card, padding:"24px 28px", marginBottom:28 }}>
           <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>My role</p>
-          <p style={{ fontSize:17, color:"#1D1D1F", lineHeight:1.6, margin:0, maxWidth:720 }}>
+          <p style={{ fontSize:17, color:"var(--text)", lineHeight:1.6, margin:0, maxWidth:720 }}>
             I own the entity editing flow and the AI Ops research. That includes SRE interviews, contextual inquiry,
             think-aloud testing, the radial health indicators, SLA phone alerts, and the Add New Signal button.
             Everything on this page is my contribution.
@@ -137,20 +137,20 @@ export default function Microsoft() {
         <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:24 }}>
           <div>
             <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Industry partners</p>
-            <p style={{ fontSize:14, color:"#3A3A3C", lineHeight:1.7, margin:0 }}>
-              Callum Collin<br />Martin Simecek<br /><span style={{ color:"#86868B" }}>Microsoft Azure</span>
+            <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.7, margin:0 }}>
+              Callum Collin<br />Martin Simecek<br /><span style={{ color:"var(--color-text-tertiary)" }}>Microsoft Azure</span>
             </p>
           </div>
           <div>
             <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Project leads</p>
-            <p style={{ fontSize:14, color:"#3A3A3C", lineHeight:1.7, margin:0 }}>
-              Prof. Nancy Rasche<br />Prof. Shobhan Shah<br /><span style={{ color:"#86868B" }}>Purdue University</span>
+            <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.7, margin:0 }}>
+              Prof. Nancy Rasche<br />Prof. Shobhan Shah<br /><span style={{ color:"var(--color-text-tertiary)" }}>Purdue University</span>
             </p>
           </div>
           <div>
             <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Purdue UX team</p>
-            <p style={{ fontSize:14, color:"#3A3A3C", lineHeight:1.7, margin:0 }}>
-              <strong style={{ color:"#1D1D1F" }}>Sri Chakravarthy ( everything shown in case study here </strong> · Entity Visual Design, and AI Ops<br />
+            <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.7, margin:0 }}>
+              <strong style={{ color:"var(--text)" }}>Sri Chakravarthy ( everything shown in case study here </strong> · Entity Visual Design, and AI Ops<br />
               Alyssa Berger · Accessibility <br />
               Natalie Falzone · Competitor Analysis<br />
               Norah Miller · Heuristics and Timestamps Visual<br />
@@ -280,9 +280,9 @@ export default function Microsoft() {
           ["Why the Add New Signal button matters", "Adding a signal (a sensor that watches one part, like a smoke detector in one room) used to be hidden. I make Add New Signal a primary button. Every new signal means more log data flows into Azure Monitor, and ingestion is where the platform earns."],
           ["Retention adds up", "Keeping data past the free period costs extra. About $0.10 per GB per month for analytics retention up to 2 years, or $0.02 per GB per month for long-term retention up to 12 years. Teams that monitor more, keep more."],
         ]} />
-        <p style={{ fontSize:11, color:"#86868B", marginTop:14 }}>
+        <p style={{ fontSize:11, color:"var(--color-text-tertiary)", marginTop:14 }}>
           Source:{" "}
-          <a href="https://azure.microsoft.com/en-us/pricing/details/monitor/" target="_blank" rel="noopener noreferrer" style={{ color:"#0066CC" }}>
+          <a href="https://azure.microsoft.com/en-us/pricing/details/monitor/" target="_blank" rel="noopener noreferrer" style={{ color:"var(--link)" }}>
             Azure Monitor pricing page
           </a>. Figures are approximate and change over time.
         </p>
@@ -343,7 +343,7 @@ export default function Microsoft() {
       </Section>
 
       {/* FOOTER */}
-      <div className="mic-grid" style={{ borderTop:"1px solid #E5E5EA", paddingTop:40, display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:28 }}>
+      <div className="mic-grid" style={{ borderTop:"1px solid var(--hairline-weak)", paddingTop:40, display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:28 }}>
         {[
           ["Type",    "Industry Partner Project · Microsoft Azure"],
           ["Methods", "Contextual inquiry · Think-aloud · Concept validation · AI-assisted desk research"],
@@ -351,7 +351,7 @@ export default function Microsoft() {
         ].map(([k, v]) => (
           <div key={k}>
             <p style={{ ...lbl, fontSize:10, marginBottom:5 }}>{k}</p>
-            <p style={{ fontSize:14, color:"#3A3A3C", lineHeight:1.5, margin:0 }}>{v}</p>
+            <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.5, margin:0 }}>{v}</p>
           </div>
         ))}
       </div>

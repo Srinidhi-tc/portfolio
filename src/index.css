@@ -113,7 +113,7 @@ border: "1px solid var(--hairline-weak)";
 
 .nav-links {
   pointer-events: auto;
-  background: color-mix(in srgb, var(--background) 88%, transparent);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--hairline-weak);

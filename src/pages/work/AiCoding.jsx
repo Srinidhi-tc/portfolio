@@ -56,7 +56,7 @@ function ClientSwitcher() {
       display: "flex", justifyContent: "space-between", alignItems: "center",
       gap: 16, marginBottom: 58, padding: "8px 10px 8px 14px",
       border: "1px solid var(--hairline-weak)", borderRadius: 999,
-      background: "color-mix(in srgb, var(--background) 88%, transparent)",
+      background: "color-mix(in srgb, var(--bg) 88%, transparent)",
       backdropFilter: "blur(16px)",
     }}>
       <div style={{ minWidth: 0 }}>

@@ -19,7 +19,7 @@ import mic77     from "../../assets/mic77.jpg";
 import mic78     from "../../assets/mic78.jpg";
 import micTeam   from "../../assets/mic-team.jpg";
 import micEmail  from "../../assets/mic-email.png";
-import micSketch from "../../assets/mic-sketch.jpg";
+//import micSketch from "../../assets/mic-sketch.jpg";
 import micCall   from "../../assets/mic-call.jpg";
 import micWcag   from "../../assets/mic-wcag.svg";
 
@@ -150,13 +150,13 @@ export default function Microsoft() {
           <div>
             <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Purdue UX team</p>
             <p style={{ fontSize:14, color:"#3A3A3C", lineHeight:1.7, margin:0 }}>
-              <strong style={{ color:"#1D1D1F" }}>Sri Chakravarthy</strong> · entity editing, AI Ops<br />
-              Alyssa Berger<br />
-              Natalie Falzone · documentation<br />
-              Norah Miller · heuristics, timestamps<br />
-              Priscilla Tam · icons, hover states<br />
-              Ashmi Roy · graphs<br />
-              Ani Berry · drag and select states
+              <strong style={{ color:"#1D1D1F" }}>Sri Chakravarthy ( everything shown in case study here </strong> · Entity Visual Design, and AI Ops<br />
+              Alyssa Berger · Accessibility <br />
+              Natalie Falzone · Competitor Analysis<br />
+              Norah Miller · Heuristics and Timestamps Visual<br />
+              Priscilla Tam · Icons, and Hover States<br />
+              Ashmi Roy · Health Status Graphs<br />
+              Ani Berry · Drag and Select
             </p>
           </div>
         </div>

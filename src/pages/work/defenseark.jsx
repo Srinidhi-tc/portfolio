@@ -160,7 +160,7 @@ export default function DefenseArk() {
       <Section number="01 · Research" title="How people get fooled.">
         <P>
           Social engineering (tricking people instead of hacking machines) works because it borrows trust.
-          I analysed persuasion techniques in real attacks. Name-dropping was the clearest example.
+          I analysed persuasion techniques in real attacks. Name-dropping, and using first name was the clearest example.
           An attacker says "your CEO asked me to send this," and the name does the convincing.
         </P>
         <P>
@@ -178,7 +178,7 @@ export default function DefenseArk() {
       {/* 02 FOUNDATION */}
       <Section number="02 · Foundation" title="Building the design system from zero.">
         <P>
-          As the first designer, there was nothing to inherit. I built the pieces a growing product needs,
+          In my first week, i prototypes a dozen different tables for audit logs with time stamps for B2B clients. I built the pieces a growing product needs,
           so every new feature would not start from a blank page.
         </P>
         <Cards items={[
@@ -212,7 +212,7 @@ export default function DefenseArk() {
       <Section number="04 · Shipping" title="Designing with engineers, not handing off to them.">
         <P>
           I worked with the founders and the full-stack engineers every week. We shipped speech synthesis
-          and applied linguistics in voice calls, with motion UI built in React and CSS.
+          and applied linguistics in voice calls, with motion UI built in React and CSS. These audios had fake call stimulations.
         </P>
         <P>
           For Enigma, our ransomware detection and client onboarding product, I owned the design handover
@@ -226,7 +226,7 @@ export default function DefenseArk() {
         <P>
           I was an active part of the founding team and reported directly to Harish, our Managing Director.
           I led design from May 4, 2021 to June 30, 2023. Every design choice had a business question behind it:
-          will this bring in a client, and will it help us keep them?
+          will this bring in a B2B client, and will it help us keep them?
         </P>
         <PullLine>I am delighted to share that DefenseARK has grown to $7.3 million in revenue in 2026.</PullLine>
         <p style={{ ...lbl, margin:"8px 0 0" }}>Wins</p>

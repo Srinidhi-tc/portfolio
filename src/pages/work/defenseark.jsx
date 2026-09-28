@@ -83,7 +83,7 @@ export default function DefenseArk() {
           DefenseARK Cybersecurity · A Metasquare Inc company · New York (remote from India)
         </p>
         <h1 style={{ fontSize:"clamp(40px,7vw,68px)", fontWeight:700, letterSpacing:"-1px", lineHeight:1.02, margin:"0 0 20px", color:"var(--text)" }}>
-          First designer at a cybersecurity startup.
+          Solo designer at a cybersecurity startup.
         </h1>
         <p style={{ fontSize:"clamp(19px,2.6vw,24px)", fontWeight:500, color:"var(--muted)", margin:0, maxWidth:720, lineHeight:1.45 }}>
           Two years. Two roles. One question: how do people get fooled, and how can design help them notice in time?
@@ -100,8 +100,8 @@ export default function DefenseArk() {
         {[
           ["Dates",       "May 4, 2021 to June 30, 2023"],
           ["Role",        "Founding design hire"],
-          ["Reported to", "Harish, Founder and Managing Director. Co-founder: Ashika"],
-          ["Team",        "A design team for my first six months, then the only designer"],
+          ["Reported to", "Harish, Founder and Managing Director. Product Manager-Ashika"],
+          ["Team",        "A design team for my first six months, then an product designer | Individual contributor"],
         ].map(([k, v]) => (
           <div key={k}>
             <p style={{ ...lbl, fontSize:10, marginBottom:6 }}>{k}</p>
@@ -115,14 +115,14 @@ export default function DefenseArk() {
         <p style={{ ...lbl, marginBottom:16 }}>At a glance</p>
         <ol style={{ margin:0, paddingLeft:22, display:"grid", gap:10 }}>
           {[
-            "First designer at DefenseARK, from May 2021.",
-            "Built the design system from zero.",
-            "Researched how people get fooled.",
+            "Founding designer at DefenseARK, from May 2021.",
+            "Built the design system for product launches.",
+            "Researched how people get fooled: I had an excel for this",
             "Designed compliance training with real attack scenarios.",
             "Wrote the client intake and escalation playbook.",
             "Shipped with engineers, including the Enigma launch.",
             "Reported directly to the Managing Director.",
-            "The company has since grown to $7.3 million in revenue.",
+            "I am grateful for my steep learning at the company. The company has since grown to $7.3 million in revenue.",
           ].map((line) => (
             <li key={line} style={{ fontSize:18, fontWeight:500, color:"var(--text)", lineHeight:1.5 }}>{line}</li>
           ))}

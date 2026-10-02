@@ -1930,11 +1930,27 @@ border: "1px solid var(--hairline-weak)";
   margin-bottom: var(--g2);
 }
 
+/* Registered so the gaps can animate; hover tightens icons inside a group by
+   3px and widens the gaps between groups by 6px (net row width is unchanged). */
+@property --gap-in {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --gap-out {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
 .project-row-list {
   --row-gap: clamp(1rem, 2.6vw, 2.2rem);
-  --group-gap: calc(var(--row-gap) * 1.618);
   --img-h: clamp(84px, 11vw, 132px);
-  gap: var(--group-gap);
+  --gap-in: var(--row-gap);
+  --gap-out: calc(var(--row-gap) * 1.618);
+  gap: var(--gap-out);
+  transition: --gap-in 260ms ease, --gap-out 260ms ease;
   /* Room for the group labels above the icons, cancelled by the negative
      margin so the row's position does not move. */
   padding-top: 1.75rem;
@@ -1953,7 +1969,13 @@ border: "1px solid var(--hairline-weak)";
   padding: 0;
   display: flex;
   align-items: flex-end;
-  gap: var(--row-gap);
+  gap: var(--gap-in);
+}
+
+.project-row:hover .project-row-list,
+.project-row:focus-within .project-row-list {
+  --gap-in: calc(var(--row-gap) - 3px);
+  --gap-out: calc(var(--row-gap) * 1.618 + 6px);
 }
 
 .project-row-group-label {
@@ -1978,7 +2000,7 @@ border: "1px solid var(--hairline-weak)";
   /* Golden-ratio length (0.618 of the icon height), centred on the icons. */
   top: calc(var(--img-h) * 0.191);
   height: calc(var(--img-h) * 0.618);
-  left: calc(var(--group-gap) / -2);
+  left: calc(var(--gap-out) / -2);
   width: 1px;
   background: var(--hairline-strong);
   opacity: 0;
@@ -1994,6 +2016,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .project-row-list,
   .project-row-group-label,
   .project-row-group + .project-row-group::before {
     transition: none;

@@ -16,48 +16,26 @@ const y    = (yr, mo=0) => yr + mo / 12;
 const YEARS = [2017,2018,2019,2020,2021,2022,2023,2024,2025,2026];
 const NOW   = y(2026, 6);
 
+const ROW_H = 24;
+const BAR_H = 20;
+const MARKER = 12;
+
 const LANES = [
   {
-    label: "Education",
+    label: "Learning",
     color: "#4A6FA5",
     items: [
       { id:"psych",    label:"BS PSychology",        sub:"Madras School of Social Work · 2017–2020", from:y(2017),    to:y(2020),    image:null,         note:"Foundation in human behaviour, research methods, and statistics." },
       { id:"pg",       label:"Counselling PG Diploma",  sub:"University of Madras · 2020–2022",          from:y(2020),    to:y(2022),    image:null,         note:"Applied psychology — qualitative research and empathy frameworks." },
+      { id:"gate",     label:"GATE 2020 · Rank 16",     sub:"Milestone · 2020",                          from:y(2020,2),  to:y(2020,3),  image:null,         note:"", marker:true },
       { id:"purdue",   label:"MS UX Design",            sub:"Purdue University · 2024–2026",              from:y(2024,8),  to:y(2026,5),  image:imgPurdue,    note:"TAPD-INTO (NSF), StraboSpot / SGX3, TA × 2 semesters, Capstone." },
-    ],
-  },
-  {
-    label: "Work",
-    color: "#B85C38",
-    items: [
-      { id:"freelance", label:"Freelance — Wedding Invites Design", sub:"Self-directed · 2019–2020",            from:y(2019),    to:y(2020),    image:null,         note:"Designed wedding invites to fund my first laptop and phone." },
-      { id:"ionixx",    label:"UX Design Intern",               sub:"Ionixx Technologies · Jan–Jul 2020",  from:y(2020,1),  to:y(2020,7),  image:null,         note:"Fintech & health UX. First professional product design role." },
-      { id:"defenseark",label:"Product Designer",               sub:"DefenseARK · May 2021–May 2023",       from:y(2021,5),  to:y(2023,5),  image:imgDefenseArk,note:"Founding design hire. Enigma, Brightscan, Torus — cybersecurity UX." },
-      { id:"microsoft", label:"UX Designer",                    sub:"Microsoft Azure · 2023–2024",          from:y(2023,9),  to:y(2024,1),  image:imgMicrosoft, note:"Health Observability Monitor — SRE system redesign." },
-     
       {
-        id:    "tapinto",
-        label: "TAPD-INTO — NSF STEM Accessibility",
-        sub:   "Purdue · Fall 2024",
-        from:  y(2024, 8), to: y(2024, 12),
-        image: null,
-        note:  "NSF-funded accessibility research for STEM education. Audited tools for neurodivergent and disabled learners.",
-      },
-       {
         id:    "ta-pm",
         label: "Graduate TA — Project Management",
         sub:   "Purdue Daniels School of Business · Spring 2025",
         from:  y(2025, 1), to: y(2025, 5),
         image: null,
         note:  "TA for graduate-level project management. Supported 80+ MS students with curriculum and lab sessions.",
-      },
-      {
-        id:    "sgx3",
-        label: "UX Consultant — SGX3 / StraboSpot",
-        sub:   "TACC · Fall 2025",
-        from:  y(2025, 8), to: y(2025, 12),
-        image: imgMicrosoft,
-        note:  "UX consultancy for StraboSpot geospatial platform — 12,000+ geologists. Heuristic eval + expert interviews.",
       },
       {
         id:    "ta-db",
@@ -70,76 +48,156 @@ const LANES = [
     ],
   },
   {
-    label: "Freelance",
+    label: "Product work",
+    color: "#B85C38",
+    items: [
+      { id:"ionixx",    label:"UX Design Intern",               sub:"Ionixx Technologies · Jan–Jul 2020",  from:y(2020,1),  to:y(2020,7),  image:null,         note:"Fintech & health UX. First professional product design role." },
+      { id:"defenseark",label:"Product Designer",               sub:"DefenseARK / MetaSquare · May 4, 2021–Jun 30, 2022", from:y(2021,4.1), to:y(2022,6), image:imgDefenseArk,note:"Founding design hire. Enigma, Brightscan, Torus — cybersecurity UX." },
+      { id:"microsoft", label:"UX Designer",                    sub:"Microsoft Azure · Fall 2025",          from:y(2025,8),  to:y(2025,12), image:imgMicrosoft, note:"Health Observability Monitor — SRE system redesign." },
+      {
+        id:    "sgx3",
+        label: "UX Consultant — SGX3 / StraboSpot",
+        sub:   "TACC · Fall 2025",
+        from:  y(2025, 8), to: y(2025, 12),
+        image: imgMicrosoft,
+        note:  "UX consultancy for StraboSpot geospatial platform — 12,000+ geologists. Heuristic eval + expert interviews.",
+      },
+    ],
+  },
+  {
+    label: "Client work",
     color: "#8C7A4E",
     items: [
+      { id:"freelance", label:"Wedding Invitation Design", sub:"Paid client work · 2019–2020",            from:y(2019),    to:y(2020),    image:null,         note:"Real paid client commissions: wedding invitations that funded my first laptop and phone." },
       { id:"interior", label:"Interior Design Studio", sub:"Independent · Jul 2023–Jul 2024", from:y(2023,7), to:y(2024,7), image:imgInterior, note:"4 residential projects — floor plan to handover. Real clients, real budgets." },
+    ],
+  },
+  {
+    label: "Research",
+    color: "#5E8C7B",
+    items: [
+      { id:"thesis-ai",    label:"AI-at-home survey research",            sub:"Final-year thesis · Jan–Mar 2020", from:y(2020,1), to:y(2020,3), image:null, note:"Survey design for my final-year psychology thesis.", marker:true },
+      { id:"thesis-photo", label:"Photo gallery / emotional-state study", sub:"Final-year thesis · Jan–Mar 2020", from:y(2020,1), to:y(2020,3), image:null, note:"Study and survey design for my final-year psychology thesis.", marker:true },
+      {
+        id:    "tapinto",
+        label: "TAPD-INTO — NSF STEM Accessibility",
+        sub:   "Purdue · Fall 2024",
+        from:  y(2024, 8), to: y(2024, 12),
+        image: null,
+        note:  "NSF-funded accessibility research for STEM education. Audited tools for neurodivergent and disabled learners.",
+      },
     ],
   },
 ];
 
+const midOf = (item) => (item.from + item.to) / 2;
+
+// Stack overlapping items into rows so simultaneous work reads as overlap.
+function packRows(items) {
+  const span = (it) =>
+    it.marker ? { s: midOf(it) - 0.2, e: midOf(it) + 0.2 } : { s: it.from, e: it.to };
+  const ends = [];
+  const placed = {};
+  [...items].sort((a, b) => span(a).s - span(b).s).forEach((it) => {
+    const { s, e } = span(it);
+    let r = ends.findIndex((end) => end <= s);
+    if (r === -1) { r = ends.length; ends.push(e); } else { ends[r] = e; }
+    placed[it.id] = r;
+  });
+  return { placed, rows: Math.max(1, ends.length) };
+}
+
 // ── Single bar with inline popup ─────────────────────────────────────────────
-function Bar({ item, laneColor, anyActive }) {
+function Bar({ item, laneColor, anyActive, row }) {
   const [hovered, setHovered] = useState(false);
+  const [align, setAlign] = useState("center");
   const ref = useRef(null);
   const hasImage = !!item.image;
+  const popW = hasImage ? 200 : 220;
+
+  const show = () => {
+    const r = ref.current?.getBoundingClientRect();
+    if (r) {
+      const cx = r.left + r.width / 2;
+      const half = popW / 2 + 8;
+      setAlign(cx - half < 0 ? "left" : cx + half > window.innerWidth ? "right" : "center");
+    }
+    setHovered(true);
+  };
+
+  const popPos =
+    align === "left"  ? { left: 0,  animation: "popInS 160ms ease-out" } :
+    align === "right" ? { right: 0, animation: "popInS 160ms ease-out" } :
+    { left: "50%", transform: "translateX(-50%)", animation: "popIn 160ms cubic-bezier(0.34,1.56,0.64,1)" };
+  const arrowPos =
+    align === "left"  ? { left: 10, transform: "none" } :
+    align === "right" ? { right: 10, transform: "none" } :
+    { left: "50%", transform: "translateX(-50%)" };
 
   return (
     <div
       ref={ref}
-      style={{ position:"absolute", left:pct(item.from), width:wpct(item.from,item.to),
-               top:"50%", height:20, zIndex: hovered ? 10 : 1 }}
-      onMouseEnter={() => setHovered(true)}
+      style={{
+        position:"absolute",
+        left:  item.marker ? `calc(${pct(midOf(item))} - ${MARKER / 2}px)` : pct(item.from),
+        width: item.marker ? MARKER : wpct(item.from, item.to),
+        top:   4 + row * ROW_H,
+        height: BAR_H,
+        zIndex: hovered ? 10 : 1,
+      }}
+      onMouseEnter={show}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* The bar */}
+      {/* The bar (or milestone marker) */}
       <div style={{
         width:      "100%",
-        height:     "100%",
+        height:     item.marker ? MARKER : "100%",
+        marginTop:  item.marker ? (BAR_H - MARKER) / 2 : 0,
         background: laneColor,
-        borderRadius: 5,
-        cursor:     hasImage ? "pointer" : "default",
+        borderRadius: item.marker ? "50%" : 5,
+        cursor:     "default",
         opacity:    anyActive && !hovered ? 0.35 : 1,
-        transform:  hovered ? "scaleY(1.3)" : "scaleY(1)",
+        transform:  hovered ? (item.marker ? "scale(1.3)" : "scaleY(1.3)") : "none",
         transformOrigin: "center",
         transition: "opacity 180ms ease, transform 180ms ease, box-shadow 180ms ease",
         boxShadow:  hovered ? `0 2px 14px ${laneColor}66` : "none",
       }} />
 
-     
-            {/* Popup — image card for bars with images, text card for bars without */}
+      {/* Popup — image card for items with images, text card for the rest.
+          Surface and text colours come from theme tokens so it reads in both modes. */}
       {hovered && (
         <div style={{
           position:     "absolute",
           bottom:       "calc(100% + 10px)",
-          left:         "50%",
-          transform:    "translateX(-50%)",
-          width:        hasImage ? 200 : 220,
+          width:        popW,
           borderRadius: 10,
-          overflow:     "hidden",
-          boxShadow:    "0 8px 32px rgba(0,0,0,0.18)",
-          background:   "#fff",
-          animation:    "popIn 160ms cubic-bezier(0.34,1.56,0.64,1)",
+          boxShadow:    "0 8px 32px rgba(0,0,0,0.28)",
+          background:   "var(--card)",
+          border:       "1px solid var(--hairline-weak)",
+          color:        "var(--text)",
           pointerEvents:"none",
           zIndex:       20,
+          ...popPos,
         }}>
           {hasImage && (
             <img src={item.image} alt={item.label}
-                 style={{ width:"100%", height:120, objectFit:"cover", display:"block" }} />
+                 style={{ width:"100%", height:120, objectFit:"cover", display:"block", borderRadius:"9px 9px 0 0" }} />
           )}
           <div style={{ padding: hasImage ? "10px 12px 12px" : "12px 14px 14px" }}>
             <p style={{ fontSize:11, fontWeight:600, color:"var(--text)", margin:0 }}>{item.label}</p>
-            <p style={{ fontSize:10, color:"var(--color-text-tertiary)", margin:"2px 0 0", lineHeight:1.4 }}>{item.sub}</p>
-            <p style={{ fontSize:10, color:"var(--muted)", margin:"6px 0 0", lineHeight:1.5 }}>{item.note}</p>
+            <p style={{ fontSize:10, color:"var(--muted)", margin:"2px 0 0", lineHeight:1.4 }}>{item.sub}</p>
+            {item.note && (
+              <p style={{ fontSize:10, color:"var(--muted)", margin:"6px 0 0", lineHeight:1.5 }}>{item.note}</p>
+            )}
           </div>
           <div style={{
-            position:"absolute", bottom:-6, left:"50%",
-            transform:"translateX(-50%)",
+            position:"absolute", bottom:-7,
             width:12, height:12,
-            background:"#fff",
-            borderRight:"0.5px solid rgba(0,0,0,0.06)",
-            borderBottom:"0.5px solid rgba(0,0,0,0.06)",
+            background:"var(--card)",
+            borderRight:"1px solid var(--hairline-weak)",
+            borderBottom:"1px solid var(--hairline-weak)",
             rotate:"45deg",
+            ...arrowPos,
           }} />
         </div>
       )}
@@ -158,36 +216,43 @@ function GanttChart() {
           from { opacity:0; transform:translateX(-50%) scale(0.88); }
           to   { opacity:1; transform:translateX(-50%) scale(1); }
         }
+        @keyframes popInS {
+          from { opacity:0; scale:0.92; }
+          to   { opacity:1; scale:1; }
+        }
         @media(max-width:600px){
           .gantt-wrap { font-size:9px !important; }
         }
       `}</style>
 
-      {LANES.map((lane) => (
-        <div key={lane.label} style={{ marginBottom:24 }}>
-          <p style={{ fontSize:10, fontWeight:600, letterSpacing:"0.08em",
-                      textTransform:"uppercase", color:"var(--color-text-tertiary)", marginBottom:8 }}>
-            {lane.label}
-          </p>
-          <div style={{ position:"relative", height:28, background:"var(--surface-2)", borderRadius:8 }}
-               onMouseLeave={() => setActive(null)}>
-            {/* Year grid */}
-            {YEARS.map(yr => (
-              <div key={yr} style={{ position:"absolute", left:pct(yr), top:0, bottom:0,
-                                     width:1, background:"rgba(0,0,0,0.05)", pointerEvents:"none" }} />
-            ))}
-            {/* Now */}
-            <div style={{ position:"absolute", left:pct(NOW), top:-3, bottom:-3,
-                          width:2, background:"var(--text)", borderRadius:1,
-                          pointerEvents:"none", zIndex:5 }} />
-            {/* Bars */}
-            {lane.items.map(item => (
-              <Bar key={item.id} item={item} laneColor={lane.color}
-                   anyActive={active !== null} />
-            ))}
+      {LANES.map((lane) => {
+        const { placed, rows } = packRows(lane.items);
+        return (
+          <div key={lane.label} style={{ marginBottom:24 }}>
+            <p style={{ fontSize:10, fontWeight:600, letterSpacing:"0.08em",
+                        textTransform:"uppercase", color:"var(--color-text-tertiary)", marginBottom:8 }}>
+              {lane.label}
+            </p>
+            <div style={{ position:"relative", height: rows * ROW_H + 8, background:"var(--surface-2)", borderRadius:8 }}
+                 onMouseLeave={() => setActive(null)}>
+              {/* Year grid */}
+              {YEARS.map(yr => (
+                <div key={yr} style={{ position:"absolute", left:pct(yr), top:0, bottom:0,
+                                       width:1, background:"rgba(0,0,0,0.05)", pointerEvents:"none" }} />
+              ))}
+              {/* Now */}
+              <div style={{ position:"absolute", left:pct(NOW), top:-3, bottom:-3,
+                            width:2, background:"var(--text)", borderRadius:1,
+                            pointerEvents:"none", zIndex:5 }} />
+              {/* Bars */}
+              {lane.items.map(item => (
+                <Bar key={item.id} item={item} laneColor={lane.color}
+                     anyActive={active !== null} row={placed[item.id]} />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
 
       {/* Year axis */}
       <div style={{ position:"relative", height:20, marginTop:4 }}>
@@ -219,6 +284,97 @@ function GanttChart() {
   );
 }
 
+// ── Context sections ─────────────────────────────────────────────────────────
+const h2Style = {
+  fontSize:      "clamp(22px, 3vw, 32px)",
+  fontWeight:    700,
+  letterSpacing: "-0.3px",
+  lineHeight:    1.15,
+  color:         "var(--text)",
+  margin:        "0 0 16px",
+};
+const pStyle = {
+  fontSize:   "clamp(16px, 1.6vw, 18px)",
+  lineHeight: 1.65,
+  color:      "var(--muted)",
+  margin:     "0 0 16px",
+  maxWidth:   "60ch",
+};
+
+const CONTEXT = [
+  ["Time",        "What if the user can't spend another minute?"],
+  ["Attention",   "What actually needs to be visible?"],
+  ["Emotion",     "What changes when someone isn't in a neutral state?"],
+  ["Environment", "What changes outside the screen?"],
+  ["Access",      "Who experiences this differently?"],
+  ["Trust",       "What does the product ask someone to understand, disclose, or consent to?"],
+];
+
+function ContextSections() {
+  return (
+    <>
+      {/* The common thread */}
+      <div style={{ marginTop:"clamp(56px, 8vw, 96px)", maxWidth:720 }}>
+        <h2 style={h2Style}>The common thread? Context.</h2>
+        <p style={pStyle}>
+          I pay attention to what changes the experience: how much time someone has, what they know, what they’re feeling, where they are, and what they need to trust.
+        </p>
+      </div>
+
+      {/* What context changes */}
+      <div style={{ marginTop:"clamp(40px, 6vw, 72px)", maxWidth:720 }}>
+        <p style={{ fontSize:11, fontWeight:600, letterSpacing:"0.10em", textTransform:"uppercase",
+                    color:"var(--color-text-tertiary)", margin:"0 0 12px" }}>
+          What context changes
+        </p>
+        <div>
+          {CONTEXT.map(([term, question]) => (
+            <div key={term} style={{
+              display:"grid", gridTemplateColumns:"minmax(96px, 120px) 1fr", gap:16,
+              padding:"14px 0", borderTop:"1px solid var(--hairline-weak)", alignItems:"baseline",
+            }}>
+              <span style={{ fontSize:12, fontWeight:700, letterSpacing:"0.08em",
+                             textTransform:"uppercase", color:"var(--text)" }}>{term}</span>
+              <span style={{ fontSize:16, lineHeight:1.5, color:"var(--muted)" }}>{question}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Design is more than making things usable */}
+      <div style={{ marginTop:"clamp(56px, 8vw, 96px)", maxWidth:720 }}>
+        <h2 style={h2Style}>Design is more than making things usable.</h2>
+        <p style={pStyle}>
+          It means understanding the context around the interaction — and designing accordingly.
+        </p>
+        <p style={pStyle}>
+          My background in psychology and HCI shapes how I approach that work: understand the person, understand the system, then design the interaction between them.
+        </p>
+        <p style={pStyle}>
+          I’m especially mindful of what products ask people to trust, disclose, understand, and consent to.
+        </p>
+      </div>
+
+      {/* Gratitude card */}
+      <div style={{
+        marginTop:"clamp(56px, 8vw, 96px)",
+        maxWidth:460,
+        padding:"22px 26px 24px",
+        background:"#FBF6E8",
+        color:"#2B2A26",
+        borderRadius:3,
+        borderBottom:"4px solid #E4D9BC",
+        boxShadow:"0 6px 14px rgba(0,0,0,0.20)",
+        fontFamily:"'American Typewriter', 'Courier New', Courier, monospace",
+        fontSize:14,
+        lineHeight:1.7,
+      }}>
+        🌻 Grateful to the mentors, professors, seniors, researchers, family, friends, and teammates who have challenged me, supported me, and helped me grow.
+      </div>
+    </>
+  );
+}
+
 // ── Page ─────────────────────────────────────────────────────────────────────
 export default function About() {
   return (
@@ -245,7 +401,7 @@ export default function About() {
                 marginBottom:  20,
                 maxWidth:      "14ch",
               }}>
-                Thoughful Craft
+                Thoughtful craft
               </h1>
               <p style={{
                 fontSize:      "clamp(16px, 1.8vw, 19px)",
@@ -287,12 +443,14 @@ export default function About() {
             paddingTop:  40,
             width:       "80%",
           }}>
-            <p style={{ fontSize:11, fontWeight:600, letterSpacing:"0.10em",
-                        textTransform:"uppercase", color:"var(--color-text-tertiary)", marginBottom:16 }}>
-              Career timeline
+            <h2 style={{ ...h2Style, marginBottom:8 }}>A career built by following questions.</h2>
+            <p style={{ fontSize:15, color:"var(--muted)", margin:"0 0 28px" }}>
+              Psychology → research → making → product design.
             </p>
             <GanttChart />
           </div>
+
+          <ContextSections />
 
         </div>
       </section>

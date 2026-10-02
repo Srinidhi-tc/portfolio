@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="footer-left">
           <p className="footer-title">Srinidhi Chakravarthy — UX Portfolio</p>
           <p className="footer-text">
-           I used artificial-intelligence-driven web design, you might know VS Code + Claude, to turn ideas into working experiences quickly.
+            Because context changes what good design means.
           </p>
           <p className="footer-text">© {new Date().getFullYear()} Srinidhi Chakravarthy. All rights reserved.</p>
         </div>

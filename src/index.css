@@ -325,7 +325,9 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .footer-inner {
-  padding: var(--space-2xl) 0 var(--space-3xl);
+  /* Extra bottom space lifts the links (~1 inch+) clear of the fixed mascot
+     and its speech bubble at maximum scroll. */
+  padding: var(--space-2xl) 0 calc(var(--space-3xl) + 10rem);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -1752,27 +1754,116 @@ border: "1px solid var(--hairline-weak)";
   }
 }
 
-/* Annotation tag — a minimal physical-sticky-note treatment for a short
-   observation. Use sparingly: this is an accent, not a page motif. */
+/* Annotation tag — a sticky note: opaque yellow, shadow below, no border.
+   Both tones render the same yellow so every sticky note on the site matches. */
 .annotation-tag {
   display: inline-block;
-  padding: 6px 10px;
-  border-radius: 4px;
+  padding: 7px 11px;
+  border-radius: 2px;
   font-size: 12px;
   font-weight: 600;
   line-height: 1.3;
-  border: 1px solid;
   white-space: nowrap;
+  border: none;
+  background: #fff9b1;
+  color: #3a3410;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22);
 }
 
-.annotation-tag--burgundy {
-  background: var(--color-burgundy-soft);
-  border-color: color-mix(in srgb, var(--color-burgundy) 30%, transparent);
-  color: var(--color-burgundy);
+/* Home intro, section labels and design-lens block */
+.home-intro {
+  max-width: 760px;
+  margin: 0 0 var(--space-3xl);
 }
 
-.annotation-tag--sage {
-  background: var(--color-sage-soft);
-  border-color: color-mix(in srgb, var(--color-sage) 35%, transparent);
-  color: color-mix(in srgb, var(--color-sage) 65%, var(--color-ink));
+.home-intro__headline {
+  margin: 0;
+  font-size: clamp(28px, 4.4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.home-intro__sub {
+  margin: var(--space-md) 0 0;
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+}
+
+.home-intro__credential {
+  margin: var(--space-lg) 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-text-tertiary);
+}
+
+.home-scrolllink {
+  display: inline-block;
+  margin: 0 0 var(--space-3xl);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.home-scrolllink:hover {
+  color: var(--text);
+}
+
+.home-section-label {
+  margin: 0 0 var(--space-xl);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  scroll-margin-top: 96px;
+}
+
+.home-lens {
+  margin: var(--space-5xl) 0 var(--space-4xl);
+  padding-top: var(--space-3xl);
+  border-top: 1px solid var(--hairline-weak);
+  max-width: 720px;
+}
+
+.home-lens .home-section-label {
+  margin-bottom: var(--space-md);
+}
+
+.home-lens__list {
+  margin: 0 0 var(--space-3xl);
+  font-size: clamp(18px, 2.4vw, 24px);
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--text);
+}
+
+.home-lens__title {
+  margin: 0 0 var(--space-sm);
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 650;
+  letter-spacing: -0.3px;
+  color: var(--text);
+}
+
+.home-lens__body {
+  margin: 0 0 var(--space-lg);
+  font-size: 16px;
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+}
+
+.home-lens__link {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.home-lens__link:hover {
+  text-decoration: underline;
 }

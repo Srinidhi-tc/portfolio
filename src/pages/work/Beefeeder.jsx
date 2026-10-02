@@ -133,13 +133,12 @@ function JourneyCell({ children, highlighted = false, label }) {
   return (
     <div
       style={{
-        background: highlighted ? "#fff7c7" : "var(--surface-2)",
-        borderRadius: 12,
+        background: highlighted ? "#FFF9B1" : "var(--surface-2)",
+        borderRadius: highlighted ? 3 : 12,
         padding: "16px 15px",
         minHeight: 96,
-        border: highlighted
-          ? "1px solid rgba(170, 140, 0, 0.28)"
-          : "1px solid transparent",
+        border: "none",
+        boxShadow: highlighted ? "0 5px 10px rgba(0, 0, 0, 0.22)" : "none",
         position: "relative",
       }}
     >

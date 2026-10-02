@@ -52,7 +52,23 @@ export default function WorkSection() {
       <div className="container">
         <SectionTitle title="Work" id="work-section-heading" titleHidden />
 
+        <header className="home-intro">
+          <h1 className="home-intro__headline">
+            I design for moments when people can’t afford confusion.
+          </h1>
+          <p className="home-intro__sub">
+            Product design across AI, healthcare, enterprise systems, and physical products.
+          </p>
+          <p className="home-intro__credential">PRODUCT DESIGN | HCI | PSYCHOLOGY</p>
+        </header>
+
         <ProjectRow />
+
+        <a href="#selected-work" className="home-scrolllink">
+          The work behind the objects ↓
+        </a>
+
+        <h2 id="selected-work" className="home-section-label">Selected work</h2>
 
         {/* Grid first — toggle moves below */}
         <div
@@ -103,6 +119,16 @@ export default function WorkSection() {
             })}
           </div>
         </div>
+
+        <section className="home-lens" aria-labelledby="home-lens-heading">
+          <h2 id="home-lens-heading" className="home-section-label">What I pay attention to</h2>
+          <p className="home-lens__list">Time · Attention · Emotion · Environment · Access · Trust</p>
+          <h3 className="home-lens__title">Design is more than making things usable.</h3>
+          <p className="home-lens__body">
+            I’m interested in what happens when time, attention, emotion, environment, access, or trust changes the way someone experiences a product.
+          </p>
+          <Link to="/about" className="home-lens__link">More about me →</Link>
+        </section>
 
         {/* Toggle sits AFTER the grid — sticky bottom */}
         <div className="work-section-sticky">

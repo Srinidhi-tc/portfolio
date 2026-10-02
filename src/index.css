@@ -1930,27 +1930,11 @@ border: "1px solid var(--hairline-weak)";
   margin-bottom: var(--g2);
 }
 
-/* Registered so the gaps can animate; hover tightens icons inside a group by
-   3px and widens the gaps between groups by 6px (net row width is unchanged). */
-@property --gap-in {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0px;
-}
-
-@property --gap-out {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0px;
-}
-
 .project-row-list {
   --row-gap: clamp(1rem, 2.6vw, 2.2rem);
+  --group-gap: calc(var(--row-gap) * 1.618);
   --img-h: clamp(84px, 11vw, 132px);
-  --gap-in: var(--row-gap);
-  --gap-out: calc(var(--row-gap) * 1.618);
-  gap: var(--gap-out);
-  transition: --gap-in 260ms ease, --gap-out 260ms ease;
+  gap: var(--group-gap);
   /* Room for the group labels above the icons, cancelled by the negative
      margin so the row's position does not move. */
   padding-top: 1.75rem;
@@ -1969,13 +1953,20 @@ border: "1px solid var(--hairline-weak)";
   padding: 0;
   display: flex;
   align-items: flex-end;
-  gap: var(--gap-in);
+  gap: var(--row-gap);
 }
 
-.project-row:hover .project-row-list,
-.project-row:focus-within .project-row-list {
-  --gap-in: calc(var(--row-gap) - 3px);
-  --gap-out: calc(var(--row-gap) * 1.618 + 6px);
+/* Huddle: on hover the icons in each group drift a few px toward the group's
+   shared centre (--huddle-x is set per icon), settle 1px and swell 2.5%. The
+   row's overall width and the gaps between groups never change. */
+.project-row-item {
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 28ms);
+}
+
+.project-row:hover .project-row-item,
+.project-row:focus-within .project-row-item {
+  transform: translate(var(--huddle-x, 0px), 1px) scale(1.025);
 }
 
 .project-row-group-label {
@@ -1990,7 +1981,7 @@ border: "1px solid var(--hairline-weak)";
   white-space: nowrap;
   color: var(--color-text-tertiary);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
@@ -2000,11 +1991,11 @@ border: "1px solid var(--hairline-weak)";
   /* Golden-ratio length (0.618 of the icon height), centred on the icons. */
   top: calc(var(--img-h) * 0.191);
   height: calc(var(--img-h) * 0.618);
-  left: calc(var(--gap-out) / -2);
+  left: calc(var(--group-gap) / -2);
   width: 1px;
-  background: var(--hairline-strong);
+  background: var(--hairline);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
@@ -2013,12 +2004,18 @@ border: "1px solid var(--hairline-weak)";
 .project-row:hover .project-row-group + .project-row-group::before,
 .project-row:focus-within .project-row-group + .project-row-group::before {
   opacity: 1;
+  transition-delay: 160ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-row-list,
+  .project-row-item,
   .project-row-group-label,
   .project-row-group + .project-row-group::before {
     transition: none;
+  }
+
+  .project-row:hover .project-row-item,
+  .project-row:focus-within .project-row-item {
+    transform: none;
   }
 }

@@ -41,13 +41,22 @@ export default function ProjectRow() {
               {group.label}
             </span>
             <ul className="project-row-group-items" aria-label={group.label}>
-              {group.ids.map((id) => {
+              {group.ids.map((id, index) => {
                 const item = ROW_ITEMS[id];
                 const project = workSectionProjects.find((p) => p.id === id);
                 if (!item || !project) return null; // fails safe if data shape ever changes
 
+                // Each icon drifts toward the group's centre on hover.
+                const n = group.ids.length;
+                const toCentre = Math.sign((n - 1) / 2 - index);
+                const huddleX = toCentre * (n === 2 ? 4 : 5);
+
                 return (
-                  <li key={id} className="project-row-item">
+                  <li
+                    key={id}
+                    className="project-row-item"
+                    style={{ "--huddle-x": `${huddleX}px`, "--i": index }}
+                  >
                     <Link
                       to={project.to}
                       className="project-row-link"

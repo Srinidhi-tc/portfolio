@@ -1695,20 +1695,29 @@ border: "1px solid var(--hairline-weak)";
   font-size: 15px;
 }
 
-/* The business-reasoning column is the point of the table, so it reads
-   bigger, darker, and set apart with its own tint — not just another cell. */
+/* The business-reasoning column is the point of the table, so each row gets
+   its own bordered card for it instead of a plain cell. */
 .project-overview-table__cell--reasoning {
-  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  background: var(--card);
   color: var(--text);
   font-size: 15px;
   font-weight: 500;
   line-height: 1.6;
+  margin: 14px 16px 14px 0;
+  padding: 18px 20px;
+  border: 1px solid var(--hairline-weak);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .project-overview-table__cell--head.project-overview-table__cell--reasoning {
   background: transparent;
   font-weight: 700;
   color: var(--text);
+  margin: 0;
+  padding: 0 20px 14px;
+  border: none;
+  box-shadow: none;
 }
 
 @media (max-width: 860px) {

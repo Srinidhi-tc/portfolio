@@ -144,7 +144,8 @@ function RoleAtTop() {
     ["Role", "Product Designer"],
     ["Context", "Malli 2.0 · Product Design · Human–Robot Interaction"],
     ["Ownership", "Solo project"],
-    ["Focus", "Product architecture · Mechanical design · UX · CMF · DFM"]
+    ["Focus", "Product architecture · Mechanical design · UX · CMF · DFM"],
+    ["Tools", "SolidWorks · Blender · Keyshot"]
   ];
   return <section style={{
     marginBottom: 88, padding: "28px 0 32px",
@@ -172,12 +173,18 @@ function RoleAtTop() {
             <p style={{ fontSize: 15, lineHeight: 1.45, margin: 0 }}>{v}</p>
           </div>)}
         </div>
-        <p style={{ ...copy, margin: 0 }}>
+        <p style={{ ...copy, margin: "0 0 24px" }}>
           End-to-end development of the Malli 2.0 concept, from understanding the
           cleaning routine and exploring product form to developing internal
           architecture, modular brushes, charging configurations, CMF,
           manufacturing considerations, and cost estimation.
         </p>
+        <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
+          <p className="fine-print" style={{ ...label, fontSize: 11, marginBottom: 8 }}>My role, framed with business reasoning</p>
+          <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
+            I designed Malli's modular, app-connected architecture specifically to capture that connected-device premium, treating smart-home integration as a pricing lever, not just a feature.
+          </p>
+        </div>
       </div>
     </div>
   </section>;

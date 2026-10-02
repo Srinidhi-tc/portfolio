@@ -96,18 +96,26 @@ export default function DefenseArk() {
       )}
 
       {/* FACTS */}
-      <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:20, paddingBottom:40, marginBottom:72, borderBottom:"1px solid var(--hairline-weak)" }}>
+      <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(5,1fr)", gap:20, paddingBottom:40, marginBottom:28, borderBottom:"1px solid var(--hairline-weak)" }}>
         {[
           ["Dates",       "May 4, 2021 to June 30, 2023"],
           ["Role",        "Founding design hire"],
           ["Reported to", "Harish, Founder and Managing Director. Product Manager-Ashika"],
           ["Team",        "A design team for my first six months, then an product designer | Individual contributor"],
+          ["Tools",       "Figma · Figma Variables · React/CSS Handoff"],
         ].map(([k, v]) => (
           <div key={k}>
             <p style={{ ...lbl, fontSize:10, marginBottom:6 }}>{k}</p>
             <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.5, margin:0 }}>{v}</p>
           </div>
         ))}
+      </div>
+
+      <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"20px 22px", marginBottom:72 }}>
+        <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>My role, framed with business reasoning</p>
+        <p style={{ fontSize:15, fontWeight:600, color:"var(--text)", lineHeight:1.55, margin:0 }}>
+          As the first design hire, I built the client-intake framework before being asked, because every manual intake step was a scaling cost the company would eventually have to pay for as the client base grew.
+        </p>
       </div>
 
       {/* AT A GLANCE */}

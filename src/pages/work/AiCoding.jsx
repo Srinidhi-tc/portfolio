@@ -100,6 +100,7 @@ function RoleAtTop() {
     ["Client", "Dr. Bobby Hodgkinson · TACC"],
     ["SGX3 TEAM", "Paul Parsons · Linh Pham · Claire Stirm (Stakeholder)"],
     ["My Impact", "Design of Progress Bar · competitive analysis · interaction recommendations · A rubric/AI harness for grading framework"],
+    ["Tools", "Figma · Heuristic Evaluation · Comparative Analysis"],
   ];
   return (
     <section style={{ marginBottom: 88, padding: "28px 0 32px", borderTop: "1px solid var(--hairline-weak)", borderBottom: "1px solid var(--hairline-weak)" }}>
@@ -109,13 +110,19 @@ function RoleAtTop() {
           Translating AI capability into clearer learning objectives for freshman aerospace students in computer science to create a preference to use TACC chatbot over other GPTs.
         </h2>
       </div>
-      <div className="tacc-role-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 22 }}>
+      <div className="tacc-role-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))", gap: 22, marginBottom: 28 }}>
         {items.map(([k, v]) => (
           <div key={k}>
             <p style={{ ...label, fontSize: 10, marginBottom: 6 }}>{k}</p>
             <p style={{ fontSize: 14, lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
           </div>
         ))}
+      </div>
+      <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
+        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>My role, framed with business reasoning</p>
+        <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
+          I prioritized onboarding clarity and scaffolded feedback because the real risk wasn't a weak feature, it was a first-time, underrepresented student disengaging in the first five minutes. Retention at that moment is the metric that matters most.
+        </p>
       </div>
     </section>
   );

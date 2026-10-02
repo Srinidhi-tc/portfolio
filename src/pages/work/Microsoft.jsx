@@ -126,7 +126,7 @@ export default function Microsoft() {
 
       {/* TEAM + ROLE */}
       <section style={{ marginBottom:80, paddingBottom:40, borderBottom:"1px solid var(--hairline-weak)" }}>
-        <div style={{ ...card, padding:"24px 28px", marginBottom:28 }}>
+        <div style={{ ...card, padding:"24px 28px", marginBottom:16 }}>
           <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>My role</p>
           <p style={{ fontSize:17, color:"var(--text)", lineHeight:1.6, margin:0, maxWidth:720 }}>
             I own the entity editing flow and the AI Ops research. That includes SRE interviews, contextual inquiry,
@@ -134,7 +134,13 @@ export default function Microsoft() {
             Everything on this page is my contribution.
           </p>
         </div>
-        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:24 }}>
+        <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"24px 28px", marginBottom:28 }}>
+          <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>My role, framed with business reasoning</p>
+          <p style={{ fontSize:16, fontWeight:600, color:"var(--text)", lineHeight:1.6, margin:0, maxWidth:720 }}>
+            I designed for decision speed specifically because engineering time is the most expensive resource on this team, every second an engineer spends parsing an unclear interface is a cost the business is already tracking.
+          </p>
+        </div>
+        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:24 }}>
           <div>
             <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Industry partners</p>
             <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.7, margin:0 }}>
@@ -145,6 +151,12 @@ export default function Microsoft() {
             <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Project leads</p>
             <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.7, margin:0 }}>
               Prof. Nancy Rasche<br />Prof. Shobhan Shah<br /><span style={{ color:"var(--color-text-tertiary)" }}>Purdue University</span>
+            </p>
+          </div>
+          <div>
+            <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Tools</p>
+            <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.7, margin:0 }}>
+              Figma · Azure Portal · WCAG 2.1 Audit
             </p>
           </div>
           <div>

@@ -168,6 +168,7 @@ function RoleAtTop() {
     ["Client", "StraboSpot Inc / TACC"],
     ["SGX3", "Paul Parsons · Linh Pham · Srinidhi T. Chakravarthy"],
     ["Scope", "UI/UX audit · 5 interviews · task analysis · search redesign recommendations"],
+    ["Tools", "Figma · Miro · Nielsen Heuristics"],
   ];
 
   return (
@@ -197,8 +198,9 @@ function RoleAtTop() {
         className="str-role-grid"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+          gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
           gap: 22,
+          marginBottom: 28,
         }}
       >
         {items.map(([k, v]) => (
@@ -207,6 +209,13 @@ function RoleAtTop() {
             <p style={{ fontSize: 14, lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
           </div>
         ))}
+      </div>
+
+      <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
+        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>My role, framed with business reasoning</p>
+        <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
+          I focused on cross-functional user flows because duplicated fieldwork is the real cost here, every friction point in data retrieval is researcher time and grant funding spent re-discovering what already exists.
+        </p>
       </div>
     </section>
   );

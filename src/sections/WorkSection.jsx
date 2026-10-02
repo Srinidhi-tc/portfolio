@@ -64,11 +64,7 @@ export default function WorkSection() {
 
         <ProjectRow />
 
-        <a href="#selected-work" className="home-scrolllink">
-          The work behind the objects ↓
-        </a>
-
-        <h2 id="selected-work" className="home-section-label">Selected work</h2>
+        <h2 id="selected-work" className="home-section-label"> The work behind the objects ↓ </h2>
 
         {/* Grid first — toggle moves below */}
         <div

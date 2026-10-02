@@ -1,3 +1,4 @@
+import Kicker from "../../components/ui/Kicker";
 import img1 from "../../assets/flowerfinal1.png";
 import img2 from "../../assets/flowercone2.png";
 import img3 from "../../assets/flowerUV3.png";
@@ -92,7 +93,7 @@ function SideBySide({ left, right }) {
 function SectionHeading({ number, children }) {
   return (
     <div style={{ marginBottom: 28 }}>
-      <p style={{ ...eyebrow, marginBottom: 10 }}>{number}</p>
+      {number && <Kicker style={{ marginBottom: 10 }}>{number}</Kicker>}
       <h2
         style={{
           fontSize: "clamp(28px, 7vw, 42px)",
@@ -521,7 +522,7 @@ export default function BeeFeeder() {
         }}
       >
         <section>
-          <SectionHeading number="01 — STARTING POINT">
+          <SectionHeading number="The starting point">
             A garden accessory needed a user.
           </SectionHeading>
 
@@ -533,7 +534,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="02 — FIRST PROTOTYPE">
+          <SectionHeading number="The first prototype">
             No butterflies came. Ants did instead.
           </SectionHeading>
 
@@ -545,7 +546,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="03 — REDESIGN">
+          <SectionHeading number="The redesign">
             Parametric geometry became the next experiment.
           </SectionHeading>
 
@@ -566,7 +567,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="04 — FEEDING SYSTEM">
+          <SectionHeading number="The feeding system">
             The flower also needed a place to land.
           </SectionHeading>
 
@@ -587,7 +588,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="05 — BUTTERFLY EXPERIENCE">
+          <SectionHeading number="The butterfly experience">
             The butterfly became the design brief.
           </SectionHeading>
 
@@ -601,7 +602,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="06 — THE BREAKTHROUGH">
+          <SectionHeading number="The breakthrough">
             The key clue was ultraviolet vision.
           </SectionHeading>
 
@@ -615,7 +616,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="07 — SURFACE ITERATION">
+          <SectionHeading number="Surface iteration">
             UV paint turned the hidden cue visible.
           </SectionHeading>
 
@@ -627,7 +628,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="08 — PARAMETRIC EXPLORATION">
+          <SectionHeading number="Parametric exploration">
             More versions made the geometry easier to tune.
           </SectionHeading>
 
@@ -639,7 +640,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="09 — PRINTING">
+          <SectionHeading number="Printing">
             The physical print exposed new constraints.
           </SectionHeading>
 
@@ -660,7 +661,7 @@ export default function BeeFeeder() {
         </section>
 
         <section>
-          <SectionHeading number="10 — FINAL RESULT">
+          <SectionHeading number="The final result">
             The same flower finally became findable.
           </SectionHeading>
 

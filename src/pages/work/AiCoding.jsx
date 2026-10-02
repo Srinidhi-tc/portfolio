@@ -1,4 +1,5 @@
 import React from "react";
+import Kicker from "../../components/ui/Kicker";
 
 import tacc1 from "../../assets/tacc1.jpg";
 import tacc2 from "../../assets/tacc2.jpg";
@@ -128,7 +129,7 @@ function RoleAtTop() {
 function SectionHeading({ number, title, intro }) {
   return (
     <div style={{ marginBottom: 30, maxWidth: 760 }}>
-      <p style={{ ...label, marginBottom: 10 }}>{number}</p>
+      {number && <Kicker>{number}</Kicker>}
       <h2 style={{ margin: "0 0 12px", fontSize: "clamp(29px, 6vw, 45px)", lineHeight: 1.06, letterSpacing: "-0.8px", fontWeight: 650 }}>
         {title}
       </h2>
@@ -199,7 +200,7 @@ export default function TACC() {
         {/* 01 */}
         <section>
           <SectionHeading
-            number="01 — THE FIRST DECISION"
+            number="The first decision"
             title="The problem had to be narrowed."
             intro="The engagement covered an AI-powered coding interview tool. The highest-leverage opportunity was the chatbot experience, so the work centered there."
           />
@@ -222,7 +223,7 @@ export default function TACC() {
         {/* 02 */}
         <section>
           <SectionHeading
-            number="02 — DIAGNOSE BEFORE REDESIGNING"
+            number="Diagnose before redesigning"
             title="The problem was not fixing the UI decor and pixels."
             intro="A heuristic pass exposed deeper issues around orientation, feedback, system status, and recovery. We figured out a student would use other GPT over the school bot to get assignment answers and not work with a harder learning curve."
           />
@@ -244,7 +245,7 @@ export default function TACC() {
         {/* 03 */}
         <section>
           <SectionHeading
-            number="03 — REFRAME THE EXPERIENCE"
+            number="Reframe the experience"
             title="The chatbot needed a learning model."
             intro="The recommendation shifted the flow from open-ended chat toward orientation, guided interaction, feedback, and a clear next step."
           />
@@ -257,7 +258,7 @@ export default function TACC() {
         {/* 04 */}
         <section>
           <SectionHeading
-            number="04 — THE FIRST MOMENT"
+            number="The first moment"
             title="The first question: what should happen next?"
             intro="The empty chat made the student solve a product question before solving a coding question."
           />
@@ -276,7 +277,7 @@ export default function TACC() {
         {/* 05 */}
         <section>
           <SectionHeading
-            number="05 — DON'T LET AI DO THE THINKING"
+            number="Don't let AI do the thinking"
             title="The chatbot had to teach, not only answer."
             intro="When a student was stuck, the interface could scaffold the reasoning instead of jumping straight to a solution."
           />
@@ -295,7 +296,7 @@ export default function TACC() {
         {/* 06 */}
         <section>
           <SectionHeading
-            number="06 — MAKE FEEDBACK LEAD SOMEWHERE"
+            number="Make feedback lead somewhere"
             title="A score is not the end of learning."
             intro="Feedback needed to become another useful action, not a dead end."
           />
@@ -321,7 +322,7 @@ export default function TACC() {
         {/* 07 */}
         <section>
           <SectionHeading
-            number="07 — MAKE PROGRESS VISIBLE"
+            number="Make progress visible"
             title="Learning should look like progress."
             intro="The interface showed very little about where a student was in the interview. A stronger progress model made effort and closure easier to read."
           />
@@ -337,7 +338,7 @@ export default function TACC() {
         {/* 08 */}
         <section>
           <SectionHeading
-            number="08 — DON'T STOP AT THE INTERFACE"
+            number="Don't stop at the interface"
             title="The client also needed the next question."
             intro="The engagement ended with a research framework the product team could use to learn about students, adoption, and trust beyond the first redesign."
           />

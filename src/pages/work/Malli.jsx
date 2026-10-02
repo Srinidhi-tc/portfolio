@@ -1,3 +1,4 @@
+import Kicker from "../../components/ui/Kicker";
 import selfclean from "../../assets/Experience Details Selfclean System.png";
 import cmf from "../../assets/CMF.png";
 import architecture from "../../assets/Internal Architecture.png";
@@ -42,7 +43,7 @@ function SideBySide({ left, right }) {
 
 function Heading({ number, title, description }) {
   return <div style={{ maxWidth: 720 }}>
-    <p className="fine-print" style={{ ...label, marginBottom: 10 }}>{number}</p>
+    {number && <Kicker style={{ marginBottom: 10 }}>{number}</Kicker>}
     <h2 style={{
       fontSize: "clamp(29px,6vw,43px)", lineHeight: 1.07,
       letterSpacing: "-0.65px", margin: "0 0 13px", fontWeight: 650
@@ -276,7 +277,7 @@ export default function Malli() {
 
     <div style={{ display: "flex", flexDirection: "column", gap: 108 }}>
       <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Heading number="01 · START WITH THE ROUTINE"
+        <Heading number="Starting with the routine"
           title="The routine became the product brief."
           description="Before the product could automate cleaning, the existing bathroom routine had to remain understandable and natural." />
         <Block src={journey} subheading="Experience through journey mapping"
@@ -290,7 +291,7 @@ export default function Malli() {
       </section>
 
       <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Heading number="02 · EXPLORE THE PRODUCT"
+        <Heading number="Exploring the product"
           title="The form had to feel effortless."
           description="The form needed to feel appropriate in a bathroom before the technology became visible." />
         <Block src={form} subheading="Form exploration"
@@ -298,7 +299,7 @@ export default function Malli() {
       </section>
 
       <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Heading number="03 · DESIGN THE SYSTEM"
+        <Heading number="Designing the system"
           title="The outside depended on the inside."
           description="The exterior could not be solved separately from the mechanisms that made the cleaning experience possible." />
         <Block src={architecture} subheading="Internal architecture"
@@ -307,7 +308,7 @@ export default function Malli() {
       </section>
 
       <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Heading number="04 · MAKE CLEANING MODULAR"
+        <Heading number="Making cleaning modular"
           title="One cleaner needed multiple ways to clean."
           description="The cleaning mechanism became a system rather than a single fixed brush." />
         <Block src={modular} subheading="Modular brush system"
@@ -317,7 +318,7 @@ export default function Malli() {
       </section>
 
       <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Heading number="05 · MAKE IT MANUFACTURABLE"
+        <Heading number="Making it manufacturable"
           title="Every surface had an assembly consequence."
           description="The product had to hold together beyond the render, with assembly and production considered during design." />
         <Block src={mechanical} subheading="Mechanical thinking"
@@ -331,7 +332,7 @@ export default function Malli() {
       </section>
 
       <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Heading number="06 · MAKE CLEANLINESS VISIBLE"
+        <Heading number="Making cleanliness visible"
           title="Cleanliness had to feel visible."
           description="Material and finish became part of how the product communicates its purpose." />
         <Block src={cmf} subheading="CMF exploration"
@@ -339,7 +340,7 @@ export default function Malli() {
       </section>
 
       <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Heading number="07 · SOLVE WHERE IT LIVES"
+        <Heading number="Solving where it lives"
           title="The bathroom could not spare floor space."
           description="Charging had to work with the spatial constraints of a bathroom." />
         <Block src={chargingWall} subheading="Wall-mounted charging dock"
@@ -353,7 +354,7 @@ export default function Malli() {
       </section>
 
       <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Heading number="08 · BRING IT TOGETHER"
+        <Heading number="Bringing it together"
           title="The final system works as one."
           description="The final direction connects the experience, mechanism, modular cleaning system, and physical product into one cohesive prototype." />
         <Block src={selfclean} subheading="Experience details and outcomes"

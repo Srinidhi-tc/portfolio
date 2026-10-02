@@ -6,6 +6,7 @@
 //
 // Before publishing: update the Torus card with what you worked on, if anything.
 
+import Kicker from "../../components/ui/Kicker";
 import { workSectionProjects } from "../../data/workSectionProjects";
 
 const heroImage = workSectionProjects.find((p) => p.id === "defenseark")?.image;
@@ -18,7 +19,7 @@ const card = { background:"var(--surface-2)", borderRadius:12, padding:"18px 20p
 function Section({ number, title, children }) {
   return (
     <section style={{ marginBottom:88 }}>
-      <p style={{ ...lbl, marginBottom:10 }}>{number}</p>
+      {number && <Kicker style={{ marginBottom:10 }}>{number}</Kicker>}
       <h2 style={{ margin:"0 0 18px", fontSize:"clamp(26px,4vw,38px)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"var(--text)", maxWidth:720 }}>
         {title}
       </h2>
@@ -165,7 +166,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 01 DECEPTION RESEARCH */}
-      <Section number="01 · Research" title="How people get fooled.">
+      <Section number="The research" title="How people get fooled.">
         <P>
           Social engineering (tricking people instead of hacking machines) works because it borrows trust.
           I analysed persuasion techniques in real attacks. Name-dropping, and using first name was the clearest example.
@@ -184,7 +185,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 02 FOUNDATION */}
-      <Section number="02 · Foundation" title="Building the design system from zero.">
+      <Section number="The foundation" title="Building the design system from zero.">
         <P>
           In my first week, i prototypes a dozen different tables for audit logs with time stamps for B2B clients. I built the pieces a growing product needs,
           so every new feature would not start from a blank page.
@@ -200,7 +201,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 03 CLIENT INTAKE */}
-      <Section number="03 · Client intake" title="A clear path for clients under stress.">
+      <Section number="Client intake" title="A clear path for clients under stress.">
         <P>
           A client who suspects an attack is stressed and in a hurry. Before, new clients did not know
           how to share files or raise issues, and our team spent time on admin instead of help.
@@ -217,7 +218,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 04 SHIPPING */}
-      <Section number="04 · Shipping" title="Designing with engineers, not handing off to them.">
+      <Section number="Shipping" title="Designing with engineers, not handing off to them.">
         <P>
           I worked with the founders and the full-stack engineers every week. We shipped speech synthesis
           and applied linguistics in voice calls, with motion UI built in React and CSS. These audios had fake call stimulations.
@@ -230,7 +231,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 05 BUSINESS + WINS */}
-      <Section number="05 · The business side" title="Design decisions were business decisions.">
+      <Section number="The business side" title="Design decisions were business decisions.">
         <P>
           I was an active part of the founding team and reported directly to Harish, our Managing Director.
           I led design from May 4, 2021 to June 30, 2023. Every design choice had a business question behind it:
@@ -247,7 +248,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 06 HOW WE WORKED */}
-      <Section number="06 · How we worked" title="Many designs. A few that shipped.">
+      <Section number="How we worked" title="Many designs. A few that shipped.">
         <P>
           We met every Monday and every Friday. I brought new directions to each review, often several
           versions of the same idea. Most of them never shipped, and that was the point.
@@ -260,7 +261,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 07 WHAT I LEARNED */}
-      <Section number="07 · What I learned" title="Design flourishes as a team.">
+      <Section number="What I learned" title="Design flourishes as a team.">
         <P>
           For my first six months, I worked with other designers. After that, I was the only one.
           I could ship alone, but I missed the critique, the arguments, and the ideas that only

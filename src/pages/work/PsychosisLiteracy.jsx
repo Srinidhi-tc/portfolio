@@ -2,6 +2,7 @@
 // Images: name your slides cap1.jpg → cap33.jpg and place in src/assets/
 // Only key slides are used — not all 33 are shown
 
+import Kicker from "../../components/ui/Kicker";
 import cap2  from "../../assets/cap2.jpg";
 import cap9  from "../../assets/cap9.jpg";
 import cap14 from "../../assets/cap14.jpg";
@@ -36,7 +37,7 @@ function Section({ number, title, intro, children }) {
   return (
     <section style={{ marginBottom: 96 }}>
       <div style={{ marginBottom: 28, maxWidth: 720 }}>
-        <p style={{ ...label, marginBottom: 10 }}>{number}</p>
+        {number && <Kicker style={{ marginBottom: 10 }}>{number}</Kicker>}
         <h2 style={{ margin: "0 0 14px", fontSize: "clamp(26px, 4vw, 40px)", lineHeight: 1.08, letterSpacing: "-0.5px", fontWeight: 650, color: "var(--text)" }}>
           {title}
         </h2>
@@ -153,7 +154,7 @@ export default function PsychosisLiteracy() {
 
       {/* 01 THE PROBLEM */}
       <Section
-        number="01 — THE GAP"
+        number="The gap"
         title="50% of US schools have no psychoeducator. 100,000+ teenagers develop psychosis each year."
         intro="Psychosis begins in late teens to mid-20s. Without education, students turn to substances, self-harm, and isolation. Crime rates increase 2.5× in populations with untreated psychosis. The awareness gap is the design problem."
       >
@@ -169,7 +170,7 @@ export default function PsychosisLiteracy() {
 
       {/* 02 RESEARCH */}
       <Section
-        number="02 — RESEARCH · JOURNEY MAPPING"
+        number="Research through journey mapping"
         title="Mapping a day in the life of someone with psychosis."
         intro="I mapped Mr. KP's full day — waking up, commute, work, night time — to find where emotional hallucinations peak and where intervention is possible."
       >
@@ -192,7 +193,7 @@ export default function PsychosisLiteracy() {
 
       {/* 03 resolving ambiguity */}
       <Section
-        number="03 — RESOLVING AMBIGUITY"
+        number="Resolving ambiguity"
         title="At interviews were descriptive about experiences"
         intro="I used information architecture to narrow down which hallucination effects were clinically validated. A flowchart forces correct categorisation and prevents misrepresentation — something verbal interviews alone cannot guarantee."
       >
@@ -202,7 +203,7 @@ export default function PsychosisLiteracy() {
 
       {/* 04 SOLUTION */}
       <Section
-        number="04 — THE SOLUTION"
+        number="The solution"
         title="Show, don't tell. Use the back camera."
         intro="Instead of describing hallucinations in text, Percepta uses the device camera to place hallucination effects on the user's real environment. Back camera is used by default — to show how people with hallucinations see the world."
       >
@@ -219,7 +220,7 @@ export default function PsychosisLiteracy() {
 
       {/* 05 TESTING */}
       <Section
-        number="05 — TESTING  WITH EXPERTS"
+        number="Testing with experts"
         title="5 psychologists from Purdue Psychological Sciences and CAPS."
         intro="I interviewed 5 psychologists from Purdue's Psychology department and CAPS to validate the hallucination architecture and messaging approach."
       >
@@ -246,7 +247,7 @@ export default function PsychosisLiteracy() {
 
       {/* 06 HELP-SEEKING */}
       <Section
-        number="06 — AFTER THE EXPERIENCE"
+        number="After the experience"
         title="3 ways to ask for help. 988 is always visible."
         intro="After the simulation, Percepta shows a clear, non-stigmatising help pathway. The 988 Suicide & Crisis Lifeline is shown on the final screen — every time."
       >
@@ -256,7 +257,7 @@ export default function PsychosisLiteracy() {
 
       {/* 07 USER TESTING */}
       <Section
-        number="07 — USER TESTING · 3 PHASES"
+        number="User testing, three phases"
         title="10 users. 3 phases. Numbers that shaped every decision."
       >
         <Slide src={cap27} caption="Product link: https://app.base44.com/apps/69c1a0c9aa1a1e3081429008/editor/preview" />
@@ -283,7 +284,7 @@ export default function PsychosisLiteracy() {
 
       {/* 08 TRADE-OFFS */}
       <Section
-        number="08 — TRADE-OFFS & CHALLENGES"
+        number="Trade-offs and challenges"
         title="What I chose not to build. And why."
       >
         <Slide src={cap31} caption="Trade-offs and challenges — For competitor analysis, paper prototypes, wireframes, initial mockups, and secondary research: Access documentation." />

@@ -10,6 +10,7 @@
 //
 // Before publishing: confirm the spelling of "Priyank Wilkins" and add Alyssa Berger's role.
 
+import Kicker from "../../components/ui/Kicker";
 import mic6      from "../../assets/mic6.jpg";
 import mic7      from "../../assets/mic7.jpg";
 import mic74     from "../../assets/mic74.jpg";
@@ -87,7 +88,7 @@ function Section({ number, title, intro, children }) {
   return (
     <section style={{ marginBottom:96 }}>
       <div style={{ marginBottom:24, maxWidth:720 }}>
-        <p style={{ ...lbl, marginBottom:10 }}>{number}</p>
+        {number && <Kicker style={{ marginBottom:10 }}>{number}</Kicker>}
         <h2 style={{ margin:"0 0 14px", fontSize:"clamp(26px,4vw,40px)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"var(--text)" }}>
           {title}
         </h2>
@@ -172,7 +173,7 @@ export default function Microsoft() {
 
       {/* 01 CONTEXT */}
       <Section
-        number="01 · Context"
+        number="The context"
         title="A live map of a company's cloud system."
         intro="Azure Health Models shows the health of a whole cloud system on one screen. Each box is an entity (one working part of the system, like one room in a house). Lines show how the parts depend on each other. Every box carries one of three health states."
       >
@@ -189,7 +190,7 @@ export default function Microsoft() {
 
       {/* 02 USER RESEARCH */}
       <Section
-        number="02 · User Research"
+        number="User research"
         title="Engineers already read radials. The interface does not show them."
         intro="I research with SREs at the Purdue Rosen Center for Advanced Computing (RCAC), a supercomputing centre that works with Azure at large scale. I use three methods with them, plus AI-assisted desk research."
       >
@@ -224,7 +225,7 @@ export default function Microsoft() {
 
       {/* 03 PAIN POINTS */}
       <Section
-        number="03 · Pain Points"
+        number="Pain points"
         title="Two problems hiding in plain sight."
         intro="The entity editing flow has two problems. Each one slows an engineer down. Together, they make the screen hard to trust during an incident."
       >
@@ -241,7 +242,7 @@ export default function Microsoft() {
 
       {/* 04 THE DESIGN CHANGE */}
       <Section
-        number="04 · The Design Change"
+        number="The design change"
         title="One ring per box. One decision removed."
         intro="The change is small in pixels and big in effect. I add a radial indicator to every entity card. It shows how degraded that part is and how many issues it has, with no extra click."
       >
@@ -256,7 +257,7 @@ export default function Microsoft() {
 
       {/* 05 ACCESSIBILITY TRADE-OFF */}
       <Section
-        number="05 · Accessibility Trade-off"
+        number="The accessibility trade-off"
         title="Colour alone cannot carry health status."
         intro="I review the radials against WCAG 2.1 (the international accessibility guidelines). Azure's orange fails the contrast rule for graphics. Red and orange also blur together for colour-blind engineers. The ring fill and the number already work without colour, so I propose adding simple symbols on top."
       >
@@ -275,7 +276,7 @@ export default function Microsoft() {
 
       {/* 06 BUSINESS IMPACT */}
       <Section
-        number="06 · Business Impact"
+        number="The business impact"
         title="More signals monitored means more data ingested."
         intro="Azure Monitor's core features are free. Basic metrics, activity logs, alerts, summary rules, and dashboards cost nothing beyond the data they use. Revenue comes from log ingestion (the data the system takes in, like water through a meter) and retention (how long it keeps that data, like paying rent on storage)."
       >
@@ -298,7 +299,7 @@ export default function Microsoft() {
 
       {/* 07 SLA PHONE ALERTS */}
       <Section
-        number="07 · SLA Phone Alerts"
+        number="SLA phone alerts"
         title="Engineers should not have to watch Slack all day."
         intro="An SLA (Service Level Agreement) is a promise of uptime, like a delivery company promising your package on time. I add an alert that goes straight to an engineer's personal phone when an SLA value drops past a set limit."
       >
@@ -311,7 +312,7 @@ export default function Microsoft() {
 
       {/* 08 OUTCOME + HANDOVER */}
       <Section
-        number="08 · Outcome + Handover"
+        number="Outcome and handover"
         title="Handed to engineering. Tested on real business data."
         intro="The project starts with contextual inquiry and concept validation, so we hand the design straight to the Azure software team. There is no separate usability testing phase."
       >
@@ -325,7 +326,7 @@ export default function Microsoft() {
 
       {/* 09 CHALLENGES */}
       <Section
-        number="09 · Challenges"
+        number="Challenges along the way"
         title="We lose our point of contact before we start."
         intro="Our first Microsoft contact leaves the company early in the project. We start weeks late with no one to onboard us. We use the gap instead of waiting."
       >
@@ -339,7 +340,7 @@ export default function Microsoft() {
 
       {/* 10 REFLECTION */}
       <Section
-        number="10 · Reflection"
+        number="Looking back"
         title="Engineers are handing incidents to AI. The interface needs to be ready."
         intro="The biggest surprise from research: an RCAC engineer tells me their whole monitoring workflow now runs through Claude and AI. Engineers use AI to fix SLA issues faster and keep their service ratings high."
       >

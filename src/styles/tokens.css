@@ -298,3 +298,43 @@ html {
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   VISUAL SYSTEM TOKENS — senior-portfolio accent layer
+   Additive only: does not replace or override anything above. Used by the
+   chapter toggle, DecisionObject, diagram, and paper-annotation components.
+   Ink / muted / paper / line are aliased to the existing theme tokens so
+   they stay correct in light and dark mode automatically.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-paper: var(--card);
+  --color-line: var(--hairline-weak);
+
+  --color-burgundy: #6a3038;
+  --color-burgundy-soft: #efe1e3;
+  --color-sage: #87967f;
+  --color-sage-soft: #e6ece3;
+
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-72: 72px;
+  --space-96: 96px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-burgundy-soft: rgba(239, 225, 227, 0.14);
+    --color-sage-soft: rgba(230, 236, 227, 0.12);
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-burgundy-soft: rgba(239, 225, 227, 0.14);
+  --color-sage-soft: rgba(230, 236, 227, 0.12);
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import Kicker from "../../components/ui/Kicker";
 
 import str1 from "../../assets/str1.jpg";
 import str2 from "../../assets/str2.jpg";
@@ -212,7 +213,7 @@ function RoleAtTop() {
 function SectionHeading({ number, title, intro }) {
   return (
     <div style={{ marginBottom: 30, maxWidth: 780 }}>
-      <p style={{ ...label, marginBottom: 10 }}>{number}</p>
+      {number && <Kicker>{number}</Kicker>}
       <h2
         style={{
           margin: "0 0 12px",
@@ -474,7 +475,7 @@ export default function StraboSpot() {
       <main style={{ display: "flex", flexDirection: "column", gap: 112 }}>
         <section id="frame">
           <SectionHeading
-            number="01 — FRAME THE ENGAGEMENT"
+            number="Framing the engagement"
             title="The search experience needed a closer look."
             intro="The engagement began with a UI/UX audit of StraboSpot's current search tools, then moved into task analysis interviews and a design recommendation for a more unified search experience."
           />
@@ -491,7 +492,7 @@ export default function StraboSpot() {
 
         <section id="audit">
           <SectionHeading
-            number="02 — AUDIT THE SURFACE"
+            number="Auditing the surface"
             title="The first pass exposed friction quickly."
             intro="Nielsen's 10 usability principles provided a common lens for repeated reviews of key pages and search flows. Screenshots and annotations made the issues concrete for the team."
           />
@@ -508,7 +509,7 @@ export default function StraboSpot() {
 
         <section>
           <SectionHeading
-            number="03 — SEE WHERE SEARCH BREAKS"
+            number="Where search breaks"
             title="Maps made the problem visible."
             intro="Search results became harder to interpret when labels overlapped, interaction cues were weak, and technical names competed with the map itself."
           />
@@ -525,7 +526,7 @@ export default function StraboSpot() {
 
         <section id="research">
           <SectionHeading
-            number="04 — ASK THE PEOPLE USING IT"
+            number="Asking the people using it"
             title="The audit needed a human check."
             intro="Five Zoom interviews with current StraboSpot users, mostly field geologists at different levels, shifted the work from interface symptoms to task needs."
           />
@@ -538,7 +539,7 @@ export default function StraboSpot() {
 
         <section id="decisions">
           <SectionHeading
-            number="05 — TURN INTERVIEWS INTO PRIORITIES"
+            number="Turning interviews into priorities"
             title="Researchers needed visual context and trust."
             intro="The interviews surfaced recurring needs around images, authorship, maps, labels, filter visibility, and familiar mental models for search."
           />
@@ -562,7 +563,7 @@ export default function StraboSpot() {
 
         <section id="recommendations">
           <SectionHeading
-            number="06 — REDESIGN THE SEARCH MOMENT"
+            number="Redesigning the search moment"
             title="Search became the hero feature."
             intro="The recommendation reduced competing decisions, clarified filters, made saved spots more visible, and replaced ambiguous actions with language closer to the user's mental model."
           />
@@ -579,7 +580,7 @@ export default function StraboSpot() {
 
         <section>
           <SectionHeading
-            number="07 — DESIGN AROUND HOW GEOLOGISTS LOOK"
+            number="Designing around how geologists look"
             title="Maps and images became first-class navigation."
             intro="The recommendations gave visually rich maps a stronger default position, simplified map switching, and treated image collections and credits as part of the research experience."
           />
@@ -596,7 +597,7 @@ export default function StraboSpot() {
 
         <section>
           <SectionHeading
-            number="08 — BRING THE SEARCH SYSTEM TOGETHER"
+            number="Bringing the search system together"
             title="One search model connected map, list, and detail."
             intro="The final recommendation unified keyword search, filters, map and list views, result ownership, previews, and direct map navigation into one search workflow."
           />

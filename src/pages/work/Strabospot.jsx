@@ -1,6 +1,7 @@
 import React from "react";
 import Kicker from "../../components/ui/Kicker";
 import ChapterToggle from "../../components/ui/ChapterToggle";
+import DecisionObject from "../../components/ui/DecisionObject";
 
 import str1 from "../../assets/str1.jpg";
 import str2 from "../../assets/str2.jpg";
@@ -333,40 +334,7 @@ function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
 }
 
 function DecisionTradeoff({ decision, tradeoff }) {
-  return (
-    <div
-      className="str-decision-grid"
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-        gap: 18,
-        marginTop: 28,
-      }}
-    >
-      <div
-        style={{
-          padding: "20px 22px",
-          border: "1px solid var(--hairline-weak)",
-          borderRadius: 18,
-          background: "var(--surface-2)",
-        }}
-      >
-        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>DECISION</p>
-        <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5 }}>{decision}</p>
-      </div>
-      <div
-        style={{
-          padding: "20px 22px",
-          border: "1px solid var(--hairline-weak)",
-          borderRadius: 18,
-          background: "var(--surface-2)",
-        }}
-      >
-        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>TRADE-OFF</p>
-        <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5 }}>{tradeoff}</p>
-      </div>
-    </div>
-  );
+  return <DecisionObject decision={decision} tradeoff={tradeoff} />;
 }
 
 function FinalTakeaway() {

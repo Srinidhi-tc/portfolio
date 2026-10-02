@@ -1670,3 +1670,71 @@ border: "1px solid var(--hairline-weak)";
   background: var(--color-burgundy-soft);
   border-color: color-mix(in srgb, var(--color-burgundy) 30%, transparent);
 }
+
+/* Decision object — the signature component for documenting design
+   reasoning. Deliberately plain: a thin border, no shadow, no large radius,
+   burgundy used only for the small decision indicator. */
+.decision-object {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  padding: var(--space-32);
+  margin: var(--space-32) 0;
+}
+
+.decision-object__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+  margin: 0 0 var(--space-12);
+}
+
+.decision-object__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-burgundy);
+  flex-shrink: 0;
+}
+
+.decision-object__decision {
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.4;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-24);
+  max-width: 640px;
+}
+
+.decision-object__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-24);
+}
+
+.decision-object__field-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 var(--space-8);
+}
+
+.decision-object__field-body {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .decision-object__grid {
+    grid-template-columns: 1fr;
+  }
+}

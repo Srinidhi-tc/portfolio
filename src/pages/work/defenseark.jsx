@@ -7,6 +7,7 @@
 // Before publishing: update the Torus card with what you worked on, if anything.
 
 import Kicker from "../../components/ui/Kicker";
+import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import { workSectionProjects } from "../../data/workSectionProjects";
 
@@ -48,9 +49,9 @@ function Cards({ items, cols = 3 }) {
 
 function PullLine({ children }) {
   return (
-    <div style={{ margin:"28px 0", padding:"18px 0", borderTop:"1px solid var(--hairline-weak)", borderBottom:"1px solid var(--hairline-weak)" }}>
+    <FloralFrame>
       <p style={{ margin:0, fontSize:18, fontWeight:600, color:"var(--text)", lineHeight:1.5 }}>{children}</p>
-    </div>
+    </FloralFrame>
   );
 }
 

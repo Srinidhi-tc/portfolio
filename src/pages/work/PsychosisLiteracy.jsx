@@ -3,6 +3,7 @@
 // Only key slides are used — not all 33 are shown
 
 import Kicker from "../../components/ui/Kicker";
+import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import cap2  from "../../assets/cap2.jpg";
 import cap9  from "../../assets/cap9.jpg";
@@ -73,9 +74,9 @@ function Slide({ src, caption, alt }) {
 
 function Insight({ children }) {
   return (
-    <div style={{ margin: "28px 0", padding: "18px 0", borderTop: "1px solid var(--hairline-weak)", borderBottom: "1px solid var(--hairline-weak)" }}>
+    <FloralFrame>
       <p style={{ margin: 0, fontSize: 16, fontWeight: 600, color: "var(--text)", lineHeight: 1.5 }}>{children}</p>
-    </div>
+    </FloralFrame>
   );
 }
 

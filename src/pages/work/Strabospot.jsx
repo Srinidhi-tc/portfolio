@@ -1,5 +1,6 @@
 import React from "react";
 import Kicker from "../../components/ui/Kicker";
+import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import DecisionObject from "../../components/ui/DecisionObject";
 
@@ -256,16 +257,9 @@ function Slide({ src, number, caption }) {
 
 function InsightLine({ children }) {
   return (
-    <div
-      style={{
-        marginTop: 28,
-        padding: "16px 0",
-        borderTop: "1px solid var(--hairline-weak)",
-        borderBottom: "1px solid var(--hairline-weak)",
-      }}
-    >
+    <FloralFrame>
       <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5, fontWeight: 600 }}>{children}</p>
-    </div>
+    </FloralFrame>
   );
 }
 

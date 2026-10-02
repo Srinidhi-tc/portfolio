@@ -1738,3 +1738,28 @@ border: "1px solid var(--hairline-weak)";
     grid-template-columns: 1fr;
   }
 }
+
+/* Annotation tag — a minimal physical-sticky-note treatment for a short
+   observation. Use sparingly: this is an accent, not a page motif. */
+.annotation-tag {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.annotation-tag--burgundy {
+  background: var(--color-burgundy-soft);
+  border-color: color-mix(in srgb, var(--color-burgundy) 30%, transparent);
+  color: var(--color-burgundy);
+}
+
+.annotation-tag--sage {
+  background: var(--color-sage-soft);
+  border-color: color-mix(in srgb, var(--color-sage) 35%, transparent);
+  color: color-mix(in srgb, var(--color-sage) 65%, var(--color-ink));
+}

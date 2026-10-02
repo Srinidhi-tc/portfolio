@@ -1,4 +1,5 @@
 import Kicker from "../../components/ui/Kicker";
+import AnnotationTag from "../../components/ui/AnnotationTag";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import selfclean from "../../assets/Experience Details Selfclean System.png";
 import cmf from "../../assets/CMF.png";
@@ -122,6 +123,9 @@ function MarketOpportunity() {
         <p style={{ fontSize: 16, fontWeight: 650, color: "var(--text)", margin: "0 0 4px" }}>
           Connected, smart-home units: +34% average selling price over standalone devices.
         </p>
+        <div style={{ margin: "10px 0 2px" }}>
+          <AnnotationTag tone="burgundy" rotate={1.5}>Pricing lever</AnnotationTag>
+        </div>
         <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.5, margin: 0 }}>
           The premium that app-connected architecture is positioned to capture inside the category above.
         </p>

@@ -1,4 +1,5 @@
 import Kicker from "../../components/ui/Kicker";
+import AnnotationTag from "../../components/ui/AnnotationTag";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import img1 from "../../assets/flowerfinal1.png";
 import img2 from "../../assets/flowercone2.png";
@@ -321,12 +322,16 @@ function UVInsightCard() {
           lineHeight: 1.25,
           letterSpacing: "-0.25px",
           fontWeight: 600,
-          margin: "10px 0 24px",
+          margin: "10px 0 14px",
           maxWidth: 650,
         }}
       >
         The flower looked right to humans. It still missed a butterfly cue.
       </p>
+
+      <div style={{ marginBottom: 10 }}>
+        <AnnotationTag tone="sage" rotate={-1.5}>Invisible to humans</AnnotationTag>
+      </div>
 
       <div
         style={{

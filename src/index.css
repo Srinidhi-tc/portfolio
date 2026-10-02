@@ -1988,23 +1988,42 @@ border: "1px solid var(--hairline-weak)";
 .project-row-group + .project-row-group::before {
   content: "";
   position: absolute;
-  /* Golden-ratio length (0.618 of the icon height), centred on the icons. */
-  top: calc(var(--img-h) * 0.191);
-  height: calc(var(--img-h) * 0.618);
+  /* Rests as an invisible dot at the centre of the icons. On hover it appears
+     as a dot, then stretches into a line 0.618 of the icon height long. */
+  top: calc(var(--img-h) * 0.5);
   left: calc(var(--group-gap) / -2);
-  width: 1px;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%) scale(0.4);
   background: var(--hairline);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    width 0.3s ease,
+    height 0.3s ease;
   pointer-events: none;
 }
 
 .project-row:hover .project-row-group-label,
-.project-row:focus-within .project-row-group-label,
-.project-row:hover .project-row-group + .project-row-group::before,
-.project-row:focus-within .project-row-group + .project-row-group::before {
+.project-row:focus-within .project-row-group-label {
   opacity: 1;
   transition-delay: 160ms;
+}
+
+.project-row:hover .project-row-group + .project-row-group::before,
+.project-row:focus-within .project-row-group + .project-row-group::before {
+  width: 1px;
+  height: calc(var(--img-h) * 0.618);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  /* dot first (opacity, scale), then the stretch into a line */
+  transition:
+    opacity 0.22s ease 0.16s,
+    transform 0.22s ease 0.16s,
+    width 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.46s,
+    height 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.46s;
 }
 
 @media (prefers-reduced-motion: reduce) {

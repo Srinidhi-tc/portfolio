@@ -220,7 +220,7 @@ export default function TennisBall() {
         style={{
           background:  "none",
           border:      "none",
-          cursor:      phase === "idle" ? "pointer" : "default",
+          cursor:      phase === "idle" ? "var(--cursor-orb)" : "default",
           padding:     "3px",
           width:       "30px",
           height:      "30px",

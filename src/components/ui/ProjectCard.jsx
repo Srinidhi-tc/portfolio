@@ -29,7 +29,7 @@ export default function ProjectCard({
     background: "var(--color-bg-card)",
     borderRadius: "var(--radius-lg, 18px)",
     overflow: "hidden",
-    cursor: "pointer",
+    cursor: "var(--cursor-orb)",
     transition: "transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1)",
     display: "block",
     textDecoration: "none",

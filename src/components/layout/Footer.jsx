@@ -41,7 +41,7 @@ export default function Footer() {
           <button
             onClick={scrollToTop}
             className="footer-link"
-            style={{ background: "none", border: "none", cursor: "pointer" }}
+            style={{ background: "none", border: "none" }}
           >
             Go to Top ↑
           </button>

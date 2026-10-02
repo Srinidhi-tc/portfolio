@@ -325,6 +325,13 @@ html {
   --space-48: 48px;
   --space-72: 72px;
   --space-96: 96px;
+
+  /* Custom pointer cursor — a plain light-green orb (not the tennis ball
+     graphic) used on clickable elements site-wide. */
+  --cursor-orb:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='8' fill='%23AADB35'/%3E%3Ccircle cx='8.5' cy='8' r='2.4' fill='white' fill-opacity='0.55'/%3E%3Ccircle cx='11' cy='11' r='8' fill='none' stroke='%235A8A1A' stroke-opacity='0.45' stroke-width='1'/%3E%3C/svg%3E")
+    11 11,
+    pointer;
 }
 
 @media (prefers-color-scheme: dark) {

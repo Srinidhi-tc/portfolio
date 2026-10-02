@@ -11,6 +11,17 @@
   box-sizing: border-box;
 }
 
+a,
+button,
+[role="button"],
+summary,
+label[for],
+select,
+input[type="button"],
+input[type="submit"] {
+  cursor: var(--cursor-orb);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -513,7 +524,7 @@ border: "1px solid var(--hairline-weak)";
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  cursor: pointer;
+  cursor: var(--cursor-orb);
   border-radius: var(--radius-full);
   transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -798,7 +809,7 @@ border: "1px solid var(--hairline-weak)";
   width: 180px;
   height: 130px;
   z-index: 45;
-  cursor: pointer;
+  cursor: var(--cursor-orb);
   background: transparent;
   display: flex;
   align-items: center;
@@ -1075,7 +1086,7 @@ border: "1px solid var(--hairline-weak)";
   box-shadow:
     0 8px 18px rgba(58, 47, 37, 0.16),
     0 2px 4px rgba(58, 47, 37, 0.08);
-  cursor: pointer;
+  cursor: var(--cursor-orb);
   -webkit-tap-highlight-color: transparent;
   align-self: end;
   margin-bottom: 0.18em;
@@ -1666,9 +1677,11 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .chapter-toggle__item--active {
-  color: var(--color-burgundy);
-  background: var(--color-burgundy-soft);
-  border-color: color-mix(in srgb, var(--color-burgundy) 30%, transparent);
+  /* Theme-true instead of burgundy: burgundy read too low-contrast in dark
+     mode, so the active tab is white text on dark, black text on light. */
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 12%, transparent);
+  border-color: color-mix(in srgb, var(--text) 25%, transparent);
 }
 
 /* Decision object — the signature component for documenting design

@@ -60,7 +60,7 @@ export default function WorkSection() {
           <p className="home-intro__sub">
             Product design across AI, healthcare, enterprise systems, and physical products.
           </p>
-          <p className="home-intro__credential">PRODUCT DESIGN | HCI | PSYCHOLOGY</p>
+          
         </header>
 
         <ProjectRow />

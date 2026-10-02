@@ -109,7 +109,7 @@ function SectionHeading({ number, children }) {
   );
 }
 
-function JourneyLabel({ children }) {
+function JourneyLabel({ children, dark = false }) {
   return (
     <p
       style={{
@@ -117,7 +117,7 @@ function JourneyLabel({ children }) {
         fontWeight: 650,
         letterSpacing: "0.07em",
         textTransform: "uppercase",
-        color: "var(--color-text-tertiary)",
+        color: dark ? "#6b5900" : "var(--color-text-tertiary)",
         margin: 0,
       }}
     >
@@ -143,25 +143,25 @@ function JourneyCell({ children, highlighted = false, label }) {
       {highlighted && (
         <div
           style={{
-            position: "absolute",
-            top: 10,
-            right: 10,
+            display: "flex",
+            justifyContent: "flex-end",
+            marginBottom: 6,
             fontSize: 9,
             fontWeight: 700,
             letterSpacing: "0.06em",
-            color: "#766400",
+            color: "#5c4c00",
           }}
         >
           KEY INSIGHT
         </div>
       )}
 
-      {label && <JourneyLabel>{label}</JourneyLabel>}
+      {label && <JourneyLabel dark={highlighted}>{label}</JourneyLabel>}
 
       <p
         style={{
           fontSize: 14,
-          color: "var(--text)",
+          color: highlighted ? "#352c00" : "var(--text)",
           lineHeight: 1.45,
           margin: label ? "8px 0 0" : 0,
           maxWidth: 230,

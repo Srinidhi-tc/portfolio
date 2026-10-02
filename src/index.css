@@ -1621,3 +1621,140 @@ border: "1px solid var(--hairline-weak)";
     height: 92px;
   }
 }
+
+/* Project overview table — Project / Overview / Role framed with business
+   reasoning. The reasoning column carries the most weight, so it gets more
+   visual emphasis than a plain data cell. */
+.project-overview-table {
+  margin: var(--space-3xl, 64px) 0;
+}
+
+.project-overview-table__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin: 0 0 8px;
+}
+
+.project-overview-table__title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 650;
+  letter-spacing: -0.4px;
+  line-height: 1.15;
+  color: var(--text);
+  margin: 0 0 28px;
+  max-width: 640px;
+}
+
+.project-overview-table__grid {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--hairline-weak);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.project-overview-table__row {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr 1.7fr;
+  gap: 0;
+  border-bottom: 1px solid var(--hairline-weak);
+}
+
+.project-overview-table__row:last-child {
+  border-bottom: none;
+}
+
+.project-overview-table__row--head {
+  background: transparent;
+}
+
+.project-overview-table__cell {
+  padding: 18px 20px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.project-overview-table__cell--head {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  padding-bottom: 14px;
+  padding-top: 20px;
+}
+
+.project-overview-table__cell--project {
+  font-weight: 650;
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* The business-reasoning column is the point of the table, so it reads
+   bigger, darker, and set apart with its own tint — not just another cell. */
+.project-overview-table__cell--reasoning {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.project-overview-table__cell--head.project-overview-table__cell--reasoning {
+  background: transparent;
+  font-weight: 700;
+  color: var(--text);
+}
+
+@media (max-width: 860px) {
+  .project-overview-table__row--head {
+    display: none;
+  }
+
+  .project-overview-table__row {
+    grid-template-columns: 1fr;
+  }
+
+  .project-overview-table__cell {
+    padding: 8px 20px;
+    border-bottom: none;
+  }
+
+  .project-overview-table__cell::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin-bottom: 4px;
+  }
+
+  .project-overview-table__cell--project {
+    padding-top: 20px;
+  }
+
+  .project-overview-table__cell--reasoning {
+    padding-bottom: 20px;
+    margin: 0 20px 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+  }
+
+  .project-overview-table__cell--project::before,
+  .project-overview-table__cell--reasoning::before {
+    padding-left: 0;
+  }
+
+  .project-overview-table__row + .project-overview-table__row {
+    border-top: 1px solid var(--hairline-weak);
+    padding-top: 4px;
+  }
+}

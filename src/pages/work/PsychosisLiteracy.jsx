@@ -120,17 +120,35 @@ export default function PsychosisLiteracy() {
       </div>
 
       {/* ROLE */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginBottom: 80, paddingTop: 32, borderTop: "1px solid var(--hairline-weak)" }}>
-        {[
-          ["Role", "UX Designer · Solo Capstone"],
-          ["Committee", "Prof. Rua · Prof. Paul · Prof. Anastasia · Prof. Nancy · Prof. Shobhan shah (Advisor)"],
-          ["My Role", "Information architecture · Expert interviews · Usability testing · Computer vision integration · Base44: Vibe-Coding"],
-        ].map(([k, v]) => (
-          <div key={k}>
-            <p style={{ ...label, fontSize: 10, marginBottom: 6 }}>{k}</p>
-            <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5, margin: 0 }}>{v}</p>
+      <div style={{ marginBottom: 80, paddingTop: 32, borderTop: "1px solid var(--hairline-weak)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginBottom: 32 }}>
+          {[
+            ["Role", "UX Designer · Solo Capstone"],
+            ["Committee", "Prof. Rua · Prof. Paul · Prof. Anastasia · Prof. Nancy · Prof. Shobhan shah (Advisor)"],
+            ["My Role", "Information architecture · Expert interviews · Usability testing · Computer vision integration"],
+          ].map(([k, v]) => (
+            <div key={k}>
+              <p style={{ ...label, fontSize: 12, marginBottom: 6 }}>{k}</p>
+              <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5, margin: 0 }}>{v}</p>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, paddingTop: 28, borderTop: "1px solid var(--hairline-weak)" }}>
+          <div>
+            <p style={{ ...label, fontSize: 12, marginBottom: 6 }}>Built With</p>
+            <p style={{ fontSize: 16, fontWeight: 700, color: "var(--text)", lineHeight: 1.5, margin: 0 }}>Base44</p>
+            <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.5, margin: "4px 0 0" }}>Figma · Computer Vision · Python</p>
           </div>
-        ))}
+          <div>
+            <p style={{ ...label, fontSize: 12, marginBottom: 6 }}>Top Skills</p>
+            <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5, margin: 0 }}>AI-Native Design · Design Systems · Clear Impact Statements</p>
+          </div>
+          <div>
+            <p style={{ ...label, fontSize: 12, marginBottom: 6 }}>Impact</p>
+            <p style={{ fontSize: 16, fontWeight: 650, color: "var(--text)", lineHeight: 1.5, margin: 0 }}>10/10 reached help-seeking · 100% hallucination type recognition on visual</p>
+          </div>
+        </div>
       </div>
 
       {/* 01 THE PROBLEM */}
@@ -298,20 +316,6 @@ export default function PsychosisLiteracy() {
           </div>
         </div>
       </Section>
-
-      {/* FOOTER */}
-      <div style={{ borderTop: "1px solid var(--hairline-weak)", paddingTop: 40, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
-        {[
-          ["Type",    "Capstone · Health Tech · Youth Mental Health"],
-          ["Tools",   "Figma · Base44 · Computer Vision · Python"],
-          ["Impact",  "10/10 reached help-seeking · 100% hallucination type recognition on visual"],
-        ].map(([k, v]) => (
-          <div key={k}>
-            <p style={{ ...label, fontSize: 10, marginBottom: 5 }}>{k}</p>
-            <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5, margin: 0 }}>{v}</p>
-          </div>
-        ))}
-      </div>
 
       <style>{`
         @media (max-width: 680px) {

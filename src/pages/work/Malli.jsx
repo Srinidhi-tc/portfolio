@@ -51,6 +51,94 @@ function Heading({ number, title, description }) {
   </div>;
 }
 
+function MarketOpportunity() {
+  const nodes = [
+    { tag: "2025", value: "$287M", detail: "Toilet-cleaning robot category, global market size." },
+    { tag: "2025 → 2033", value: "18.6%", detail: "CAGR carrying the category to its 2033 size." },
+    { tag: "2033 (projected)", value: "$1.12B", detail: "Projected global market size." },
+  ];
+
+  return (
+    <section style={{
+      marginBottom: 72, padding: "28px 0 32px",
+      borderBottom: "0.5px solid var(--hairline-weak)"
+    }}>
+      <p className="fine-print" style={{ ...label, margin: 0 }}>MARKET OPPORTUNITY</p>
+      <h2 style={{
+        fontSize: "clamp(22px,4vw,30px)", lineHeight: 1.12,
+        letterSpacing: "-.35px", margin: "8px 0 24px", fontWeight: 650
+      }}>
+        A category growing fast enough to design a pricing lever into.
+      </h2>
+
+      <div
+        className="malli-market-flow"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+          gap: 0,
+          alignItems: "stretch",
+          marginBottom: 20,
+        }}
+      >
+        {nodes.map((n, i) => (
+          <div key={n.tag} style={{ display: "flex", alignItems: "center" }}>
+            <div style={{
+              background: "var(--surface-2)", borderRadius: 14,
+              padding: "18px 20px", width: "100%",
+            }}>
+              <p style={{ fontSize: 11, fontWeight: 650, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: "0 0 8px" }}>
+                {n.tag}
+              </p>
+              <p style={{ fontSize: "clamp(24px,4vw,30px)", fontWeight: 700, letterSpacing: "-0.4px", margin: "0 0 6px", color: "var(--text)" }}>
+                {n.value}
+              </p>
+              <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.45, margin: 0 }}>
+                {n.detail}
+              </p>
+            </div>
+            {i < nodes.length - 1 && (
+              <div aria-hidden="true" style={{
+                flexShrink: 0, width: 28, textAlign: "center",
+                color: "var(--color-text-tertiary)", fontSize: 18,
+              }}>
+                →
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div style={{
+        background: "color-mix(in srgb, var(--accent) 6%, transparent)",
+        border: "1px solid var(--hairline-weak)",
+        borderRadius: 14, padding: "18px 20px", marginBottom: 16,
+      }}>
+        <p style={{ fontSize: 11, fontWeight: 650, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: "0 0 6px" }}>
+          Connected to the market size above
+        </p>
+        <p style={{ fontSize: 16, fontWeight: 650, color: "var(--text)", margin: "0 0 4px" }}>
+          Connected, smart-home units: +34% average selling price over standalone devices.
+        </p>
+        <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.5, margin: 0 }}>
+          The premium that app-connected architecture is positioned to capture inside the category above.
+        </p>
+      </div>
+
+      <p style={{ fontSize: 11, color: "var(--color-text-tertiary)", lineHeight: 1.6, margin: 0 }}>
+        References: {" "}
+        <a href="https://datahorizzonresearch.com/toilet-cleaning-robot-market-23579" target="_blank" rel="noopener noreferrer" style={{ color: "var(--link)" }}>
+          DataHorizzon Research · Toilet Cleaning Robot Market
+        </a>
+        {" "}· {" "}
+        <a href="https://futurefive.com.au/story/how-smart-cleaning-devices-became-a-serious-retail-category" target="_blank" rel="noopener noreferrer" style={{ color: "var(--link)" }}>
+          FutureFive Australia · How Smart Cleaning Devices Became a Serious Retail Category
+        </a>
+      </p>
+    </section>
+  );
+}
+
 function RoleAtTop() {
   const details = [
     ["Role", "Product Designer"],
@@ -181,6 +269,8 @@ export default function Malli() {
         one product experience.
       </p>
     </header>
+
+    <MarketOpportunity />
 
     <RoleAtTop />
 

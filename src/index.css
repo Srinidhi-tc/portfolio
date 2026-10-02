@@ -1886,14 +1886,18 @@ border: "1px solid var(--hairline-weak)";
 /* Landing view: intro, icons and the link fill the first screen so the
    project cards start below the fold. */
 .home-landing {
-  min-height: calc(100svh - 10rem);
+  /* Pull up into the hidden title's empty space so the link clears the
+     fixed chapter toggle; bottom padding keeps the cards below the fold. */
+  margin-top: -4.5rem;
+  box-sizing: border-box;
+  min-height: calc(100svh - 9.4rem);
+  padding-bottom: 8.2rem;
   display: flex;
   flex-direction: column;
 }
 
 .home-landing__link {
   margin: auto 0 0;
-  padding-bottom: 7rem;
 }
 
 .home-landing__link a {
@@ -1907,4 +1911,73 @@ border: "1px solid var(--hairline-weak)";
 
 .work-section-panel {
   scroll-margin-top: 80px;
+}
+
+/* Project row grouping — labels and separators stay hidden at rest and fade
+   in while the row is hovered or focused. */
+.project-row-list {
+  --row-gap: clamp(1.5rem, 3.3vw, 2.6rem);
+  gap: var(--row-gap);
+  /* Room for the group labels above the icons, cancelled by the negative
+     margin so the row's position does not move. */
+  padding-top: 1.75rem;
+  margin-top: -1.75rem;
+}
+
+.project-row-group {
+  position: relative;
+  flex: 0 0 auto;
+  list-style: none;
+}
+
+.project-row-group-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--row-gap);
+}
+
+.project-row-group-label {
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--color-text-tertiary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.project-row-group + .project-row-group::before {
+  content: "";
+  position: absolute;
+  top: -0.25rem;
+  bottom: 0;
+  left: calc(var(--row-gap) / -2);
+  width: 1px;
+  background: var(--hairline-strong);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.project-row:hover .project-row-group-label,
+.project-row:focus-within .project-row-group-label,
+.project-row:hover .project-row-group + .project-row-group::before,
+.project-row:focus-within .project-row-group + .project-row-group::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-row-group-label,
+  .project-row-group + .project-row-group::before {
+    transition: none;
+  }
 }

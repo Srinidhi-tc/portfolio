@@ -13,45 +13,63 @@ import defenseArkRender from "../../assets/defensearktop.webp";
 
 // Maps each new render + one-word label onto the EXISTING project data
 // (by id) so `to`, `title`, etc. stay a single source of truth.
-const ROW_ITEMS = [
-  { id: "microsoft",          label: "Azure",      image: azureRender },
-  { id: "ai-coding",          label: "Tutor",       image: tutorRender },
-  { id: "hearts-of-insomnia", label: "Pulse",       image: pulseRender },
-  { id: "malli",              label: "Malli",       image: malliRender },
-  { id: "bee-feeder",         label: "Bloom",       image: bloomRender },
-  { id: "psychosis-literacy", label: "Mind",        image: mindRender },
-  { id: "defenseark",         label: "DefenseARK",  image: defenseArkRender },
+const ROW_ITEMS = {
+  "microsoft":          { label: "Azure",      image: azureRender },
+  "ai-coding":          { label: "Tutor",       image: tutorRender },
+  "hearts-of-insomnia": { label: "Pulse",       image: pulseRender },
+  "malli":              { label: "Malli",       image: malliRender },
+  "bee-feeder":         { label: "Bloom",       image: bloomRender },
+  "psychosis-literacy": { label: "Mind",        image: mindRender },
+  "defenseark":         { label: "DefenseARK",  image: defenseArkRender },
+};
+
+// The group label and separators only appear while the row is hovered or
+// focused (see .project-row-group-label / ::before in index.css).
+const GROUPS = [
+  { label: "UI/UX",         ids: ["ai-coding", "defenseark"] },
+  { label: "Physical",      ids: ["hearts-of-insomnia", "malli", "bee-feeder"] },
+  { label: "Human Context", ids: ["microsoft", "psychosis-literacy"] },
 ];
 
 export default function ProjectRow() {
   return (
     <nav className="project-row" aria-label="Project shortcuts">
       <ul className="project-row-list">
-        {ROW_ITEMS.map((item) => {
-          const project = workSectionProjects.find((p) => p.id === item.id);
-          if (!project) return null; // fails safe if data shape ever changes
+        {GROUPS.map((group) => (
+          <li key={group.label} className="project-row-group">
+            <span className="project-row-group-label" aria-hidden="true">
+              {group.label}
+            </span>
+            <ul className="project-row-group-items" aria-label={group.label}>
+              {group.ids.map((id) => {
+                const item = ROW_ITEMS[id];
+                const project = workSectionProjects.find((p) => p.id === id);
+                if (!item || !project) return null; // fails safe if data shape ever changes
 
-          return (
-            <li key={item.id} className="project-row-item">
-              <Link
-                to={project.to}
-                className="project-row-link"
-                aria-label={`${project.title} project`}
-              >
-                <img
-                  src={item.image}
-                  alt={`${project.title} project`}
-                  className="project-row-img"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="project-row-label" aria-hidden="true">
-                  {item.label}
-                </span>
-              </Link>
-            </li>
-          );
-        })}
+                return (
+                  <li key={id} className="project-row-item">
+                    <Link
+                      to={project.to}
+                      className="project-row-link"
+                      aria-label={`${project.title} project`}
+                    >
+                      <img
+                        src={item.image}
+                        alt={`${project.title} project`}
+                        className="project-row-img"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span className="project-row-label" aria-hidden="true">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </li>
+        ))}
       </ul>
     </nav>
   );

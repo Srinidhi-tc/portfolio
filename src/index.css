@@ -1867,3 +1867,44 @@ border: "1px solid var(--hairline-weak)";
 .home-lens__link:hover {
   text-decoration: underline;
 }
+
+/* Floral frame — hairline box with leaves climbing the corner rails. */
+.floral-frame {
+  position: relative;
+  margin: 32px 0;
+  padding: 28px 44px;
+  border: 0.75px solid var(--text);
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .floral-frame {
+    padding: 24px 28px;
+  }
+}
+
+/* Landing view: intro, icons and the link fill the first screen so the
+   project cards start below the fold. */
+.home-landing {
+  min-height: calc(100svh - 10rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.home-landing__link {
+  margin: auto 0 0;
+  padding-bottom: 7rem;
+}
+
+.home-landing__link a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-landing__link a:hover {
+  color: var(--text);
+}
+
+.work-section-panel {
+  scroll-margin-top: 80px;
+}

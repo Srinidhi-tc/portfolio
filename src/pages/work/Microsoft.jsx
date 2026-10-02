@@ -11,6 +11,7 @@
 // Before publishing: confirm the spelling of "Priyank Wilkins" and add Alyssa Berger's role.
 
 import Kicker from "../../components/ui/Kicker";
+import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import mic6      from "../../assets/mic6.jpg";
 import mic7      from "../../assets/mic7.jpg";
@@ -44,18 +45,18 @@ function Slide({ src, caption }) {
 
 function Insight({ children }) {
   return (
-    <div style={{ margin:"28px 0", padding:"16px 0", borderTop:"1px solid var(--hairline-weak)", borderBottom:"1px solid var(--hairline-weak)" }}>
+    <FloralFrame>
       <p style={{ margin:0, fontSize:16, fontWeight:600, color:"var(--text)", lineHeight:1.5 }}>{children}</p>
-    </div>
+    </FloralFrame>
   );
 }
 
 function Quote({ text, source }) {
   return (
-    <div style={{ ...card, margin:"24px 0", borderLeft:"3px solid var(--link)", borderRadius:"0 12px 12px 0" }}>
+    <FloralFrame>
       <p style={{ margin:"0 0 8px", fontSize:17, fontStyle:"italic", color:"var(--text)", lineHeight:1.55 }}>"{text}"</p>
       <p style={{ margin:0, fontSize:12, color:"var(--color-text-tertiary)", fontWeight:600 }}>{source}</p>
-    </div>
+    </FloralFrame>
   );
 }
 
@@ -108,7 +109,7 @@ export default function Microsoft() {
       <header style={{
         marginBottom:56, borderRadius:20, overflow:"hidden",
         padding:"clamp(48px,8vw,96px) clamp(24px,5vw,56px)",
-        backgroundImage:`linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%), url(${micTeam})`,
+        backgroundImage:`linear-gradient(180deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.62) 100%), url(${micTeam})`,
         backgroundSize:"cover", backgroundPosition:"center",
       }}>
         <p style={{ ...lbl, color:"rgba(255,255,255,0.7)", marginBottom:14 }}>

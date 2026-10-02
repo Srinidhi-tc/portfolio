@@ -52,6 +52,7 @@ export default function WorkSection() {
       <div className="container">
         <SectionTitle title="Work" id="work-section-heading" titleHidden />
 
+        <div className="home-landing">
         <header className="home-intro">
           <h1 className="home-intro__headline">
             I design for moments when people can’t afford confusion.
@@ -64,7 +65,10 @@ export default function WorkSection() {
 
         <ProjectRow />
 
-        <h2 id="selected-work" className="home-section-label"> The work behind the objects ↓ </h2>
+        <h2 className="home-section-label home-landing__link">
+          <a href={`#${PANEL_ID}`}>The work behind the objects ↓</a>
+        </h2>
+        </div>
 
         {/* Grid first — toggle moves below */}
         <div

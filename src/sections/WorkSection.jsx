@@ -2,7 +2,6 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../components/ui/SectionTitle";
 import ProjectRow from "../components/work/ProjectRow";
-import ProjectOverviewTable from "../components/work/ProjectOverviewTable";
 import { workSectionProjects, workSectionViews } from "../data/workSectionProjects";
 
 const PANEL_ID = "work-section-panel";
@@ -104,8 +103,6 @@ export default function WorkSection() {
             })}
           </div>
         </div>
-
-        <ProjectOverviewTable />
 
         {/* Toggle sits AFTER the grid — sticky bottom */}
         <div className="work-section-sticky">

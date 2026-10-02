@@ -115,12 +115,8 @@ export default function Microsoft() {
         <h1 style={{ fontSize:"clamp(44px,8vw,76px)", fontWeight:700, letterSpacing:"-1px", lineHeight:0.98, margin:"0 0 20px", color:"#fff" }}>
           Azure Health Models
         </h1>
-        <p style={{ fontSize:"clamp(20px,3vw,26px)", fontWeight:500, color:"rgba(255,255,255,0.92)", margin:"0 0 16px", maxWidth:720 }}>
-          One small ring on each box. Engineers see where the problem is, without searching for it.
-        </p>
         <p style={{ fontSize:17, lineHeight:1.65, color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
-          I redesign the entity editing flow (the screen where engineers set up and fix each part of their system).
-          It is the place engineers spend the most time when something breaks.
+          Microsoft Azure is one of the world's largest enterprise cloud platforms, serving intelligent cloud infrastructure to organizations globally. I redesigned the entity editing flow, the screen where engineers set up and fix each part of their system, so engineers see where the problem is without searching for it.
         </p>
       </header>
 
@@ -135,7 +131,7 @@ export default function Microsoft() {
           </p>
         </div>
         <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"24px 28px", marginBottom:28 }}>
-          <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>My role, framed with business reasoning</p>
+          <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Business Impact</p>
           <p style={{ fontSize:16, fontWeight:600, color:"var(--text)", lineHeight:1.6, margin:0, maxWidth:720 }}>
             I designed for decision speed specifically because engineering time is the most expensive resource on this team, every second an engineer spends parsing an unclear interface is a cost the business is already tracking.
           </p>

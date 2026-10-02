@@ -136,20 +136,8 @@ function Hero() {
       >
         StraboSpot
       </h1>
-      <p
-        style={{
-          fontSize: "clamp(21px, 4vw, 28px)",
-          lineHeight: 1.25,
-          letterSpacing: "-0.3px",
-          fontWeight: 500,
-          margin: "0 0 14px",
-          maxWidth: 780,
-        }}
-      >
-        Making scientific search easier to scan, compare, and trust.
-      </p>
       <p style={{ ...body, fontSize: 17 }}>
-        The engagement examined StraboSpot's search experience through a UI/UX audit, five user interviews, task analysis, and design recommendations for a more unified search workflow.
+        StraboSpot is the largest centralized geologic field-data repository in the US, an NSF-funded platform an estimated 12,000 geologists rely on to cross-reference prior field data before their own research. I audited and redesigned its search experience through a UI/UX audit, five user interviews, and task analysis so researchers could find and trust relevant field data faster.
       </p>
       <figure style={{ margin: "34px 0 0" }}>
         <img
@@ -212,7 +200,7 @@ function RoleAtTop() {
       </div>
 
       <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
-        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>My role, framed with business reasoning</p>
+        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>Business Impact</p>
         <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
           I focused on cross-functional user flows because duplicated fieldwork is the real cost here, every friction point in data retrieval is researcher time and grant funding spent re-discovering what already exists.
         </p>

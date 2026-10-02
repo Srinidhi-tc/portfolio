@@ -84,11 +84,8 @@ function Hero() {
       <h1 style={{ fontSize: "clamp(42px, 10vw, 72px)", lineHeight: 0.98, letterSpacing: "-1.5px", fontWeight: 700, margin: "0 0 18px" }}>
         AI Coding Tutor
       </h1>
-      <p style={{ fontSize: "clamp(21px, 4vw, 28px)", lineHeight: 1.25, letterSpacing: "-0.3px", fontWeight: 500, margin: "0 0 14px", maxWidth: 760 }}>
-        A capable AI system needed measurable goals in the learning model.
-      </p>
       <p style={{ ...body, fontSize: 17 }}>
-        Texas Advanced Computing Centre TACC AI coding interview tool had useful AI capability, but the interface left students unsure where to start, what the chatbot was for, and what to do next.
+        TACC is a national NSF-funded supercomputing center whose education programs (Code@TACC, Little Bots AI) extend AI and robotics access to Title I and underrepresented students. I built an AI coding tutor that first year undergraduates and K-12 school education system could use for non-technical people to practice coding.
       </p>
     </header>
   );
@@ -119,7 +116,7 @@ function RoleAtTop() {
         ))}
       </div>
       <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
-        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>My role, framed with business reasoning</p>
+        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>Business Impact</p>
         <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
           I prioritized onboarding clarity and scaffolded feedback because the real risk wasn't a weak feature, it was a first-time, underrepresented student disengaging in the first five minutes. Retention at that moment is the metric that matters most.
         </p>

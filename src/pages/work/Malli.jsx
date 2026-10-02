@@ -180,7 +180,7 @@ function RoleAtTop() {
           manufacturing considerations, and cost estimation.
         </p>
         <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
-          <p className="fine-print" style={{ ...label, fontSize: 11, marginBottom: 8 }}>My role, framed with business reasoning</p>
+          <p className="fine-print" style={{ ...label, fontSize: 11, marginBottom: 8 }}>Business Impact</p>
           <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
             I designed Malli's modular, app-connected architecture specifically to capture that connected-device premium, treating smart-home integration as a pricing lever, not just a feature.
           </p>
@@ -263,17 +263,8 @@ export default function Malli() {
         fontSize: "clamp(38px,11vw,60px)", fontWeight: 700,
         letterSpacing: "-1px", lineHeight: 1.02, margin: "0 0 14px"
       }}>Malli 2.0</h1>
-      <p style={{
-        fontSize: "clamp(21px,4vw,26px)", color: "var(--muted)",
-        margin: "0 0 18px", maxWidth: 680, lineHeight: 1.25, letterSpacing: "-.25px"
-      }}>
-        A robotic toilet cleaner designed around an everyday routine.
-      </p>
       <p style={{ ...copy, margin: 0 }}>
-        Cleaning a toilet is a small maintenance task that repeats without much thought.
-        Malli 2.0 turns that routine into a self-cleaning system, bringing together the
-        cleaner, brush system, charging, internal mechanisms, and bathroom footprint as
-        one product experience.
+        The toilet-cleaning robot category is valued at $287M (2025), projected to reach $1.12B by 2033 at an 18.6% CAGR, with connected/smart-home units commanding a 34% price premium over standalone devices. I designed Malli's modular, app-connected architecture to capture that premium.
       </p>
     </header>
 

@@ -86,7 +86,7 @@ export default function DefenseArk() {
           Solo designer at a cybersecurity startup.
         </h1>
         <p style={{ fontSize:"clamp(19px,2.6vw,24px)", fontWeight:500, color:"var(--muted)", margin:0, maxWidth:720, lineHeight:1.45 }}>
-          Two years. Two roles. One question: how do people get fooled, and how can design help them notice in time?
+          DefenseARK is a B2B cybersecurity training company building compliance and social-engineering awareness tools for enterprise clients. As the first design hire, I built the client-intake framework and compliance training products end to end.
         </p>
       </header>
 
@@ -112,7 +112,7 @@ export default function DefenseArk() {
       </div>
 
       <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"20px 22px", marginBottom:72 }}>
-        <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>My role, framed with business reasoning</p>
+        <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Business Impact</p>
         <p style={{ fontSize:15, fontWeight:600, color:"var(--text)", lineHeight:1.55, margin:0 }}>
           As the first design hire, I built the client-intake framework before being asked, because every manual intake step was a scaling cost the company would eventually have to pay for as the client base grew.
         </p>

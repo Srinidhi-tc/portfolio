@@ -43,7 +43,7 @@ const LANES = [
         sub:   "Purdue · Spring 2026",
         from:  y(2026, 1), to: y(2026, 5),
         image: null,
-        note:  "TA for database management and SQL. Designed curriculum materials and led data modelling labs.",
+        note:  "TA for database management and SQL. Designed curriculum materials and led data visualization labs.",
       },
     ],
   },
@@ -52,7 +52,7 @@ const LANES = [
     color: "#B85C38",
     items: [
       { id:"ionixx",    label:"UX Design Intern",               sub:"Ionixx Technologies · Jan–Jul 2020",  from:y(2020,1),  to:y(2020,7),  image:null,         note:"Fintech & health UX. First professional product design role." },
-      { id:"defenseark",label:"Product Designer",               sub:"DefenseARK / MetaSquare · May 4, 2021–Jun 30, 2022", from:y(2021,4.1), to:y(2022,6), image:imgDefenseArk,note:"Founding design hire. Enigma, Brightscan, Torus — cybersecurity UX." },
+      { id:"defenseark",label:"Product Designer",               sub:"DefenseARK / MetaSquare · May 4, 2021–Jun 30, 2023", from:y(2021,4.1), to:y(2023,6), image:imgDefenseArk,note:"Founding design hire. Enigma, Brightscan, Torus — cybersecurity UX." },
       { id:"microsoft", label:"UX Designer",                    sub:"Microsoft Azure · Fall 2025",          from:y(2025,8),  to:y(2025,12), image:imgMicrosoft, note:"Health Observability Monitor — SRE system redesign." },
       {
         id:    "sgx3",
@@ -61,6 +61,14 @@ const LANES = [
         from:  y(2025, 8), to: y(2025, 12),
         image: imgMicrosoft,
         note:  "UX consultancy for StraboSpot geospatial platform — 12,000+ geologists. Heuristic eval + expert interviews.",
+      },
+      {
+        id:    "tapinto",
+        label: "TAPD-INTO — NSF STEM Accessibility",
+        sub:   "Purdue · Fall 2024",
+        from:  y(2024, 8), to: y(2024, 12),
+        image: null,
+        note:  "NSF-funded accessibility research for STEM education. Audited tools for neurodivergent and disabled learners.",
       },
     ],
   },
@@ -78,14 +86,7 @@ const LANES = [
     items: [
       { id:"thesis-ai",    label:"AI-at-home survey research",            sub:"Final-year thesis · Jan–Mar 2020", from:y(2020,1), to:y(2020,3), image:null, note:"Survey design for my final-year psychology thesis.", marker:true },
       { id:"thesis-photo", label:"Photo gallery / emotional-state study", sub:"Final-year thesis · Jan–Mar 2020", from:y(2020,1), to:y(2020,3), image:null, note:"Study and survey design for my final-year psychology thesis.", marker:true },
-      {
-        id:    "tapinto",
-        label: "TAPD-INTO — NSF STEM Accessibility",
-        sub:   "Purdue · Fall 2024",
-        from:  y(2024, 8), to: y(2024, 12),
-        image: null,
-        note:  "NSF-funded accessibility research for STEM education. Audited tools for neurodivergent and disabled learners.",
-      },
+      
     ],
   },
 ];

@@ -7,6 +7,7 @@
 // Before publishing: update the Torus card with what you worked on, if anything.
 
 import Kicker from "../../components/ui/Kicker";
+import ChapterToggle from "../../components/ui/ChapterToggle";
 import { workSectionProjects } from "../../data/workSectionProjects";
 
 const heroImage = workSectionProjects.find((p) => p.id === "defenseark")?.image;
@@ -16,9 +17,9 @@ const lbl  = { fontSize:11, fontWeight:600, letterSpacing:"0.08em", textTransfor
 const bd   = { fontSize:17, lineHeight:1.7, color:"var(--muted)", margin:"0 0 16px", maxWidth:680 };
 const card = { background:"var(--surface-2)", borderRadius:12, padding:"18px 20px" };
 
-function Section({ number, title, children }) {
+function Section({ id, number, title, children }) {
   return (
-    <section style={{ marginBottom:88 }}>
+    <section id={id} style={{ marginBottom:88 }}>
       {number && <Kicker style={{ marginBottom:10 }}>{number}</Kicker>}
       <h2 style={{ margin:"0 0 18px", fontSize:"clamp(26px,4vw,38px)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"var(--text)", maxWidth:720 }}>
         {title}
@@ -139,7 +140,7 @@ export default function DefenseArk() {
       </section>
 
       {/* WHY I JOINED */}
-      <Section number="Why I joined" title="It started with a phone call to my grandmother.">
+      <Section id="problem" number="Why I joined" title="It started with a phone call to my grandmother.">
         <P>
           Someone called my grandmother and asked for her bank account details. The caller sounded official.
           She had no way to tell the call was fake, and her banking app did nothing to help her.
@@ -201,7 +202,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 03 CLIENT INTAKE */}
-      <Section number="Client intake" title="A clear path for clients under stress.">
+      <Section id="decision" number="Client intake" title="A clear path for clients under stress.">
         <P>
           A client who suspects an attack is stressed and in a hurry. Before, new clients did not know
           how to share files or raise issues, and our team spent time on admin instead of help.
@@ -218,7 +219,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 04 SHIPPING */}
-      <Section number="Shipping" title="Designing with engineers, not handing off to them.">
+      <Section id="tradeoff" number="Shipping" title="Designing with engineers, not handing off to them.">
         <P>
           I worked with the founders and the full-stack engineers every week. We shipped speech synthesis
           and applied linguistics in voice calls, with motion UI built in React and CSS. These audios had fake call stimulations.
@@ -231,7 +232,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 05 BUSINESS + WINS */}
-      <Section number="The business side" title="Design decisions were business decisions.">
+      <Section id="impact" number="The business side" title="Design decisions were business decisions.">
         <P>
           I was an active part of the founding team and reported directly to Harish, our Managing Director.
           I led design from May 4, 2021 to June 30, 2023. Every design choice had a business question behind it:
@@ -302,6 +303,8 @@ export default function DefenseArk() {
           </div>
         ))}
       </div>
+
+      <ChapterToggle />
 
       <style>{`
         @media (max-width: 760px) {

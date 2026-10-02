@@ -3,6 +3,7 @@
 // Only key slides are used — not all 33 are shown
 
 import Kicker from "../../components/ui/Kicker";
+import ChapterToggle from "../../components/ui/ChapterToggle";
 import cap2  from "../../assets/cap2.jpg";
 import cap9  from "../../assets/cap9.jpg";
 import cap14 from "../../assets/cap14.jpg";
@@ -33,9 +34,9 @@ const slideImg = {
   background: "var(--surface-2)",
 };
 
-function Section({ number, title, intro, children }) {
+function Section({ id, number, title, intro, children }) {
   return (
-    <section style={{ marginBottom: 96 }}>
+    <section id={id} style={{ marginBottom: 96 }}>
       <div style={{ marginBottom: 28, maxWidth: 720 }}>
         {number && <Kicker style={{ marginBottom: 10 }}>{number}</Kicker>}
         <h2 style={{ margin: "0 0 14px", fontSize: "clamp(26px, 4vw, 40px)", lineHeight: 1.08, letterSpacing: "-0.5px", fontWeight: 650, color: "var(--text)" }}>
@@ -154,6 +155,7 @@ export default function PsychosisLiteracy() {
 
       {/* 01 THE PROBLEM */}
       <Section
+        id="problem"
         number="The gap"
         title="50% of US schools have no psychoeducator. 100,000+ teenagers develop psychosis each year."
         intro="Psychosis begins in late teens to mid-20s. Without education, students turn to substances, self-harm, and isolation. Crime rates increase 2.5× in populations with untreated psychosis. The awareness gap is the design problem."
@@ -203,6 +205,7 @@ export default function PsychosisLiteracy() {
 
       {/* 04 SOLUTION */}
       <Section
+        id="decision"
         number="The solution"
         title="Show, don't tell. Use the back camera."
         intro="Instead of describing hallucinations in text, Percepta uses the device camera to place hallucination effects on the user's real environment. Back camera is used by default — to show how people with hallucinations see the world."
@@ -257,6 +260,7 @@ export default function PsychosisLiteracy() {
 
       {/* 07 USER TESTING */}
       <Section
+        id="impact"
         number="User testing, three phases"
         title="10 users. 3 phases. Numbers that shaped every decision."
       >
@@ -284,6 +288,7 @@ export default function PsychosisLiteracy() {
 
       {/* 08 TRADE-OFFS */}
       <Section
+        id="tradeoff"
         number="Trade-offs and challenges"
         title="What I chose not to build. And why."
       >
@@ -317,6 +322,8 @@ export default function PsychosisLiteracy() {
           </div>
         </div>
       </Section>
+
+      <ChapterToggle />
 
       <style>{`
         @media (max-width: 680px) {

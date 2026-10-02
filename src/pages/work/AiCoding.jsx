@@ -1,5 +1,6 @@
 import React from "react";
 import Kicker from "../../components/ui/Kicker";
+import ChapterToggle from "../../components/ui/ChapterToggle";
 
 import tacc1 from "../../assets/tacc1.jpg";
 import tacc2 from "../../assets/tacc2.jpg";
@@ -175,7 +176,7 @@ function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
 
 function FinalTakeaway() {
   return (
-    <section style={{ marginTop: 92, paddingTop: 34, borderTop: "1px solid var(--hairline-weak)" }}>
+    <section id="impact" style={{ marginTop: 92, paddingTop: 34, borderTop: "1px solid var(--hairline-weak)" }}>
       <p style={{ ...label, marginBottom: 10 }}>THE CONSULTING TAKEAWAY</p>
       <h2 style={{ margin: "0 0 14px", fontSize: "clamp(28px, 5vw, 42px)", lineHeight: 1.08, letterSpacing: "-0.7px", maxWidth: 760 }}>
         A better interface started with a better question.
@@ -198,7 +199,7 @@ export default function TACC() {
       <main style={{ display: "flex", flexDirection: "column", gap: 112 }}>
 
         {/* 01 */}
-        <section>
+        <section id="problem">
           <SectionHeading
             number="The first decision"
             title="The problem had to be narrowed."
@@ -243,7 +244,7 @@ export default function TACC() {
         </section>
 
         {/* 03 */}
-        <section>
+        <section id="decision">
           <SectionHeading
             number="Reframe the experience"
             title="The chatbot needed a learning model."
@@ -275,7 +276,7 @@ export default function TACC() {
         </section>
 
         {/* 05 */}
-        <section>
+        <section id="tradeoff">
           <SectionHeading
             number="Don't let AI do the thinking"
             title="The chatbot had to teach, not only answer."
@@ -363,6 +364,7 @@ export default function TACC() {
       </main>
 
       <FinalTakeaway />
+      <ChapterToggle />
 
       <div className="tacc-meta-grid" style={{ marginTop: 54, paddingTop: 28, borderTop: "1px solid var(--hairline-weak)", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 22 }}>
         {[

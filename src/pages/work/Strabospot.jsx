@@ -1,5 +1,6 @@
 import React from "react";
 import Kicker from "../../components/ui/Kicker";
+import ChapterToggle from "../../components/ui/ChapterToggle";
 
 import str1 from "../../assets/str1.jpg";
 import str2 from "../../assets/str2.jpg";
@@ -368,67 +369,10 @@ function DecisionTradeoff({ decision, tradeoff }) {
   );
 }
 
-function CaseStudyToggle() {
-  const items = [
-    ["01", "Problem", "#frame"],
-    ["02", "Audit", "#audit"],
-    ["03", "Research", "#research"],
-    ["04", "Decisions", "#decisions"],
-    ["05", "Recommendations", "#recommendations"],
-  ];
-
-  return (
-    <nav
-      aria-label="Case study navigation"
-      className="str-case-toggle"
-      style={{
-        position: "fixed",
-        left: "50%",
-        bottom: 18,
-        transform: "translateX(-50%)",
-        zIndex: 40,
-        display: "flex",
-        alignItems: "center",
-        gap: 4,
-        padding: 5,
-        maxWidth: "calc(100vw - 28px)",
-        overflowX: "auto",
-        border: "1px solid rgba(255,255,255,.14)",
-        borderRadius: 999,
-        background: "rgba(20,20,20,.82)",
-        backdropFilter: "blur(18px)",
-        boxShadow: "0 10px 34px rgba(0,0,0,.18)",
-      }}
-    >
-      {items.map(([num, text, href]) => (
-        <a
-          key={num}
-          href={href}
-          style={{
-            flex: "0 0 auto",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            padding: "8px 11px",
-            borderRadius: 999,
-            color: "#fff",
-            textDecoration: "none",
-            fontSize: 11,
-            fontWeight: 650,
-            whiteSpace: "nowrap",
-          }}
-        >
-          <span style={{ opacity: 0.55 }}>{num}</span>
-          {text}
-        </a>
-      ))}
-    </nav>
-  );
-}
-
 function FinalTakeaway() {
   return (
     <section
+      id="impact"
       style={{
         marginTop: 92,
         paddingTop: 34,
@@ -473,7 +417,7 @@ export default function StraboSpot() {
       <RoleAtTop />
 
       <main style={{ display: "flex", flexDirection: "column", gap: 112 }}>
-        <section id="frame">
+        <section id="problem">
           <SectionHeading
             number="Framing the engagement"
             title="The search experience needed a closer look."
@@ -537,7 +481,7 @@ export default function StraboSpot() {
           </InsightLine>
         </section>
 
-        <section id="decisions">
+        <section id="decision">
           <SectionHeading
             number="Turning interviews into priorities"
             title="Researchers needed visual context and trust."
@@ -561,7 +505,7 @@ export default function StraboSpot() {
           />
         </section>
 
-        <section id="recommendations">
+        <section id="tradeoff">
           <SectionHeading
             number="Redesigning the search moment"
             title="Search became the hero feature."
@@ -617,7 +561,7 @@ export default function StraboSpot() {
       </main>
 
       <FinalTakeaway />
-      <CaseStudyToggle />
+      <ChapterToggle />
 
       <div
         className="str-meta-grid"

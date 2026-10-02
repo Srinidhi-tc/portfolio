@@ -11,6 +11,7 @@
 // Before publishing: confirm the spelling of "Priyank Wilkins" and add Alyssa Berger's role.
 
 import Kicker from "../../components/ui/Kicker";
+import ChapterToggle from "../../components/ui/ChapterToggle";
 import mic6      from "../../assets/mic6.jpg";
 import mic7      from "../../assets/mic7.jpg";
 import mic74     from "../../assets/mic74.jpg";
@@ -84,9 +85,9 @@ function StatRow({ stats }) {
   );
 }
 
-function Section({ number, title, intro, children }) {
+function Section({ id, number, title, intro, children }) {
   return (
-    <section style={{ marginBottom:96 }}>
+    <section id={id} style={{ marginBottom:96 }}>
       <div style={{ marginBottom:24, maxWidth:720 }}>
         {number && <Kicker style={{ marginBottom:10 }}>{number}</Kicker>}
         <h2 style={{ margin:"0 0 14px", fontSize:"clamp(26px,4vw,40px)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"var(--text)" }}>
@@ -225,6 +226,7 @@ export default function Microsoft() {
 
       {/* 03 PAIN POINTS */}
       <Section
+        id="problem"
         number="Pain points"
         title="Two problems hiding in plain sight."
         intro="The entity editing flow has two problems. Each one slows an engineer down. Together, they make the screen hard to trust during an incident."
@@ -242,6 +244,7 @@ export default function Microsoft() {
 
       {/* 04 THE DESIGN CHANGE */}
       <Section
+        id="decision"
         number="The design change"
         title="One ring per box. One decision removed."
         intro="The change is small in pixels and big in effect. I add a radial indicator to every entity card. It shows how degraded that part is and how many issues it has, with no extra click."
@@ -257,6 +260,7 @@ export default function Microsoft() {
 
       {/* 05 ACCESSIBILITY TRADE-OFF */}
       <Section
+        id="tradeoff"
         number="The accessibility trade-off"
         title="Colour alone cannot carry health status."
         intro="I review the radials against WCAG 2.1 (the international accessibility guidelines). Azure's orange fails the contrast rule for graphics. Red and orange also blur together for colour-blind engineers. The ring fill and the number already work without colour, so I propose adding simple symbols on top."
@@ -276,6 +280,7 @@ export default function Microsoft() {
 
       {/* 06 BUSINESS IMPACT */}
       <Section
+        id="impact"
         number="The business impact"
         title="More signals monitored means more data ingested."
         intro="Azure Monitor's core features are free. Basic metrics, activity logs, alerts, summary rules, and dashboards cost nothing beyond the data they use. Revenue comes from log ingestion (the data the system takes in, like water through a meter) and retention (how long it keeps that data, like paying rent on storage)."
@@ -350,6 +355,8 @@ export default function Microsoft() {
         ]} />
         <Insight>The ring is the smallest change on this page. The insight behind it, that engineers already solve issues with AI, points to where this product goes next.</Insight>
       </Section>
+
+      <ChapterToggle />
 
       {/* FOOTER */}
       <div className="mic-grid" style={{ borderTop:"1px solid var(--hairline-weak)", paddingTop:40, display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:28 }}>

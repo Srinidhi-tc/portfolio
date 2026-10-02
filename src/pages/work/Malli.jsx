@@ -1,4 +1,5 @@
 import Kicker from "../../components/ui/Kicker";
+import ChapterToggle from "../../components/ui/ChapterToggle";
 import selfclean from "../../assets/Experience Details Selfclean System.png";
 import cmf from "../../assets/CMF.png";
 import architecture from "../../assets/Internal Architecture.png";
@@ -276,7 +277,7 @@ export default function Malli() {
     <InsightStrip />
 
     <div style={{ display: "flex", flexDirection: "column", gap: 108 }}>
-      <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <section id="problem" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
         <Heading number="Starting with the routine"
           title="The routine became the product brief."
           description="Before the product could automate cleaning, the existing bathroom routine had to remain understandable and natural." />
@@ -307,7 +308,7 @@ export default function Malli() {
         <SystemCard />
       </section>
 
-      <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <section id="decision" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
         <Heading number="Making cleaning modular"
           title="One cleaner needed multiple ways to clean."
           description="The cleaning mechanism became a system rather than a single fixed brush." />
@@ -331,7 +332,7 @@ export default function Malli() {
         />
       </section>
 
-      <section style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <section id="tradeoff" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
         <Heading number="Making cleanliness visible"
           title="Cleanliness had to feel visible."
           description="Material and finish became part of how the product communicates its purpose." />
@@ -363,7 +364,7 @@ export default function Malli() {
       </section>
     </div>
 
-    <section style={{
+    <section id="impact" style={{
       marginTop: 112, paddingTop: 12, borderTop: "0.5px solid var(--hairline-weak)"
     }}>
       <p className="fine-print" style={{ ...label, marginBottom: 10 }}>DESIGN TAKEAWAY</p>
@@ -390,5 +391,7 @@ export default function Malli() {
         <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>{v}</p>
       </div>)}
     </div>
+
+    <ChapterToggle />
   </div>;
 }

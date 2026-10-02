@@ -1,4 +1,5 @@
 import Kicker from "../../components/ui/Kicker";
+import ChapterToggle from "../../components/ui/ChapterToggle";
 import img1 from "../../assets/flowerfinal1.png";
 import img2 from "../../assets/flowercone2.png";
 import img3 from "../../assets/flowerUV3.png";
@@ -533,7 +534,7 @@ export default function BeeFeeder() {
           />
         </section>
 
-        <section>
+        <section id="problem">
           <SectionHeading number="The first prototype">
             No butterflies came. Ants did instead.
           </SectionHeading>
@@ -601,7 +602,7 @@ export default function BeeFeeder() {
           <ButterflyJourneyChart />
         </section>
 
-        <section>
+        <section id="decision">
           <SectionHeading number="The breakthrough">
             The key clue was ultraviolet vision.
           </SectionHeading>
@@ -615,7 +616,7 @@ export default function BeeFeeder() {
           <UVInsightCard />
         </section>
 
-        <section>
+        <section id="tradeoff">
           <SectionHeading number="Surface iteration">
             UV paint turned the hidden cue visible.
           </SectionHeading>
@@ -660,7 +661,7 @@ export default function BeeFeeder() {
           />
         </section>
 
-        <section>
+        <section id="impact">
           <SectionHeading number="The final result">
             The same flower finally became findable.
           </SectionHeading>
@@ -674,6 +675,7 @@ export default function BeeFeeder() {
       </div>
 
       <RoleImpact />
+      <ChapterToggle />
 
       <div
         className="meta-grid"

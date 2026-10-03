@@ -1905,10 +1905,13 @@ border: "1px solid var(--hairline-weak)";
   padding-bottom: 8.2rem;
   display: flex;
   flex-direction: column;
+  /* Centre the intro, icon row and link in the free space above the toggle so
+     tall screens don't leave a gap under the row. */
+  justify-content: center;
 }
 
 .home-landing__link {
-  margin: auto 0 0;
+  margin: 0;
 }
 
 .home-landing__link a {

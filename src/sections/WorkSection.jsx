@@ -66,7 +66,7 @@ export default function WorkSection() {
         <ProjectRow />
 
         <h2 className="home-section-label home-landing__link">
-          <a href={`#${PANEL_ID}`}>The work behind the objects ↓</a>
+          <a href={`#${PANEL_ID}`}>What's behind the objects? ↓</a>
         </h2>
         </div>
 

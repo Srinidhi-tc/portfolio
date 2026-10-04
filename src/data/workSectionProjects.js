@@ -37,6 +37,20 @@ export const workSectionProjects = [
     },
   },
   {
+    id: "strabospot",
+    brand: "SGX3 · UX Consulting",
+    title: "StraboSpot — GIS Data",
+    image: workStrabospot,
+    to: "/work/strabospot",
+    tags: ["UX Audit", "Nielsen Heuristics", "User Interviews", "Task Analysis", "Design Recommendations"],
+    states: {
+      problem: { subheading: "Search was hard to scan", body: "Dense results, competing controls, and unclear links between results and the map made scientific search hard to scan, compare, and trust." },
+      decisions: { subheading: "Search as the hero", body: "Made search the hero feature, with maps and images as first-class navigation and clearer filters." },
+      tradeoffs: { subheading: "Context vs. density", body: "More information could improve confidence, but too much would recreate the density the audit exposed." },
+      impact: { subheading: "One unified search model", body: "Brought keyword search, filters, map and list views, previews, and result ownership into one workflow, delivered as design recommendations." },
+    },
+  },
+  {
     id: "hearts-of-insomnia",
     brand: "Arduino · 3D Fabrication",
     title: "CHI 2026 — Hearts of Insomnia",

@@ -589,6 +589,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .work-section-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -2039,5 +2040,86 @@ border: "1px solid var(--hairline-weak)";
   .project-row:hover .project-row-item,
   .project-row:focus-within .project-row-item {
     transform: none;
+  }
+}
+
+/* Card metrics — a pill (or big headline) beside the title and an optional
+   round badge in the card corner. Reuses the existing .tag pill style. */
+.work-section-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.work-section-title-row .work-section-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.work-section-metric {
+  flex: 0 0 auto;
+  display: inline-grid;
+  white-space: nowrap;
+  background: var(--accent-light);
+}
+
+/* Every value sits in the same grid cell, so the pill is as wide as its
+   longest value and crossfading never shifts the layout. */
+.work-section-metric-text {
+  grid-area: 1 / 1;
+  transition: opacity 400ms ease;
+}
+
+.work-section-metric-headline {
+  flex: 0 0 auto;
+  margin-left: auto;
+  text-align: right;
+  white-space: nowrap;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.work-section-metric-circle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  background: var(--accent);
+  color: var(--on-accent);
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .work-section-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .work-section-metric-headline {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-section-metric-text {
+    transition: none;
   }
 }

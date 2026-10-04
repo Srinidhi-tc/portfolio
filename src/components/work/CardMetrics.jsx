@@ -1,40 +1,40 @@
 import { useEffect, useState } from "react";
 
 // Edit the metric values here. Keys are project ids from workSectionProjects.
-//   circle:   solid round badge in the card's top-right corner
-//   headline: large right-aligned text beside the title
-//   pills:    one pill, or several that crossfade every `rotateMs`
+//   time:    pill in the card's top-right corner
+//   metrics: big bold number with a small caption underneath, beside the title.
+//            More than one entry crossfades every `rotateMs`.
 // `label` is the full wording read out by screen readers.
 const METRICS = {
   defenseark: {
-    circle:   { text: "2 yrs", label: "2 years" },
-    headline: { text: "3 Products", label: "3 products" },
+    time: { text: "2 yrs", label: "2 years" },
+    metrics: [{ value: "3", caption: "Products", label: "3 products" }],
   },
   "psychosis-literacy": {
-    pills: [{ text: "↑ 70% retention", label: "Up 70 percent retention" }],
+    metrics: [{ value: "↑ 70%", caption: "retention", label: "Up 70 percent retention" }],
   },
   "bee-feeder": {
-    pills: [{ text: "18+ prototypes", label: "18 or more prototypes" }],
+    metrics: [{ value: "18+", caption: "prototypes", label: "18 or more prototypes" }],
   },
   malli: {
-    pills: [{ text: "$287M market", label: "287 million dollar market" }],
+    metrics: [{ value: "$287M", caption: "market", label: "287 million dollar market" }],
   },
   "hearts-of-insomnia": {
-    pills: [{ text: "<4s results", label: "Results in under 4 seconds" }],
+    metrics: [{ value: "<4s", caption: "results", label: "Results in under 4 seconds" }],
   },
   "ai-coding": {
-    circle: { text: "5 months", label: "5 months" },
-    pills: [
-      { text: "5 user flows", label: "5 user flows" },
-      { text: "10+ UX Audits", label: "10 or more UX audits" },
+    time: { text: "5 months", label: "5 months" },
+    metrics: [
+      { value: "5", caption: "user flows", label: "5 user flows" },
+      { value: "10+", caption: "UX Audits", label: "10 or more UX audits" },
     ],
     rotateMs: 30000,
   },
   strabospot: {
-    pills: [{ text: "12K geologists", label: "12 thousand geologists" }],
+    metrics: [{ value: "12K", caption: "geologists", label: "12 thousand geologists" }],
   },
   microsoft: {
-    pills: [{ text: "↓ ~30% decision time", label: "About 30 percent less decision time" }],
+    metrics: [{ value: "↓ ~30%", caption: "decision time", label: "About 30 percent less decision time" }],
   },
 };
 
@@ -52,57 +52,52 @@ function useReducedMotion() {
   return reduced;
 }
 
-function Pill({ pills, rotateMs }) {
+function Metric({ metrics, rotateMs }) {
   const reduced = useReducedMotion();
   const [active, setActive] = useState(0);
-  const rotates = pills.length > 1 && !reduced;
+  const rotates = metrics.length > 1 && !reduced;
 
   useEffect(() => {
     if (!rotates) return undefined;
-    const id = setInterval(() => setActive((i) => (i + 1) % pills.length), rotateMs);
+    const id = setInterval(() => setActive((i) => (i + 1) % metrics.length), rotateMs);
     return () => clearInterval(id);
-  }, [rotates, rotateMs, pills.length]);
+  }, [rotates, rotateMs, metrics.length]);
 
   // Reduced motion: first value only, no animation.
-  const shown = rotates ? pills : pills.slice(0, 1);
-  const label = shown.map((p) => p.label).join(" and ");
+  const shown = rotates ? metrics : metrics.slice(0, 1);
+  const label = shown.map((m) => m.label).join(" and ");
 
   return (
-    <span className="tag work-section-metric" role="img" aria-label={label}>
-      {shown.map((p, i) => (
+    <span className="work-section-metric" role="img" aria-label={label}>
+      {shown.map((m, i) => (
         <span
-          key={p.text}
+          key={m.value + m.caption}
           aria-hidden="true"
-          className="work-section-metric-text"
+          className="work-section-metric-item"
           style={{ opacity: i === active ? 1 : 0 }}
         >
-          {p.text}
+          <span className="work-section-metric-value">{m.value}</span>
+          <span className="work-section-metric-caption">{m.caption}</span>
         </span>
       ))}
     </span>
   );
 }
 
-// Right-hand side of the title row: the big headline figure and/or the pill.
+// Beside the title: big bold number with its caption stacked underneath.
 export function CardMetricInline({ id }) {
   const m = METRICS[id];
-  if (!m || (!m.headline && !m.pills)) return null;
-  return m.headline ? (
-    <span className="work-section-metric-headline" role="img" aria-label={m.headline.label}>
-      <span aria-hidden="true">{m.headline.text}</span>
-    </span>
-  ) : (
-    <Pill pills={m.pills} rotateMs={m.rotateMs} />
-  );
+  if (!m?.metrics) return null;
+  return <Metric metrics={m.metrics} rotateMs={m.rotateMs} />;
 }
 
-// Solid circle in the card's top-right corner.
-export function CardMetricCircle({ id }) {
-  const c = METRICS[id]?.circle;
-  if (!c) return null;
+// Time spans use the existing pill style, in the card's top-right corner.
+export function CardTimePill({ id }) {
+  const t = METRICS[id]?.time;
+  if (!t) return null;
   return (
-    <span className="work-section-metric-circle" role="img" aria-label={c.label}>
-      <span aria-hidden="true">{c.text}</span>
+    <span className="tag work-section-time-pill" role="img" aria-label={t.label}>
+      <span aria-hidden="true">{t.text}</span>
     </span>
   );
 }

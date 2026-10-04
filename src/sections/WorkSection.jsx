@@ -2,7 +2,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../components/ui/SectionTitle";
 import ProjectRow from "../components/work/ProjectRow";
-import { CardMetricCircle, CardMetricInline } from "../components/work/CardMetrics";
+import { CardTimePill, CardMetricInline } from "../components/work/CardMetrics";
 import { workSectionProjects, workSectionViews } from "../data/workSectionProjects";
 
 const PANEL_ID = "work-section-panel";
@@ -93,7 +93,7 @@ export default function WorkSection() {
 
               const body = (
                 <>
-                  <CardMetricCircle id={project.id} />
+                  <CardTimePill id={project.id} />
                   {media}
                   <div className="work-section-card-copy">
                     <p className="work-section-brand">{project.brand}</p>

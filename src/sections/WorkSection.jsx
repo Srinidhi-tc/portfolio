@@ -44,6 +44,18 @@ export default function WorkSection() {
     [baseId, view],
   );
 
+  // On the landing screen the cards are below the fold, so a toggle click would
+  // change content nobody can see. Take the visitor to the first cards instead.
+  const selectView = useCallback((id) => {
+    setView(id);
+    const panel = document.getElementById(PANEL_ID);
+    if (!panel) return;
+    if (panel.getBoundingClientRect().top > window.innerHeight * 0.6) {
+      const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      panel.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    }
+  }, []);
+
   return (
     <section
       ref={sectionRef}
@@ -163,7 +175,7 @@ export default function WorkSection() {
                         aria-controls={PANEL_ID}
                         tabIndex={selected ? 0 : -1}
                         className={`work-section-process-step${selected ? " work-section-process-step--active" : ""}`}
-                        onClick={() => setView(v.id)}
+                        onClick={() => selectView(v.id)}
                       >
                         <span className="work-section-process-step-label">{v.label}</span>
                       </button>

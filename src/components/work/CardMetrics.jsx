@@ -14,36 +14,36 @@ const METRICS = {
   },
   "psychosis-literacy": {
     accent: "#f0a0b4",
-    metrics: [{ value: "↑ 70%", caption: "retention", label: "Up 70 percent retention" }],
+    metrics: [{ value: "↑ 70%", caption: "Retention", label: "Up 70 percent retention" }],
   },
   "bee-feeder": {
     accent: "#f2d35b",
-    metrics: [{ value: "18+", caption: "prototypes", label: "18 or more prototypes" }],
+    metrics: [{ value: "18+", caption: "Prototypes", label: "18 or more prototypes" }],
   },
   malli: {
     accent: "#7ccbd8",
-    metrics: [{ value: "$287M", caption: "market", label: "287 million dollar market" }],
+    metrics: [{ value: "$287M", caption: "Market", label: "287 million dollar market" }],
   },
   "hearts-of-insomnia": {
     accent: "#f29a8a",
-    metrics: [{ value: "<4s", caption: "results", label: "Results in under 4 seconds" }],
+    metrics: [{ value: "<4s", caption: "Response Time", label: "Results in under 4 seconds" }],
   },
   "ai-coding": {
     accent: "#f5b27a",
-    time: { text: "5 months", label: "5 months" },
+    time: { text: "5 Months", label: "5 months" },
     metrics: [
-      { value: "5", caption: "user flows", label: "5 user flows" },
+      { value: "5", caption: "User Flows", label: "5 user flows" },
       { value: "10+", caption: "UX Audits", label: "10 or more UX audits" },
     ],
     rotateMs: 30000,
   },
   strabospot: {
     accent: "#b8d96b",
-    metrics: [{ value: "12K", caption: "geologists", label: "12 thousand geologists" }],
+    metrics: [{ value: "12K", caption: "Geologists", label: "12 thousand geologists" }],
   },
   microsoft: {
     accent: "#7fa8f0",
-    metrics: [{ value: "↓ ~30%", caption: "decision time", label: "About 30 percent less decision time" }],
+    metrics: [{ value: "↓ ~30%", caption: "Decision Time", label: "About 30 percent less decision time" }],
   },
 };
 

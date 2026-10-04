@@ -7,7 +7,7 @@
   "routes": [
     {
       "path": "/",
-      "title": "Srinidhi Chakravarthy — Product Designer",
+      "title": "Srinidhi Chakravarthy · Product Designer",
       "description": "Product designer with a background in psychology and UX research. Master's in UX from Purdue. Case studies from Microsoft, AI research tools, and scientific software.",
       "og": "default",
       "eyebrow": "PORTFOLIO",
@@ -15,7 +15,7 @@
     },
     {
       "path": "/work",
-      "title": "Work — Srinidhi Chakravarthy",
+      "title": "Work · Srinidhi Chakravarthy",
       "description": "Case studies across AI systems, cybersecurity, enterprise observability, scientific software, and physical product design.",
       "og": "work",
       "eyebrow": "SELECTED WORK",

@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-left">
-          <p className="footer-title">Srinidhi Chakravarthy — UX Portfolio</p>
+          <p className="footer-title">Srinidhi Chakravarthy · UX Portfolio</p>
           <p className="footer-text">
             Because context changes what good design means.
           </p>

@@ -97,15 +97,15 @@ export default function WorkSection() {
                   {media}
                   <div className="work-section-card-copy">
                     <p className="work-section-brand">{project.brand}</p>
-                    <div className="work-section-title-row">
+                    <div className="work-section-head">
                       <h3 className="work-section-title">{project.title}</h3>
+                      {project.tags && project.tags.length > 0 && (
+                        <p className="work-section-card-tags" style={{ margin:"4px 0 0", color:"var(--muted)", fontWeight:400 }}>
+                          {project.tags.join(" · ")}
+                        </p>
+                      )}
                       <CardMetricInline id={project.id} />
                     </div>
-                    {project.tags && project.tags.length > 0 && (
-                      <p className="work-section-card-tags" style={{ margin:"4px 0 0", color:"var(--muted)", fontWeight:400 }}>
-                        {project.tags.join(" · ")}
-                      </p>
-                    )}
                     <div key={view} className="work-section-card-body" style={{ transitionTimingFunction: CONTENT_EASE }}>
                       <p className="work-section-subheading">{copy.subheading}</p>
                       <p className="work-section-body">{copy.body}</p>

@@ -93,7 +93,11 @@ function Metric({ metrics, accent, rotateMs }) {
           </span>
         ))}
       </span>
-      <span className="work-section-metric-cell work-section-metric-caption" aria-hidden="true">
+      <span
+        className="work-section-metric-cell work-section-metric-caption"
+        aria-hidden="true"
+        style={{ "--metric-accent": accent }}
+      >
         {shown.map((m, i) => (
           <span key={m.value + m.caption} className="work-section-metric-fade" style={fade(i)}>
             {m.caption}

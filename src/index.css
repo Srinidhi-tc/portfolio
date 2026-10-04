@@ -2085,7 +2085,12 @@ border: "1px solid var(--hairline-weak)";
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
-  /* Matte pastel from the thumbnail, deepened a little on light backgrounds. */
+}
+
+/* Number and caption share one matte pastel from the thumbnail, deepened a
+   little on light backgrounds. */
+.work-section-metric-value,
+.work-section-metric-caption {
   color: color-mix(in srgb, var(--metric-accent, var(--text)) 58%, #000);
 }
 
@@ -2093,17 +2098,18 @@ border: "1px solid var(--hairline-weak)";
   grid-row: 2;
   margin-top: 4px;
   font-size: var(--text-xs);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.2;
-  color: var(--muted);
 }
 
-:root[data-theme="dark"] .work-section-metric-value {
+:root[data-theme="dark"] .work-section-metric-value,
+:root[data-theme="dark"] .work-section-metric-caption {
   color: var(--metric-accent, var(--text));
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .work-section-metric-value {
+  :root:not([data-theme="light"]) .work-section-metric-value,
+  :root:not([data-theme="light"]) .work-section-metric-caption {
     color: var(--metric-accent, var(--text));
   }
 }

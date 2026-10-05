@@ -27,7 +27,7 @@ const LANES = [
     items: [
       { id:"psych",    label:"BS PSychology",        sub:"Madras School of Social Work · 2017–2020", from:y(2017),    to:y(2020),    image:null,         note:"Foundation in human behaviour, research methods, and statistics." },
       { id:"pg",       label:"Counselling PG Diploma",  sub:"University of Madras · 2020–2022",          from:y(2020),    to:y(2022),    image:null,         note:"Applied psychology — qualitative research and empathy frameworks." },
-      { id:"gate",     label:"GATE 2020 · Rank 16",     sub:"Milestone · 2020",                          from:y(2020,2),  to:y(2020,3),  image:null,         note:"", marker:true },
+      { id:"gate",     label:"GATE Psychology 2020 · Rank 116", sub:"Milestone · 2020",                          from:y(2020,2),  to:y(2020,3),  image:null,         note:"", marker:true },
       { id:"purdue",   label:"MS UX Design",            sub:"Purdue University · 2024–2026",              from:y(2024,8),  to:y(2026,5),  image:imgPurdue,    note:"TAPD-INTO (NSF), StraboSpot / SGX3, TA × 2 semesters, Capstone." },
       {
         id:    "ta-pm",
@@ -48,7 +48,7 @@ const LANES = [
     ],
   },
   {
-    label: "Product work",
+    label: "Product design and research",
     color: "#B85C38",
     items: [
       { id:"ionixx",    label:"UX Design Intern",               sub:"Ionixx Technologies · Jan–Jul 2020",  from:y(2020,1),  to:y(2020,7),  image:null,         note:"Fintech & health UX. First professional product design role." },
@@ -70,23 +70,20 @@ const LANES = [
         image: null,
         note:  "NSF-funded accessibility research for STEM education. Audited tools for neurodivergent and disabled learners.",
       },
+      // Research markers (dots)
+      { id:"thesis-ai",    label:"AI-at-home survey research",            sub:"Final-year thesis · Jan–Mar 2020", from:y(2020,1), to:y(2020,3), image:null, note:"Survey design for my final-year psychology thesis.", marker:true },
+      { id:"thesis-photo", label:"Photo gallery / emotional-state study", sub:"Final-year thesis · Jan–Mar 2020", from:y(2020,1), to:y(2020,3), image:null, note:"Study and survey design for my final-year psychology thesis.", marker:true },
+      { id:"qualtrics",    label:"Qualtrics market research",             sub:"Spring 2025",                      from:y(2025,1), to:y(2025,5), image:null, note:"", marker:true },
+      { id:"hr-visualiser",label:"Heart rate visualiser",                 sub:"Spring 2025",                      from:y(2025,1), to:y(2025,5), image:null, note:"", marker:true },
+      { id:"anova-r",      label:"Anova and R health research",           sub:"Spring 2026",                      from:y(2026,1), to:y(2026,5), image:null, note:"", marker:true },
     ],
   },
   {
-    label: "Client work",
+    label: "Independent client work",
     color: "#8C7A4E",
     items: [
       { id:"freelance", label:"Wedding Invitation Design", sub:"Paid client work · 2019–2020",            from:y(2019),    to:y(2020),    image:null,         note:"Real paid client commissions: wedding invitations that funded my first laptop and phone." },
       { id:"interior", label:"Interior Design Studio", sub:"Independent · Jul 2023–Jul 2024", from:y(2023,7), to:y(2024,7), image:imgInterior, note:"4 residential projects — floor plan to handover. Real clients, real budgets." },
-    ],
-  },
-  {
-    label: "Research",
-    color: "#5E8C7B",
-    items: [
-      { id:"thesis-ai",    label:"AI-at-home survey research",            sub:"Final-year thesis · Jan–Mar 2020", from:y(2020,1), to:y(2020,3), image:null, note:"Survey design for my final-year psychology thesis.", marker:true },
-      { id:"thesis-photo", label:"Photo gallery / emotional-state study", sub:"Final-year thesis · Jan–Mar 2020", from:y(2020,1), to:y(2020,3), image:null, note:"Study and survey design for my final-year psychology thesis.", marker:true },
-      
     ],
   },
 ];

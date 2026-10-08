@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-left">
-          <p className="footer-title">What is your AI tool for vibe-coding design systems?</p>
+          <p className="footer-title">What is your AI stack for vibe-coding design systems?</p>
           <ContactLinks className="footer-contact" />
           <p className="footer-text">© {new Date().getFullYear()} Srinidhi Chakravarthy. All rights reserved.</p>
         </div>

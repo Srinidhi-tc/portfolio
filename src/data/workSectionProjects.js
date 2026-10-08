@@ -72,7 +72,7 @@ export const workSectionProjects = [
   {
     id: "malli",
     brand: "Sanitary Health",
-    title: "Malli 2.0 · Toilet Cleaning Device",
+    title: "Malli 2.0 · Toilet Cleaning Robot",
     image: workMalli,
     to: "/work/malli",
     tags: ["Robotic-UX", "High-Fidelity Prototype"],
@@ -132,10 +132,10 @@ export const workSectionProjects = [
       { label: "Enigma", href: "https://enigma.defenseark.com/en" },
     ],
     states: {
-      problem: { subheading: "Under NDA", body: "This project is protected under a non-disclosure agreement. Case study details are available upon request." },
-      decisions: { subheading: "Under NDA", body: "This project is protected under a non-disclosure agreement. Case study details are available upon request." },
-      tradeoffs: { subheading: "Under NDA", body: "This project is protected under a non-disclosure agreement. Case study details are available upon request." },
-      impact: { subheading: "Design through launch", body: "Requirements, Figma system, design handover, build with engineers, launch. I built and followed brand coherence with three different products: Brightscan, Torus and Enigma." },
+      problem: { subheading: "Design through launch", body: "Requirements, Figma system, design handover, build with engineers, launch. I built and followed brand coherence with three different products: Brightscan, Torus and Enigma." },
+      decisions: { subheading: "Researched hackers' methods", body: "Studied 65 different types of persuasive tactics, so the core of the products stays strong at clients' emotional moments." },
+      tradeoffs: { subheading: "Marketing came late", body: "Learnt later that the marketing team determines a lot of success in product launches. I couldn't collaborate heavily with marketing leads." },
+      impact: { subheading: "2x growth", body: "2x growth, to 7.6 million USD." },
     },
   },
 ];

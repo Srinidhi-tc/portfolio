@@ -1,8 +1,6 @@
 import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import ProfilePhoto from "../components/ui/ProfilePhoto";
 import ContactLinks from "../components/ui/ContactLinks";
-import { RESUME_URL } from "../data/links";
 // import CollaboratorNotes from "../sections/CollaboratorNotes"; // re-enable at 3+ notes
 
 import imgDefenseArk from "../assets/ransomwaremain.png";
@@ -301,7 +299,6 @@ const pStyle = {
   margin:     "0 0 16px",
   maxWidth:   "60ch",
 };
-const linkStyle = { color:"var(--link)", fontWeight:500, textDecoration:"none" };
 
 const CONTEXT = [
   ["Time",        "What if the user can't spend another minute?"],
@@ -318,9 +315,6 @@ function ContextSections() {
       {/* The common thread */}
       <div style={{ marginTop:"clamp(56px, 8vw, 96px)", maxWidth:720 }}>
         <h2 style={h2Style}>The common thread? Context.</h2>
-        <p style={pStyle}>
-          I pay attention to what changes the experience: how much time someone has, what they know, what they’re feeling, where they are, and what they need to trust.
-        </p>
       </div>
 
       {/* What context changes */}
@@ -354,40 +348,6 @@ function ContextSections() {
         </p>
         <p style={pStyle}>
           I’m especially mindful of what products ask people to trust, disclose, understand, and consent to.
-        </p>
-      </div>
-
-      {/* Fun facts */}
-      <div style={{ marginTop:"clamp(56px, 8vw, 96px)", maxWidth:720 }}>
-        <h2 style={h2Style}>Fun facts about me</h2>
-        <ul style={{ margin:0, paddingLeft:20, listStyle:"disc" }}>
-          {[
-            "I have a diploma in fashion & tailoring, and I can tailor 33 different types of women's blouses.",
-            "I speak 4 languages fluently and am currently learning 2 more.",
-            "I love visiting museums and exploring cities. I’ve been to 8 cities across the US so far, and Spain is next on my list. I love seeing how architecture blends into the identity of a city.",
-          ].map((fact) => (
-            <li key={fact} style={{ ...pStyle, marginBottom:14 }}>{fact}</li>
-          ))}
-          <li style={{ ...pStyle, marginBottom:0 }}>
-            I started a wedding-invitation design business using IBISPaint, a free Android painting app. The money from that little business eventually paid for my iPad, laptop, and iMac.
-            <br />
-            <strong style={{ color:"var(--text)" }}>Just start.</strong>
-          </li>
-        </ul>
-      </div>
-
-      {/* Connect */}
-      <div style={{ marginTop:"clamp(56px, 8vw, 96px)", maxWidth:720 }}>
-        <h2 style={h2Style}>Connect with me</h2>
-        <p style={pStyle}>
-          I’d love to hear from people building interesting products, making things, or thinking about design in unexpected ways.
-        </p>
-        <p style={{ ...pStyle, display:"flex", flexWrap:"wrap", gap:8 }}>
-          <a href="https://www.linkedin.com/in/srinidhi-chakravarthy/" target="_blank" rel="noopener noreferrer" style={linkStyle}>LinkedIn</a>
-          <span aria-hidden="true">·</span>
-          <Link to="/work" style={linkStyle}>Portfolio</Link>
-          <span aria-hidden="true">·</span>
-          <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={linkStyle}>Resume</a>
         </p>
       </div>
 

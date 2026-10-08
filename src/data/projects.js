@@ -214,7 +214,7 @@ export const projects = [
   },
   {
     slug: "malli",
-    title: "Malli 2.0 — Toilet Cleaning Device",
+    title: "Malli 2.0 — Toilet Cleaning Robot",
     company: "Sanitary Health",
     image: null,
     subtitle: "Making Cleaning Happen Without Thinking",

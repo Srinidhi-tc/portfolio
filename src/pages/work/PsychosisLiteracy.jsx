@@ -112,13 +112,13 @@ export default function PsychosisLiteracy() {
           How You See Matters.
         </p>
         <p style={{ ...body, fontSize: 18, color: "var(--muted)" }}>
-          A psychoeducation tool that builds basic awareness about psychosis — visual and auditory hallucinations for students and office-goers ages 15–25, at in schools and workplaces, before onset education.
+          A psychoeducation tool that builds basic awareness about psychosis, visual and auditory hallucinations for students and office-goers ages 15–25, at in schools and workplaces, before onset education.
         </p>
       </header>
 
       {/* HERO SLIDE — the one full-width image */}
       <div style={{ marginBottom: 80 }}>
-        <img src={cap25} alt="Percepta — Capstone 2026"
+        <img src={cap25} alt="Percepta · Capstone 2026"
              style={{ width: "100%", borderRadius: 18, display: "block" }} />
       </div>
 
@@ -161,7 +161,7 @@ export default function PsychosisLiteracy() {
         title="50% of US schools have no psychoeducator. 100,000+ teenagers develop psychosis each year."
         intro="Psychosis begins in late teens to mid-20s. Without education, students turn to substances, self-harm, and isolation. Crime rates increase 2.5× in populations with untreated psychosis. The awareness gap is the design problem."
       >
-        <Slide src={cap2} caption="Institute of Educational Sciences, May 2024 — 48% of public schools cannot effectively provide mental health services to students who need them." />
+        <Slide src={cap2} caption="Institute of Educational Sciences, May 2024: 48% of public schools cannot effectively provide mental health services to students who need them." />
         <StatRow stats={[
           { value: "100k+", label: "teenagers develop psychosis each year (NIMH)" },
           { value: "50%", label: "of US schools lack in-house psychoeducators" },
@@ -175,9 +175,9 @@ export default function PsychosisLiteracy() {
       <Section
         number="Research through journey mapping"
         title="Mapping a day in the life of someone with psychosis."
-        intro="I mapped Mr. KP's full day — waking up, commute, work, night time — to find where emotional hallucinations peak and where intervention is possible."
+        intro="I mapped Mr. KP's full day, waking up, commute, work, night time, to find where emotional hallucinations peak and where intervention is possible."
       >
-        <Slide src={cap9} caption="Customer journey map: Mr. KP's day — waking up through night time. Emotional hallucinations peak at work. Night time is most frightening." />
+        <Slide src={cap9} caption="Customer journey map: Mr. KP's day, waking up through night time. Emotional hallucinations peak at work. Night time is most frightening." />
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 24 }}>
           {[
             ["Waking up", "Hallucinations begin at start of day. Routine overpowers them with morning prayers, music, and constant support."],
@@ -198,9 +198,9 @@ export default function PsychosisLiteracy() {
       <Section
         number="Resolving ambiguity"
         title="At interviews were descriptive about experiences"
-        intro="I used information architecture to narrow down which hallucination effects were clinically validated. A flowchart forces correct categorisation and prevents misrepresentation — something verbal interviews alone cannot guarantee."
+        intro="I used information architecture to narrow down which hallucination effects were clinically validated. A flowchart forces correct categorisation and prevents misrepresentation, something verbal interviews alone cannot guarantee."
       >
-        <Slide src={cap22} caption="Section 1 of the visual hallucination image architecture — categories: neutral, shadows, hands, fireworks, smoke, shaky/blurred, animals, slight distortions, colours, random patterns. Each validated against medical case studies." />
+        <Slide src={cap22} caption="Section 1 of the visual hallucination image architecture, categories: neutral, shadows, hands, fireworks, smoke, shaky/blurred, animals, slight distortions, colours, random patterns. Each validated against medical case studies." />
         <Insight>The architecture decision: show only what psychologists validate. Every visual effect was checked against clinical evidence before inclusion.</Insight>
       </Section>
 
@@ -209,15 +209,15 @@ export default function PsychosisLiteracy() {
         id="decision"
         number="The solution"
         title="Show, don't tell. Use the back camera."
-        intro="Instead of describing hallucinations in text, Percepta uses the device camera to place hallucination effects on the user's real environment. Back camera is used by default — to show how people with hallucinations see the world."
+        intro="Instead of describing hallucinations in text, Percepta uses the device camera to place hallucination effects on the user's real environment. Back camera is used by default, to show how people with hallucinations see the world."
       >
-        <Slide src={cap14} caption="Percepta onboarding: '100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.' — Designed for ages 15–25 · Educational purposes only." />
+        <Slide src={cap14} caption="Percepta onboarding: '100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.' Designed for ages 15–25 · Educational purposes only." />
           <div style={{ marginTop: 20 }}>
           <Slide src={cap19} caption="5 types of visual hallucination: Colours, Blur, Smoke, Bubbles, Shadows, Faces & Hands." />
           <Slide src={cap20} caption="5 types of auditory hallucination: Whispers, Self-Talk, Two Voices, Footsteps, Commands." />
           </div>
           <div style={{ marginTop: 20 }}>
-          <Slide src={cap18} caption="Filter selection screen — UX Heuristic: Match between system and real world. Filters work like gallery filters. 'Did anything feel off?' — reflection prompt after the experience." />
+          <Slide src={cap18} caption="Filter selection screen: UX Heuristic: Match between system and real world. Filters work like gallery filters. 'Did anything feel off?', reflection prompt after the experience." />
           </div>
         <Insight>Back camera is the right choice. Hallucinations happen in the external world, not the face. Designing for the right point of view changes everything.</Insight>
       </Section>
@@ -231,11 +231,11 @@ export default function PsychosisLiteracy() {
         <Slide
           src={cap23}
           alt="Expert validation sessions with Purdue Psychological Sciences and CAPS. Door signs blurred for privacy."
-          caption={<>Expert validation sessions — Purdue Psychological Sciences and CAPS. Room <Redact>0000</Redact>: <Redact>X.</Redact> Gomez, <Redact>X.</Redact> Rodriguez, <Redact>X.</Redact> Rubi. Room <Redact>0000</Redact>: <Redact>X.</Redact> Haskett. Room <Redact>0000</Redact>: <Redact>X.</Redact> Lim-Kessler.</>}
+          caption={<>Expert validation sessions: Purdue Psychological Sciences and CAPS. Room <Redact>0000</Redact>: <Redact>X.</Redact> Gomez, <Redact>X.</Redact> Rodriguez, <Redact>X.</Redact> Rubi. Room <Redact>0000</Redact>: <Redact>X.</Redact> Haskett. Room <Redact>0000</Redact>: <Redact>X.</Redact> Lim-Kessler.</>}
         />
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 24 }}>
           {[
-            ["Do not segregate user groups", "Give common, inclusive messaging — Simple · Inclusive · Unconditional Positive Regard"],
+            ["Do not segregate user groups", "Give common, inclusive messaging: Simple · Inclusive · Unconditional Positive Regard"],
             ["Add a big EXIT button", "Users must be able to leave immediately without friction. Safety first."],
             ["Validated the architecture", "The flowchart categorisation of hallucination types was confirmed clinically appropriate."],
             ["Language matters", "Messaging must be non-stigmatising and avoid clinical jargon for a teen audience."],
@@ -253,9 +253,9 @@ export default function PsychosisLiteracy() {
       <Section
         number="After the experience"
         title="3 ways to ask for help. 988 is always visible."
-        intro="After the simulation, Percepta shows a clear, non-stigmatising help pathway. The 988 Suicide & Crisis Lifeline is shown on the final screen — every time."
+        intro="After the simulation, Percepta shows a clear, non-stigmatising help pathway. The 988 Suicide & Crisis Lifeline is shown on the final screen, every time."
       >
-        <Slide src={cap21} caption="'3 Ways to Ask for Help: Talk to someone you trust — A friend, family member, or someone who makes you feel safe. Reach out to a counselor — School counselors and teachers are trained to help connect you with support. Seek professional support — Mental health professionals can provide proper assessment and care. If you or someone you know needs immediate help: 988 Suicide & Crisis Lifeline — Call or text 988 · Available 24/7.' — UX Heuristic: Help Users With Errors." />
+        <Slide src={cap21} caption="'3 Ways to Ask for Help: Talk to someone you trust: A friend, family member, or someone who makes you feel safe. Reach out to a counselor: School counselors and teachers are trained to help connect you with support. Seek professional support: Mental health professionals can provide proper assessment and care. If you or someone you know needs immediate help: 988 Suicide & Crisis Lifeline: Call or text 988 · Available 24/7.' UX Heuristic: Help Users With Errors." />
         <Insight>10/10 users in testing reached this page. 5/10 read through the full content. The helpline got major visibility.</Insight>
       </Section>
 
@@ -267,7 +267,7 @@ export default function PsychosisLiteracy() {
       >
         <Slide src={cap27} caption="Product link: https://app.base44.com/apps/69c1a0c9aa1a1e3081429008/editor/preview" />
         <StatRow stats={[
-          { value: "8/10",  label: "preferred fast load directly into the experience — removed intro text" },
+          { value: "8/10",  label: "preferred fast load directly into the experience, removed intro text" },
           { value: "10/10", label: "correctly identified types of visual hallucination after use" },
           { value: "7/10",  label: "correctly identified auditory hallucination types" },
           { value: "10/10", label: "reached the help-seeking page" },
@@ -293,17 +293,17 @@ export default function PsychosisLiteracy() {
         number="Trade-offs and challenges"
         title="What I chose not to build. And why."
       >
-        <Slide src={cap31} caption="Trade-offs and challenges — For competitor analysis, paper prototypes, wireframes, initial mockups, and secondary research: Access documentation." />
+        <Slide src={cap31} caption="Trade-offs and challenges: For competitor analysis, paper prototypes, wireframes, initial mockups, and secondary research: Access documentation." />
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 24 }}>
           <div>
             <p style={{ ...label, marginBottom: 12 }}>Trade-offs</p>
             {[
-              "No data-heavy hallucination effects that require strong internet connections — accessibility over spectacle",
-              "English only for V1 — validate the model before scaling language support",
-              "No peer-to-peer features — no unsupervised surfaces for this user group",
+              "No data-heavy hallucination effects that require strong internet connections, accessibility over spectacle",
+              "English only for V1, validate the model before scaling language support",
+              "No peer-to-peer features, no unsupervised surfaces for this user group",
             ].map((t, i) => (
               <div key={i} style={{ display: "flex", gap: 12, marginBottom: 10 }}>
-                <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>—</span>
+                <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>•</span>
                 <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.55, margin: 0 }}>{t}</p>
               </div>
             ))}
@@ -311,12 +311,12 @@ export default function PsychosisLiteracy() {
           <div>
             <p style={{ ...label, marginBottom: 12 }}>Challenges</p>
             {[
-              "Sensitivity of the topic needs continuous care — this is always a work in progress",
-              "Hallucination representation must be clinically validated — not aesthetically driven",
-              "Exit must always be visible — no user should feel trapped in the simulation",
+              "Sensitivity of the topic needs continuous care, this is always a work in progress",
+              "Hallucination representation must be clinically validated, not aesthetically driven",
+              "Exit must always be visible, no user should feel trapped in the simulation",
             ].map((c, i) => (
               <div key={i} style={{ display: "flex", gap: 12, marginBottom: 10 }}>
-                <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>—</span>
+                <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>•</span>
                 <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.55, margin: 0 }}>{c}</p>
               </div>
             ))}

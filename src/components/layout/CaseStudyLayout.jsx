@@ -70,7 +70,7 @@ export default function CaseStudyLayout({
             style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", borderRadius: "var(--radius)", display: "block" }}
           />
         ) : (
-          <ImagePlaceholder label={`${title} — Hero Image`} aspect="hero" />
+          <ImagePlaceholder label={`${title} · Hero Image`} aspect="hero" />
         )}
       </div>
 

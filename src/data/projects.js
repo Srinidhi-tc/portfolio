@@ -10,7 +10,7 @@ export const projects = [
     title: "DefenseARK Ransomware Portal",
     company: "DefenseARK",
     image: null,
-    subtitle: "Threat Response — Urgent-First UX",
+    subtitle: "Threat Response · Urgent-First UX",
     cardDescription:
       "Replacing email-based intake with an instant upload portal to accelerate ransomware threat response.",
     problem:
@@ -120,7 +120,7 @@ export const projects = [
   },
   {
     slug: "strabospot",
-    title: "StraboSpot — GIS Data",
+    title: "StraboSpot · GIS Data",
     company: "StraboSpot",
     image: workStrabospot,
     subtitle:
@@ -128,7 +128,7 @@ export const projects = [
     cardDescription:
       "UX secrets to making Geo-data feel human again: Increasing Intuitive Use through Heuristic Analysis and Interviews",
     problem:
-      "Interaction friction and visibility gaps limited exploration and insight sharing — excessive clicks, hidden tools, unclear context switching, and overwhelming textual information.",
+      "Interaction friction and visibility gaps limited exploration and insight sharing, excessive clicks, hidden tools, unclear context switching, and overwhelming textual information.",
     overview:
       "StraboSpot is a geospatial data collection and visualization tool used by 12k geologists to document, analyze, and interpret field observations.",
     keyInsight:
@@ -167,7 +167,7 @@ export const projects = [
     cardDescription:
       "A youth-first mobile companion (ages 15–25) for early-psychosis education, EMA self-checks, and safe peer/caregiver pathways.",
     overview:
-      "A capstone-driven mobile app concept for ages 15–25 designed to expand access to early-psychosis education and self-management. Surfaces age-appropriate psychoeducation, simulations, symptom tracking, and moderated peer/caregiver pathways — building a low-stigma bridge between research-grade interventions and an app a young person will actually open.",
+      "A capstone-driven mobile app concept for ages 15–25 designed to expand access to early-psychosis education and self-management. Surfaces age-appropriate psychoeducation, simulations, symptom tracking, and moderated peer/caregiver pathways, building a low-stigma bridge between research-grade interventions and an app a young person will actually open.",
     problem:
       "Adolescence is when most mental-health problems emerge, yet cost, geography, stigma, and time keep youth from timely care. Existing psychosis apps live in research, not app stores, and the few public ones aren't maintained or designed for how teens actually learn.",
     audiences: [
@@ -191,7 +191,7 @@ export const projects = [
       "70%+ recall of three psychosis warning signs after a single 90-second animated module (design target, grounded in adolescent micro-learning research).",
       "2× engagement retention vs. dense clinical content via modular EMA check-ins under 60 seconds (design target).",
       "<3 taps from any screen to a crisis-escalation pathway, validated against safety-by-design heuristics.",
-      "0 unsupervised peer-to-peer surfaces in the architecture — every social touchpoint routes through moderation.",
+      "0 unsupervised peer-to-peer surfaces in the architecture, every social touchpoint routes through moderation.",
       "iOS + Android parity with offline-readable psychoeducation modules so reach isn't gated on connectivity.",
     ],
     methodology: [
@@ -204,17 +204,17 @@ export const projects = [
     ],
     tools: ["Figma", "Miro", "Notion", "Zotero", "Otter", "Claude"],
     designApproach:
-      "Designed around a chasm in the literature: psychosis tools mature in research never reach the consumer market, and the public ones go stale fast. The app was scoped to be co-designed, modular, and updateable — animated explainers and lived-experience narratives to reduce stigma, EMA self-checks tied to clinical scales, in-app crisis escalation, and moderated social pathways with safety controls. Privacy-by-design and clear care handoffs were treated as load-bearing, not optional.",
+      "Designed around a chasm in the literature: psychosis tools mature in research never reach the consumer market, and the public ones go stale fast. The app was scoped to be co-designed, modular, and updateable, animated explainers and lived-experience narratives to reduce stigma, EMA self-checks tied to clinical scales, in-app crisis escalation, and moderated social pathways with safety controls. Privacy-by-design and clear care handoffs were treated as load-bearing, not optional.",
     challenge:
-      "The hardest tension was between evidence rigor and youth-friendly engagement: clinical-grade content tends to be dense and stigmatizing, while engaging youth content can drift from the evidence base. I resolved it by treating each module as a translation layer — clinical scaffolding underneath, age-appropriate framing on top — and by explicitly building safe-by-default escalation paths so the engagement layer never replaces professional care.",
+      "The hardest tension was between evidence rigor and youth-friendly engagement: clinical-grade content tends to be dense and stigmatizing, while engaging youth content can drift from the evidence base. I resolved it by treating each module as a translation layer, clinical scaffolding underneath, age-appropriate framing on top, and by explicitly building safe-by-default escalation paths so the engagement layer never replaces professional care.",
     client: "Dr. Shobham Shah (Faculty Advisor) · Purdue HCI",
     team: ["Solo (individual contributor)"],
     keyLearning:
-      "Designing for youth mental health means accepting that engagement and evidence pull in opposite directions — and the job is to make them load-bearing for each other, not pick one.",
+      "Designing for youth mental health means accepting that engagement and evidence pull in opposite directions, and the job is to make them load-bearing for each other, not pick one.",
   },
   {
     slug: "malli",
-    title: "Malli 2.0 — Toilet Cleaning Robot",
+    title: "Malli 2.0 · Toilet Cleaning Robot",
     company: "Sanitary Health",
     image: null,
     subtitle: "Making Cleaning Happen Without Thinking",
@@ -239,11 +239,11 @@ export const projects = [
     image: null,
     subtitle: "Journey Mapping for Butterflies Changed Everything",
     cardDescription:
-      "Journey mapping for butterflies revealed they use UV light for vision — and that changed the entire product scope.",
+      "Journey mapping for butterflies revealed they use UV light for vision, and that changed the entire product scope.",
     problem:
       "Standard feeders ignore how pollinators actually perceive and navigate to food sources, reducing effectiveness.",
     overview:
-      "A parametric 3D design project using Solidworks. Journey mapping for butterfly vision — specifically UV light perception — fundamentally redirected the product design from aesthetics to sensory science.",
+      "A parametric 3D design project using Solidworks. Journey mapping for butterfly vision, specifically UV light perception, fundamentally redirected the product design from aesthetics to sensory science.",
     outcomes: [
       "UV-informed design language for pollinator products",
       "Parametric model adaptable across feeder sizes",
@@ -259,7 +259,7 @@ export const projects = [
     image: null,
     subtitle: "A Nightlamp That Solves Late-Night Panic",
     cardDescription:
-      "A nightlamp that solves insomnia and late-night panic using light therapy — submitted to CHI 2026.",
+      "A nightlamp that solves insomnia and late-night panic using light therapy, submitted to CHI 2026.",
     problem:
       "Late-night panic and insomnia are worsened by harsh lighting and the absence of calming environmental cues at 2am.",
     overview:
@@ -270,6 +270,6 @@ export const projects = [
       "3D fabricated enclosure designed for bedside use",
     ],
     keyLearning:
-      "Physical prototyping forces design decisions that Figma will never surface — material, weight, and light diffusion all change the experience.",
+      "Physical prototyping forces design decisions that Figma will never surface, material, weight, and light diffusion all change the experience.",
   },
 ];

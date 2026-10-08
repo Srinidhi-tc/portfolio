@@ -9,7 +9,7 @@ export default function CommunityPreview() {
           💛 1 Chapter 1 Day!
         </h2>
         <p className="page-copy" style={{ margin: "0 auto var(--space-xl)" }}>
-          Summaries and key applications on serious design books — delivered
+          Summaries and key applications on serious design books, delivered
           every day on LinkedIn. Let's fight Brain rot together.
         </p>
         <Button to="/community" variant="primary">

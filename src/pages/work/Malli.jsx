@@ -353,7 +353,7 @@ export default function Malli() {
         <SideBySide
           left={{ src: battery, subheading: "Battery supported",
             caption: "An alternative floor-mounted charging configuration explored another way to place the system in the bathroom." }}
-          right={{ src: chargingFloor, subheading: "Charging dock — floor model",
+          right={{ src: chargingFloor, subheading: "Charging dock · floor model",
             caption: "The floor configuration treated charging as part of the product's physical footprint rather than an afterthought." }}
         />
       </section>

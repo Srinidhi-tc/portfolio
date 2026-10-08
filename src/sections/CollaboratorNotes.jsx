@@ -29,7 +29,7 @@ export default function CollaboratorNotes() {
           Notes from collaborators
         </h2>
         <p className="collab-notes-intro">
-          Curated, not crowdsourced — every note here is from someone I've
+          Curated, not crowdsourced, every note here is from someone I've
           actually worked with. If we've collaborated and you'd like to leave
           one, the form is below; I'll review and add yours soon after.
         </p>
@@ -55,7 +55,7 @@ export default function CollaboratorNotes() {
           <h3 className="collab-notes-form-title">Leave a note</h3>
           <p className="collab-notes-form-help">
             We've worked together? Send me a few lines. Notes are reviewed
-            before they appear here, so don't worry about formatting — be
+            before they appear here, so don't worry about formatting, be
             yourself.
           </p>
           <CollaboratorForm />
@@ -128,7 +128,7 @@ function CollaboratorForm() {
   if (status === "success") {
     return (
       <div className="collab-notes-success" role="status">
-        <p className="collab-notes-success-title">Thanks — note received.</p>
+        <p className="collab-notes-success-title">Thanks, note received.</p>
         <p className="collab-notes-success-body">
           I'll review it and add it to this page. Refresh in a few days.
         </p>

@@ -17,7 +17,7 @@ export const playProjects = [
     image: playVrInteriorPoster,
     video: playVrInteriorVideo,
     cardDescription:
-      "Before: Chaos, After: calm—The Beginner's Cost of Managing Design Business Right.",
+      "Before: Chaos, After: calm: The Beginner's Cost of Managing Design Business Right.",
     overview:
       "Portfolio piece showcasing interior design consultancy work with Treta Constructions, a South India-based builder managing 9-10 residential projects annually. Executed eight interior design engagements from May–December 2023, beginning with a single high-impact $2,000 color palette project for a 2-bedroom apartment in Pammal.",
     outcomes: [
@@ -50,7 +50,7 @@ export const playProjects = [
     cardDescription:
       "A 3D-printed anatomical heart that listens to a racing pulse, then answers in colour and calm. CHI 2026.",
     overview:
-      "A sensory design project addressing the anxiety and racing heartbeats experienced by insomnia sufferers through physical prototypes with visual and tactile feedback. Not a medical intervention — creating a space where users feel seen, understood and represented during stress episodes.",
+      "A sensory design project addressing the anxiety and racing heartbeats experienced by insomnia sufferers through physical prototypes with visual and tactile feedback. Not a medical intervention, creating a space where users feel seen, understood and represented during stress episodes.",
     outcomes: [
       "40% faster sleep onset through visualization and safety perception",
       "Recognizable panic reduction during interactions",
@@ -108,7 +108,7 @@ export const playProjects = [
     futureDirections:
       "Testing alternative flower varieties and evaluating performance in diverse, uncontrolled environments like public parks and street settings.",
     keyInsight:
-      "Bio-mimicry requires constant ethical reflection — technology should supplement nature, never replace it.",
+      "Bio-mimicry requires constant ethical reflection, technology should supplement nature, never replace it.",
   },
   {
     slug: "branding",
@@ -148,7 +148,7 @@ export const playProjects = [
     video: playDigitalConfettiVideo,
     cardDescription: "Party's Newest Secret Weapon.",
     overview:
-      "An interactive digital alternative to traditional confetti using projection mapping technology, triggered by motion detection and physical buttons. Traditional confetti takes a toll on environment — the pops fail sometimes, clutter the cake and floor, and is NOT interactive because it lasts less than a second.",
+      "An interactive digital alternative to traditional confetti using projection mapping technology, triggered by motion detection and physical buttons. Traditional confetti takes a toll on environment, the pops fail sometimes, clutter the cake and floor, and is NOT interactive because it lasts less than a second.",
     outcomes: [
       "Zero-waste alternative",
       "Cost savings on décor and materials",

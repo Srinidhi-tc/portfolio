@@ -138,7 +138,7 @@ export default function HeartsOfInsomnia() {
             maxWidth: 600,
           }}
         >
-          CHI 2026 — Interactive Demo
+          CHI 2026 · Interactive Demo
         </p>
 
         <p

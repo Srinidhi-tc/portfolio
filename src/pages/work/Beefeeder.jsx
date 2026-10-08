@@ -359,7 +359,7 @@ function UVInsightCard() {
 function RoleImpact() {
   const items = [
     "Fall 2025 · Purdue University",
-    "Team — Solo project",
+    "Team · Solo project",
     "Designed the flower, feeder geometry, stem, seating disc, and drainage system.",
     "Built and iterated the parametric model, then translated it into 3D-printed prototypes.",
     "Mapped the butterfly experience and translated UV-vision research into the final surface treatment.",

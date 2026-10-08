@@ -27,12 +27,12 @@ const LANES = [
     color: "#4A6FA5",
     items: [
       { id:"psych",    label:"BS PSychology",        sub:"Madras School of Social Work · 2017–2020", from:y(2017),    to:y(2020),    image:null,         note:"Foundation in human behaviour, research methods, and statistics." },
-      { id:"pg",       label:"Counselling PG Diploma",  sub:"University of Madras · 2020–2022",          from:y(2020),    to:y(2022),    image:null,         note:"Applied psychology — qualitative research and empathy frameworks." },
+      { id:"pg",       label:"Counselling PG Diploma",  sub:"University of Madras · 2020–2022",          from:y(2020),    to:y(2022),    image:null,         note:"Applied psychology: qualitative research and empathy frameworks." },
       { id:"gate",     label:"GATE Psychology 2020 · Rank 116", sub:"Milestone · 2020",                          from:y(2020,2),  to:y(2020,3),  image:null,         note:"", marker:true },
       { id:"purdue",   label:"MS UX Design",            sub:"Purdue University · 2024–2026",              from:y(2024,8),  to:y(2026,5),  image:imgPurdue,    note:"TAPD-INTO (NSF), StraboSpot / SGX3, TA × 2 semesters, Capstone." },
       {
         id:    "ta-pm",
-        label: "Graduate TA — Project Management",
+        label: "Graduate TA · Project Management",
         sub:   "Purdue Daniels School of Business · Spring 2025",
         from:  y(2025, 1), to: y(2025, 5),
         image: null,
@@ -40,7 +40,7 @@ const LANES = [
       },
       {
         id:    "ta-db",
-        label: "Graduate TA — Database Management",
+        label: "Graduate TA · Database Management",
         sub:   "Purdue · Spring 2026",
         from:  y(2026, 1), to: y(2026, 5),
         image: null,
@@ -53,19 +53,19 @@ const LANES = [
     color: "#B85C38",
     items: [
       { id:"ionixx",    label:"UX Design Intern",               sub:"Ionixx Technologies · Jan–Jul 2020",  from:y(2020,1),  to:y(2020,7),  image:null,         note:"Fintech & health UX. First professional product design role." },
-      { id:"defenseark",label:"Product Designer",               sub:"DefenseARK / MetaSquare · May 4, 2021–Jun 30, 2023", from:y(2021,4.1), to:y(2023,6), image:imgDefenseArk,note:"Founding design hire. Enigma, Brightscan, Torus — cybersecurity UX." },
-      { id:"microsoft", label:"UX Designer",                    sub:"Microsoft Azure · Fall 2025",          from:y(2025,8),  to:y(2025,12), image:imgMicrosoft, note:"Health Observability Monitor — SRE system redesign." },
+      { id:"defenseark",label:"Product Designer",               sub:"DefenseARK / MetaSquare · May 4, 2021–Jun 30, 2023", from:y(2021,4.1), to:y(2023,6), image:imgDefenseArk,note:"Founding design hire. Enigma, Brightscan, Torus: cybersecurity UX." },
+      { id:"microsoft", label:"UX Designer",                    sub:"Microsoft Azure · Fall 2025",          from:y(2025,8),  to:y(2025,12), image:imgMicrosoft, note:"Health Observability Monitor: SRE system redesign." },
       {
         id:    "sgx3",
-        label: "UX Consultant — SGX3 / StraboSpot",
+        label: "UX Consultant · SGX3 / StraboSpot",
         sub:   "TACC · Fall 2025",
         from:  y(2025, 8), to: y(2025, 12),
         image: imgMicrosoft,
-        note:  "UX consultancy for StraboSpot geospatial platform — 12,000+ geologists. Heuristic eval + expert interviews.",
+        note:  "UX consultancy for StraboSpot geospatial platform: 12,000+ geologists. Heuristic eval + expert interviews.",
       },
       {
         id:    "tapinto",
-        label: "TAPD-INTO — NSF STEM Accessibility",
+        label: "TAPD-INTO · NSF STEM Accessibility",
         sub:   "Purdue · Fall 2024",
         from:  y(2024, 8), to: y(2024, 12),
         image: null,
@@ -84,7 +84,7 @@ const LANES = [
     color: "#8C7A4E",
     items: [
       { id:"freelance", label:"Wedding Invitation Design", sub:"Paid client work · 2019–2020",            from:y(2019),    to:y(2020),    image:null,         note:"Real paid client commissions: wedding invitations that funded my first laptop and phone." },
-      { id:"interior", label:"Interior Design Studio", sub:"Independent · Jul 2023–Jul 2024", from:y(2023,7), to:y(2024,7), image:imgInterior, note:"4 residential projects — floor plan to handover. Real clients, real budgets." },
+      { id:"interior", label:"Interior Design Studio", sub:"Independent · Jul 2023–Jul 2024", from:y(2023,7), to:y(2024,7), image:imgInterior, note:"4 residential projects, floor plan to handover. Real clients, real budgets." },
     ],
   },
 ];
@@ -341,7 +341,7 @@ function ContextSections() {
       <div style={{ marginTop:"clamp(56px, 8vw, 96px)", maxWidth:720 }}>
         <h2 style={h2Style}>Design is more than making things usable.</h2>
         <p style={pStyle}>
-          It means understanding the context around the interaction — and designing accordingly.
+          It means understanding the context around the interaction, and designing accordingly.
         </p>
         <p style={pStyle}>
           My background in psychology and HCI shapes how I approach that work: understand the person, understand the system, then design the interaction between them.
@@ -429,7 +429,7 @@ export default function About() {
                 marginBottom:  20,
                 maxWidth:      "14ch",
               }}>
-                Thoughtful craft
+                sriː.ni.dʰi
               </h1>
               <p style={{
                 fontSize:      "clamp(16px, 1.8vw, 19px)",
@@ -440,12 +440,12 @@ export default function About() {
                 marginBottom:  24,
                 maxWidth:      "52ch",
               }}>
-                sriː.ni.dʰi is a product designer based in San Francisco Bay Area. Previously, worked as a product designer with{" "}
+                I am a product designer based in San Francisco Bay Area. Previously, created products with{" "}
                 <a href="https://www.purdue.edu/" target="_blank" rel="noopener noreferrer" className="contact-link">Purdue University</a>,{" "}
                 <a href="https://sciencegateways.org/" target="_blank" rel="noopener noreferrer" className="contact-link">SGX3</a>,{" "}
                 <a href="https://www.metasquare.com/" target="_blank" rel="noopener noreferrer" className="contact-link">Metasquare Inc</a>, and{" "}
                 <a href="https://www.ionixxtech.com/" target="_blank" rel="noopener noreferrer" className="contact-link">Ionixx</a>.
-                {" "}Before that... studied Psychology and Social Work in India. Focused on finding clarity under ambiguity, a thread of calm in mess, and too much data. Mostly super quiet, shows care through curiosity.
+                {" "}Before that, I studied Psychology and Social Work in India. Focused on finding clarity under ambiguity, a thread of calm in too much data. I work for companies that promotes access and trust. I am super quiet, and show care through curiosity.
               </p>
               <ContactLinks />
             </div>

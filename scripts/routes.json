@@ -23,7 +23,7 @@
     },
     {
       "path": "/about",
-      "title": "About — Srinidhi Chakravarthy",
+      "title": "About · Srinidhi Chakravarthy",
       "description": "I started in psychology, pivoted to design. Both ask the same question: how could I give someone more agency? Master's in UX from Purdue.",
       "og": "about",
       "eyebrow": "ABOUT",
@@ -31,7 +31,7 @@
     },
     {
       "path": "/work/microsoft",
-      "title": "Azure Alerts — Microsoft Azure",
+      "title": "Azure Alerts · Microsoft Azure",
       "description": "Improving system health status by reducing the time it takes to make decisions. Cut detection time ~25% for SRE incident response.",
       "og": "microsoft",
       "eyebrow": "MICROSOFT AZURE",
@@ -39,7 +39,7 @@
     },
     {
       "path": "/work/ai-coding",
-      "title": "AI Coding Tutor — SGX3",
+      "title": "AI Coding Tutor · SGX3",
       "description": "How we boosted noticeability and traffic in an existing AI coding-interview tool for a CS course at Purdue.",
       "og": "ai-coding",
       "eyebrow": "SGX3",
@@ -47,7 +47,7 @@
     },
     {
       "path": "/work/strabospot",
-      "title": "StraboSpot — GIS Data — Srinidhi Chakravarthy",
+      "title": "StraboSpot · GIS Data · Srinidhi Chakravarthy",
       "description": "UX secrets to making geo-data feel human again: increasing intuitive use through heuristic analysis and interviews.",
       "og": "strabospot",
       "eyebrow": "SCIENTIFIC SOFTWARE",
@@ -55,7 +55,7 @@
     },
     {
       "path": "/work/psychosis-literacy",
-      "title": "Psychosis Psychoeducation App — Srinidhi Chakravarthy",
+      "title": "Psychosis Psychoeducation App · Srinidhi Chakravarthy",
       "description": "A youth-first mobile companion (ages 15–25) for early-psychosis education, EMA self-checks, and safe peer/caregiver pathways.",
       "og": "psychosis-literacy",
       "eyebrow": "HEALTH · CAPSTONE",
@@ -63,7 +63,7 @@
     },
     {
       "path": "/work/malli",
-      "title": "Malli 2.0 — Toilet Cleaning Robot",
+      "title": "Malli 2.0 · Toilet Cleaning Robot",
       "description": "Analyzing the cleaning ritual as a chore and making it happen without thinking, to increase accessibility to a clean toilet.",
       "og": "malli",
       "eyebrow": "PRODUCT DESIGN",
@@ -72,7 +72,7 @@
     {
       "path": "/work/bee-feeder",
       "title": "Butterfly Feeder",
-      "description": "Journey mapping for butterflies revealed they use UV light for vision — and that changed the entire product scope.",
+      "description": "Journey mapping for butterflies revealed they use UV light for vision, and that changed the entire product scope.",
       "og": "bee-feeder",
       "eyebrow": "PARAMETRIC DESIGN",
       "source": "src/assets/flowerfinal1.png"
@@ -80,7 +80,7 @@
     {
       "path": "/work/hearts-of-insomnia",
       "title": "Heart of Insomnia",
-      "description": "A nightlamp that solves insomnia and late-night panic using light therapy — submitted to CHI 2026.",
+      "description": "A nightlamp that solves insomnia and late-night panic using light therapy, submitted to CHI 2026.",
       "og": "hearts-of-insomnia",
       "eyebrow": "PHYSICAL COMPUTING",
       "source": "src/assets/heart1.png"

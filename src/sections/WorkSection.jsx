@@ -185,17 +185,8 @@ export default function WorkSection() {
           </div>
         </div>
 
-        <section className="home-lens" aria-labelledby="home-lens-heading">
-          <h2 id="home-lens-heading" className="home-section-label">What I pay attention to</h2>
-          <p className="home-lens__list">Time · Attention · Emotion · Environment · Access · Trust</p>
-          <h3 className="home-lens__title">Design is more than making things usable.</h3>
-          <p className="home-lens__body">
-            I’m interested in what happens when time, attention, emotion, environment, access, or trust changes the way someone experiences a product.
-          </p>
-          <Link to="/about" className="home-lens__link">More about me →</Link>
-        </section>
-
-        {/* Toggle sits AFTER the grid — sticky bottom */}
+        {/* Toggle sits right after the grid: it sticks to the bottom of the screen
+            while the cards scroll, then stops here, above the lens section. */}
         <div className="work-section-sticky">
           <div
             className="work-section-process"
@@ -234,6 +225,16 @@ export default function WorkSection() {
             </div>
           </div>
         </div>
+
+        <section className="home-lens" aria-labelledby="home-lens-heading">
+          <h2 id="home-lens-heading" className="home-section-label">What I pay attention to</h2>
+          <p className="home-lens__list">Time · Attention · Emotion · Environment · Access · Trust</p>
+          <h3 className="home-lens__title">Design is more than making things usable.</h3>
+          <p className="home-lens__body">
+            I’m interested in what happens when time, attention, emotion, environment, access, or trust changes the way someone experiences a product.
+          </p>
+          <Link to="/about" className="home-lens__link">More about me →</Link>
+        </section>
 
       </div>
     </section>

@@ -8,36 +8,6 @@ import { workSectionProjects, workSectionViews } from "../data/workSectionProjec
 const PANEL_ID = "work-section-panel";
 const CONTENT_EASE = "cubic-bezier(0.25, 0.1, 0.25, 1)";
 
-// Museum / city observation photographs that interrupt the grid. Keyed by the
-// number of project cards that come before each one. Drop the real files into
-// public/assets/ and they replace the placeholders; the titles are placeholders.
-const OBSERVATIONS = {
-  2: { file: "muse1.png", title: "Observation 01 · Museum (placeholder title)", side: "left" },
-  6: { file: "muse2.png", title: "Observation 02 · City (placeholder title)", side: "right" },
-};
-
-function Observation({ file, title, side }) {
-  const [missing, setMissing] = useState(false);
-  return (
-    <figure className={`work-observation work-observation--${side}`}>
-      <div className="work-observation-frame">
-        {missing ? (
-          <span className="work-observation-placeholder">/assets/{file}</span>
-        ) : (
-          <img
-            src={`${import.meta.env.BASE_URL}assets/${file}`}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            onError={() => setMissing(true)}
-          />
-        )}
-      </div>
-      <figcaption className="work-observation-caption">{title}</figcaption>
-    </figure>
-  );
-}
-
 // Turns each product name in the copy into a link to its site.
 function linkSites(text, sites = []) {
   if (!sites.length) return text;
@@ -185,7 +155,6 @@ export default function WorkSection() {
               const cardClass = "work-section-card work-section-card--surface" + (sectionRevealed ? " work-section-card--in" : "");
               const style = { "--stagger": String(i) };
 
-              const observation = OBSERVATIONS[i + 1];
               let card;
               if (project.sites) {
                 // Website links can't nest inside the card's own link, so the
@@ -211,12 +180,7 @@ export default function WorkSection() {
                 card = <article className={cardClass} style={style}>{body}</article>;
               }
 
-              return (
-                <Fragment key={project.id}>
-                  {card}
-                  {observation && <Observation {...observation} />}
-                </Fragment>
-              );
+              return <Fragment key={project.id}>{card}</Fragment>;
             })}
           </div>
         </div>

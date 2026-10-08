@@ -135,7 +135,7 @@ export const workSectionProjects = [
       problem: { subheading: "Design through launch", body: "Requirements, Figma system, design handover, build with engineers, launch. I built and followed brand coherence with three different products: Brightscan, Torus and Enigma." },
       decisions: { subheading: "Researched hackers' methods", body: "Studied 65 different types of persuasive tactics, so the core of the products stays strong at clients' emotional moments." },
       tradeoffs: { subheading: "Marketing came late", body: "Learnt later that the marketing team determines a lot of success in product launches. I couldn't collaborate heavily with marketing leads." },
-      impact: { subheading: "2x growth", body: "2x growth, to 7.6 million USD." },
+      impact: { subheading: "2x growth", body: "2x growth, to 7.3 million USD." },
     },
   },
 ];

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import ContactLinks from "../ui/ContactLinks";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -9,35 +9,11 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-left">
-          <p className="footer-title">Srinidhi Chakravarthy · UX Portfolio</p>
-          <p className="footer-text">
-            Because context changes what good design means.
-          </p>
+          <p className="footer-title">What is your AI tool for vibe-coding design systems?</p>
+          <ContactLinks className="footer-contact" />
           <p className="footer-text">© {new Date().getFullYear()} Srinidhi Chakravarthy. All rights reserved.</p>
         </div>
         <div className="footer-links">
-          <a
-            href="https://www.linkedin.com/in/srinidhi-chakravarthy/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-          >
-            LinkedIn
-          </a>
-          <a href="mailto:srinidhi.saas@gmail.com" className="footer-link">
-            Email
-          </a>
-          <a
-            href="https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-          >
-            Resume
-          </a>
-          {/* <Link to="/community" className="footer-link">
-            Community
-          </Link> */}
           <button
             onClick={scrollToTop}
             className="footer-link"

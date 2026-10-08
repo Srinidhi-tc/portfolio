@@ -324,6 +324,21 @@ export default function PsychosisLiteracy() {
         </div>
       </Section>
 
+      {/* 09 VISUAL RESEARCH — slots held open for images and research material
+          to be added later. Swap each slot for a <Slide src={...} /> when ready. */}
+      <Section
+        number="Visual research"
+        title="Images and visual research material."
+      >
+        <div className="cap-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          {["Image to come", "Image to come", "Visual research material to come", "Visual research material to come"].map((slot, i) => (
+            <div key={i} style={{ aspectRatio: "4 / 3", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--surface-2)" }}>
+              <span style={{ ...label, fontSize: 10 }}>{slot}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <ChapterToggle />
 
       <style>{`

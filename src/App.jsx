@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import PageShell from "./components/layout/PageShell";
 import Work from "./pages/Work";
-import Play from "./pages/Play";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Microsoft from "./pages/work/Microsoft";
@@ -27,7 +26,6 @@ export default function App() {
         <Route path="/work/bee-feeder" element={<BeeFeeder />} />
         <Route path="/work/hearts-of-insomnia" element={<HeartsOfInsomnia />} />
         <Route path="/work/defenseark" element={<DefenseArk />} />
-        <Route path="/play" element={<Play />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>

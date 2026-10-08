@@ -2,10 +2,10 @@
 import { NavLink } from "react-router-dom";
 import TennisBall from "../ui/TennisBall";
 import ThemeToggle from "../ui/ThemeToggle";
+import SFClock from "../ui/SFClock";
 
 const navItems = [
   { label: "Work",  to: "/work"  },
-  { label: "Play",  to: "/play"  },
   { label: "About", to: "/about" },
 ];
 
@@ -37,6 +37,7 @@ export default function Navbar() {
           {/* Tennis ball — throws to the dog on click */}
           <TennisBall />
         </nav>
+        <SFClock />
       </div>
     </header>
   );

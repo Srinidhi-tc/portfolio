@@ -30,16 +30,8 @@
       "source": "src/assets/profile(animated).webp"
     },
     {
-      "path": "/play",
-      "title": "Play — Srinidhi Chakravarthy",
-      "description": "Side projects and experiments: physical computing, VR interiors, parametric fabrication, and generative visuals.",
-      "og": "play",
-      "eyebrow": "PLAY",
-      "source": "src/assets/p1.webp"
-    },
-    {
       "path": "/work/microsoft",
-      "title": "Health Observability Monitor — Microsoft Azure",
+      "title": "Azure Alerts — Microsoft Azure",
       "description": "Improving system health status by reducing the time it takes to make decisions. Cut detection time ~25% for SRE incident response.",
       "og": "microsoft",
       "eyebrow": "MICROSOFT AZURE",
@@ -47,10 +39,10 @@
     },
     {
       "path": "/work/ai-coding",
-      "title": "AI Coding Interviewer — Purdue CS",
+      "title": "AI Coding Tutor — SGX3",
       "description": "How we boosted noticeability and traffic in an existing AI coding-interview tool for a CS course at Purdue.",
       "og": "ai-coding",
-      "eyebrow": "PURDUE CS",
+      "eyebrow": "SGX3",
       "source": "src/assets/work-ai-coding.webp"
     },
     {
@@ -79,7 +71,7 @@
     },
     {
       "path": "/work/bee-feeder",
-      "title": "Bee Feeder — Parametric 3D Design",
+      "title": "Butterfly Feeder",
       "description": "Journey mapping for butterflies revealed they use UV light for vision — and that changed the entire product scope.",
       "og": "bee-feeder",
       "eyebrow": "PARAMETRIC DESIGN",
@@ -87,7 +79,7 @@
     },
     {
       "path": "/work/hearts-of-insomnia",
-      "title": "Hearts of Insomnia — CHI 2026",
+      "title": "Heart of Insomnia",
       "description": "A nightlamp that solves insomnia and late-night panic using light therapy — submitted to CHI 2026.",
       "og": "hearts-of-insomnia",
       "eyebrow": "PHYSICAL COMPUTING",

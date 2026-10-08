@@ -32,7 +32,7 @@ export const projects = [
   },
   {
     slug: "microsoft",
-    title: "Health Observability Monitor",
+    title: "Azure Alerts",
     company: "Microsoft Azure",
     image: workMicrosoft,
     subtitle: "System Health Observability for Azure SREs",
@@ -88,8 +88,8 @@ export const projects = [
   },
   {
     slug: "ai-coding",
-    title: "AI Coding Interviewer",
-    company: "Purdue CS",
+    title: "AI Coding Tutor",
+    company: "SGX3",
     image: workAiCoding,
     subtitle:
       "Boosting Noticeability and Traffic in an Existing AI Coding Interview Tool",
@@ -234,7 +234,7 @@ export const projects = [
   },
   {
     slug: "bee-feeder",
-    title: "Bee Feeder — Parametric 3D Design",
+    title: "Butterfly Feeder",
     company: "Solidworks",
     image: null,
     subtitle: "Journey Mapping for Butterflies Changed Everything",
@@ -254,7 +254,7 @@ export const projects = [
   },
   {
     slug: "hearts-of-insomnia",
-    title: "CHI 2026 — Hearts of Insomnia",
+    title: "Heart of Insomnia",
     company: "Arduino · 3D Fabrication",
     image: null,
     subtitle: "A Nightlamp That Solves Late-Night Panic",

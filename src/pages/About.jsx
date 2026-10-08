@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import ProfilePhoto from "../components/ui/ProfilePhoto";
+import ContactLinks from "../components/ui/ContactLinks";
+import { RESUME_URL } from "../data/links";
 // import CollaboratorNotes from "../sections/CollaboratorNotes"; // re-enable at 3+ notes
 
 import imgDefenseArk from "../assets/ransomwaremain.png";
@@ -385,7 +387,7 @@ function ContextSections() {
           <span aria-hidden="true">·</span>
           <Link to="/work" style={linkStyle}>Portfolio</Link>
           <span aria-hidden="true">·</span>
-          <a href="https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" style={linkStyle}>Resume</a>
+          <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={linkStyle}>Resume</a>
         </p>
       </div>
 
@@ -406,6 +408,38 @@ function ContextSections() {
         🌻 Grateful to the mentors, professors, seniors, researchers, family, friends, and teammates who have challenged me, supported me, and helped me grow.
       </div>
     </>
+  );
+}
+
+// ── Experience / Education ───────────────────────────────────────────────────
+// Dates, titles and organizations as written on the resume.
+const EXPERIENCE = [
+  ["Aug 2024 – May 2026", "Product Design Associate",                 "Purdue University"],
+  ["Aug 2025 – Dec 2025", "UX / Product Design Consultant",           "SGX3 Science Gateways"],
+  ["Dec 2024 – May 2025", "Accessibility Design Project Coordinator", "TAPD-INTO STEM NSF"],
+  ["May 2021 – Jun 2023", "Product Designer, Individual Contributor", "Metasquare, DefenseARK Cybersecurity"],
+  ["Jan 2020 – Jul 2020", "UX Design Intern",                         "Ionixx Technologies"],
+];
+const EDUCATION = [
+  ["Aug 2024 – May 2026", "MS Computer Graphics Technology",             "Purdue University"],
+  ["May 2020 – May 2022", "PG Diploma, Counselling Special User Groups", "University of Madras"],
+  ["Aug 2017 – May 2020", "BS Human Psychology",                         "Madras School of Social Work"],
+];
+
+function RecordList({ heading, rows }) {
+  return (
+    <div style={{ marginTop:"clamp(40px, 6vw, 72px)", maxWidth:720 }}>
+      <h2 style={{ ...h2Style, fontSize:"clamp(18px, 2.2vw, 22px)", marginBottom:12 }}>{heading}</h2>
+      <ul className="about-records">
+        {rows.map(([dates, title, org]) => (
+          <li key={dates + title}>
+            <span>{dates}</span>
+            <span className="about-records__title">{title}</span>
+            <span>{org}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -446,28 +480,14 @@ export default function About() {
                 marginBottom:  24,
                 maxWidth:      "52ch",
               }}>
-                I started in psychology and ended up in design because both ask the same
-                question — How could I make someone's life better? That instinct led me
-                from India to Purdue, through cybersecurity, interiors, health tech, and
-                physical products.
+                sriː.ni.dʰi is a product designer based in San Francisco Bay Area. Previously, worked as a product designer with{" "}
+                <a href="https://www.purdue.edu/" target="_blank" rel="noopener noreferrer" className="contact-link">Purdue University</a>,{" "}
+                <a href="https://sciencegateways.org/" target="_blank" rel="noopener noreferrer" className="contact-link">SGX3</a>,{" "}
+                <a href="https://www.metasquare.com/" target="_blank" rel="noopener noreferrer" className="contact-link">Metasquare Inc</a>, and{" "}
+                <a href="https://www.ionixxtech.com/" target="_blank" rel="noopener noreferrer" className="contact-link">Ionixx</a>.
+                {" "}Before that... studied Psychology and Social Work in India. Focused on finding clarity under ambiguity, a thread of calm in mess, and too much data. Mostly super quiet, shows care through curiosity.
               </p>
-              <div style={{ display:"flex", gap:20, flexWrap:"wrap" }}>
-                {[
-                  { label:"Email",    href:"mailto:srinidhi.saas@gmail.com" },
-                  { label:"LinkedIn", href:"https://www.linkedin.com/in/srinidhi-chakravarthy/" },
-                  { label:"Resume",   href:"https://drive.google.com/file/d/1sBEfmG5NuvbsdsR2yeGe1cvHGMtACWOJ/view?usp=sharing" },
-                ].map(({ label, href }) => (
-                  <a key={label} href={href}
-                     target={label !== "Email" ? "_blank" : undefined}
-                     rel="noopener noreferrer"
-                     style={{ fontSize:13, fontWeight:500, color:"#0055B3",
-                              textDecoration:"none", display:"flex", alignItems:"center", gap:3 }}
-                     onMouseEnter={e => e.currentTarget.style.opacity="0.7"}
-                     onMouseLeave={e => e.currentTarget.style.opacity="1"}>
-                    {label} ↗
-                  </a>
-                ))}
-              </div>
+              <ContactLinks />
             </div>
           </div>
 
@@ -483,6 +503,9 @@ export default function About() {
             </p>
             <GanttChart />
           </div>
+
+          <RecordList heading="Experience" rows={EXPERIENCE} />
+          <RecordList heading="Education" rows={EDUCATION} />
 
           <ContextSections />
 

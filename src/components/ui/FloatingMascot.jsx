@@ -27,10 +27,6 @@ const PAGE_MESSAGES = {
     greeting: "Three case studies. Pick any.",
     messages: ["Each one has the full process.", "Look for the outcomes section.", "Microsoft's my favorite."],
   },
-  "/play": {
-    greeting: "Side projects. The fun stuff.",
-    messages: ["Curiosity says a lot about a designer.", "She tinkers with hardware too.", "Play is research in disguise."],
-  },
   "/about": {
     greeting: "The short version of Sri.",
     messages: ["Psychology background. It shows.", "Calm. Thoughtful. Ships things."],

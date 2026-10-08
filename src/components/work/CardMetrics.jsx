@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 // Edit the metric values here. Keys are project ids from workSectionProjects.
-//   time:    pill in the card's top-right corner
 //   metrics: big bold number with a small caption underneath, beside the title.
 //            More than one entry crossfades every `rotateMs`.
 // `accent` is a matte pastel taken from the card's thumbnail.
@@ -9,7 +8,6 @@ import { useEffect, useState } from "react";
 const METRICS = {
   defenseark: {
     accent: "#a08cf2",
-    time: { text: "2 yrs", label: "2 years" },
     metrics: [{ value: "3", caption: "Products", label: "3 products" }],
   },
   "psychosis-literacy": {
@@ -30,7 +28,6 @@ const METRICS = {
   },
   "ai-coding": {
     accent: "#f5b27a",
-    time: { text: "5 Months", label: "5 months" },
     metrics: [
       { value: "5", caption: "User Flows", label: "5 user flows" },
       { value: "10+", caption: "UX Audits", label: "10 or more UX audits" },
@@ -113,15 +110,4 @@ export function CardMetricInline({ id }) {
   const m = METRICS[id];
   if (!m?.metrics) return null;
   return <Metric metrics={m.metrics} accent={m.accent} rotateMs={m.rotateMs} />;
-}
-
-// Time spans use the existing pill style, in the card's top-right corner.
-export function CardTimePill({ id }) {
-  const t = METRICS[id]?.time;
-  if (!t) return null;
-  return (
-    <span className="tag work-section-time-pill" role="img" aria-label={t.label}>
-      <span aria-hidden="true">{t.text}</span>
-    </span>
-  );
 }

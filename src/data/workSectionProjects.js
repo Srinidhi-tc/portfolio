@@ -11,10 +11,11 @@ export const workSectionProjects = [
   {
     id: "microsoft",
     brand: "Microsoft Azure",
-    title: "Azure Health UX",
+    name: "Azure Alerts",
+    title: "Making Azure alerts easier to act on",
     image: workMicrosoft,
     to: "/work/microsoft",
-        tags: ["Enterprise AI", "Cross-functional lead", "LLM Prompt Design", "API Dashboards", "Decision User Flows"],
+    tags: ["Enterprise AI", "Cross-functional lead"],
     states: {
       problem: { subheading: "Low visibility", body: "Engineers needed 4–5 steps to detect failures, increasing latency in SRE system health monitoring." },
       decisions: { subheading: "Signal clarity", body: "Introduced radial indicators and prioritized degraded signals aligned with SRE mental models." },
@@ -24,11 +25,13 @@ export const workSectionProjects = [
   },
   {
     id: "ai-coding",
-    brand: "Purdue CS",
-    title: "AI Coding Interviewer",
+    brand: "SGX3",
+    date: "Aug 2025 – Dec 2025",
+    name: "AI Coding Tutor",
+    title: "Helping beginners know what to do next",
     image: workAiCoding,
     to: "/work/ai-coding",
-        tags: ["Conversation Design", "Summarisation UX", "Human-in-the loop", "Heuristic Evaluation", "Visual Design"],
+    tags: ["Conversation Design", "Summarisation UX"],
     states: {
       problem: { subheading: "Hidden capabilities", body: "Poor UX hid what the AI could do, so adoption stayed low and students never leveraged the coding-interview tool's full potential." },
       decisions: { subheading: "Heuristic-led redesign", body: "Grounded changes in heuristic evaluation and comparative analysis, adding guided onboarding and structured responses to clarify system behavior." },
@@ -39,10 +42,11 @@ export const workSectionProjects = [
   {
     id: "strabospot",
     brand: "SGX3 · UX Consulting",
+    date: "Aug 2025 – Dec 2025",
     title: "StraboSpot · GIS Data",
     image: workStrabospot,
     to: "/work/strabospot",
-    tags: ["UX Audit", "Nielsen Heuristics", "User Interviews", "Task Analysis", "Design Recommendations"],
+    tags: ["UX Audit", "Nielsen Heuristics"],
     states: {
       problem: { subheading: "Search was hard to scan", body: "Dense results, competing controls, and unclear links between results and the map made scientific search hard to scan, compare, and trust." },
       decisions: { subheading: "Search as the hero", body: "Made search the hero feature, with maps and images as first-class navigation and clearer filters." },
@@ -53,10 +57,11 @@ export const workSectionProjects = [
   {
     id: "hearts-of-insomnia",
     brand: "Arduino · 3D Fabrication",
-    title: "CHI 2026 · Hearts of Insomnia",
+    name: "Heart of Insomnia",
+    title: "When a lamp becomes a quiet companion",
     image: workHeartsOfInsomnia,
     to: "/work/hearts-of-insomnia",
-    tags: ["Healthcare UX", "Prototype", "hardware Product Design", "3D Tools, Blender"],
+    tags: ["Healthcare UX", "Prototype"],
     states: {
       problem: { subheading: "2am panic has no solution", body: "Late-night panic and insomnia are worsened by harsh lighting and the absence of calming environmental cues." },
       decisions: { subheading: "Light therapy lamp", body: "Combined Arduino, 3D fabrication, and circadian rhythm research to modulate colour temperature by time of night." },
@@ -70,7 +75,7 @@ export const workSectionProjects = [
     title: "Malli 2.0 · Toilet Cleaning Device",
     image: workMalli,
     to: "/work/malli",
-    tags: ["Robotic-UX", "High-Fidelity Prototype", "Individual Contributor", "Accessibility Standards"],
+    tags: ["Robotic-UX", "High-Fidelity Prototype"],
     states: {
       problem: { subheading: "Cleaning gets avoided", body: "Toilet cleaning is skipped due to disgust and effort, the challenge was making it happen without a conscious decision." },
       decisions: { subheading: "Habit by design", body: "Applied behavioral economics to embed cleaning into existing rituals, removing the moment of choice entirely." },
@@ -81,11 +86,12 @@ export const workSectionProjects = [
   {
     id: "bee-feeder",
     brand: "Solidworks · Blender",
-    title: "Bee Feeder · Parametric 3D Design",
+    name: "Butterfly Feeder",
+    title: "Designing for the moment before a butterfly lands",
     image: workBeeFeeder,
     imageLabel: "Bee Feeder",
     to: "/work/bee-feeder",
-    tags: ["Eco-friendly", "Parametric Design Iteration", "Usability Testing Principles", "Data Analytics", "Journey maps"],
+    tags: ["Eco-friendly", "Parametric Design Iteration"],
     states: {
       problem: { subheading: "Feeders ignore vision", body: "Standard feeders ignore how pollinators perceive the world, butterflies navigate using UV light, not visible colour." },
       decisions: { subheading: "UV-led redesign", body: "Journey mapping for butterfly vision revealed UV light as the primary wayfinding signal, redirecting the entire product scope." },
@@ -96,11 +102,12 @@ export const workSectionProjects = [
   {
     id: "psychosis-literacy",
     brand: "Purdue Capstone",
+    date: "2024–2026",
     title: "Psychosis Psychoeducation App",
     image: workPsychosis,
     imageLabel: "Capstone",
     to: "/work/psychosis-literacy",
-        tags: ["Health UX", "Motion UI", "Information Architecture", "Human Computer Interaction", "Psychology"],
+    tags: ["Health UX", "Motion UI"],
     states: {
       problem: { subheading: "Care doesn't reach youth", body: "Cost, stigma, and time keep teens from timely psychosis care; existing tools live in research, not app stores." },
       decisions: { subheading: "Modular & co-designed", body: "Animated explainers, EMA self-checks, moderated peer pathways, content designed to be updateable and youth-led." },
@@ -111,16 +118,24 @@ export const workSectionProjects = [
   {
     id: "defenseark",
     brand: "DefenseARK",
+    date: "May 2021 – Jun 2023",
     title: "Ransomware Portal",
     image: workDefenseArk,
     imageLabel: "DefenseARK",
     to: "/work/defenseark",
-        tags: ["B2B Enterprise Cybersecurity", "Founding design Hire", "0-to-1 Product", "Design Systems", "Ships with Engineers"],
+    tags: ["B2B Enterprise Cybersecurity", "Founding design Hire"],
+    // Official product sites: text links on the thumbnail card, and wherever
+    // a product name appears in the card copy.
+    sites: [
+      { label: "Brightscan", href: "https://www.defenseark.com/products/brightscan/" },
+      { label: "Torus", href: "https://www.defenseark.com/products/torus/" },
+      { label: "Enigma", href: "https://enigma.defenseark.com/en" },
+    ],
     states: {
       problem: { subheading: "Under NDA", body: "This project is protected under a non-disclosure agreement. Case study details are available upon request." },
       decisions: { subheading: "Under NDA", body: "This project is protected under a non-disclosure agreement. Case study details are available upon request." },
       tradeoffs: { subheading: "Under NDA", body: "This project is protected under a non-disclosure agreement. Case study details are available upon request." },
-      impact: { subheading: "Under NDA", body: "This project is protected under a non-disclosure agreement. Case study details are available upon request." },
+      impact: { subheading: "Design through launch", body: "Requirements, Figma system, design handover, build with engineers, launch. I built and followed brand coherence with three different products: Brightscan, Torus and Enigma." },
     },
   },
 ];

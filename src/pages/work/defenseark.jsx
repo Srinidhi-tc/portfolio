@@ -239,6 +239,21 @@ export default function DefenseArk() {
           I led design from May 4, 2021 to June 30, 2023. Every design choice had a business question behind it:
           will this bring in a B2B client, and will it help us keep them?
         </P>
+        <p style={{ ...lbl, margin:"8px 0 12px" }}>From design to launch</p>
+        <ol style={{ margin:"0 0 16px", paddingLeft:22, maxWidth:680 }}>
+          {[
+            "Requirements: PRDs agreed with the founders and engineers before anything was built.",
+            "Design: Figma variables and component libraries, high-fidelity mockups.",
+            "Handover: I owned the design handover for Enigma.",
+            "Build: weekly work with the product manager and full-stack engineers, shipped as React and CSS.",
+          ].map((step) => (
+            <li key={step} style={{ fontSize:16, color:"var(--muted)", lineHeight:1.6, marginBottom:6 }}>{step}</li>
+          ))}
+          <li style={{ fontSize:16, color:"var(--muted)", lineHeight:1.6 }}>
+            Launch: Enigma went live, and it still is.{" "}
+            <a href="https://enigma.defenseark.com/en" target="_blank" rel="noopener noreferrer" className="contact-link">enigma.defenseark.com</a>
+          </li>
+        </ol>
         <PullLine>I am delighted to share that DefenseARK has grown to $7.3 million in revenue in 2026.</PullLine>
         <p style={{ ...lbl, margin:"8px 0 0" }}>Wins</p>
         <Cards cols={2} items={[

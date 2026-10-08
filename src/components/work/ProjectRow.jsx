@@ -60,11 +60,11 @@ export default function ProjectRow() {
                     <Link
                       to={project.to}
                       className="project-row-link"
-                      aria-label={`${project.title} project`}
+                      aria-label={`${project.name ?? project.title} project`}
                     >
                       <img
                         src={item.image}
-                        alt={`${project.title} project`}
+                        alt={`${project.name ?? project.title} project`}
                         className="project-row-img"
                         loading="lazy"
                         decoding="async"

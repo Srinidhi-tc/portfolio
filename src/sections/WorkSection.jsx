@@ -1,12 +1,67 @@
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../components/ui/SectionTitle";
 import ProjectRow from "../components/work/ProjectRow";
-import { CardTimePill, CardMetricInline } from "../components/work/CardMetrics";
+import { CardMetricInline } from "../components/work/CardMetrics";
 import { workSectionProjects, workSectionViews } from "../data/workSectionProjects";
 
 const PANEL_ID = "work-section-panel";
 const CONTENT_EASE = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+
+// Museum / city observation photographs that interrupt the grid. Keyed by the
+// number of project cards that come before each one. Drop the real files into
+// public/assets/ and they replace the placeholders; the titles are placeholders.
+const OBSERVATIONS = {
+  2: { file: "muse1.png", title: "Observation 01 · Museum (placeholder title)", side: "left" },
+  6: { file: "muse2.png", title: "Observation 02 · City (placeholder title)", side: "right" },
+};
+
+function Observation({ file, title, side }) {
+  const [missing, setMissing] = useState(false);
+  return (
+    <figure className={`work-observation work-observation--${side}`}>
+      <div className="work-observation-frame">
+        {missing ? (
+          <span className="work-observation-placeholder">/assets/{file}</span>
+        ) : (
+          <img
+            src={`${import.meta.env.BASE_URL}assets/${file}`}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            onError={() => setMissing(true)}
+          />
+        )}
+      </div>
+      <figcaption className="work-observation-caption">{title}</figcaption>
+    </figure>
+  );
+}
+
+// Turns each product name in the copy into a link to its site.
+function linkSites(text, sites = []) {
+  if (!sites.length) return text;
+  const parts = text.split(new RegExp(`(${sites.map((s) => s.label).join("|")})`));
+  return parts.map((part, i) => {
+    const site = sites.find((s) => s.label === part);
+    if (!site) return part;
+    return (
+      <a key={i} href={site.href} target="_blank" rel="noopener noreferrer" className="work-section-site">
+        {part}
+      </a>
+    );
+  });
+}
+
+function GlobeIcon() {
+  return (
+    <svg className="work-section-site-icon" viewBox="0 0 16 16" width="11" height="11" fill="none"
+         stroke="currentColor" strokeWidth="1.1" aria-hidden="true">
+      <circle cx="8" cy="8" r="6.4" />
+      <path d="M1.6 8h12.8M8 1.6c2 1.9 2 10.9 0 12.8M8 1.6c-2 1.9-2 10.9 0 12.8" />
+    </svg>
+  );
+}
 
 export default function WorkSection() {
   const [view, setView] = useState("problem");
@@ -105,10 +160,11 @@ export default function WorkSection() {
 
               const body = (
                 <>
-                  <CardTimePill id={project.id} />
                   {media}
                   <div className="work-section-card-copy">
-                    <p className="work-section-brand">{project.brand}</p>
+                    <p className="work-section-meta">
+                      {[project.name, project.brand, project.date].filter(Boolean).join(" · ")}
+                    </p>
                     <div className="work-section-head">
                       <h3 className="work-section-title">{project.title}</h3>
                       {project.tags && project.tags.length > 0 && (
@@ -120,7 +176,7 @@ export default function WorkSection() {
                     </div>
                     <div key={view} className="work-section-card-body" style={{ transitionTimingFunction: CONTENT_EASE }}>
                       <p className="work-section-subheading">{copy.subheading}</p>
-                      <p className="work-section-body">{copy.body}</p>
+                      <p className="work-section-body">{linkSites(copy.body, project.sites)}</p>
                     </div>
                   </div>
                 </>
@@ -129,10 +185,38 @@ export default function WorkSection() {
               const cardClass = "work-section-card work-section-card--surface" + (sectionRevealed ? " work-section-card--in" : "");
               const style = { "--stagger": String(i) };
 
-              if (project.to) {
-                return <Link key={project.id} to={project.to} className={cardClass} style={style}>{body}</Link>;
+              const observation = OBSERVATIONS[i + 1];
+              let card;
+              if (project.sites) {
+                // Website links can't nest inside the card's own link, so the
+                // card becomes an article and the case-study link is stretched
+                // over it, underneath the website links.
+                card = (
+                  <article className={cardClass} style={style}>
+                    <Link to={project.to} className="work-section-card-link" aria-label={`${project.title} case study`} />
+                    {body}
+                    <p className="work-section-sites">
+                      {project.sites.map((site) => (
+                        <a key={site.label} href={site.href} target="_blank" rel="noopener noreferrer" className="work-section-site">
+                          <GlobeIcon />
+                          {site.label}
+                        </a>
+                      ))}
+                    </p>
+                  </article>
+                );
+              } else if (project.to) {
+                card = <Link to={project.to} className={cardClass} style={style}>{body}</Link>;
+              } else {
+                card = <article className={cardClass} style={style}>{body}</article>;
               }
-              return <article key={project.id} className={cardClass} style={style}>{body}</article>;
+
+              return (
+                <Fragment key={project.id}>
+                  {card}
+                  {observation && <Observation {...observation} />}
+                </Fragment>
+              );
             })}
           </div>
         </div>

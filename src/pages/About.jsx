@@ -372,13 +372,14 @@ function ContextSections() {
 }
 
 // ── Experience / Education ───────────────────────────────────────────────────
-// Dates, titles and organizations as written on the resume.
+// Dates, titles and organizations as written on the resume. An optional fourth
+// value links the organization to its website.
 const EXPERIENCE = [
   ["Aug 2024 – May 2026", "Product Design Associate",                 "Purdue University"],
-  ["Aug 2025 – Dec 2025", "UX / Product Design Consultant",           "SGX3 Science Gateways"],
+  ["Aug 2025 – Dec 2025", "UX / Product Design Consultant",           "SGX3 Science Gateways", "https://sciencegateways.org/"],
   ["Dec 2024 – May 2025", "Accessibility Design Project Coordinator", "TAPD-INTO STEM NSF"],
-  ["May 2021 – Jun 2023", "Product Designer, Individual Contributor", "Metasquare, DefenseARK Cybersecurity"],
-  ["Jan 2020 – Jul 2020", "UX Design Intern",                         "Ionixx Technologies"],
+  ["May 2021 – Jun 2023", "Product Designer, Individual Contributor", "Metasquare, DefenseARK Cybersecurity", "https://www.metasquare.com/"],
+  ["Jan 2020 – Jul 2020", "UX Design Intern",                         "Ionixx Technologies", "https://www.ionixxtech.com/"],
 ];
 const EDUCATION = [
   ["Aug 2024 – May 2026", "MS Computer Graphics Technology",             "Purdue University"],
@@ -391,11 +392,15 @@ function RecordList({ heading, rows }) {
     <div style={{ marginTop:"clamp(40px, 6vw, 72px)", maxWidth:720 }}>
       <h2 style={{ ...h2Style, fontSize:"clamp(18px, 2.2vw, 22px)", marginBottom:12 }}>{heading}</h2>
       <ul className="about-records">
-        {rows.map(([dates, title, org]) => (
+        {rows.map(([dates, title, org, href]) => (
           <li key={dates + title}>
             <span>{dates}</span>
             <span className="about-records__title">{title}</span>
-            <span>{org}</span>
+            <span>
+              {href
+                ? <a href={href} target="_blank" rel="noopener noreferrer" className="contact-link">{org}</a>
+                : org}
+            </span>
           </li>
         ))}
       </ul>
@@ -431,22 +436,18 @@ export default function About() {
               }}>
                 sriː.ni.dʰi
               </h1>
-              <p style={{
+              <ul style={{
+                listStyle:     "none",
+                margin:        "0 0 24px",
+                padding:       0,
                 fontSize:      "clamp(16px, 1.8vw, 19px)",
-                fontWeight:    400,
                 color:         "var(--muted)",
                 lineHeight:    1.6,
-                letterSpacing: "-0.1px",
-                marginBottom:  24,
-                maxWidth:      "52ch",
               }}>
-                I am a product designer based in San Francisco Bay Area. Previously, created products with{" "}
-                <a href="https://www.purdue.edu/" target="_blank" rel="noopener noreferrer" className="contact-link">Purdue University</a>,{" "}
-                <a href="https://sciencegateways.org/" target="_blank" rel="noopener noreferrer" className="contact-link">SGX3</a>,{" "}
-                <a href="https://www.metasquare.com/" target="_blank" rel="noopener noreferrer" className="contact-link">Metasquare Inc</a>, and{" "}
-                <a href="https://www.ionixxtech.com/" target="_blank" rel="noopener noreferrer" className="contact-link">Ionixx</a>.
-                {" "}Before that, I studied Psychology and Social Work in India. Focused on finding clarity under ambiguity, a thread of calm in too much data. I work for companies that promotes access and trust. I am super quiet, and show care through curiosity.
-              </p>
+                {["Web Design", "3D Design", "Product Design", "UX Design", "Interface Design"].map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
               <ContactLinks />
             </div>
           </div>

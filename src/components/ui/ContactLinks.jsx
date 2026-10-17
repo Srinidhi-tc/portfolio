@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { contactLinks } from "../../data/links";
 
-// Email · LinkedIn · Resume as plain text links.
+// Resume · Instagram · Behance as plain text links.
 export default function ContactLinks({ className = "" }) {
   return (
     <p className={`contact-links ${className}`.trim()}>

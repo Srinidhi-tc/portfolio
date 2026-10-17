@@ -4,7 +4,7 @@ import workStrabospot from "../assets/work-strabospot.webp";
 import workPsychosis from "../assets/work-psychosis.webp";
 import workBeeFeeder from "../assets/beefeedermain.png";
 import workHeartsOfInsomnia from "../assets/work-Hearts-Of-Insomnia.png";
-import workMalli from "../assets/work-Malli.png";
+import workMalli from "../assets/mallitop.webp";
 import workDefenseArk from "../assets/work-DefenseArk.png";
 
 export const workSectionProjects = [
@@ -77,7 +77,7 @@ export const workSectionProjects = [
     title: "Something that Doesn't exist yet",
     image: workMalli,
     to: "/work/malli",
-    tags: ["Robotic-UX", "High-Fidelity Prototype"],
+    tags: ["Robotic-UX", "3D Design & CMF"],
     states: {
       problem: { subheading: "Cleaning gets avoided", body: "Toilet cleaning is skipped due to disgust and effort, the challenge was making it happen without a conscious decision." },
       decisions: { subheading: "Habit by design", body: "Applied behavioral economics to embed cleaning into existing rituals, removing the moment of choice entirely." },

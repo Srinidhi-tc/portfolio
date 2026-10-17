@@ -5,8 +5,11 @@ export const RESUME_URL =
 export const EMAIL_URL = "mailto:srinidhi.saas@gmail.com";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/srinidhi-chakravarthy/";
 
+export const INSTAGRAM_URL = "https://www.instagram.com/1chapter1day/";
+export const BEHANCE_URL = "https://www.behance.net/TC_UXDesign";
+
 export const contactLinks = [
-  { label: "Email", href: EMAIL_URL },
-  { label: "LinkedIn", href: LINKEDIN_URL, external: true },
   { label: "Resume", href: RESUME_URL, external: true },
+  { label: "Instagram", href: INSTAGRAM_URL, external: true },
+  { label: "Behance", href: BEHANCE_URL, external: true },
 ];

@@ -416,10 +416,8 @@ export default function About() {
         <div className="container">
 
           {/* ZONE 1 — Profile + paragraph first */}
-          <div style={{
+          <div className="about-profile-grid" style={{
             display:             "grid",
-            gridTemplateColumns: "180px 1fr",
-            gap:                 48,
             alignItems:          "start",
             marginBottom:        "clamp(56px, 8vw, 100px)",
           }}>

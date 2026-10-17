@@ -456,7 +456,7 @@
  * two below the point where the fixed track stops fitting.
  */
 .about-profile-grid {
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
 }
 

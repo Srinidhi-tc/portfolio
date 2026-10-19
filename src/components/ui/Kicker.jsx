@@ -5,7 +5,7 @@ export default function Kicker({ children, style }) {
   return (
     <p
       style={{
-        fontSize: 14,
+        fontSize: "var(--type-caption)",
         fontWeight: 500,
         color: "var(--color-muted)",
         margin: "0 0 6px",

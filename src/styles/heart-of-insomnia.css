@@ -29,7 +29,7 @@
   background: var(--hoi-bg);
   color: var(--hoi-ink);
   font-family: var(--hoi-sans);
-  font-size: 17px;
+  font-size: var(--type-body);
   line-height: 1.65;
   letter-spacing: 0.001em;
   margin: 0;
@@ -65,7 +65,7 @@
 .hoi__nav-brand {
   font-family: var(--hoi-serif);
   font-style: italic;
-  font-size: 17px;
+  font-size: var(--type-body);
   letter-spacing: 0.02em;
   color: var(--hoi-ink);
   text-decoration: none;
@@ -73,7 +73,7 @@
 
 .hoi__nav-back {
   font-family: var(--hoi-sans);
-  font-size: 12px;
+  font-size: var(--type-tag);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--hoi-ink-soft);
@@ -85,7 +85,7 @@
 .hoi__nav-links {
   display: none; /* hide on mobile; sections are anchored by ID anyway */
   gap: 24px;
-  font-size: 11px;
+  font-size: var(--type-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--hoi-ink-soft);
@@ -142,7 +142,7 @@
 
 .hoi__kicker {
   font-family: var(--hoi-sans);
-  font-size: 11px;
+  font-size: var(--type-label);
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -153,7 +153,7 @@
 .hoi__hero-title {
   font-family: var(--hoi-serif);
   font-weight: 700;
-  font-size: clamp(48px, 9vw, 110px);
+  font-size: var(--type-display);
   line-height: 0.96;
   letter-spacing: -0.01em;
   margin: 0 0 18px;
@@ -163,7 +163,7 @@
 .hoi__hero-sub {
   font-family: var(--hoi-sans);
   font-weight: 300;
-  font-size: clamp(15px, 1.4vw, 19px);
+  font-size: var(--type-body);
   line-height: 1.55;
   letter-spacing: 0.01em;
   max-width: 52ch;
@@ -175,7 +175,7 @@
   position: absolute;
   bottom: 18px;
   left: var(--hoi-pad);
-  font-size: 11px;
+  font-size: var(--type-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
@@ -194,7 +194,7 @@
 
 .hoi__section-label {
   font-family: var(--hoi-sans);
-  font-size: 11px;
+  font-size: var(--type-label);
   font-weight: 600;
   letter-spacing: 0.36em;
   text-transform: uppercase;
@@ -214,7 +214,7 @@
 .hoi__section-title {
   font-family: var(--hoi-serif);
   font-weight: 700;
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: var(--type-display);
   line-height: 1.04;
   letter-spacing: -0.012em;
   margin: 0 0 var(--hoi-gap);
@@ -223,7 +223,7 @@
 
 .hoi__body {
   font-family: var(--hoi-sans);
-  font-size: 18px;
+  font-size: var(--type-body);
   line-height: 1.7;
   color: var(--hoi-ink);
   max-width: 60ch;
@@ -240,7 +240,7 @@
   font-family: var(--hoi-serif);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(28px, 4.4vw, 52px);
+  font-size: var(--type-display);
   line-height: 1.22;
   letter-spacing: -0.005em;
   color: var(--hoi-ink);
@@ -254,7 +254,7 @@
   font-family: var(--hoi-serif);
   font-style: italic;
   color: var(--hoi-accent);
-  font-size: 1.6em;
+  font-size: var(--type-h2);
   line-height: 0;
   position: relative;
 }
@@ -332,7 +332,7 @@
 
 .hoi__caption {
   font-family: var(--hoi-sans);
-  font-size: 12px;
+  font-size: var(--type-tag);
   font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--hoi-ink-soft);
@@ -363,7 +363,7 @@
 .hoi__compare-before,
 .hoi__compare-after {
   font-family: var(--hoi-sans);
-  font-size: 15px;
+  font-size: var(--type-body);
   line-height: 1.55;
 }
 .hoi__compare-before { color: var(--hoi-ink-soft); }
@@ -396,13 +396,13 @@
 .hoi__phase-num {
   font-family: var(--hoi-serif);
   font-style: italic;
-  font-size: 28px;
+  font-size: var(--type-h2);
   color: var(--hoi-accent);
   font-weight: 400;
 }
 .hoi__phase-name {
   font-family: var(--hoi-sans);
-  font-size: 11px;
+  font-size: var(--type-label);
   font-weight: 600;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -410,7 +410,7 @@
 }
 .hoi__phase-body {
   font-family: var(--hoi-sans);
-  font-size: 16px;
+  font-size: var(--type-body);
   color: var(--hoi-ink-soft);
   margin: 0;
   line-height: 1.6;
@@ -445,7 +445,7 @@
 }
 .hoi__credit-label {
   font-family: var(--hoi-sans);
-  font-size: 10px;
+  font-size: var(--type-label);
   letter-spacing: 0.36em;
   text-transform: uppercase;
   color: var(--hoi-ink-soft);
@@ -453,7 +453,7 @@
 }
 .hoi__credit-value {
   font-family: var(--hoi-serif);
-  font-size: 18px;
+  font-size: var(--type-body);
   letter-spacing: 0.01em;
   color: var(--hoi-ink);
   margin: 0;
@@ -489,14 +489,14 @@
 .hoi__end-mark {
   font-family: var(--hoi-serif);
   font-style: italic;
-  font-size: 24px;
+  font-size: var(--type-h2);
   color: var(--hoi-accent);
   margin: 0 0 16px;
 }
 .hoi__end-back {
   display: inline-block;
   font-family: var(--hoi-sans);
-  font-size: 11px;
+  font-size: var(--type-label);
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--hoi-ink);

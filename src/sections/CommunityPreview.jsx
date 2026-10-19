@@ -5,7 +5,7 @@ export default function CommunityPreview() {
     <section className="page-section" style={{ borderTop: "1px solid var(--border)" }}>
       <div className="container" style={{ textAlign: "center", maxWidth: "600px" }}>
         <p className="eyebrow">Community</p>
-        <h2 style={{ fontSize: "var(--text-3xl)", margin: "0 0 var(--space-md)", fontWeight: 700 }}>
+        <h2 style={{ fontSize: "var(--type-display)", margin: "0 0 var(--space-md)", fontWeight: 700 }}>
           💛 1 Chapter 1 Day!
         </h2>
         <p className="page-copy" style={{ margin: "0 auto var(--space-xl)" }}>

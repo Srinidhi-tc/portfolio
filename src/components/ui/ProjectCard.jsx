@@ -29,7 +29,7 @@ export default function ProjectCard({
     background: "var(--color-bg-card)",
     borderRadius: "var(--radius-lg, 18px)",
     overflow: "hidden",
-    cursor: "var(--cursor-orb)",
+    cursor: "pointer",
     transition: "transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1)",
     display: "block",
     textDecoration: "none",
@@ -90,7 +90,7 @@ export default function ProjectCard({
         {eyebrow && (
           <p
             style={{
-              fontSize: "11px",
+              fontSize: "var(--type-label)",
               fontWeight: 600,
               letterSpacing: "0.10em",
               textTransform: "uppercase",
@@ -104,7 +104,7 @@ export default function ProjectCard({
 
         <h3
           style={{
-            fontSize: "clamp(19px, 2vw, 24px)",
+            fontSize: "var(--type-h2)",
             fontWeight: 600,
             letterSpacing: "-0.1px",
             lineHeight: 1.2,
@@ -118,7 +118,7 @@ export default function ProjectCard({
         {desc && (
           <p
             style={{
-              fontSize: "16px",
+              fontSize: "var(--type-body)",
               color: "var(--color-text-secondary)",
               lineHeight: 1.55,
               display: "-webkit-box",

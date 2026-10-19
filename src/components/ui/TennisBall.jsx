@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { flyProjectile, jitter, returnFlightTime } from "./projectile";
 
 // Tennis ball SVG — Apple-minimal 3D icon traced from reference images
 function TennisBallIcon() {
@@ -68,15 +69,6 @@ export default function TennisBall() {
       rafRef.current = requestAnimationFrame(step);
     });
 
-  // Cubic bezier — identical to volleyball
-  const bezierPoint = (t, p0, p1, p2, p3) => {
-    const u = 1 - t;
-    return {
-      x: u**3*p0.x + 3*u**2*t*p1.x + 3*u*t**2*p2.x + t**3*p3.x,
-      y: u**3*p0.y + 3*u**2*t*p1.y + 3*u*t**2*p2.y + t**3*p3.y,
-    };
-  };
-
  const launch = async () => {
     if (phase !== "idle") return;
 
@@ -102,11 +94,17 @@ export default function TennisBall() {
       y: mRect.top  + 10 - BALL / 2,
     };
 
-    const dist    = Math.hypot(endPt.x - startPt.x, endPt.y - startPt.y);
-    const outLift = dist * 0.45;
-    const retLift = dist * 0.38;
-    const outSpin = 600 + Math.random() * 200;
-    const retSpin = -(500 + Math.random() * 200);
+    // Each throw gets its own flight time, so no two land at the same moment
+    // or peak at the same height.
+    const OUT_T = jitter(750, 0.08);
+    // The return lands a little to one side (±5% of the distance) and settles
+    // home, so it is never a mirror of the throw.
+    const dist  = Math.hypot(endPt.x - startPt.x, endPt.y - startPt.y);
+    const landing = { x: startPt.x + (Math.random() * 2 - 1) * 0.05 * dist, y: startPt.y };
+    // The kick back: solve the flight time so the ball climbs a little past
+    // home (staying on screen) and drops into place. It has to rise much
+    // further than the throw fell, so it launches far steeper, like a kick.
+    const RET_T = returnFlightTime(endPt.y - startPt.y, Math.min(jitter(16, 0.4), Math.max(startPt.y - 4, 0)));
 
     // ── Create flying ball directly on body ──────────────
     const fly = document.createElement("span");
@@ -140,63 +138,30 @@ export default function TennisBall() {
     btn.style.opacity   = "0";
     btn.style.pointerEvents = "none";
 
-    // ── 2. Outbound arc ──────────────────────────────────
+    // ── 2. Outbound throw ────────────────────────────────
     setPhase("flying");
-    const dx = endPt.x - startPt.x;
-    const p0 = { ...startPt };
-    const p1 = { x: startPt.x + dx * 0.2,  y: startPt.y - outLift };
-    const p2 = { x: startPt.x + dx * 0.78, y: endPt.y - outLift * 0.5 };
-    const p3 = { ...endPt };
-
-    let prev = { ...startPt };
-    let spin = 0;
-
-    await tween(760, (t) => {
-      const pt  = bezierPoint(t, p0, p1, p2, p3);
-      const seg = Math.hypot(pt.x - prev.x, pt.y - prev.y);
-      spin     += (seg / 4.5) * (outSpin / 120);
-      prev      = pt;
-      const spd = Math.min(seg / 9, 1);
-      fly.style.transform = `translate3d(${pt.x}px,${pt.y}px,0) rotate(${spin}deg)`;
+    const draw = ({ x, y, rotation, speed }) => {
+      const spd = Math.min(speed / 1.6, 1);
+      fly.style.transform = `translate3d(${x}px,${y}px,0) rotate(${rotation}deg)`;
       fly.style.filter    = `drop-shadow(0 ${6+spd*4}px ${10+spd*6}px rgba(58,47,37,.22)) blur(${spd*1.2}px)`;
-    });
+    };
+    const spin = await flyProjectile({ start: startPt, end: endPt, T: OUT_T, spinSign: 1, rafRef, onFrame: draw });
 
-    // ── 3. Impact ────────────────────────────────────────
+    // ── 3. Catch ─────────────────────────────────────────
     window.dispatchEvent(new CustomEvent("tennisball:impact"));
     setPhase("kicked");
+    await tween(120, () => {});
 
-    await tween(180, (t) => {
-      const wave = Math.sin(t * Math.PI);
-      fly.style.transform = `translate3d(${endPt.x}px,${endPt.y}px,0) rotate(${spin}deg) scale(${1+0.1*wave},${1-0.07*wave})`;
-      fly.style.filter    = `drop-shadow(0 8px 12px rgba(58,47,37,.22))`;
-    });
-
-    // ── 4. Return arc ────────────────────────────────────
+    // ── 4. Kick back ─────────────────────────────────────
     setPhase("returning");
-    const rdx = startPt.x - endPt.x;
-    const r0  = { ...endPt };
-    const r1  = { x: endPt.x + rdx * 0.18, y: endPt.y   - retLift * 0.9 };
-    const r2  = { x: endPt.x + rdx * 0.72, y: startPt.y - retLift * 0.4 };
-    const r3  = { ...startPt };
+    await flyProjectile({ start: endPt, end: landing, T: RET_T, spinSign: -1, rotation: spin, rafRef, onFrame: draw });
 
-    prev = { ...endPt };
-    let retSpinAcc = spin;
-
-    await tween(800, (t) => {
-      const pt  = bezierPoint(t, r0, r1, r2, r3);
-      const seg = Math.hypot(pt.x - prev.x, pt.y - prev.y);
-      retSpinAcc += (seg / 4.5) * (retSpin / 120);
-      prev        = pt;
-      const spd   = Math.min(seg / 9, 1);
-      fly.style.transform = `translate3d(${pt.x}px,${pt.y}px,0) rotate(${retSpinAcc}deg)`;
-      fly.style.filter    = `drop-shadow(0 ${6+spd*4}px ${10+spd*6}px rgba(58,47,37,.22)) blur(${spd*1.2}px)`;
-    });
-
-    // ── 5. Snap back ─────────────────────────────────────
+    // ── 5. Settle home ───────────────────────────────────
     setPhase("snap");
-    await tween(300, (t) => {
-      const osc = Math.cos(t * 14) * Math.exp(-t * 5);
-      fly.style.transform = `translate3d(${startPt.x}px,${startPt.y}px,0) rotate(0deg) scale(${1+0.04*osc},${1-0.03*osc})`;
+    await tween(220, (t) => {
+      const e = 1 - (1 - t) ** 3;
+      const x = landing.x + (startPt.x - landing.x) * e;
+      fly.style.transform = `translate3d(${x}px,${startPt.y}px,0)`;
       fly.style.filter    = `drop-shadow(0 6px 10px rgba(58,47,37,.18))`;
     });
 
@@ -220,7 +185,7 @@ export default function TennisBall() {
         style={{
           background:  "none",
           border:      "none",
-          cursor:      phase === "idle" ? "var(--cursor-orb)" : "default",
+          cursor:      phase === "idle" ? "pointer" : "default",
           padding:     "3px",
           width:       "30px",
           height:      "30px",

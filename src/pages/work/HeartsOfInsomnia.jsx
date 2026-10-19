@@ -11,7 +11,7 @@ import heart11 from "../../assets/heart11.png";
 import heart12 from "../../assets/heart12.png";
 
 const eyebrow = {
-  fontSize: 13,
+  fontSize: "var(--type-caption)",
   fontWeight: 600,
   letterSpacing: "0.06em",
   textTransform: "uppercase",
@@ -20,7 +20,7 @@ const eyebrow = {
 };
 
 const body = {
-  fontSize: 16,
+  fontSize: "var(--type-body)",
   color: "var(--muted)",
   lineHeight: 1.6,
   maxWidth: 640,
@@ -28,7 +28,7 @@ const body = {
 };
 
 const title = {
-  fontSize: "clamp(24px, 6vw, 34px)",
+  fontSize: "var(--type-display)",
   fontWeight: 600,
   letterSpacing: "-0.02em",
   lineHeight: 1.12,
@@ -67,7 +67,7 @@ function ImpactBox() {
       }}
     >
       <p style={{ ...eyebrow, marginBottom: 10 }}>Role & Impact</p>
-      <h2 style={{ ...title, fontSize: "clamp(22px, 5.5vw, 30px)", marginBottom: 14 }}>
+      <h2 style={{ ...title, fontSize: "var(--type-h2)", marginBottom: 14 }}>
         The physical experience depended on both form and system.
       </h2>
       <p style={body}>
@@ -87,7 +87,7 @@ function ImpactBox() {
             alignItems: "center",
             gap: 6,
             marginTop: 18,
-            fontSize: 13,
+            fontSize: "var(--type-caption)",
             fontWeight: 600,
             color: "var(--text)",
             textDecoration: "none",
@@ -120,7 +120,7 @@ export default function HeartsOfInsomnia() {
 
         <h1
           style={{
-            fontSize: "clamp(34px, 11vw, 56px)",
+            fontSize: "var(--type-display)",
             fontWeight: 700,
             letterSpacing: "-0.5px",
             lineHeight: 1.05,
@@ -132,7 +132,7 @@ export default function HeartsOfInsomnia() {
 
         <p
           style={{
-            fontSize: 19,
+            fontSize: "var(--type-body)",
             color: "var(--muted)",
             marginBottom: 16,
             maxWidth: 600,
@@ -143,7 +143,7 @@ export default function HeartsOfInsomnia() {
 
         <p
           style={{
-            fontSize: 18,
+            fontSize: "var(--type-body)",
             color: "var(--muted)",
             marginBottom: 32,
             maxWidth: 640,
@@ -288,7 +288,7 @@ export default function HeartsOfInsomnia() {
               <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
                 Team
               </p>
-              <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>
+              <p style={{ fontSize: "var(--type-caption)", fontWeight: 500, margin: 0 }}>
                 Srinidhi Chakravarthy · Bri Baehl
               </p>
             </div>
@@ -297,7 +297,7 @@ export default function HeartsOfInsomnia() {
               <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
                 Tools
               </p>
-              <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>
+              <p style={{ fontSize: "var(--type-caption)", fontWeight: 500, margin: 0 }}>
                 Arduino · Blender · p5.js · 3D Printing
               </p>
             </div>
@@ -306,7 +306,7 @@ export default function HeartsOfInsomnia() {
               <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
                 Project
               </p>
-              <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>
+              <p style={{ fontSize: "var(--type-caption)", fontWeight: 500, margin: 0 }}>
                 Physical Computing · UX Research
               </p>
             </div>
@@ -315,7 +315,7 @@ export default function HeartsOfInsomnia() {
               <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
                 Submission
               </p>
-              <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>
+              <p style={{ fontSize: "var(--type-caption)", fontWeight: 500, margin: 0 }}>
                 CHI 2026 Interactive Demo
               </p>
             </div>

@@ -14,15 +14,15 @@ import { workSectionProjects } from "../../data/workSectionProjects";
 const heroImage = workSectionProjects.find((p) => p.id === "defenseark")?.image;
 
 const font = `-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif`;
-const lbl  = { fontSize:11, fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
-const bd   = { fontSize:17, lineHeight:1.7, color:"var(--muted)", margin:"0 0 16px", maxWidth:680 };
+const lbl  = { fontSize:"var(--type-label)", fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
+const bd   = { fontSize:"var(--type-body)", lineHeight:1.7, color:"var(--muted)", margin:"0 0 16px", maxWidth:680 };
 const card = { background:"var(--surface-2)", borderRadius:12, padding:"18px 20px" };
 
 function Section({ id, number, title, children }) {
   return (
     <section id={id} style={{ marginBottom:88 }}>
       {number && <Kicker style={{ marginBottom:10 }}>{number}</Kicker>}
-      <h2 style={{ margin:"0 0 18px", fontSize:"clamp(26px,4vw,38px)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"var(--text)", maxWidth:720 }}>
+      <h2 style={{ margin:"0 0 18px", fontSize:"var(--type-display)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"var(--text)", maxWidth:720 }}>
         {title}
       </h2>
       {children}
@@ -39,8 +39,8 @@ function Cards({ items, cols = 3 }) {
     <div className="da-grid" style={{ display:"grid", gridTemplateColumns:`repeat(${cols},1fr)`, gap:16, marginTop:24 }}>
       {items.map(([title, text]) => (
         <div key={title} style={card}>
-          <p style={{ fontSize:13, fontWeight:600, color:"var(--text)", margin:"0 0 6px" }}>{title}</p>
-          <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.6, margin:0 }}>{text}</p>
+          <p style={{ fontSize:"var(--type-caption)", fontWeight:600, color:"var(--text)", margin:"0 0 6px" }}>{title}</p>
+          <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.6, margin:0 }}>{text}</p>
         </div>
       ))}
     </div>
@@ -50,7 +50,7 @@ function Cards({ items, cols = 3 }) {
 function PullLine({ children }) {
   return (
     <FloralFrame>
-      <p style={{ margin:0, fontSize:18, fontWeight:600, color:"var(--text)", lineHeight:1.5 }}>{children}</p>
+      <p style={{ margin:0, fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:1.5 }}>{children}</p>
     </FloralFrame>
   );
 }
@@ -85,10 +85,10 @@ export default function DefenseArk() {
         <p style={{ ...lbl, marginBottom:14 }}>
           DefenseARK Cybersecurity · A Metasquare Inc company · New York (remote from India)
         </p>
-        <h1 style={{ fontSize:"clamp(40px,7vw,68px)", fontWeight:700, letterSpacing:"-1px", lineHeight:1.02, margin:"0 0 20px", color:"var(--text)" }}>
+        <h1 style={{ fontSize:"var(--type-display)", fontWeight:700, letterSpacing:"-1px", lineHeight:1.02, margin:"0 0 20px", color:"var(--text)" }}>
           Solo designer at a cybersecurity startup.
         </h1>
-        <p style={{ fontSize:"clamp(19px,2.6vw,24px)", fontWeight:500, color:"var(--muted)", margin:0, maxWidth:720, lineHeight:1.45 }}>
+        <p style={{ fontSize:"var(--type-h2)", fontWeight:500, color:"var(--muted)", margin:0, maxWidth:720, lineHeight:1.45 }}>
           DefenseARK is a B2B cybersecurity training company building compliance and social-engineering awareness tools for enterprise clients. As the first design hire, I built the client-intake framework and compliance training products end to end.
         </p>
       </header>
@@ -108,15 +108,15 @@ export default function DefenseArk() {
           ["Tools",       "Figma · Figma Variables · React/CSS Handoff"],
         ].map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...lbl, fontSize:10, marginBottom:6 }}>{k}</p>
-            <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.5, margin:0 }}>{v}</p>
+            <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:6 }}>{k}</p>
+            <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.5, margin:0 }}>{v}</p>
           </div>
         ))}
       </div>
 
       <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"20px 22px", marginBottom:72 }}>
-        <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>Business Impact</p>
-        <p style={{ fontSize:15, fontWeight:600, color:"var(--text)", lineHeight:1.55, margin:0 }}>
+        <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:8 }}>Business Impact</p>
+        <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:1.55, margin:0 }}>
           As the first design hire, I built the client-intake framework before being asked, because every manual intake step was a scaling cost the company would eventually have to pay for as the client base grew.
         </p>
       </div>
@@ -135,7 +135,7 @@ export default function DefenseArk() {
             "Reported directly to the Managing Director.",
             "I am grateful for my steep learning at the company. The company has since grown to $7.3 million in revenue.",
           ].map((line) => (
-            <li key={line} style={{ fontSize:18, fontWeight:500, color:"var(--text)", lineHeight:1.5 }}>{line}</li>
+            <li key={line} style={{ fontSize:"var(--type-body)", fontWeight:500, color:"var(--text)", lineHeight:1.5 }}>{line}</li>
           ))}
         </ol>
       </section>
@@ -203,7 +203,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 03 CLIENT INTAKE */}
-      <Section id="decision" number="Client intake" title="A clear path for clients under stress.">
+      <Section id="decisions" number="Client intake" title="A clear path for clients under stress.">
         <P>
           A client who suspects an attack is stressed and in a hurry. Before, new clients did not know
           how to share files or raise issues, and our team spent time on admin instead of help.
@@ -220,7 +220,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* 04 SHIPPING */}
-      <Section id="tradeoff" number="Shipping" title="Designing with engineers, not handing off to them.">
+      <Section id="tradeoffs" number="Shipping" title="Designing with engineers, not handing off to them.">
         <P>
           I worked with the founders and the full-stack engineers every week. We shipped speech synthesis
           and applied linguistics in voice calls, with motion UI built in React and CSS. These audios had fake call stimulations.
@@ -247,9 +247,9 @@ export default function DefenseArk() {
             "Handover: I owned the design handover for Enigma.",
             "Build: weekly work with the product manager and full-stack engineers, shipped as React and CSS.",
           ].map((step) => (
-            <li key={step} style={{ fontSize:16, color:"var(--muted)", lineHeight:1.6, marginBottom:6 }}>{step}</li>
+            <li key={step} style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:1.6, marginBottom:6 }}>{step}</li>
           ))}
-          <li style={{ fontSize:16, color:"var(--muted)", lineHeight:1.6 }}>
+          <li style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:1.6 }}>
             Launch: Enigma went live, and it still is.{" "}
             <a href="https://enigma.defenseark.com/en" target="_blank" rel="noopener noreferrer" className="contact-link">enigma.defenseark.com</a>
           </li>
@@ -297,10 +297,10 @@ export default function DefenseArk() {
           {PRODUCTS.map((p) => (
             <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="lift"
                style={{ ...card, display:"block", textDecoration:"none", color:"inherit" }}>
-              <p style={{ ...lbl, fontSize:10, marginBottom:8 }}>{p.type}</p>
-              <p style={{ fontSize:20, fontWeight:650, color:"var(--text)", margin:"0 0 10px" }}>{p.name}</p>
-              <p style={{ fontSize:13, color:"var(--muted)", lineHeight:1.55, margin:"0 0 14px" }}>{p.my}</p>
-              <span style={{ fontSize:13, fontWeight:600, color:"var(--link, #0066CC)" }}>Visit {p.name} ↗</span>
+              <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:8 }}>{p.type}</p>
+              <p style={{ fontSize:"var(--type-h2)", fontWeight:650, color:"var(--text)", margin:"0 0 10px" }}>{p.name}</p>
+              <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.55, margin:"0 0 14px" }}>{p.my}</p>
+              <span style={{ fontSize:"var(--type-caption)", fontWeight:600, color:"var(--link, #0066CC)" }}>Visit {p.name} ↗</span>
             </a>
           ))}
         </div>
@@ -314,8 +314,8 @@ export default function DefenseArk() {
           ["Products", "Enigma · Brightscan · Torus"],
         ].map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...lbl, fontSize:10, marginBottom:5 }}>{k}</p>
-            <p style={{ fontSize:14, color:"var(--muted)", lineHeight:1.5, margin:0 }}>{v}</p>
+            <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:5 }}>{k}</p>
+            <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.5, margin:0 }}>{v}</p>
           </div>
         ))}
       </div>

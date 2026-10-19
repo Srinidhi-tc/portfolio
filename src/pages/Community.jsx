@@ -11,7 +11,7 @@ export default function Community() {
         <div className="community-hero">
           <h1
             className="page-title"
-            style={{ maxWidth: "none", fontSize: "var(--text-4xl)" }}
+            style={{ maxWidth: "none", fontSize: "var(--type-display)" }}
           >
             {newsletter.heading}
           </h1>

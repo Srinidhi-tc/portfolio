@@ -27,7 +27,7 @@ import str20 from "../../assets/str20.jpg";
 import straboCover from "../../assets/work-strabospot.webp";
 
 const label = {
-  fontSize: 12,
+  fontSize: "var(--type-tag)",
   fontWeight: 650,
   letterSpacing: "0.07em",
   textTransform: "uppercase",
@@ -36,7 +36,7 @@ const label = {
 };
 
 const body = {
-  fontSize: 16,
+  fontSize: "var(--type-body)",
   lineHeight: 1.58,
   color: "var(--muted)",
   margin: 0,
@@ -70,11 +70,11 @@ function ClientSwitcher() {
       }}
     >
       <div style={{ minWidth: 0 }}>
-        <p style={{ ...label, fontSize: 10, marginBottom: 2 }}>SGX3 · Two concurrent client engagements</p>
+        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 2 }}>SGX3 · Two concurrent client engagements</p>
         <p
           style={{
             margin: 0,
-            fontSize: 13,
+            fontSize: "var(--type-caption)",
             fontWeight: 600,
             whiteSpace: "nowrap",
             overflow: "hidden",
@@ -97,7 +97,7 @@ function ClientSwitcher() {
             color: "var(--text)",
             border: "1px solid var(--hairline-weak)",
             textDecoration: "none",
-            fontSize: 12,
+            fontSize: "var(--type-tag)",
             fontWeight: 600,
           }}
         >
@@ -112,7 +112,7 @@ function ClientSwitcher() {
             background: "transparent",
             color: "var(--text)",
             border: "1px solid var(--text)",
-            fontSize: 12,
+            fontSize: "var(--type-tag)",
             fontWeight: 650,
           }}
         >
@@ -131,7 +131,7 @@ function Hero() {
       </p>
       <h1
         style={{
-          fontSize: "clamp(42px, 10vw, 72px)",
+          fontSize: "var(--type-display)",
           lineHeight: 0.98,
           letterSpacing: "-1.5px",
           fontWeight: 700,
@@ -140,7 +140,7 @@ function Hero() {
       >
         StraboSpot
       </h1>
-      <p style={{ ...body, fontSize: 17 }}>
+      <p style={{ ...body, fontSize: "var(--type-body)" }}>
         StraboSpot is the largest centralized geologic field-data repository in the US, an NSF-funded platform an estimated 12,000 geologists rely on to cross-reference prior field data before their own research. I audited and redesigned its search experience through a UI/UX audit, five user interviews, and task analysis so researchers could find and trust relevant field data faster.
       </p>
       <figure style={{ margin: "34px 0 0" }}>
@@ -177,7 +177,7 @@ function RoleAtTop() {
         <h2
           style={{
             margin: 0,
-            fontSize: "clamp(25px, 5vw, 38px)",
+            fontSize: "var(--type-display)",
             lineHeight: 1.08,
             letterSpacing: "-0.6px",
           }}
@@ -197,15 +197,15 @@ function RoleAtTop() {
       >
         {items.map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...label, fontSize: 10, marginBottom: 6 }}>{k}</p>
-            <p style={{ fontSize: 14, lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
+            <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 6 }}>{k}</p>
+            <p style={{ fontSize: "var(--type-caption)", lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
           </div>
         ))}
       </div>
 
       <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
-        <p style={{ ...label, fontSize: 10, marginBottom: 8 }}>Business Impact</p>
-        <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
+        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 8 }}>Business Impact</p>
+        <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
           I focused on cross-functional user flows because duplicated fieldwork is the real cost here, every friction point in data retrieval is researcher time and grant funding spent re-discovering what already exists.
         </p>
       </div>
@@ -220,7 +220,7 @@ function SectionHeading({ number, title, intro }) {
       <h2
         style={{
           margin: "0 0 12px",
-          fontSize: "clamp(29px, 6vw, 45px)",
+          fontSize: "var(--type-display)",
           lineHeight: 1.06,
           letterSpacing: "-0.8px",
           fontWeight: 650,
@@ -244,7 +244,7 @@ function Slide({ src, number, caption }) {
           gap: 20,
           paddingTop: 10,
           color: "var(--color-text-tertiary)",
-          fontSize: 11,
+          fontSize: "var(--type-label)",
           lineHeight: 1.4,
         }}
       >
@@ -258,7 +258,7 @@ function Slide({ src, number, caption }) {
 function InsightLine({ children }) {
   return (
     <FloralFrame>
-      <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5, fontWeight: 600 }}>{children}</p>
+      <p style={{ margin: 0, fontSize: "var(--type-body)", lineHeight: 1.5, fontWeight: 600 }}>{children}</p>
     </FloralFrame>
   );
 }
@@ -292,7 +292,7 @@ function EvidenceLinks() {
             borderRadius: 999,
             color: "var(--text)",
             textDecoration: "none",
-            fontSize: 12,
+            fontSize: "var(--type-tag)",
             fontWeight: 650,
             background: "var(--surface-2)",
           }}
@@ -316,12 +316,12 @@ function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
       }}
     >
       <div>
-        <p style={{ ...label, fontSize: 10, marginBottom: 7 }}>{leftLabel}</p>
-        <p style={{ ...body, fontSize: 14 }}>{left}</p>
+        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 7 }}>{leftLabel}</p>
+        <p style={{ ...body, fontSize: "var(--type-caption)" }}>{left}</p>
       </div>
       <div>
-        <p style={{ ...label, fontSize: 10, marginBottom: 7 }}>{rightLabel}</p>
-        <p style={{ ...body, fontSize: 14 }}>{right}</p>
+        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 7 }}>{rightLabel}</p>
+        <p style={{ ...body, fontSize: "var(--type-caption)" }}>{right}</p>
       </div>
     </div>
   );
@@ -345,7 +345,7 @@ function FinalTakeaway() {
       <h2
         style={{
           margin: "0 0 14px",
-          fontSize: "clamp(28px, 5vw, 42px)",
+          fontSize: "var(--type-display)",
           lineHeight: 1.08,
           letterSpacing: "-0.7px",
           maxWidth: 760,
@@ -443,7 +443,7 @@ export default function StraboSpot() {
           </InsightLine>
         </section>
 
-        <section id="decision">
+        <section id="decisions">
           <SectionHeading
             number="Turning interviews into priorities"
             title="Researchers needed visual context and trust."
@@ -467,7 +467,7 @@ export default function StraboSpot() {
           />
         </section>
 
-        <section id="tradeoff">
+        <section id="tradeoffs">
           <SectionHeading
             number="Redesigning the search moment"
             title="Search became the hero feature."
@@ -542,8 +542,8 @@ export default function StraboSpot() {
           ["Methods", "UI/UX audit · Nielsen heuristics · 5 user interviews · task analysis · design recommendations"],
         ].map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...label, fontSize: 10, marginBottom: 6 }}>{k}</p>
-            <p style={{ fontSize: 14, lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
+            <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 6 }}>{k}</p>
+            <p style={{ fontSize: "var(--type-caption)", lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
           </div>
         ))}
       </div>

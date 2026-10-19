@@ -1,4 +1,3 @@
-// Navbar.jsx — unchanged except TennisBall added after nav links
 import { NavLink } from "react-router-dom";
 import TennisBall from "../ui/TennisBall";
 import ThemeToggle from "../ui/ThemeToggle";
@@ -13,11 +12,9 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar-inner">
-        {/* Toggle sits immediately before the wordmark so the eye lands on
-            the control and carries straight into the name. */}
+        {/* The wordmark stands alone on the left; controls live on the right. */}
         <div className="navbar-left">
-          <ThemeToggle />
-          <NavLink to="/" className="brand">
+          <NavLink to="/" className="brand" aria-label="Srinidhi, home">
             SRI
           </NavLink>
         </div>
@@ -37,7 +34,11 @@ export default function Navbar() {
           {/* Tennis ball — throws to the dog on click */}
           <TennisBall />
         </nav>
-        <SFClock />
+        {/* Clock, then the light/dark toggle at the far right edge. */}
+        <div className="navbar-right">
+          <SFClock />
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

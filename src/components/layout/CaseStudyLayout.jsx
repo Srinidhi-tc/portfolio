@@ -86,7 +86,7 @@ export default function CaseStudyLayout({
 
       {/* Problem */}
       {problem && (
-        <div className="case-study-section">
+        <div id="problem" className="case-study-section">
           <div className="container">
             <p className="case-study-label">Problem</p>
             <p className="case-study-text">{problem}</p>
@@ -112,7 +112,7 @@ export default function CaseStudyLayout({
 
       {/* Impact */}
       {impact && (
-        <div className="case-study-section">
+        <div id="impact" className="case-study-section">
           <div className="container">
             <p className="case-study-label">My Impact</p>
             <p className="case-study-text">{impact}</p>
@@ -230,7 +230,7 @@ export default function CaseStudyLayout({
                 paddingLeft: "var(--space-lg)",
                 borderLeft: "3px solid var(--accent)",
                 fontStyle: "italic",
-                fontSize: "var(--text-lg)",
+                fontSize: "var(--type-h2)",
                 lineHeight: "var(--leading-relaxed)",
                 color: "var(--muted)",
               }}

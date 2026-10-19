@@ -183,10 +183,10 @@ function Bar({ item, laneColor, anyActive, row }) {
                  style={{ width:"100%", height:120, objectFit:"cover", display:"block", borderRadius:"9px 9px 0 0" }} />
           )}
           <div style={{ padding: hasImage ? "10px 12px 12px" : "12px 14px 14px" }}>
-            <p style={{ fontSize:11, fontWeight:600, color:"var(--text)", margin:0 }}>{item.label}</p>
-            <p style={{ fontSize:10, color:"var(--muted)", margin:"2px 0 0", lineHeight:1.4 }}>{item.sub}</p>
+            <p style={{ fontSize:"var(--type-label)", fontWeight:600, color:"var(--text)", margin:0 }}>{item.label}</p>
+            <p style={{ fontSize:"var(--type-label)", color:"var(--muted)", margin:"2px 0 0", lineHeight:1.4 }}>{item.sub}</p>
             {item.note && (
-              <p style={{ fontSize:10, color:"var(--muted)", margin:"6px 0 0", lineHeight:1.5 }}>{item.note}</p>
+              <p style={{ fontSize:"var(--type-label)", color:"var(--muted)", margin:"6px 0 0", lineHeight:1.5 }}>{item.note}</p>
             )}
           </div>
           <div style={{
@@ -220,7 +220,7 @@ function GanttChart() {
           to   { opacity:1; scale:1; }
         }
         @media(max-width:600px){
-          .gantt-wrap { font-size:9px !important; }
+          .gantt-wrap { font-size:var(--type-label) !important; }
         }
       `}</style>
 
@@ -228,7 +228,7 @@ function GanttChart() {
         const { placed, rows } = packRows(lane.items);
         return (
           <div key={lane.label} style={{ marginBottom:24 }}>
-            <p style={{ fontSize:10, fontWeight:600, letterSpacing:"0.08em",
+            <p style={{ fontSize:"var(--type-label)", fontWeight:600, letterSpacing:"0.08em",
                         textTransform:"uppercase", color:"var(--color-text-tertiary)", marginBottom:8 }}>
               {lane.label}
             </p>
@@ -258,12 +258,12 @@ function GanttChart() {
         {YEARS.map(yr => (
           <span key={yr} style={{ position:"absolute", left:pct(yr),
                                    transform:"translateX(-50%)",
-                                   fontSize:9, color:"var(--color-text-tertiary)", whiteSpace:"nowrap" }}>
+                                   fontSize:"var(--type-label)", color:"var(--color-text-tertiary)", whiteSpace:"nowrap" }}>
             {yr}
           </span>
         ))}
         <span style={{ position:"absolute", left:pct(NOW), transform:"translateX(-50%)",
-                        fontSize:9, fontWeight:700, color:"var(--text)" }}>Now</span>
+                        fontSize:"var(--type-label)", fontWeight:700, color:"var(--text)" }}>Now</span>
       </div>
 
       {/* Legend */}
@@ -271,12 +271,12 @@ function GanttChart() {
         {LANES.map(lane => (
           <div key={lane.label} style={{ display:"flex", alignItems:"center", gap:5 }}>
             <div style={{ width:8, height:8, borderRadius:2, background:lane.color }} />
-            <span style={{ fontSize:10, color:"var(--muted)" }}>{lane.label}</span>
+            <span style={{ fontSize:"var(--type-label)", color:"var(--muted)" }}>{lane.label}</span>
           </div>
         ))}
       </div>
 
-      <p style={{ fontSize:11, color:"var(--color-text-tertiary)", marginTop:10 }}>
+      <p style={{ fontSize:"var(--type-label)", color:"var(--color-text-tertiary)", marginTop:10 }}>
         Hover coloured bars with images to see the project ↑
       </p>
     </div>
@@ -285,7 +285,7 @@ function GanttChart() {
 
 // ── Context sections ─────────────────────────────────────────────────────────
 const h2Style = {
-  fontSize:      "clamp(22px, 3vw, 32px)",
+  fontSize:      "var(--type-display)",
   fontWeight:    700,
   letterSpacing: "-0.3px",
   lineHeight:    1.15,
@@ -293,7 +293,7 @@ const h2Style = {
   margin:        "0 0 16px",
 };
 const pStyle = {
-  fontSize:   "clamp(16px, 1.6vw, 18px)",
+  fontSize:   "var(--type-body)",
   lineHeight: 1.65,
   color:      "var(--muted)",
   margin:     "0 0 16px",
@@ -319,7 +319,7 @@ function ContextSections() {
 
       {/* What context changes */}
       <div style={{ marginTop:"clamp(40px, 6vw, 72px)", maxWidth:720 }}>
-        <p style={{ fontSize:11, fontWeight:600, letterSpacing:"0.10em", textTransform:"uppercase",
+        <p style={{ fontSize:"var(--type-label)", fontWeight:600, letterSpacing:"0.10em", textTransform:"uppercase",
                     color:"var(--color-text-tertiary)", margin:"0 0 12px" }}>
           What context changes
         </p>
@@ -329,9 +329,9 @@ function ContextSections() {
               display:"grid", gridTemplateColumns:"minmax(96px, 120px) 1fr", gap:16,
               padding:"14px 0", borderTop:"1px solid var(--hairline-weak)", alignItems:"baseline",
             }}>
-              <span style={{ fontSize:12, fontWeight:700, letterSpacing:"0.08em",
+              <span style={{ fontSize:"var(--type-tag)", fontWeight:700, letterSpacing:"0.08em",
                              textTransform:"uppercase", color:"var(--text)" }}>{term}</span>
-              <span style={{ fontSize:16, lineHeight:1.5, color:"var(--muted)" }}>{question}</span>
+              <span style={{ fontSize:"var(--type-body)", lineHeight:1.5, color:"var(--muted)" }}>{question}</span>
             </div>
           ))}
         </div>
@@ -362,7 +362,7 @@ function ContextSections() {
         borderBottom:"4px solid #E4D9BC",
         boxShadow:"0 6px 14px rgba(0,0,0,0.20)",
         fontFamily:"'American Typewriter', 'Courier New', Courier, monospace",
-        fontSize:14,
+        fontSize:"var(--type-caption)",
         lineHeight:1.7,
       }}>
         🌻 Grateful to the mentors, professors, seniors, researchers, family, friends, and teammates who have challenged me, supported me, and helped me grow.
@@ -390,7 +390,7 @@ const EDUCATION = [
 function RecordList({ heading, rows }) {
   return (
     <div style={{ marginTop:"clamp(40px, 6vw, 72px)", maxWidth:720 }}>
-      <h2 style={{ ...h2Style, fontSize:"clamp(18px, 2.2vw, 22px)", marginBottom:12 }}>{heading}</h2>
+      <h2 style={{ ...h2Style, fontSize:"var(--type-h2)", marginBottom:12 }}>{heading}</h2>
       <ul className="about-records">
         {rows.map(([dates, title, org, href]) => (
           <li key={dates + title}>
@@ -424,7 +424,7 @@ export default function About() {
             <ProfilePhoto />
             <div>
               <h1 style={{
-                fontSize:      "clamp(28px, 4vw, 48px)",
+                fontSize:      "var(--type-display)",
                 fontWeight:    700,
                 letterSpacing: "-0.4px",
                 lineHeight:    1.08,
@@ -438,7 +438,7 @@ export default function About() {
                 listStyle:     "none",
                 margin:        "0 0 24px",
                 padding:       0,
-                fontSize:      "clamp(16px, 1.8vw, 19px)",
+                fontSize:      "var(--type-body)",
                 color:         "var(--muted)",
                 lineHeight:    1.6,
               }}>
@@ -457,7 +457,7 @@ export default function About() {
             width:       "80%",
           }}>
             <h2 style={{ ...h2Style, marginBottom:8 }}>A career built by following questions.</h2>
-            <p style={{ fontSize:15, color:"var(--muted)", margin:"0 0 28px" }}>
+            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", margin:"0 0 28px" }}>
               Psychology → research → making → product design.
             </p>
             <GanttChart />

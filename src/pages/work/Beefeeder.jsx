@@ -16,7 +16,7 @@ import img8 from "../../assets/flowerfinal8.png";
 import img9 from "../../assets/flowertimeline9.png";
 
 const eyebrow = {
-  fontSize: 13,
+  fontSize: "var(--type-caption)",
   fontWeight: 600,
   letterSpacing: "0.06em",
   textTransform: "uppercase",
@@ -25,7 +25,7 @@ const eyebrow = {
 };
 
 const body = {
-  fontSize: 16,
+  fontSize: "var(--type-body)",
   color: "var(--muted)",
   lineHeight: 1.6,
   maxWidth: 640,
@@ -98,7 +98,7 @@ function SectionHeading({ number, children }) {
       {number && <Kicker style={{ marginBottom: 10 }}>{number}</Kicker>}
       <h2
         style={{
-          fontSize: "clamp(28px, 7vw, 42px)",
+          fontSize: "var(--type-display)",
           lineHeight: 1.12,
           letterSpacing: "-0.5px",
           fontWeight: 650,
@@ -116,7 +116,7 @@ function JourneyLabel({ children, dark = false }) {
   return (
     <p
       style={{
-        fontSize: 11,
+        fontSize: "var(--type-label)",
         fontWeight: 650,
         letterSpacing: "0.07em",
         textTransform: "uppercase",
@@ -148,7 +148,7 @@ function JourneyCell({ children, highlighted = false, label }) {
             display: "flex",
             justifyContent: "flex-end",
             marginBottom: 6,
-            fontSize: 9,
+            fontSize: "var(--type-label)",
             fontWeight: 700,
             letterSpacing: "0.06em",
             color: "#5c4c00",
@@ -162,7 +162,7 @@ function JourneyCell({ children, highlighted = false, label }) {
 
       <p
         style={{
-          fontSize: 14,
+          fontSize: "var(--type-caption)",
           color: highlighted ? "#352c00" : "var(--text)",
           lineHeight: 1.45,
           margin: label ? "8px 0 0" : 0,
@@ -261,7 +261,7 @@ function ButterflyJourneyChart() {
           >
             <p
               style={{
-                fontSize: 14,
+                fontSize: "var(--type-caption)",
                 fontWeight: 650,
                 margin: 0,
                 color: "var(--text)",
@@ -317,7 +317,7 @@ function UVInsightCard() {
 
       <p
         style={{
-          fontSize: "clamp(20px, 4vw, 28px)",
+          fontSize: "var(--type-h2)",
           lineHeight: 1.25,
           letterSpacing: "-0.25px",
           fontWeight: 600,
@@ -378,7 +378,7 @@ function RoleImpact() {
 
       <h2
         style={{
-          fontSize: "clamp(28px, 7vw, 40px)",
+          fontSize: "var(--type-display)",
           lineHeight: 1.12,
           letterSpacing: "-0.4px",
           fontWeight: 650,
@@ -446,7 +446,7 @@ export default function BeeFeeder() {
 
       <h1
         style={{
-          fontSize: "clamp(34px, 11vw, 56px)",
+          fontSize: "var(--type-display)",
           fontWeight: 700,
           letterSpacing: "-0.5px",
           lineHeight: 1.05,
@@ -458,7 +458,7 @@ export default function BeeFeeder() {
 
       <p
         style={{
-          fontSize: 19,
+          fontSize: "var(--type-body)",
           color: "var(--muted)",
           marginBottom: 16,
           maxWidth: 600,
@@ -469,7 +469,7 @@ export default function BeeFeeder() {
 
       <p
         style={{
-          fontSize: 16,
+          fontSize: "var(--type-body)",
           color: "var(--muted)",
           marginBottom: 64,
           maxWidth: 640,
@@ -498,7 +498,7 @@ export default function BeeFeeder() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(16px, 4.4vw, 20px)",
+                fontSize: "var(--type-h2)",
                 fontWeight: 600,
                 color: "var(--text)",
                 marginBottom: 2,
@@ -509,7 +509,7 @@ export default function BeeFeeder() {
 
             <span
               style={{
-                fontSize: 12,
+                fontSize: "var(--type-tag)",
                 color: "var(--color-text-tertiary)",
               }}
             >
@@ -606,7 +606,7 @@ export default function BeeFeeder() {
           <ButterflyJourneyChart />
         </section>
 
-        <section id="decision">
+        <section id="decisions">
           <SectionHeading number="The breakthrough">
             The key clue was ultraviolet vision.
           </SectionHeading>
@@ -620,7 +620,7 @@ export default function BeeFeeder() {
           <UVInsightCard />
         </section>
 
-        <section id="tradeoff">
+        <section id="tradeoffs">
           <SectionHeading number="Surface iteration">
             UV paint turned the hidden cue visible.
           </SectionHeading>
@@ -711,7 +711,7 @@ export default function BeeFeeder() {
               {label}
             </p>
 
-            <p style={{ fontSize: 14, fontWeight: 500 }}>
+            <p style={{ fontSize: "var(--type-caption)", fontWeight: 500 }}>
               {value}
             </p>
           </div>

@@ -1272,13 +1272,6 @@ border: "1px solid var(--hairline-weak)";
   color: var(--text);
 }
 
-.home-intro__sub {
-  margin: var(--g0) 0 0;
-  font-size: var(--type-body);
-  line-height: var(--leading-relaxed);
-  color: var(--muted);
-}
-
 .home-section-label {
   margin: 0 0 var(--space-xl);
   font-size: var(--type-tag);

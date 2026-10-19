@@ -26,9 +26,10 @@ const ROW_ITEMS = {
 // The group label and separators only appear while the row is hovered or
 // focused (see .project-row-group-label / ::before in index.css).
 const GROUPS = [
-  { label: "UI/UX",         ids: ["ai-coding", "defenseark"] },
-  { label: "Physical",      ids: ["hearts-of-insomnia", "malli", "bee-feeder"] },
-  { label: "Human Context", ids: ["microsoft", "psychosis-literacy"] },
+  { label: "AI Ops",     ids: ["ai-coding", "microsoft"] },
+  { label: "End to end", ids: ["defenseark"] },
+  { label: "Health",     ids: ["hearts-of-insomnia", "psychosis-literacy"] },
+  { label: "3D design",  ids: ["malli", "bee-feeder"] },
 ];
 
 export default function ProjectRow() {

@@ -95,9 +95,6 @@ export default function WorkSection() {
           <h1 className="home-intro__headline">
             I design for moments when people can’t afford confusion.
           </h1>
-          <p className="home-intro__sub">
-            Product design across AI, healthcare, enterprise systems, and physical products.
-          </p>
           
         </header>
 

@@ -3,7 +3,7 @@
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-lg);
+  gap: var(--space-3);
 }
 
 /* Cards */
@@ -28,7 +28,7 @@
   border-radius: var(--radius-full);
   background: var(--accent-light);
   color: var(--accent-dark);
-  font-size: var(--type-tag);
+  font-size: var(--type-ui);
   font-weight: 600;
   letter-spacing: 0.03em;
 }
@@ -38,14 +38,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--space-1);
   min-height: var(--hit-target);
   padding: 0.6875rem 1.25rem; /* 11pt × 20pt: yields 44pt height with 17pt body */
   border: none;
   border-radius: var(--radius-full);
   font-weight: 600;
   font-size: var(--type-body);
-  letter-spacing: var(--tracking-normal);
+  letter-spacing: 0;
   cursor: pointer;
   transition: background var(--duration) var(--ease),
     color var(--duration) var(--ease),
@@ -78,14 +78,14 @@
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: var(--space-2);
   max-width: 480px;
 }
 
 .meta-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 40px;
+  gap: var(--space-5);
 }
 
 /* Grid items default to min-width:auto too — same blowout, one level down. */
@@ -101,7 +101,7 @@
 
   .meta-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: var(--space-4);
   }
 }
 
@@ -117,7 +117,7 @@
  * up (caption) on phones where label-sized text reads as too small.
  */
 .fine-print {
-  font-size: var(--type-label);
+  font-size: var(--type-ui);
 }
 
 .fine-print--eyebrow {
@@ -129,7 +129,7 @@
 
 @media (max-width: 600px) {
   .fine-print {
-    font-size: var(--type-caption);
+    font-size: var(--type-body);
   }
 }
 
@@ -137,14 +137,14 @@
  * Tag size on desktop; phones get a floor so the tags stay readable.
  */
 .project-card-tags {
-  font-size: var(--type-tag);
+  font-size: var(--type-ui);
   letter-spacing: 0.02em;
-  line-height: 1.55;
+  line-height: var(--leading-body);
 }
 
 @media (max-width: 600px) {
   .project-card-tags {
-    font-size: var(--type-caption);
+    font-size: var(--type-body);
   }
 }
 
@@ -156,14 +156,14 @@
   margin: 0;
   padding: 0;
   font-size: var(--type-body);
-  line-height: 1.5;
+  line-height: var(--leading-body);
   color: var(--muted);
 }
 
 .about-records li {
   display: grid;
   grid-template-columns: 11.5em minmax(0, 1.2fr) minmax(0, 1fr);
-  column-gap: 20px;
+  column-gap: var(--space-3);
   padding: 6px 0;
 }
 
@@ -187,15 +187,15 @@
  * caption size on phones.
  */
 .work-section-card-tags {
-  font-size: var(--type-label);
+  font-size: var(--type-ui);
   letter-spacing: 0.02em;
-  line-height: 1.5;
+  line-height: var(--leading-body);
 }
 
 @media (max-width: 600px) {
   .work-section-card-tags {
-    font-size: var(--type-caption);
-    line-height: 1.45;
+    font-size: var(--type-body);
+    line-height: var(--leading-subheading);
   }
 }
 
@@ -207,13 +207,13 @@
  */
 .about-profile-grid {
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: var(--space-5);
 }
 
 @media (max-width: 600px) {
   .about-profile-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
+    gap: var(--space-4);
   }
 }
 
@@ -227,7 +227,7 @@
   justify-self: start;
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-1);
   /* The wrapper itself must not swallow clicks: .navbar sets pointer-events
      none and each control re-enables it. On phones this box spans the full
      row, so leaving it "auto" would blanket the whole header. */
@@ -355,5 +355,12 @@
   .theme-toggle {
     width: 44px;
     height: 44px;
+  }
+}
+
+/* Fixed-ratio column layouts that should become one column on phones. */
+@media (max-width: 600px) {
+  .stack-on-phone {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }

@@ -29,8 +29,8 @@ import tacc23 from "../../assets/tacc23.jpg";
 import tacc24 from "../../assets/tacc24.jpg";
 
 const label = {
-  fontSize: "var(--type-tag)",
-  fontWeight: 650,
+  fontSize: "var(--type-ui)",
+  fontWeight: 600,
   letterSpacing: "0.07em",
   textTransform: "uppercase",
   color: "var(--color-text-tertiary)",
@@ -39,7 +39,7 @@ const label = {
 
 const body = {
   fontSize: "var(--type-body)",
-  lineHeight: 1.58,
+  lineHeight: "var(--leading-body)",
   color: "var(--muted)",
   margin: 0,
   maxWidth: 690,
@@ -57,22 +57,22 @@ function ClientSwitcher() {
     <div style={{
       position: "sticky", top: 14, zIndex: 20,
       display: "flex", justifyContent: "space-between", alignItems: "center",
-      gap: 16, marginBottom: 58, padding: "8px 10px 8px 14px",
+      gap: "var(--space-3)", marginBottom: "var(--space-6)", padding: "8px 10px 8px 14px",
       border: "1px solid var(--hairline-weak)", borderRadius: 999,
       background: "color-mix(in srgb, var(--bg) 88%, transparent)",
       backdropFilter: "blur(16px)",
     }}>
       <div style={{ minWidth: 0 }}>
-        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 2 }}>SGX3 · Two Concurrent Clients </p>
-        <p style={{ margin: 0, fontSize: "var(--type-caption)", fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+        <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: 2 }}>SGX3 · Two Concurrent Clients </p>
+        <p style={{ margin: 0, fontSize: "var(--type-body)", fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
           Client 01 · AI Coding Tutor
         </p>
       </div>
-      <div style={{ display: "flex", gap: 6, flexShrink: 0 }}>
-      <span style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, border: "1px solid var(--text)", color: "var(--text)", background: "transparent", fontSize: "var(--type-tag)", fontWeight: 650 }}>
+      <div style={{ display: "flex", gap: "var(--space-1)", flexShrink: 0 }}>
+      <span style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, border: "1px solid var(--text)", color: "var(--text)", background: "transparent", fontSize: "var(--type-ui)", fontWeight: 600 }}>
   AI Coding Tutor
 </span>
-        <a href="/portfolio/work/strabospot" style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, border: "1px solid var(--hairline-weak)", color: "var(--text)", textDecoration: "none", fontSize: "var(--type-tag)", fontWeight: 600 }}>
+        <a href="/portfolio/work/strabospot" style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, border: "1px solid var(--hairline-weak)", color: "var(--text)", textDecoration: "none", fontSize: "var(--type-ui)", fontWeight: 600 }}>
           StraboSpot Inc →
         </a>
       </div>
@@ -82,9 +82,9 @@ function ClientSwitcher() {
 
 function Hero() {
   return (
-    <header style={{ marginBottom: 72 }}>
-      <p style={{ ...label, marginBottom: 12 }}>SGX3 · UX CONSULTING · AI · EDUCATION</p>
-      <h1 style={{ fontSize: "var(--type-display)", lineHeight: 0.98, letterSpacing: "-1.5px", fontWeight: 700, margin: "0 0 18px" }}>
+    <header style={{ marginBottom: "var(--space-6)" }}>
+      <p style={{ ...label, marginBottom: "var(--space-2)" }}>SGX3 · UX CONSULTING · AI · EDUCATION</p>
+      <h1 style={{ fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-1.5px", fontWeight: 600, margin: "0 0 var(--space-3)" }}>
         AI Coding Tutor
       </h1>
       <p style={{ ...body, fontSize: "var(--type-body)" }}>
@@ -103,24 +103,24 @@ function RoleAtTop() {
     ["Tools", "Figma · Heuristic Evaluation · Comparative Analysis"],
   ];
   return (
-    <section style={{ marginBottom: 88, padding: "28px 0 32px", borderTop: "1px solid var(--hairline-weak)", borderBottom: "1px solid var(--hairline-weak)" }}>
-      <div style={{ marginBottom: 22 }}>
-        <p style={{ ...label, marginBottom: 9 }}>problem statement</p>
-        <h2 style={{ margin: 0, fontSize: "var(--type-display)", lineHeight: 1.08, letterSpacing: "-0.6px" }}>
+    <section style={{ marginBottom: "var(--space-6)", padding: "28px 0 32px", borderTop: "1px solid var(--hairline-weak)", borderBottom: "1px solid var(--hairline-weak)" }}>
+      <div style={{ marginBottom: "var(--space-4)" }}>
+        <p style={{ ...label, marginBottom: "var(--space-2)" }}>problem statement</p>
+        <h2 style={{ margin: 0, fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-0.6px" }}>
           Translating AI capability into clearer learning objectives for freshman aerospace students in computer science to create a preference to use TACC chatbot over other GPTs.
         </h2>
       </div>
-      <div className="tacc-role-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))", gap: 22, marginBottom: 28 }}>
+      <div className="tacc-role-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))", gap: "var(--space-4)", marginBottom: "var(--space-4)" }}>
         {items.map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 6 }}>{k}</p>
-            <p style={{ fontSize: "var(--type-caption)", lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
+            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{k}</p>
+            <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", margin: 0, color: "var(--muted)" }}>{v}</p>
           </div>
         ))}
       </div>
       <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
-        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 8 }}>Business Impact</p>
-        <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
+        <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Business Impact</p>
+        <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
           I prioritized onboarding clarity and scaffolded feedback because the real risk wasn't a weak feature, it was a first-time, underrepresented student disengaging in the first five minutes. Retention at that moment is the metric that matters most.
         </p>
       </div>
@@ -130,9 +130,9 @@ function RoleAtTop() {
 
 function SectionHeading({ number, title, intro }) {
   return (
-    <div style={{ marginBottom: 30, maxWidth: 760 }}>
+    <div style={{ marginBottom: "var(--space-4)", maxWidth: 760 }}>
       {number && <Kicker>{number}</Kicker>}
-      <h2 style={{ margin: "0 0 12px", fontSize: "var(--type-display)", lineHeight: 1.06, letterSpacing: "-0.8px", fontWeight: 650 }}>
+      <h2 style={{ margin: "0 0 var(--space-2)", fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-0.8px", fontWeight: 600 }}>
         {title}
       </h2>
       <p style={body}>{intro}</p>
@@ -144,7 +144,7 @@ function Slide({ src, number, caption }) {
   return (
     <figure style={{ margin: 0 }}>
       <img src={src} alt={`TACC client deck slide ${number}`} style={slideBase} />
-      <figcaption style={{ display: "flex", justifyContent: "space-between", gap: 20, paddingTop: 10, color: "var(--color-text-tertiary)", fontSize: "var(--type-label)", lineHeight: 1.4 }}>
+      <figcaption style={{ display: "flex", justifyContent: "space-between", gap: "var(--space-3)", paddingTop: 10, color: "var(--color-text-tertiary)", fontSize: "var(--type-ui)", lineHeight: "var(--leading-subheading)" }}>
         <span>CLIENT SLIDE {String(number).padStart(2, "0")} / 24</span>
         {caption ? <span style={{ textAlign: "right", maxWidth: 520 }}>{caption}</span> : null}
       </figcaption>
@@ -155,21 +155,21 @@ function Slide({ src, number, caption }) {
 function InsightLine({ children }) {
   return (
     <FloralFrame>
-      <p style={{ margin: 0, fontSize: "var(--type-body)", lineHeight: 1.5, fontWeight: 600 }}>{children}</p>
+      <p style={{ margin: 0, fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", fontWeight: 600 }}>{children}</p>
     </FloralFrame>
   );
 }
 
 function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
   return (
-    <div className="tacc-note-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 28, marginTop: 28 }}>
+    <div className="tacc-note-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "var(--space-4)", marginTop: "var(--space-4)" }}>
       <div>
-        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 7 }}>{leftLabel}</p>
-        <p style={{ ...body, fontSize: "var(--type-caption)" }}>{left}</p>
+        <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{leftLabel}</p>
+        <p style={{ ...body, fontSize: "var(--type-body)" }}>{left}</p>
       </div>
       <div>
-        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 7 }}>{rightLabel}</p>
-        <p style={{ ...body, fontSize: "var(--type-caption)" }}>{right}</p>
+        <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{rightLabel}</p>
+        <p style={{ ...body, fontSize: "var(--type-body)" }}>{right}</p>
       </div>
     </div>
   );
@@ -177,9 +177,9 @@ function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
 
 function FinalTakeaway() {
   return (
-    <section id="impact" style={{ marginTop: 92, paddingTop: 34, borderTop: "1px solid var(--hairline-weak)" }}>
-      <p style={{ ...label, marginBottom: 10 }}>THE CONSULTING TAKEAWAY</p>
-      <h2 style={{ margin: "0 0 14px", fontSize: "var(--type-display)", lineHeight: 1.08, letterSpacing: "-0.7px", maxWidth: 760 }}>
+    <section id="impact" style={{ marginTop: "var(--space-7)", paddingTop: 34, borderTop: "1px solid var(--hairline-weak)" }}>
+      <p style={{ ...label, marginBottom: "var(--space-2)" }}>THE CONSULTING TAKEAWAY</p>
+      <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-0.7px", maxWidth: 760 }}>
         A better interface started with a better question.
       </h2>
       <p style={body}>
@@ -191,13 +191,13 @@ function FinalTakeaway() {
 
 export default function TACC() {
   return (
-    <div style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif", color: "var(--text)", maxWidth: 1040, margin: "0 auto", padding: "26px 28px 110px" }}>
+    <div style={{ color: "var(--text)", maxWidth: 1040, margin: "0 auto", padding: "26px 28px 110px" }}>
       <ClientSwitcher />
       <Hero />
       <Slide src={tacc1} number={1} caption="SGX3 · interface evaluation & design recommendation" />
       <RoleAtTop />
 
-      <main style={{ display: "flex", flexDirection: "column", gap: 112 }}>
+      <main style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
 
         {/* 01 */}
         <section id="problem">
@@ -207,13 +207,13 @@ export default function TACC() {
             intro="The engagement covered an AI-powered coding interview tool. The highest-leverage opportunity was the chatbot experience, so the work centered there."
           />
           <Slide src={tacc2} number={2} caption="Engagement summary" />
-                    <div style={{ marginTop: 22 }}>
+                    <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc3} number={3} caption="Scope and sequence" />
           </div>
-          <div style={{ marginTop: 14 }}>
+          <div style={{ marginTop: "var(--space-3)" }}>
             <a href="https://www.figma.com/design/JwsjQAq1Q5UnJpDNrTqkks/AI-Coder-final-recommendation?node-id=0-1"
                target="_blank" rel="noopener noreferrer"
-               style={{ fontSize:"var(--type-caption)", fontWeight:500, color:"#0055B3", textDecoration:"none" }}>
+               style={{ fontSize:"var(--type-body)", fontWeight:400, color:"#0055B3", textDecoration:"none" }}>
               View full Figma recommendation ↗
             </a>
           </div>
@@ -230,10 +230,10 @@ export default function TACC() {
             intro="A heuristic pass exposed deeper issues around orientation, feedback, system status, and recovery. We figured out a student would use other GPT over the school bot to get assignment answers and not work with a harder learning curve."
           />
           <Slide src={tacc4} number={4} caption="Heuristic evaluation" />
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc5} number={5} caption="Nielsen's 10 heuristics used for the review" />
           </div>
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc6} number={6} caption="Findings grouped by severity" />
           </div>
           <TwoColumnNote
@@ -265,10 +265,10 @@ export default function TACC() {
             intro="The empty chat made the student solve a product question before solving a coding question."
           />
           <Slide src={tacc8} number={8} caption="Current onboarding" />
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc9} number={9} caption="Clearer first interaction" />
           </div>
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc10} number={10} caption="Suggested prompts, guidance, and expectations" />
           </div>
           <InsightLine>
@@ -284,10 +284,10 @@ export default function TACC() {
             intro="When a student was stuck, the interface could scaffold the reasoning instead of jumping straight to a solution."
           />
           <Slide src={tacc11} number={11} caption="Current conversation experience" />
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc12} number={12} caption="Guided questions" />
           </div>
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc13} number={13} caption="Clearer structure and next steps" />
           </div>
           <InsightLine>
@@ -303,16 +303,16 @@ export default function TACC() {
             intro="Feedback needed to become another useful action, not a dead end."
           />
           <Slide src={tacc14} number={14} caption="Current grading and feedback" />
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc15} number={15} caption="Concepts, attempts, and actionable next steps" />
           </div>
-          <div style={{ marginTop: 58 }}>
-            <p style={{ ...label, marginBottom: 9 }}>16–17 · PRODUCT PERSONALITY</p>
-            <p style={{ ...body, marginBottom: 22 }}>
+          <div style={{ marginTop: "var(--space-6)" }}>
+            <p style={{ ...label, marginBottom: "var(--space-2)" }}>16–17 · PRODUCT PERSONALITY</p>
+            <p style={{ ...body, marginBottom: "var(--space-4)" }}>
               A clearer learning flow still needed a recognizable product voice. The recommendation explored a friendlier identity and a lighter first message without hiding AI limits.
             </p>
             <Slide src={tacc16} number={16} caption="Current branding" />
-            <div style={{ marginTop: 22 }}>
+            <div style={{ marginTop: "var(--space-4)" }}>
               <Slide src={tacc17} number={17} caption="Recommended product personality" />
             </div>
           </div>
@@ -329,7 +329,7 @@ export default function TACC() {
             intro="The interface showed very little about where a student was in the interview. A stronger progress model made effort and closure easier to read."
           />
           <Slide src={tacc18} number={18} caption="Current progress visibility" />
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc19} number={19} caption="Recommended progress model" />
           </div>
           <InsightLine>
@@ -345,16 +345,16 @@ export default function TACC() {
             intro="The engagement ended with a research framework the product team could use to learn about students, adoption, and trust beyond the first redesign."
           />
           <Slide src={tacc20} number={20} caption="Survey question framework" />
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc21} number={21} caption="Survey structure" />
           </div>
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc22} number={22} caption="Context and preparation workflow" />
           </div>
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc23} number={23} caption="Moments of need and AI expectations" />
           </div>
-          <div style={{ marginTop: 22 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <Slide src={tacc24} number={24} caption="Trust boundaries and open reflection" />
           </div>
           <InsightLine>
@@ -367,15 +367,15 @@ export default function TACC() {
       <FinalTakeaway />
       <ChapterToggle />
 
-      <div className="tacc-meta-grid" style={{ marginTop: 54, paddingTop: 28, borderTop: "1px solid var(--hairline-weak)", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 22 }}>
+      <div className="tacc-meta-grid" style={{ marginTop: "var(--space-5)", paddingTop: 28, borderTop: "1px solid var(--hairline-weak)", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "var(--space-4)" }}>
         {[
           ["Client", "TACC · Dr. Bobby Hodgkinson"],
           ["SGX3", "Paul Parsons · Linh Pham · Claire Stirm"],
           ["Methods", "Heuristic evaluation · comparative analysis · survey framework"],
         ].map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 6 }}>{k}</p>
-            <p style={{ fontSize: "var(--type-caption)", lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
+            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{k}</p>
+            <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", margin: 0, color: "var(--muted)" }}>{v}</p>
           </div>
         ))}
       </div>

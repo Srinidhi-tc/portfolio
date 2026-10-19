@@ -1,18 +1,40 @@
-/* Type ramp — every font size on the site is one of these six roles.
- *   --type-display  Page titles and hero headlines.
- *   --type-h2       Section headings, card titles and the SRI wordmark.
- *   --type-body     Running text, intros and list copy.
- *   --type-caption  Secondary text: captions, metadata, card details, links.
- *   --type-tag      Small UI text: tags, toggle labels, buttons, nav pills.
- *   --type-label    The smallest text: uppercase eyebrows, chart axes, fine print.
+/* Editorial type system
+ *
+ * Three content roles, one sans-serif stack, two weights.
+ *   --type-heading     The primary anchor: page and section titles.
+ *   --type-subheading  Context or a secondary claim: card titles, standfirsts.
+ *   --type-body        Narrative, evidence and supporting detail, incl. captions.
+ * Interface text (nav, tags, eyebrows, chart axes, toggles) uses --type-ui; it
+ * is chrome, not a content role.
+ *
+ * Weights: 400 regular, 600 semibold. The SRI wordmark (Playfair Display 800)
+ * is the one branding exception.
+ *
+ * Spacing follows the golden ratio (×1.618 per step), rounded to whole pixels.
+ * Steps 1–4 space content inside a section; --space-section (110px) separates
+ * sections.
  */
 :root {
-  --type-display: clamp(32px, 5vw, 56px);
-  --type-h2: clamp(21px, 2.2vw, 26px);
+  --type-heading: clamp(28px, 4vw, 44px);
+  --type-subheading: clamp(18px, 1.8vw, 21px);
   --type-body: clamp(16px, 1.5vw, 17px);
-  --type-caption: 14px;
-  --type-tag: 12px;
-  --type-label: 11px;
+  --type-ui: 12px;
+
+  --weight-regular: 400;
+  --weight-semibold: 600;
+
+  --leading-heading: 1.15;
+  --leading-subheading: 1.35;
+  --leading-body: 1.6;
+
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 16px;
+  --space-4: 26px;
+  --space-5: 42px;
+  --space-6: 68px;
+  --space-7: 110px;
+  --space-section: var(--space-7);
 }
 
 /*
@@ -93,60 +115,9 @@
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "SF Pro Display", "Helvetica Neue", "Inter", "Segoe UI", Roboto, Arial,
     sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, "JetBrains Mono",
-    Consolas, monospace;
 
   /* SF text features (kerning, contextual alts) */
   --font-features: "kern", "liga", "calt";
-
-  /* Type scale — iOS Dynamic Type defaults (HIG → Typography → iOS sizes,
-     1pt ≈ 1px in CSS at 1× density). */
-  --text-caption2: 0.6875rem;  /* 11pt */
-  --text-caption1: 0.75rem;    /* 12pt */
-  --text-footnote: 0.8125rem;  /* 13pt */
-  --text-subhead: 0.9375rem;   /* 15pt */
-  --text-callout: 1rem;        /* 16pt */
-  --text-body: 1.0625rem;      /* 17pt — iOS body default */
-  --text-headline: 1.0625rem;  /* 17pt semibold */
-  --text-title3: 1.25rem;      /* 20pt */
-  --text-title2: 1.375rem;     /* 22pt */
-  --text-title1: 1.75rem;      /* 28pt */
-  --text-largeTitle: 2.125rem; /* 34pt — iOS Large Title */
-
-  /* Aliases mapped to existing component usage (kept for compatibility) */
-  --text-xs: var(--text-caption1);
-  --text-sm: var(--text-footnote);
-  --text-base: var(--text-body);
-  --text-lg: var(--text-title3);
-  --text-xl: var(--text-title2);
-  --text-2xl: var(--text-title1);
-  --text-3xl: var(--text-largeTitle);
-  --text-4xl: clamp(2.125rem, 5vw, 3rem);
-  --text-5xl: clamp(2.5rem, 7vw, 4.25rem);
-  --text-hero: clamp(3.5rem, 12vw, 7rem);
-
-  /* Line heights — HIG specifies leading per text style; these match
-     published iOS Body/Title leading ratios reasonably (1.29–1.5). */
-  --leading-tight: 1.05;
-  --leading-snug: 1.2;
-  --leading-normal: 1.4;
-  --leading-relaxed: 1.5;
-
-  /* Tracking — SF Pro Text uses positive tracking at small sizes per HIG */
-  --tracking-tight: -0.022em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.04em;
-
-  /* Spacing — 8-point grid (HIG → Layout) plus 4pt half-step */
-  --space-xs: 0.25rem;   /* 4pt */
-  --space-sm: 0.5rem;    /* 8pt */
-  --space-md: 1rem;      /* 16pt — iOS standard margin */
-  --space-lg: 1.25rem;   /* 20pt — iOS standard margin (regular width) */
-  --space-xl: 1.5rem;    /* 24pt */
-  --space-2xl: 2rem;     /* 32pt */
-  --space-3xl: 2.5rem;   /* 40pt */
-  --space-4xl: 3rem;     /* 48pt */
-  --space-5xl: 4rem;     /* 64pt */
 
   /* Layout */
   --max-width: 1120px;
@@ -333,15 +304,6 @@ html {
   --color-burgundy-soft: #efe1e3;
   --color-sage: #87967f;
   --color-sage-soft: #e6ece3;
-
-  --space-8: 8px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-24: 24px;
-  --space-32: 32px;
-  --space-48: 48px;
-  --space-72: 72px;
-  --space-96: 96px;
 }
 
 @media (prefers-color-scheme: dark) {

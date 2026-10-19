@@ -11,29 +11,29 @@ import heart11 from "../../assets/heart11.png";
 import heart12 from "../../assets/heart12.png";
 
 const eyebrow = {
-  fontSize: "var(--type-caption)",
+  fontSize: "var(--type-body)",
   fontWeight: 600,
   letterSpacing: "0.06em",
   textTransform: "uppercase",
   color: "var(--color-text-tertiary)",
-  marginBottom: 8,
+  marginBottom: "var(--space-1)",
 };
 
 const body = {
   fontSize: "var(--type-body)",
   color: "var(--muted)",
-  lineHeight: 1.6,
+  lineHeight: "var(--leading-body)",
   maxWidth: 640,
   margin: 0,
 };
 
 const title = {
-  fontSize: "var(--type-display)",
+  fontSize: "var(--type-heading)",
   fontWeight: 600,
   letterSpacing: "-0.02em",
-  lineHeight: 1.12,
+  lineHeight: "var(--leading-heading)",
   color: "var(--text)",
-  margin: "0 0 14px",
+  margin: "0 0 var(--space-3)",
 };
 
 function Block({ src, subheading, caption, alt }) {
@@ -47,7 +47,7 @@ function Block({ src, subheading, caption, alt }) {
             width: "100%",
             borderRadius: 12,
             display: "block",
-            marginBottom: 20,
+            marginBottom: "var(--space-3)",
           }}
         />
       )}
@@ -66,8 +66,8 @@ function ImpactBox() {
         padding: "24px 24px 26px",
       }}
     >
-      <p style={{ ...eyebrow, marginBottom: 10 }}>Role & Impact</p>
-      <h2 style={{ ...title, fontSize: "var(--type-h2)", marginBottom: 14 }}>
+      <p style={{ ...eyebrow, marginBottom: "var(--space-2)" }}>Role & Impact</p>
+      <h2 style={{ ...title, fontSize: "var(--type-subheading)", marginBottom: "var(--space-3)" }}>
         The physical experience depended on both form and system.
       </h2>
       <p style={body}>
@@ -85,9 +85,9 @@ function ImpactBox() {
           style={{
             display: "inline-flex",
             alignItems: "center",
-            gap: 6,
-            marginTop: 18,
-            fontSize: "var(--type-caption)",
+            gap: "var(--space-1)",
+            marginTop: "var(--space-3)",
+            fontSize: "var(--type-body)",
             fontWeight: 600,
             color: "var(--text)",
             textDecoration: "none",
@@ -106,25 +106,24 @@ export default function HeartsOfInsomnia() {
   return (
     <div
       style={{
-        fontFamily: "-apple-system,BlinkMacSystemFont,sans-serif",
         color: "var(--text)",
         padding: "80px 40px",
         maxWidth: 900,
         margin: "0 auto",
       }}
     >
-      <header style={{ marginBottom: 72 }}>
-        <p className="fine-print fine-print--eyebrow" style={{ marginBottom: 12 }}>
+      <header style={{ marginBottom: "var(--space-6)" }}>
+        <p className="fine-print fine-print--eyebrow" style={{ marginBottom: "var(--space-2)" }}>
           Physical Computing · Emotional Design
         </p>
 
         <h1
           style={{
-            fontSize: "var(--type-display)",
-            fontWeight: 700,
+            fontSize: "var(--type-heading)",
+            fontWeight: 600,
             letterSpacing: "-0.5px",
-            lineHeight: 1.05,
-            marginBottom: 16,
+            lineHeight: "var(--leading-heading)",
+            marginBottom: "var(--space-3)",
           }}
         >
           Hearts of Insomnia
@@ -134,7 +133,7 @@ export default function HeartsOfInsomnia() {
           style={{
             fontSize: "var(--type-body)",
             color: "var(--muted)",
-            marginBottom: 16,
+            marginBottom: "var(--space-3)",
             maxWidth: 600,
           }}
         >
@@ -145,9 +144,9 @@ export default function HeartsOfInsomnia() {
           style={{
             fontSize: "var(--type-body)",
             color: "var(--muted)",
-            marginBottom: 32,
+            marginBottom: "var(--space-4)",
             maxWidth: 640,
-            lineHeight: 1.55,
+            lineHeight: "var(--leading-body)",
           }}
         >
           What if a bedside lamp could notice when the body starts to change,
@@ -157,7 +156,7 @@ export default function HeartsOfInsomnia() {
         <ImpactBox />
       </header>
 
-      <main style={{ display: "flex", flexDirection: "column", gap: 88 }}>
+      <main style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
         <Block
           src={heart1}
           subheading="The Starting Point"
@@ -260,7 +259,7 @@ export default function HeartsOfInsomnia() {
             padding: "28px 24px",
           }}
         >
-          <p style={{ ...eyebrow, marginBottom: 10 }}>Final Interaction</p>
+          <p style={{ ...eyebrow, marginBottom: "var(--space-2)" }}>Final Interaction</p>
           <h2 style={title}>Body → signal → light → awareness.</h2>
           <p style={body}>
             The final concept turns heart-rate input into an ambient physical
@@ -274,21 +273,21 @@ export default function HeartsOfInsomnia() {
           style={{
             borderTop: "0.5px solid var(--hairline-weak)",
             paddingTop: 40,
-            marginTop: 8,
+            marginTop: "var(--space-1)",
           }}
         >
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-              gap: 28,
+              gap: "var(--space-4)",
             }}
           >
             <div>
               <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
                 Team
               </p>
-              <p style={{ fontSize: "var(--type-caption)", fontWeight: 500, margin: 0 }}>
+              <p style={{ fontSize: "var(--type-body)", fontWeight: 400, margin: 0 }}>
                 Srinidhi Chakravarthy · Bri Baehl
               </p>
             </div>
@@ -297,7 +296,7 @@ export default function HeartsOfInsomnia() {
               <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
                 Tools
               </p>
-              <p style={{ fontSize: "var(--type-caption)", fontWeight: 500, margin: 0 }}>
+              <p style={{ fontSize: "var(--type-body)", fontWeight: 400, margin: 0 }}>
                 Arduino · Blender · p5.js · 3D Printing
               </p>
             </div>
@@ -306,7 +305,7 @@ export default function HeartsOfInsomnia() {
               <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
                 Project
               </p>
-              <p style={{ fontSize: "var(--type-caption)", fontWeight: 500, margin: 0 }}>
+              <p style={{ fontSize: "var(--type-body)", fontWeight: 400, margin: 0 }}>
                 Physical Computing · UX Research
               </p>
             </div>
@@ -315,7 +314,7 @@ export default function HeartsOfInsomnia() {
               <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>
                 Submission
               </p>
-              <p style={{ fontSize: "var(--type-caption)", fontWeight: 500, margin: 0 }}>
+              <p style={{ fontSize: "var(--type-body)", fontWeight: 400, margin: 0 }}>
                 CHI 2026 Interactive Demo
               </p>
             </div>

@@ -21,14 +21,13 @@ import cap25 from "../../assets/cap25.jpg";
 import cap27 from "../../assets/cap27.jpg";
 import cap31 from "../../assets/cap31.jpg";
 
-const font = `-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif`;
 
 const label = {
-  fontSize: "var(--type-label)", fontWeight: 600, letterSpacing: "0.08em",
+  fontSize: "var(--type-ui)", fontWeight: 600, letterSpacing: "0.08em",
   textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: 0,
 };
 const body = {
-  fontSize: "var(--type-body)", lineHeight: 1.65, color: "var(--muted)", margin: 0, maxWidth: 680,
+  fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0, maxWidth: 680,
 };
 const slideImg = {
   width: "100%", display: "block", borderRadius: 14,
@@ -37,10 +36,10 @@ const slideImg = {
 
 function Section({ id, number, title, intro, children }) {
   return (
-    <section id={id} style={{ marginBottom: 96 }}>
-      <div style={{ marginBottom: 28, maxWidth: 720 }}>
-        {number && <Kicker style={{ marginBottom: 10 }}>{number}</Kicker>}
-        <h2 style={{ margin: "0 0 14px", fontSize: "var(--type-display)", lineHeight: 1.08, letterSpacing: "-0.5px", fontWeight: 650, color: "var(--text)" }}>
+    <section id={id} style={{ marginBottom: "var(--space-7)" }}>
+      <div style={{ marginBottom: "var(--space-4)", maxWidth: 720 }}>
+        {number && <Kicker style={{ marginBottom: "var(--space-2)" }}>{number}</Kicker>}
+        <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-0.5px", fontWeight: 600, color: "var(--text)" }}>
           {title}
         </h2>
         {intro && <p style={body}>{intro}</p>}
@@ -61,10 +60,10 @@ function Redact({ children }) {
 
 function Slide({ src, caption, alt }) {
   return (
-    <figure style={{ margin: "0 0 10px" }}>
+    <figure style={{ margin: "0 0 var(--space-2)" }}>
       <img src={src} alt={alt ?? (typeof caption === "string" ? caption : "")} style={slideImg} />
       {caption && (
-        <figcaption style={{ marginTop: 8, fontSize: "var(--type-tag)", color: "var(--color-text-tertiary)", lineHeight: 1.4 }}>
+        <figcaption style={{ marginTop: "var(--space-1)", fontSize: "var(--type-ui)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>
           {caption}
         </figcaption>
       )}
@@ -75,18 +74,18 @@ function Slide({ src, caption, alt }) {
 function Insight({ children }) {
   return (
     <FloralFrame>
-      <p style={{ margin: 0, fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: 1.5 }}>{children}</p>
+      <p style={{ margin: 0, fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)" }}>{children}</p>
     </FloralFrame>
   );
 }
 
 function StatRow({ stats }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: `repeat(${stats.length}, 1fr)`, gap: 16, margin: "32px 0" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap: "var(--space-3)", margin: "var(--space-4) 0" }}>
       {stats.map(({ value, label: lbl }) => (
         <div key={lbl} style={{ background: "var(--surface-2)", borderRadius: 12, padding: "18px 20px" }}>
-          <span style={{ display: "block", fontSize: "var(--type-display)", fontWeight: 700, color: "var(--text)", letterSpacing: "-0.3px", marginBottom: 4 }}>{value}</span>
-          <span style={{ fontSize: "var(--type-tag)", color: "var(--color-text-tertiary)", lineHeight: 1.4 }}>{lbl}</span>
+          <span style={{ display: "block", fontSize: "var(--type-heading)", fontWeight: 600, color: "var(--text)", letterSpacing: "-0.3px", marginBottom: 4 }}>{value}</span>
+          <span style={{ fontSize: "var(--type-ui)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>{lbl}</span>
         </div>
       ))}
     </div>
@@ -95,20 +94,20 @@ function StatRow({ stats }) {
 
 export default function PsychosisLiteracy() {
   return (
-    <div style={{ fontFamily: font, color: "var(--text)", maxWidth: 1000, margin: "0 auto", padding: "32px 28px 120px", WebkitFontSmoothing: "antialiased" }}>
+    <div style={{ color: "var(--text)", maxWidth: 1000, margin: "0 auto", padding: "32px 28px 120px", WebkitFontSmoothing: "antialiased" }}>
 
       {/* DISCLAIMER */}
-      <div style={{ background: "var(--text)", color: "var(--surface-2)", borderRadius: 12, padding: "16px 20px", marginBottom: 48, fontSize: "var(--type-caption)", lineHeight: 1.5 }}>
+      <div style={{ background: "var(--text)", color: "var(--surface-2)", borderRadius: 12, padding: "16px 20px", marginBottom: "var(--space-5)", fontSize: "var(--type-body)", lineHeight: "var(--leading-body)" }}>
         <strong>Disclaimer:</strong> This project contains psychoeducation content and simulated visual imagery of hallucinations. Designed for educational purposes only.
       </div>
 
       {/* HERO */}
-      <header style={{ marginBottom: 72 }}>
-        <p style={{ ...label, marginBottom: 14 }}>Purdue Capstone 2026 · Health Tech · Youth Mental Health</p>
-        <h1 style={{ fontSize: "var(--type-display)", fontWeight: 700, letterSpacing: "-1px", lineHeight: 0.98, margin: "0 0 20px", color: "var(--text)" }}>
+      <header style={{ marginBottom: "var(--space-6)" }}>
+        <p style={{ ...label, marginBottom: "var(--space-3)" }}>Purdue Capstone 2026 · Health Tech · Youth Mental Health</p>
+        <h1 style={{ fontSize: "var(--type-heading)", fontWeight: 600, letterSpacing: "-1px", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)", color: "var(--text)" }}>
           Percepta
         </h1>
-        <p style={{ fontSize: "var(--type-h2)", fontWeight: 500, color: "var(--muted)", letterSpacing: "-0.2px", margin: "0 0 16px", maxWidth: 720 }}>
+        <p style={{ fontSize: "var(--type-subheading)", fontWeight: 400, color: "var(--muted)", letterSpacing: "-0.2px", margin: "0 0 var(--space-3)", maxWidth: 720 }}>
           How You See Matters.
         </p>
         <p style={{ ...body, fontSize: "var(--type-body)", color: "var(--muted)" }}>
@@ -117,39 +116,39 @@ export default function PsychosisLiteracy() {
       </header>
 
       {/* HERO SLIDE — the one full-width image */}
-      <div style={{ marginBottom: 80 }}>
+      <div style={{ marginBottom: "var(--space-6)" }}>
         <img src={cap25} alt="Percepta · Capstone 2026"
              style={{ width: "100%", borderRadius: 18, display: "block" }} />
       </div>
 
       {/* ROLE */}
-      <div style={{ marginBottom: 80, paddingTop: 32, borderTop: "1px solid var(--hairline-weak)" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginBottom: 32 }}>
+      <div style={{ marginBottom: "var(--space-6)", paddingTop: 32, borderTop: "1px solid var(--hairline-weak)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-4)", marginBottom: "var(--space-4)" }}>
           {[
             ["Role", "UX Designer · Solo Capstone"],
             ["Committee", "Prof. Rua · Prof. Paul · Prof. Anastasia · Prof. Nancy · Prof. Shobhan shah (Advisor)"],
             ["My Role", "Information architecture · Expert interviews · Usability testing · Computer vision integration"],
           ].map(([k, v]) => (
             <div key={k}>
-              <p style={{ ...label, fontSize: "var(--type-tag)", marginBottom: 6 }}>{k}</p>
-              <p style={{ fontSize: "var(--type-caption)", color: "var(--muted)", lineHeight: 1.5, margin: 0 }}>{v}</p>
+              <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{k}</p>
+              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{v}</p>
             </div>
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, paddingTop: 28, borderTop: "1px solid var(--hairline-weak)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-4)", paddingTop: 28, borderTop: "1px solid var(--hairline-weak)" }}>
           <div>
-            <p style={{ ...label, fontSize: "var(--type-tag)", marginBottom: 6 }}>Built With</p>
-            <p style={{ fontSize: "var(--type-body)", fontWeight: 700, color: "var(--text)", lineHeight: 1.5, margin: 0 }}>Base44</p>
-            <p style={{ fontSize: "var(--type-caption)", color: "var(--muted)", lineHeight: 1.5, margin: "4px 0 0" }}>Figma · Computer Vision · Python</p>
+            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Built With</p>
+            <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>Base44</p>
+            <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: "4px 0 0" }}>Figma · Computer Vision · Python</p>
           </div>
           <div>
-            <p style={{ ...label, fontSize: "var(--type-tag)", marginBottom: 6 }}>Top Skills</p>
-            <p style={{ fontSize: "var(--type-caption)", color: "var(--muted)", lineHeight: 1.5, margin: 0 }}>AI-Native Design · Design Systems · Clear Impact Statements</p>
+            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Top Skills</p>
+            <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>AI-Native Design · Design Systems · Clear Impact Statements</p>
           </div>
           <div>
-            <p style={{ ...label, fontSize: "var(--type-tag)", marginBottom: 6 }}>Impact</p>
-            <p style={{ fontSize: "var(--type-body)", fontWeight: 650, color: "var(--text)", lineHeight: 1.5, margin: 0 }}>10/10 reached help-seeking · 100% hallucination type recognition on visual</p>
+            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Impact</p>
+            <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>10/10 reached help-seeking · 100% hallucination type recognition on visual</p>
           </div>
         </div>
       </div>
@@ -178,7 +177,7 @@ export default function PsychosisLiteracy() {
         intro="I mapped Mr. KP's full day, waking up, commute, work, night time, to find where emotional hallucinations peak and where intervention is possible."
       >
         <Slide src={cap9} caption="Customer journey map: Mr. KP's day, waking up through night time. Emotional hallucinations peak at work. Night time is most frightening." />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)", marginTop: "var(--space-4)" }}>
           {[
             ["Waking up", "Hallucinations begin at start of day. Routine overpowers them with morning prayers, music, and constant support."],
             ["At work", "Emotional hallucinations are overwhelming. Difficulty distinguishing friend from threat."],
@@ -186,8 +185,8 @@ export default function PsychosisLiteracy() {
             ["Night time", "Weakest willpower. Most frightening. Night hallucinations are the hardest to cope with."],
           ].map(([stage, insight]) => (
             <div key={stage} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "16px 18px" }}>
-              <p style={{ fontSize: "var(--type-label)", fontWeight: 600, color: "var(--color-text-tertiary)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>{stage}</p>
-              <p style={{ fontSize: "var(--type-caption)", color: "var(--muted)", lineHeight: 1.55, margin: 0 }}>{insight}</p>
+              <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{stage}</p>
+              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{insight}</p>
             </div>
           ))}
         </div>
@@ -212,11 +211,11 @@ export default function PsychosisLiteracy() {
         intro="Instead of describing hallucinations in text, Percepta uses the device camera to place hallucination effects on the user's real environment. Back camera is used by default, to show how people with hallucinations see the world."
       >
         <Slide src={cap14} caption="Percepta onboarding: '100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.' Designed for ages 15–25 · Educational purposes only." />
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: "var(--space-3)" }}>
           <Slide src={cap19} caption="5 types of visual hallucination: Colours, Blur, Smoke, Bubbles, Shadows, Faces & Hands." />
           <Slide src={cap20} caption="5 types of auditory hallucination: Whispers, Self-Talk, Two Voices, Footsteps, Commands." />
           </div>
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: "var(--space-3)" }}>
           <Slide src={cap18} caption="Filter selection screen: UX Heuristic: Match between system and real world. Filters work like gallery filters. 'Did anything feel off?', reflection prompt after the experience." />
           </div>
         <Insight>Back camera is the right choice. Hallucinations happen in the external world, not the face. Designing for the right point of view changes everything.</Insight>
@@ -233,7 +232,7 @@ export default function PsychosisLiteracy() {
           alt="Expert validation sessions with Purdue Psychological Sciences and CAPS. Door signs blurred for privacy."
           caption={<>Expert validation sessions: Purdue Psychological Sciences and CAPS. Room <Redact>0000</Redact>: <Redact>X.</Redact> Gomez, <Redact>X.</Redact> Rodriguez, <Redact>X.</Redact> Rubi. Room <Redact>0000</Redact>: <Redact>X.</Redact> Haskett. Room <Redact>0000</Redact>: <Redact>X.</Redact> Lim-Kessler.</>}
         />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)", marginTop: "var(--space-4)" }}>
           {[
             ["Do not segregate user groups", "Give common, inclusive messaging: Simple · Inclusive · Unconditional Positive Regard"],
             ["Add a big EXIT button", "Users must be able to leave immediately without friction. Safety first."],
@@ -241,8 +240,8 @@ export default function PsychosisLiteracy() {
             ["Language matters", "Messaging must be non-stigmatising and avoid clinical jargon for a teen audience."],
           ].map(([finding, detail]) => (
             <div key={finding} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "16px 18px" }}>
-              <p style={{ fontSize: "var(--type-tag)", fontWeight: 600, color: "var(--text)", marginBottom: 6 }}>{finding}</p>
-              <p style={{ fontSize: "var(--type-caption)", color: "var(--muted)", lineHeight: 1.55, margin: 0 }}>{detail}</p>
+              <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--text)", marginBottom: "var(--space-1)" }}>{finding}</p>
+              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{detail}</p>
             </div>
           ))}
         </div>
@@ -272,15 +271,15 @@ export default function PsychosisLiteracy() {
           { value: "7/10",  label: "correctly identified auditory hallucination types" },
           { value: "10/10", label: "reached the help-seeking page" },
         ]} />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginTop: 8 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)", marginTop: "var(--space-1)" }}>
           {[
             ["Phase 1 · Landing Page", "8/10 preferred a quick load directly to the experience. Shows preference for visuals over text."],
             ["Phase 2 · Awareness", "10/10 identified visual hallucination types. 7/10 identified auditory. Architecture worked."],
             ["Phase 3 · Help-Seeking", "10/10 reached the help page. 5/10 read through fully. Helpline got major visibility."],
           ].map(([phase, result]) => (
             <div key={phase} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "16px 18px" }}>
-              <p style={{ fontSize: "var(--type-label)", fontWeight: 600, color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6 }}>{phase}</p>
-              <p style={{ fontSize: "var(--type-caption)", color: "var(--muted)", lineHeight: 1.55, margin: 0 }}>{result}</p>
+              <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-1)" }}>{phase}</p>
+              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{result}</p>
             </div>
           ))}
         </div>
@@ -294,30 +293,30 @@ export default function PsychosisLiteracy() {
         title="What I chose not to build. And why."
       >
         <Slide src={cap31} caption="Trade-offs and challenges: For competitor analysis, paper prototypes, wireframes, initial mockups, and secondary research: Access documentation." />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)", marginTop: "var(--space-4)" }}>
           <div>
-            <p style={{ ...label, marginBottom: 12 }}>Trade-offs</p>
+            <p style={{ ...label, marginBottom: "var(--space-2)" }}>Trade-offs</p>
             {[
               "No data-heavy hallucination effects that require strong internet connections, accessibility over spectacle",
               "English only for V1, validate the model before scaling language support",
               "No peer-to-peer features, no unsupervised surfaces for this user group",
             ].map((t, i) => (
-              <div key={i} style={{ display: "flex", gap: 12, marginBottom: 10 }}>
+              <div key={i} style={{ display: "flex", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
                 <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>•</span>
-                <p style={{ fontSize: "var(--type-caption)", color: "var(--muted)", lineHeight: 1.55, margin: 0 }}>{t}</p>
+                <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{t}</p>
               </div>
             ))}
           </div>
           <div>
-            <p style={{ ...label, marginBottom: 12 }}>Challenges</p>
+            <p style={{ ...label, marginBottom: "var(--space-2)" }}>Challenges</p>
             {[
               "Sensitivity of the topic needs continuous care, this is always a work in progress",
               "Hallucination representation must be clinically validated, not aesthetically driven",
               "Exit must always be visible, no user should feel trapped in the simulation",
             ].map((c, i) => (
-              <div key={i} style={{ display: "flex", gap: 12, marginBottom: 10 }}>
+              <div key={i} style={{ display: "flex", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
                 <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>•</span>
-                <p style={{ fontSize: "var(--type-caption)", color: "var(--muted)", lineHeight: 1.55, margin: 0 }}>{c}</p>
+                <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{c}</p>
               </div>
             ))}
           </div>
@@ -330,10 +329,10 @@ export default function PsychosisLiteracy() {
         number="Visual research"
         title="Images and visual research material."
       >
-        <div className="cap-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+        <div className="cap-grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)" }}>
           {["Image to come", "Image to come", "Visual research material to come", "Visual research material to come"].map((slot, i) => (
             <div key={i} style={{ aspectRatio: "4 / 3", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--surface-2)" }}>
-              <span style={{ ...label, fontSize: "var(--type-label)" }}>{slot}</span>
+              <span style={{ ...label, fontSize: "var(--type-ui)" }}>{slot}</span>
             </div>
           ))}
         </div>

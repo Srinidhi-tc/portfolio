@@ -7,7 +7,7 @@ export default function SectionTitle({
   titleHidden = false,
 }) {
   return (
-    <div className={className} style={{ marginBottom: "var(--space-2xl)" }}>
+    <div className={className} style={{ marginBottom: "var(--space-4)" }}>
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
       {/* titleHidden keeps the heading's layout space (separation) but hides the
           text — the nav pill already shows which page you're on. */}

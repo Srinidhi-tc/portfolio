@@ -139,10 +139,12 @@ export default function WorkSection() {
                           {project.tags.join(" · ")}
                         </p>
                       )}
-                      <CardMetricInline id={project.id} />
                     </div>
                     <div key={view} className="work-section-card-body" style={{ transitionTimingFunction: CONTENT_EASE }}>
-                      <p className="work-section-subheading">{copy.subheading}</p>
+                      <div className="work-section-subrow">
+                        <p className="work-section-subheading">{copy.subheading}</p>
+                        <CardMetricInline id={project.id} />
+                      </div>
                       <p className="work-section-body">{linkSites(copy.body, project.sites)}</p>
                     </div>
                   </div>

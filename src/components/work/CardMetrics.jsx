@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // Edit the metric values here. Keys are project ids from workSectionProjects.
-//   metrics: big bold number with a small caption underneath, beside the title.
+//   metrics: a bold value and caption on the card's small-heading line.
 //            More than one entry crossfades every `rotateMs`.
 // `accent` is a matte pastel taken from the card's thumbnail.
 // `label` is the full wording read out by screen readers.
@@ -74,38 +74,25 @@ function Metric({ metrics, accent, rotateMs }) {
   const label = shown.map((m) => m.label).join(" and ");
   const fade = (i) => ({ opacity: i === active ? 1 : 0 });
 
-  // Two grid cells: the number lines up with the title, the caption with the
-  // subtitle line. Values share one cell each so crossfading never shifts layout.
+  // One line, "↓ ~30% Decision Time". Every value shares one grid cell, so
+  // crossfading between them never shifts the layout.
   return (
-    <>
-      <span
-        className="work-section-metric-cell work-section-metric-value"
-        role="img"
-        aria-label={label}
-        style={{ "--metric-accent": accent }}
-      >
-        {shown.map((m, i) => (
-          <span key={m.value + m.caption} aria-hidden="true" className="work-section-metric-fade" style={fade(i)}>
-            {m.value}
-          </span>
-        ))}
-      </span>
-      <span
-        className="work-section-metric-cell work-section-metric-caption"
-        aria-hidden="true"
-        style={{ "--metric-accent": accent }}
-      >
-        {shown.map((m, i) => (
-          <span key={m.value + m.caption} className="work-section-metric-fade" style={fade(i)}>
-            {m.caption}
-          </span>
-        ))}
-      </span>
-    </>
+    <span
+      className="work-section-metric"
+      role="img"
+      aria-label={label}
+      style={{ "--metric-accent": accent }}
+    >
+      {shown.map((m, i) => (
+        <span key={m.value + m.caption} aria-hidden="true" className="work-section-metric-fade" style={fade(i)}>
+          {m.value} {m.caption}
+        </span>
+      ))}
+    </span>
   );
 }
 
-// Right-hand side of the title block: big bold number, caption underneath.
+// Sits on the same line as the card's small heading ("Low visibility"…).
 export function CardMetricInline({ id }) {
   const m = METRICS[id];
   if (!m?.metrics) return null;

@@ -194,7 +194,7 @@ export default function TennisBall() {
           justifyContent: "center",
           borderRadius: "50%",
           outline:     "none",
-          marginLeft:  "6px",
+          marginLeft:  "var(--space-1)",
           flexShrink:  0,
           transition:  "opacity 120ms ease, transform 180ms ease-out",
         }}

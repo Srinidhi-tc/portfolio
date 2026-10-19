@@ -26,18 +26,17 @@ import micEmail  from "../../assets/mic-email.jpeg";
 import micCall   from "../../assets/mic-call.jpeg";
 import micWcag   from "../../assets/mic-wcag.svg";
 
-const font = `-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif`;
-const lbl  = { fontSize:"var(--type-label)", fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
-const bd   = { fontSize:"var(--type-body)", lineHeight:1.65, color:"var(--muted)", margin:0, maxWidth:680 };
+const lbl  = { fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
+const bd   = { fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:0, maxWidth:680 };
 const card = { background:"var(--surface-2)", borderRadius:12, padding:"18px 20px" };
 
 function Slide({ src, caption }) {
   return (
-    <figure style={{ margin:"0 0 10px" }}>
+    <figure style={{ margin:"0 0 var(--space-2)" }}>
       <img src={src} alt={caption || ""} loading="lazy"
            style={{ width:"100%", display:"block", borderRadius:14, background:"var(--surface-2)" }} />
       {caption && (
-        <figcaption style={{ marginTop:8, fontSize:"var(--type-tag)", color:"var(--color-text-tertiary)", lineHeight:1.5 }}>{caption}</figcaption>
+        <figcaption style={{ marginTop:"var(--space-1)", fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
       )}
     </figure>
   );
@@ -46,7 +45,7 @@ function Slide({ src, caption }) {
 function Insight({ children }) {
   return (
     <FloralFrame>
-      <p style={{ margin:0, fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:1.5 }}>{children}</p>
+      <p style={{ margin:0, fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:"var(--leading-body)" }}>{children}</p>
     </FloralFrame>
   );
 }
@@ -54,19 +53,19 @@ function Insight({ children }) {
 function Quote({ text, source }) {
   return (
     <FloralFrame>
-      <p style={{ margin:"0 0 8px", fontSize:"var(--type-body)", fontStyle:"italic", color:"var(--text)", lineHeight:1.55 }}>"{text}"</p>
-      <p style={{ margin:0, fontSize:"var(--type-tag)", color:"var(--color-text-tertiary)", fontWeight:600 }}>{source}</p>
+      <p style={{ margin:"0 0 var(--space-1)", fontSize:"var(--type-body)", fontStyle:"italic", color:"var(--text)", lineHeight:"var(--leading-body)" }}>"{text}"</p>
+      <p style={{ margin:0, fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", fontWeight:600 }}>{source}</p>
     </FloralFrame>
   );
 }
 
 function Cards({ items, cols = 3 }) {
   return (
-    <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:`repeat(${cols},1fr)`, gap:16, marginTop:24 }}>
+    <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)", marginTop:"var(--space-4)" }}>
       {items.map(([title, text]) => (
         <div key={title} style={card}>
-          <p style={{ fontSize:"var(--type-caption)", fontWeight:600, color:"var(--text)", margin:"0 0 6px" }}>{title}</p>
-          <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.6, margin:0 }}>{text}</p>
+          <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", margin:"0 0 var(--space-1)" }}>{title}</p>
+          <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{text}</p>
         </div>
       ))}
     </div>
@@ -75,11 +74,11 @@ function Cards({ items, cols = 3 }) {
 
 function StatRow({ stats }) {
   return (
-    <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:`repeat(${stats.length},1fr)`, gap:16, margin:"28px 0" }}>
+    <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap:"var(--space-3)", margin:"var(--space-4) 0" }}>
       {stats.map(({ value, label }) => (
         <div key={label} style={card}>
-          <span style={{ display:"block", fontSize:"var(--type-display)", fontWeight:700, color:"var(--text)", marginBottom:4 }}>{value}</span>
-          <span style={{ fontSize:"var(--type-tag)", color:"var(--color-text-tertiary)", lineHeight:1.4 }}>{label}</span>
+          <span style={{ display:"block", fontSize:"var(--type-heading)", fontWeight:600, color:"var(--text)", marginBottom:4 }}>{value}</span>
+          <span style={{ fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-subheading)" }}>{label}</span>
         </div>
       ))}
     </div>
@@ -88,10 +87,10 @@ function StatRow({ stats }) {
 
 function Section({ id, number, title, intro, children }) {
   return (
-    <section id={id} style={{ marginBottom:96 }}>
-      <div style={{ marginBottom:24, maxWidth:720 }}>
-        {number && <Kicker style={{ marginBottom:10 }}>{number}</Kicker>}
-        <h2 style={{ margin:"0 0 14px", fontSize:"var(--type-display)", lineHeight:1.1, letterSpacing:"-0.5px", fontWeight:650, color:"var(--text)" }}>
+    <section id={id} style={{ marginBottom:"var(--space-7)" }}>
+      <div style={{ marginBottom:"var(--space-4)", maxWidth:720 }}>
+        {number && <Kicker style={{ marginBottom:"var(--space-2)" }}>{number}</Kicker>}
+        <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-heading)", lineHeight:"var(--leading-heading)", letterSpacing:"-0.5px", fontWeight:600, color:"var(--text)" }}>
           {title}
         </h2>
         {intro && <p style={bd}>{intro}</p>}
@@ -103,64 +102,64 @@ function Section({ id, number, title, intro, children }) {
 
 export default function Microsoft() {
   return (
-    <div style={{ fontFamily:font, color:"var(--text)", maxWidth:1000, margin:"0 auto", padding:"32px 28px 120px", WebkitFontSmoothing:"antialiased" }}>
+    <div style={{ color:"var(--text)", maxWidth:1000, margin:"0 auto", padding:"32px 28px 120px", WebkitFontSmoothing:"antialiased" }}>
 
       {/* HERO ... team presenting photo as background */}
       <header style={{
-        marginBottom:56, borderRadius:20, overflow:"hidden",
+        marginBottom:"var(--space-6)", borderRadius:20, overflow:"hidden",
         padding:"clamp(48px,8vw,96px) clamp(24px,5vw,56px)",
         backgroundImage:`linear-gradient(180deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.62) 100%), url(${micTeam})`,
         backgroundSize:"cover", backgroundPosition:"center",
       }}>
-        <p style={{ ...lbl, color:"rgba(255,255,255,0.7)", marginBottom:14 }}>
+        <p style={{ ...lbl, color:"rgba(255,255,255,0.7)", marginBottom:"var(--space-3)" }}>
           Microsoft Azure · Industry Partner Project · Health Observability
         </p>
-        <h1 style={{ fontSize:"var(--type-display)", fontWeight:700, letterSpacing:"-1px", lineHeight:0.98, margin:"0 0 20px", color:"#fff" }}>
+        <h1 style={{ fontSize:"var(--type-heading)", fontWeight:600, letterSpacing:"-1px", lineHeight: "var(--leading-heading)", margin:"0 0 var(--space-3)", color:"#fff" }}>
           Azure Health Models
         </h1>
-        <p style={{ fontSize:"var(--type-body)", lineHeight:1.65, color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
+        <p style={{ fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
           Microsoft Azure is one of the world's largest enterprise cloud platforms, serving intelligent cloud infrastructure to organizations globally. I redesigned the entity editing flow, the screen where engineers set up and fix each part of their system, so engineers see where the problem is without searching for it.
         </p>
       </header>
 
       {/* TEAM + ROLE */}
-      <section style={{ marginBottom:80, paddingBottom:40, borderBottom:"1px solid var(--hairline-weak)" }}>
-        <div style={{ ...card, padding:"24px 28px", marginBottom:16 }}>
-          <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:8 }}>My role</p>
-          <p style={{ fontSize:"var(--type-body)", color:"var(--text)", lineHeight:1.6, margin:0, maxWidth:720 }}>
+      <section style={{ marginBottom:"var(--space-6)", paddingBottom:40, borderBottom:"1px solid var(--hairline-weak)" }}>
+        <div style={{ ...card, padding:"24px 28px", marginBottom:"var(--space-3)" }}>
+          <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>My role</p>
+          <p style={{ fontSize:"var(--type-body)", color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
             I own the entity editing flow and the AI Ops research. That includes SRE interviews, contextual inquiry,
             think-aloud testing, the radial health indicators, SLA phone alerts, and the Add New Signal button.
             Everything on this page is my contribution.
           </p>
         </div>
-        <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"24px 28px", marginBottom:28 }}>
-          <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:8 }}>Business Impact</p>
-          <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:1.6, margin:0, maxWidth:720 }}>
+        <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"24px 28px", marginBottom:"var(--space-4)" }}>
+          <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Business Impact</p>
+          <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
             I designed for decision speed specifically because engineering time is the most expensive resource on this team, every second an engineer spends parsing an unclear interface is a cost the business is already tracking.
           </p>
         </div>
-        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:24 }}>
+        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
           <div>
-            <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:8 }}>Industry partners</p>
-            <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.7, margin:0 }}>
+            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Industry partners</p>
+            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
               Callum Collin<br />Martin Simecek<br /><span style={{ color:"var(--color-text-tertiary)" }}>Microsoft Azure</span>
             </p>
           </div>
           <div>
-            <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:8 }}>Project leads</p>
-            <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.7, margin:0 }}>
+            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Project leads</p>
+            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
               Prof. Nancy Rasche<br />Prof. Shobhan Shah<br /><span style={{ color:"var(--color-text-tertiary)" }}>Purdue University</span>
             </p>
           </div>
           <div>
-            <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:8 }}>Tools</p>
-            <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.7, margin:0 }}>
+            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Tools</p>
+            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
               Figma · Azure Portal · WCAG 2.1 Audit
             </p>
           </div>
           <div>
-            <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:8 }}>Purdue UX team</p>
-            <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.7, margin:0 }}>
+            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Purdue UX team</p>
+            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
               <strong style={{ color:"var(--text)" }}>Sri Chakravarthy ( everything shown in case study here </strong> · Entity Visual Design, and AI Ops<br />
               Alyssa Berger · Accessibility <br />
               Natalie Falzone · Competitor Analysis<br />
@@ -179,7 +178,7 @@ export default function Microsoft() {
         title="A live map of a company's cloud system."
         intro="Azure Health Models shows the health of a whole cloud system on one screen. Each box is an entity (one working part of the system, like one room in a house). Lines show how the parts depend on each other. Every box carries one of three health states."
       >
-        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20 }}>
+        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)" }}>
           <Slide src={mic6} caption="What is Azure Health Models. A platform to see the whole system's health at once. It works for small businesses and scales to large enterprises." />
           <Slide src={mic7} caption="Azure Monitor. Insights on errors and resolution speed, logs of collected data, a timeline of system health, and real-time alerts." />
         </div>
@@ -202,7 +201,7 @@ export default function Microsoft() {
           ["Concept validation", "I walk the engineers through every solution our team designs. They confirm or reject each claim against their daily work."],
         ]} />
 
-        <div style={{ marginTop:28 }}>
+        <div style={{ marginTop:"var(--space-4)" }}>
           <Slide src={mic74} caption="Joel, an engineer, checks each entity and the signals inside it. He clicks every box, remembers each signal count and each threshold, and then decides what to fix first. All from memory." />
         </div>
 
@@ -216,7 +215,7 @@ export default function Microsoft() {
           ["What the AI desk research shows", "I use Claude to research how SREs around the world use AI. Engineers increasingly pass monitoring data to AI tools to find issues faster. So the interface needs clean, clearly labelled status data that is easy to hand over."],
         ]} />
 
-        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16, marginTop:28 }}>
+        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)", marginTop:"var(--space-4)" }}>
           <Slide src={micEmail}  caption="Research outreach with Geoffrey Lentner, Purdue RCAC." />
           {/*<Slide src={micSketch} caption="Interview notes. I sketch engineers' mental models while they talk." />*/}
           <Slide src={micCall}   caption="Remote interview session with SRE engineers." />
@@ -233,7 +232,7 @@ export default function Microsoft() {
         intro="The entity editing flow has two problems. Each one slows an engineer down. Together, they make the screen hard to trust during an incident."
       >
         <Slide src={mic75} caption="Pain point 1. The signal panel opens, but nothing shows which entity is selected or what is being saved. An engineer editing many boxes loses track of context." />
-        <div style={{ marginTop:20 }}>
+        <div style={{ marginTop:"var(--space-3)" }}>
           <Slide src={mic76} caption="Pain point 2. Plain icons on every box. A healthy box and a failing box look the same. Plain icons decrease immediate clarity." />
         </div>
         <StatRow stats={[
@@ -275,7 +274,7 @@ export default function Microsoft() {
       </Section>
 
       {/* FULL WIDTH SOLUTION SLIDE */}
-      <div style={{ margin:"0 0 96px" }}>
+      <div style={{ margin:"0 0 var(--space-7)" }}>
         <Slide src={mic78} caption="The solution. Rings with issue counts (3/4, 4/4) on each entity card, and a clear button order for Add New, New Signal, and Save. Impact: engineers can tell parts apart and compare them at a glance." />
       </div>
 
@@ -295,7 +294,7 @@ export default function Microsoft() {
           ["Why the Add New Signal button matters", "Adding a signal (a sensor that watches one part, like a smoke detector in one room) used to be hidden. I make Add New Signal a primary button. Every new signal means more log data flows into Azure Monitor, and ingestion is where the platform earns."],
           ["Retention adds up", "Keeping data past the free period costs extra. About $0.10 per GB per month for analytics retention up to 2 years, or $0.02 per GB per month for long-term retention up to 12 years. Teams that monitor more, keep more."],
         ]} />
-        <p style={{ fontSize:"var(--type-label)", color:"var(--color-text-tertiary)", marginTop:14 }}>
+        <p style={{ fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", marginTop:"var(--space-3)" }}>
           Source:{" "}
           <a href="https://azure.microsoft.com/en-us/pricing/details/monitor/" target="_blank" rel="noopener noreferrer" style={{ color:"var(--link)" }}>
             Azure Monitor pricing page
@@ -360,15 +359,15 @@ export default function Microsoft() {
       <ChapterToggle />
 
       {/* FOOTER */}
-      <div className="mic-grid" style={{ borderTop:"1px solid var(--hairline-weak)", paddingTop:40, display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:28 }}>
+      <div className="mic-grid" style={{ borderTop:"1px solid var(--hairline-weak)", paddingTop:40, display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
         {[
           ["Type",    "Industry Partner Project · Microsoft Azure"],
           ["Methods", "Contextual inquiry · Think-aloud · Concept validation · AI-assisted desk research"],
           ["Impact",  "Radial health indicators · SLA phone alerts · Add New Signal · WCAG review"],
         ].map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...lbl, fontSize:"var(--type-label)", marginBottom:5 }}>{k}</p>
-            <p style={{ fontSize:"var(--type-caption)", color:"var(--muted)", lineHeight:1.5, margin:0 }}>{v}</p>
+            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:5 }}>{k}</p>
+            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{v}</p>
           </div>
         ))}
       </div>

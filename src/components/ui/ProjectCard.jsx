@@ -90,12 +90,12 @@ export default function ProjectCard({
         {eyebrow && (
           <p
             style={{
-              fontSize: "var(--type-label)",
+              fontSize: "var(--type-ui)",
               fontWeight: 600,
               letterSpacing: "0.10em",
               textTransform: "uppercase",
               color: "var(--color-text-tertiary)",
-              marginBottom: "8px",
+              marginBottom: "var(--space-1)",
             }}
           >
             {eyebrow}
@@ -104,12 +104,12 @@ export default function ProjectCard({
 
         <h3
           style={{
-            fontSize: "var(--type-h2)",
+            fontSize: "var(--type-subheading)",
             fontWeight: 600,
             letterSpacing: "-0.1px",
-            lineHeight: 1.2,
+            lineHeight: "var(--leading-heading)",
             color: "var(--color-text-primary)",
-            marginBottom: "8px",
+            marginBottom: "var(--space-1)",
           }}
         >
           {title}
@@ -120,7 +120,7 @@ export default function ProjectCard({
             style={{
               fontSize: "var(--type-body)",
               color: "var(--color-text-secondary)",
-              lineHeight: 1.55,
+              lineHeight: "var(--leading-body)",
               display: "-webkit-box",
               WebkitLineClamp: 2,
               WebkitBoxOrient: "vertical",
@@ -134,10 +134,10 @@ export default function ProjectCard({
 
                 {tags && tags.length > 0 && (
           <p className="project-card-tags" style={{
-            margin: "var(--space-sm) 0 0",
+            margin: "var(--space-2) 0 0",
             color: "var(--muted)",
             letterSpacing: "0.02em",
-            lineHeight: 1.55,
+            lineHeight: "var(--leading-body)",
           }}>
             {tags.join(" · ")}
           </p>
@@ -166,7 +166,7 @@ export function ProjectGrid({ children }) {
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(2, 1fr)",
-        gap: "24px",
+        gap: "var(--space-4)",
       }}
       className="card-grid-outer"
     >

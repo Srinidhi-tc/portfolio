@@ -27,8 +27,8 @@ import str20 from "../../assets/str20.jpg";
 import straboCover from "../../assets/work-strabospot.webp";
 
 const label = {
-  fontSize: "var(--type-tag)",
-  fontWeight: 650,
+  fontSize: "var(--type-ui)",
+  fontWeight: 600,
   letterSpacing: "0.07em",
   textTransform: "uppercase",
   color: "var(--color-text-tertiary)",
@@ -37,7 +37,7 @@ const label = {
 
 const body = {
   fontSize: "var(--type-body)",
-  lineHeight: 1.58,
+  lineHeight: "var(--leading-body)",
   color: "var(--muted)",
   margin: 0,
   maxWidth: 690,
@@ -60,8 +60,8 @@ function ClientSwitcher() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        gap: 16,
-        marginBottom: 58,
+        gap: "var(--space-3)",
+        marginBottom: "var(--space-6)",
         padding: "8px 10px 8px 14px",
         border: "1px solid var(--hairline-weak)",
         borderRadius: 999,
@@ -70,11 +70,11 @@ function ClientSwitcher() {
       }}
     >
       <div style={{ minWidth: 0 }}>
-        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 2 }}>SGX3 · Two concurrent client engagements</p>
+        <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: 2 }}>SGX3 · Two concurrent client engagements</p>
         <p
           style={{
             margin: 0,
-            fontSize: "var(--type-caption)",
+            fontSize: "var(--type-body)",
             fontWeight: 600,
             whiteSpace: "nowrap",
             overflow: "hidden",
@@ -85,7 +85,7 @@ function ClientSwitcher() {
         </p>
       </div>
 
-      <div style={{ display: "flex", gap: 6, flexShrink: 0 }}>
+      <div style={{ display: "flex", gap: "var(--space-1)", flexShrink: 0 }}>
         <a
           href="/portfolio/work/ai-coding"
           style={{
@@ -97,7 +97,7 @@ function ClientSwitcher() {
             color: "var(--text)",
             border: "1px solid var(--hairline-weak)",
             textDecoration: "none",
-            fontSize: "var(--type-tag)",
+            fontSize: "var(--type-ui)",
             fontWeight: 600,
           }}
         >
@@ -112,8 +112,8 @@ function ClientSwitcher() {
             background: "transparent",
             color: "var(--text)",
             border: "1px solid var(--text)",
-            fontSize: "var(--type-tag)",
-            fontWeight: 650,
+            fontSize: "var(--type-ui)",
+            fontWeight: 600,
           }}
         >
           StraboSpot
@@ -125,17 +125,17 @@ function ClientSwitcher() {
 
 function Hero() {
   return (
-    <header style={{ marginBottom: 72 }}>
-      <p style={{ ...label, marginBottom: 12 }}>
+    <header style={{ marginBottom: "var(--space-6)" }}>
+      <p style={{ ...label, marginBottom: "var(--space-2)" }}>
         SGX3 · UX CONSULTING · GIS · SCIENTIFIC SOFTWARE
       </p>
       <h1
         style={{
-          fontSize: "var(--type-display)",
-          lineHeight: 0.98,
+          fontSize: "var(--type-heading)",
+          lineHeight: "var(--leading-heading)",
           letterSpacing: "-1.5px",
-          fontWeight: 700,
-          margin: "0 0 18px",
+          fontWeight: 600,
+          margin: "0 0 var(--space-3)",
         }}
       >
         StraboSpot
@@ -143,7 +143,7 @@ function Hero() {
       <p style={{ ...body, fontSize: "var(--type-body)" }}>
         StraboSpot is the largest centralized geologic field-data repository in the US, an NSF-funded platform an estimated 12,000 geologists rely on to cross-reference prior field data before their own research. I audited and redesigned its search experience through a UI/UX audit, five user interviews, and task analysis so researchers could find and trust relevant field data faster.
       </p>
-      <figure style={{ margin: "34px 0 0" }}>
+      <figure style={{ margin: "var(--space-4) 0 0" }}>
         <img
           src={straboCover}
           alt="StraboSpot laptop mockup"
@@ -166,19 +166,19 @@ function RoleAtTop() {
   return (
     <section
       style={{
-        marginBottom: 88,
+        marginBottom: "var(--space-6)",
         padding: "28px 0 32px",
         borderTop: "1px solid var(--hairline-weak)",
         borderBottom: "1px solid var(--hairline-weak)",
       }}
     >
-      <div style={{ marginBottom: 22 }}>
-        <p style={{ ...label, marginBottom: 9 }}>MY ROLE</p>
+      <div style={{ marginBottom: "var(--space-4)" }}>
+        <p style={{ ...label, marginBottom: "var(--space-2)" }}>MY ROLE</p>
         <h2
           style={{
             margin: 0,
-            fontSize: "var(--type-display)",
-            lineHeight: 1.08,
+            fontSize: "var(--type-heading)",
+            lineHeight: "var(--leading-heading)",
             letterSpacing: "-0.6px",
           }}
         >
@@ -191,21 +191,21 @@ function RoleAtTop() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-          gap: 22,
-          marginBottom: 28,
+          gap: "var(--space-4)",
+          marginBottom: "var(--space-4)",
         }}
       >
         {items.map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 6 }}>{k}</p>
-            <p style={{ fontSize: "var(--type-caption)", lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
+            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{k}</p>
+            <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", margin: 0, color: "var(--muted)" }}>{v}</p>
           </div>
         ))}
       </div>
 
       <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
-        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 8 }}>Business Impact</p>
-        <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: 1.55, margin: 0 }}>
+        <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Business Impact</p>
+        <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
           I focused on cross-functional user flows because duplicated fieldwork is the real cost here, every friction point in data retrieval is researcher time and grant funding spent re-discovering what already exists.
         </p>
       </div>
@@ -215,15 +215,15 @@ function RoleAtTop() {
 
 function SectionHeading({ number, title, intro }) {
   return (
-    <div style={{ marginBottom: 30, maxWidth: 780 }}>
+    <div style={{ marginBottom: "var(--space-4)", maxWidth: 780 }}>
       {number && <Kicker>{number}</Kicker>}
       <h2
         style={{
-          margin: "0 0 12px",
-          fontSize: "var(--type-display)",
-          lineHeight: 1.06,
+          margin: "0 0 var(--space-2)",
+          fontSize: "var(--type-heading)",
+          lineHeight: "var(--leading-heading)",
           letterSpacing: "-0.8px",
-          fontWeight: 650,
+          fontWeight: 600,
         }}
       >
         {title}
@@ -241,11 +241,11 @@ function Slide({ src, number, caption }) {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          gap: 20,
+          gap: "var(--space-3)",
           paddingTop: 10,
           color: "var(--color-text-tertiary)",
-          fontSize: "var(--type-label)",
-          lineHeight: 1.4,
+          fontSize: "var(--type-ui)",
+          lineHeight: "var(--leading-subheading)",
         }}
       >
         <span>CLIENT SLIDE {String(number).padStart(2, "0")} / 20</span>
@@ -258,7 +258,7 @@ function Slide({ src, number, caption }) {
 function InsightLine({ children }) {
   return (
     <FloralFrame>
-      <p style={{ margin: 0, fontSize: "var(--type-body)", lineHeight: 1.5, fontWeight: 600 }}>{children}</p>
+      <p style={{ margin: 0, fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", fontWeight: 600 }}>{children}</p>
     </FloralFrame>
   );
 }
@@ -273,8 +273,8 @@ function EvidenceLinks() {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        gap: 10,
-        marginTop: 18,
+        gap: "var(--space-2)",
+        marginTop: "var(--space-3)",
         marginBottom: 2,
       }}
     >
@@ -292,8 +292,8 @@ function EvidenceLinks() {
             borderRadius: 999,
             color: "var(--text)",
             textDecoration: "none",
-            fontSize: "var(--type-tag)",
-            fontWeight: 650,
+            fontSize: "var(--type-ui)",
+            fontWeight: 600,
             background: "var(--surface-2)",
           }}
         >
@@ -311,17 +311,17 @@ function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-        gap: 28,
-        marginTop: 28,
+        gap: "var(--space-4)",
+        marginTop: "var(--space-4)",
       }}
     >
       <div>
-        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 7 }}>{leftLabel}</p>
-        <p style={{ ...body, fontSize: "var(--type-caption)" }}>{left}</p>
+        <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{leftLabel}</p>
+        <p style={{ ...body, fontSize: "var(--type-body)" }}>{left}</p>
       </div>
       <div>
-        <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 7 }}>{rightLabel}</p>
-        <p style={{ ...body, fontSize: "var(--type-caption)" }}>{right}</p>
+        <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{rightLabel}</p>
+        <p style={{ ...body, fontSize: "var(--type-body)" }}>{right}</p>
       </div>
     </div>
   );
@@ -336,17 +336,17 @@ function FinalTakeaway() {
     <section
       id="impact"
       style={{
-        marginTop: 92,
+        marginTop: "var(--space-7)",
         paddingTop: 34,
         borderTop: "1px solid var(--hairline-weak)",
       }}
     >
-      <p style={{ ...label, marginBottom: 10 }}>THE CONSULTING TAKEAWAY</p>
+      <p style={{ ...label, marginBottom: "var(--space-2)" }}>THE CONSULTING TAKEAWAY</p>
       <h2
         style={{
-          margin: "0 0 14px",
-          fontSize: "var(--type-display)",
-          lineHeight: 1.08,
+          margin: "0 0 var(--space-3)",
+          fontSize: "var(--type-heading)",
+          lineHeight: "var(--leading-heading)",
           letterSpacing: "-0.7px",
           maxWidth: 760,
         }}
@@ -364,7 +364,6 @@ export default function StraboSpot() {
   return (
     <div
       style={{
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif",
         color: "var(--text)",
         maxWidth: 1040,
         margin: "0 auto",
@@ -378,7 +377,7 @@ export default function StraboSpot() {
 
       <RoleAtTop />
 
-      <main style={{ display: "flex", flexDirection: "column", gap: 112 }}>
+      <main style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
         <section id="problem">
           <SectionHeading
             number="Framing the engagement"
@@ -386,7 +385,7 @@ export default function StraboSpot() {
             intro="The engagement began with a UI/UX audit of StraboSpot's current search tools, then moved into task analysis interviews and a design recommendation for a more unified search experience."
           />
           <Slide src={str2} number={2} caption="Engagement summary" />
-          <div style={{ marginTop: 28 }}><Slide src={str3} number={3} caption="Audit → interview → recommendation" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str3} number={3} caption="Audit → interview → recommendation" /></div>
           <InsightLine>
             Start broad. Find where the interface creates friction. Then ask users why it matters.
           </InsightLine>
@@ -403,7 +402,7 @@ export default function StraboSpot() {
             intro="Nielsen's 10 usability principles provided a common lens for repeated reviews of key pages and search flows. Screenshots and annotations made the issues concrete for the team."
           />
           <Slide src={str4} number={4} caption="01 / UI/UX Audit" />
-          <div style={{ marginTop: 28 }}><Slide src={str5} number={5} caption="Audit method and review approach" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str5} number={5} caption="Audit method and review approach" /></div>
           <InsightLine>
             The audit was not the answer. It was the map to the questions that needed real users.
           </InsightLine>
@@ -420,8 +419,8 @@ export default function StraboSpot() {
             intro="Search results became harder to interpret when labels overlapped, interaction cues were weak, and technical names competed with the map itself."
           />
           <Slide src={str6} number={6} caption="Map view · visual clutter, weak interaction cues, technical naming" />
-          <div style={{ marginTop: 28 }}><Slide src={str7} number={7} caption="Search filter · dense results, restart friction, unexpected navigation" /></div>
-          <div style={{ marginTop: 28 }}><Slide src={str8} number={8} caption="All Strabo Data · search/filter ambiguity and result relevance" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str7} number={7} caption="Search filter · dense results, restart friction, unexpected navigation" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str8} number={8} caption="All Strabo Data · search/filter ambiguity and result relevance" /></div>
           <TwoColumnNote
             leftLabel="WHAT THE AUDIT SHOWED"
             left="Too much density, too many competing controls, and unclear relationships between search results and the map."
@@ -437,7 +436,7 @@ export default function StraboSpot() {
             intro="Five Zoom interviews with current StraboSpot users, mostly field geologists at different levels, shifted the work from interface symptoms to task needs."
           />
           <Slide src={str9} number={9} caption="02 / Interview & Task Analysis" />
-          <div style={{ marginTop: 28 }}><Slide src={str10} number={10} caption="Five user interviews · open-ended and participant-driven" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str10} number={10} caption="Five user interviews · open-ended and participant-driven" /></div>
           <InsightLine>
             The key question became: what helps a researcher decide that a piece of data is worth opening?
           </InsightLine>
@@ -450,7 +449,7 @@ export default function StraboSpot() {
             intro="The interviews surfaced recurring needs around images, authorship, maps, labels, filter visibility, and familiar mental models for search."
           />
           <Slide src={str11} number={11} caption="Interview key findings · visual learning, credibility, maps, labels, filters, familiar mental models" />
-          <div style={{ marginTop: 28 }}>
+          <div style={{ marginTop: "var(--space-4)" }}>
             <TwoColumnNote
               leftLabel="VISUAL CONTEXT"
               left="Images and colour-rich maps were central to how participants understood geological information."
@@ -474,7 +473,7 @@ export default function StraboSpot() {
             intro="The recommendation reduced competing decisions, clarified filters, made saved spots more visible, and replaced ambiguous actions with language closer to the user's mental model."
           />
           <Slide src={str12} number={12} caption="03 / Design Recommendations" />
-          <div style={{ marginTop: 28 }}><Slide src={str13} number={13} caption="Intuitive search page · list/map view, filters, bookmarks, help" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str13} number={13} caption="Intuitive search page · list/map view, filters, bookmarks, help" /></div>
           <InsightLine>
             Reduce decision points. Keep the search task visible. Make actions say what they actually do.
           </InsightLine>
@@ -491,7 +490,7 @@ export default function StraboSpot() {
             intro="The recommendations gave visually rich maps a stronger default position, simplified map switching, and treated image collections and credits as part of the research experience."
           />
           <Slide src={str14} number={14} caption="Unifying navigation between maps" />
-          <div style={{ marginTop: 28 }}><Slide src={str15} number={15} caption="Image gallery, navigation, ownership and credits" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str15} number={15} caption="Image gallery, navigation, ownership and credits" /></div>
           <InsightLine>
             Visual information was not decoration. It was part of how the work was understood.
           </InsightLine>
@@ -508,10 +507,10 @@ export default function StraboSpot() {
             intro="The final recommendation unified keyword search, filters, map and list views, result ownership, previews, and direct map navigation into one search workflow."
           />
           <Slide src={str16} number={16} caption="Unified search tool · map view" />
-          <div style={{ marginTop: 28 }}><Slide src={str17} number={17} caption="Map detail · visibility, zoom behaviour, and base-map controls" /></div>
-          <div style={{ marginTop: 28 }}><Slide src={str18} number={18} caption="Search bar · filters, spacing, typography, and map/list toggle" /></div>
-          <div style={{ marginTop: 28 }}><Slide src={str19} number={19} caption="List view · sortable results with preview and map actions" /></div>
-          <div style={{ marginTop: 28 }}><Slide src={str20} number={20} caption="List detail · preview a result before opening it on the map" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str17} number={17} caption="Map detail · visibility, zoom behaviour, and base-map controls" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str18} number={18} caption="Search bar · filters, spacing, typography, and map/list toggle" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str19} number={19} caption="List view · sortable results with preview and map actions" /></div>
+          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str20} number={20} caption="List detail · preview a result before opening it on the map" /></div>
           <InsightLine>
             The final system lets a researcher move from question → result → context → location without losing the thread.
           </InsightLine>
@@ -528,12 +527,12 @@ export default function StraboSpot() {
       <div
         className="str-meta-grid"
         style={{
-          marginTop: 54,
+          marginTop: "var(--space-5)",
           paddingTop: 28,
           borderTop: "1px solid var(--hairline-weak)",
           display: "grid",
           gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-          gap: 22,
+          gap: "var(--space-4)",
         }}
       >
         {[
@@ -542,8 +541,8 @@ export default function StraboSpot() {
           ["Methods", "UI/UX audit · Nielsen heuristics · 5 user interviews · task analysis · design recommendations"],
         ].map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...label, fontSize: "var(--type-label)", marginBottom: 6 }}>{k}</p>
-            <p style={{ fontSize: "var(--type-caption)", lineHeight: 1.48, margin: 0, color: "var(--muted)" }}>{v}</p>
+            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{k}</p>
+            <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", margin: 0, color: "var(--muted)" }}>{v}</p>
           </div>
         ))}
       </div>

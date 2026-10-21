@@ -89,14 +89,18 @@ export default function TennisBall() {
       x: bRect.left + bRect.width  / 2 - BALL / 2,
       y: bRect.top  + bRect.height / 2 - BALL / 2,
     };
+    // Aim at the dog's head (it faces left, head about a third of the way in),
+    // off by a small random step; the dog shifts by the same step to meet it.
+    const HEAD_X = 0.36, HEAD_Y = 0.28;
+    const aimOffset = (Math.random() * 2 - 1) * 22;
     const endPt = {
-      x: mRect.left + mRect.width  / 2 - BALL / 2,
-      y: mRect.top  + 10 - BALL / 2,
+      x: mRect.left + mRect.width  * HEAD_X + aimOffset - BALL / 2,
+      y: mRect.top  + mRect.height * HEAD_Y - BALL / 2,
     };
 
     // Each throw gets its own flight time, so no two land at the same moment
     // or peak at the same height.
-    const OUT_T = jitter(750, 0.08);
+    const OUT_T = jitter(900, 0.08);
     // The return lands a little to one side (±5% of the distance) and settles
     // home, so it is never a mirror of the throw.
     const dist  = Math.hypot(endPt.x - startPt.x, endPt.y - startPt.y);
@@ -145,6 +149,9 @@ export default function TennisBall() {
       fly.style.transform = `translate3d(${x}px,${y}px,0) rotate(${rotation}deg)`;
       fly.style.filter    = `drop-shadow(0 ${6+spd*4}px ${10+spd*6}px rgba(58,47,37,.22)) blur(${spd*1.2}px)`;
     };
+    // Tell the dog where and when the ball will land, so it can line up and
+    // look up before the catch.
+    window.dispatchEvent(new CustomEvent("tennisball:launch", { detail: { shiftX: aimOffset, flightMs: OUT_T } }));
     const spin = await flyProjectile({ start: startPt, end: endPt, T: OUT_T, spinSign: 1, rafRef, onFrame: draw });
 
     // ── 3. Catch ─────────────────────────────────────────

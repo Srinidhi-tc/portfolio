@@ -86,6 +86,7 @@ export default function FloatingMascot() {
   const greetTimer    = useRef(null);
   const idleTimer     = useRef(null);
   const wanderTimer   = useRef(null);
+  const anticipateTimer = useRef(null);
 
   // Entrance walk-in
   useEffect(() => {
@@ -190,8 +191,26 @@ export default function FloatingMascot() {
       bubbleTimer.current = setTimeout(() => setBubble(null), 1400);
     };
 
+    // Tennis ball in flight: halfway through, step forward or back so the head
+    // is under the landing spot, and tilt the head up to watch it come in.
+    const onTennisLaunch = (e) => {
+      if (!mascotEl) mascotEl = document.querySelector(".floating-mascot");
+      if (!mascotEl) return;
+      const { shiftX = 0, flightMs = 900 } = e.detail || {};
+      clearTimeout(anticipateTimer.current);
+      anticipateTimer.current = setTimeout(() => {
+        mascotEl.style.setProperty("--catch-x", `${shiftX}px`);
+        mascotEl.classList.add("is-anticipating");
+      }, flightMs * 0.45);
+    };
+
     // Tennis ball — no bubble, just jump + wiggle
     const onTennisBall = () => {
+      if (!mascotEl) mascotEl = document.querySelector(".floating-mascot");
+      clearTimeout(anticipateTimer.current);
+      mascotEl?.classList.remove("is-anticipating");
+      // Ease back to the resting spot once the ball has been kicked away.
+      anticipateTimer.current = setTimeout(() => mascotEl?.style.setProperty("--catch-x", "0px"), 600);
       setTrick("jump");
       clearTimeout(trickTimer.current);
       trickTimer.current = setTimeout(() => {
@@ -204,12 +223,15 @@ export default function FloatingMascot() {
     window.addEventListener("volleyball:approaching", onApproach);
     window.addEventListener("volleyball:kicked",      onKick);
     window.addEventListener("tennisball:impact",      onTennisBall);
+    window.addEventListener("tennisball:launch",      onTennisLaunch);
 
     return () => {
       window.removeEventListener("volleyball:tracking",   onTrack);
       window.removeEventListener("volleyball:approaching", onApproach);
       window.removeEventListener("volleyball:kicked",      onKick);
       window.removeEventListener("tennisball:impact",      onTennisBall);
+      window.removeEventListener("tennisball:launch",      onTennisLaunch);
+      clearTimeout(anticipateTimer.current);
     };
   }, []);
 

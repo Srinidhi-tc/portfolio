@@ -8,9 +8,10 @@
 // y grows downward, so gravity is positive. Rotation runs at an angular
 // velocity proportional to launch speed, so harder throws spin faster.
 
-// px / ms². Tuned so a ~750ms throw from the nav to the dog rises a little
-// before it drops, and a kick back up climbs well above the start.
-export const GRAVITY = 0.0028;
+// px / ms². With a ~900ms throw the ball rises a little, slows to a stop at
+// the top (v = v0 − g·t on the way up) and speeds up as it falls; the kick
+// back climbs against gravity and visibly slows before dropping home.
+export const GRAVITY = 0.002;
 
 // Degrees of spin per (px / ms) of launch speed, per ms of flight.
 const SPIN_PER_SPEED = 0.9;

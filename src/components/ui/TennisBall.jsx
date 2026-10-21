@@ -38,6 +38,24 @@ function TennisBallIcon() {
   );
 }
 
+// Where the top of the dog's head will be when it catches. The dog is tilted
+// up while it waits (see .floating-mascot.is-anticipating in index.css:
+// rotate 9deg about 50% 80% of its box, lifted 3px), which moves the head.
+const CROWN = { x: 0.34, y: 0.22 };
+const TILT_DEG = 9;
+const LIFT_PX = 3;
+function headCrownAtCatch(rect) {
+  const px = rect.left + rect.width * 0.5;
+  const py = rect.top + rect.height * 0.8;
+  const dx = rect.left + rect.width * CROWN.x - px;
+  const dy = rect.top + rect.height * CROWN.y - py;
+  const a = (TILT_DEG * Math.PI) / 180;
+  return {
+    x: px + dx * Math.cos(a) - dy * Math.sin(a),
+    y: py + dx * Math.sin(a) + dy * Math.cos(a) - LIFT_PX,
+  };
+}
+
 export default function TennisBall() {
   const btnRef  = useRef(null);
   const flyRef  = useRef(null);
@@ -89,13 +107,15 @@ export default function TennisBall() {
       x: bRect.left + bRect.width  / 2 - BALL / 2,
       y: bRect.top  + bRect.height / 2 - BALL / 2,
     };
-    // Aim at the dog's head (it faces left, head about a third of the way in),
-    // off by a small random step; the dog shifts by the same step to meet it.
-    const HEAD_X = 0.36, HEAD_Y = 0.28;
+    // Aim so the ball comes down on top of the dog's head, centred between
+    // the eyes (measured in the dog drawing: eyes at 29% down, snout and tongue
+    // at 31–45%, crown at 22%). It is off by a small random step; the dog
+    // shifts by the same step to meet it.
     const aimOffset = (Math.random() * 2 - 1) * 22;
+    const crown = headCrownAtCatch(mRect);
     const endPt = {
-      x: mRect.left + mRect.width  * HEAD_X + aimOffset - BALL / 2,
-      y: mRect.top  + mRect.height * HEAD_Y - BALL / 2,
+      x: crown.x + aimOffset - BALL / 2,
+      y: crown.y - BALL,            // ball's bottom edge touches the crown
     };
 
     // Each throw gets its own flight time, so no two land at the same moment

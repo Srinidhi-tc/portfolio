@@ -129,7 +129,7 @@ export default function WorkSection() {
               const render = projectRenders[project.id];
               const body = (
                 <>
-                  {/* The project-row render, taped onto the thumbnail's corner. */}
+                  {/* The project-row render as a sticker on the thumbnail's corner. */}
                   {render && (
                     <span className="work-section-sticker" aria-hidden="true">
                       <img src={render.image} alt="" decoding="async" loading="lazy" />

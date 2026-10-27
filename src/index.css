@@ -536,6 +536,47 @@ border: "1px solid var(--hairline-weak)";
   transform: scale(1.02);
 }
 
+/* Sticker — the project-row render as a die-cut sticker (white outline traced
+   around the cutout), tilted and held on with a strip of translucent tape in
+   the thumbnail's top-right corner. */
+.work-section-sticker {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-3);
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  rotate: 7deg;
+  pointer-events: none;
+}
+
+.work-section-sticker img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 0 #fff)
+    drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff)
+    drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff)
+    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.12));
+}
+
+.work-section-sticker::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  z-index: 1;
+  width: 38px;
+  height: 13px;
+  translate: -50% 0;
+  rotate: -14deg;
+  background: rgba(238, 228, 200, 0.72);
+  border-left: 1px dashed rgba(160, 140, 100, 0.25);
+  border-right: 1px dashed rgba(160, 140, 100, 0.25);
+}
+
 .work-section-media--placeholder {
   background: linear-gradient(145deg, #ece8e2 0%, #ddd6cc 48%, #e8e4de 100%);
 }

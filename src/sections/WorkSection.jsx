@@ -4,6 +4,7 @@ import SectionTitle from "../components/ui/SectionTitle";
 import ProjectRow from "../components/work/ProjectRow";
 import { CardMetricInline } from "../components/work/CardMetrics";
 import { workSectionProjects, workSectionViews } from "../data/workSectionProjects";
+import { projectRenders } from "../data/projectRenders";
 
 const PANEL_ID = "work-section-panel";
 const CONTENT_EASE = "cubic-bezier(0.25, 0.1, 0.25, 1)";
@@ -125,8 +126,15 @@ export default function WorkSection() {
                 </div>
               );
 
+              const render = projectRenders[project.id];
               const body = (
                 <>
+                  {/* The project-row render, taped onto the thumbnail's corner. */}
+                  {render && (
+                    <span className="work-section-sticker" aria-hidden="true">
+                      <img src={render.image} alt="" decoding="async" loading="lazy" />
+                    </span>
+                  )}
                   {media}
                   <div className="work-section-card-copy">
                     <p className="work-section-meta">

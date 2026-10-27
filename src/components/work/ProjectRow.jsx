@@ -1,27 +1,11 @@
 import { Link } from "react-router-dom";
 import { workSectionProjects } from "../../data/workSectionProjects";
 
-// Renders live directly in src/assets/, imported like every other project
-// image so Vite hashes/bundles them the same way as the rest of the site.
-import azureRender from "../../assets/azuretop.webp";
-import tutorRender from "../../assets/tutortop.webp";
-import pulseRender from "../../assets/pulsetop.webp";
-import malliRender from "../../assets/mallitop.webp";
-import bloomRender from "../../assets/bloomtop.webp";
-import mindRender from "../../assets/mindtop.webp";
-import defenseArkRender from "../../assets/defensearktop.webp";
+import { projectRenders } from "../../data/projectRenders";
 
-// Maps each new render + one-word label onto the EXISTING project data
-// (by id) so `to`, `title`, etc. stay a single source of truth.
-const ROW_ITEMS = {
-  "microsoft":          { label: "Azure",      image: azureRender },
-  "ai-coding":          { label: "Tutor",       image: tutorRender },
-  "hearts-of-insomnia": { label: "Pulse",       image: pulseRender },
-  "malli":              { label: "Malli",       image: malliRender },
-  "bee-feeder":         { label: "Bloom",       image: bloomRender },
-  "psychosis-literacy": { label: "Mind",        image: mindRender },
-  "defenseark":         { label: "DefenseARK",  image: defenseArkRender },
-};
+// Each render + one-word label maps onto the EXISTING project data (by id) so
+// `to`, `title`, etc. stay a single source of truth.
+const ROW_ITEMS = projectRenders;
 
 // The group label and separators only appear while the row is hovered or
 // focused (see .project-row-group-label / ::before in index.css).

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import TennisBall from "../ui/TennisBall";
 import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
@@ -9,6 +9,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const { pathname } = useLocation();
   return (
     <header className="navbar">
       <div className="container navbar-inner">
@@ -31,8 +32,8 @@ export default function Navbar() {
               {item.label}
             </NavLink>
           ))}
-          {/* Tennis ball — throws to the dog on click */}
-          <TennisBall />
+          {/* Tennis ball — throws to the dog on click; the dog is About-only. */}
+          {pathname === "/about" && <TennisBall />}
         </nav>
         {/* Clock, then the light/dark toggle at the far right edge. */}
         <div className="navbar-right">

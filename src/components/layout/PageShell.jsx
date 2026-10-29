@@ -21,9 +21,12 @@ export default function PageShell() {
         <Outlet />
       </main>
       <Footer />
-      <Suspense fallback={null}>
-        <FloatingMascot />
-      </Suspense>
+      {/* The dog (and the ball you throw to it) only live on the About page. */}
+      {pathname === "/about" && (
+        <Suspense fallback={null}>
+          <FloatingMascot />
+        </Suspense>
+      )}
     </div>
   );
 }

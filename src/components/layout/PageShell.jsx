@@ -14,6 +14,12 @@ export default function PageShell() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // Add ?guides to any URL to see the central gutter drawn over the page.
+  useEffect(() => {
+    const on = new URLSearchParams(window.location.search).has("guides");
+    document.documentElement.classList.toggle("show-guides", on);
+  }, [pathname]);
+
   return (
     <div className="site-shell">
       <Navbar />

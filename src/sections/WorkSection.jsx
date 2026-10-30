@@ -229,14 +229,19 @@ export default function WorkSection() {
           </div>
         </div>
 
-        <section className="home-lens" aria-labelledby="home-lens-heading">
-          <h2 id="home-lens-heading" className="home-section-label">What I pay attention to</h2>
-          <p className="home-lens__list">Time · Attention · Emotion · Environment · Access · Trust</p>
-          <h3 className="home-lens__title">Design is more than making things usable.</h3>
-          <p className="home-lens__body">
-            I’m interested in what happens when time, attention, emotion, environment, access, or trust changes the way someone experiences a product.
-          </p>
-          <Link to="/about" className="home-lens__link">More about me →</Link>
+        {/* Label and list left of the central gutter, the idea right of it. */}
+        <section className="home-lens center-split" aria-labelledby="home-lens-heading">
+          <div className="split-left">
+            <h2 id="home-lens-heading" className="home-section-label">What I pay attention to</h2>
+            <p className="home-lens__list">Time · Attention · Emotion · Environment · Access · Trust</p>
+          </div>
+          <div className="split-right">
+            <h3 className="home-lens__title">Design is more than making things usable.</h3>
+            <p className="home-lens__body">
+              I’m interested in what happens when time, attention, emotion, environment, access, or trust changes the way someone experiences a product.
+            </p>
+            <Link to="/about" className="home-lens__link">More about me →</Link>
+          </div>
         </section>
 
       </div>

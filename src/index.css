@@ -1092,7 +1092,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .project-row-img {
-  height: clamp(84px, 11vw, 132px);
+  height: var(--img-h); /* set on .project-row-list */
   width: auto;
   max-width: none;
   object-fit: contain;
@@ -1233,12 +1233,12 @@ border: "1px solid var(--hairline-weak)";
 
 /* Home intro, section labels and design-lens block */
 .home-intro {
-  max-width: 760px;
-  margin: 0 auto var(--space-6);
-  text-align: center;
+  margin: 0 0 var(--space-6);
 }
 
 .home-intro__headline {
+  /* A narrow measure stacks the headline into three lines, flush left. */
+  max-width: 20ch;
   margin: 0;
   font-size: var(--type-heading);
   font-weight: 600;
@@ -1337,7 +1337,6 @@ border: "1px solid var(--hairline-weak)";
 
 .home-landing__link {
   margin: 0;
-  text-align: center;
 }
 
 .home-landing__link a {

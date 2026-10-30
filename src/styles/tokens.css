@@ -118,7 +118,7 @@
   --font-features: "kern", "liga", "calt";
 
   /* Layout */
-  --max-width: 1120px;
+  --max-width: 1160px; /* wide enough for the full project row at full icon size */
   --max-width-narrow: 720px;
   --max-width-wide: 1280px;
 

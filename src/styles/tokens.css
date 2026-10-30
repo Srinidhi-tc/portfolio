@@ -84,7 +84,7 @@
   --glass-bg: rgba(240, 240, 243, 0.72);
   --glass-border: rgba(0, 0, 0, 0.06);
   --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-  --process-bg: rgba(245, 245, 247, 0.75);
+  --process-bg: rgba(245, 245, 247, 0.94);  /* near-opaque so text scrolling behind the toggle is hidden */
   --process-border: rgba(255, 255, 255, 0.7);
   --card-glass-bg: rgba(255, 255, 255, 0.72);
   --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 6px 16px rgba(0, 0, 0, 0.05);
@@ -215,7 +215,7 @@ html {
     --panel-border: rgba(255, 255, 255, 0.08);
     --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
     --panel-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
-    --process-bg: rgba(33, 35, 39, 0.78);
+    --process-bg: rgba(33, 35, 39, 0.94);
     --process-border: rgba(255, 255, 255, 0.09);
     --card-glass-bg: rgba(38, 40, 44, 0.72);
     --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 6px 16px rgba(0, 0, 0, 0.45);
@@ -270,7 +270,7 @@ html {
     --panel-border: rgba(255, 255, 255, 0.08);
     --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
     --panel-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
-    --process-bg: rgba(33, 35, 39, 0.78);
+    --process-bg: rgba(33, 35, 39, 0.94);
     --process-border: rgba(255, 255, 255, 0.09);
     --card-glass-bg: rgba(38, 40, 44, 0.72);
     --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 6px 16px rgba(0, 0, 0, 0.45);

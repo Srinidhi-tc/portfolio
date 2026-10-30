@@ -456,34 +456,16 @@ border: "1px solid var(--hairline-weak)";
   }
 }
 
-/* Graphite line — a straight 1px rule whose density wavers along its length,
-   like a soft pencil dragged over the tooth of thick paper. Built from --text
-   so it follows the theme. */
-.work-section-card,
-.work-section-media {
-  --pencil-line: repeating-linear-gradient(
-    45deg,
-    color-mix(in srgb, var(--text) 58%, transparent) 0 3px,
-    color-mix(in srgb, var(--text) 44%, transparent) 3px 4px,
-    color-mix(in srgb, var(--text) 62%, transparent) 4px 9px,
-    color-mix(in srgb, var(--text) 40%, transparent) 9px 10px,
-    color-mix(in srgb, var(--text) 54%, transparent) 10px 12px,
-    color-mix(in srgb, var(--text) 46%, transparent) 12px 14px,
-    color-mix(in srgb, var(--text) 60%, transparent) 14px 19px,
-    color-mix(in srgb, var(--text) 38%, transparent) 19px 20px,
-    color-mix(in srgb, var(--text) 56%, transparent) 20px 23px
-  );
-}
-
 .work-section-card {
   position: relative;
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: inherit;
-  border-radius: 0;
-  border: 1px solid var(--text);
-  border-image: var(--pencil-line) 1;
+  /* Same border, fill and frosted glass as the Problem → Impact toggle. */
+  border-radius: 24px;
+  border: 0.5px solid var(--process-border);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.5) inset;
   overflow: hidden;
   opacity: 0;
   transform: translateY(14px);
@@ -495,9 +477,9 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .work-section-card--surface {
-  background: var(--panel-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--process-bg);
+  backdrop-filter: blur(60px) saturate(2.5) brightness(1.1);
+  -webkit-backdrop-filter: blur(60px) saturate(2.5) brightness(1.1);
 }
 
 .work-section--revealed .work-section-card--in:hover {
@@ -520,9 +502,7 @@ border: "1px solid var(--hairline-weak)";
   align-items: center;
   justify-content: center;
   background: var(--media-wash);
-  border: 0 solid var(--text);
-  border-bottom-width: 1px;
-  border-image: var(--pencil-line) 1;
+  border-bottom: 0.5px solid var(--process-border);
 }
 
 .work-section-media img {

@@ -41,7 +41,7 @@ function Block({ src, subheading, caption }) {
           width: "100%",
           borderRadius: 12,
           display: "block",
-          marginBottom: "var(--space-3)",
+          marginBottom: "var(--space-3)"
         }}
       />
       <p style={eyebrow}>{subheading}</p>
@@ -56,7 +56,7 @@ function SideBySide({ left, right }) {
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
-        gap: "var(--space-4)",
+        gap: "var(--space-4)"
       }}
     >
       <div>
@@ -67,7 +67,7 @@ function SideBySide({ left, right }) {
             width: "100%",
             borderRadius: 12,
             display: "block",
-            marginBottom: "var(--space-3)",
+            marginBottom: "var(--space-3)"
           }}
         />
         <p style={eyebrow}>{left.subheading}</p>
@@ -82,7 +82,7 @@ function SideBySide({ left, right }) {
             width: "100%",
             borderRadius: 12,
             display: "block",
-            marginBottom: "var(--space-3)",
+            marginBottom: "var(--space-3)"
           }}
         />
         <p style={eyebrow}>{right.subheading}</p>
@@ -103,7 +103,7 @@ function SectionHeading({ number, children }) {
           letterSpacing: "-0.5px",
           fontWeight: 600,
           margin: 0,
-          maxWidth: 720,
+          maxWidth: 720
         }}
       >
         {children}
@@ -121,7 +121,7 @@ function JourneyLabel({ children, dark = false }) {
         letterSpacing: "0.07em",
         textTransform: "uppercase",
         color: dark ? "#6b5900" : "var(--color-text-tertiary)",
-        margin: 0,
+        margin: 0
       }}
     >
       {children}
@@ -140,7 +140,7 @@ function JourneyCell({ children, highlighted = false, label }) {
         minHeight: 96,
         border: "none",
         boxShadow: highlighted ? "0 5px 10px rgba(0, 0, 0, 0.22)" : "none",
-        position: "relative",
+        position: "relative"
       }}
     >
       {highlighted && (
@@ -152,7 +152,7 @@ function JourneyCell({ children, highlighted = false, label }) {
             fontSize: "var(--type-ui)",
             fontWeight: 600,
             letterSpacing: "0.06em",
-            color: "#5c4c00",
+            color: "#5c4c00"
           }}
         >
           KEY INSIGHT
@@ -167,7 +167,7 @@ function JourneyCell({ children, highlighted = false, label }) {
           color: highlighted ? "#352c00" : "var(--text)",
           lineHeight: "var(--leading-subheading)",
           margin: label ? "8px 0 0" : 0,
-          maxWidth: 230,
+          maxWidth: 230
         }}
       >
         {children}
@@ -233,7 +233,7 @@ function ButterflyJourneyChart() {
           style={{
             ...body,
             margin: "var(--space-1) 0 0",
-            maxWidth: 720,
+            maxWidth: 720
           }}
         >
           Qualitative journey map connecting prototype observations with
@@ -247,7 +247,7 @@ function ButterflyJourneyChart() {
           gridTemplateColumns: "110px repeat(5, minmax(0, 1fr))",
           gap: "var(--space-1)",
           overflowX: "auto",
-          paddingBottom: 4,
+          paddingBottom: 4
         }}
       >
         <div />
@@ -257,7 +257,7 @@ function ButterflyJourneyChart() {
             key={stage.title}
             style={{
               padding: "8px 12px",
-              minWidth: 145,
+              minWidth: 145
             }}
           >
             <p
@@ -265,7 +265,7 @@ function ButterflyJourneyChart() {
                 fontSize: "var(--type-body)",
                 fontWeight: 600,
                 margin: 0,
-                color: "var(--text)",
+                color: "var(--text)"
               }}
             >
               {stage.title}
@@ -280,7 +280,7 @@ function ButterflyJourneyChart() {
                 display: "flex",
                 alignItems: "center",
                 padding: "0 10px 0 0",
-                minWidth: 100,
+                minWidth: 100
               }}
             >
               <JourneyLabel>{row.label}</JourneyLabel>
@@ -318,7 +318,7 @@ function UVInsightCard() {
           letterSpacing: "-0.25px",
           fontWeight: 600,
           margin: "var(--space-2) 0 var(--space-3)",
-          maxWidth: 650,
+          maxWidth: 650
         }}
       >
         The flower looked right to humans. It still missed a butterfly cue.
@@ -330,8 +330,7 @@ function UVInsightCard() {
 
       <div
         style={{
-          borderTop: "1px solid var(--hairline-weak)",
-          paddingTop: 18,
+          paddingTop: 18
         }}
       >
         <JourneyLabel>UV vision</JourneyLabel>
@@ -340,7 +339,7 @@ function UVInsightCard() {
           style={{
             ...body,
             margin: "var(--space-1) 0 0",
-            maxWidth: 700,
+            maxWidth: 700
           }}
         >
           Butterflies can perceive ultraviolet information that is not visible
@@ -365,9 +364,8 @@ function RoleImpact() {
   return (
     <div
       style={{
-        borderTop: "0.5px solid var(--hairline-weak)",
         paddingTop: 40,
-        marginTop: "var(--space-6)",
+        marginTop: "var(--space-6)"
       }}
     >
       <p style={eyebrow}>MY ROLE</p>
@@ -378,7 +376,7 @@ function RoleImpact() {
           lineHeight: "var(--leading-heading)",
           letterSpacing: "-0.4px",
           fontWeight: 600,
-          margin: "0 0 var(--space-4)",
+          margin: "0 0 var(--space-4)"
         }}
       >
         From garden accessory to animal-centered product.
@@ -392,7 +390,7 @@ function RoleImpact() {
               display: "grid",
               gridTemplateColumns: "18px 1fr",
               gap: "var(--space-2)",
-              alignItems: "start",
+              alignItems: "start"
             }}
           >
             <span
@@ -402,7 +400,7 @@ function RoleImpact() {
                 height: 5,
                 borderRadius: "50%",
                 background: "var(--text)",
-                marginTop: "var(--space-2)",
+                marginTop: "var(--space-2)"
               }}
             />
 
@@ -410,7 +408,7 @@ function RoleImpact() {
               style={{
                 ...body,
                 margin: 0,
-                maxWidth: 700,
+                maxWidth: 700
               }}
             >
               {item}
@@ -429,7 +427,7 @@ export default function BeeFeeder() {
         color: "var(--text)",
         padding: "80px 40px",
         maxWidth: 900,
-        margin: "0 auto",
+        margin: "0 auto"
       }}
     >
       <p
@@ -445,7 +443,7 @@ export default function BeeFeeder() {
           fontWeight: 600,
           letterSpacing: "-0.5px",
           lineHeight: "var(--leading-heading)",
-          marginBottom: "var(--space-3)",
+          marginBottom: "var(--space-3)"
         }}
       >
         Butterfly Feeder
@@ -456,7 +454,7 @@ export default function BeeFeeder() {
           fontSize: "var(--type-body)",
           color: "var(--muted)",
           marginBottom: "var(--space-3)",
-          maxWidth: 600,
+          maxWidth: 600
         }}
       >
         A 3D-printed flower built for butterflies.
@@ -468,7 +466,7 @@ export default function BeeFeeder() {
           color: "var(--muted)",
           marginBottom: "var(--space-6)",
           maxWidth: 640,
-          lineHeight: "var(--leading-body)",
+          lineHeight: "var(--leading-body)"
         }}
       >
         What started as a garden accessory became a much more specific design
@@ -492,7 +490,7 @@ export default function BeeFeeder() {
                 fontSize: "var(--type-subheading)",
                 fontWeight: 600,
                 color: "var(--text)",
-                marginBottom: 2,
+                marginBottom: 2
               }}
             >
               {value}
@@ -501,7 +499,7 @@ export default function BeeFeeder() {
             <span
               style={{
                 fontSize: "var(--type-ui)",
-                color: "var(--color-text-tertiary)",
+                color: "var(--color-text-tertiary)"
               }}
             >
               {label}
@@ -514,7 +512,7 @@ export default function BeeFeeder() {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "var(--space-6)",
+          gap: "var(--space-6)"
         }}
       >
         <section>
@@ -551,13 +549,13 @@ export default function BeeFeeder() {
               src: img4a,
               subheading: "The model became adjustable.",
               caption:
-                "Petal count, length, angle, bowl diameter, and overall scale became editable parameters. Each change could generate another version without rebuilding the flower from scratch.",
+                "Petal count, length, angle, bowl diameter, and overall scale became editable parameters. Each change could generate another version without rebuilding the flower from scratch."
             }}
             right={{
               src: img4b,
               subheading: "The stem became a constraint.",
               caption:
-                "The stem was redesigned at millimeter scale to make it harder for ants to climb. The flower was no longer only a shape; its dimensions were being tuned around what happened during testing.",
+                "The stem was redesigned at millimeter scale to make it harder for ants to climb. The flower was no longer only a shape; its dimensions were being tuned around what happened during testing."
             }}
           />
         </section>
@@ -572,13 +570,13 @@ export default function BeeFeeder() {
               src: img5a,
               subheading: "The feeder became a system.",
               caption:
-                "The design separated into an outer petal structure, a centre bowl, and a removable sponge insert. The 21 mm bowl held sugar water through the sponge rather than leaving an open pool.",
+                "The design separated into an outer petal structure, a centre bowl, and a removable sponge insert. The 21 mm bowl held sugar water through the sponge rather than leaving an open pool."
             }}
             right={{
               src: img5b,
               subheading: "Landing became part of geometry.",
               caption:
-                "Petals were widened to create easier landing surfaces, while the centre bowl was deepened to reduce spillage. The flower could now support the feeding interaction instead of only resembling one.",
+                "Petals were widened to create easier landing surfaces, while the centre bowl was deepened to reduce spillage. The flower could now support the feeding interaction instead of only resembling one."
             }}
           />
         </section>
@@ -645,13 +643,13 @@ export default function BeeFeeder() {
               src: img7a,
               subheading: "Printability came before the final print.",
               caption:
-                "Wall thickness, petal overhang angles, and bowl tolerances were reviewed before exporting the final geometry as an STL.",
+                "Wall thickness, petal overhang angles, and bowl tolerances were reviewed before exporting the final geometry as an STL."
             }}
             right={{
               src: img7b,
               subheading: "Material behaved differently at scale.",
               caption:
-                "The first physical prototype revealed petal flex under load and confirmed the bowl volume. Printing exposed behaviour that was difficult to judge from the digital model alone.",
+                "The first physical prototype revealed petal flex under load and confirmed the bowl volume. Printing exposed behaviour that was difficult to judge from the digital model alone."
             }}
           />
         </section>
@@ -675,9 +673,8 @@ export default function BeeFeeder() {
       <div
         className="meta-grid"
         style={{
-          borderTop: "0.5px solid var(--hairline-weak)",
           paddingTop: 40,
-          marginTop: "var(--space-5)",
+          marginTop: "var(--space-5)"
         }}
       >
         {[
@@ -696,7 +693,7 @@ export default function BeeFeeder() {
               className="fine-print"
               style={{
                 color: "var(--color-text-tertiary)",
-                marginBottom: 4,
+                marginBottom: 4
               }}
             >
               {label}

@@ -66,7 +66,7 @@ function ClientSwitcher() {
         border: "1px solid var(--hairline-weak)",
         borderRadius: 999,
         background: "color-mix(in srgb, var(--bg) 88%, transparent)",
-        backdropFilter: "blur(16px)",
+        backdropFilter: "blur(16px)"
       }}
     >
       <div style={{ minWidth: 0 }}>
@@ -78,7 +78,7 @@ function ClientSwitcher() {
             fontWeight: 600,
             whiteSpace: "nowrap",
             overflow: "hidden",
-            textOverflow: "ellipsis",
+            textOverflow: "ellipsis"
           }}
         >
           Client 02 · GIS Tool
@@ -98,7 +98,7 @@ function ClientSwitcher() {
             border: "1px solid var(--hairline-weak)",
             textDecoration: "none",
             fontSize: "var(--type-ui)",
-            fontWeight: 600,
+            fontWeight: 600
           }}
         >
           AI Coding Tutor →
@@ -113,7 +113,7 @@ function ClientSwitcher() {
             color: "var(--text)",
             border: "1px solid var(--text)",
             fontSize: "var(--type-ui)",
-            fontWeight: 600,
+            fontWeight: 600
           }}
         >
           StraboSpot
@@ -135,7 +135,7 @@ function Hero() {
           lineHeight: "var(--leading-heading)",
           letterSpacing: "-1.5px",
           fontWeight: 600,
-          margin: "0 0 var(--space-3)",
+          margin: "0 0 var(--space-3)"
         }}
       >
         StraboSpot
@@ -167,9 +167,7 @@ function RoleAtTop() {
     <section
       style={{
         marginBottom: "var(--space-6)",
-        padding: "28px 0 32px",
-        borderTop: "1px solid var(--hairline-weak)",
-        borderBottom: "1px solid var(--hairline-weak)",
+        padding: "28px 0 32px"
       }}
     >
       <div style={{ marginBottom: "var(--space-4)" }}>
@@ -179,7 +177,7 @@ function RoleAtTop() {
             margin: 0,
             fontSize: "var(--type-heading)",
             lineHeight: "var(--leading-heading)",
-            letterSpacing: "-0.6px",
+            letterSpacing: "-0.6px"
           }}
         >
           Turning expert workflows into clearer search decisions.
@@ -192,7 +190,7 @@ function RoleAtTop() {
           display: "grid",
           gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
           gap: "var(--space-4)",
-          marginBottom: "var(--space-4)",
+          marginBottom: "var(--space-4)"
         }}
       >
         {items.map(([k, v]) => (
@@ -223,7 +221,7 @@ function SectionHeading({ number, title, intro }) {
           fontSize: "var(--type-heading)",
           lineHeight: "var(--leading-heading)",
           letterSpacing: "-0.8px",
-          fontWeight: 600,
+          fontWeight: 600
         }}
       >
         {title}
@@ -245,7 +243,7 @@ function Slide({ src, number, caption }) {
           paddingTop: 10,
           color: "var(--color-text-tertiary)",
           fontSize: "var(--type-ui)",
-          lineHeight: "var(--leading-subheading)",
+          lineHeight: "var(--leading-subheading)"
         }}
       >
         <span>CLIENT SLIDE {String(number).padStart(2, "0")} / 20</span>
@@ -275,7 +273,7 @@ function EvidenceLinks() {
         flexWrap: "wrap",
         gap: "var(--space-2)",
         marginTop: "var(--space-3)",
-        marginBottom: 2,
+        marginBottom: 2
       }}
     >
       {links.map(([text, href]) => (
@@ -294,7 +292,7 @@ function EvidenceLinks() {
             textDecoration: "none",
             fontSize: "var(--type-ui)",
             fontWeight: 600,
-            background: "var(--surface-2)",
+            background: "var(--surface-2)"
           }}
         >
           {text}
@@ -312,7 +310,7 @@ function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
         display: "grid",
         gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
         gap: "var(--space-4)",
-        marginTop: "var(--space-4)",
+        marginTop: "var(--space-4)"
       }}
     >
       <div>
@@ -337,8 +335,7 @@ function FinalTakeaway() {
       id="impact"
       style={{
         marginTop: "var(--space-7)",
-        paddingTop: 34,
-        borderTop: "1px solid var(--hairline-weak)",
+        paddingTop: 34
       }}
     >
       <p style={{ ...label, marginBottom: "var(--space-2)" }}>THE CONSULTING TAKEAWAY</p>
@@ -348,7 +345,7 @@ function FinalTakeaway() {
           fontSize: "var(--type-heading)",
           lineHeight: "var(--leading-heading)",
           letterSpacing: "-0.7px",
-          maxWidth: 760,
+          maxWidth: 760
         }}
       >
         The search problem was really a clarity problem.
@@ -367,7 +364,7 @@ export default function StraboSpot() {
         color: "var(--text)",
         maxWidth: 1040,
         margin: "0 auto",
-        padding: "26px 28px 110px",
+        padding: "26px 28px 110px"
       }}
     >
       <ClientSwitcher />
@@ -529,10 +526,9 @@ export default function StraboSpot() {
         style={{
           marginTop: "var(--space-5)",
           paddingTop: 28,
-          borderTop: "1px solid var(--hairline-weak)",
           display: "grid",
           gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-          gap: "var(--space-4)",
+          gap: "var(--space-4)"
         }}
       >
         {[

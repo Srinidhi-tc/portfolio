@@ -55,22 +55,37 @@ export default function ChapterToggle({ chapters = DEFAULT_CHAPTERS }) {
 
   if (present.length === 0) return null;
 
+  const step = Math.max(0, present.findIndex((c) => c.id === active));
+
+  // Same markup and classes as the Work page's Problem → Impact toggle, so the
+  // two look identical; this one floats at the bottom of case-study pages.
   return (
     <nav aria-label="Case study chapters" className="chapter-toggle">
-      {present.map((c) => (
-        <a
-          key={c.id}
-          href={`#${c.id}`}
-          className={
-            "chapter-toggle__item" +
-            (active === c.id ? " chapter-toggle__item--active" : "")
-          }
-          aria-current={active === c.id ? "true" : undefined}
-          onClick={(e) => handleClick(e, c.id)}
-        >
-          {c.label}
-        </a>
-      ))}
+      <div className="work-section-process-glass">
+        <div className="work-section-process-rail" style={{ "--steps": present.length }}>
+          <div
+            className="work-section-process-indicator"
+            style={{ transform: `translateX(calc(${step} * 100%))` }}
+            aria-hidden
+          />
+          <div className="work-section-process-steps">
+            {present.map((c) => (
+              <a
+                key={c.id}
+                href={`#${c.id}`}
+                className={
+                  "work-section-process-step" +
+                  (active === c.id ? " work-section-process-step--active" : "")
+                }
+                aria-current={active === c.id ? "true" : undefined}
+                onClick={(e) => handleClick(e, c.id)}
+              >
+                <span className="work-section-process-step-label">{c.label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
     </nav>
   );
 }

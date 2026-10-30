@@ -47,7 +47,7 @@ function Block({ src, subheading, caption, alt }) {
             width: "100%",
             borderRadius: 12,
             display: "block",
-            marginBottom: "var(--space-3)",
+            marginBottom: "var(--space-3)"
           }}
         />
       )}
@@ -86,7 +86,7 @@ function ImpactBox() {
             fontSize: "var(--type-body)",
             fontWeight: 600,
             color: "var(--text)",
-            textDecoration: "none",
+            textDecoration: "none"
           }}
         >
           Project documentation ↗
@@ -105,7 +105,7 @@ export default function HeartsOfInsomnia() {
         color: "var(--text)",
         padding: "80px 40px",
         maxWidth: 900,
-        margin: "0 auto",
+        margin: "0 auto"
       }}
     >
       <header style={{ marginBottom: "var(--space-6)" }}>
@@ -119,7 +119,7 @@ export default function HeartsOfInsomnia() {
             fontWeight: 600,
             letterSpacing: "-0.5px",
             lineHeight: "var(--leading-heading)",
-            marginBottom: "var(--space-3)",
+            marginBottom: "var(--space-3)"
           }}
         >
           Hearts of Insomnia
@@ -130,7 +130,7 @@ export default function HeartsOfInsomnia() {
             fontSize: "var(--type-body)",
             color: "var(--muted)",
             marginBottom: "var(--space-3)",
-            maxWidth: 600,
+            maxWidth: 600
           }}
         >
           CHI 2026 · Interactive Demo
@@ -142,7 +142,7 @@ export default function HeartsOfInsomnia() {
             color: "var(--muted)",
             marginBottom: "var(--space-4)",
             maxWidth: 640,
-            lineHeight: "var(--leading-body)",
+            lineHeight: "var(--leading-body)"
           }}
         >
           What if a bedside lamp could notice when the body starts to change,
@@ -233,8 +233,7 @@ export default function HeartsOfInsomnia() {
 
         <section
           style={{
-            borderTop: "0.5px solid var(--hairline-weak)",
-            paddingTop: 48,
+            paddingTop: 48
           }}
         >
           <p style={eyebrow}>Pilot & Outcome</p>
@@ -263,16 +262,15 @@ export default function HeartsOfInsomnia() {
 
         <section
           style={{
-            borderTop: "0.5px solid var(--hairline-weak)",
             paddingTop: 40,
-            marginTop: "var(--space-1)",
+            marginTop: "var(--space-1)"
           }}
         >
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-              gap: "var(--space-4)",
+              gap: "var(--space-4)"
             }}
           >
             <div>

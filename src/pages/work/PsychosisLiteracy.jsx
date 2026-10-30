@@ -122,7 +122,7 @@ export default function PsychosisLiteracy() {
       </div>
 
       {/* ROLE */}
-      <div style={{ marginBottom: "var(--space-6)", paddingTop: 32, borderTop: "1px solid var(--hairline-weak)" }}>
+      <div style={{ marginBottom: "var(--space-6)", paddingTop: 32}}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-4)", marginBottom: "var(--space-4)" }}>
           {[
             ["Role", "UX Designer · Solo Capstone"],
@@ -136,7 +136,7 @@ export default function PsychosisLiteracy() {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-4)", paddingTop: 28, borderTop: "1px solid var(--hairline-weak)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-4)", paddingTop: 28}}>
           <div>
             <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Built With</p>
             <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>Base44</p>

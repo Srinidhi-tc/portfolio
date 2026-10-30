@@ -108,7 +108,7 @@ export default function Microsoft() {
         marginBottom:"var(--space-6)", borderRadius:20, overflow:"hidden",
         padding:"clamp(48px,8vw,96px) clamp(24px,5vw,56px)",
         backgroundImage:`linear-gradient(180deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.62) 100%), url(${micTeam})`,
-        backgroundSize:"cover", backgroundPosition:"center",
+        backgroundSize:"cover", backgroundPosition:"center"
       }}>
         <p style={{ ...lbl, color:"rgba(255,255,255,0.7)", marginBottom:"var(--space-3)" }}>
           Microsoft Azure · Industry Partner Project · Health Observability
@@ -122,7 +122,7 @@ export default function Microsoft() {
       </header>
 
       {/* TEAM + ROLE */}
-      <section style={{ marginBottom:"var(--space-6)", paddingBottom:40, borderBottom:"1px solid var(--hairline-weak)" }}>
+      <section style={{ marginBottom:"var(--space-6)", paddingBottom:40}}>
         <div className="hand-bullet" style={{ padding:"24px 28px", marginBottom:"var(--space-3)" }}>
           <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>My role</p>
           <p style={{ fontSize:"var(--type-body)", color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
@@ -358,7 +358,7 @@ export default function Microsoft() {
       <ChapterToggle />
 
       {/* FOOTER */}
-      <div className="mic-grid" style={{ borderTop:"1px solid var(--hairline-weak)", paddingTop:40, display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
+      <div className="mic-grid" style={{ paddingTop:40, display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
         {[
           ["Type",    "Industry Partner Project · Microsoft Azure"],
           ["Methods", "Contextual inquiry · Think-aloud · Concept validation · AI-assisted desk research"],

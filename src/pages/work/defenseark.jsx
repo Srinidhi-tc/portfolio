@@ -97,7 +97,7 @@ export default function DefenseArk() {
       )}
 
       {/* FACTS */}
-      <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap:"var(--space-3)", paddingBottom:40, marginBottom:"var(--space-4)", borderBottom:"1px solid var(--hairline-weak)" }}>
+      <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap:"var(--space-3)", paddingBottom:40, marginBottom:"var(--space-4)"}}>
         {[
           ["Dates",       "May 4, 2021 to June 30, 2023"],
           ["Role",        "Founding design hire"],
@@ -305,7 +305,7 @@ export default function DefenseArk() {
       </Section>
 
       {/* FOOTER */}
-      <div className="da-grid" style={{ borderTop:"1px solid var(--hairline-weak)", paddingTop:36, display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
+      <div className="da-grid" style={{ paddingTop:36, display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
         {[
           ["Company", "DefenseARK Cybersecurity, a Metasquare Inc company, New York"],
           ["Tools",   "Figma · React · CSS"],

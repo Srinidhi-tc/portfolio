@@ -60,7 +60,7 @@ function ClientSwitcher() {
       gap: "var(--space-3)", marginBottom: "var(--space-6)", padding: "8px 10px 8px 14px",
       border: "1px solid var(--hairline-weak)", borderRadius: 999,
       background: "color-mix(in srgb, var(--bg) 88%, transparent)",
-      backdropFilter: "blur(16px)",
+      backdropFilter: "blur(16px)"
     }}>
       <div style={{ minWidth: 0 }}>
         <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: 2 }}>SGX3 · Two Concurrent Clients </p>
@@ -103,7 +103,7 @@ function RoleAtTop() {
     ["Tools", "Figma · Heuristic Evaluation · Comparative Analysis"],
   ];
   return (
-    <section style={{ marginBottom: "var(--space-6)", padding: "28px 0 32px", borderTop: "1px solid var(--hairline-weak)", borderBottom: "1px solid var(--hairline-weak)" }}>
+    <section style={{ marginBottom: "var(--space-6)", padding: "28px 0 32px"}}>
       <div style={{ marginBottom: "var(--space-4)" }}>
         <p style={{ ...label, marginBottom: "var(--space-2)" }}>problem statement</p>
         <h2 style={{ margin: 0, fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-0.6px" }}>
@@ -177,7 +177,7 @@ function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
 
 function FinalTakeaway() {
   return (
-    <section id="impact" style={{ marginTop: "var(--space-7)", paddingTop: 34, borderTop: "1px solid var(--hairline-weak)" }}>
+    <section id="impact" style={{ marginTop: "var(--space-7)", paddingTop: 34}}>
       <p style={{ ...label, marginBottom: "var(--space-2)" }}>THE CONSULTING TAKEAWAY</p>
       <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-0.7px", maxWidth: 760 }}>
         A better interface started with a better question.
@@ -367,7 +367,7 @@ export default function TACC() {
       <FinalTakeaway />
       <ChapterToggle />
 
-      <div className="tacc-meta-grid" style={{ marginTop: "var(--space-5)", paddingTop: 28, borderTop: "1px solid var(--hairline-weak)", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "var(--space-4)" }}>
+      <div className="tacc-meta-grid" style={{ marginTop: "var(--space-5)", paddingTop: 28, display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "var(--space-4)" }}>
         {[
           ["Client", "TACC · Dr. Bobby Hodgkinson"],
           ["SGX3", "Paul Parsons · Linh Pham · Claire Stirm"],

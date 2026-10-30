@@ -63,9 +63,7 @@ function MarketOpportunity() {
 
   return (
     <section style={{
-      marginBottom: "var(--space-6)", padding: "28px 0 32px",
-      borderBottom: "0.5px solid var(--hairline-weak)"
-    }}>
+      marginBottom: "var(--space-6)", padding: "28px 0 32px"}}>
       <p className="fine-print" style={{ ...label, margin: 0 }}>MARKET OPPORTUNITY</p>
       <h2 style={{
         fontSize: "var(--type-subheading)", lineHeight: "var(--leading-heading)",
@@ -81,7 +79,7 @@ function MarketOpportunity() {
           gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
           gap: 0,
           alignItems: "stretch",
-          marginBottom: "var(--space-3)",
+          marginBottom: "var(--space-3)"
         }}
       >
         {nodes.map((n, i) => (
@@ -100,7 +98,7 @@ function MarketOpportunity() {
             {i < nodes.length - 1 && (
               <div aria-hidden="true" style={{
                 flexShrink: 0, width: 28, textAlign: "center",
-                color: "var(--color-text-tertiary)", fontSize: "var(--type-body)",
+                color: "var(--color-text-tertiary)", fontSize: "var(--type-body)"
               }}>
                 →
               </div>
@@ -112,7 +110,7 @@ function MarketOpportunity() {
       <div style={{
         background: "color-mix(in srgb, var(--accent) 6%, transparent)",
         border: "1px solid var(--hairline-weak)",
-        borderRadius: 14, padding: "18px 20px", marginBottom: "var(--space-3)",
+        borderRadius: 14, padding: "18px 20px", marginBottom: "var(--space-3)"
       }}>
         <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: "0 0 var(--space-1)" }}>
           Connected to the market size above
@@ -151,10 +149,7 @@ function RoleAtTop() {
     ["Tools", "SolidWorks · Blender · Keyshot"]
   ];
   return <section style={{
-    marginBottom: "var(--space-6)", padding: "28px 0 32px",
-    borderTop: "0.5px solid var(--hairline-weak)",
-    borderBottom: "0.5px solid var(--hairline-weak)"
-  }}>
+    marginBottom: "var(--space-6)", padding: "28px 0 32px"}}>
     <div className="stack-on-phone" style={{
       display: "grid", gridTemplateColumns: "minmax(180px,.7fr) minmax(0,1.8fr)",
       gap: "var(--space-5)", alignItems: "start"
@@ -360,8 +355,7 @@ export default function Malli() {
     </div>
 
     <section id="impact" style={{
-      marginTop: "var(--space-7)", paddingTop: 12, borderTop: "0.5px solid var(--hairline-weak)"
-    }}>
+      marginTop: "var(--space-7)", paddingTop: 12}}>
       <p className="fine-print" style={{ ...label, marginBottom: "var(--space-2)" }}>DESIGN TAKEAWAY</p>
       <h2 style={{
         fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-.7px",
@@ -374,8 +368,7 @@ export default function Malli() {
       </p>
     </section>
 
-    <div className="meta-grid" style={{
-      borderTop: "0.5px solid var(--hairline-weak)", paddingTop: 40, marginTop: "var(--space-6)"
+    <div className="meta-grid" style={{ paddingTop: 40, marginTop: "var(--space-6)"
     }}>
       {[
         ["Type", " Hardware Product Design & Human Robot Interaction"],

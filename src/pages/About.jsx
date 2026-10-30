@@ -153,7 +153,7 @@ function Bar({ item, laneColor, anyActive, row }) {
         height:     item.marker ? MARKER : "100%",
         marginTop:  item.marker ? (BAR_H - MARKER) / 2 : 0,
         background: laneColor,
-        borderRadius: item.marker ? "50%" : 5,
+        borderRadius: item.marker ? "50%" : "var(--radius)",
         cursor:     "default",
         opacity:    anyActive && !hovered ? 0.35 : 1,
         transform:  hovered ? (item.marker ? "scale(1.3)" : "scaleY(1.3)") : "none",
@@ -169,7 +169,7 @@ function Bar({ item, laneColor, anyActive, row }) {
           position:     "absolute",
           bottom:       "calc(100% + 10px)",
           width:        popW,
-          borderRadius: 10,
+          borderRadius: "var(--radius)",
           boxShadow:    "0 8px 32px rgba(0,0,0,0.28)",
           background:   "var(--card)",
           border:       "1px solid var(--hairline-weak)",
@@ -180,7 +180,7 @@ function Bar({ item, laneColor, anyActive, row }) {
         }}>
           {hasImage && (
             <img src={item.image} alt={item.label}
-                 style={{ width:"100%", height:120, objectFit:"cover", display:"block", borderRadius:"9px 9px 0 0" }} />
+                 style={{ width:"100%", height:120, objectFit:"cover", display:"block", borderRadius:"var(--radius) var(--radius) 0 0" }} />
           )}
           <div style={{ padding: hasImage ? "10px 12px 12px" : "12px 14px 14px" }}>
             <p style={{ fontSize:"var(--type-ui)", fontWeight:600, color:"var(--text)", margin:0 }}>{item.label}</p>
@@ -232,7 +232,7 @@ function GanttChart() {
                         textTransform:"uppercase", color:"var(--color-text-tertiary)", marginBottom:"var(--space-1)" }}>
               {lane.label}
             </p>
-            <div style={{ position:"relative", height: rows * ROW_H + 8, background:"var(--surface-2)", borderRadius:8 }}
+            <div style={{ position:"relative", height: rows * ROW_H + 8, background:"var(--surface-2)", borderRadius:"var(--radius)" }}
                  onMouseLeave={() => setActive(null)}>
               {/* Year grid */}
               {YEARS.map(yr => (
@@ -241,7 +241,7 @@ function GanttChart() {
               ))}
               {/* Now */}
               <div style={{ position:"absolute", left:pct(NOW), top:-3, bottom:-3,
-                            width:2, background:"var(--text)", borderRadius:1,
+                            width:2, background:"var(--text)", borderRadius:"var(--radius)",
                             pointerEvents:"none", zIndex:5 }} />
               {/* Bars */}
               {lane.items.map(item => (
@@ -270,7 +270,7 @@ function GanttChart() {
       <div style={{ display:"flex", gap:"var(--space-3)", marginTop:"var(--space-3)", flexWrap:"wrap" }}>
         {LANES.map(lane => (
           <div key={lane.label} style={{ display:"flex", alignItems:"center", gap:5 }}>
-            <div style={{ width:8, height:8, borderRadius:2, background:lane.color }} />
+            <div style={{ width:8, height:8, borderRadius:"var(--radius)", background:lane.color }} />
             <span style={{ fontSize:"var(--type-ui)", color:"var(--muted)" }}>{lane.label}</span>
           </div>
         ))}
@@ -312,59 +312,58 @@ const CONTEXT = [
 function ContextSections() {
   return (
     <>
-      {/* The common thread */}
-      <div style={{ marginTop:"var(--space-7)", maxWidth:720 }}>
-        <h2 style={h2Style}>The common thread? Context.</h2>
+      {/* The common thread — label left of the gutter, the list right of it */}
+      <div className="center-split" style={{ marginTop:"var(--space-7)" }}>
+        <h2 className="split-left" style={h2Style}>The common thread? Context.</h2>
       </div>
 
-      {/* What context changes */}
-      <div style={{ marginTop:"var(--space-6)", maxWidth:720 }}>
-        <p style={{ fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.10em", textTransform:"uppercase",
-                    color:"var(--color-text-tertiary)", margin:"0 0 var(--space-2)" }}>
-          What context changes
-        </p>
-        <div>
-          {CONTEXT.map(([term, question]) => (
-            <div key={term} style={{
-              display:"grid", gridTemplateColumns:"minmax(96px, 120px) 1fr", gap:"var(--space-3)",
-              padding:"14px 0", borderTop:"1px solid var(--hairline-weak)", alignItems:"baseline",
-            }}>
-              <span style={{ fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em",
-                             textTransform:"uppercase", color:"var(--text)" }}>{term}</span>
-              <span style={{ fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"var(--muted)" }}>{question}</span>
-            </div>
-          ))}
+      <div style={{ marginTop:"var(--space-4)" }}>
+        <div className="center-split">
+          <p className="split-left" style={{ fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.10em", textTransform:"uppercase",
+                      color:"var(--color-text-tertiary)", margin:"0 0 var(--space-2)" }}>
+            What context changes
+          </p>
+        </div>
+        {CONTEXT.map(([term, question]) => (
+          <div key={term} className="center-split" style={{ padding:"14px 0" }}>
+            <span className="split-left" style={{ fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em",
+                           textTransform:"uppercase", color:"var(--text)" }}>{term}</span>
+            <span className="split-right" style={{ fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"var(--muted)" }}>{question}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Design is more than making things usable — heading left, words right */}
+      <div className="center-split" style={{ marginTop:"var(--space-7)", alignItems:"start" }}>
+        <h2 className="split-left" style={h2Style}>Design is more than making things usable.</h2>
+        <div className="split-right">
+          <p style={pStyle}>
+            It means understanding the context around the interaction, and designing accordingly.
+          </p>
+          <p style={pStyle}>
+            My background in psychology and HCI shapes how I approach that work: understand the person, understand the system, then design the interaction between them.
+          </p>
+          <p style={pStyle}>
+            I’m especially mindful of what products ask people to trust, disclose, understand, and consent to.
+          </p>
         </div>
       </div>
 
-      {/* Design is more than making things usable */}
-      <div style={{ marginTop:"var(--space-7)", maxWidth:720 }}>
-        <h2 style={h2Style}>Design is more than making things usable.</h2>
-        <p style={pStyle}>
-          It means understanding the context around the interaction, and designing accordingly.
-        </p>
-        <p style={pStyle}>
-          My background in psychology and HCI shapes how I approach that work: understand the person, understand the system, then design the interaction between them.
-        </p>
-        <p style={pStyle}>
-          I’m especially mindful of what products ask people to trust, disclose, understand, and consent to.
-        </p>
-      </div>
-
-      {/* Gratitude card */}
-      <div style={{
-        marginTop:"var(--space-7)",
-        maxWidth:460,
-        padding:"22px 26px 24px",
-        background:"#FBF6E8",
-        color:"#2B2A26",
-        borderRadius:3,
-        borderBottom:"4px solid #E4D9BC",
-        boxShadow:"0 6px 14px rgba(0,0,0,0.20)",
-        fontSize:"var(--type-body)",
-        lineHeight:"var(--leading-body)",
-      }}>
-        🌻 Grateful to the mentors, professors, seniors, researchers, family, friends, and teammates who have challenged me, supported me, and helped me grow.
+      {/* Gratitude card, right of the gutter */}
+      <div className="center-split" style={{ marginTop:"var(--space-7)" }}>
+        <div className="split-right" style={{
+          maxWidth:460,
+          padding:"22px 26px 24px",
+          background:"#FBF6E8",
+          color:"#2B2A26",
+          borderRadius:"var(--radius)",
+          borderBottom:"4px solid #E4D9BC",
+          boxShadow:"0 6px 14px rgba(0,0,0,0.20)",
+          fontSize:"var(--type-body)",
+          lineHeight:"var(--leading-body)",
+        }}>
+          🌻 Grateful to the mentors, professors, seniors, researchers, family, friends, and teammates who have challenged me, supported me, and helped me grow.
+        </div>
       </div>
     </>
   );
@@ -388,17 +387,22 @@ const EDUCATION = [
 
 function RecordList({ heading, rows }) {
   return (
-    <div style={{ marginTop:"var(--space-6)", maxWidth:720 }}>
-      <h2 style={{ ...h2Style, fontSize:"var(--type-subheading)", marginBottom:"var(--space-2)" }}>{heading}</h2>
+    <div style={{ marginTop:"var(--space-6)" }}>
+      <div className="center-split">
+        <h2 className="split-left" style={{ ...h2Style, fontSize:"var(--type-subheading)", marginBottom:"var(--space-2)" }}>{heading}</h2>
+      </div>
+      {/* Dates on the left of the gutter; role and organization on the right. */}
       <ul className="about-records">
         {rows.map(([dates, title, org, href]) => (
-          <li key={dates + title}>
-            <span>{dates}</span>
-            <span className="about-records__title">{title}</span>
-            <span>
-              {href
-                ? <a href={href} target="_blank" rel="noopener noreferrer" className="contact-link">{org}</a>
-                : org}
+          <li key={dates + title} className="center-split">
+            <span className="split-left">{dates}</span>
+            <span className="split-right">
+              <span className="about-records__title">{title}</span>
+              <span className="about-records__org">
+                {href
+                  ? <a href={href} target="_blank" rel="noopener noreferrer" className="contact-link">{org}</a>
+                  : org}
+              </span>
             </span>
           </li>
         ))}
@@ -449,17 +453,17 @@ export default function About() {
             </div>
           </div>
 
-          {/* ZONE 2 — Gantt at 80% width */}
-          <div style={{
-            borderTop:   "0.5px solid rgba(0,0,0,0.08)",
-            paddingTop:  40,
-            width:       "80%",
-          }}>
-            <h2 style={{ ...h2Style, marginBottom:"var(--space-1)" }}>A career built by following questions.</h2>
-            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", margin:"0 0 var(--space-4)" }}>
-              Psychology → research → making → product design.
-            </p>
-            <GanttChart />
+          {/* ZONE 2 — Heading left of the gutter, graph right of it */}
+          <div className="center-split" style={{ alignItems:"start" }}>
+            <div className="split-left">
+              <h2 style={{ ...h2Style, marginBottom:"var(--space-1)" }}>A career built by following questions.</h2>
+              <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", margin:0 }}>
+                Psychology → research → making → product design.
+              </p>
+            </div>
+            <div className="split-right">
+              <GanttChart />
+            </div>
           </div>
 
           <RecordList heading="Experience" rows={EXPERIENCE} />

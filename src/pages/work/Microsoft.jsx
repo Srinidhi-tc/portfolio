@@ -33,7 +33,7 @@ function Slide({ src, caption }) {
   return (
     <figure style={{ margin:"0 0 var(--space-2)" }}>
       <img src={src} alt={caption || ""} loading="lazy"
-           style={{ width:"100%", display:"block", borderRadius:14, background:"var(--surface-2)" }} />
+           style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)" }} />
       {caption && (
         <figcaption style={{ marginTop:"var(--space-1)", fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
       )}
@@ -105,7 +105,7 @@ export default function Microsoft() {
 
       {/* HERO ... team presenting photo as background */}
       <header style={{
-        marginBottom:"var(--space-6)", borderRadius:20, overflow:"hidden",
+        marginBottom:"var(--space-6)", borderRadius:"var(--radius)", overflow:"hidden",
         padding:"clamp(48px,8vw,96px) clamp(24px,5vw,56px)",
         backgroundImage:`linear-gradient(180deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.62) 100%), url(${micTeam})`,
         backgroundSize:"cover", backgroundPosition:"center"

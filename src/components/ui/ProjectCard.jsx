@@ -27,7 +27,7 @@ export default function ProjectCard({
 }) {
   const cardStyle = {
     background: "var(--color-bg-card)",
-    borderRadius: "var(--radius-lg, 18px)",
+    borderRadius: "var(--radius)",
     overflow: "hidden",
     cursor: "pointer",
     transition: "transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1)",

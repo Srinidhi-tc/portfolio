@@ -21,7 +21,7 @@ const label = {
   textTransform: "uppercase", color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)"
 };
 const copy = { fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", maxWidth: 650 };
-const img = { width: "100%", borderRadius: 16, display: "block" };
+const img = { width: "100%", borderRadius: "var(--radius)", display: "block" };
 
 function Block({ src, subheading, caption }) {
   return <div>
@@ -110,7 +110,7 @@ function MarketOpportunity() {
       <div style={{
         background: "color-mix(in srgb, var(--accent) 6%, transparent)",
         border: "1px solid var(--hairline-weak)",
-        borderRadius: 14, padding: "18px 20px", marginBottom: "var(--space-3)"
+        borderRadius: "var(--radius)", padding: "18px 20px", marginBottom: "var(--space-3)"
       }}>
         <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: "0 0 var(--space-1)" }}>
           Connected to the market size above
@@ -218,7 +218,7 @@ function SystemCard() {
     }}>
       {["Motors", "Spray paths", "Sensors", "Removable modules"].map(x =>
         <div key={x} style={{
-          padding: "12px 14px", borderRadius: 10, background: "var(--surface-1)",
+          padding: "12px 14px", borderRadius: "var(--radius)", background: "var(--surface-1)",
           fontSize: "var(--type-body)", lineHeight: "var(--leading-subheading)"
         }}>{x}</div>
       )}

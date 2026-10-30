@@ -25,7 +25,7 @@
 .tag {
   display: inline-block;
   padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius);
   background: var(--accent-light);
   color: var(--accent-dark);
   font-size: var(--type-ui);
@@ -42,7 +42,7 @@
   min-height: var(--hit-target);
   padding: 0.6875rem 1.25rem; /* 11pt × 20pt: yields 44pt height with 17pt body */
   border: none;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius);
   font-weight: 600;
   font-size: var(--type-body);
   letter-spacing: 0;
@@ -161,9 +161,6 @@
 }
 
 .about-records li {
-  display: grid;
-  grid-template-columns: 11.5em minmax(0, 1.2fr) minmax(0, 1fr);
-  column-gap: var(--space-3);
   padding: 6px 0;
 }
 
@@ -175,11 +172,8 @@
   color: var(--text);
 }
 
-@media (max-width: 600px) {
-  .about-records li {
-    grid-template-columns: minmax(0, 1fr);
-    padding: 10px 0;
-  }
+.about-records__org {
+  display: block;
 }
 
 /* ---------- Work section card tags ----------
@@ -206,8 +200,8 @@
  * two below the point where the fixed track stops fitting.
  */
 .about-profile-grid {
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter);
 }
 
 @media (max-width: 600px) {
@@ -402,4 +396,41 @@
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border: 1px solid var(--hairline-weak);
+}
+
+/* ---------- Central gutter ----------
+ * One gutter runs down the middle of every page: the gap between Work and
+ * About in the nav. Two-column layouts put their halves either side of it;
+ * the left half's text sits flush against the gutter.
+ */
+:root {
+  --gutter: var(--space-4);
+}
+
+.center-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: baseline;
+}
+
+.split-left {
+  grid-column: 1;
+  text-align: right;
+}
+
+.split-right {
+  grid-column: 2;
+}
+
+@media (max-width: 720px) {
+  .center-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .split-left,
+  .split-right {
+    grid-column: 1;
+    text-align: left;
+  }
 }

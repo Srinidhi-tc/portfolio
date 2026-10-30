@@ -94,9 +94,31 @@ border: "1px solid var(--hairline-weak)";
 }
 
 /* Nav — plain text links, no capsule */
+/* Work and About sit in two equal columns, so the gap between them is the
+   page's central gutter exactly; anything after them (the tennis ball) hangs
+   outside so it can't shift the centre. */
 .nav-links {
   pointer-events: auto;
-  gap: var(--space-4);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: center;
+}
+
+.nav-links > .nav-link:first-child {
+  justify-self: end;
+}
+
+.nav-links > .nav-link:nth-child(2) {
+  justify-self: start;
+}
+
+.nav-links > :nth-child(n + 3) {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  translate: var(--space-2) -50%;
 }
 
 /* Brand mark — a serif display letterform with tight tracking, so it reads as
@@ -226,6 +248,7 @@ border: "1px solid var(--hairline-weak)";
   width: 100%;
   height: auto;
   display: block;
+  border-radius: var(--radius);
   filter: contrast(1.08) saturate(1.12) brightness(0.98);
 }
 
@@ -329,7 +352,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .work-section-process-glass {
-  border-radius: var(--radius-glass);
+  border-radius: var(--radius);
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
@@ -351,7 +374,7 @@ border: "1px solid var(--hairline-weak)";
   bottom: 5px;
   left: 5px;
   width: calc((100% - 10px) / var(--steps, 4));
-  border-radius: calc(var(--radius-glass) - 9px);
+  border-radius: var(--radius);
   background: var(--card-glass-bg);
   box-shadow: var(--card-glass-shadow);
   z-index: 0;
@@ -383,7 +406,7 @@ border: "1px solid var(--hairline-weak)";
   letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
-  border-radius: calc(var(--radius-glass) - 9px);
+  border-radius: var(--radius);
   transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -433,8 +456,8 @@ border: "1px solid var(--hairline-weak)";
 
 .work-section-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 per row → 5 items flow 2 / 2 / 1, bigger cards (emily.jennett.com-style) */
-  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter); /* the page's central gutter runs between the two columns */
 }
 
 @media (max-width: 720px) {
@@ -451,7 +474,7 @@ border: "1px solid var(--hairline-weak)";
   text-decoration: none;
   color: inherit;
   /* Same border, fill and frosted glass as the Problem → Impact toggle. */
-  border-radius: var(--radius-glass);
+  border-radius: var(--radius);
   border: 0.5px solid var(--process-border);
   box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.5) inset;
   overflow: hidden;
@@ -800,7 +823,7 @@ border: "1px solid var(--hairline-weak)";
   font-size: var(--type-body);
   font-weight: 600;
   padding: 12px 18px;
-  border-radius: 22px;
+  border-radius: var(--radius);
   border: 2.5px solid var(--text);
   box-shadow: 4px 4px 0 var(--text);
   animation: bubble-pop 0.35s var(--ease), bubble-bob 2s ease-in-out 0.35s infinite;
@@ -827,7 +850,7 @@ border: "1px solid var(--hairline-weak)";
   .floating-mascot__bubble {
     font-size: var(--type-body);
     padding: 8px 12px;
-    border-radius: 16px;
+    border-radius: var(--radius);
     border-width: 2px;
     box-shadow: 3px 3px 0 var(--text);
     max-width: 150px;
@@ -935,7 +958,7 @@ border: "1px solid var(--hairline-weak)";
   left: 50%;
   width: 8px;
   height: 8px;
-  border-radius: 2px;
+  border-radius: var(--radius);
   background: var(--accent);
   animation: confetti-burst 1.2s ease-out forwards;
   transform-origin: center;
@@ -1086,7 +1109,7 @@ border: "1px solid var(--hairline-weak)";
 .project-row-link:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
-  border-radius: 4px;
+  border-radius: var(--radius);
 }
 
 /* Mobile: roughly 3 full items + a peeking 4th as a continuation cue.
@@ -1128,7 +1151,7 @@ border: "1px solid var(--hairline-weak)";
    burgundy used only for the small decision indicator. */
 .decision-object {
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
   background: transparent;
   padding: var(--space-4);
   margin: var(--space-4) 0;
@@ -1196,7 +1219,7 @@ border: "1px solid var(--hairline-weak)";
 .annotation-tag {
   display: inline-block;
   padding: 7px 11px;
-  border-radius: 2px;
+  border-radius: var(--radius);
   font-size: var(--type-ui);
   font-weight: 600;
   line-height: var(--leading-subheading);
@@ -1398,7 +1421,7 @@ border: "1px solid var(--hairline-weak)";
   left: calc(var(--group-gap) / -2);
   width: 3px;
   height: 3px;
-  border-radius: 999px;
+  border-radius: var(--radius);
   transform: translate(-50%, -50%) scale(0.4);
   background: var(--hairline);
   opacity: 0;

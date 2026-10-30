@@ -30,7 +30,7 @@ const body = {
   fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0, maxWidth: 680,
 };
 const slideImg = {
-  width: "100%", display: "block", borderRadius: 14,
+  width: "100%", display: "block", borderRadius: "var(--radius)",
   background: "var(--surface-2)",
 };
 
@@ -97,7 +97,7 @@ export default function PsychosisLiteracy() {
     <div style={{ color: "var(--text)", maxWidth: 1000, margin: "0 auto", padding: "32px 28px 120px", WebkitFontSmoothing: "antialiased" }}>
 
       {/* DISCLAIMER */}
-      <div style={{ background: "var(--text)", color: "var(--surface-2)", borderRadius: 12, padding: "16px 20px", marginBottom: "var(--space-5)", fontSize: "var(--type-body)", lineHeight: "var(--leading-body)" }}>
+      <div style={{ background: "var(--text)", color: "var(--surface-2)", borderRadius: "var(--radius)", padding: "16px 20px", marginBottom: "var(--space-5)", fontSize: "var(--type-body)", lineHeight: "var(--leading-body)" }}>
         <strong>Disclaimer:</strong> This project contains psychoeducation content and simulated visual imagery of hallucinations. Designed for educational purposes only.
       </div>
 
@@ -118,7 +118,7 @@ export default function PsychosisLiteracy() {
       {/* HERO SLIDE — the one full-width image */}
       <div style={{ marginBottom: "var(--space-6)" }}>
         <img src={cap25} alt="Percepta · Capstone 2026"
-             style={{ width: "100%", borderRadius: 18, display: "block" }} />
+             style={{ width: "100%", borderRadius: "var(--radius)", display: "block" }} />
       </div>
 
       {/* ROLE */}

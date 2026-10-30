@@ -48,7 +48,7 @@ const body = {
 const slideBase = {
   width: "100%",
   display: "block",
-  borderRadius: 18,
+  borderRadius: "var(--radius)",
   background: "var(--surface-2)",
 };
 
@@ -58,7 +58,7 @@ function ClientSwitcher() {
       position: "sticky", top: 14, zIndex: 20,
       display: "flex", justifyContent: "space-between", alignItems: "center",
       gap: "var(--space-3)", marginBottom: "var(--space-6)", padding: "8px 10px 8px 14px",
-      borderRadius: 999,
+      borderRadius: "var(--radius)",
     }}>
       <div style={{ minWidth: 0 }}>
         <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: 2 }}>SGX3 · Two Concurrent Clients </p>
@@ -67,10 +67,10 @@ function ClientSwitcher() {
         </p>
       </div>
       <div style={{ display: "flex", gap: "var(--space-1)", flexShrink: 0 }}>
-      <span style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, border: "1px solid var(--text)", color: "var(--text)", background: "transparent", fontSize: "var(--type-ui)", fontWeight: 600 }}>
+      <span style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: "var(--radius)", border: "1px solid var(--text)", color: "var(--text)", background: "transparent", fontSize: "var(--type-ui)", fontWeight: 600 }}>
   AI Coding Tutor
 </span>
-        <a href="/portfolio/work/strabospot" style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: 999, border: "1px solid var(--hairline-weak)", color: "var(--text)", textDecoration: "none", fontSize: "var(--type-ui)", fontWeight: 600 }}>
+        <a href="/portfolio/work/strabospot" style={{ display: "inline-flex", alignItems: "center", padding: "9px 13px", borderRadius: "var(--radius)", border: "1px solid var(--hairline-weak)", color: "var(--text)", textDecoration: "none", fontSize: "var(--type-ui)", fontWeight: 600 }}>
           StraboSpot Inc →
         </a>
       </div>

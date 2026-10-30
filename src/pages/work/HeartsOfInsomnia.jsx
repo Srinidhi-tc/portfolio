@@ -45,7 +45,7 @@ function Block({ src, subheading, caption, alt }) {
           alt={alt || subheading}
           style={{
             width: "100%",
-            borderRadius: 12,
+            borderRadius: "var(--radius)",
             display: "block",
             marginBottom: "var(--space-3)"
           }}

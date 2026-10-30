@@ -39,7 +39,7 @@ function Block({ src, subheading, caption }) {
         alt={subheading}
         style={{
           width: "100%",
-          borderRadius: 12,
+          borderRadius: "var(--radius)",
           display: "block",
           marginBottom: "var(--space-3)"
         }}
@@ -65,7 +65,7 @@ function SideBySide({ left, right }) {
           alt={left.subheading}
           style={{
             width: "100%",
-            borderRadius: 12,
+            borderRadius: "var(--radius)",
             display: "block",
             marginBottom: "var(--space-3)"
           }}
@@ -80,7 +80,7 @@ function SideBySide({ left, right }) {
           alt={right.subheading}
           style={{
             width: "100%",
-            borderRadius: 12,
+            borderRadius: "var(--radius)",
             display: "block",
             marginBottom: "var(--space-3)"
           }}
@@ -135,7 +135,7 @@ function JourneyCell({ children, highlighted = false, label }) {
       className={highlighted ? undefined : "hand-bullet"}
       style={{
         background: highlighted ? "#FFF9B1" : "none",
-        borderRadius: highlighted ? 3 : 0,
+        borderRadius: highlighted ? "var(--radius)" : 0,
         padding: highlighted ? "16px 15px" : "0 0 0 var(--bullet-indent)",
         minHeight: 96,
         border: "none",

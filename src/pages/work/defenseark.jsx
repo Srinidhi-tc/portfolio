@@ -93,7 +93,7 @@ export default function DefenseArk() {
 
       {heroImage && (
         <img src={heroImage} alt="DefenseARK product work"
-             style={{ width:"100%", display:"block", borderRadius:18, background:"var(--surface-2)", marginBottom:"var(--space-5)" }} />
+             style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)", marginBottom:"var(--space-5)" }} />
       )}
 
       {/* FACTS */}

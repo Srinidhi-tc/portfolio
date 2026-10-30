@@ -19,8 +19,7 @@ export default function Navbar() {
             SRI
           </NavLink>
         </div>
-        <nav className="nav-links" aria-label="Main navigation"
-             style={{ display: "flex", alignItems: "center" }}>
+        <nav className="nav-links" aria-label="Main navigation">
           {navItems.map((item) => (
             <NavLink
               key={item.to}

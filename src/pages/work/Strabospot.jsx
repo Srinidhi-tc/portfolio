@@ -46,7 +46,7 @@ const body = {
 const slideBase = {
   width: "100%",
   display: "block",
-  borderRadius: 18,
+  borderRadius: "var(--radius)",
   background: "var(--surface-2)",
 };
 
@@ -63,7 +63,7 @@ function ClientSwitcher() {
         gap: "var(--space-3)",
         marginBottom: "var(--space-6)",
         padding: "8px 10px 8px 14px",
-        borderRadius: 999,
+        borderRadius: "var(--radius)",
       }}
     >
       <div style={{ minWidth: 0 }}>
@@ -89,7 +89,7 @@ function ClientSwitcher() {
             display: "inline-flex",
             alignItems: "center",
             padding: "9px 13px",
-            borderRadius: 999,
+            borderRadius: "var(--radius)",
             background: "transparent",
             color: "var(--text)",
             border: "1px solid var(--hairline-weak)",
@@ -105,7 +105,7 @@ function ClientSwitcher() {
             display: "inline-flex",
             alignItems: "center",
             padding: "9px 13px",
-            borderRadius: 999,
+            borderRadius: "var(--radius)",
             background: "transparent",
             color: "var(--text)",
             border: "1px solid var(--text)",
@@ -144,7 +144,7 @@ function Hero() {
         <img
           src={straboCover}
           alt="StraboSpot laptop mockup"
-          style={{ ...slideBase, width: "100%", borderRadius: 24 }}
+          style={{ ...slideBase, width: "100%", borderRadius: "var(--radius)" }}
         />
       </figure>
     </header>
@@ -284,7 +284,7 @@ function EvidenceLinks() {
             alignItems: "center",
             padding: "10px 14px",
             border: "1px solid var(--hairline-weak)",
-            borderRadius: 999,
+            borderRadius: "var(--radius)",
             color: "var(--text)",
             textDecoration: "none",
             fontSize: "var(--type-ui)",

@@ -127,13 +127,7 @@
 
   /* Corner radii — values commonly published in Apple HIG (continuous
      corners). CSS `border-radius` approximates the look. */
-  --radius-xs: 8px;   /* 8pt */
-  --radius-sm: 10px;  /* 10pt — small controls */
-  --radius: 12px;     /* 12pt — buttons / cards */
-  --radius-lg: 20px;  /* 20px — softer cards (emily.jennett.com-inspired) */
-  --radius-xl: 20px;  /* 20pt — modal / sheet */
-  --radius-full: 9999px; /* pill / capsule */
-  --radius-glass: 20px;  /* project cards and the Problem → Impact toggle */
+  --radius: 20px;  /* every rounded corner on the site; circles use 50% */
 
   /* Hairline borders (HIG separator weight is 1 pt). */
   --hairline: 1px;

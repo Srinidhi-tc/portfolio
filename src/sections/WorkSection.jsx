@@ -197,7 +197,7 @@ export default function WorkSection() {
             aria-label="Process lens: Problem through Impact"
             onKeyDown={onTabKeyDown}
           >
-            <div className="work-section-process-glass">
+            <div className="work-section-process-glass glass-bar">
               <div className="work-section-process-rail">
                 <div
                   className="work-section-process-indicator"

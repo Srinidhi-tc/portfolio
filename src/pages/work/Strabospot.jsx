@@ -52,7 +52,7 @@ const slideBase = {
 
 function ClientSwitcher() {
   return (
-    <div
+    <div className="glass-bar"
       style={{
         position: "sticky",
         top: 14,
@@ -63,10 +63,7 @@ function ClientSwitcher() {
         gap: "var(--space-3)",
         marginBottom: "var(--space-6)",
         padding: "8px 10px 8px 14px",
-        border: "1px solid var(--hairline-weak)",
         borderRadius: 999,
-        background: "color-mix(in srgb, var(--bg) 88%, transparent)",
-        backdropFilter: "blur(16px)"
       }}
     >
       <div style={{ minWidth: 0 }}>

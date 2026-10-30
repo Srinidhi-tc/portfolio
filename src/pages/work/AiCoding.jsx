@@ -54,13 +54,11 @@ const slideBase = {
 
 function ClientSwitcher() {
   return (
-    <div style={{
+    <div className="glass-bar" style={{
       position: "sticky", top: 14, zIndex: 20,
       display: "flex", justifyContent: "space-between", alignItems: "center",
       gap: "var(--space-3)", marginBottom: "var(--space-6)", padding: "8px 10px 8px 14px",
-      border: "1px solid var(--hairline-weak)", borderRadius: 999,
-      background: "color-mix(in srgb, var(--bg) 88%, transparent)",
-      backdropFilter: "blur(16px)"
+      borderRadius: 999,
     }}>
       <div style={{ minWidth: 0 }}>
         <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: 2 }}>SGX3 · Two Concurrent Clients </p>

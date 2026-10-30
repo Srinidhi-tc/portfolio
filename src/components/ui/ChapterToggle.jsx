@@ -61,7 +61,7 @@ export default function ChapterToggle({ chapters = DEFAULT_CHAPTERS }) {
   // two look identical; this one floats at the bottom of case-study pages.
   return (
     <nav aria-label="Case study chapters" className="chapter-toggle">
-      <div className="work-section-process-glass">
+      <div className="work-section-process-glass glass-bar">
         <div className="work-section-process-rail" style={{ "--steps": present.length }}>
           <div
             className="work-section-process-indicator"

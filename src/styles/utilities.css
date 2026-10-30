@@ -391,3 +391,15 @@
   -webkit-mask: url("../assets/hand-bullet.svg") center / contain no-repeat;
   mask: url("../assets/hand-bullet.svg") center / contain no-repeat;
 }
+
+/* ---------- Glass bar ----------
+ * The fill shared by the floating bars: the client switcher on the SGX3 case
+ * studies and the Problem / Decisions / Tradeoffs / Impact toggles. The page
+ * background at 88% with a blur behind it, and a hairline border.
+ */
+.glass-bar {
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--hairline-weak);
+}

@@ -203,7 +203,7 @@ function RoleAtTop() {
         ))}
       </div>
 
-      <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
+      <div className="hand-bullet" >
         <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Business Impact</p>
         <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
           I focused on cross-functional user flows because duplicated fieldwork is the real cost here, every friction point in data retrieval is researcher time and grant funding spent re-discovering what already exists.

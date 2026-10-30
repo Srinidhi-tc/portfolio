@@ -362,3 +362,32 @@
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+/* ---------- Hand-marked bullets ----------
+ * Project pages don't use grey or outlined boxes. Each item that used to sit
+ * in a box is a bulleted item instead: a hand-marked bullet in the text
+ * colour, hanging to the left of the content. The bullet drawing lives in
+ * src/assets/hand-bullet.svg; swap that file to change it everywhere (any
+ * single-colour SVG or transparent PNG works, since it is used as a mask).
+ */
+:root {
+  --bullet-size: 14px;
+  --bullet-indent: calc(var(--bullet-size) + var(--space-2));
+}
+
+.hand-bullet {
+  position: relative;
+  padding-left: var(--bullet-indent);
+}
+
+.hand-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: var(--bullet-size);
+  height: var(--bullet-size);
+  background-color: var(--text);
+  -webkit-mask: url("../assets/hand-bullet.svg") center / contain no-repeat;
+  mask: url("../assets/hand-bullet.svg") center / contain no-repeat;
+}

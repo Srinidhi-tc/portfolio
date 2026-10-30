@@ -59,12 +59,8 @@ function Block({ src, subheading, caption, alt }) {
 
 function ImpactBox() {
   return (
-    <section
-      style={{
-        background: "var(--surface-2)",
-        borderRadius: 16,
-        padding: "24px 24px 26px",
-      }}
+    <section className="hand-bullet"
+      
     >
       <p style={{ ...eyebrow, marginBottom: "var(--space-2)" }}>Role & Impact</p>
       <h2 style={{ ...title, fontSize: "var(--type-subheading)", marginBottom: "var(--space-3)" }}>
@@ -252,12 +248,8 @@ export default function HeartsOfInsomnia() {
           </p>
         </section>
 
-        <section
-          style={{
-            background: "var(--surface-2)",
-            borderRadius: 16,
-            padding: "28px 24px",
-          }}
+        <section className="hand-bullet"
+          
         >
           <p style={{ ...eyebrow, marginBottom: "var(--space-2)" }}>Final Interaction</p>
           <h2 style={title}>Body → signal → light → awareness.</h2>

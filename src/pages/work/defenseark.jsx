@@ -15,7 +15,6 @@ const heroImage = workSectionProjects.find((p) => p.id === "defenseark")?.image;
 
 const lbl  = { fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
 const bd   = { fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:"0 0 var(--space-3)", maxWidth:680 };
-const card = { background:"var(--surface-2)", borderRadius:12, padding:"18px 20px" };
 
 function Section({ id, number, title, children }) {
   return (
@@ -37,7 +36,7 @@ function Cards({ items, cols = 3 }) {
   return (
     <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)", marginTop:"var(--space-4)" }}>
       {items.map(([title, text]) => (
-        <div key={title} style={card}>
+        <div key={title} className="hand-bullet">
           <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", margin:"0 0 var(--space-1)" }}>{title}</p>
           <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{text}</p>
         </div>
@@ -113,7 +112,7 @@ export default function DefenseArk() {
         ))}
       </div>
 
-      <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"20px 22px", marginBottom:"var(--space-6)" }}>
+      <div className="hand-bullet" style={{ marginBottom:"var(--space-6)" }}>
         <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Business Impact</p>
         <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:"var(--leading-body)", margin:0 }}>
           As the first design hire, I built the client-intake framework before being asked, because every manual intake step was a scaling cost the company would eventually have to pay for as the client base grew.
@@ -294,8 +293,8 @@ export default function DefenseArk() {
       <Section number="The products" title="See them live.">
         <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)" }}>
           {PRODUCTS.map((p) => (
-            <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="lift"
-               style={{ ...card, display:"block", textDecoration:"none", color:"inherit" }}>
+            <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="hand-bullet lift"
+               style={{ display:"block", textDecoration:"none", color:"inherit" }}>
               <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>{p.type}</p>
               <p style={{ fontSize:"var(--type-subheading)", fontWeight:600, color:"var(--text)", margin:"0 0 var(--space-2)" }}>{p.name}</p>
               <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:"0 0 var(--space-3)" }}>{p.my}</p>

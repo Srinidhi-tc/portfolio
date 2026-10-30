@@ -83,7 +83,7 @@ function StatRow({ stats }) {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap: "var(--space-3)", margin: "var(--space-4) 0" }}>
       {stats.map(({ value, label: lbl }) => (
-        <div key={lbl} style={{ background: "var(--surface-2)", borderRadius: 12, padding: "18px 20px" }}>
+        <div key={lbl} className="hand-bullet">
           <span style={{ display: "block", fontSize: "var(--type-heading)", fontWeight: 600, color: "var(--text)", letterSpacing: "-0.3px", marginBottom: 4 }}>{value}</span>
           <span style={{ fontSize: "var(--type-ui)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>{lbl}</span>
         </div>
@@ -184,7 +184,7 @@ export default function PsychosisLiteracy() {
             ["Commute home", "Visual and auditory hallucinations occur simultaneously. Camera on phone helps navigate."],
             ["Night time", "Weakest willpower. Most frightening. Night hallucinations are the hardest to cope with."],
           ].map(([stage, insight]) => (
-            <div key={stage} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "16px 18px" }}>
+            <div key={stage} className="hand-bullet">
               <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{stage}</p>
               <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{insight}</p>
             </div>
@@ -239,7 +239,7 @@ export default function PsychosisLiteracy() {
             ["Validated the architecture", "The flowchart categorisation of hallucination types was confirmed clinically appropriate."],
             ["Language matters", "Messaging must be non-stigmatising and avoid clinical jargon for a teen audience."],
           ].map(([finding, detail]) => (
-            <div key={finding} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "16px 18px" }}>
+            <div key={finding} className="hand-bullet">
               <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--text)", marginBottom: "var(--space-1)" }}>{finding}</p>
               <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{detail}</p>
             </div>
@@ -277,7 +277,7 @@ export default function PsychosisLiteracy() {
             ["Phase 2 · Awareness", "10/10 identified visual hallucination types. 7/10 identified auditory. Architecture worked."],
             ["Phase 3 · Help-Seeking", "10/10 reached the help page. 5/10 read through fully. Helpline got major visibility."],
           ].map(([phase, result]) => (
-            <div key={phase} style={{ background: "var(--surface-2)", borderRadius: 10, padding: "16px 18px" }}>
+            <div key={phase} className="hand-bullet">
               <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-1)" }}>{phase}</p>
               <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{result}</p>
             </div>

@@ -132,10 +132,11 @@ function JourneyLabel({ children, dark = false }) {
 function JourneyCell({ children, highlighted = false, label }) {
   return (
     <div
+      className={highlighted ? undefined : "hand-bullet"}
       style={{
-        background: highlighted ? "#FFF9B1" : "var(--surface-2)",
-        borderRadius: highlighted ? 3 : 12,
-        padding: "16px 15px",
+        background: highlighted ? "#FFF9B1" : "none",
+        borderRadius: highlighted ? 3 : 0,
+        padding: highlighted ? "16px 15px" : "0 0 0 var(--bullet-indent)",
         minHeight: 96,
         border: "none",
         boxShadow: highlighted ? "0 5px 10px rgba(0, 0, 0, 0.22)" : "none",
@@ -304,14 +305,9 @@ function ButterflyJourneyChart() {
 
 function UVInsightCard() {
   return (
-    <div
+    <div className="hand-bullet"
       style={{
-        marginTop: "var(--space-4)",
-        padding: "24px 24px 26px",
-        borderRadius: 16,
-        background: "var(--surface-2)",
-        border: "1px solid var(--hairline-weak)",
-      }}
+        marginTop: "var(--space-4)" }}
     >
       <JourneyLabel>The turning point</JourneyLabel>
 
@@ -486,13 +482,9 @@ export default function BeeFeeder() {
           { value: "UV-guided", label: "animal experience" },
           { value: "3D Printed", label: "functional product" },
         ].map(({ value, label }) => (
-          <div
+          <div className="hand-bullet"
             key={label}
-            style={{
-              background: "var(--surface-2)",
-              borderRadius: 10,
-              padding: "14px 16px",
-            }}
+            
           >
             <span
               style={{

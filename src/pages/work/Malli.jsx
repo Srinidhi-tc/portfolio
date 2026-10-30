@@ -86,10 +86,7 @@ function MarketOpportunity() {
       >
         {nodes.map((n, i) => (
           <div key={n.tag} style={{ display: "flex", alignItems: "center" }}>
-            <div style={{
-              background: "var(--surface-2)", borderRadius: 14,
-              padding: "18px 20px", width: "100%",
-            }}>
+            <div className="hand-bullet" style={{ width: "100%" }}>
               <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: "0 0 var(--space-1)" }}>
                 {n.tag}
               </p>
@@ -185,7 +182,7 @@ function RoleAtTop() {
           architecture, modular brushes, charging configurations, CMF,
           manufacturing considerations, and cost estimation.
         </p>
-        <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
+        <div className="hand-bullet" >
           <p className="fine-print" style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Business Impact</p>
           <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
             I designed Malli's modular, app-connected architecture specifically to capture that connected-device premium, treating smart-home integration as a pricing lever, not just a feature.
@@ -206,9 +203,7 @@ function InsightStrip() {
     display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))",
     gap: "var(--space-2)", marginBottom: "var(--space-7)"
   }}>
-    {items.map(([n,t,d]) => <div key={n} style={{
-      background: "var(--surface-2)", borderRadius: 14, padding: "18px 18px 20px"
-    }}>
+    {items.map(([n,t,d]) => <div className="hand-bullet" key={n} >
       <p className="fine-print" style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-2)" }}>{n}</p>
       <p style={{ fontSize: "var(--type-body)", fontWeight: 600, margin: "0 0 5px" }}>{t}</p>
       <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0 }}>{d}</p>
@@ -217,9 +212,8 @@ function InsightStrip() {
 }
 
 function SystemCard() {
-  return <div style={{
-    marginTop: "var(--space-4)", padding: 24, borderRadius: 16, background: "var(--surface-2)"
-  }}>
+  return <div className="hand-bullet" style={{
+    marginTop: "var(--space-4)" }}>
     <p className="fine-print" style={{ ...label, marginBottom: "var(--space-1)" }}>Internal system</p>
     <p style={{ fontSize: "var(--type-subheading)", fontWeight: 600, letterSpacing: "-.3px", margin: "0 0 var(--space-3)" }}>
       The architecture had to disappear inside the footprint.
@@ -247,9 +241,7 @@ function OutcomeGrid() {
   return <div style={{
     display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: "var(--space-2)", marginTop: "var(--space-4)"
   }}>
-    {items.map(([a,b]) => <div key={a} style={{
-      padding: 20, borderRadius: 14, background: "var(--surface-2)"
-    }}>
+    {items.map(([a,b]) => <div className="hand-bullet" key={a} >
       <p style={{ fontSize: "var(--type-body)", fontWeight: 600, margin: "0 0 var(--space-1)" }}>{a}</p>
       <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0 }}>{b}</p>
     </div>)}

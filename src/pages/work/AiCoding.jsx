@@ -118,7 +118,7 @@ function RoleAtTop() {
           </div>
         ))}
       </div>
-      <div style={{ background: "var(--card)", border: "1px solid var(--hairline-weak)", borderRadius: 12, padding: "20px 22px" }}>
+      <div className="hand-bullet" >
         <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Business Impact</p>
         <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
           I prioritized onboarding clarity and scaffolded feedback because the real risk wasn't a weak feature, it was a first-time, underrepresented student disengaging in the first five minutes. Retention at that moment is the metric that matters most.

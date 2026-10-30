@@ -28,7 +28,6 @@ import micWcag   from "../../assets/mic-wcag.svg";
 
 const lbl  = { fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
 const bd   = { fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:0, maxWidth:680 };
-const card = { background:"var(--surface-2)", borderRadius:12, padding:"18px 20px" };
 
 function Slide({ src, caption }) {
   return (
@@ -63,7 +62,7 @@ function Cards({ items, cols = 3 }) {
   return (
     <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)", marginTop:"var(--space-4)" }}>
       {items.map(([title, text]) => (
-        <div key={title} style={card}>
+        <div key={title} className="hand-bullet">
           <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", margin:"0 0 var(--space-1)" }}>{title}</p>
           <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{text}</p>
         </div>
@@ -76,7 +75,7 @@ function StatRow({ stats }) {
   return (
     <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap:"var(--space-3)", margin:"var(--space-4) 0" }}>
       {stats.map(({ value, label }) => (
-        <div key={label} style={card}>
+        <div key={label} className="hand-bullet">
           <span style={{ display:"block", fontSize:"var(--type-heading)", fontWeight:600, color:"var(--text)", marginBottom:4 }}>{value}</span>
           <span style={{ fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-subheading)" }}>{label}</span>
         </div>
@@ -124,7 +123,7 @@ export default function Microsoft() {
 
       {/* TEAM + ROLE */}
       <section style={{ marginBottom:"var(--space-6)", paddingBottom:40, borderBottom:"1px solid var(--hairline-weak)" }}>
-        <div style={{ ...card, padding:"24px 28px", marginBottom:"var(--space-3)" }}>
+        <div className="hand-bullet" style={{ padding:"24px 28px", marginBottom:"var(--space-3)" }}>
           <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>My role</p>
           <p style={{ fontSize:"var(--type-body)", color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
             I own the entity editing flow and the AI Ops research. That includes SRE interviews, contextual inquiry,
@@ -132,7 +131,7 @@ export default function Microsoft() {
             Everything on this page is my contribution.
           </p>
         </div>
-        <div style={{ background:"var(--card)", border:"1px solid var(--hairline-weak)", borderRadius:12, padding:"24px 28px", marginBottom:"var(--space-4)" }}>
+        <div className="hand-bullet" style={{ marginBottom:"var(--space-4)" }}>
           <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Business Impact</p>
           <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
             I designed for decision speed specifically because engineering time is the most expensive resource on this team, every second an engineer spends parsing an unclear interface is a cost the business is already tracking.

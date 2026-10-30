@@ -91,7 +91,6 @@ export const workSectionProjects = [
     name: "Butterfly Feeder",
     title: "Designing for the moment before a butterfly lands",
     image: workBeeFeeder,
-    imageLabel: "Bee Feeder",
     to: "/work/bee-feeder",
     tags: ["Eco-friendly", "Parametric Design Iteration"],
     states: {
@@ -107,7 +106,6 @@ export const workSectionProjects = [
     date: "2024–2026",
     title: "Psychosis: A new POV",
     image: workPsychosis,
-    imageLabel: "Capstone",
     to: "/work/psychosis-literacy",
     tags: ["Health UX", "Motion UI"],
     states: {
@@ -123,7 +121,6 @@ export const workSectionProjects = [
     date: "May 2021 – Jun 2023",
     title: "How people get fooled?",
     image: workDefenseArk,
-    imageLabel: "DefenseARK",
     to: "/work/defenseark",
     tags: ["B2B Enterprise Cybersecurity", "Founding design Hire"],
     // Official product sites: text links on the thumbnail card, and wherever

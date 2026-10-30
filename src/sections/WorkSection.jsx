@@ -117,12 +117,8 @@ export default function WorkSection() {
             {workSectionProjects.map((project, i) => {
               const copy = project.states[view];
               const media = (
-                <div className={`work-section-media${!project.image ? " work-section-media--placeholder" : ""}`}>
-                  {project.image ? (
-                    <img src={project.image} alt="" decoding="async" loading="lazy" />
-                  ) : (
-                    <span className="work-section-media-placeholder-text">{project.imageLabel ?? project.brand}</span>
-                  )}
+                <div className="work-section-media">
+                  <img src={project.image} alt="" decoding="async" loading="lazy" />
                 </div>
               );
 

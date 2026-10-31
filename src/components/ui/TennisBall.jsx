@@ -101,6 +101,13 @@ export default function TennisBall() {
 
     const bRect = btn.getBoundingClientRect();
     const mRect = mascot.getBoundingClientRect();
+    // The dog is hidden on very narrow screens (and off-screen while it walks
+    // in); with nowhere to throw to, just let it react.
+    const onScreen = mRect.width > 0 && mRect.right > 0 && mRect.left < window.innerWidth;
+    if (!onScreen) {
+      window.dispatchEvent(new CustomEvent("tennisball:impact"));
+      return;
+    }
     const BALL  = 26;
 
     const startPt = {

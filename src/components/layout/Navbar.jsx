@@ -32,7 +32,7 @@ export default function Navbar() {
             </NavLink>
           ))}
           {/* Tennis ball — throws to the dog on click; the dog is About-only. */}
-          {pathname === "/about" && <TennisBall />}
+          {pathname === "/about" && <span className="nav-ball"><TennisBall /></span>}
         </nav>
         {/* Clock, then the light/dark toggle at the far right edge. */}
         <div className="navbar-right">

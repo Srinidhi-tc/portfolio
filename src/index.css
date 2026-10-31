@@ -114,11 +114,15 @@ border: "1px solid var(--hairline-weak)";
   justify-self: start;
 }
 
-.nav-links > :nth-child(n + 3) {
+/* The ball hangs just outside the links. Its offset lives on this wrapper so
+   the ball's own wind-up animation (translate/rotate/scale on the button)
+   can't knock it out of place. */
+.nav-ball {
   position: absolute;
   left: 100%;
   top: 50%;
   translate: var(--space-2) -50%;
+  display: flex;
 }
 
 /* Brand mark — a serif display letterform with tight tracking, so it reads as

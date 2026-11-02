@@ -339,6 +339,7 @@ export default function StraboSpot() {
             ["Map-first landing", "the search surface opens on the map, with image previews, so the first impression is the visual payload geologists come back for."],
             ["Image-based filters and unified search", "one search layer, lighter in code, with filters that match how geologists actually look for things (image type, rock color, field site, date range)."],
             ["Gallery-to-document pipeline", "the image gallery sits adjacent to the field-trip document generator; a user can scroll a trip, select images, and produce the shareable artifact in the same flow. The artifact routes to classes, peers, and LinkedIn directly."],
+            ["Shipped once, consumed everywhere", "one unified search engine, extensible to any new data type without reinventing the layer per feature. The gallery-to-document pipeline uses the same pattern for classroom sharing, peer review, and LinkedIn posts."],
           ]} />
           <Slides>
             <Slide src={str13} number={13} caption="Proposed search surface — map-first, with image previews, filters, bookmarks, help. The hook that drives retention sits above the fold." />

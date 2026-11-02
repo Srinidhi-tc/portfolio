@@ -168,6 +168,9 @@ export default function DefenseArk() {
         <P>
           Alongside the system work, I designed a client-intake pipeline and CEO-escalation playbook that routed security-urgent files directly into the right workflow, resolving the one place where product and brand still fell apart.
         </P>
+        <Bullets items={[
+          [null, <><strong>Shipped once, consumed everywhere</strong> — one token layer applied across three products and the marketing site. The client-intake pathway consumed the same system for CEO escalation, sales handoff, and support. The system outlasted my tenure and the next hire adopted it without rebuilding.</>],
+        ]} />
       </Section>
 
       {/* IMPACT */}

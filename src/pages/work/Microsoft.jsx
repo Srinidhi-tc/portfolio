@@ -203,6 +203,9 @@ export default function Microsoft() {
           The redesigned surface unified health, cost, and incident context on one page. Natural language queries resolved inline when the model was confident and surfaced structured fallbacks when it wasn't. Designer-level ownership of each product flow combined with a shared review cadence meant recommendations landed in compliance as a coherent set, not a trickle.
         </P>
         <Slide src={mic78} caption="Shipped solution: radial status rings (3/4, 4/4) on every entity card, with button order aligned across Add New, New Signal, Save. One visual language, legible from executive overview to engineer deep-dive." />
+        <Bullets items={[
+          [null, <><strong>Shipped once, consumed everywhere</strong> — one component vocabulary applied across four adjacent product flows, with recommendations grouped into a single compliance review cycle. The design system was inherited; the coordination move was mine.</>],
+        ]} />
       </Section>
 
       {/* IMPACT */}

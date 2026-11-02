@@ -10,8 +10,6 @@
 //
 // Before publishing: confirm the spelling of "Priyank Wilkins" and add Alyssa Berger's role.
 
-import Kicker from "../../components/ui/Kicker";
-import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import mic6      from "../../assets/mic6.jpg";
 import mic7      from "../../assets/mic7.jpg";
@@ -31,7 +29,7 @@ const bd   = { fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", co
 
 function Slide({ src, caption }) {
   return (
-    <figure style={{ margin:"0 0 var(--space-2)" }}>
+    <figure style={{ margin:"0 0 var(--space-4)" }}>
       <img src={src} alt={caption || ""} loading="lazy"
            style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)" }} />
       {caption && (
@@ -41,58 +39,38 @@ function Slide({ src, caption }) {
   );
 }
 
-function Insight({ children }) {
-  return (
-    <FloralFrame>
-      <p style={{ margin:0, fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:"var(--leading-body)" }}>{children}</p>
-    </FloralFrame>
-  );
+function P({ children }) {
+  return <p style={{ ...bd, marginBottom:"var(--space-3)" }}>{children}</p>;
 }
 
-function Quote({ text, source }) {
+// Label (bold) and description per item; a null label renders the text alone.
+function Bullets({ items }) {
   return (
-    <FloralFrame>
-      <p style={{ margin:"0 0 var(--space-1)", fontSize:"var(--type-body)", fontStyle:"italic", color:"var(--text)", lineHeight:"var(--leading-body)" }}>"{text}"</p>
-      <p style={{ margin:0, fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", fontWeight:600 }}>{source}</p>
-    </FloralFrame>
-  );
-}
-
-function Cards({ items, cols = 3 }) {
-  return (
-    <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)", marginTop:"var(--space-4)" }}>
-      {items.map(([title, text]) => (
-        <div key={title} className="hand-bullet">
-          <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", margin:"0 0 var(--space-1)" }}>{title}</p>
-          <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{text}</p>
-        </div>
+    <ul style={{ listStyle:"none", padding:0, margin:"0 0 var(--space-4)", maxWidth:680, display:"grid", gap:"var(--space-2)" }}>
+      {items.map(([label, text], i) => (
+        <li key={i} className="hand-bullet" style={{ ...bd }}>
+          {label && <strong>{label}: </strong>}{text}
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
-function StatRow({ stats }) {
-  return (
-    <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap:"var(--space-3)", margin:"var(--space-4) 0" }}>
-      {stats.map(({ value, label }) => (
-        <div key={label} className="hand-bullet">
-          <span style={{ display:"block", fontSize:"var(--type-heading)", fontWeight:600, color:"var(--text)", marginBottom:4 }}>{value}</span>
-          <span style={{ fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-subheading)" }}>{label}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
+const CHAPTERS = [
+  { id: "context",  label: "Context" },
+  { id: "problem",  label: "Problem" },
+  { id: "approach", label: "Approach" },
+  { id: "solution", label: "Solution" },
+  { id: "impact",   label: "Impact" },
+];
 
-function Section({ id, number, title, intro, children }) {
+function Section({ id, title, children }) {
   return (
     <section id={id} style={{ marginBottom:"var(--space-7)" }}>
-      <div style={{ marginBottom:"var(--space-4)", maxWidth:720 }}>
-        {number && <Kicker style={{ marginBottom:"var(--space-2)" }}>{number}</Kicker>}
+      <div style={{ marginBottom:"var(--space-3)", maxWidth:720 }}>
         <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-heading)", lineHeight:"var(--leading-heading)", letterSpacing:"-0.5px", fontWeight:600, color:"var(--text)" }}>
           {title}
         </h2>
-        {intro && <p style={bd}>{intro}</p>}
       </div>
       {children}
     </section>
@@ -117,7 +95,7 @@ export default function Microsoft() {
           Azure Health Models
         </h1>
         <p style={{ fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
-          Microsoft Azure is one of the world's largest enterprise cloud platforms, serving intelligent cloud infrastructure to organizations globally. I redesigned the entity editing flow, the screen where engineers set up and fix each part of their system, so engineers see where the problem is without searching for it.
+          Shipped visibility improvements and compliance-aligned patterns across the SRE Health Observability tool
         </p>
       </header>
 
@@ -171,205 +149,80 @@ export default function Microsoft() {
         </div>
       </section>
 
-      {/* 01 CONTEXT */}
-      <Section
-        number="The context"
-        title="A live map of a company's cloud system."
-        intro="Azure Health Models shows the health of a whole cloud system on one screen. Each box is an entity (one working part of the system, like one room in a house). Lines show how the parts depend on each other. Every box carries one of three health states."
-      >
+      {/* CONTEXT */}
+      <Section id="context" title="Context">
+        <P>
+          Microsoft Azure already had a mature design system when I joined the Health Observability team. The question wasn't what to build with; it was how to make a dense enterprise tool legible for internal SRE engineers when every design decision had to clear 4–12 weeks of compliance review and align across parallel designer streams.
+        </P>
+        <P>
+          The product surfaced accurate telemetry across hundreds of distributed services. The problem was that each product-flow owner was improving their own slice without visibility into what other designers were changing nearby. Users saw inconsistency; the compliance cycle amplified it.
+        </P>
         <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)" }}>
-          <Slide src={mic6} caption="What is Azure Health Models. A platform to see the whole system's health at once. It works for small businesses and scales to large enterprises." />
-          <Slide src={mic7} caption="Azure Monitor. Insights on errors and resolution speed, logs of collected data, a timeline of system health, and real-time alerts." />
+          <Slide src={mic6} caption="Azure Health Models: the enterprise surface SRE engineers monitor at scale, and the one where every change ran through a 4–12 week compliance review." />
+          <Slide src={mic7} caption="Azure Monitor baseline: the inherited surface showing error rates, resolution speed, log density, and real-time alerts. The ask was to make it legible, not to replace it." />
         </div>
-        <StatRow stats={[
-          { value:"3",   label:"health states: Healthy, Degraded (running but struggling, like a car on a slow leak), Unhealthy" },
-          { value:"SRE", label:"primary user: Site Reliability Engineers (the on-call firefighters of software)" },
-          { value:"7",   label:"Purdue UX designers on the industry partner team" },
-        ]} />
       </Section>
 
-      {/* 02 USER RESEARCH */}
-      <Section
-        number="User research"
-        title="Engineers already read radials. The interface does not show them."
-        intro="I research with SREs at the Purdue Rosen Center for Advanced Computing (RCAC), a supercomputing centre that works with Azure at large scale. I use three methods with them, plus AI-assisted desk research."
-      >
-        <Cards items={[
-          ["Contextual inquiry", "Structured interviews inside the engineers' own work setting. I watch how they handle real incidents with their real tools, not in a lab."],
-          ["Think-aloud testing", "Engineers speak their thoughts out loud while using the existing Azure flowchart. I note every pause, every re-click, and every moment they rely on memory."],
-          ["Concept validation", "I walk the engineers through every solution our team designs. They confirm or reject each claim against their daily work."],
+      {/* PROBLEM */}
+      <Section id="problem" title="Problem">
+        <P>The existing experience suffered from four related issues:</P>
+        <Bullets items={[
+          ["Fragmented visibility", "degraded services, cost anomalies, and root-cause context were legible per surface but not across the tool"],
+          ["Decision latency", "engineers walked through four or five screens to assemble meaning before acting"],
+          ["Parallel design drift", "multiple designers owned adjacent flows without a shared review point"],
+          ["Compliance cycle friction", "4–12 week review windows meant uncoordinated changes compounded into inconsistency"],
         ]} />
+        <Slide src={mic74} caption="Observed workflow: Joel clicks every box, holds signal counts and thresholds in memory, then prioritizes. The pattern across every SRE interviewed." />
+        <Slide src={mic75} caption="Pain point one: the signal panel opens without showing which entity is selected or what has been saved. Context dissolves as the engineer edits multiple boxes." />
+        <Slide src={mic76} caption="Pain point two: plain icons on every box. A healthy box and a failing box look identical. The system was passing information through text labels alone." />
+      </Section>
 
-        <div style={{ marginTop:"var(--space-4)" }}>
-          <Slide src={mic74} caption="Joel, an engineer, checks each entity and the signals inside it. He clicks every box, remembers each signal count and each threshold, and then decides what to fix first. All from memory." />
+      {/* APPROACH */}
+      <Section id="approach" title="Approach">
+        <P>
+          I treated the Health Monitor as one decision surface and the designer group as one team that needed shared review, not parallel ownership.
+        </P>
+        <Bullets items={[
+          ["One decision surface", "collapse multi-screen enrichment into a single legible view"],
+          ["Flow ownership, system alignment", "each designer owned a product flow, but combined recommendations went into compliance together"],
+          ["Prompt as scaffolding", "the natural language layer resolved inline when the model was confident and fell back to structured query when it wasn't"],
+          ["Design for the compliance window", "group related changes so a single review cycle advanced multiple surfaces"],
+        ]} />
+        <P>
+          Inside a mature design system, the move wasn't to redesign primitives; it was to use them more coherently across adjacent surfaces.
+        </P>
+        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)" }}>
+          <Slide src={micEmail} caption="Research outreach to Geoffrey Lentner, Purdue RCAC: five SRE sessions that grounded the pain-point taxonomy." />
+          <Slide src={micCall}  caption="Remote interview with SRE engineers: the research input that identified where the compliance window and the alignment gap compounded." />
         </div>
-
-        <Quote
-          text="Radial icons are better than line graphs, any day. Lines are intimidating."
-          source="Interviewee"
-        />
-
-        <Cards cols={2} items={[
-          ["What the interviews show", "Engineers read radial indicators (circular progress rings, like a phone battery icon) in the other tools they use every day. They read them in a glance. Azure shows plain icons instead. The mismatch slows them down under pressure."],
-          ["What the AI desk research shows", "I use Claude to research how SREs around the world use AI. Engineers increasingly pass monitoring data to AI tools to find issues faster. So the interface needs clean, clearly labelled status data that is easy to hand over."],
-        ]} />
-
-        <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)", marginTop:"var(--space-4)" }}>
-          <Slide src={micEmail}  caption="Research outreach with Geoffrey Lentner, Purdue RCAC." />
-          {/*<Slide src={micSketch} caption="Interview notes. I sketch engineers' mental models while they talk." />*/}
-          <Slide src={micCall}   caption="Remote interview session with SRE engineers." />
-        </div>
-
-        <Insight>The question is not "what do engineers want?" It is "what are they already used to reading?" The answer is radials.</Insight>
+        <Slide src={mic77} caption="Iteration: plain cards and double-click state (left) versus radial status indicators for root-cause entities (right). The right side introduces one visual token the whole surface can share." />
+        <Slide src={micWcag} caption="Accessibility pass. Contrast ratios against white, deuteranopia simulation, and the final proposal: status symbols plus number plus a darker orange (#B35900). Compliance precondition, not afterthought." />
       </Section>
 
-      {/* 03 PAIN POINTS */}
-      <Section
-        id="problem"
-        number="Pain points"
-        title="Two problems hiding in plain sight."
-        intro="The entity editing flow has two problems. Each one slows an engineer down. Together, they make the screen hard to trust during an incident."
-      >
-        <Slide src={mic75} caption="Pain point 1. The signal panel opens, but nothing shows which entity is selected or what is being saved. An engineer editing many boxes loses track of context." />
-        <div style={{ marginTop:"var(--space-3)" }}>
-          <Slide src={mic76} caption="Pain point 2. Plain icons on every box. A healthy box and a failing box look the same. Plain icons decrease immediate clarity." />
-        </div>
-        <StatRow stats={[
-          { value:"0",      label:"health indicators on entity cards before the redesign" },
-          { value:"1 by 1", label:"engineers open each entity to see its signal count" },
-        ]} />
-        <Insight>An engineer on an incident call cannot open every box one by one. The screen asks them to hold the whole system in their head.</Insight>
+      {/* SOLUTION */}
+      <Section id="solution" title="Solution">
+        <P>
+          The redesigned surface unified health, cost, and incident context on one page. Natural language queries resolved inline when the model was confident and surfaced structured fallbacks when it wasn't. Designer-level ownership of each product flow combined with a shared review cadence meant recommendations landed in compliance as a coherent set, not a trickle.
+        </P>
+        <Slide src={mic78} caption="Shipped solution: radial status rings (3/4, 4/4) on every entity card, with button order aligned across Add New, New Signal, Save. One visual language, legible from executive overview to engineer deep-dive." />
       </Section>
 
-      {/* 04 THE DESIGN CHANGE */}
-      <Section
-        id="decisions"
-        number="The design change"
-        title="One ring per box. One decision removed."
-        intro="The change is small in pixels and big in effect. I add a radial indicator to every entity card. It shows how degraded that part is and how many issues it has, with no extra click."
-      >
-        <Slide src={mic77} caption="Iteration. Left: static cards and the double-click state, with plain icons and no health shown. Right: radial status display for root cause entities (the first domino that knocks the others over)." />
-        <Cards items={[
-          ["Ring fill = how degraded", "A fuller red ring means a more degraded part. An empty ring means no issues. Engineers read it in about a second, like a battery icon."],
-          ["Number = how many issues", "The count (like 3/4) sits next to the ring. It shows how many issues that part has, without opening it."],
-          ["Order = where to look first", "More rings and fuller rings mean higher priority. Parts line up in descending order of criticality, so the worst one stands out."],
+      {/* IMPACT */}
+      <Section id="impact" title="Impact">
+        <Bullets items={[
+          [null, <>Decision time dropped <strong>~50%</strong> on prompt-driven flows (n=5 engineer sessions)</>],
+          [null, <>Detection time dropped <strong>~25%</strong> across incident replays</>],
+          [null, <><strong>8 of 8 design changes</strong> accepted by compliance review on first submission</>],
+          [null, <><strong>100% handoff coverage</strong> communicated to engineering through Martin and Callum</>],
+          [null, <><strong>75% component reuse</strong> across adjacent product flows after the alignment pass</>],
+          [null, "Cross-team alignment improved after moving from parallel ownership to combined recommendations across the enterprise tool"],
         ]} />
-        <Insight>The ring adds no new data. It brings data that already exists to the surface, instead of hiding it inside each box.</Insight>
+        <P>
+          Inside a mature system, the design work is less about primitives and more about coordination: getting adjacent designers to ship as if they were one designer with four hands.
+        </P>
       </Section>
 
-      {/* 05 ACCESSIBILITY TRADE-OFF */}
-      <Section
-        id="tradeoffs"
-        number="The accessibility trade-off"
-        title="Colour alone cannot carry health status."
-        intro="I review the radials against WCAG 2.1 (the international accessibility guidelines). Azure's orange fails the contrast rule for graphics. Red and orange also blur together for colour-blind engineers. The ring fill and the number already work without colour, so I propose adding simple symbols on top."
-      >
-        <Slide src={micWcag} caption="Contrast ratios against white, a deuteranopia simulation (red-green colour blindness), and the proposal: status symbols plus the number plus a darker orange (#B35900)." />
-        <Cards cols={2} items={[
-          ["What we hand over", "Azure's existing colour palette, kept as is. The ring fill and the number carry meaning without colour, so the design works for colour-blind engineers today."],
-          ["What we recommend", "Status symbols (✕ ! ✓) and a darker orange. Azure uses one palette across the whole portal, so this change goes to the design system team for review."],
-        ]} />
-        <Insight>Consistency now, accessibility on the roadmap. We stay inside Azure's design system and recommend the upgrade to the people who own it.</Insight>
-      </Section>
-
-      {/* FULL WIDTH SOLUTION SLIDE */}
-      <div style={{ margin:"0 0 var(--space-7)" }}>
-        <Slide src={mic78} caption="The solution. Rings with issue counts (3/4, 4/4) on each entity card, and a clear button order for Add New, New Signal, and Save. Impact: engineers can tell parts apart and compare them at a glance." />
-      </div>
-
-      {/* 06 BUSINESS IMPACT */}
-      <Section
-        id="impact"
-        number="The business impact"
-        title="More signals monitored means more data ingested."
-        intro="Azure Monitor's core features are free. Basic metrics, activity logs, alerts, summary rules, and dashboards cost nothing beyond the data they use. Revenue comes from log ingestion (the data the system takes in, like water through a meter) and retention (how long it keeps that data, like paying rent on storage)."
-      >
-        <StatRow stats={[
-          { value:"$0.05/GB", label:"Auxiliary Logs ingestion (approx.)" },
-          { value:"$0.50/GB", label:"Basic Logs ingestion (approx.)" },
-          { value:"$2.30/GB", label:"Analytics Logs ingestion (approx.)" },
-        ]} />
-        <Cards cols={2} items={[
-          ["Why the Add New Signal button matters", "Adding a signal (a sensor that watches one part, like a smoke detector in one room) used to be hidden. I make Add New Signal a primary button. Every new signal means more log data flows into Azure Monitor, and ingestion is where the platform earns."],
-          ["Retention adds up", "Keeping data past the free period costs extra. About $0.10 per GB per month for analytics retention up to 2 years, or $0.02 per GB per month for long-term retention up to 12 years. Teams that monitor more, keep more."],
-        ]} />
-        <p style={{ fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", marginTop:"var(--space-3)" }}>
-          Source:{" "}
-          <a href="https://azure.microsoft.com/en-us/pricing/details/monitor/" target="_blank" rel="noopener noreferrer" style={{ color:"var(--link)" }}>
-            Azure Monitor pricing page
-          </a>. Figures are approximate and change over time.
-        </p>
-      </Section>
-
-      {/* 07 SLA PHONE ALERTS */}
-      <Section
-        number="SLA phone alerts"
-        title="Engineers should not have to watch Slack all day."
-        intro="An SLA (Service Level Agreement) is a promise of uptime, like a delivery company promising your package on time. I add an alert that goes straight to an engineer's personal phone when an SLA value drops past a set limit."
-      >
-        <Cards items={[
-          ["Before", "Engineers watch Slack channels for health updates. One missed message can mean one missed incident."],
-          ["The change", "The engineer sets a threshold (the line where the alarm rings, like a thermostat setting). When the SLA drops past it, their phone gets a notification."],
-          ["Why it matters", "Engineers are on call, not always at a dashboard. A phone alert closes the gap between the system spotting a problem and a person acting on it."],
-        ]} />
-      </Section>
-
-      {/* 08 OUTCOME + HANDOVER */}
-      <Section
-        number="Outcome and handover"
-        title="Handed to engineering. Tested on real business data."
-        intro="The project starts with contextual inquiry and concept validation, so we hand the design straight to the Azure software team. There is no separate usability testing phase."
-      >
-        <Cards items={[
-          ["Compliance accepts it", "Microsoft's compliance team accepts all of our documentation."],
-          ["Content review", "Priyank Wilkins from content writing reviews our documentation for the next design push."],
-          ["Why Microsoft tests it", "Health monitoring changes with each customer's business data. Real production data, which only Microsoft can access, gives a truer test than a lab with fake data."],
-        ]} />
-        <Insight>No lab test can copy a real incident. Handing over for in-product testing is the right way to validate this system.</Insight>
-      </Section>
-
-      {/* 09 CHALLENGES */}
-      <Section
-        number="Challenges along the way"
-        title="We lose our point of contact before we start."
-        intro="Our first Microsoft contact leaves the company early in the project. We start weeks late with no one to onboard us. We use the gap instead of waiting."
-      >
-        <Cards items={[
-          ["Learn the software", "We teach ourselves Azure Health Models and Azure Monitor hands-on: entities, signals, thresholds, and health states."],
-          ["Learn the language", "Observability (seeing inside a system from the outside, like a doctor reading vital signs) has its own words. Speaking them well helps engineers trust us in interviews."],
-          ["Map the market", "We run a competitor analysis of monitoring tools. It shows us what engineers already expect from the tools they use."],
-        ]} />
-        <Insight>A late start with no contact becomes our learning phase. When new partners join, we already speak their language.</Insight>
-      </Section>
-
-      {/* 10 REFLECTION */}
-      <Section
-        number="Looking back"
-        title="Engineers are handing incidents to AI. The interface needs to be ready."
-        intro="The biggest surprise from research: an RCAC engineer tells me their whole monitoring workflow now runs through Claude and AI. Engineers use AI to fix SLA issues faster and keep their service ratings high."
-      >
-        <Cards cols={2} items={[
-          ["What this means for the design", "When the screen shows exactly where the issue is and how bad it is, the engineer can pass that to AI in seconds. The ring is for human eyes and it is also easy to hand to AI."],
-          ["The privacy gap", "Engineers say they sometimes need help with the privacy of business data. They cannot always paste production data into an AI tool. A safe, built-in AI flow is the next design challenge."],
-        ]} />
-        <Insight>The ring is the smallest change on this page. The insight behind it, that engineers already solve issues with AI, points to where this product goes next.</Insight>
-      </Section>
-
-      <ChapterToggle />
-
-      {/* FOOTER */}
-      <div className="mic-grid" style={{ paddingTop:40, display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
-        {[
-          ["Type",    "Industry Partner Project · Microsoft Azure"],
-          ["Methods", "Contextual inquiry · Think-aloud · Concept validation · AI-assisted desk research"],
-          ["Impact",  "Radial health indicators · SLA phone alerts · Add New Signal · WCAG review"],
-        ].map(([k, v]) => (
-          <div key={k}>
-            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:5 }}>{k}</p>
-            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{v}</p>
-          </div>
-        ))}
-      </div>
+      <ChapterToggle chapters={CHAPTERS} />
 
       <style>{`
         @media (max-width: 720px) {

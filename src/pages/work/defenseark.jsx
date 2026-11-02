@@ -7,7 +7,6 @@
 // Before publishing: update the Torus card with what you worked on, if anything.
 
 import Kicker from "../../components/ui/Kicker";
-import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import { workSectionProjects } from "../../data/workSectionProjects";
 
@@ -32,26 +31,26 @@ function P({ children }) {
   return <p style={bd}>{children}</p>;
 }
 
-function Cards({ items, cols = 3 }) {
+// Label (bold) and description per item; a null label renders the text alone.
+function Bullets({ items }) {
   return (
-    <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-3)", marginTop:"var(--space-4)" }}>
-      {items.map(([title, text]) => (
-        <div key={title} className="hand-bullet">
-          <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", margin:"0 0 var(--space-1)" }}>{title}</p>
-          <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{text}</p>
-        </div>
+    <ul style={{ listStyle:"none", padding:0, margin:"0 0 var(--space-4)", maxWidth:680, display:"grid", gap:"var(--space-2)" }}>
+      {items.map(([label, text], i) => (
+        <li key={i} className="hand-bullet" style={{ ...bd, margin:0 }}>
+          {label && <strong>{label}: </strong>}{text}
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
-function PullLine({ children }) {
-  return (
-    <FloralFrame>
-      <p style={{ margin:0, fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:"var(--leading-body)" }}>{children}</p>
-    </FloralFrame>
-  );
-}
+const CHAPTERS = [
+  { id: "context",  label: "Context" },
+  { id: "problem",  label: "Problem" },
+  { id: "approach", label: "Approach" },
+  { id: "solution", label: "Solution" },
+  { id: "impact",   label: "Impact" },
+];
 
 const PRODUCTS = [
   {
@@ -87,7 +86,7 @@ export default function DefenseArk() {
           Solo designer at a cybersecurity startup.
         </h1>
         <p style={{ fontSize:"var(--type-subheading)", fontWeight:400, color:"var(--muted)", margin:0, maxWidth:720, lineHeight:"var(--leading-subheading)" }}>
-          DefenseARK is a B2B cybersecurity training company building compliance and social-engineering awareness tools for enterprise clients. As the first design hire, I built the client-intake framework and compliance training products end to end.
+          Founding design hire: unified identity, system, and client intake across Enigma, Brightscan, and Torus
         </p>
       </header>
 
@@ -112,181 +111,62 @@ export default function DefenseArk() {
         ))}
       </div>
 
-      <div className="hand-bullet" style={{ marginBottom:"var(--space-6)" }}>
-        <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Business Impact</p>
-        <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:"var(--leading-body)", margin:0 }}>
-          As the first design hire, I built the client-intake framework before being asked, because every manual intake step was a scaling cost the company would eventually have to pay for as the client base grew.
-        </p>
-      </div>
-
-      {/* AT A GLANCE */}
-      <section style={{ marginBottom:"var(--space-6)" }}>
-        <p style={{ ...lbl, marginBottom:"var(--space-3)" }}>At a glance</p>
-        <ol style={{ margin:0, paddingLeft:22, display:"grid", gap:"var(--space-2)" }}>
-          {[
-            "Founding designer at DefenseARK, from May 2021.",
-            "Built the design system for product launches.",
-            "Researched how people get fooled: I had an excel for this",
-            "Designed compliance training with real attack scenarios.",
-            "Wrote the client intake and escalation playbook.",
-            "Shipped with engineers, including the Enigma launch.",
-            "Reported directly to the Managing Director.",
-            "I am grateful for my steep learning at the company. The company has since grown to $7.3 million in revenue.",
-          ].map((line) => (
-            <li key={line} style={{ fontSize:"var(--type-body)", fontWeight:400, color:"var(--text)", lineHeight:"var(--leading-body)" }}>{line}</li>
-          ))}
-        </ol>
-      </section>
-
-      {/* WHY I JOINED */}
-      <Section id="problem" number="Why I joined" title="It started with a phone call to my grandmother.">
+      {/* CONTEXT */}
+      <Section id="context" title="Context">
         <P>
-          Someone called my grandmother and asked for her bank account details. The caller sounded official.
-          She had no way to tell the call was fake, and her banking app did nothing to help her.
+          When I joined DefenseARK as its first designer, the company had three products in flight (Enigma, Brightscan, and Torus) and no shared visual identity. Each had been engineered independently in Vue, with its own color, type, and interaction patterns. The public website and internal narratives had evolved separately from the products themselves.
         </P>
         <P>
-          That call showed me where design has to be strongest: the moment a vulnerable person is being deceived.
-          A banking app should make that kind of attack hard, and help people see a fake caller for what it is.
-          That is an accessibility problem as much as a security one.
-        </P>
-        <P>
-          So in May 2021, I joined DefenseARK as its first designer. Most attacks do not break code.
-          They break trust. I wanted to design for the seconds when a person decides whether something is real.
+          In a security domain where enterprise clients evaluate trust in seconds, the fragmentation was a credibility risk, not an aesthetic one.
         </P>
       </Section>
 
-      {/* TWO ROLES */}
-      <Section number="Two roles" title="From visual language to product research.">
-        <Cards cols={2} items={[
-          ["Visual and Graphic Designer · May 2021 to May 2022",
-           "I designed micro-interactions and motion for mobile app features, and shipped them as React and CSS components. I built the component library and high-fidelity mockups that gave the platform one visual and motion language."],
-          ["UX Researcher and Designer · May 2022 to Jun 2023",
-           "I wrote the product requirement documents (PRDs), built Figma variable and component libraries, and designed new mobile features. I researched how customers respond to deception and turned it into product decisions."],
+      {/* PROBLEM */}
+      <Section id="problem" title="Problem">
+        <P>The absence of a coherent brand surfaced across the company:</P>
+        <Bullets items={[
+          ["Inconsistent visual language", "across the three products and the marketing site"],
+          ["Fragmented messaging", "that obscured what DefenseARK did and why clients should trust it"],
+          ["Misalignment between product reality and presentation", "the marketing surface promised sophistication the UI didn't deliver"],
+          ["No governance", "for how identity, typography, or motion would scale as new features shipped"],
         ]} />
       </Section>
 
-      {/* 01 DECEPTION RESEARCH */}
-      <Section number="The research" title="How people get fooled.">
-        <P>
-          Social engineering (tricking people instead of hacking machines) works because it borrows trust.
-          I analysed persuasion techniques in real attacks. Name-dropping, and using first name was the clearest example.
-          An attacker says "your CEO asked me to send this," and the name does the convincing.
-        </P>
-        <P>
-          I studied customer data to see where people slipped. I turned those insights into the information
-          architecture and the instructional design for our B2B compliance training.
-        </P>
-        <Cards items={[
-          ["Real attack scenarios", "Training used realistic situations, so people practised on the kind of message they would actually receive."],
-          ["Gamified quizzes", "Short quizzes turned spotting a trick into a skill people could practise and repeat."],
-          ["Built from customer data", "Every flow started from where real customers made mistakes, not from a generic checklist."],
+      {/* APPROACH */}
+      <Section id="approach" title="Approach">
+        <P>I approached the work as product alignment and leadership exercise, not a visual refresh.</P>
+        <Bullets items={[
+          ["Credibility over decoration", "in a trust-sensitive domain, visual restraint signals seriousness more than ornament"],
+          ["Brand as system, not surface", "identity, typography, components, and motion defined once at the token layer, then applied across the three products and the marketing site"],
+          ["Governance by convenience", "make the system easier to use than to work around, so engineers adopt it without being asked"],
+          ["Ship with engineering, not to it", "I committed Vue, React, and CSS directly so the system existed in code, not Figma alone"],
         ]} />
-        <PullLine>People do not fail security tests because they are careless. They fail because the attack is designed well. So the training has to be designed better.</PullLine>
+        <P>
+          I led working sessions with the CEO and CTO to clarify DefenseARK's positioning across the security landscape, analyzed adjacent cybersecurity platforms to understand where seriousness and credibility had to be signaled visually, and worked with engineers to migrate each product onto the shared system one component at a time.
+        </P>
       </Section>
 
-      {/* 02 FOUNDATION */}
-      <Section number="The foundation" title="Building the design system from zero.">
+      {/* SOLUTION */}
+      <Section id="solution" title="Solution">
         <P>
-          In my first week, i prototypes a dozen different tables for audit logs with time stamps for B2B clients. I built the pieces a growing product needs,
-          so every new feature would not start from a blank page.
+          Enigma, Brightscan, Torus, and the public site shipped under one brand: identity, typography, components, and motion drawn from the same source. Brand guidelines established consistency in color, type, and iconography while remaining flexible enough to accommodate each product's data-density needs. Motion patterns in CSS gave the three products a shared behavioral identity across hover, state change, and transition.
         </P>
-        <Cards items={[
-          ["PRDs", "Detailed product requirement documents, so engineers and founders agreed on what we were building before we built it."],
-          ["Figma libraries", "Variables and components that kept every screen consistent and let the product scale."],
-          ["Motion language", "Timing and interaction rules for enterprise screens, shipped as production React and CSS."],
-          ["Product websites", "Visual design and pages for the company's products."],
-          ["Data exploration tool", "An experience for exploring customer security data."],
-          ["Mobile features", "New features and high-fidelity mockups for the mobile apps."],
+        <P>
+          Alongside the system work, I designed a client-intake pipeline and CEO-escalation playbook that routed security-urgent files directly into the right workflow, resolving the one place where product and brand still fell apart.
+        </P>
+      </Section>
+
+      {/* IMPACT */}
+      <Section id="impact" title="Impact">
+        <Bullets items={[
+          [null, <>Enterprise inbound leads increased <strong>~30%</strong> (year 1 vs. year 0, source: company CRM)</>],
+          [null, "Three products shipped on a shared design system; it survived my departure and the hire that followed"],
+          [null, "Client intake moved from manual CEO email triage to a documented self-service pathway with a defined escalation ladder"],
+          [null, "Brand presentation moved from three vendor voices to one, measured against competitor benchmarks in the leadership workshops"],
         ]} />
-      </Section>
-
-      {/* 03 CLIENT INTAKE */}
-      <Section id="decisions" number="Client intake" title="A clear path for clients under stress.">
         <P>
-          A client who suspects an attack is stressed and in a hurry. Before, new clients did not know
-          how to share files or raise issues, and our team spent time on admin instead of help.
+          In a 0→1 context, brand isn't decoration; it's the system that lets a small company present as a single credible voice. The job was less to design, and more to decide what the company would look and sound like consistently as it scaled.
         </P>
-        <P>
-          I wrote a guidelines playbook for client intake. It set out how clients share files and report
-          issues through self-service, and when an issue escalates straight to the CEO.
-        </P>
-        <Cards items={[
-          ["Self-service", "Clients could send files and report issues on their own, without waiting for a person."],
-          ["Escalation path", "Clear rules for when an issue goes directly to the CEO, so urgent cases never sat in a queue."],
-          ["Less admin", "A repeatable process that reduced the administrative load of onboarding each new client."],
-        ]} />
-      </Section>
-
-      {/* 04 SHIPPING */}
-      <Section id="tradeoffs" number="Shipping" title="Designing with engineers, not handing off to them.">
-        <P>
-          I worked with the founders and the full-stack engineers every week. We shipped speech synthesis
-          and applied linguistics in voice calls, with motion UI built in React and CSS. These audios had fake call stimulations.
-        </P>
-        <P>
-          For Enigma, our ransomware detection and client onboarding product, I owned the design handover
-          and worked with the product manager and engineers through launch. Every decision balanced
-          user stories, technical limits, and what the business needed to grow.
-        </P>
-      </Section>
-
-      {/* 05 BUSINESS + WINS */}
-      <Section id="impact" number="The business side" title="Design decisions were business decisions.">
-        <P>
-          I was an active part of the founding team and reported directly to Harish, our Managing Director.
-          I led design from May 4, 2021 to June 30, 2023. Every design choice had a business question behind it:
-          will this bring in a B2B client, and will it help us keep them?
-        </P>
-        <p style={{ ...lbl, margin:"var(--space-1) 0 var(--space-2)" }}>From design to launch</p>
-        <ol style={{ margin:"0 0 var(--space-3)", paddingLeft:22, maxWidth:680 }}>
-          {[
-            "Requirements: PRDs agreed with the founders and engineers before anything was built.",
-            "Design: Figma variables and component libraries, high-fidelity mockups.",
-            "Handover: I owned the design handover for Enigma.",
-            "Build: weekly work with the product manager and full-stack engineers, shipped as React and CSS.",
-          ].map((step) => (
-            <li key={step} style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", marginBottom:"var(--space-1)" }}>{step}</li>
-          ))}
-          <li style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)" }}>
-            Launch: Enigma went live, and it still is.{" "}
-            <a href="https://enigma.defenseark.com/en" target="_blank" rel="noopener noreferrer" className="contact-link">enigma.defenseark.com</a>
-          </li>
-        </ol>
-        <PullLine>I am delighted to share that DefenseARK has grown to $7.3 million in revenue in 2026.</PullLine>
-        <p style={{ ...lbl, margin:"var(--space-1) 0 0" }}>Wins</p>
-        <Cards cols={2} items={[
-          ["New clients", "Clearer product pages and a simpler intake made it easier for new clients to say yes."],
-          ["Expansion", "The product family grew, and the design system grew with it, so each new product launched looking and working like the rest."],
-          ["Credibility through SEO", "Redesigned websites made the company easier to find (SEO: showing up when clients search) and easier to trust once they arrived."],
-          ["Clear product categories", "I organised the products into clear categories, so a client could find the right tool fast."],
-        ]} />
-      </Section>
-
-      {/* 06 HOW WE WORKED */}
-      <Section number="How we worked" title="Many designs. A few that shipped.">
-        <P>
-          We met every Monday and every Friday. I brought new directions to each review, often several
-          versions of the same idea. Most of them never shipped, and that was the point.
-        </P>
-        <P>
-          I reported directly to the founder. He knew the market and the customers, so he chose which
-          direction to push. I learned to design for where the product would be in two years,
-          not only for the next release.
-        </P>
-      </Section>
-
-      {/* 07 WHAT I LEARNED */}
-      <Section number="What I learned" title="Design flourishes as a team.">
-        <P>
-          For my first six months, I worked with other designers. After that, I was the only one.
-          I could ship alone, but I missed the critique, the arguments, and the ideas that only
-          appear when designers push each other.
-        </P>
-        <P>
-          It taught me what I look for now: a studio-like team, where designers create with passion
-          and each person brings a different perspective.
-        </P>
-        <PullLine>Being the only designer taught me to own everything. It also taught me that the best work comes from a team.</PullLine>
       </Section>
 
       {/* PRODUCTS */}
@@ -304,21 +184,7 @@ export default function DefenseArk() {
         </div>
       </Section>
 
-      {/* FOOTER */}
-      <div className="da-grid" style={{ paddingTop:36, display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
-        {[
-          ["Company", "DefenseARK Cybersecurity, a Metasquare Inc company, New York"],
-          ["Tools",   "Figma · React · CSS"],
-          ["Products", "Enigma · Brightscan · Torus"],
-        ].map(([k, v]) => (
-          <div key={k}>
-            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:5 }}>{k}</p>
-            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{v}</p>
-          </div>
-        ))}
-      </div>
-
-      <ChapterToggle />
+      <ChapterToggle chapters={CHAPTERS} />
 
       <style>{`
         @media (max-width: 760px) {

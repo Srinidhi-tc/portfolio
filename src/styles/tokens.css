@@ -1,6 +1,5 @@
 /* Type system: one size, three weights.
- *   --type-base     16px. Headings, body, bullets, interface text.
- *   --type-display  28px. Only the <h1> title at the top of a page.
+ *   --type-base     16px. Page titles, headings, body, bullets, interface text.
  *   --type-caption  13px. Image captions, a step quieter than body.
  *   Weights: regular 400 for body, captions and interface text; bold 700 for
  *   page titles, section headings (h2), bullet labels, card metrics and the
@@ -13,7 +12,6 @@
  */
 :root {
   --type-base:      16px;
-  --type-display:   28px;
   --type-caption:   13px;
   --weight-regular: 400;
   --weight-bold:    700;

@@ -103,7 +103,7 @@ export default function PsychosisLiteracy() {
       {/* HERO */}
       <header style={{ marginBottom: "var(--space-6)" }}>
         <p style={{ ...label, marginBottom: "var(--space-3)" }}>Purdue Capstone 2026 · Health Tech · Youth Mental Health</p>
-        <h1 style={{ fontSize: "var(--type-display)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)", color: "var(--text)" }}>
+        <h1 style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)", color: "var(--text)" }}>
           Percepta
         </h1>
         <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--muted)", margin: "0 0 var(--space-3)", maxWidth: 720 }}>

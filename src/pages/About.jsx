@@ -424,7 +424,7 @@ export default function About() {
             <ProfilePhoto />
             <div>
               <h1 style={{
-                fontSize:      "var(--type-display)",
+                fontSize:      "var(--type-base)",
                 fontWeight:    "var(--weight-bold)",
                 lineHeight:    "var(--leading-heading)",
                 color:         "var(--text)",

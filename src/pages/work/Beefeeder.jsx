@@ -427,7 +427,7 @@ export default function BeeFeeder() {
 
       <h1
         style={{
-          fontSize: "var(--type-display)",
+          fontSize: "var(--type-base)",
           fontWeight: "var(--weight-bold)",
           lineHeight: "var(--leading-heading)",
           marginBottom: "var(--space-3)"

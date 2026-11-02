@@ -82,7 +82,7 @@ export default function DefenseArk() {
         <p style={{ ...lbl, marginBottom:"var(--space-3)" }}>
           DefenseARK Cybersecurity · A Metasquare Inc company · New York (remote from India)
         </p>
-        <h1 style={{ fontSize:"var(--type-display)", fontWeight:"var(--weight-bold)", lineHeight:"var(--leading-heading)", margin:"0 0 var(--space-3)", color:"var(--text)" }}>
+        <h1 style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-bold)", lineHeight:"var(--leading-heading)", margin:"0 0 var(--space-3)", color:"var(--text)" }}>
           Solo designer at a cybersecurity startup.
         </h1>
         <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--muted)", margin:0, maxWidth:720, lineHeight:"var(--leading-subheading)" }}>

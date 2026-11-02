@@ -80,7 +80,7 @@ function Hero() {
   return (
     <header style={{ marginBottom: "var(--space-6)" }}>
       <p style={{ ...label, marginBottom: "var(--space-2)" }}>SGX3 · UX consulting · AI · education</p>
-      <h1 style={{ fontSize: "var(--type-display)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)", margin: "0 0 var(--space-3)" }}>
+      <h1 style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)", margin: "0 0 var(--space-3)" }}>
         AI Coding Tutor
       </h1>
       <p style={{ ...body, fontSize: "var(--type-base)" }}>

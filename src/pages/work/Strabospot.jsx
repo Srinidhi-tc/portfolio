@@ -126,7 +126,7 @@ function Hero() {
       </p>
       <h1
         style={{
-          fontSize: "var(--type-display)",
+          fontSize: "var(--type-base)",
           lineHeight: "var(--leading-heading)",
           fontWeight: "var(--weight-bold)",
           margin: "0 0 var(--space-3)"

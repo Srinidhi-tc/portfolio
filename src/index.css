@@ -225,7 +225,7 @@ border: "1px solid var(--hairline-weak)";
 .page-title {
   margin: 0;
   font-weight: var(--weight-bold);
-  font-size: var(--type-display);
+  font-size: var(--type-base);
   line-height: var(--leading-heading);
 }
 
@@ -1230,7 +1230,7 @@ border: "1px solid var(--hairline-weak)";
   /* A narrow measure stacks the headline into three lines, flush left. */
   max-width: 20ch;
   margin: 0;
-  font-size: var(--type-display);
+  font-size: var(--type-base);
   font-weight: var(--weight-bold);
   line-height: var(--leading-heading);
   color: var(--text);

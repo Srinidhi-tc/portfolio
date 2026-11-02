@@ -245,7 +245,7 @@ export default function Malli() {
         Product Design · Human–Robot Interaction
       </p>
       <h1 style={{
-        fontSize: "var(--type-display)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)"
+        fontSize: "var(--type-base)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)"
       }}>Malli 2.0</h1>
       <p style={{ ...copy, margin: 0 }}>
         The toilet-cleaning robot category is valued at $287M (2025), projected to reach $1.12B by 2033 at an 18.6% CAGR, with connected/smart-home units commanding a 34% price premium over standalone devices. I designed Malli's modular, app-connected architecture to capture that premium.

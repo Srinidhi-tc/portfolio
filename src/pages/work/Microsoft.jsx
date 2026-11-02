@@ -91,7 +91,7 @@ export default function Microsoft() {
         <p style={{ ...lbl, color:"rgba(255,255,255,0.7)", marginBottom:"var(--space-3)" }}>
           Microsoft Azure · Industry Partner Project · Health Observability
         </p>
-        <h1 style={{ fontSize:"var(--type-display)", fontWeight:"var(--weight-bold)", lineHeight: "var(--leading-heading)", margin:"0 0 var(--space-3)", color:"#fff" }}>
+        <h1 style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-bold)", lineHeight: "var(--leading-heading)", margin:"0 0 var(--space-3)", color:"#fff" }}>
           Azure Health Models
         </h1>
         <p style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>

@@ -49,7 +49,7 @@ function Block({ src, subheading, caption, alt }) {
         />
       )}
       <p style={eyebrow}>{subheading}</p>
-      <p style={{ ...body, fontWeight: "var(--weight-thin)" }}>{caption}</p>
+      <p style={{ ...body, fontSize: "var(--type-caption)" }}>{caption}</p>
     </section>
   );
 }
@@ -60,7 +60,7 @@ function ImpactBox() {
       
     >
       <p style={{ ...eyebrow, marginBottom: "var(--space-2)" }}>Role & Impact</p>
-      <h2 style={{ ...title, fontSize: "var(--type-base)", marginBottom: "var(--space-3)" }}>
+      <h2 style={{ ...title, fontSize: "var(--type-base)", marginBottom: "var(--space-3)", fontWeight: "var(--weight-bold)" }}>
         The physical experience depended on both form and system.
       </h2>
       <p style={body}>
@@ -233,7 +233,7 @@ export default function HeartsOfInsomnia() {
           }}
         >
           <p style={eyebrow}>Pilot & Outcome</p>
-          <h2 style={title}>Five people tested the concept.</h2>
+          <h2 style={{ ...title, fontWeight: "var(--weight-bold)" }}>Five people tested the concept.</h2>
           <p style={body}>
             The pilot produced a positive response and supported the core idea
             of using a physical object to make heart-rate changes easier to
@@ -247,7 +247,7 @@ export default function HeartsOfInsomnia() {
           
         >
           <p style={{ ...eyebrow, marginBottom: "var(--space-2)" }}>Final Interaction</p>
-          <h2 style={title}>Body → signal → light → awareness.</h2>
+          <h2 style={{ ...title, fontWeight: "var(--weight-bold)" }}>Body → signal → light → awareness.</h2>
           <p style={body}>
             The final concept turns heart-rate input into an ambient physical
             response designed to help a person notice a change and observe the

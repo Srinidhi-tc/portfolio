@@ -102,7 +102,7 @@ function RoleAtTop() {
     <section style={{ marginBottom: "var(--space-6)", padding: "28px 0 32px"}}>
       <div style={{ marginBottom: "var(--space-4)" }}>
         <p style={{ ...label, marginBottom: "var(--space-2)" }}>problem statement</p>
-        <h2 style={{ margin: 0, fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)"}}>
+        <h2 style={{ margin: 0, fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}>
           Translating AI capability into clearer learning objectives for freshman aerospace students in computer science to create a preference to use TACC chatbot over other GPTs.
         </h2>
       </div>
@@ -128,7 +128,7 @@ function SectionHeading({ number, title, intro }) {
   return (
     <div style={{ marginBottom: "var(--space-4)", maxWidth: 760 }}>
       {number && <Kicker>{number}</Kicker>}
-      <h2 style={{ margin: "0 0 var(--space-2)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-regular)" }}>
+      <h2 style={{ margin: "0 0 var(--space-2)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}>
         {title}
       </h2>
       <p style={body}>{intro}</p>
@@ -142,7 +142,7 @@ function Slide({ src, number, caption }) {
       <img src={src} alt={`TACC client deck slide ${number}`} style={slideBase} />
       <figcaption style={{ display: "flex", justifyContent: "space-between", gap: "var(--space-3)", paddingTop: 10, color: "var(--color-text-tertiary)", fontSize: "var(--type-base)", lineHeight: "var(--leading-subheading)" }}>
         <span>Client slide {String(number).padStart(2, "0")} / 24</span>
-        {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontWeight: "var(--weight-thin)" }}>{caption}</span> : null}
+        {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontSize: "var(--type-caption)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
   );
@@ -175,7 +175,7 @@ function FinalTakeaway() {
   return (
     <section id="impact" style={{ marginTop: "var(--space-7)", paddingTop: 34}}>
       <p style={{ ...label, marginBottom: "var(--space-2)" }}>The consulting takeaway</p>
-      <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", maxWidth: 760 }}>
+      <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", maxWidth: 760, fontWeight: "var(--weight-bold)" }}>
         A better interface started with a better question.
       </h2>
       <p style={body}>

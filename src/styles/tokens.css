@@ -1,8 +1,10 @@
 /* Type system: one size, three weights.
- *   --type-base     16px. Headings, body, bullets, captions, interface text.
+ *   --type-base     16px. Headings, body, bullets, interface text.
  *   --type-display  28px. Only the <h1> title at the top of a page.
- *   Weights: thin 300 (image captions), regular 400 (everything else),
- *   bold 700 (page titles, bullet labels, card metrics, the SRI wordmark).
+ *   --type-caption  13px. Image captions, a step quieter than body.
+ *   Weights: regular 400 for body, captions and interface text; bold 700 for
+ *   page titles, section headings (h2), bullet labels, card metrics and the
+ *   SRI wordmark.
  * Sentence case throughout; no italics, no extra letter-spacing.
  *
  * Spacing follows the golden ratio (x1.618 per step), rounded to whole pixels.
@@ -12,7 +14,7 @@
 :root {
   --type-base:      16px;
   --type-display:   28px;
-  --weight-thin:    300;
+  --type-caption:   13px;
   --weight-regular: 400;
   --weight-bold:    700;
 

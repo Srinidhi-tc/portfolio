@@ -38,7 +38,7 @@ function Section({ id, number, title, intro, children }) {
     <section id={id} style={{ marginBottom: "var(--space-7)" }}>
       <div style={{ marginBottom: "var(--space-4)", maxWidth: 720 }}>
         {number && <Kicker style={{ marginBottom: "var(--space-2)" }}>{number}</Kicker>}
-        <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-regular)", color: "var(--text)" }}>
+        <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", color: "var(--text)", fontWeight: "var(--weight-bold)" }}>
           {title}
         </h2>
         {intro && <p style={body}>{intro}</p>}

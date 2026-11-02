@@ -33,7 +33,7 @@ function Slide({ src, caption }) {
       <img src={src} alt={caption || ""} loading="lazy"
            style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)" }} />
       {caption && (
-        <figcaption style={{ marginTop:"var(--space-1)", fontSize:"var(--type-base)", fontWeight:"var(--weight-thin)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
+        <figcaption style={{ marginTop:"var(--space-1)", fontSize:"var(--type-caption)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
       )}
     </figure>
   );
@@ -68,7 +68,7 @@ function Section({ id, title, children }) {
   return (
     <section id={id} style={{ marginBottom:"var(--space-7)" }}>
       <div style={{ marginBottom:"var(--space-3)", maxWidth:720 }}>
-        <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", fontWeight:"var(--weight-regular)", color:"var(--text)" }}>
+        <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", color:"var(--text)", fontWeight: "var(--weight-bold)" }}>
           {title}
         </h2>
       </div>
@@ -210,7 +210,7 @@ export default function Microsoft() {
       {/* IMPACT */}
       <Section id="impact" title="Impact">
         <Bullets items={[
-          [null, <>Decision time dropped <strong>~50%</strong> on prompt-driven flows (n=5 engineer sessions)</>],
+          [null, <>Decision time dropped <strong>~45%</strong> on prompt-driven flows (n=5 engineer sessions)</>],
           [null, <>Detection time dropped <strong>~25%</strong> across incident replays</>],
           [null, <><strong>8 of 8 design changes</strong> accepted by compliance review on first submission</>],
           [null, <><strong>100% handoff coverage</strong> communicated to engineering through Martin and Callum</>],

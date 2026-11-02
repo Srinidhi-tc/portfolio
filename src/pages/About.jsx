@@ -312,7 +312,7 @@ function ContextSections() {
     <>
       {/* The common thread — label left of the gutter, the list right of it */}
       <div className="center-split" style={{ marginTop:"var(--space-7)" }}>
-        <h2 className="split-left" style={h2Style}>The common thread? Context.</h2>
+        <h2 className="split-left" style={{ ...h2Style, fontWeight: "var(--weight-bold)" }}>The common thread? Context.</h2>
       </div>
 
       <div style={{ marginTop:"var(--space-4)" }}>
@@ -332,7 +332,7 @@ function ContextSections() {
 
       {/* Design is more than making things usable — heading left, words right */}
       <div className="center-split" style={{ marginTop:"var(--space-7)", alignItems:"start" }}>
-        <h2 className="split-left" style={h2Style}>Design is more than making things usable.</h2>
+        <h2 className="split-left" style={{ ...h2Style, fontWeight: "var(--weight-bold)" }}>Design is more than making things usable.</h2>
         <div className="split-right">
           <p style={pStyle}>
             It means understanding the context around the interaction, and designing accordingly.
@@ -386,7 +386,7 @@ function RecordList({ heading, rows }) {
   return (
     <div style={{ marginTop:"var(--space-6)" }}>
       <div className="center-split">
-        <h2 className="split-left" style={{ ...h2Style, fontSize:"var(--type-base)", marginBottom:"var(--space-2)" }}>{heading}</h2>
+        <h2 className="split-left" style={{ ...h2Style, fontSize:"var(--type-base)", marginBottom:"var(--space-2)", fontWeight: "var(--weight-bold)" }}>{heading}</h2>
       </div>
       {/* Dates on the left of the gutter; role and organization on the right. */}
       <ul className="about-records">
@@ -452,7 +452,7 @@ export default function About() {
           {/* ZONE 2 — Heading left of the gutter, graph right of it */}
           <div className="center-split" style={{ alignItems:"start" }}>
             <div className="split-left">
-              <h2 style={{ ...h2Style, marginBottom:"var(--space-1)" }}>A career built by following questions.</h2>
+              <h2 style={{ ...h2Style, marginBottom:"var(--space-1)", fontWeight: "var(--weight-bold)" }}>A career built by following questions.</h2>
               <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:0 }}>
                 Psychology → research → making → product design.
               </p>

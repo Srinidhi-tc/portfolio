@@ -170,7 +170,7 @@ function RoleAtTop() {
           style={{
             margin: 0,
             fontSize: "var(--type-base)",
-            lineHeight: "var(--leading-heading)"}}
+            lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}
         >
           Turning expert workflows into clearer search decisions.
         </h2>
@@ -211,9 +211,7 @@ function SectionHeading({ number, title, intro }) {
         style={{
           margin: "0 0 var(--space-2)",
           fontSize: "var(--type-base)",
-          lineHeight: "var(--leading-heading)",
-          fontWeight: "var(--weight-regular)"
-        }}
+          lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}
       >
         {title}
       </h2>
@@ -238,7 +236,7 @@ function Slide({ src, number, caption }) {
         }}
       >
         <span>Client slide {String(number).padStart(2, "0")} / 20</span>
-        {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontWeight: "var(--weight-thin)" }}>{caption}</span> : null}
+        {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontSize: "var(--type-caption)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
   );
@@ -335,8 +333,7 @@ function FinalTakeaway() {
           margin: "0 0 var(--space-3)",
           fontSize: "var(--type-base)",
           lineHeight: "var(--leading-heading)",
-          maxWidth: 760
-        }}
+          maxWidth: 760, fontWeight: "var(--weight-bold)" }}
       >
         The search problem was really a clarity problem.
       </h2>

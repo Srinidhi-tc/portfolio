@@ -43,7 +43,7 @@ function Block({ src, subheading, caption }) {
         }}
       />
       <p style={eyebrow}>{subheading}</p>
-      <p style={{ ...body, fontWeight: "var(--weight-thin)" }}>{caption}</p>
+      <p style={{ ...body, fontSize: "var(--type-caption)" }}>{caption}</p>
     </div>
   );
 }
@@ -98,10 +98,8 @@ function SectionHeading({ number, children }) {
         style={{
           fontSize: "var(--type-base)",
           lineHeight: "var(--leading-heading)",
-          fontWeight: "var(--weight-regular)",
           margin: 0,
-          maxWidth: 720
-        }}
+          maxWidth: 720, fontWeight: "var(--weight-bold)" }}
       >
         {children}
       </h2>
@@ -367,9 +365,7 @@ function RoleImpact() {
         style={{
           fontSize: "var(--type-base)",
           lineHeight: "var(--leading-heading)",
-          fontWeight: "var(--weight-regular)",
-          margin: "0 0 var(--space-4)"
-        }}
+          margin: "0 0 var(--space-4)", fontWeight: "var(--weight-bold)" }}
       >
         From garden accessory to animal-centered product.
       </h2>

@@ -26,7 +26,7 @@ function Block({ src, subheading, caption }) {
   return <div>
     <img src={src} alt={subheading} style={{ ...img, marginBottom: "var(--space-3)" }} />
     <p style={{ ...label, marginBottom: "var(--space-1)" }}>{subheading}</p>
-    <p style={{ ...copy, margin: 0, fontWeight: "var(--weight-thin)" }}>{caption}</p>
+    <p style={{ ...copy, margin: 0, fontSize: "var(--type-caption)" }}>{caption}</p>
   </div>;
 }
 
@@ -46,8 +46,7 @@ function Heading({ number, title, description }) {
   return <div style={{ maxWidth: 720 }}>
     {number && <Kicker style={{ marginBottom: "var(--space-2)" }}>{number}</Kicker>}
     <h2 style={{
-      fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-2)", fontWeight: "var(--weight-regular)"
-    }}>{title}</h2>
+      fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-2)", fontWeight: "var(--weight-bold)" }}>{title}</h2>
     <p style={{ ...copy, margin: 0 }}>{description}</p>
   </div>;
 }
@@ -64,8 +63,7 @@ function MarketOpportunity() {
       marginBottom: "var(--space-6)", padding: "28px 0 32px"}}>
       <p className="fine-print" style={{ ...label, margin: 0 }}>MARKET OPPORTUNITY</p>
       <h2 style={{
-        fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "var(--space-1) 0 var(--space-4)", fontWeight: "var(--weight-regular)"
-      }}>
+        fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "var(--space-1) 0 var(--space-4)", fontWeight: "var(--weight-bold)" }}>
         A category growing fast enough to design a pricing lever into.
       </h2>
 
@@ -154,8 +152,7 @@ function RoleAtTop() {
       <div>
         <p className="fine-print" style={{ ...label, margin: 0 }}>MY ROLE</p>
         <h2 style={{
-          fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "var(--space-1) 0 0", fontWeight: "var(--weight-regular)"
-        }}>End-to-end product design</h2>
+          fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "var(--space-1) 0 0", fontWeight: "var(--weight-bold)" }}>End-to-end product design</h2>
       </div>
       <div>
         <div style={{
@@ -354,8 +351,7 @@ export default function Malli() {
       <p className="fine-print" style={{ ...label, marginBottom: "var(--space-2)" }}>DESIGN TAKEAWAY</p>
       <h2 style={{
         fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)",
-        maxWidth: 720, margin: "0 0 var(--space-3)", fontWeight: "var(--weight-regular)"
-      }}>The automation had to disappear into the routine.</h2>
+        maxWidth: 720, margin: "0 0 var(--space-3)", fontWeight: "var(--weight-bold)" }}>The automation had to disappear into the routine.</h2>
       <p style={{ ...copy, fontSize: "var(--type-base)", maxWidth: 700, margin: 0 }}>
         Malli 2.0 became less about adding technology to a toilet and more about
         coordinating behavior, form, mechanics, charging, and manufacturing into

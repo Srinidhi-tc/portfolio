@@ -19,7 +19,7 @@ function Section({ id, number, title, children }) {
   return (
     <section id={id} style={{ marginBottom:"var(--space-6)" }}>
       {number && <Kicker style={{ marginBottom:"var(--space-2)" }}>{number}</Kicker>}
-      <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", fontWeight:"var(--weight-regular)", color:"var(--text)", maxWidth:720 }}>
+      <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", color:"var(--text)", maxWidth:720, fontWeight: "var(--weight-bold)" }}>
         {title}
       </h2>
       {children}

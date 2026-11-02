@@ -111,6 +111,13 @@ export default function DefenseArk() {
         ))}
       </div>
 
+      {/* MY ROLE */}
+      <Section title="My role">
+        <P>
+          Founding design hire. Owned the end-to-end design across three products — Enigma, Brightscan, Torus — plus the marketing site and the client-intake pathway. Built the Figma library, defined the token layer, and shipped Vue, React, and CSS directly into production. There was no other designer at the company; the system that remained is the one I built.
+        </P>
+      </Section>
+
       {/* CONTEXT */}
       <Section id="context" title="Context">
         <P>
@@ -143,6 +150,13 @@ export default function DefenseArk() {
         ]} />
         <P>
           I led working sessions with the CEO and CTO to clarify DefenseARK's positioning across the security landscape, analyzed adjacent cybersecurity platforms to understand where seriousness and credibility had to be signaled visually, and worked with engineers to migrate each product onto the shared system one component at a time.
+        </P>
+      </Section>
+
+      {/* BUSINESS IMPACT */}
+      <Section title="Business impact">
+        <P>
+          Enterprise clients in cybersecurity evaluate trust in seconds. Fragmented presentation is lost pipeline, not an aesthetic problem. CEO time on manual client intake was the second most expensive hour in the company; routing it to a self-service pathway freed leadership capacity for sales calls. The brief was credibility, measured in inbound leads.
         </P>
       </Section>
 

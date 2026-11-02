@@ -102,17 +102,15 @@ export default function Microsoft() {
       {/* TEAM + ROLE */}
       <section style={{ marginBottom:"var(--space-6)", paddingBottom:40}}>
         <div className="hand-bullet" style={{ padding:"24px 28px", marginBottom:"var(--space-3)" }}>
-          <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>My role</p>
+          <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", color:"var(--text)", fontWeight: "var(--weight-bold)" }}>My role</h2>
           <p style={{ fontSize:"var(--type-base)", color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
-            I own the entity editing flow and the AI Ops research. That includes SRE interviews, contextual inquiry,
-            think-aloud testing, the radial health indicators, SLA phone alerts, and the Add New Signal button.
-            Everything on this page is my contribution.
+            Owned the entity editing flow and the AI Ops research — SRE recruiting, contextual inquiry, think-aloud testing, the radial health indicators, the SLA phone-alert flow, and the Add New Signal interaction. Design system primitives were inherited from Azure Monitor; everything shown here is my contribution within that system.
           </p>
         </div>
         <div className="hand-bullet" style={{ marginBottom:"var(--space-4)" }}>
-          <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>Business Impact</p>
+          <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", color:"var(--text)", fontWeight: "var(--weight-bold)" }}>Business impact</h2>
           <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
-            I designed for decision speed specifically because engineering time is the most expensive resource on this team, every second an engineer spends parsing an unclear interface is a cost the business is already tracking.
+            Engineering time is the most expensive line in this team's budget. Each minute an SRE loses parsing an unclear interface during an incident is a minute closer to an SLA breach — and SLA credits paid to enterprise customers run into millions per outage. The design brief was decision speed, measured in seconds against dollars.
           </p>
         </div>
         <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>

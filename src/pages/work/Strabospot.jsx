@@ -1,21 +1,11 @@
 import React from "react";
-import Kicker from "../../components/ui/Kicker";
-import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
-import DecisionObject from "../../components/ui/DecisionObject";
 
-import str1 from "../../assets/str1.jpg";
-import str2 from "../../assets/str2.jpg";
-import str3 from "../../assets/str3.jpg";
-import str4 from "../../assets/str4.jpg";
 import str5 from "../../assets/str5.jpg";
 import str6 from "../../assets/str6.jpg";
 import str7 from "../../assets/str7.jpg";
 import str8 from "../../assets/str8.jpg";
-import str9 from "../../assets/str9.jpg";
-import str10 from "../../assets/str10.jpg";
 import str11 from "../../assets/str11.jpg";
-import str12 from "../../assets/str12.jpg";
 import str13 from "../../assets/str13.jpg";
 import str14 from "../../assets/str14.jpg";
 import str15 from "../../assets/str15.jpg";
@@ -132,10 +122,11 @@ function Hero() {
           margin: "0 0 var(--space-3)"
         }}
       >
-        StraboSpot
+        Designing for adoption inside<br />
+        StraboSpot Field Data Platform
       </h1>
       <p style={{ ...body, fontSize: "var(--type-base)" }}>
-        StraboSpot is the largest centralized geologic field-data repository in the US, an NSF-funded platform an estimated 12,000 geologists rely on to cross-reference prior field data before their own research. I audited and redesigned its search experience through a UI/UX audit, five user interviews, and task analysis so researchers could find and trust relevant field data faster.
+        Shipped a visual-first redesign of the search, map, and sharing surfaces across the geoscience data platform used by 12,000+ geologists in the field
       </p>
       <figure style={{ margin: "var(--space-4) 0 0" }}>
         <img
@@ -150,11 +141,11 @@ function Hero() {
 
 function RoleAtTop() {
   const items = [
-    ["Role", "UX Consultant"],
-    ["Client", "StraboSpot Inc / TACC"],
-    ["SGX3", "Paul Parsons · Linh Pham · Srinidhi T. Chakravarthy"],
-    ["Scope", "UI/UX audit · 5 interviews · task analysis · search redesign recommendations"],
-    ["Tools", "Figma · Miro · Nielsen Heuristics"],
+    ["Role", "Discovery Lead (UX Consulting), SGX3 Science Gateways"],
+    ["Context", "Timeline: Aug 2025 – Dec 2025. StraboSpot geospatial data platform."],
+    ["Client", "Doug, StraboSpot leadership. Faculty advisor: Paul Parsons, Purdue."],
+    ["Team", "Martin Claire (StraboSpot engineering), Linh Pham, Strim Claire"],
+    ["Tools", "Figma, heuristic evaluation (Nielsen's ten), contextual inquiry protocols, Google Workspace for stakeholder deliverables"],
   ];
 
   return (
@@ -164,25 +155,12 @@ function RoleAtTop() {
         padding: "28px 0 32px"
       }}
     >
-      <div style={{ marginBottom: "var(--space-4)" }}>
-        <p style={{ ...label, marginBottom: "var(--space-2)" }}>My role</p>
-        <h2
-          style={{
-            margin: 0,
-            fontSize: "var(--type-base)",
-            lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}
-        >
-          Turning expert workflows into clearer search decisions.
-        </h2>
-      </div>
-
       <div
         className="str-role-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-          gap: "var(--space-4)",
-          marginBottom: "var(--space-4)"
+          gap: "var(--space-4)"
         }}
       >
         {items.map(([k, v]) => (
@@ -192,32 +170,49 @@ function RoleAtTop() {
           </div>
         ))}
       </div>
-
-      <div className="hand-bullet" >
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Business Impact</p>
-        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
-          I focused on cross-functional user flows because duplicated fieldwork is the real cost here, every friction point in data retrieval is researcher time and grant funding spent re-discovering what already exists.
-        </p>
-      </div>
     </section>
   );
 }
 
-function SectionHeading({ number, title, intro }) {
+const CHAPTERS = [
+  { id: "context",  label: "Context" },
+  { id: "problem",  label: "Problem" },
+  { id: "tradeoff", label: "Tradeoff" },
+  { id: "solution", label: "Solution" },
+  { id: "impact",   label: "Impact" },
+];
+
+function Section({ id, title, children }) {
   return (
-    <div style={{ marginBottom: "var(--space-4)", maxWidth: 780 }}>
-      {number && <Kicker>{number}</Kicker>}
-      <h2
-        style={{
-          margin: "0 0 var(--space-2)",
-          fontSize: "var(--type-base)",
-          lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}
-      >
+    <section id={id}>
+      <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}>
         {title}
       </h2>
-      <p style={body}>{intro}</p>
-    </div>
+      {children}
+    </section>
   );
+}
+
+function P({ children }) {
+  return <p style={{ ...body, marginBottom: "var(--space-3)" }}>{children}</p>;
+}
+
+// Label (bold) and description per item; a null label renders the text alone.
+function Bullets({ items }) {
+  return (
+    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 var(--space-4)", maxWidth: 690, display: "grid", gap: "var(--space-2)" }}>
+      {items.map(([lbl, text], i) => (
+        <li key={i} className="hand-bullet" style={body}>
+          {lbl && <strong>{lbl}</strong>}{lbl && " — "}{text}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+// Stack of slides with the page's usual spacing between them.
+function Slides({ children }) {
+  return <div style={{ display: "grid", gap: "var(--space-4)", marginTop: "var(--space-4)" }}>{children}</div>;
 }
 
 function Slide({ src, number, caption }) {
@@ -239,14 +234,6 @@ function Slide({ src, number, caption }) {
         {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontSize: "var(--type-caption)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
-  );
-}
-
-function InsightLine({ children }) {
-  return (
-    <FloralFrame>
-      <p style={{ margin: 0, fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", fontWeight: "var(--weight-regular)" }}>{children}</p>
-    </FloralFrame>
   );
 }
 
@@ -291,59 +278,6 @@ function EvidenceLinks() {
   );
 }
 
-function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
-  return (
-    <div
-      className="str-note-grid"
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-        gap: "var(--space-4)",
-        marginTop: "var(--space-4)"
-      }}
-    >
-      <div>
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{leftLabel}</p>
-        <p style={{ ...body, fontSize: "var(--type-base)" }}>{left}</p>
-      </div>
-      <div>
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{rightLabel}</p>
-        <p style={{ ...body, fontSize: "var(--type-base)" }}>{right}</p>
-      </div>
-    </div>
-  );
-}
-
-function DecisionTradeoff({ decision, tradeoff }) {
-  return <DecisionObject decision={decision} tradeoff={tradeoff} />;
-}
-
-function FinalTakeaway() {
-  return (
-    <section
-      id="impact"
-      style={{
-        marginTop: "var(--space-7)",
-        paddingTop: 34
-      }}
-    >
-      <p style={{ ...label, marginBottom: "var(--space-2)" }}>The consulting takeaway</p>
-      <h2
-        style={{
-          margin: "0 0 var(--space-3)",
-          fontSize: "var(--type-base)",
-          lineHeight: "var(--leading-heading)",
-          maxWidth: 760, fontWeight: "var(--weight-bold)" }}
-      >
-        The search problem was really a clarity problem.
-      </h2>
-      <p style={body}>
-        The engagement moved from surface-level interface issues to the deeper decisions researchers make when finding, comparing, and interpreting field data. The final recommendation brought search, maps, images, credits, filters, and result previews into one clearer model.
-      </p>
-    </section>
-  );
-}
-
 export default function StraboSpot() {
   return (
     <div
@@ -356,191 +290,88 @@ export default function StraboSpot() {
     >
       <ClientSwitcher />
       <Hero />
-      <Slide src={str1} number={1} caption="SGX3 · interface evaluation & design recommendation" />
       <EvidenceLinks />
 
       <RoleAtTop />
 
       <main style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-        <section id="problem">
-          <SectionHeading
-            number="Framing the engagement"
-            title="The search experience needed a closer look."
-            intro="The engagement began with a UI/UX audit of StraboSpot's current search tools, then moved into task analysis interviews and a design recommendation for a more unified search experience."
-          />
-          <Slide src={str2} number={2} caption="Engagement summary" />
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str3} number={3} caption="Audit → interview → recommendation" /></div>
-          <InsightLine>
-            Start broad. Find where the interface creates friction. Then ask users why it matters.
-          </InsightLine>
-          <DecisionTradeoff
-            decision="Begin with the existing search experience before proposing a new one."
-            tradeoff="A broad audit exposed interface issues quickly, but could not tell which issues mattered most to researchers."
-          />
-        </section>
+        <Section id="context" title="Context">
+          <P>
+            StraboSpot is a geospatial data platform used by over 12,000 geologists to document and interpret field observations. Over a decade of expert use, it had accumulated analytical depth that most new users never discovered. The platform served its loyal base; its growth curve was flat.
+          </P>
+          <P>
+            The engagement was discovery and validation research. The ask: find the lever that would scale adoption and retention beyond the existing expert cohort.
+          </P>
+        </Section>
 
-        <section id="audit">
-          <SectionHeading
-            number="Auditing the surface"
-            title="The first pass exposed friction quickly."
-            intro="Nielsen's 10 usability principles provided a common lens for repeated reviews of key pages and search flows. Screenshots and annotations made the issues concrete for the team."
-          />
-          <Slide src={str4} number={4} caption="01 / UI/UX Audit" />
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str5} number={5} caption="Audit method and review approach" /></div>
-          <InsightLine>
-            The audit was not the answer. It was the map to the questions that needed real users.
-          </InsightLine>
-          <DecisionTradeoff
-            decision="Use heuristics as a shared diagnostic lens, not as a substitute for user research."
-            tradeoff="The method created consistency across reviews while leaving room for domain-specific issues to surface later."
-          />
-        </section>
+        <Section id="problem" title="Problem">
+          <P>Five expert interviews and a heuristic pass surfaced one pattern underneath the surface issues:</P>
+          <Bullets items={[
+            ["Buried visual value", "geologists mainly use StraboSpot to see images of rocks and field sites, generate shareable documents, and share work with peers. These behaviors were buried behind text-heavy maps and dense data tables."],
+            ["Scaling cap in the search layer", "the search engine was product-specific, not pattern-reusable; extending search to more data types required reinventing the layer for each one."],
+            ["No viral loop", "the artifacts geologists produced (field trip documents, image galleries) could not be shared cleanly outside the tool."],
+            ["Text-first interface for a color-first user", "geologists are visual professionals; they orient to rock color, field color, map color. The product led with text labels."],
+          ]} />
+          <Slides>
+            <Slide src={str5} number={5} caption="Audit method — heuristic review scoped to find the single lever that would move adoption, not just clean the interface." />
+            <Slide src={str6} number={6} caption="Map view audit — visual clutter and technical naming on a surface geologists actually use for visual orientation. The misalignment the project turned on." />
+            <Slide src={str7} number={7} caption="Search filter audit — dense results, restart friction, unexpected navigation. Search was the scaling bottleneck disguised as a UX problem." />
+            <Slide src={str8} number={8} caption="All Strabo Data audit — the same query returning different results across contexts. Scaling the data model required unifying the search layer first." />
+          </Slides>
+        </Section>
 
-        <section>
-          <SectionHeading
-            number="Where search breaks"
-            title="Maps made the problem visible."
-            intro="Search results became harder to interpret when labels overlapped, interaction cues were weak, and technical names competed with the map itself."
-          />
-          <Slide src={str6} number={6} caption="Map view · visual clutter, weak interaction cues, technical naming" />
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str7} number={7} caption="Search filter · dense results, restart friction, unexpected navigation" /></div>
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str8} number={8} caption="All Strabo Data · search/filter ambiguity and result relevance" /></div>
-          <TwoColumnNote
-            leftLabel="What the audit showed"
-            left="Too much density, too many competing controls, and unclear relationships between search results and the map."
-            rightLabel="What it did not show"
-            right="Which problems mattered most to researchers, what mental models they brought, and what information helped them trust a result."
-          />
-        </section>
+        <Section id="tradeoff" title="Tradeoff">
+          <P>The real design question was not "clean the interface" but "where does visual priority outweigh expert density, and where does it not."</P>
+          <Bullets items={[
+            ["Image-first versus text-first", "new users convert on visual recognition; experts fall back on text labels. Map and image previews lead; text-dense tables remain available but recede."],
+            ["Unified search versus specialized search", "one unified search engine made the code lighter and scalable to more data types and more search patterns, at the cost of per-type tuning."],
+            ["Virality versus restriction", "field trip documents are inherently shareable, but field data has restricted scientific value. Sharing routes default to permissioned, not open."],
+            ["Hook versus depth", "leading with the map (visual, retention-grade) risks hiding the analytical depth experts came for. Depth sits one tap away, not behind five."],
+          ]} />
+          <Slides>
+            <Slide src={str11} number={11} caption="Interview key findings — geologists are visual professionals. They orient to rock color, image previews, and shareable artifacts. The product led with text." />
+          </Slides>
+        </Section>
 
-        <section id="research">
-          <SectionHeading
-            number="Asking the people using it"
-            title="The audit needed a human check."
-            intro="Five Zoom interviews with current StraboSpot users, mostly field geologists at different levels, shifted the work from interface symptoms to task needs."
-          />
-          <Slide src={str9} number={9} caption="02 / Interview & Task Analysis" />
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str10} number={10} caption="Five user interviews · open-ended and participant-driven" /></div>
-          <InsightLine>
-            The key question became: what helps a researcher decide that a piece of data is worth opening?
-          </InsightLine>
-        </section>
+        <Section id="solution" title="Solution">
+          <P>Three shipped shifts carried the strategy:</P>
+          <Bullets items={[
+            ["Map-first landing", "the search surface opens on the map, with image previews, so the first impression is the visual payload geologists come back for."],
+            ["Image-based filters and unified search", "one search layer, lighter in code, with filters that match how geologists actually look for things (image type, rock color, field site, date range)."],
+            ["Gallery-to-document pipeline", "the image gallery sits adjacent to the field-trip document generator; a user can scroll a trip, select images, and produce the shareable artifact in the same flow. The artifact routes to classes, peers, and LinkedIn directly."],
+          ]} />
+          <Slides>
+            <Slide src={str13} number={13} caption="Proposed search surface — map-first, with image previews, filters, bookmarks, help. The hook that drives retention sits above the fold." />
+            <Slide src={str14} number={14} caption="Unified navigation between maps — one mental model across contexts, so switching surfaces preserves state. The groundwork for a scalable search layer." />
+            <Slide src={str15} number={15} caption="Gallery and document pipeline — image gallery, ownership, and credits adjacent to the generator. Sharing becomes a native action, not an export." />
+            <Slide src={str16} number={16} caption="Unified search tool · map view — the shared surface, lighter in code, extensible to new data types without reinventing the layer." />
+            <Slide src={str17} number={17} caption="Map detail — visibility, zoom behaviour, base-map controls. Expert tolerances for density, respected on a surface tuned for new-user conversion." />
+            <Slide src={str18} number={18} caption="Search bar — image filters, map/list toggle, color-aware sorting. One component, three contexts, no re-invention per surface." />
+            <Slide src={str19} number={19} caption="List view — sortable results with image preview. Scanning the gallery, not scrolling the data." />
+            <Slide src={str20} number={20} caption="List detail — image preview before opening on the map. The one-tap return pattern that lets geologists scan a trip before committing." />
+          </Slides>
+        </Section>
 
-        <section id="decisions">
-          <SectionHeading
-            number="Turning interviews into priorities"
-            title="Researchers needed visual context and trust."
-            intro="The interviews surfaced recurring needs around images, authorship, maps, labels, filter visibility, and familiar mental models for search."
-          />
-          <Slide src={str11} number={11} caption="Interview key findings · visual learning, credibility, maps, labels, filters, familiar mental models" />
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <TwoColumnNote
-              leftLabel="Visual context"
-              left="Images and colour-rich maps were central to how participants understood geological information."
-              rightLabel="TRUST + CONTROL"
-              right="Ownership, authorship, clear map controls, and fewer clicks could make results easier to interpret and act on."
-            />
-          </div>
-          <InsightLine>
-            The redesign was not about making search look simpler. It was about making the important evidence easier to see.
-          </InsightLine>
-          <DecisionTradeoff
-            decision="Prioritize visual context, credibility, and direct map interaction in the recommendation."
-            tradeoff="Adding more information could improve confidence, but too much information would recreate the density the audit exposed."
-          />
-        </section>
-
-        <section id="tradeoffs">
-          <SectionHeading
-            number="Redesigning the search moment"
-            title="Search became the hero feature."
-            intro="The recommendation reduced competing decisions, clarified filters, made saved spots more visible, and replaced ambiguous actions with language closer to the user's mental model."
-          />
-          <Slide src={str12} number={12} caption="03 / Design Recommendations" />
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str13} number={13} caption="Intuitive search page · list/map view, filters, bookmarks, help" /></div>
-          <InsightLine>
-            Reduce decision points. Keep the search task visible. Make actions say what they actually do.
-          </InsightLine>
-          <DecisionTradeoff
-            decision="Make Search the hero feature and move secondary resources and controls out of the way."
-            tradeoff="Less visible chrome creates focus, but important help and saved content still need clear entry points."
-          />
-        </section>
-
-        <section>
-          <SectionHeading
-            number="Designing around how geologists look"
-            title="Maps and images became first-class navigation."
-            intro="The recommendations gave visually rich maps a stronger default position, simplified map switching, and treated image collections and credits as part of the research experience."
-          />
-          <Slide src={str14} number={14} caption="Unifying navigation between maps" />
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str15} number={15} caption="Image gallery, navigation, ownership and credits" /></div>
-          <InsightLine>
-            Visual information was not decoration. It was part of how the work was understood.
-          </InsightLine>
-          <DecisionTradeoff
-            decision="Keep the visually rich geological map prominent while making alternate layers one click away."
-            tradeoff="A strong default supports recognition and curiosity, while alternate layers preserve the depth expert users need."
-          />
-        </section>
-
-        <section>
-          <SectionHeading
-            number="Bringing the search system together"
-            title="One search model connected map, list, and detail."
-            intro="The final recommendation unified keyword search, filters, map and list views, result ownership, previews, and direct map navigation into one search workflow."
-          />
-          <Slide src={str16} number={16} caption="Unified search tool · map view" />
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str17} number={17} caption="Map detail · visibility, zoom behaviour, and base-map controls" /></div>
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str18} number={18} caption="Search bar · filters, spacing, typography, and map/list toggle" /></div>
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str19} number={19} caption="List view · sortable results with preview and map actions" /></div>
-          <div style={{ marginTop: "var(--space-4)" }}><Slide src={str20} number={20} caption="List detail · preview a result before opening it on the map" /></div>
-          <InsightLine>
-            The final system lets a researcher move from question → result → context → location without losing the thread.
-          </InsightLine>
-          <DecisionTradeoff
-            decision="Connect map and list views instead of making them separate search destinations."
-            tradeoff="The unified model adds flexibility without forcing researchers to repeatedly restart the search when they need another view."
-          />
-        </section>
+        <Section id="impact" title="Impact">
+          <Bullets items={[
+            [null, <>All <strong>eight recommendations adopted</strong> by the StraboSpot stakeholder and engineering clients</>],
+            [null, "Prioritized by the StraboSpot team into their roadmap for the following quarter"],
+            [null, <><strong>Unified search layer</strong> reduces per-feature search engineering to one shared pipeline — the groundwork for scaling to new data types without rebuilding</>],
+            [null, <><strong>Shareable document pipeline</strong> opens a viral loop — geologists sharing field trips to classes, peers, and LinkedIn, pulling new users in through artifacts rather than marketing</>],
+            [null, <>Framework <strong>reusable across adjacent science-gateway tools</strong> in the SGX3 portfolio</>],
+          ]} />
+          <P>
+            In mature expert tools, growth doesn't come from new features — it comes from surfacing the behaviors users already love and making them easy to share. The brief was adoption, measured in new users retained and documents shared outward.
+          </P>
+        </Section>
       </main>
 
-      <FinalTakeaway />
-      <ChapterToggle />
-
-      <div
-        className="str-meta-grid"
-        style={{
-          marginTop: "var(--space-5)",
-          paddingTop: 28,
-          display: "grid",
-          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-          gap: "var(--space-4)"
-        }}
-      >
-        {[
-          ["Client", "StraboSpot Inc / TACC"],
-          ["SGX3", "Paul Parsons · Linh Pham · Srinidhi T. Chakravarthy"],
-          ["Methods", "UI/UX audit · Nielsen heuristics · 5 user interviews · task analysis · design recommendations"],
-        ].map(([k, v]) => (
-          <div key={k}>
-            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{k}</p>
-            <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", margin: 0, color: "var(--muted)" }}>{v}</p>
-          </div>
-        ))}
-      </div>
+      <ChapterToggle chapters={CHAPTERS} />
 
       <style>{`
         @media (max-width: 760px) {
-          .str-role-grid,
-          .str-note-grid,
-          .str-decision-grid,
-          .str-meta-grid {
+          .str-role-grid {
             grid-template-columns: 1fr !important;
-          }
-
-          .str-slide-pair figure + figure {
-            margin-top: 4px;
           }
         }
 

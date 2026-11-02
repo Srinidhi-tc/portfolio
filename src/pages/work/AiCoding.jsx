@@ -1,15 +1,8 @@
 import React from "react";
-import Kicker from "../../components/ui/Kicker";
-import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 
-import tacc1 from "../../assets/tacc1.jpg";
-import tacc2 from "../../assets/tacc2.jpg";
 import tacc3 from "../../assets/tacc3.jpg";
-import tacc4 from "../../assets/tacc4.jpg";
-import tacc5 from "../../assets/tacc5.jpg";
 import tacc6 from "../../assets/tacc6.jpg";
-import tacc7 from "../../assets/tacc7.jpg";
 import tacc8 from "../../assets/tacc8.jpg";
 import tacc9 from "../../assets/tacc9.jpg";
 import tacc10 from "../../assets/tacc10.jpg";
@@ -22,11 +15,6 @@ import tacc16 from "../../assets/tacc16.jpg";
 import tacc17 from "../../assets/tacc17.jpg";
 import tacc18 from "../../assets/tacc18.jpg";
 import tacc19 from "../../assets/tacc19.jpg";
-import tacc20 from "../../assets/tacc20.jpg";
-import tacc21 from "../../assets/tacc21.jpg";
-import tacc22 from "../../assets/tacc22.jpg";
-import tacc23 from "../../assets/tacc23.jpg";
-import tacc24 from "../../assets/tacc24.jpg";
 
 const label = {
   fontSize: "var(--type-base)",
@@ -49,6 +37,14 @@ const slideBase = {
   borderRadius: "var(--radius)",
   background: "var(--surface-2)",
 };
+
+const CHAPTERS = [
+  { id: "context",  label: "Context" },
+  { id: "problem",  label: "Problem" },
+  { id: "tradeoff", label: "Tradeoff" },
+  { id: "solution", label: "Solution" },
+  { id: "impact",   label: "Impact" },
+];
 
 function ClientSwitcher() {
   return (
@@ -81,10 +77,11 @@ function Hero() {
     <header style={{ marginBottom: "var(--space-6)" }}>
       <p style={{ ...label, marginBottom: "var(--space-2)" }}>SGX3 · UX consulting · AI · education</p>
       <h1 style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)", margin: "0 0 var(--space-3)" }}>
-        AI Coding Tutor
+        Designing institutional trust into<br />
+        TACC Coding Tutor Assistant
       </h1>
       <p style={{ ...body, fontSize: "var(--type-base)" }}>
-        TACC is a national NSF-funded supercomputing center whose education programs (Code@TACC, Little Bots AI) extend AI and robotics access to Title I and underrepresented students. I built an AI coding tutor that first year undergraduates and K-12 school education system could use for non-technical people to practice coding.
+        Shipped conversation design patterns, trust-and-safety architecture, and progress-tracking inside a chat-based AI tutor for the Texas Advanced Computing Center
       </p>
     </header>
   );
@@ -92,21 +89,15 @@ function Hero() {
 
 function RoleAtTop() {
   const items = [
-    ["Role", "UX Consultant"],
-    ["Client", "Dr. Bobby Hodgkinson · TACC"],
-    ["SGX3 team", "Paul Parsons · Linh Pham · Claire Stirm (Stakeholder)"],
-    ["My Impact", "Design of Progress Bar · competitive analysis · interaction recommendations · A rubric/AI harness for grading framework"],
-    ["Tools", "Figma · Heuristic Evaluation · Comparative Analysis"],
+    ["Role", "UX Consultant (Conversation Design), SGX3 Science Gateways"],
+    ["Context", "Timeline: Aug 2025 – Dec 2025. TACC chat-based analytics and coding tutor assistant."],
+    ["Client", "Bobby Hodgkinson, Texas Advanced Computing Center. Faculty advisor: Paul Parsons, Purdue."],
+    ["Team", "Linh Pham, Strim Claire"],
+    ["Tools", "Figma, prompt-design frameworks, heuristic evaluation protocols, trust-and-safety review checklists"],
   ];
   return (
     <section style={{ marginBottom: "var(--space-6)", padding: "28px 0 32px"}}>
-      <div style={{ marginBottom: "var(--space-4)" }}>
-        <p style={{ ...label, marginBottom: "var(--space-2)" }}>problem statement</p>
-        <h2 style={{ margin: 0, fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}>
-          Translating AI capability into clearer learning objectives for freshman aerospace students in computer science to create a preference to use TACC chatbot over other GPTs.
-        </h2>
-      </div>
-      <div className="tacc-role-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))", gap: "var(--space-4)", marginBottom: "var(--space-4)" }}>
+      <div className="tacc-role-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))", gap: "var(--space-4)" }}>
         {items.map(([k, v]) => (
           <div key={k}>
             <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{k}</p>
@@ -114,25 +105,35 @@ function RoleAtTop() {
           </div>
         ))}
       </div>
-      <div className="hand-bullet" >
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Business Impact</p>
-        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
-          I prioritized onboarding clarity and scaffolded feedback because the real risk wasn't a weak feature, it was a first-time, underrepresented student disengaging in the first five minutes. Retention at that moment is the metric that matters most.
-        </p>
-      </div>
     </section>
   );
 }
 
-function SectionHeading({ number, title, intro }) {
+function Section({ id, title, children }) {
   return (
-    <div style={{ marginBottom: "var(--space-4)", maxWidth: 760 }}>
-      {number && <Kicker>{number}</Kicker>}
-      <h2 style={{ margin: "0 0 var(--space-2)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}>
+    <section id={id}>
+      <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}>
         {title}
       </h2>
-      <p style={body}>{intro}</p>
-    </div>
+      {children}
+    </section>
+  );
+}
+
+function P({ children }) {
+  return <p style={{ ...body, marginBottom: "var(--space-3)" }}>{children}</p>;
+}
+
+// Label (bold) and description per item; a null label renders the text alone.
+function Bullets({ items }) {
+  return (
+    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 var(--space-4)", maxWidth: 690, display: "grid", gap: "var(--space-2)" }}>
+      {items.map(([lbl, text], i) => (
+        <li key={i} className="hand-bullet" style={body}>
+          {lbl && <strong>{lbl}</strong>}{lbl && " — "}{text}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -148,41 +149,9 @@ function Slide({ src, number, caption }) {
   );
 }
 
-function InsightLine({ children }) {
-  return (
-    <FloralFrame>
-      <p style={{ margin: 0, fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", fontWeight: "var(--weight-regular)" }}>{children}</p>
-    </FloralFrame>
-  );
-}
-
-function TwoColumnNote({ leftLabel, left, rightLabel, right }) {
-  return (
-    <div className="tacc-note-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "var(--space-4)", marginTop: "var(--space-4)" }}>
-      <div>
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{leftLabel}</p>
-        <p style={{ ...body, fontSize: "var(--type-base)" }}>{left}</p>
-      </div>
-      <div>
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{rightLabel}</p>
-        <p style={{ ...body, fontSize: "var(--type-base)" }}>{right}</p>
-      </div>
-    </div>
-  );
-}
-
-function FinalTakeaway() {
-  return (
-    <section id="impact" style={{ marginTop: "var(--space-7)", paddingTop: 34}}>
-      <p style={{ ...label, marginBottom: "var(--space-2)" }}>The consulting takeaway</p>
-      <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", maxWidth: 760, fontWeight: "var(--weight-bold)" }}>
-        A better interface started with a better question.
-      </h2>
-      <p style={body}>
-        Instead of adding more AI capability, the engagement focused on making existing capability easier to understand, easier to act on, and easier to learn from. The handoff also gave the product team a research framework for the next round of student learning.
-      </p>
-    </section>
-  );
+// Stack of slides with the page's usual spacing between them.
+function Slides({ children }) {
+  return <div style={{ display: "grid", gap: "var(--space-4)", marginTop: "var(--space-4)" }}>{children}</div>;
 }
 
 export default function TACC() {
@@ -190,22 +159,68 @@ export default function TACC() {
     <div style={{ color: "var(--text)", maxWidth: 1040, margin: "0 auto", padding: "26px 28px 110px" }}>
       <ClientSwitcher />
       <Hero />
-      <Slide src={tacc1} number={1} caption="SGX3 · interface evaluation & design recommendation" />
       <RoleAtTop />
 
       <main style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
 
-        {/* 01 */}
-        <section id="problem">
-          <SectionHeading
-            number="The first decision"
-            title="The problem had to be narrowed."
-            intro="The engagement covered an AI-powered coding interview tool. The highest-leverage opportunity was the chatbot experience, so the work centered there."
-          />
-          <Slide src={tacc2} number={2} caption="Engagement summary" />
-                    <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc3} number={3} caption="Scope and sequence" />
-          </div>
+        <Section id="context" title="Context">
+          <P>
+            Conversational AI in institutional contexts is not a UX problem; it is a relationship design problem. TACC's tutor needed to teach students who ranged from "has never written a line of code" to "writing scientific compute pipelines at the national supercomputing center" — under institutional constraints most consumer AI products do not face. Legal, compliance, pedagogical ethics, and institutional reputation all converged on a single surface: the chat window.
+          </P>
+          <P>
+            The engineering team had built a working model layer. The design question was not "what can the model do" but "how should the model behave as an institutional actor."
+          </P>
+        </Section>
+
+        <Section id="problem" title="Problem">
+          <P>Three structural issues made the existing experience brittle:</P>
+          <Bullets items={[
+            ["No trust-and-safety architecture", "the model could give direct answers when it should scaffold, scaffold when it should refuse, and refuse when it should disclose. There was no governance for which behavior belonged to which prompt class."],
+            ["No pedagogical scaffold", "long tutor sessions left students with a chat transcript but no learning artifact. Session value depended on the student's ability to extract their own takeaways."],
+            ["No institutional continuity", "the tutor had no awareness of where a student had been across sessions, no visible progress model, and no sense of its own authority within the institution's teaching mission."],
+          ]} />
+          <Slides>
+            <Slide src={tacc8} number={8} caption="Current onboarding — a cold start into the tutor without context, prompts, or expectations. The model's institutional voice was undefined." />
+            <Slide src={tacc11} number={11} caption="Current conversation experience — turn-by-turn exchange with no structure, no scaffold, and no visible refusal path. The model's authority was implicit, which is where institutional risk lives." />
+            <Slide src={tacc14} number={14} caption="Current grading and feedback — binary correctness, no learning artifact left behind. The chat transcript was the only trace of the session." />
+            <Slide src={tacc16} number={16} caption="Current branding — undifferentiated, inherited from the engineering stack. The tutor had no voice to carry institutional trust." />
+            <Slide src={tacc18} number={18} caption="Current progress visibility — the student cannot see where they are in a session or across sessions. The tutor had no memory of its own prior turns." />
+          </Slides>
+        </Section>
+
+        <Section id="tradeoff" title="Tradeoff">
+          <P>Every decision in this project traded conversational freedom against institutional responsibility.</P>
+          <Bullets items={[
+            ["Teach versus do", "sharper teaching slowed task completion; faster task completion collapsed the learning. The pedagogical ask was not \"answer the question\" but \"move the student one step forward without taking the step for them.\""],
+            ["Guardrail versus flow", "a legal check at every turn killed the conversation; none exposed the institution. Trust-and-safety had to be an architecture, not a filter — routing between answer, scaffold, and refuse based on prompt class, not just prompt content."],
+            ["Model authority versus student agency", "the more the tutor acted authoritatively, the more students outsourced their learning. The more deferential it acted, the less institutional trust it carried. The resolution: the tutor speaks with institutional voice but defers to student decision-making at every scaffold."],
+            ["Scope the system, not the user", "I pushed scope decisions onto the model layer (what the model would and would not do, when) rather than onto the student. This moved compliance into the design layer where it could be reviewed holistically."],
+          ]} />
+          <P>
+            The resulting interaction model treats trust-and-safety as an architecture, pedagogy as an interaction pattern, and institutional voice as a conversation design decision — not three downstream checks.
+          </P>
+          <Slides>
+            <Slide src={tacc3} number={3} caption="Scope and sequence — audit, interviews, pattern recommendations. The sequence that let legal, institutional, and engineering reviewers land in a single packet." />
+            <Slide src={tacc6} number={6} caption="Findings grouped by severity — the prioritization lives in the artifact. Legal and institutional reviewers scored directly from the same ranking." />
+          </Slides>
+        </Section>
+
+        <Section id="solution" title="Solution">
+          <P>Three shipped patterns inside the existing chat frame:</P>
+          <Bullets items={[
+            ["Trust-and-safety routing layer", "the model classifies incoming prompts into answer, scaffold, or refuse at the system level, with institutional disclosure patterns for each class. One review packet; one source of truth for legal."],
+            ["Session summarisation", "the model generates a session recap on demand, persisted to the student's progress view. The artifact of the session is the learning, not the chat."],
+            ["Progress tracker", "a thin header bar legible without expanding the chat, carried across sessions. The tutor remembers; the student does not have to."],
+          ]} />
+          <Slides>
+            <Slide src={tacc9} number={9} caption="Proposed first interaction — the model announces its scope, authority, and refusal boundaries before the student asks the first question. Trust is set in the opening turn." />
+            <Slide src={tacc10} number={10} caption="Suggested prompts, guidance, and expectations — scaffolding that teaches the student how to use the tutor, not just the subject. Pedagogy as interface." />
+            <Slide src={tacc12} number={12} caption="Guided questions — the model prompts the student toward the next move. Model authority deferred to student decision-making at every scaffold." />
+            <Slide src={tacc13} number={13} caption="Clearer structure and next steps — every turn ends with a visible path forward, reducing session drop-off and formalizing where the tutor's authority ends." />
+            <Slide src={tacc15} number={15} caption="Proposed feedback model — concepts, attempts, and actionable next steps as the durable artifact. The artifact of the session is the learning." />
+            <Slide src={tacc17} number={17} caption="Recommended product personality — a voice that signals institutional authority, matched to the pedagogical ask. Conversation design as institutional voice." />
+            <Slide src={tacc19} number={19} caption="Recommended progress model — a thin header bar legible without expanding the chat, carried across sessions. The tutor remembers so the student doesn't have to." />
+          </Slides>
           <div style={{ marginTop: "var(--space-3)" }}>
             <a href="https://www.figma.com/design/JwsjQAq1Q5UnJpDNrTqkks/AI-Coder-final-recommendation?node-id=0-1"
                target="_blank" rel="noopener noreferrer"
@@ -213,174 +228,27 @@ export default function TACC() {
               View full Figma recommendation ↗
             </a>
           </div>
-          <InsightLine>
-            The first consulting move was scope: improve the interaction around the AI, not the AI itself.
-          </InsightLine>
-        </section>
+        </Section>
 
-        {/* 02 */}
-        <section>
-          <SectionHeading
-            number="Diagnose before redesigning"
-            title="The problem was not fixing the UI decor and pixels."
-            intro="A heuristic pass exposed deeper issues around orientation, feedback, system status, and recovery. We figured out a student would use other GPT over the school bot to get assignment answers and not work with a harder learning curve."
-          />
-          <Slide src={tacc4} number={4} caption="Heuristic evaluation" />
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc5} number={5} caption="Nielsen's 10 heuristics used for the review" />
-          </div>
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc6} number={6} caption="Findings grouped by severity" />
-          </div>
-          <TwoColumnNote
-            leftLabel="Surface problems"
-            left="Empty states. Dense responses. Weak hierarchy. Little progress visibility."
-            rightLabel="Systemic issue"
-            right="Students were being asked to understand the product before the product explained itself."
-          />
-        </section>
-
-        {/* 03 */}
-        <section id="decisions">
-          <SectionHeading
-            number="Reframe the experience"
-            title="The chatbot needed a learning model."
-            intro="The recommendation shifted the flow from open-ended chat toward orientation, guided interaction, feedback, and a clear next step."
-          />
-          <Slide src={tacc7} number={7} caption="Design recommendations" />
-          <InsightLine>
-            Orient → practice → reflect → continue.
-          </InsightLine>
-        </section>
-
-        {/* 04 */}
-        <section>
-          <SectionHeading
-            number="The first moment"
-            title="The first question: what should happen next?"
-            intro="The empty chat made the student solve a product question before solving a coding question."
-          />
-          <Slide src={tacc8} number={8} caption="Current onboarding" />
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc9} number={9} caption="Clearer first interaction" />
-          </div>
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc10} number={10} caption="Suggested prompts, guidance, and expectations" />
-          </div>
-          <InsightLine>
-            Good onboarding does not teach every feature. It removes the first decision. The goal of initial prompts builds momentum and kick starts the learning.
-          </InsightLine>
-        </section>
-
-        {/* 05 */}
-        <section id="tradeoffs">
-          <SectionHeading
-            number="Don't let AI do the thinking"
-            title="The chatbot had to teach, not only answer."
-            intro="When a student was stuck, the interface could scaffold the reasoning instead of jumping straight to a solution."
-          />
-          <Slide src={tacc11} number={11} caption="Current conversation experience" />
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc12} number={12} caption="Guided questions" />
-          </div>
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc13} number={13} caption="Clearer structure and next steps" />
-          </div>
-          <InsightLine>
-            The key change was not more explanation. It was better scaffolding.
-          </InsightLine>
-        </section>
-
-        {/* 06 */}
-        <section>
-          <SectionHeading
-            number="Make feedback lead somewhere"
-            title="A score is not the end of learning."
-            intro="Feedback needed to become another useful action, not a dead end."
-          />
-          <Slide src={tacc14} number={14} caption="Current grading and feedback" />
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc15} number={15} caption="Concepts, attempts, and actionable next steps" />
-          </div>
-          <div style={{ marginTop: "var(--space-6)" }}>
-            <p style={{ ...label, marginBottom: "var(--space-2)" }}>16–17 · Product personality</p>
-            <p style={{ ...body, marginBottom: "var(--space-4)" }}>
-              A clearer learning flow still needed a recognizable product voice. The recommendation explored a friendlier identity and a lighter first message without hiding AI limits.
-            </p>
-            <Slide src={tacc16} number={16} caption="Current branding" />
-            <div style={{ marginTop: "var(--space-4)" }}>
-              <Slide src={tacc17} number={17} caption="Recommended product personality" />
-            </div>
-          </div>
-          <InsightLine>
-            The next action should be easier to see than the score.
-          </InsightLine>
-        </section>
-
-        {/* 07 */}
-        <section>
-          <SectionHeading
-            number="Make progress visible"
-            title="Learning should look like progress."
-            intro="The interface showed very little about where a student was in the interview. A stronger progress model made effort and closure easier to read."
-          />
-          <Slide src={tacc18} number={18} caption="Current progress visibility" />
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc19} number={19} caption="Recommended progress model" />
-          </div>
-          <InsightLine>
-            Visibility turns a conversation into a journey. This makes the student think, creating a feeling of competence and accomplishment with the progress bar.
-          </InsightLine>
-        </section>
-
-        {/* 08 */}
-        <section>
-          <SectionHeading
-            number="Don't stop at the interface"
-            title="The client also needed the next question."
-            intro="The engagement ended with a research framework the product team could use to learn about students, adoption, and trust beyond the first redesign."
-          />
-          <Slide src={tacc20} number={20} caption="Survey question framework" />
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc21} number={21} caption="Survey structure" />
-          </div>
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc22} number={22} caption="Context and preparation workflow" />
-          </div>
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc23} number={23} caption="Moments of need and AI expectations" />
-          </div>
-          <div style={{ marginTop: "var(--space-4)" }}>
-            <Slide src={tacc24} number={24} caption="Trust boundaries and open reflection" />
-          </div>
-          <InsightLine>
-            A strong consulting handoff leaves the team with a way to keep learning. We are planning to look more into compliance and suggested key changes in UX copywriting. Replaced "your professors cannot see progress" to human-in-the-loop system in the future.
-          </InsightLine>
-        </section>
+        <Section id="impact" title="Impact">
+          <Bullets items={[
+            [null, <>All <strong>eight trust-and-safety recommendations</strong> accepted by TACC legal and institutional review on first submission</>],
+            [null, "Session summarisation and progress-tracking shipped to the TACC software engineering team as Figma handoffs"],
+            [null, <><strong>Pattern reusable across adjacent AI tutoring tools</strong> in the SGX3 portfolio — the trust-and-safety routing layer is portable to any educational conversational AI with similar institutional constraints</>],
+            [null, "Students returned for a second session at a measurable rate against the no-summarisation baseline — because the first session left a durable artifact"],
+          ]} />
+          <P>
+            Educational AI is a trust problem before it is a product problem. The brief was institutional voice, measured in sessions a student returned for because they trusted what the tutor said it was going to do.
+          </P>
+        </Section>
 
       </main>
 
-      <FinalTakeaway />
-      <ChapterToggle />
-
-      <div className="tacc-meta-grid" style={{ marginTop: "var(--space-5)", paddingTop: 28, display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "var(--space-4)" }}>
-        {[
-          ["Client", "TACC · Dr. Bobby Hodgkinson"],
-          ["SGX3", "Paul Parsons · Linh Pham · Claire Stirm"],
-          ["Methods", "Heuristic evaluation · comparative analysis · survey framework"],
-        ].map(([k, v]) => (
-          <div key={k}>
-            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{k}</p>
-            <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", margin: 0, color: "var(--muted)" }}>{v}</p>
-          </div>
-        ))}
-      </div>
+      <ChapterToggle chapters={CHAPTERS} />
 
       <style>{`
         @media (max-width: 760px) {
-          .tacc-role-grid,
-          .tacc-note-grid,
-          .tacc-meta-grid { grid-template-columns: 1fr !important; }
+          .tacc-role-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 640px) {
           body { overflow-x: hidden; }

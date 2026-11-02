@@ -16,16 +16,14 @@ import img8 from "../../assets/flowerfinal8.png";
 import img9 from "../../assets/flowertimeline9.png";
 
 const eyebrow = {
-  fontSize: "var(--type-body)",
-  fontWeight: 600,
-  letterSpacing: "0.06em",
-  textTransform: "uppercase",
+  fontSize: "var(--type-base)",
+  fontWeight: "var(--weight-regular)",
   color: "var(--color-text-tertiary)",
   marginBottom: "var(--space-1)",
 };
 
 const body = {
-  fontSize: "var(--type-body)",
+  fontSize: "var(--type-base)",
   color: "var(--muted)",
   lineHeight: "var(--leading-body)",
   maxWidth: 640,
@@ -45,7 +43,7 @@ function Block({ src, subheading, caption }) {
         }}
       />
       <p style={eyebrow}>{subheading}</p>
-      <p style={body}>{caption}</p>
+      <p style={{ ...body, fontWeight: "var(--weight-thin)" }}>{caption}</p>
     </div>
   );
 }
@@ -98,10 +96,9 @@ function SectionHeading({ number, children }) {
       {number && <Kicker style={{ marginBottom: "var(--space-2)" }}>{number}</Kicker>}
       <h2
         style={{
-          fontSize: "var(--type-heading)",
+          fontSize: "var(--type-base)",
           lineHeight: "var(--leading-heading)",
-          letterSpacing: "-0.5px",
-          fontWeight: 600,
+          fontWeight: "var(--weight-regular)",
           margin: 0,
           maxWidth: 720
         }}
@@ -116,10 +113,8 @@ function JourneyLabel({ children, dark = false }) {
   return (
     <p
       style={{
-        fontSize: "var(--type-ui)",
-        fontWeight: 600,
-        letterSpacing: "0.07em",
-        textTransform: "uppercase",
+        fontSize: "var(--type-base)",
+        fontWeight: "var(--weight-regular)",
         color: dark ? "#6b5900" : "var(--color-text-tertiary)",
         margin: 0
       }}
@@ -149,13 +144,12 @@ function JourneyCell({ children, highlighted = false, label }) {
             display: "flex",
             justifyContent: "flex-end",
             marginBottom: "var(--space-1)",
-            fontSize: "var(--type-ui)",
-            fontWeight: 600,
-            letterSpacing: "0.06em",
+            fontSize: "var(--type-base)",
+            fontWeight: "var(--weight-regular)",
             color: "#5c4c00"
           }}
         >
-          KEY INSIGHT
+          Key insight
         </div>
       )}
 
@@ -163,7 +157,7 @@ function JourneyCell({ children, highlighted = false, label }) {
 
       <p
         style={{
-          fontSize: "var(--type-body)",
+          fontSize: "var(--type-base)",
           color: highlighted ? "#352c00" : "var(--text)",
           lineHeight: "var(--leading-subheading)",
           margin: label ? "8px 0 0" : 0,
@@ -204,7 +198,7 @@ function ButterflyJourneyChart() {
       thoughts: "Where is the nectar?",
       behaviour: "Locates the feeding area.",
       feelings: "Focused on the food source.",
-      senses: "UV VISION",
+      senses: "UV vision",
       highlighted: true,
     },
     {
@@ -262,8 +256,8 @@ function ButterflyJourneyChart() {
           >
             <p
               style={{
-                fontSize: "var(--type-body)",
-                fontWeight: 600,
+                fontSize: "var(--type-base)",
+                fontWeight: "var(--weight-regular)",
                 margin: 0,
                 color: "var(--text)"
               }}
@@ -313,10 +307,9 @@ function UVInsightCard() {
 
       <p
         style={{
-          fontSize: "var(--type-subheading)",
+          fontSize: "var(--type-base)",
           lineHeight: "var(--leading-subheading)",
-          letterSpacing: "-0.25px",
-          fontWeight: 600,
+          fontWeight: "var(--weight-regular)",
           margin: "var(--space-2) 0 var(--space-3)",
           maxWidth: 650
         }}
@@ -368,14 +361,13 @@ function RoleImpact() {
         marginTop: "var(--space-6)"
       }}
     >
-      <p style={eyebrow}>MY ROLE</p>
+      <p style={eyebrow}>My role</p>
 
       <h2
         style={{
-          fontSize: "var(--type-heading)",
+          fontSize: "var(--type-base)",
           lineHeight: "var(--leading-heading)",
-          letterSpacing: "-0.4px",
-          fontWeight: 600,
+          fontWeight: "var(--weight-regular)",
           margin: "0 0 var(--space-4)"
         }}
       >
@@ -434,14 +426,13 @@ export default function BeeFeeder() {
         className="fine-print fine-print--eyebrow"
         style={{ marginBottom: "var(--space-2)" }}
       >
-        PARAMETRIC PRODUCT DESIGN · ANIMAL-CENTERED DESIGN
+        Parametric product design · animal-centered design
       </p>
 
       <h1
         style={{
-          fontSize: "var(--type-heading)",
-          fontWeight: 600,
-          letterSpacing: "-0.5px",
+          fontSize: "var(--type-display)",
+          fontWeight: "var(--weight-bold)",
           lineHeight: "var(--leading-heading)",
           marginBottom: "var(--space-3)"
         }}
@@ -451,7 +442,7 @@ export default function BeeFeeder() {
 
       <p
         style={{
-          fontSize: "var(--type-body)",
+          fontSize: "var(--type-base)",
           color: "var(--muted)",
           marginBottom: "var(--space-3)",
           maxWidth: 600
@@ -462,7 +453,7 @@ export default function BeeFeeder() {
 
       <p
         style={{
-          fontSize: "var(--type-body)",
+          fontSize: "var(--type-base)",
           color: "var(--muted)",
           marginBottom: "var(--space-6)",
           maxWidth: 640,
@@ -487,8 +478,8 @@ export default function BeeFeeder() {
             <span
               style={{
                 display: "block",
-                fontSize: "var(--type-subheading)",
-                fontWeight: 600,
+                fontSize: "var(--type-base)",
+                fontWeight: "var(--weight-regular)",
                 color: "var(--text)",
                 marginBottom: 2
               }}
@@ -498,7 +489,7 @@ export default function BeeFeeder() {
 
             <span
               style={{
-                fontSize: "var(--type-ui)",
+                fontSize: "var(--type-base)",
                 color: "var(--color-text-tertiary)"
               }}
             >
@@ -699,7 +690,7 @@ export default function BeeFeeder() {
               {label}
             </p>
 
-            <p style={{ fontSize: "var(--type-body)", fontWeight: 400 }}>
+            <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>
               {value}
             </p>
           </div>

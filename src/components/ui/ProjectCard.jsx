@@ -58,7 +58,7 @@ export default function ProjectCard({
             aspectRatio: featured ? "21 / 9" : "16 / 10",
             objectFit: "cover",
             display: "block",
-            background: "var(--color-bg-secondary)",
+            background: "var(--color-bg-secondary)"
           }}
         />
       ) : image ? (
@@ -71,7 +71,7 @@ export default function ProjectCard({
             aspectRatio: featured ? "21 / 9" : "16 / 10",
             objectFit: "cover",
             display: "block",
-            background: "var(--color-bg-secondary)",
+            background: "var(--color-bg-secondary)"
           }}
         />
       ) : (
@@ -80,7 +80,7 @@ export default function ProjectCard({
           style={{
             width: "100%",
             aspectRatio: featured ? "21 / 9" : "16 / 10",
-            background: "var(--color-bg-secondary)",
+            background: "var(--color-bg-secondary)"
           }}
         />
       )}
@@ -90,12 +90,10 @@ export default function ProjectCard({
         {eyebrow && (
           <p
             style={{
-              fontSize: "var(--type-ui)",
-              fontWeight: 600,
-              letterSpacing: "0.10em",
-              textTransform: "uppercase",
+              fontSize: "var(--type-base)",
+              fontWeight: "var(--weight-regular)",
               color: "var(--color-text-tertiary)",
-              marginBottom: "var(--space-1)",
+              marginBottom: "var(--space-1)"
             }}
           >
             {eyebrow}
@@ -104,12 +102,11 @@ export default function ProjectCard({
 
         <h3
           style={{
-            fontSize: "var(--type-subheading)",
-            fontWeight: 600,
-            letterSpacing: "-0.1px",
+            fontSize: "var(--type-base)",
+            fontWeight: "var(--weight-regular)",
             lineHeight: "var(--leading-heading)",
             color: "var(--color-text-primary)",
-            marginBottom: "var(--space-1)",
+            marginBottom: "var(--space-1)"
           }}
         >
           {title}
@@ -118,14 +115,14 @@ export default function ProjectCard({
         {desc && (
           <p
             style={{
-              fontSize: "var(--type-body)",
+              fontSize: "var(--type-base)",
               color: "var(--color-text-secondary)",
               lineHeight: "var(--leading-body)",
               display: "-webkit-box",
               WebkitLineClamp: 2,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
-              marginBottom: tags.length ? "16px" : 0,
+              marginBottom: tags.length ? "16px" : 0
             }}
           >
             {desc}
@@ -136,8 +133,7 @@ export default function ProjectCard({
           <p className="project-card-tags" style={{
             margin: "var(--space-2) 0 0",
             color: "var(--muted)",
-            letterSpacing: "0.02em",
-            lineHeight: "var(--leading-body)",
+            lineHeight: "var(--leading-body)"
           }}>
             {tags.join(" · ")}
           </p>
@@ -166,7 +162,7 @@ export function ProjectGrid({ children }) {
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(2, 1fr)",
-        gap: "var(--space-4)",
+        gap: "var(--space-4)"
       }}
       className="card-grid-outer"
     >

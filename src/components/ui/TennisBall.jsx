@@ -230,7 +230,7 @@ export default function TennisBall() {
           outline:     "none",
           marginLeft:  "var(--space-1)",
           flexShrink:  0,
-          transition:  "opacity 120ms ease, transform 180ms ease-out",
+          transition:  "opacity 120ms ease, transform 180ms ease-out"
         }}
       >
         <TennisBallIcon />

@@ -1,27 +1,20 @@
-/* Editorial type system
+/* Type system: one size, three weights.
+ *   --type-base     16px. Headings, body, bullets, captions, interface text.
+ *   --type-display  28px. Only the <h1> title at the top of a page.
+ *   Weights: thin 300 (image captions), regular 400 (everything else),
+ *   bold 700 (page titles, bullet labels, card metrics, the SRI wordmark).
+ * Sentence case throughout; no italics, no extra letter-spacing.
  *
- * Three content roles, one sans-serif stack, two weights.
- *   --type-heading     The primary anchor: page and section titles.
- *   --type-subheading  Context or a secondary claim: card titles, standfirsts.
- *   --type-body        Narrative, evidence and supporting detail, incl. captions.
- * Interface text (nav, tags, eyebrows, chart axes, toggles) uses --type-ui; it
- * is chrome, not a content role.
- *
- * Weights: 400 regular, 600 semibold. The SRI wordmark (Playfair Display 800)
- * is the one branding exception.
- *
- * Spacing follows the golden ratio (×1.618 per step), rounded to whole pixels.
- * Steps 1–4 space content inside a section; --space-section (110px) separates
+ * Spacing follows the golden ratio (x1.618 per step), rounded to whole pixels.
+ * Steps 1-4 space content inside a section; --space-section (110px) separates
  * sections.
  */
 :root {
-  --type-heading: clamp(28px, 4vw, 44px);
-  --type-subheading: clamp(18px, 1.8vw, 21px);
-  --type-body: clamp(16px, 1.5vw, 17px);
-  --type-ui: 12px;
-
+  --type-base:      16px;
+  --type-display:   28px;
+  --weight-thin:    300;
   --weight-regular: 400;
-  --weight-semibold: 600;
+  --weight-bold:    700;
 
   --leading-heading: 1.15;
   --leading-subheading: 1.35;

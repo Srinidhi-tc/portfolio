@@ -28,9 +28,8 @@
   border-radius: var(--radius);
   background: var(--accent-light);
   color: var(--accent-dark);
-  font-size: var(--type-ui);
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-size: var(--type-base);
+  font-weight: var(--weight-regular);
 }
 
 /* Buttons — Apple HIG: 44pt minimum hit target, capsule shape */
@@ -43,9 +42,8 @@
   padding: 0.6875rem 1.25rem; /* 11pt × 20pt: yields 44pt height with 17pt body */
   border: none;
   border-radius: var(--radius);
-  font-weight: 600;
-  font-size: var(--type-body);
-  letter-spacing: 0;
+  font-weight: var(--weight-regular);
+  font-size: var(--type-base);
   cursor: pointer;
   transition: background var(--duration) var(--ease),
     color var(--duration) var(--ease),
@@ -117,19 +115,17 @@
  * up (caption) on phones where label-sized text reads as too small.
  */
 .fine-print {
-  font-size: var(--type-ui);
+  font-size: var(--type-base);
 }
 
 .fine-print--eyebrow {
   color: #86868b;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-weight: var(--weight-regular);
 }
 
 @media (max-width: 600px) {
   .fine-print {
-    font-size: var(--type-body);
+    font-size: var(--type-base);
   }
 }
 
@@ -137,14 +133,13 @@
  * Tag size on desktop; phones get a floor so the tags stay readable.
  */
 .project-card-tags {
-  font-size: var(--type-ui);
-  letter-spacing: 0.02em;
+  font-size: var(--type-base);
   line-height: var(--leading-body);
 }
 
 @media (max-width: 600px) {
   .project-card-tags {
-    font-size: var(--type-body);
+    font-size: var(--type-base);
   }
 }
 
@@ -155,7 +150,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: var(--type-body);
+  font-size: var(--type-base);
   line-height: var(--leading-body);
   color: var(--muted);
 }
@@ -181,14 +176,13 @@
  * caption size on phones.
  */
 .work-section-card-tags {
-  font-size: var(--type-ui);
-  letter-spacing: 0.02em;
+  font-size: var(--type-base);
   line-height: var(--leading-body);
 }
 
 @media (max-width: 600px) {
   .work-section-card-tags {
-    font-size: var(--type-body);
+    font-size: var(--type-base);
     line-height: var(--leading-subheading);
   }
 }

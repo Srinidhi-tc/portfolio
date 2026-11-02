@@ -24,8 +24,8 @@ import micEmail  from "../../assets/mic-email.jpeg";
 import micCall   from "../../assets/mic-call.jpeg";
 import micWcag   from "../../assets/mic-wcag.svg";
 
-const lbl  = { fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
-const bd   = { fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:0, maxWidth:680 };
+const lbl  = { fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--color-text-tertiary)", margin:0 };
+const bd   = { fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:0, maxWidth:680 };
 
 function Slide({ src, caption }) {
   return (
@@ -33,7 +33,7 @@ function Slide({ src, caption }) {
       <img src={src} alt={caption || ""} loading="lazy"
            style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)" }} />
       {caption && (
-        <figcaption style={{ marginTop:"var(--space-1)", fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
+        <figcaption style={{ marginTop:"var(--space-1)", fontSize:"var(--type-base)", fontWeight:"var(--weight-thin)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
       )}
     </figure>
   );
@@ -68,7 +68,7 @@ function Section({ id, title, children }) {
   return (
     <section id={id} style={{ marginBottom:"var(--space-7)" }}>
       <div style={{ marginBottom:"var(--space-3)", maxWidth:720 }}>
-        <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-heading)", lineHeight:"var(--leading-heading)", letterSpacing:"-0.5px", fontWeight:600, color:"var(--text)" }}>
+        <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", fontWeight:"var(--weight-regular)", color:"var(--text)" }}>
           {title}
         </h2>
       </div>
@@ -91,10 +91,10 @@ export default function Microsoft() {
         <p style={{ ...lbl, color:"rgba(255,255,255,0.7)", marginBottom:"var(--space-3)" }}>
           Microsoft Azure · Industry Partner Project · Health Observability
         </p>
-        <h1 style={{ fontSize:"var(--type-heading)", fontWeight:600, letterSpacing:"-1px", lineHeight: "var(--leading-heading)", margin:"0 0 var(--space-3)", color:"#fff" }}>
+        <h1 style={{ fontSize:"var(--type-display)", fontWeight:"var(--weight-bold)", lineHeight: "var(--leading-heading)", margin:"0 0 var(--space-3)", color:"#fff" }}>
           Azure Health Models
         </h1>
-        <p style={{ fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
+        <p style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
           Shipped visibility improvements and compliance-aligned patterns across the SRE Health Observability tool
         </p>
       </header>
@@ -102,41 +102,41 @@ export default function Microsoft() {
       {/* TEAM + ROLE */}
       <section style={{ marginBottom:"var(--space-6)", paddingBottom:40}}>
         <div className="hand-bullet" style={{ padding:"24px 28px", marginBottom:"var(--space-3)" }}>
-          <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>My role</p>
-          <p style={{ fontSize:"var(--type-body)", color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
+          <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>My role</p>
+          <p style={{ fontSize:"var(--type-base)", color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
             I own the entity editing flow and the AI Ops research. That includes SRE interviews, contextual inquiry,
             think-aloud testing, the radial health indicators, SLA phone alerts, and the Add New Signal button.
             Everything on this page is my contribution.
           </p>
         </div>
         <div className="hand-bullet" style={{ marginBottom:"var(--space-4)" }}>
-          <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Business Impact</p>
-          <p style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
+          <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>Business Impact</p>
+          <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)", lineHeight:"var(--leading-body)", margin:0, maxWidth:720 }}>
             I designed for decision speed specifically because engineering time is the most expensive resource on this team, every second an engineer spends parsing an unclear interface is a cost the business is already tracking.
           </p>
         </div>
         <div className="mic-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--space-4)" }}>
           <div>
-            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Industry partners</p>
-            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
+            <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>Industry partners</p>
+            <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
               Callum Collin<br />Martin Simecek<br /><span style={{ color:"var(--color-text-tertiary)" }}>Microsoft Azure</span>
             </p>
           </div>
           <div>
-            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Project leads</p>
-            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
+            <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>Project leads</p>
+            <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
               Prof. Nancy Rasche<br />Prof. Shobhan Shah<br /><span style={{ color:"var(--color-text-tertiary)" }}>Purdue University</span>
             </p>
           </div>
           <div>
-            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Tools</p>
-            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
+            <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>Tools</p>
+            <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
               Figma · Azure Portal · WCAG 2.1 Audit
             </p>
           </div>
           <div>
-            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>Purdue UX team</p>
-            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
+            <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>Purdue UX team</p>
+            <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>
               <strong style={{ color:"var(--text)" }}>Sri Chakravarthy ( everything shown in case study here </strong> · Entity Visual Design, and AI Ops<br />
               Alyssa Berger · Accessibility <br />
               Natalie Falzone · Competitor Analysis<br />

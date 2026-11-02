@@ -142,7 +142,7 @@ function Bar({ item, laneColor, anyActive, row }) {
         width: item.marker ? MARKER : wpct(item.from, item.to),
         top:   4 + row * ROW_H,
         height: BAR_H,
-        zIndex: hovered ? 10 : 1,
+        zIndex: hovered ? 10 : 1
       }}
       onMouseEnter={show}
       onMouseLeave={() => setHovered(false)}
@@ -159,7 +159,7 @@ function Bar({ item, laneColor, anyActive, row }) {
         transform:  hovered ? (item.marker ? "scale(1.3)" : "scaleY(1.3)") : "none",
         transformOrigin: "center",
         transition: "opacity 180ms ease, transform 180ms ease, box-shadow 180ms ease",
-        boxShadow:  hovered ? `0 2px 14px ${laneColor}66` : "none",
+        boxShadow:  hovered ? `0 2px 14px ${laneColor}66` : "none"
       }} />
 
       {/* Popup — image card for items with images, text card for the rest.
@@ -176,17 +176,17 @@ function Bar({ item, laneColor, anyActive, row }) {
           color:        "var(--text)",
           pointerEvents:"none",
           zIndex:       20,
-          ...popPos,
+          ...popPos
         }}>
           {hasImage && (
             <img src={item.image} alt={item.label}
                  style={{ width:"100%", height:120, objectFit:"cover", display:"block", borderRadius:"var(--radius) var(--radius) 0 0" }} />
           )}
           <div style={{ padding: hasImage ? "10px 12px 12px" : "12px 14px 14px" }}>
-            <p style={{ fontSize:"var(--type-ui)", fontWeight:600, color:"var(--text)", margin:0 }}>{item.label}</p>
-            <p style={{ fontSize:"var(--type-ui)", color:"var(--muted)", margin:"2px 0 0", lineHeight:"var(--leading-subheading)" }}>{item.sub}</p>
+            <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)", margin:0 }}>{item.label}</p>
+            <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:"2px 0 0", lineHeight:"var(--leading-subheading)" }}>{item.sub}</p>
             {item.note && (
-              <p style={{ fontSize:"var(--type-ui)", color:"var(--muted)", margin:"var(--space-1) 0 0", lineHeight:"var(--leading-body)" }}>{item.note}</p>
+              <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:"var(--space-1) 0 0", lineHeight:"var(--leading-body)" }}>{item.note}</p>
             )}
           </div>
           <div style={{
@@ -196,7 +196,7 @@ function Bar({ item, laneColor, anyActive, row }) {
             borderRight:"1px solid var(--hairline-weak)",
             borderBottom:"1px solid var(--hairline-weak)",
             rotate:"45deg",
-            ...arrowPos,
+            ...arrowPos
           }} />
         </div>
       )}
@@ -220,7 +220,7 @@ function GanttChart() {
           to   { opacity:1; scale:1; }
         }
         @media(max-width:600px){
-          .gantt-wrap { font-size:var(--type-ui) !important; }
+          .gantt-wrap { font-size:var(--type-base) !important; }
         }
       `}</style>
 
@@ -228,8 +228,7 @@ function GanttChart() {
         const { placed, rows } = packRows(lane.items);
         return (
           <div key={lane.label} style={{ marginBottom:"var(--space-4)" }}>
-            <p style={{ fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em",
-                        textTransform:"uppercase", color:"var(--color-text-tertiary)", marginBottom:"var(--space-1)" }}>
+            <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--color-text-tertiary)", marginBottom:"var(--space-1)" }}>
               {lane.label}
             </p>
             <div style={{ position:"relative", height: rows * ROW_H + 8, background:"var(--surface-2)", borderRadius:"var(--radius)" }}
@@ -258,12 +257,12 @@ function GanttChart() {
         {YEARS.map(yr => (
           <span key={yr} style={{ position:"absolute", left:pct(yr),
                                    transform:"translateX(-50%)",
-                                   fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", whiteSpace:"nowrap" }}>
+                                   fontSize:"var(--type-base)", color:"var(--color-text-tertiary)", whiteSpace:"nowrap" }}>
             {yr}
           </span>
         ))}
         <span style={{ position:"absolute", left:pct(NOW), transform:"translateX(-50%)",
-                        fontSize:"var(--type-ui)", fontWeight:600, color:"var(--text)" }}>Now</span>
+                        fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)" }}>Now</span>
       </div>
 
       {/* Legend */}
@@ -271,12 +270,12 @@ function GanttChart() {
         {LANES.map(lane => (
           <div key={lane.label} style={{ display:"flex", alignItems:"center", gap:5 }}>
             <div style={{ width:8, height:8, borderRadius:"var(--radius)", background:lane.color }} />
-            <span style={{ fontSize:"var(--type-ui)", color:"var(--muted)" }}>{lane.label}</span>
+            <span style={{ fontSize:"var(--type-base)", color:"var(--muted)" }}>{lane.label}</span>
           </div>
         ))}
       </div>
 
-      <p style={{ fontSize:"var(--type-ui)", color:"var(--color-text-tertiary)", marginTop:"var(--space-2)" }}>
+      <p style={{ fontSize:"var(--type-base)", color:"var(--color-text-tertiary)", marginTop:"var(--space-2)" }}>
         Hover coloured bars with images to see the project ↑
       </p>
     </div>
@@ -285,15 +284,14 @@ function GanttChart() {
 
 // ── Context sections ─────────────────────────────────────────────────────────
 const h2Style = {
-  fontSize:      "var(--type-heading)",
-  fontWeight:    600,
-  letterSpacing: "-0.3px",
+  fontSize:      "var(--type-base)",
+  fontWeight:    "var(--weight-regular)",
   lineHeight:    "var(--leading-heading)",
   color:         "var(--text)",
   margin:        "0 0 var(--space-3)",
 };
 const pStyle = {
-  fontSize:   "var(--type-body)",
+  fontSize:   "var(--type-base)",
   lineHeight: "var(--leading-body)",
   color:      "var(--muted)",
   margin:     "0 0 var(--space-3)",
@@ -319,16 +317,15 @@ function ContextSections() {
 
       <div style={{ marginTop:"var(--space-4)" }}>
         <div className="center-split">
-          <p className="split-left" style={{ fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.10em", textTransform:"uppercase",
+          <p className="split-left" style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)",
                       color:"var(--color-text-tertiary)", margin:"0 0 var(--space-2)" }}>
             What context changes
           </p>
         </div>
         {CONTEXT.map(([term, question]) => (
           <div key={term} className="center-split" style={{ padding:"14px 0" }}>
-            <span className="split-left" style={{ fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em",
-                           textTransform:"uppercase", color:"var(--text)" }}>{term}</span>
-            <span className="split-right" style={{ fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"var(--muted)" }}>{question}</span>
+            <span className="split-left" style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)" }}>{term}</span>
+            <span className="split-right" style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--muted)" }}>{question}</span>
           </div>
         ))}
       </div>
@@ -359,8 +356,8 @@ function ContextSections() {
           borderRadius:"var(--radius)",
           borderBottom:"4px solid #E4D9BC",
           boxShadow:"0 6px 14px rgba(0,0,0,0.20)",
-          fontSize:"var(--type-body)",
-          lineHeight:"var(--leading-body)",
+          fontSize:"var(--type-base)",
+          lineHeight:"var(--leading-body)"
         }}>
           🌻 Grateful to the mentors, professors, seniors, researchers, family, friends, and teammates who have challenged me, supported me, and helped me grow.
         </div>
@@ -389,7 +386,7 @@ function RecordList({ heading, rows }) {
   return (
     <div style={{ marginTop:"var(--space-6)" }}>
       <div className="center-split">
-        <h2 className="split-left" style={{ ...h2Style, fontSize:"var(--type-subheading)", marginBottom:"var(--space-2)" }}>{heading}</h2>
+        <h2 className="split-left" style={{ ...h2Style, fontSize:"var(--type-base)", marginBottom:"var(--space-2)" }}>{heading}</h2>
       </div>
       {/* Dates on the left of the gutter; role and organization on the right. */}
       <ul className="about-records">
@@ -422,18 +419,17 @@ export default function About() {
           <div className="about-profile-grid" style={{
             display:             "grid",
             alignItems:          "start",
-            marginBottom:        "var(--space-7)",
+            marginBottom:        "var(--space-7)"
           }}>
             <ProfilePhoto />
             <div>
               <h1 style={{
-                fontSize:      "var(--type-heading)",
-                fontWeight:    600,
-                letterSpacing: "-0.4px",
+                fontSize:      "var(--type-display)",
+                fontWeight:    "var(--weight-bold)",
                 lineHeight:    "var(--leading-heading)",
                 color:         "var(--text)",
                 marginBottom:  "var(--space-3)",
-                maxWidth:      "14ch",
+                maxWidth:      "14ch"
               }}>
                 sriː.ni.dʰi
               </h1>
@@ -441,9 +437,9 @@ export default function About() {
                 listStyle:     "none",
                 margin:        "0 0 var(--space-4)",
                 padding:       0,
-                fontSize:      "var(--type-body)",
+                fontSize:      "var(--type-base)",
                 color:         "var(--muted)",
-                lineHeight:    "var(--leading-body)",
+                lineHeight:    "var(--leading-body)"
               }}>
                 {["Web Design", "3D Design", "Product Design", "UX Design", "Interface Design"].map((d) => (
                   <li key={d}>{d}</li>
@@ -457,7 +453,7 @@ export default function About() {
           <div className="center-split" style={{ alignItems:"start" }}>
             <div className="split-left">
               <h2 style={{ ...h2Style, marginBottom:"var(--space-1)" }}>A career built by following questions.</h2>
-              <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", margin:0 }}>
+              <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:0 }}>
                 Psychology → research → making → product design.
               </p>
             </div>

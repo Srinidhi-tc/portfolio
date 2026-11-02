@@ -12,14 +12,14 @@ import { workSectionProjects } from "../../data/workSectionProjects";
 
 const heroImage = workSectionProjects.find((p) => p.id === "defenseark")?.image;
 
-const lbl  = { fontSize:"var(--type-ui)", fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--color-text-tertiary)", margin:0 };
-const bd   = { fontSize:"var(--type-body)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:"0 0 var(--space-3)", maxWidth:680 };
+const lbl  = { fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--color-text-tertiary)", margin:0 };
+const bd   = { fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:"0 0 var(--space-3)", maxWidth:680 };
 
 function Section({ id, number, title, children }) {
   return (
     <section id={id} style={{ marginBottom:"var(--space-6)" }}>
       {number && <Kicker style={{ marginBottom:"var(--space-2)" }}>{number}</Kicker>}
-      <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-heading)", lineHeight:"var(--leading-heading)", letterSpacing:"-0.5px", fontWeight:600, color:"var(--text)", maxWidth:720 }}>
+      <h2 style={{ margin:"0 0 var(--space-3)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", fontWeight:"var(--weight-regular)", color:"var(--text)", maxWidth:720 }}>
         {title}
       </h2>
       {children}
@@ -82,10 +82,10 @@ export default function DefenseArk() {
         <p style={{ ...lbl, marginBottom:"var(--space-3)" }}>
           DefenseARK Cybersecurity · A Metasquare Inc company · New York (remote from India)
         </p>
-        <h1 style={{ fontSize:"var(--type-heading)", fontWeight:600, letterSpacing:"-1px", lineHeight:"var(--leading-heading)", margin:"0 0 var(--space-3)", color:"var(--text)" }}>
+        <h1 style={{ fontSize:"var(--type-display)", fontWeight:"var(--weight-bold)", lineHeight:"var(--leading-heading)", margin:"0 0 var(--space-3)", color:"var(--text)" }}>
           Solo designer at a cybersecurity startup.
         </h1>
-        <p style={{ fontSize:"var(--type-subheading)", fontWeight:400, color:"var(--muted)", margin:0, maxWidth:720, lineHeight:"var(--leading-subheading)" }}>
+        <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--muted)", margin:0, maxWidth:720, lineHeight:"var(--leading-subheading)" }}>
           Founding design hire: unified identity, system, and client intake across Enigma, Brightscan, and Torus
         </p>
       </header>
@@ -105,8 +105,8 @@ export default function DefenseArk() {
           ["Tools",       "Figma · Figma Variables · React/CSS Handoff"],
         ].map(([k, v]) => (
           <div key={k}>
-            <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>{k}</p>
-            <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{v}</p>
+            <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>{k}</p>
+            <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:0 }}>{v}</p>
           </div>
         ))}
       </div>
@@ -175,10 +175,10 @@ export default function DefenseArk() {
           {PRODUCTS.map((p) => (
             <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="hand-bullet lift"
                style={{ display:"block", textDecoration:"none", color:"inherit" }}>
-              <p style={{ ...lbl, fontSize:"var(--type-ui)", marginBottom:"var(--space-1)" }}>{p.type}</p>
-              <p style={{ fontSize:"var(--type-subheading)", fontWeight:600, color:"var(--text)", margin:"0 0 var(--space-2)" }}>{p.name}</p>
-              <p style={{ fontSize:"var(--type-body)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:"0 0 var(--space-3)" }}>{p.my}</p>
-              <span style={{ fontSize:"var(--type-body)", fontWeight:600, color:"var(--link, #0066CC)" }}>Visit {p.name} ↗</span>
+              <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--space-1)" }}>{p.type}</p>
+              <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)", margin:"0 0 var(--space-2)" }}>{p.name}</p>
+              <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:"0 0 var(--space-3)" }}>{p.my}</p>
+              <span style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--link, #0066CC)" }}>Visit {p.name} ↗</span>
             </a>
           ))}
         </div>

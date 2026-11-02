@@ -7,7 +7,7 @@ export default function AnnotationTag({ children, tone = "sage", rotate = 0, sty
       className={`annotation-tag annotation-tag--${tone}`}
       style={{
         transform: rotate ? `rotate(${rotate}deg)` : undefined,
-        ...style,
+        ...style
       }}
     >
       {children}

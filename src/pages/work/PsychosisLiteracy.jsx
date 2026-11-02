@@ -23,11 +23,10 @@ import cap31 from "../../assets/cap31.jpg";
 
 
 const label = {
-  fontSize: "var(--type-ui)", fontWeight: 600, letterSpacing: "0.08em",
-  textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: 0,
+  fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", margin: 0,
 };
 const body = {
-  fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0, maxWidth: 680,
+  fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0, maxWidth: 680,
 };
 const slideImg = {
   width: "100%", display: "block", borderRadius: "var(--radius)",
@@ -39,7 +38,7 @@ function Section({ id, number, title, intro, children }) {
     <section id={id} style={{ marginBottom: "var(--space-7)" }}>
       <div style={{ marginBottom: "var(--space-4)", maxWidth: 720 }}>
         {number && <Kicker style={{ marginBottom: "var(--space-2)" }}>{number}</Kicker>}
-        <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-0.5px", fontWeight: 600, color: "var(--text)" }}>
+        <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-regular)", color: "var(--text)" }}>
           {title}
         </h2>
         {intro && <p style={body}>{intro}</p>}
@@ -63,7 +62,7 @@ function Slide({ src, caption, alt }) {
     <figure style={{ margin: "0 0 var(--space-2)" }}>
       <img src={src} alt={alt ?? (typeof caption === "string" ? caption : "")} style={slideImg} />
       {caption && (
-        <figcaption style={{ marginTop: "var(--space-1)", fontSize: "var(--type-ui)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>
+        <figcaption style={{ marginTop: "var(--space-1)", fontSize: "var(--type-base)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>
           {caption}
         </figcaption>
       )}
@@ -74,7 +73,7 @@ function Slide({ src, caption, alt }) {
 function Insight({ children }) {
   return (
     <FloralFrame>
-      <p style={{ margin: 0, fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)" }}>{children}</p>
+      <p style={{ margin: 0, fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)" }}>{children}</p>
     </FloralFrame>
   );
 }
@@ -84,8 +83,8 @@ function StatRow({ stats }) {
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap: "var(--space-3)", margin: "var(--space-4) 0" }}>
       {stats.map(({ value, label: lbl }) => (
         <div key={lbl} className="hand-bullet">
-          <span style={{ display: "block", fontSize: "var(--type-heading)", fontWeight: 600, color: "var(--text)", letterSpacing: "-0.3px", marginBottom: 4 }}>{value}</span>
-          <span style={{ fontSize: "var(--type-ui)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>{lbl}</span>
+          <span style={{ display: "block", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", marginBottom: 4 }}>{value}</span>
+          <span style={{ fontSize: "var(--type-base)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>{lbl}</span>
         </div>
       ))}
     </div>
@@ -97,20 +96,20 @@ export default function PsychosisLiteracy() {
     <div style={{ color: "var(--text)", maxWidth: 1000, margin: "0 auto", padding: "32px 28px 120px", WebkitFontSmoothing: "antialiased" }}>
 
       {/* DISCLAIMER */}
-      <div style={{ background: "var(--text)", color: "var(--surface-2)", borderRadius: "var(--radius)", padding: "16px 20px", marginBottom: "var(--space-5)", fontSize: "var(--type-body)", lineHeight: "var(--leading-body)" }}>
+      <div style={{ background: "var(--text)", color: "var(--surface-2)", borderRadius: "var(--radius)", padding: "16px 20px", marginBottom: "var(--space-5)", fontSize: "var(--type-base)", lineHeight: "var(--leading-body)" }}>
         <strong>Disclaimer:</strong> This project contains psychoeducation content and simulated visual imagery of hallucinations. Designed for educational purposes only.
       </div>
 
       {/* HERO */}
       <header style={{ marginBottom: "var(--space-6)" }}>
         <p style={{ ...label, marginBottom: "var(--space-3)" }}>Purdue Capstone 2026 · Health Tech · Youth Mental Health</p>
-        <h1 style={{ fontSize: "var(--type-heading)", fontWeight: 600, letterSpacing: "-1px", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)", color: "var(--text)" }}>
+        <h1 style={{ fontSize: "var(--type-display)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)", color: "var(--text)" }}>
           Percepta
         </h1>
-        <p style={{ fontSize: "var(--type-subheading)", fontWeight: 400, color: "var(--muted)", letterSpacing: "-0.2px", margin: "0 0 var(--space-3)", maxWidth: 720 }}>
+        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--muted)", margin: "0 0 var(--space-3)", maxWidth: 720 }}>
           How You See Matters.
         </p>
-        <p style={{ ...body, fontSize: "var(--type-body)", color: "var(--muted)" }}>
+        <p style={{ ...body, fontSize: "var(--type-base)", color: "var(--muted)" }}>
           A psychoeducation tool that builds basic awareness about psychosis, visual and auditory hallucinations for students and office-goers ages 15–25, at in schools and workplaces, before onset education.
         </p>
       </header>
@@ -130,25 +129,25 @@ export default function PsychosisLiteracy() {
             ["My Role", "Information architecture · Expert interviews · Usability testing · Computer vision integration"],
           ].map(([k, v]) => (
             <div key={k}>
-              <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>{k}</p>
-              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{v}</p>
+              <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{k}</p>
+              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{v}</p>
             </div>
           ))}
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-4)", paddingTop: 28}}>
           <div>
-            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Built With</p>
-            <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>Base44</p>
-            <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: "4px 0 0" }}>Figma · Computer Vision · Python</p>
+            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Built With</p>
+            <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>Base44</p>
+            <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: "4px 0 0" }}>Figma · Computer Vision · Python</p>
           </div>
           <div>
-            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Top Skills</p>
-            <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>AI-Native Design · Design Systems · Clear Impact Statements</p>
+            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Top Skills</p>
+            <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>AI-Native Design · Design Systems · Clear Impact Statements</p>
           </div>
           <div>
-            <p style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Impact</p>
-            <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>10/10 reached help-seeking · 100% hallucination type recognition on visual</p>
+            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Impact</p>
+            <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>10/10 reached help-seeking · 100% hallucination type recognition on visual</p>
           </div>
         </div>
       </div>
@@ -185,8 +184,8 @@ export default function PsychosisLiteracy() {
             ["Night time", "Weakest willpower. Most frightening. Night hallucinations are the hardest to cope with."],
           ].map(([stage, insight]) => (
             <div key={stage} className="hand-bullet">
-              <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{stage}</p>
-              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{insight}</p>
+              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)"}}>{stage}</p>
+              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{insight}</p>
             </div>
           ))}
         </div>
@@ -240,8 +239,8 @@ export default function PsychosisLiteracy() {
             ["Language matters", "Messaging must be non-stigmatising and avoid clinical jargon for a teen audience."],
           ].map(([finding, detail]) => (
             <div key={finding} className="hand-bullet">
-              <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--text)", marginBottom: "var(--space-1)" }}>{finding}</p>
-              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{detail}</p>
+              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", marginBottom: "var(--space-1)" }}>{finding}</p>
+              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{detail}</p>
             </div>
           ))}
         </div>
@@ -278,8 +277,8 @@ export default function PsychosisLiteracy() {
             ["Phase 3 · Help-Seeking", "10/10 reached the help page. 5/10 read through fully. Helpline got major visibility."],
           ].map(([phase, result]) => (
             <div key={phase} className="hand-bullet">
-              <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-1)" }}>{phase}</p>
-              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{result}</p>
+              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)" }}>{phase}</p>
+              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{result}</p>
             </div>
           ))}
         </div>
@@ -303,7 +302,7 @@ export default function PsychosisLiteracy() {
             ].map((t, i) => (
               <div key={i} style={{ display: "flex", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
                 <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>•</span>
-                <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{t}</p>
+                <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{t}</p>
               </div>
             ))}
           </div>
@@ -316,7 +315,7 @@ export default function PsychosisLiteracy() {
             ].map((c, i) => (
               <div key={i} style={{ display: "flex", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
                 <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>•</span>
-                <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{c}</p>
+                <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{c}</p>
               </div>
             ))}
           </div>

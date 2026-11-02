@@ -17,17 +17,16 @@ import form from "../../assets/Form Exploration.png";
 import battery from "../../assets/battery.png";
 
 const label = {
-  fontSize: "var(--type-body)", fontWeight: 600, letterSpacing: "0.06em",
-  textTransform: "uppercase", color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)"
+  fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)"
 };
-const copy = { fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", maxWidth: 650 };
+const copy = { fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", maxWidth: 650 };
 const img = { width: "100%", borderRadius: "var(--radius)", display: "block" };
 
 function Block({ src, subheading, caption }) {
   return <div>
     <img src={src} alt={subheading} style={{ ...img, marginBottom: "var(--space-3)" }} />
     <p style={{ ...label, marginBottom: "var(--space-1)" }}>{subheading}</p>
-    <p style={{ ...copy, margin: 0 }}>{caption}</p>
+    <p style={{ ...copy, margin: 0, fontWeight: "var(--weight-thin)" }}>{caption}</p>
   </div>;
 }
 
@@ -47,8 +46,7 @@ function Heading({ number, title, description }) {
   return <div style={{ maxWidth: 720 }}>
     {number && <Kicker style={{ marginBottom: "var(--space-2)" }}>{number}</Kicker>}
     <h2 style={{
-      fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)",
-      letterSpacing: "-0.65px", margin: "0 0 var(--space-2)", fontWeight: 600
+      fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-2)", fontWeight: "var(--weight-regular)"
     }}>{title}</h2>
     <p style={{ ...copy, margin: 0 }}>{description}</p>
   </div>;
@@ -66,8 +64,7 @@ function MarketOpportunity() {
       marginBottom: "var(--space-6)", padding: "28px 0 32px"}}>
       <p className="fine-print" style={{ ...label, margin: 0 }}>MARKET OPPORTUNITY</p>
       <h2 style={{
-        fontSize: "var(--type-subheading)", lineHeight: "var(--leading-heading)",
-        letterSpacing: "-.35px", margin: "var(--space-1) 0 var(--space-4)", fontWeight: 600
+        fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "var(--space-1) 0 var(--space-4)", fontWeight: "var(--weight-regular)"
       }}>
         A category growing fast enough to design a pricing lever into.
       </h2>
@@ -85,20 +82,20 @@ function MarketOpportunity() {
         {nodes.map((n, i) => (
           <div key={n.tag} style={{ display: "flex", alignItems: "center" }}>
             <div className="hand-bullet" style={{ width: "100%" }}>
-              <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: "0 0 var(--space-1)" }}>
+              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", margin: "0 0 var(--space-1)" }}>
                 {n.tag}
               </p>
-              <p style={{ fontSize: "var(--type-subheading)", fontWeight: 600, letterSpacing: "-0.4px", margin: "0 0 var(--space-1)", color: "var(--text)" }}>
+              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: "0 0 var(--space-1)", color: "var(--text)" }}>
                 {n.value}
               </p>
-              <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-subheading)", margin: 0 }}>
+              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-subheading)", margin: 0 }}>
                 {n.detail}
               </p>
             </div>
             {i < nodes.length - 1 && (
               <div aria-hidden="true" style={{
                 flexShrink: 0, width: 28, textAlign: "center",
-                color: "var(--color-text-tertiary)", fontSize: "var(--type-body)"
+                color: "var(--color-text-tertiary)", fontSize: "var(--type-base)"
               }}>
                 →
               </div>
@@ -112,21 +109,21 @@ function MarketOpportunity() {
         border: "1px solid var(--hairline-weak)",
         borderRadius: "var(--radius)", padding: "18px 20px", marginBottom: "var(--space-3)"
       }}>
-        <p style={{ fontSize: "var(--type-ui)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)", margin: "0 0 var(--space-1)" }}>
+        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", margin: "0 0 var(--space-1)" }}>
           Connected to the market size above
         </p>
-        <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", margin: "0 0 4px" }}>
+        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", margin: "0 0 4px" }}>
           Connected, smart-home units: +34% average selling price over standalone devices.
         </p>
         <div style={{ margin: "var(--space-2) 0 2px" }}>
           <AnnotationTag tone="burgundy" rotate={1.5}>Pricing lever</AnnotationTag>
         </div>
-        <p style={{ fontSize: "var(--type-body)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>
+        <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>
           The premium that app-connected architecture is positioned to capture inside the category above.
         </p>
       </div>
 
-      <p style={{ fontSize: "var(--type-ui)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-body)", margin: 0 }}>
+      <p style={{ fontSize: "var(--type-base)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-body)", margin: 0 }}>
         References: {" "}
         <a href="https://datahorizzonresearch.com/toilet-cleaning-robot-market-23579" target="_blank" rel="noopener noreferrer" style={{ color: "var(--link)" }}>
           DataHorizzon Research · Toilet Cleaning Robot Market
@@ -157,8 +154,7 @@ function RoleAtTop() {
       <div>
         <p className="fine-print" style={{ ...label, margin: 0 }}>MY ROLE</p>
         <h2 style={{
-          fontSize: "var(--type-subheading)", lineHeight: "var(--leading-heading)",
-          letterSpacing: "-.35px", margin: "var(--space-1) 0 0", fontWeight: 600
+          fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", margin: "var(--space-1) 0 0", fontWeight: "var(--weight-regular)"
         }}>End-to-end product design</h2>
       </div>
       <div>
@@ -167,8 +163,8 @@ function RoleAtTop() {
           gap: "var(--space-4) var(--space-4)", marginBottom: "var(--space-4)"
         }}>
           {details.map(([k,v]) => <div key={k}>
-            <p className="fine-print" style={{ ...label, fontSize: "var(--type-ui)", marginBottom: 5 }}>{k}</p>
-            <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-subheading)", margin: 0 }}>{v}</p>
+            <p className="fine-print" style={{ ...label, fontSize: "var(--type-base)", marginBottom: 5 }}>{k}</p>
+            <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-subheading)", margin: 0 }}>{v}</p>
           </div>)}
         </div>
         <p style={{ ...copy, margin: "0 0 var(--space-4)" }}>
@@ -178,8 +174,8 @@ function RoleAtTop() {
           manufacturing considerations, and cost estimation.
         </p>
         <div className="hand-bullet" >
-          <p className="fine-print" style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-1)" }}>Business Impact</p>
-          <p style={{ fontSize: "var(--type-body)", fontWeight: 600, color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
+          <p className="fine-print" style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Business Impact</p>
+          <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
             I designed Malli's modular, app-connected architecture specifically to capture that connected-device premium, treating smart-home integration as a pricing lever, not just a feature.
           </p>
         </div>
@@ -199,9 +195,9 @@ function InsightStrip() {
     gap: "var(--space-2)", marginBottom: "var(--space-7)"
   }}>
     {items.map(([n,t,d]) => <div className="hand-bullet" key={n} >
-      <p className="fine-print" style={{ ...label, fontSize: "var(--type-ui)", marginBottom: "var(--space-2)" }}>{n}</p>
-      <p style={{ fontSize: "var(--type-body)", fontWeight: 600, margin: "0 0 5px" }}>{t}</p>
-      <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0 }}>{d}</p>
+      <p className="fine-print" style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-2)" }}>{n}</p>
+      <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: "0 0 5px" }}>{t}</p>
+      <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0 }}>{d}</p>
     </div>)}
   </div>;
 }
@@ -210,7 +206,7 @@ function SystemCard() {
   return <div className="hand-bullet" style={{
     marginTop: "var(--space-4)" }}>
     <p className="fine-print" style={{ ...label, marginBottom: "var(--space-1)" }}>Internal system</p>
-    <p style={{ fontSize: "var(--type-subheading)", fontWeight: 600, letterSpacing: "-.3px", margin: "0 0 var(--space-3)" }}>
+    <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: "0 0 var(--space-3)" }}>
       The architecture had to disappear inside the footprint.
     </p>
     <div style={{
@@ -219,7 +215,7 @@ function SystemCard() {
       {["Motors", "Spray paths", "Sensors", "Removable modules"].map(x =>
         <div key={x} style={{
           padding: "12px 14px", borderRadius: "var(--radius)", background: "var(--surface-1)",
-          fontSize: "var(--type-body)", lineHeight: "var(--leading-subheading)"
+          fontSize: "var(--type-base)", lineHeight: "var(--leading-subheading)"
         }}>{x}</div>
       )}
     </div>
@@ -237,8 +233,8 @@ function OutcomeGrid() {
     display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: "var(--space-2)", marginTop: "var(--space-4)"
   }}>
     {items.map(([a,b]) => <div className="hand-bullet" key={a} >
-      <p style={{ fontSize: "var(--type-body)", fontWeight: 600, margin: "0 0 var(--space-1)" }}>{a}</p>
-      <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0 }}>{b}</p>
+      <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: "0 0 var(--space-1)" }}>{a}</p>
+      <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0 }}>{b}</p>
     </div>)}
   </div>;
 }
@@ -252,8 +248,7 @@ export default function Malli() {
         Product Design · Human–Robot Interaction
       </p>
       <h1 style={{
-        fontSize: "var(--type-heading)", fontWeight: 600,
-        letterSpacing: "-1px", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)"
+        fontSize: "var(--type-display)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)"
       }}>Malli 2.0</h1>
       <p style={{ ...copy, margin: 0 }}>
         The toilet-cleaning robot category is valued at $287M (2025), projected to reach $1.12B by 2033 at an 18.6% CAGR, with connected/smart-home units commanding a 34% price premium over standalone devices. I designed Malli's modular, app-connected architecture to capture that premium.
@@ -358,10 +353,10 @@ export default function Malli() {
       marginTop: "var(--space-7)", paddingTop: 12}}>
       <p className="fine-print" style={{ ...label, marginBottom: "var(--space-2)" }}>DESIGN TAKEAWAY</p>
       <h2 style={{
-        fontSize: "var(--type-heading)", lineHeight: "var(--leading-heading)", letterSpacing: "-.7px",
-        maxWidth: 720, margin: "0 0 var(--space-3)", fontWeight: 600
+        fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)",
+        maxWidth: 720, margin: "0 0 var(--space-3)", fontWeight: "var(--weight-regular)"
       }}>The automation had to disappear into the routine.</h2>
-      <p style={{ ...copy, fontSize: "var(--type-body)", maxWidth: 700, margin: 0 }}>
+      <p style={{ ...copy, fontSize: "var(--type-base)", maxWidth: 700, margin: 0 }}>
         Malli 2.0 became less about adding technology to a toilet and more about
         coordinating behavior, form, mechanics, charging, and manufacturing into
         one product experience.
@@ -376,7 +371,7 @@ export default function Malli() {
         ["Focus", "Behavioral Design · CMF · DFM"]
       ].map(([k,v]) => <div key={k}>
         <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 4 }}>{k}</p>
-        <p style={{ fontSize: "var(--type-body)", fontWeight: 400, margin: 0 }}>{v}</p>
+        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>{v}</p>
       </div>)}
     </div>
 

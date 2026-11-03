@@ -169,7 +169,7 @@ export default function PsychosisLiteracy() {
         ]} />
         <P>The resulting product treats safety and education as the same architecture, not two downstream reviews.</P>
         <Slide src={cap22} caption="Hallucination image architecture — ten visual categories validated against medical case studies: neutral, shadows, hands, fireworks, smoke, shaky/blurred, animals, slight distortions, colours, random patterns. The taxonomy underneath the product." />
-        <Slide src={cap31} caption="Trade-offs and challenges — competitor analysis, paper prototypes, wireframes, initial mockups, secondary research. Access documentation separately." />
+        <Slide src={cap31} caption="Trade-offs and challenges — competitor analysis, paper prototypes, wireframes, initial mockups, and secondary research. Access documentation separately." />
       </Section>
 
       {/* SOLUTION */}
@@ -180,12 +180,12 @@ export default function PsychosisLiteracy() {
           ["Safety architecture woven into the interaction", "opt-in framing on entry, exit controls visible at all times, reflection prompts after the experience, and a persistent crisis-help pathway. The 988 Lifeline is one tap from every screen, with three progressive support options (trusted person → counselor → professional care)."],
           ["Shipped once, consumed everywhere", "the same hallucination taxonomy and safety architecture is applied across all five sections of the Percepta experience: onboarding, visual simulation, auditory simulation, reflection, and help. One pattern, five surfaces, one clinical review packet for Purdue Psychological Sciences and CAPS."],
         ]} />
-        <Slide src={cap14} caption={"Percepta onboarding — \"100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.\" Scope and consent declared in the opening screen; safety architecture starts here."} />
+        <Slide src={cap14} caption={"Percepta onboarding — \"100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.\" Scope and consent declared in the opening screen; the safety architecture begins here."} />
         <Slide src={cap19} caption="Five visual hallucination types — colours, blur, smoke, bubbles, shadows, faces and hands. Each validated against medical case studies before being surfaced to the student." />
-        <Slide src={cap20} caption="Five auditory hallucination types — whispers, self-talk, two voices, footsteps, commands. Same validation protocol applied to the auditory channel." />
-        <Slide src={cap18} caption={"Filter selection — UX heuristic: match between system and real world. Filters work like gallery filters, a mental model youth already carry. \"Did anything feel off?\" — reflection prompt after the experience."} />
-        <Slide src={cap21} caption={"\"3 Ways to Ask for Help.\" Trusted person, counselor, professional support. 988 Suicide & Crisis Lifeline persistent in the frame. UX heuristic: help users recognize, diagnose, and recover from errors — applied to crisis safety."} />
-        <Slide src={cap27} caption="Shipped product — Base44 preview URL: https://app.base44.com/apps/69c1a0c9aa1a1e3081429008/editor/preview. Reviewable, usable, extensible. The deliverable was a working artifact, not a mockup." />
+        <Slide src={cap20} caption="Five auditory hallucination types — whispers, self-talk, two voices, footsteps, commands. The same validation protocol applied to the auditory channel." />
+        <Slide src={cap18} caption={"Filter selection — UX heuristic: match between system and real world. Filters work like gallery filters, a mental model youth already carry. \"Did anything feel off?\" reflection prompt after the experience."} />
+        <Slide src={cap21} caption={"\"3 Ways to Ask for Help\" — trusted person, counselor, professional support. 988 Suicide & Crisis Lifeline persistent in the frame. UX heuristic: help users recognize, diagnose, and recover from errors — applied to crisis safety."} />
+        <Slide src={cap27} caption="Shipped product on Base44 — reviewable, usable, extensible. The deliverable was a working artifact, not a mockup. https://app.base44.com/apps/69c1a0c9aa1a1e3081429008/editor/preview" />
       </Section>
 
       {/* IMPACT */}

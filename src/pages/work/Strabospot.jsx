@@ -42,8 +42,6 @@ function ClientSwitcher() {
   return (
     <div className="glass-bar client-switcher"
       style={{
-        position: "sticky",
-        top: 14,
         zIndex: 20,
         display: "flex",
         justifyContent: "space-between",

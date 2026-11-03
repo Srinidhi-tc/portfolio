@@ -49,7 +49,7 @@ const CHAPTERS = [
 function ClientSwitcher() {
   return (
     <div className="glass-bar client-switcher" style={{
-      position: "sticky", top: 14, zIndex: 20,
+      zIndex: 20,
       display: "flex", justifyContent: "space-between", alignItems: "center",
       gap: "var(--padding-small)", marginBottom: "var(--padding-big)", padding: "var(--padding-small) var(--padding-small) var(--padding-small) var(--padding-small)",
       borderRadius: "var(--radius)"

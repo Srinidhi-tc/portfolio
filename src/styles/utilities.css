@@ -693,3 +693,20 @@ h1, h2, h3, h4, h5, h6 {
   text-align: right;
   color: inherit;
 }
+
+/* Base size is set here, not left to the browser: a browser set to a larger
+   default (18px) would otherwise enlarge every untagged element. */
+html, body { font-size: var(--type-base); }
+
+/* Each paragraph finishes in the column it starts in. */
+.cs-prose p { break-inside: avoid; }
+
+.next-project a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--padding-small);
+  text-align: right;
+}
+.next-project__label,
+.next-project__meta { font-weight: var(--weight-regular); }

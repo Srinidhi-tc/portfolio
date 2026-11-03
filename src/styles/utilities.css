@@ -361,21 +361,9 @@
   --bullet-size: 12px;
 }
 
+/* The tick marks were removed; items keep their position only. */
 .hand-bullet {
   position: relative;
-  padding-left: var(--padding-small);
-}
-
-.hand-bullet::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.3em;
-  width: var(--bullet-size);
-  height: var(--bullet-size);
-  background-color: var(--text);
-  -webkit-mask: url("../assets/hand-bullet.svg") center / contain no-repeat;
-  mask: url("../assets/hand-bullet.svg") center / contain no-repeat;
 }
 
 /* ---------- Glass bar ----------
@@ -535,7 +523,10 @@
 }
 
 .home-item__meta {
-  font-weight: var(--weight-thin);
+  align-self: stretch;
+  text-align: left;
+  font-size: var(--type-caption);
+  font-weight: var(--weight-regular);
   color: var(--muted);
   line-height: var(--leading-body);
 }
@@ -648,4 +639,44 @@
   .cs-image-pair { grid-template-columns: minmax(0, 1fr); }
 
   .cs-prose { columns: 1; }
+}
+
+/* ---------- Header space ----------
+ * The old top bar is gone; its height stays as negative space above every page.
+ */
+.header-space { height: var(--header-space); }
+
+/* ---------- Footer strip ---------- */
+.site-footer {
+  padding: var(--padding-big) var(--edge-margin);
+  border-top: 1px solid var(--hairline-weak);
+}
+.site-footer__strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--padding-small);
+}
+.site-footer__time {
+  display: flex;
+  align-items: center;
+  gap: var(--padding-small);
+  color: var(--muted);
+}
+.site-footer__copy { margin: 0; color: var(--muted); font-size: var(--type-caption); }
+.site-footer a { color: inherit; }
+.next-project {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--padding-big) var(--edge-margin);
+  border-top: 1px solid var(--hairline-weak);
+}
+.next-project a { color: inherit; font-weight: var(--weight-bold); }
+
+/* Client switcher (TACC / StraboSpot): stacks on narrow screens. */
+@media (max-width: 720px) {
+  .client-switcher { flex-wrap: wrap; }
+  .client-switcher > div:first-child { flex-basis: 100%; }
+  .client-switcher__links { flex-wrap: wrap; flex-shrink: 1 !important; }
 }

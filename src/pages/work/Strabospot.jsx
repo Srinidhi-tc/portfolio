@@ -40,7 +40,7 @@ const slideBase = {
 
 function ClientSwitcher() {
   return (
-    <div className="glass-bar"
+    <div className="glass-bar client-switcher"
       style={{
         position: "sticky",
         top: 14,
@@ -70,7 +70,7 @@ function ClientSwitcher() {
         </p>
       </div>
 
-      <div style={{ display: "flex", gap: "var(--padding-small)", flexShrink: 0 }}>
+      <div className="client-switcher__links" style={{ display: "flex", gap: "var(--padding-small)", flexShrink: 0 }}>
         <a
           href="/portfolio/work/ai-coding"
           style={{
@@ -204,7 +204,7 @@ function Slide({ src, number, caption }) {
         }}
       >
         <span>Client slide {String(number).padStart(2, "0")} / 20</span>
-        {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontSize: "var(--type-base)", fontWeight: "var(--weight-thin)" }}>{caption}</span> : null}
+        {caption ? <span style={{ textAlign: "left", maxWidth: 520, fontSize: "var(--type-caption)", fontWeight: "var(--weight-regular)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
   );

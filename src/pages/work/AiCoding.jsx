@@ -48,7 +48,7 @@ const CHAPTERS = [
 
 function ClientSwitcher() {
   return (
-    <div className="glass-bar" style={{
+    <div className="glass-bar client-switcher" style={{
       position: "sticky", top: 14, zIndex: 20,
       display: "flex", justifyContent: "space-between", alignItems: "center",
       gap: "var(--padding-small)", marginBottom: "var(--padding-big)", padding: "var(--padding-small) var(--padding-small) var(--padding-small) var(--padding-small)",
@@ -60,7 +60,7 @@ function ClientSwitcher() {
           Client 01 · AI Coding Tutor
         </p>
       </div>
-      <div style={{ display: "flex", gap: "var(--padding-small)", flexShrink: 0 }}>
+      <div className="client-switcher__links" style={{ display: "flex", gap: "var(--padding-small)", flexShrink: 0 }}>
       <span style={{ display: "inline-flex", alignItems: "center", padding: "var(--padding-small) var(--padding-small)", borderRadius: "var(--radius)", border: "1px solid var(--text)", color: "var(--text)", background: "transparent", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>
   AI Coding Tutor
 </span>
@@ -128,7 +128,7 @@ function Slide({ src, number, caption }) {
       <img src={src} alt={`TACC client deck slide ${number}`} style={slideBase} />
       <figcaption style={{ display: "flex", justifyContent: "space-between", gap: "var(--padding-small)", paddingTop: "var(--padding-small)", color: "var(--color-text-tertiary)", fontSize: "var(--type-base)", lineHeight: "var(--leading-subheading)" }}>
         <span>Client slide {String(number).padStart(2, "0")} / 24</span>
-        {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontSize: "var(--type-base)", fontWeight: "var(--weight-thin)" }}>{caption}</span> : null}
+        {caption ? <span style={{ textAlign: "left", maxWidth: 520, fontSize: "var(--type-caption)", fontWeight: "var(--weight-regular)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
   );

@@ -48,13 +48,13 @@ function Ext({ href, children }) {
 function About() {
   return (
     <div className="stack stack--big">
-      <p className="sri-mark" aria-label="SRI">
+      <p className="sri-mark" aria-label="SRI, pronounced Sree">
         <span>S</span>
         <span>R</span>
-        <span>I</span>
+        <span>Iː</span>
       </p>
 
-      <ul className="stack stack--small stack--right">
+      <ul className="stack stack--small">
         {ROLES.map((r) => <li key={r}>{r}</li>)}
       </ul>
 

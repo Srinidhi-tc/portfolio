@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import ProfilePhoto from "../components/ui/ProfilePhoto";
 import ContactLinks from "../components/ui/ContactLinks";
-// import CollaboratorNotes from "../sections/CollaboratorNotes"; // re-enable at 3+ notes
 
 import imgDefenseArk from "../assets/ransomwaremain.png";
 import imgInterior   from "../assets/p1.webp";
@@ -182,11 +181,11 @@ function Bar({ item, laneColor, anyActive, row }) {
             <img src={item.image} alt={item.label}
                  style={{ width:"100%", height:120, objectFit:"cover", display:"block", borderRadius:"var(--radius) var(--radius) 0 0" }} />
           )}
-          <div style={{ padding: hasImage ? "10px 12px 12px" : "12px 14px 14px" }}>
+          <div style={{ padding: "var(--padding-small)" }}>
             <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)", margin:0 }}>{item.label}</p>
-            <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:"2px 0 0", lineHeight:"var(--leading-subheading)" }}>{item.sub}</p>
+            <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:0, lineHeight:"var(--leading-subheading)" }}>{item.sub}</p>
             {item.note && (
-              <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:"var(--space-1) 0 0", lineHeight:"var(--leading-body)" }}>{item.note}</p>
+              <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:"var(--padding-small) 0 0", lineHeight:"var(--leading-body)" }}>{item.note}</p>
             )}
           </div>
           <div style={{
@@ -205,30 +204,30 @@ function Bar({ item, laneColor, anyActive, row }) {
 }
 
 // ── Gantt ────────────────────────────────────────────────────────────────────
-function GanttChart() {
+export function GanttChart() {
   const [active, setActive] = useState(null);
 
   return (
     <div style={{ width:"100%" }}>
       <style>{`
         @keyframes popIn {
-          from { opacity:0; transform:translateX(-50%) scale(0.88); }
-          to   { opacity:1; transform:translateX(-50%) scale(1); }
+          from { opacity: 0; transform: translateX(-50%) scale(0.88); }
+          to   { opacity: 1; transform: translateX(-50%) scale(1); }
         }
         @keyframes popInS {
-          from { opacity:0; scale:0.92; }
-          to   { opacity:1; scale:1; }
+          from { opacity: 0; scale: 0.92; }
+          to   { opacity: 1; scale: 1; }
         }
         @media(max-width:600px){
-          .gantt-wrap { font-size:var(--type-base) !important; }
+          .gantt-wrap { font-size: var(--type-base) !important; }
         }
       `}</style>
 
       {LANES.map((lane) => {
         const { placed, rows } = packRows(lane.items);
         return (
-          <div key={lane.label} style={{ marginBottom:"var(--space-4)" }}>
-            <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--color-text-tertiary)", marginBottom:"var(--space-1)" }}>
+          <div key={lane.label} style={{ marginBottom:"var(--padding-small)" }}>
+            <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--color-text-tertiary)", marginBottom:"var(--padding-small)" }}>
               {lane.label}
             </p>
             <div style={{ position:"relative", height: rows * ROW_H + 8, background:"var(--surface-2)", borderRadius:"var(--radius)" }}
@@ -253,7 +252,7 @@ function GanttChart() {
       })}
 
       {/* Year axis */}
-      <div style={{ position:"relative", height:20, marginTop:4 }}>
+      <div style={{ position:"relative", height:20, marginTop:0 }}>
         {YEARS.map(yr => (
           <span key={yr} style={{ position:"absolute", left:pct(yr),
                                    transform:"translateX(-50%)",
@@ -266,16 +265,16 @@ function GanttChart() {
       </div>
 
       {/* Legend */}
-      <div style={{ display:"flex", gap:"var(--space-3)", marginTop:"var(--space-3)", flexWrap:"wrap" }}>
+      <div style={{ display:"flex", gap:"var(--padding-small)", marginTop:"var(--padding-small)", flexWrap:"wrap" }}>
         {LANES.map(lane => (
-          <div key={lane.label} style={{ display:"flex", alignItems:"center", gap:5 }}>
+          <div key={lane.label} style={{ display:"flex", alignItems:"center", gap:"var(--padding-small)" }}>
             <div style={{ width:8, height:8, borderRadius:"var(--radius)", background:lane.color }} />
             <span style={{ fontSize:"var(--type-base)", color:"var(--muted)" }}>{lane.label}</span>
           </div>
         ))}
       </div>
 
-      <p style={{ fontSize:"var(--type-base)", color:"var(--color-text-tertiary)", marginTop:"var(--space-2)" }}>
+      <p style={{ fontSize:"var(--type-base)", color:"var(--color-text-tertiary)", marginTop:"var(--padding-small)" }}>
         Hover coloured bars with images to see the project ↑
       </p>
     </div>
@@ -288,13 +287,13 @@ const h2Style = {
   fontWeight:    "var(--weight-regular)",
   lineHeight:    "var(--leading-heading)",
   color:         "var(--text)",
-  margin:        "0 0 var(--space-3)",
+  margin:        "0 0 var(--padding-small)",
 };
 const pStyle = {
   fontSize:   "var(--type-base)",
   lineHeight: "var(--leading-body)",
   color:      "var(--muted)",
-  margin:     "0 0 var(--space-3)",
+  margin:     "0 0 var(--padding-small)",
   maxWidth:   "60ch",
 };
 
@@ -307,23 +306,23 @@ const CONTEXT = [
   ["Trust",       "What does the product ask someone to understand, disclose, or consent to?"],
 ];
 
-function ContextSections() {
+export function ContextSections() {
   return (
     <>
       {/* The common thread — label left of the gutter, the list right of it */}
-      <div className="center-split" style={{ marginTop:"var(--space-7)" }}>
+      <div className="center-split" style={{ marginTop:"var(--padding-big)" }}>
         <h2 className="split-left" style={{ ...h2Style, fontWeight: "var(--weight-bold)" }}>The common thread? Context.</h2>
       </div>
 
-      <div style={{ marginTop:"var(--space-4)" }}>
+      <div style={{ marginTop:"var(--padding-small)" }}>
         <div className="center-split">
           <p className="split-left" style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)",
-                      color:"var(--color-text-tertiary)", margin:"0 0 var(--space-2)" }}>
+                      color:"var(--color-text-tertiary)", margin:"0 0 var(--padding-small)" }}>
             What context changes
           </p>
         </div>
         {CONTEXT.map(([term, question]) => (
-          <div key={term} className="center-split" style={{ padding:"14px 0" }}>
+          <div key={term} className="center-split" style={{ padding:"var(--padding-small) 0" }}>
             <span className="split-left" style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)" }}>{term}</span>
             <span className="split-right" style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--muted)" }}>{question}</span>
           </div>
@@ -331,7 +330,7 @@ function ContextSections() {
       </div>
 
       {/* Design is more than making things usable — heading left, words right */}
-      <div className="center-split" style={{ marginTop:"var(--space-7)", alignItems:"start" }}>
+      <div className="center-split" style={{ marginTop:"var(--padding-big)", alignItems:"start" }}>
         <h2 className="split-left" style={{ ...h2Style, fontWeight: "var(--weight-bold)" }}>Design is more than making things usable.</h2>
         <div className="split-right">
           <p style={pStyle}>
@@ -347,10 +346,10 @@ function ContextSections() {
       </div>
 
       {/* Gratitude card, right of the gutter */}
-      <div className="center-split" style={{ marginTop:"var(--space-7)" }}>
+      <div className="center-split" style={{ marginTop:"var(--padding-big)" }}>
         <div className="split-right" style={{
           maxWidth:460,
-          padding:"22px 26px 24px",
+          padding:"var(--padding-small) var(--padding-small) var(--padding-small)",
           background:"#FBF6E8",
           color:"#2B2A26",
           borderRadius:"var(--radius)",
@@ -369,24 +368,24 @@ function ContextSections() {
 // ── Experience / Education ───────────────────────────────────────────────────
 // Dates, titles and organizations as written on the resume. An optional fourth
 // value links the organization to its website.
-const EXPERIENCE = [
+export const EXPERIENCE = [
   ["Aug 2024 – May 2026", "Product Design Associate",                 "Purdue University"],
   ["Aug 2025 – Dec 2025", "UX / Product Design Consultant",           "SGX3 Science Gateways", "https://sciencegateways.org/"],
   ["Dec 2024 – May 2025", "Accessibility Design Project Coordinator", "TAPD-INTO STEM NSF"],
   ["May 2021 – Jun 2023", "Product Designer, Individual Contributor", "Metasquare, DefenseARK Cybersecurity", "https://www.metasquare.com/"],
   ["Jan 2020 – Jul 2020", "UX Design Intern",                         "Ionixx Technologies", "https://www.ionixxtech.com/"],
 ];
-const EDUCATION = [
+export const EDUCATION = [
   ["Aug 2024 – May 2026", "MS Computer Graphics Technology",             "Purdue University"],
   ["May 2020 – May 2022", "PG Diploma, Counselling Special User Groups", "University of Madras"],
   ["Aug 2017 – May 2020", "BS Human Psychology",                         "Madras School of Social Work"],
 ];
 
-function RecordList({ heading, rows }) {
+export function RecordList({ heading, rows }) {
   return (
-    <div style={{ marginTop:"var(--space-6)" }}>
+    <div style={{ marginTop:"var(--padding-big)" }}>
       <div className="center-split">
-        <h2 className="split-left" style={{ ...h2Style, fontSize:"var(--type-base)", marginBottom:"var(--space-2)", fontWeight: "var(--weight-bold)" }}>{heading}</h2>
+        <h2 className="split-left" style={{ ...h2Style, fontSize:"var(--type-base)", marginBottom:"var(--padding-small)", fontWeight: "var(--weight-bold)" }}>{heading}</h2>
       </div>
       {/* Dates on the left of the gutter; role and organization on the right. */}
       <ul className="about-records">
@@ -419,7 +418,7 @@ export default function About() {
           <div className="about-profile-grid" style={{
             display:             "grid",
             alignItems:          "start",
-            marginBottom:        "var(--space-7)"
+            marginBottom:        "var(--padding-big)"
           }}>
             <ProfilePhoto />
             <div>
@@ -428,14 +427,14 @@ export default function About() {
                 fontWeight:    "var(--weight-bold)",
                 lineHeight:    "var(--leading-heading)",
                 color:         "var(--text)",
-                marginBottom:  "var(--space-3)",
+                marginBottom:  "var(--padding-small)",
                 maxWidth:      "14ch"
               }}>
                 sriː.ni.dʰi
               </h1>
               <ul style={{
                 listStyle:     "none",
-                margin:        "0 0 var(--space-4)",
+                margin:        "0 0 var(--padding-small)",
                 padding:       0,
                 fontSize:      "var(--type-base)",
                 color:         "var(--muted)",
@@ -452,7 +451,7 @@ export default function About() {
           {/* ZONE 2 — Heading left of the gutter, graph right of it */}
           <div className="center-split" style={{ alignItems:"start" }}>
             <div className="split-left">
-              <h2 style={{ ...h2Style, marginBottom:"var(--space-1)", fontWeight: "var(--weight-bold)" }}>A career built by following questions.</h2>
+              <h2 style={{ ...h2Style, marginBottom:"var(--padding-small)", fontWeight: "var(--weight-bold)" }}>A career built by following questions.</h2>
               <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", margin:0 }}>
                 Psychology → research → making → product design.
               </p>
@@ -470,7 +469,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* <CollaboratorNotes /> */}
     </>
   );
 }

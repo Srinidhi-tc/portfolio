@@ -19,7 +19,7 @@ const eyebrow = {
   fontSize: "var(--type-base)",
   fontWeight: "var(--weight-regular)",
   color: "var(--color-text-tertiary)",
-  marginBottom: "var(--space-1)",
+  marginBottom: "var(--padding-small)",
 };
 
 const body = {
@@ -39,11 +39,11 @@ function Block({ src, subheading, caption }) {
           width: "100%",
           borderRadius: "var(--radius)",
           display: "block",
-          marginBottom: "var(--space-3)"
+          marginBottom: "var(--padding-small)"
         }}
       />
       <p style={eyebrow}>{subheading}</p>
-      <p style={{ ...body, fontSize: "var(--type-caption)" }}>{caption}</p>
+      <p style={{ ...body, fontSize: "var(--type-base)", fontWeight: "var(--weight-thin)" }}>{caption}</p>
     </div>
   );
 }
@@ -54,7 +54,7 @@ function SideBySide({ left, right }) {
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
-        gap: "var(--space-4)"
+        gap: "var(--padding-small)"
       }}
     >
       <div>
@@ -65,7 +65,7 @@ function SideBySide({ left, right }) {
             width: "100%",
             borderRadius: "var(--radius)",
             display: "block",
-            marginBottom: "var(--space-3)"
+            marginBottom: "var(--padding-small)"
           }}
         />
         <p style={eyebrow}>{left.subheading}</p>
@@ -80,7 +80,7 @@ function SideBySide({ left, right }) {
             width: "100%",
             borderRadius: "var(--radius)",
             display: "block",
-            marginBottom: "var(--space-3)"
+            marginBottom: "var(--padding-small)"
           }}
         />
         <p style={eyebrow}>{right.subheading}</p>
@@ -92,8 +92,8 @@ function SideBySide({ left, right }) {
 
 function SectionHeading({ number, children }) {
   return (
-    <div style={{ marginBottom: "var(--space-4)" }}>
-      {number && <Kicker style={{ marginBottom: "var(--space-2)" }}>{number}</Kicker>}
+    <div style={{ marginBottom: "var(--padding-small)" }}>
+      {number && <Kicker style={{ marginBottom: "var(--padding-small)" }}>{number}</Kicker>}
       <h2
         style={{
           fontSize: "var(--type-base)",
@@ -129,7 +129,7 @@ function JourneyCell({ children, highlighted = false, label }) {
       style={{
         background: highlighted ? "#FFF9B1" : "none",
         borderRadius: highlighted ? "var(--radius)" : 0,
-        padding: highlighted ? "16px 15px" : "0 0 0 var(--bullet-indent)",
+        padding: highlighted ? "16px 15px" : "0 0 0 var(--padding-small)",
         minHeight: 96,
         border: "none",
         boxShadow: highlighted ? "0 5px 10px rgba(0, 0, 0, 0.22)" : "none",
@@ -141,7 +141,7 @@ function JourneyCell({ children, highlighted = false, label }) {
           style={{
             display: "flex",
             justifyContent: "flex-end",
-            marginBottom: "var(--space-1)",
+            marginBottom: "var(--padding-small)",
             fontSize: "var(--type-base)",
             fontWeight: "var(--weight-regular)",
             color: "#5c4c00"
@@ -158,7 +158,7 @@ function JourneyCell({ children, highlighted = false, label }) {
           fontSize: "var(--type-base)",
           color: highlighted ? "#352c00" : "var(--text)",
           lineHeight: "var(--leading-subheading)",
-          margin: label ? "8px 0 0" : 0,
+          margin: label ? "var(--padding-small) 0 0" : 0,
           maxWidth: 230
         }}
       >
@@ -217,14 +217,14 @@ function ButterflyJourneyChart() {
   ];
 
   return (
-    <div style={{ marginTop: "var(--space-4)" }}>
-      <div style={{ marginBottom: "var(--space-3)" }}>
+    <div style={{ marginTop: "var(--padding-small)" }}>
+      <div style={{ marginBottom: "var(--padding-small)" }}>
         <JourneyLabel>Butterfly customer journey</JourneyLabel>
 
         <p
           style={{
             ...body,
-            margin: "var(--space-1) 0 0",
+            margin: "var(--padding-small) 0 0",
             maxWidth: 720
           }}
         >
@@ -237,9 +237,9 @@ function ButterflyJourneyChart() {
         style={{
           display: "grid",
           gridTemplateColumns: "110px repeat(5, minmax(0, 1fr))",
-          gap: "var(--space-1)",
+          gap: "var(--padding-small)",
           overflowX: "auto",
-          paddingBottom: 4
+          paddingBottom: 0
         }}
       >
         <div />
@@ -248,7 +248,7 @@ function ButterflyJourneyChart() {
           <div
             key={stage.title}
             style={{
-              padding: "8px 12px",
+              padding: "var(--padding-small) var(--padding-small)",
               minWidth: 145
             }}
           >
@@ -271,7 +271,7 @@ function ButterflyJourneyChart() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                padding: "0 10px 0 0",
+                padding: "0 var(--padding-small) 0 0",
                 minWidth: 100
               }}
             >
@@ -299,7 +299,7 @@ function UVInsightCard() {
   return (
     <div className="hand-bullet"
       style={{
-        marginTop: "var(--space-4)" }}
+        marginTop: "var(--padding-small)" }}
     >
       <JourneyLabel>The turning point</JourneyLabel>
 
@@ -308,20 +308,20 @@ function UVInsightCard() {
           fontSize: "var(--type-base)",
           lineHeight: "var(--leading-subheading)",
           fontWeight: "var(--weight-regular)",
-          margin: "var(--space-2) 0 var(--space-3)",
+          margin: "var(--padding-small) 0 var(--padding-small)",
           maxWidth: 650
         }}
       >
         The flower looked right to humans. It still missed a butterfly cue.
       </p>
 
-      <div style={{ marginBottom: "var(--space-2)" }}>
+      <div style={{ marginBottom: "var(--padding-small)" }}>
         <AnnotationTag tone="sage" rotate={-1.5}>Invisible to humans</AnnotationTag>
       </div>
 
       <div
         style={{
-          paddingTop: 18
+          paddingTop: "var(--padding-small)"
         }}
       >
         <JourneyLabel>UV vision</JourneyLabel>
@@ -329,7 +329,7 @@ function UVInsightCard() {
         <p
           style={{
             ...body,
-            margin: "var(--space-1) 0 0",
+            margin: "var(--padding-small) 0 0",
             maxWidth: 700
           }}
         >
@@ -355,8 +355,8 @@ function RoleImpact() {
   return (
     <div
       style={{
-        paddingTop: 40,
-        marginTop: "var(--space-6)"
+        paddingTop: "var(--padding-big)",
+        marginTop: "var(--padding-big)"
       }}
     >
       <p style={eyebrow}>My role</p>
@@ -365,19 +365,19 @@ function RoleImpact() {
         style={{
           fontSize: "var(--type-base)",
           lineHeight: "var(--leading-heading)",
-          margin: "0 0 var(--space-4)", fontWeight: "var(--weight-bold)" }}
+          margin: "0 0 var(--padding-small)", fontWeight: "var(--weight-bold)" }}
       >
         From garden accessory to animal-centered product.
       </h2>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--padding-small)" }}>
         {items.map((item, index) => (
           <div
             key={index}
             style={{
               display: "grid",
               gridTemplateColumns: "18px 1fr",
-              gap: "var(--space-2)",
+              gap: "var(--padding-small)",
               alignItems: "start"
             }}
           >
@@ -388,7 +388,7 @@ function RoleImpact() {
                 height: 5,
                 borderRadius: "50%",
                 background: "var(--text)",
-                marginTop: "var(--space-2)"
+                marginTop: "var(--padding-small)"
               }}
             />
 
@@ -413,14 +413,14 @@ export default function BeeFeeder() {
     <div
       style={{
         color: "var(--text)",
-        padding: "80px 40px",
+        padding: "var(--padding-big) var(--padding-big)",
         maxWidth: 900,
         margin: "0 auto"
       }}
     >
       <p
         className="fine-print fine-print--eyebrow"
-        style={{ marginBottom: "var(--space-2)" }}
+        style={{ marginBottom: "var(--padding-small)" }}
       >
         Parametric product design · animal-centered design
       </p>
@@ -430,7 +430,7 @@ export default function BeeFeeder() {
           fontSize: "var(--type-base)",
           fontWeight: "var(--weight-bold)",
           lineHeight: "var(--leading-heading)",
-          marginBottom: "var(--space-3)"
+          marginBottom: "var(--padding-small)"
         }}
       >
         Butterfly Feeder
@@ -440,7 +440,7 @@ export default function BeeFeeder() {
         style={{
           fontSize: "var(--type-base)",
           color: "var(--muted)",
-          marginBottom: "var(--space-3)",
+          marginBottom: "var(--padding-small)",
           maxWidth: 600
         }}
       >
@@ -451,7 +451,7 @@ export default function BeeFeeder() {
         style={{
           fontSize: "var(--type-base)",
           color: "var(--muted)",
-          marginBottom: "var(--space-6)",
+          marginBottom: "var(--padding-big)",
           maxWidth: 640,
           lineHeight: "var(--leading-body)"
         }}
@@ -461,7 +461,7 @@ export default function BeeFeeder() {
         came from studying the animal rather than refining the object.
       </p>
 
-      <div className="stat-grid" style={{ marginBottom: "var(--space-6)" }}>
+      <div className="stat-grid" style={{ marginBottom: "var(--padding-big)" }}>
         {[
           { value: "Parametric", label: "design system" },
           { value: "UV-guided", label: "animal experience" },
@@ -477,7 +477,7 @@ export default function BeeFeeder() {
                 fontSize: "var(--type-base)",
                 fontWeight: "var(--weight-regular)",
                 color: "var(--text)",
-                marginBottom: 2
+                marginBottom: 0
               }}
             >
               {value}
@@ -499,7 +499,7 @@ export default function BeeFeeder() {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "var(--space-6)"
+          gap: "var(--padding-big)"
         }}
       >
         <section>
@@ -660,8 +660,8 @@ export default function BeeFeeder() {
       <div
         className="meta-grid"
         style={{
-          paddingTop: 40,
-          marginTop: "var(--space-5)"
+          paddingTop: "var(--padding-big)",
+          marginTop: "var(--padding-big)"
         }}
       >
         {[
@@ -680,7 +680,7 @@ export default function BeeFeeder() {
               className="fine-print"
               style={{
                 color: "var(--color-text-tertiary)",
-                marginBottom: 4
+                marginBottom: 0
               }}
             >
               {label}

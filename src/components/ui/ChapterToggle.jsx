@@ -13,7 +13,7 @@ const DEFAULT_CHAPTERS = [
   { id: "impact", label: "Impact" },
 ];
 
-export default function ChapterToggle({ chapters = DEFAULT_CHAPTERS }) {
+export default function ChapterToggle({ chapters = DEFAULT_CHAPTERS, variant = "bar" }) {
   const { pathname } = useLocation();
   const [present, setPresent] = useState([]);
   const [active, setActive] = useState(null);
@@ -54,6 +54,29 @@ export default function ChapterToggle({ chapters = DEFAULT_CHAPTERS }) {
   };
 
   if (present.length === 0) return null;
+
+  // Vertical: a right-aligned list in the case-study grid's first column; the
+  // active chapter is bold.
+  if (variant === "vertical") {
+    return (
+      <nav aria-label="Case study chapters" className="chapter-list">
+        <ul>
+          {present.map((c) => (
+            <li key={c.id}>
+              <a
+                href={`#${c.id}`}
+                className={"chapter-list__item" + (active === c.id ? " chapter-list__item--active" : "")}
+                aria-current={active === c.id ? "true" : undefined}
+                onClick={(e) => handleClick(e, c.id)}
+              >
+                {c.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    );
+  }
 
   const step = Math.max(0, present.findIndex((c) => c.id === active));
 

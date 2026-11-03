@@ -220,7 +220,7 @@ export default function TennisBall() {
           background:  "none",
           border:      "none",
           cursor:      phase === "idle" ? "pointer" : "default",
-          padding:     "3px",
+          padding:     "0",
           width:       "30px",
           height:      "30px",
           display:     "flex",
@@ -228,7 +228,7 @@ export default function TennisBall() {
           justifyContent: "center",
           borderRadius: "50%",
           outline:     "none",
-          marginLeft:  "var(--space-1)",
+          marginLeft:  "var(--padding-small)",
           flexShrink:  0,
           transition:  "opacity 120ms ease, transform 180ms ease-out"
         }}

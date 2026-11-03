@@ -85,7 +85,7 @@ img {
 .navbar {
   position: relative;
   z-index: 50;
-  padding-top: var(--space-3);
+  padding-top: var(--padding-small);
 background: "color-mix(in srgb, var(--background) 88%, transparent)";
 backdropFilter: "blur(16px)";
 border: "1px solid var(--hairline-weak)";
@@ -97,7 +97,7 @@ border: "1px solid var(--hairline-weak)";
   display: grid;
   grid-template-columns: 1fr auto 1fr; /* keeps the centre pill viewport-centred */
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--padding-small);
 }
 
 /* Nav — plain text links, no capsule */
@@ -109,7 +109,7 @@ border: "1px solid var(--hairline-weak)";
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: var(--gutter);
+  column-gap: var(--col-gap);
   align-items: center;
 }
 
@@ -128,7 +128,7 @@ border: "1px solid var(--hairline-weak)";
   position: absolute;
   left: 100%;
   top: 50%;
-  translate: var(--space-2) -50%;
+  translate: var(--padding-small) -50%;
   display: flex;
 }
 
@@ -145,7 +145,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .nav-link {
-  padding: 0.6rem 0;
+  padding: var(--padding-small) 0;
   color: var(--muted);
   font-size: var(--type-base);
   font-weight: var(--weight-regular);
@@ -169,7 +169,7 @@ border: "1px solid var(--hairline-weak)";
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--padding-small);
   pointer-events: none;
 }
 
@@ -188,7 +188,7 @@ border: "1px solid var(--hairline-weak)";
 
 /* Page sections */
 .page-section {
-  padding: var(--space-5) 0;
+  padding: var(--padding-big) 0;
 }
 
 /* Scroll reveal — scoped to RevealGroup so a stray [data-reveal] is never
@@ -196,8 +196,7 @@ border: "1px solid var(--hairline-weak)";
 .reveal-group [data-reveal] {
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
     transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
   will-change: opacity, transform;
 }
@@ -216,7 +215,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .eyebrow {
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--padding-small);
   font-size: var(--type-base);
   color: var(--accent);
   font-weight: var(--weight-regular);
@@ -230,7 +229,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .page-copy {
-  margin: var(--space-3) 0 0;
+  margin: var(--padding-small) 0 0;
   max-width: var(--max-width-narrow);
   font-size: var(--type-base);
   line-height: var(--leading-body);
@@ -239,7 +238,7 @@ border: "1px solid var(--hairline-weak)";
 
 .inline-link {
   display: inline-block;
-  margin-top: var(--space-3);
+  margin-top: var(--padding-small);
   color: var(--accent-dark);
   font-weight: var(--weight-regular);
   transition: color var(--duration) var(--ease);
@@ -261,7 +260,7 @@ border: "1px solid var(--hairline-weak)";
 
 /* Hero */
 .hero {
-  padding: var(--space-6) 0 var(--space-5);
+  padding: var(--padding-big) 0 var(--padding-big);
 }
 
 /* Footer */
@@ -273,12 +272,12 @@ border: "1px solid var(--hairline-weak)";
 .footer-inner {
   /* Extra bottom space lifts the links (~1 inch+) clear of the fixed mascot
      and its speech bubble at maximum scroll. */
-  padding: var(--space-4) 0 calc(var(--space-5) + 10rem);
+  padding: var(--padding-small) 0 calc(var(--padding-big) + var(--padding-big));
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--padding-small);
 }
 
 .footer-left {
@@ -298,7 +297,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .footer-contact {
-  margin-top: var(--space-1);
+  margin-top: var(--padding-small);
 }
 
 /* Links in body text: the one link colour, regular weight, no underline. */
@@ -313,7 +312,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .footer-text {
-  margin: var(--space-1) 0 0;
+  margin: var(--padding-small) 0 0;
   color: var(--muted);
   font-size: var(--type-base);
   line-height: var(--leading-body);
@@ -322,7 +321,7 @@ border: "1px solid var(--hairline-weak)";
 .footer-links {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--padding-small);
 }
 
 .footer-link {
@@ -341,9 +340,9 @@ border: "1px solid var(--hairline-weak)";
   position: sticky;
   bottom: 24px;
   z-index: 55;
-  margin-bottom: var(--space-4);
-  padding-top: var(--space-1);
-  padding-bottom: var(--space-1);
+  margin-bottom: var(--padding-small);
+  padding-top: var(--padding-small);
+  padding-bottom: var(--padding-small);
   background: rgba(249, 249, 251, 0.01);
 }
 
@@ -351,7 +350,7 @@ border: "1px solid var(--hairline-weak)";
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
-  padding: 8px 0;
+  padding: var(--padding-small) 0;
 }
 
 .work-section-process-glass {
@@ -361,13 +360,13 @@ border: "1px solid var(--hairline-weak)";
   scrollbar-width: none;
   margin: 0 auto;
   width: fit-content;
-  padding: 4px;
+  padding: 0;
 }
 
 .work-section-process-rail {
   position: relative;
   min-width: min(100%, 520px);
-  padding: 8px;
+  padding: var(--padding-small);
   border-radius: inherit;
 }
 
@@ -400,7 +399,7 @@ border: "1px solid var(--hairline-weak)";
   margin: 0;
   text-align: center;
   text-decoration: none;
-  padding: 0.55rem 0.65rem;
+  padding: var(--padding-small) var(--padding-small);
   border: none;
   background: transparent;
   color: var(--muted);
@@ -458,13 +457,13 @@ border: "1px solid var(--hairline-weak)";
 .work-section-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--gutter); /* the page's central gutter runs between the two columns */
+  gap: var(--col-gap); /* the page's central gutter runs between the two columns */
 }
 
 @media (max-width: 720px) {
   .work-section-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--padding-small);
   }
 }
 
@@ -507,7 +506,7 @@ border: "1px solid var(--hairline-weak)";
 .work-section-media {
   flex-shrink: 0;
   margin: 0;
-  padding: 14px 16px;
+  padding: var(--padding-small) var(--padding-small);
   min-height: 168px;
   aspect-ratio: 16 / 10;
   display: flex;
@@ -533,8 +532,8 @@ border: "1px solid var(--hairline-weak)";
    around the cutout), tilted slightly in the thumbnail's top-right corner. */
 .work-section-sticker {
   position: absolute;
-  top: var(--space-2);
-  right: var(--space-3);
+  top: var(--padding-small);
+  right: var(--padding-small);
   z-index: 2;
   width: 64px;
   height: 64px;
@@ -547,19 +546,18 @@ border: "1px solid var(--hairline-weak)";
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter:
-    drop-shadow(0 0 0 #fff)
+  filter: drop-shadow(0 0 0 #fff)
     drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff)
     drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff)
     drop-shadow(0 1px 1px rgba(0, 0, 0, 0.12));
 }
 
 .work-section-card-copy {
-  padding: 22px 24px 24px;
+  padding: var(--padding-small) var(--padding-small) var(--padding-small);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-1);
+  gap: var(--padding-small);
   flex: 1;
 }
 
@@ -587,9 +585,9 @@ border: "1px solid var(--hairline-weak)";
 .work-section-sites {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px var(--space-3);
+  gap: 0 var(--padding-small);
   margin: 0;
-  padding: 0 24px 22px;
+  padding: 0 var(--padding-small) var(--padding-small);
   font-size: var(--type-base);
 }
 
@@ -598,7 +596,7 @@ border: "1px solid var(--hairline-weak)";
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--padding-small);
   color: var(--link);
 }
 
@@ -632,8 +630,8 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .work-section-card-body {
-  margin-top: var(--space-3);
-  padding-top: var(--space-3);
+  margin-top: var(--padding-small);
+  padding-top: var(--padding-small);
   width: 100%;
   border-top: 1px solid var(--hairline-faint);
   animation: workSectionContentIn 0.25s cubic-bezier(0.25, 0.1, 0.25, 1) both;
@@ -648,7 +646,7 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .work-section-body {
-  margin: var(--space-1) 0 0;
+  margin: var(--padding-small) 0 0;
   font-size: var(--type-base);
   line-height: var(--leading-body);
   color: var(--muted);
@@ -709,11 +707,11 @@ border: "1px solid var(--hairline-weak)";
   }
 
   .navbar-inner {
-    gap: var(--space-1);
+    gap: var(--padding-small);
   }
 
   .nav-links {
-    gap: var(--space-3);
+    gap: var(--padding-small);
   }
 
   .brand {
@@ -721,11 +719,11 @@ border: "1px solid var(--hairline-weak)";
   }
 
   .page-section {
-    padding: var(--space-5) 0;
+    padding: var(--padding-big) 0;
   }
 
   .hero {
-    padding: var(--space-5) 0 var(--space-4);
+    padding: var(--padding-big) 0 var(--padding-small);
   }
 
   
@@ -740,8 +738,8 @@ border: "1px solid var(--hairline-weak)";
   --walk-x: 0px;
   --mascot-lean: 0deg;
   position: fixed;
-  bottom: var(--space-3);
-  right: var(--space-3);
+  bottom: var(--padding-small);
+  right: var(--padding-small);
   /* Height is the Problem → Impact toggle's height (61px) × 1.618, so the dog
      and the toggle share a golden-ratio relationship; width keeps the
      animation's 180:130 proportions. */
@@ -753,7 +751,7 @@ border: "1px solid var(--hairline-weak)";
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(calc(100% + var(--space-3)));
+  transform: translateX(calc(100% + var(--padding-small)));
   transition: transform 2s var(--ease);
   user-select: none;
   outline: none;
@@ -816,7 +814,7 @@ border: "1px solid var(--hairline-weak)";
   font-family: var(--font-sans);
   font-size: var(--type-base);
   font-weight: var(--weight-regular);
-  padding: 12px 18px;
+  padding: var(--padding-small) var(--padding-small);
   border-radius: var(--radius);
   border: 2.5px solid var(--text);
   box-shadow: 4px 4px 0 var(--text);
@@ -829,7 +827,7 @@ border: "1px solid var(--hairline-weak)";
   line-height: var(--leading-subheading);
 }
 
-/* The mascot is position:fixed, so it always floats over the content column.
+/* The mascot is position: fixed, so it always floats over the content column.
    At 180px wide with a 240px bubble that means it lands squarely on body copy
    on a phone. Scaling both down on small screens keeps the character present
    while clearing the text; desktop sizing is untouched. */
@@ -837,13 +835,13 @@ border: "1px solid var(--hairline-weak)";
   .floating-mascot {
     width: 112px;
     height: 82px;
-    bottom: var(--space-3);
-    right: var(--space-3);
+    bottom: var(--padding-small);
+    right: var(--padding-small);
   }
 
   .floating-mascot__bubble {
     font-size: var(--type-base);
-    padding: 8px 12px;
+    padding: var(--padding-small) var(--padding-small);
     border-radius: var(--radius);
     border-width: 2px;
     box-shadow: 3px 3px 0 var(--text);
@@ -969,8 +967,7 @@ border: "1px solid var(--hairline-weak)";
   }
   100% {
     opacity: 0;
-    transform:
-      translate(
+    transform: translate(
         calc(-50% + cos(calc(var(--i) * 30deg)) * 80px),
         calc(-50% + sin(calc(var(--i) * 30deg)) * 80px)
       )
@@ -982,12 +979,12 @@ border: "1px solid var(--hairline-weak)";
   .floating-mascot {
     width: 130px;
     height: 95px;
-    bottom: var(--space-3);
-    right: var(--space-3);
+    bottom: var(--padding-small);
+    right: var(--padding-small);
   }
   .floating-mascot__bubble {
     font-size: var(--type-base);
-    padding: 10px 14px;
+    padding: var(--padding-small) var(--padding-small);
   }
 }
 
@@ -1012,7 +1009,7 @@ border: "1px solid var(--hairline-weak)";
    like the two controls collided. */
 @media (max-width: 380px) {
   .nav-links {
-    gap: var(--space-2);
+    gap: var(--padding-small);
   }
 
   .nav-link {
@@ -1047,17 +1044,17 @@ border: "1px solid var(--hairline-weak)";
    No cards, no borders, no hover motion. Height-normalized, width-auto. */
 
 .project-row {
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--padding-small);
 }
 
 .project-row-list {
   list-style: none;
   margin: 0;
-  padding: 0 0 var(--space-1);
+  padding: 0 0 var(--padding-small);
   display: flex;
   align-items: flex-end;
   justify-content: safe center;
-  gap: var(--space-5);
+  gap: var(--padding-big);
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
@@ -1079,7 +1076,7 @@ border: "1px solid var(--hairline-weak)";
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--padding-small);
   text-decoration: none;
   color: inherit;
   /* No hover transform/scale/shadow by design — see spec. */
@@ -1112,7 +1109,7 @@ border: "1px solid var(--hairline-weak)";
    revisit clamp() bounds after dropping in the actual renders. */
 @media (max-width: 720px) {
   .project-row-list {
-    gap: var(--space-3);
+    gap: var(--padding-small);
   }
 
   .project-row-img {
@@ -1127,7 +1124,7 @@ border: "1px solid var(--hairline-weak)";
 #decisions,
 #tradeoffs,
 #impact {
-  scroll-margin-top: 24px;
+  scroll-margin-top: var(--padding-small);
 }
 
 .chapter-toggle {
@@ -1148,18 +1145,18 @@ border: "1px solid var(--hairline-weak)";
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
   background: transparent;
-  padding: var(--space-4);
-  margin: var(--space-4) 0;
+  padding: var(--padding-small);
+  margin: var(--padding-small) 0;
 }
 
 .decision-object__label {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--padding-small);
   font-size: var(--type-base);
   font-weight: var(--weight-regular);
   color: var(--color-burgundy);
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--padding-small);
 }
 
 .decision-object__dot {
@@ -1175,21 +1172,21 @@ border: "1px solid var(--hairline-weak)";
   font-weight: var(--weight-regular);
   line-height: var(--leading-subheading);
   color: var(--color-ink);
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--padding-small);
   max-width: 640px;
 }
 
 .decision-object__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-4);
+  gap: var(--padding-small);
 }
 
 .decision-object__field-label {
   font-size: var(--type-base);
   font-weight: var(--weight-regular);
   color: var(--color-muted);
-  margin: 0 0 var(--space-1);
+  margin: 0 0 var(--padding-small);
 }
 
 .decision-object__field-body {
@@ -1209,7 +1206,7 @@ border: "1px solid var(--hairline-weak)";
    Both tones render the same yellow so every sticky note on the site matches. */
 .annotation-tag {
   display: inline-block;
-  padding: 7px 11px;
+  padding: var(--padding-small) var(--padding-small);
   border-radius: var(--radius);
   font-size: var(--type-base);
   font-weight: var(--weight-regular);
@@ -1223,7 +1220,7 @@ border: "1px solid var(--hairline-weak)";
 
 /* Home intro, section labels and design-lens block */
 .home-intro {
-  margin: 0 0 var(--space-6);
+  margin: 0 0 var(--padding-big);
 }
 
 .home-intro__headline {
@@ -1237,40 +1234,40 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .home-section-label {
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--padding-small);
   font-size: var(--type-base);
   font-weight: var(--weight-regular);
   color: var(--color-text-tertiary);
-  scroll-margin-top: 96px;
+  scroll-margin-top: var(--padding-big);
 }
 
 .home-lens {
-  margin: var(--space-7) 0 var(--space-7);
-  padding-top: var(--space-5);
+  margin: var(--padding-big) 0 var(--padding-big);
+  padding-top: var(--padding-big);
   border-top: 1px solid var(--hairline-weak);
   align-items: start;
 }
 
 .home-lens .home-section-label {
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--padding-small);
 }
 
 .home-lens__list {
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--padding-big);
   font-size: var(--type-base);
   font-weight: var(--weight-regular);
   color: var(--text);
 }
 
 .home-lens__title {
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--padding-small);
   font-size: var(--type-base);
   font-weight: var(--weight-regular);
   color: var(--text);
 }
 
 .home-lens__body {
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--padding-small);
   font-size: var(--type-base);
   line-height: var(--leading-body);
   color: var(--muted);
@@ -1289,15 +1286,15 @@ border: "1px solid var(--hairline-weak)";
 /* Floral frame — hairline box with leaves climbing the corner rails. */
 .floral-frame {
   position: relative;
-  margin: var(--space-4) 0;
-  padding: 28px 44px;
+  margin: var(--padding-small) 0;
+  padding: var(--padding-small) var(--padding-big);
   border: 0.75px solid var(--text);
   color: var(--text);
 }
 
 @media (max-width: 640px) {
   .floral-frame {
-    padding: 24px 28px;
+    padding: var(--padding-small) var(--padding-small);
   }
 }
 
@@ -1306,12 +1303,12 @@ border: "1px solid var(--hairline-weak)";
 .home-landing {
   /* Pull up into the hidden title's empty space so the link clears the
      fixed chapter toggle; bottom padding keeps the cards below the fold. */
-  margin-top: -6rem;
+  margin-top: calc(-1 * var(--padding-big));
   box-sizing: border-box;
   /* One spacing step taller than the screen's free space, so the first
      project card starts just below the fold rather than peeking above it. */
-  min-height: calc(100svh - 7.9rem + var(--space-5));
-  padding-bottom: 8.2rem;
+  min-height: calc(100svh - 7.9rem + var(--padding-big));
+  padding-bottom: var(--padding-big);
   display: flex;
   flex-direction: column;
   /* Centre the intro, icon row and link in the free space above the toggle so
@@ -1333,13 +1330,13 @@ border: "1px solid var(--hairline-weak)";
 }
 
 .work-section-panel {
-  scroll-margin-top: 80px;
+  scroll-margin-top: var(--padding-big);
 }
 
 /* Project row grouping — labels and separators stay hidden at rest and fade
    in while the row is hovered or focused. */
 .work-section .project-row {
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--padding-big);
 }
 
 .project-row-list {
@@ -1349,8 +1346,8 @@ border: "1px solid var(--hairline-weak)";
   gap: var(--group-gap);
   /* Room for the group labels above the icons, cancelled by the negative
      margin so the row's position does not move. */
-  padding-top: var(--space-5);
-  margin-top: calc(-1 * var(--space-5));
+  padding-top: var(--padding-big);
+  margin-top: calc(-1 * var(--padding-big));
 }
 
 .project-row-group {
@@ -1383,7 +1380,7 @@ border: "1px solid var(--hairline-weak)";
 
 .project-row-group-label {
   position: absolute;
-  top: calc(-1 * var(--space-5));
+  top: calc(-1 * var(--padding-big));
   left: 0;
   right: 0;
   text-align: center;
@@ -1410,8 +1407,7 @@ border: "1px solid var(--hairline-weak)";
   transform: translate(-50%, -50%) scale(0.4);
   background: var(--hairline);
   opacity: 0;
-  transition:
-    opacity 0.25s ease,
+  transition: opacity 0.25s ease,
     transform 0.25s ease,
     width 0.3s ease,
     height 0.3s ease;
@@ -1431,8 +1427,7 @@ border: "1px solid var(--hairline-weak)";
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   /* dot first (opacity, scale), then the stretch into a line */
-  transition:
-    opacity 0.22s ease 0.16s,
+  transition: opacity 0.22s ease 0.16s,
     transform 0.22s ease 0.16s,
     width 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.46s,
     height 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.46s;
@@ -1463,8 +1458,8 @@ border: "1px solid var(--hairline-weak)";
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  column-gap: var(--space-3);
-  row-gap: var(--space-1);
+  column-gap: var(--padding-small);
+  row-gap: var(--padding-small);
 }
 
 .work-section-metric {

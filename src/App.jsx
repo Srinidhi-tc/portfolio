@@ -1,6 +1,6 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import PageShell from "./components/layout/PageShell";
-import Work from "./pages/Work";
+import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Microsoft from "./pages/work/Microsoft";
@@ -16,8 +16,8 @@ export default function App() {
   return (
     <Routes>
       <Route element={<PageShell />}>
-        <Route path="/" element={<Navigate to="/work" replace />} />
-        <Route path="/work" element={<Work />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/work" element={<Home />} />
         <Route path="/work/microsoft" element={<Microsoft />} />
         <Route path="/work/ai-coding" element={<AiCoding />} />
         <Route path="/work/strabospot" element={<Strabospot />} />
@@ -26,6 +26,7 @@ export default function App() {
         <Route path="/work/bee-feeder" element={<BeeFeeder />} />
         <Route path="/work/hearts-of-insomnia" element={<HeartsOfInsomnia />} />
         <Route path="/work/defenseark" element={<DefenseArk />} />
+        {/* Dormant: reachable by URL only, not linked from the home grid. */}
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>

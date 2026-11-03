@@ -8,7 +8,7 @@ export default function Kicker({ children, style }) {
         fontSize: "var(--type-base)",
         fontWeight: "var(--weight-regular)",
         color: "var(--color-muted)",
-        margin: "0 0 var(--space-1)",
+        margin: "0 0 var(--padding-small)",
         ...style
       }}
     >

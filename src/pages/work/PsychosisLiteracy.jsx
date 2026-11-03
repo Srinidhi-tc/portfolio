@@ -2,8 +2,6 @@
 // Images: name your slides cap1.jpg → cap33.jpg and place in src/assets/
 // Only key slides are used — not all 33 are shown
 
-import Kicker from "../../components/ui/Kicker";
-import FloralFrame from "../../components/ui/FloralFrame";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import cap2  from "../../assets/cap2.jpg";
 import cap9  from "../../assets/cap9.jpg";
@@ -33,15 +31,13 @@ const slideImg = {
   background: "var(--surface-2)",
 };
 
-function Section({ id, number, title, intro, children }) {
+function Section({ id, title, children }) {
   return (
     <section id={id} style={{ marginBottom: "var(--space-7)" }}>
-      <div style={{ marginBottom: "var(--space-4)", maxWidth: 720 }}>
-        {number && <Kicker style={{ marginBottom: "var(--space-2)" }}>{number}</Kicker>}
+      <div style={{ marginBottom: "var(--space-3)", maxWidth: 720 }}>
         <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", color: "var(--text)", fontWeight: "var(--weight-bold)" }}>
           {title}
         </h2>
-        {intro && <p style={body}>{intro}</p>}
       </div>
       {children}
     </section>
@@ -59,10 +55,10 @@ function Redact({ children }) {
 
 function Slide({ src, caption, alt }) {
   return (
-    <figure style={{ margin: "0 0 var(--space-2)" }}>
+    <figure style={{ margin: "0 0 var(--space-4)" }}>
       <img src={src} alt={alt ?? (typeof caption === "string" ? caption : "")} style={slideImg} />
       {caption && (
-        <figcaption style={{ marginTop: "var(--space-1)", fontSize: "var(--type-base)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>
+        <figcaption style={{ marginTop: "var(--space-1)", fontSize: "var(--type-caption)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>
           {caption}
         </figcaption>
       )}
@@ -70,26 +66,30 @@ function Slide({ src, caption, alt }) {
   );
 }
 
-function Insight({ children }) {
+function P({ children }) {
+  return <p style={{ ...body, marginBottom: "var(--space-3)" }}>{children}</p>;
+}
+
+// Label (bold) and description per item; a null label renders the text alone.
+function Bullets({ items }) {
   return (
-    <FloralFrame>
-      <p style={{ margin: 0, fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)" }}>{children}</p>
-    </FloralFrame>
+    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 var(--space-4)", maxWidth: 680, display: "grid", gap: "var(--space-2)" }}>
+      {items.map(([lbl, text], i) => (
+        <li key={i} className="hand-bullet" style={body}>
+          {lbl && <strong>{lbl}</strong>}{lbl && " — "}{text}
+        </li>
+      ))}
+    </ul>
   );
 }
 
-function StatRow({ stats }) {
-  return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 140px), 1fr))", gap: "var(--space-3)", margin: "var(--space-4) 0" }}>
-      {stats.map(({ value, label: lbl }) => (
-        <div key={lbl} className="hand-bullet">
-          <span style={{ display: "block", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", marginBottom: 4 }}>{value}</span>
-          <span style={{ fontSize: "var(--type-base)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>{lbl}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
+const CHAPTERS = [
+  { id: "context",  label: "Context" },
+  { id: "problem",  label: "Problem" },
+  { id: "tradeoff", label: "Tradeoff" },
+  { id: "solution", label: "Solution" },
+  { id: "impact",   label: "Impact" },
+];
 
 export default function PsychosisLiteracy() {
   return (
@@ -104,29 +104,29 @@ export default function PsychosisLiteracy() {
       <header style={{ marginBottom: "var(--space-6)" }}>
         <p style={{ ...label, marginBottom: "var(--space-3)" }}>Purdue Capstone 2026 · Health Tech · Youth Mental Health</p>
         <h1 style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--space-3)", color: "var(--text)" }}>
-          Percepta
+          Designing empathy without medicalizing it<br />
+          Percepta — a youth psychosis experience
         </h1>
-        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--muted)", margin: "0 0 var(--space-3)", maxWidth: 720 }}>
-          How You See Matters.
-        </p>
         <p style={{ ...body, fontSize: "var(--type-base)", color: "var(--muted)" }}>
-          A psychoeducation tool that builds basic awareness about psychosis, visual and auditory hallucinations for students and office-goers ages 15–25, at in schools and workplaces, before onset education.
+          Shipped an educational hallucination-simulation tool for ages 15–25, validated by Purdue Psychological Sciences and Purdue CAPS
         </p>
       </header>
 
       {/* HERO SLIDE — the one full-width image */}
       <div style={{ marginBottom: "var(--space-6)" }}>
-        <img src={cap25} alt="Percepta · Capstone 2026"
+        <img src={cap25} alt="Percepta — the shipped educational experience. Cover artifact for clinical review at Purdue Psychological Sciences and CAPS."
              style={{ width: "100%", borderRadius: "var(--radius)", display: "block" }} />
       </div>
 
       {/* ROLE */}
       <div style={{ marginBottom: "var(--space-6)", paddingTop: 32}}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-4)", marginBottom: "var(--space-4)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 170px), 1fr))", gap: "var(--space-4)" }}>
           {[
-            ["Role", "UX Designer · Solo Capstone"],
-            ["Committee", "Prof. Rua · Prof. Paul · Prof. Anastasia · Prof. Nancy · Prof. Shobhan shah (Advisor)"],
-            ["My Role", "Information architecture · Expert interviews · Usability testing · Computer vision integration"],
+            ["Role", "Capstone Lead · Product Design, Research, Shipped Prototype (Base44), Expert Validation"],
+            ["Context", "Timeline: Jan 2026 – May 2026. Purdue MS UX Capstone. Youth psychosis education, ages 15–25."],
+            ["Client", "Purdue CGT Faculty Review Board. Clinical reviewers: Purdue Psychological Sciences and Purdue CAPS."],
+            ["Team", "Solo capstone. Partner — Brianna (research)."],
+            ["Tools", "Figma, Base44 (shipped prototype), medical case-study review protocol, Nielsen's ten heuristics, expert validation sessions"],
           ].map(([k, v]) => (
             <div key={k}>
               <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{k}</p>
@@ -134,195 +134,79 @@ export default function PsychosisLiteracy() {
             </div>
           ))}
         </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-4)", paddingTop: 28}}>
-          <div>
-            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Built With</p>
-            <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>Base44</p>
-            <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: "4px 0 0" }}>Figma · Computer Vision · Python</p>
-          </div>
-          <div>
-            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Top Skills</p>
-            <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>AI-Native Design · Design Systems · Clear Impact Statements</p>
-          </div>
-          <div>
-            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>Impact</p>
-            <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>10/10 reached help-seeking · 100% hallucination type recognition on visual</p>
-          </div>
-        </div>
       </div>
 
-      {/* 01 THE PROBLEM */}
-      <Section
-        id="problem"
-        number="The gap"
-        title="50% of US schools have no psychoeducator. 100,000+ teenagers develop psychosis each year."
-        intro="Psychosis begins in late teens to mid-20s. Without education, students turn to substances, self-harm, and isolation. Crime rates increase 2.5× in populations with untreated psychosis. The awareness gap is the design problem."
-      >
-        <Slide src={cap2} caption="Institute of Educational Sciences, May 2024: 48% of public schools cannot effectively provide mental health services to students who need them." />
-        <StatRow stats={[
-          { value: "100k+", label: "teenagers develop psychosis each year (NIMH)" },
-          { value: "50%", label: "of US schools lack in-house psychoeducators" },
-          { value: "2.5×", label: "increase in crime rate with untreated psychosis" },
-          { value: "70%", label: "of patients with psychosis experience insomnia" },
+      {/* CONTEXT */}
+      <Section id="context" title="Context">
+        <P>
+          48% of U.S. public schools report they cannot effectively provide mental health services to students who need them (Institute of Educational Sciences, 2024). Over 100,000 teenagers in the U.S. experience psychosis for the first time each year; most do so without the language, context, or peer understanding to make sense of what is happening to them.
+        </P>
+        <P>
+          The question for this capstone was not "how do we treat psychosis." That belongs to clinicians. The question was: how do you design an empathy tool that teaches 15- to 25-year-olds what psychosis actually feels like — without medicalizing the experience, triggering vulnerable users, or overstepping into clinical territory a designer has no business entering.
+        </P>
+        <Slide src={cap2} caption="The ground problem — 48% of U.S. public schools cannot effectively provide mental health services (Institute of Educational Sciences, May 2024). The gap the capstone was scoped to address." />
+      </Section>
+
+      {/* PROBLEM */}
+      <Section id="problem" title="Problem">
+        <P>Three structural issues shaped every design decision:</P>
+        <Bullets items={[
+          ["No consumer-grade empathy tool for psychosis education", "existing resources are either clinical (DSM-5, patient brochures) or sensationalized (horror media, misinformation). Nothing sat between."],
+          ["Safety-by-design is non-negotiable", "the primary audience includes users at elevated risk. Any interactive experience must assume someone in distress will encounter it and must not harm them."],
+          ["Educational framing versus simulation fidelity", "too clinical and students disengage; too realistic and the experience triggers rather than teaches. The design had to carry authority without triggering."],
         ]} />
-        <Insight>The gap is NOT treatment. It is awareness before onset, for ages 15–25 while still in school. </Insight>
+        <Slide src={cap9} caption="Customer journey map — Mr. KP's day from waking through night. Emotional hallucinations peak at work; night is most frightening. Ethnographic input, not clinical data." />
       </Section>
 
-      {/* 02 RESEARCH */}
-      <Section
-        number="Research through journey mapping"
-        title="Mapping a day in the life of someone with psychosis."
-        intro="I mapped Mr. KP's full day, waking up, commute, work, night time, to find where emotional hallucinations peak and where intervention is possible."
-      >
-        <Slide src={cap9} caption="Customer journey map: Mr. KP's day, waking up through night time. Emotional hallucinations peak at work. Night time is most frightening." />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)", marginTop: "var(--space-4)" }}>
-          {[
-            ["Waking up", "Hallucinations begin at start of day. Routine overpowers them with morning prayers, music, and constant support."],
-            ["At work", "Emotional hallucinations are overwhelming. Difficulty distinguishing friend from threat."],
-            ["Commute home", "Visual and auditory hallucinations occur simultaneously. Camera on phone helps navigate."],
-            ["Night time", "Weakest willpower. Most frightening. Night hallucinations are the hardest to cope with."],
-          ].map(([stage, insight]) => (
-            <div key={stage} className="hand-bullet">
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)"}}>{stage}</p>
-              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{insight}</p>
-            </div>
-          ))}
-        </div>
-        <Insight>Touch point: School is the right intervention moment. Value education, art class, biology, mental health day. Awareness needs to land before onset.</Insight>
+      {/* TRADEOFF */}
+      <Section id="tradeoff" title="Tradeoff">
+        <P>Every decision in this project traded educational authenticity against safety and ethical restraint.</P>
+        <Bullets items={[
+          ["Simulation fidelity versus trigger risk", "authentic hallucination experiences validated against medical literature were essential for credibility; those same experiences, delivered without framing, risked harm. The resolution: a hallucination taxonomy of 10 categories was validated against clinical case studies, then wrapped in opt-in framing, exit controls, and context on every screen."],
+          ["Education versus intervention", "the tool had to teach without ever presenting itself as treatment. Every surface declares its scope: \"Designed for ages 15–25 · Educational purposes only.\""],
+          ["Expert voice versus student voice", "too clinical and the audience tunes out; too casual and the authority disappears. Clinical reviewers from Purdue Psychological Sciences and CAPS validated voice as well as content."],
+          ["Scope the system, not the user", "exit, help, and crisis-escalation paths are built into the system layer so no user has to find them under duress. The 988 Suicide & Crisis Lifeline is one tap from every screen."],
+        ]} />
+        <P>The resulting product treats safety and education as the same architecture, not two downstream reviews.</P>
+        <Slide src={cap22} caption="Hallucination image architecture — ten visual categories validated against medical case studies: neutral, shadows, hands, fireworks, smoke, shaky/blurred, animals, slight distortions, colours, random patterns. The taxonomy underneath the product." />
+        <Slide src={cap31} caption="Trade-offs and challenges — competitor analysis, paper prototypes, wireframes, initial mockups, secondary research. Access documentation separately." />
       </Section>
 
-      {/* 03 resolving ambiguity */}
-      <Section
-        number="Resolving ambiguity"
-        title="At interviews were descriptive about experiences"
-        intro="I used information architecture to narrow down which hallucination effects were clinically validated. A flowchart forces correct categorisation and prevents misrepresentation, something verbal interviews alone cannot guarantee."
-      >
-        <Slide src={cap22} caption="Section 1 of the visual hallucination image architecture, categories: neutral, shadows, hands, fireworks, smoke, shaky/blurred, animals, slight distortions, colours, random patterns. Each validated against medical case studies." />
-        <Insight>The architecture decision: show only what psychologists validate. Every visual effect was checked against clinical evidence before inclusion.</Insight>
+      {/* SOLUTION */}
+      <Section id="solution" title="Solution">
+        <P>Three shipped patterns inside a Base44 prototype:</P>
+        <Bullets items={[
+          ["Hallucination taxonomy", "10 visual categories (neutral, shadows, hands, fireworks, smoke, shaky/blurred, animals, slight distortions, colours, random patterns) and 5 auditory categories (whispers, self-talk, two voices, footsteps, commands), each validated against medical case studies, each delivered through a gallery-filter metaphor that leverages existing youth mental models."],
+          ["Safety architecture woven into the interaction", "opt-in framing on entry, exit controls visible at all times, reflection prompts after the experience, and a persistent crisis-help pathway. The 988 Lifeline is one tap from every screen, with three progressive support options (trusted person → counselor → professional care)."],
+          ["Shipped once, consumed everywhere", "the same hallucination taxonomy and safety architecture is applied across all five sections of the Percepta experience: onboarding, visual simulation, auditory simulation, reflection, and help. One pattern, five surfaces, one clinical review packet for Purdue Psychological Sciences and CAPS."],
+        ]} />
+        <Slide src={cap14} caption={"Percepta onboarding — \"100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.\" Scope and consent declared in the opening screen; safety architecture starts here."} />
+        <Slide src={cap19} caption="Five visual hallucination types — colours, blur, smoke, bubbles, shadows, faces and hands. Each validated against medical case studies before being surfaced to the student." />
+        <Slide src={cap20} caption="Five auditory hallucination types — whispers, self-talk, two voices, footsteps, commands. Same validation protocol applied to the auditory channel." />
+        <Slide src={cap18} caption={"Filter selection — UX heuristic: match between system and real world. Filters work like gallery filters, a mental model youth already carry. \"Did anything feel off?\" — reflection prompt after the experience."} />
+        <Slide src={cap21} caption={"\"3 Ways to Ask for Help.\" Trusted person, counselor, professional support. 988 Suicide & Crisis Lifeline persistent in the frame. UX heuristic: help users recognize, diagnose, and recover from errors — applied to crisis safety."} />
+        <Slide src={cap27} caption="Shipped product — Base44 preview URL: https://app.base44.com/apps/69c1a0c9aa1a1e3081429008/editor/preview. Reviewable, usable, extensible. The deliverable was a working artifact, not a mockup." />
       </Section>
 
-      {/* 04 SOLUTION */}
-      <Section
-        id="decisions"
-        number="The solution"
-        title="Show, don't tell. Use the back camera."
-        intro="Instead of describing hallucinations in text, Percepta uses the device camera to place hallucination effects on the user's real environment. Back camera is used by default, to show how people with hallucinations see the world."
-      >
-        <Slide src={cap14} caption="Percepta onboarding: '100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.' Designed for ages 15–25 · Educational purposes only." />
-          <div style={{ marginTop: "var(--space-3)" }}>
-          <Slide src={cap19} caption="5 types of visual hallucination: Colours, Blur, Smoke, Bubbles, Shadows, Faces & Hands." />
-          <Slide src={cap20} caption="5 types of auditory hallucination: Whispers, Self-Talk, Two Voices, Footsteps, Commands." />
-          </div>
-          <div style={{ marginTop: "var(--space-3)" }}>
-          <Slide src={cap18} caption="Filter selection screen: UX Heuristic: Match between system and real world. Filters work like gallery filters. 'Did anything feel off?', reflection prompt after the experience." />
-          </div>
-        <Insight>Back camera is the right choice. Hallucinations happen in the external world, not the face. Designing for the right point of view changes everything.</Insight>
-      </Section>
-
-      {/* 05 TESTING */}
-      <Section
-        number="Testing with experts"
-        title="5 psychologists from Purdue Psychological Sciences and CAPS."
-        intro="I interviewed 5 psychologists from Purdue's Psychology department and CAPS to validate the hallucination architecture and messaging approach."
-      >
+      {/* IMPACT */}
+      <Section id="impact" title="Impact">
+        <Bullets items={[
+          [null, <><strong>100% approval</strong> from clinical reviewers at Purdue Psychological Sciences and Purdue CAPS on first validation session</>],
+          [null, <><strong>Shipped as a working prototype</strong> on Base44 — reviewable, usable, and extensible without further engineering investment</>],
+          [null, "Hallucination taxonomy is reusable across adjacent mental-health education contexts — the same architecture could carry anxiety, depression, or neurodivergence education with the same safety wrapper"],
+          [null, "Framework for safety-by-design in sensitive-topic consumer design is documented for Purdue CGT program use"],
+        ]} />
+        <P>
+          In healthcare-adjacent design, the design system is not just visual — it is the architecture that governs who the product can and cannot harm. The brief was educational empathy, measured in clinical review acceptance and the number of surfaces a vulnerable user could safely interact with without a designer in the room.
+        </P>
         <Slide
           src={cap23}
           alt="Expert validation sessions with Purdue Psychological Sciences and CAPS. Door signs blurred for privacy."
-          caption={<>Expert validation sessions: Purdue Psychological Sciences and CAPS. Room <Redact>0000</Redact>: <Redact>X.</Redact> Gomez, <Redact>X.</Redact> Rodriguez, <Redact>X.</Redact> Rubi. Room <Redact>0000</Redact>: <Redact>X.</Redact> Haskett. Room <Redact>0000</Redact>: <Redact>X.</Redact> Lim-Kessler.</>}
+          caption={<>Expert validation session — Purdue Psychological Sciences and CAPS. Clinical reviewers validated voice, content, and safety architecture together. Room <Redact>0000</Redact>: <Redact>X.</Redact> Gomez, <Redact>X.</Redact> Rodriguez, <Redact>X.</Redact> Rubi. Room <Redact>0000</Redact>: <Redact>X.</Redact> Haskett. Room <Redact>0000</Redact>: <Redact>X.</Redact> Lim-Kessler.</>}
         />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)", marginTop: "var(--space-4)" }}>
-          {[
-            ["Do not segregate user groups", "Give common, inclusive messaging: Simple · Inclusive · Unconditional Positive Regard"],
-            ["Add a big EXIT button", "Users must be able to leave immediately without friction. Safety first."],
-            ["Validated the architecture", "The flowchart categorisation of hallucination types was confirmed clinically appropriate."],
-            ["Language matters", "Messaging must be non-stigmatising and avoid clinical jargon for a teen audience."],
-          ].map(([finding, detail]) => (
-            <div key={finding} className="hand-bullet">
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", marginBottom: "var(--space-1)" }}>{finding}</p>
-              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{detail}</p>
-            </div>
-          ))}
-        </div>
-        <Insight>Psychologists confirmed: architecture is correct. Exit button is non-negotiable. Messaging must show unconditional positive regard.</Insight>
       </Section>
 
-      {/* 06 HELP-SEEKING */}
-      <Section
-        number="After the experience"
-        title="3 ways to ask for help. 988 is always visible."
-        intro="After the simulation, Percepta shows a clear, non-stigmatising help pathway. The 988 Suicide & Crisis Lifeline is shown on the final screen, every time."
-      >
-        <Slide src={cap21} caption="'3 Ways to Ask for Help: Talk to someone you trust: A friend, family member, or someone who makes you feel safe. Reach out to a counselor: School counselors and teachers are trained to help connect you with support. Seek professional support: Mental health professionals can provide proper assessment and care. If you or someone you know needs immediate help: 988 Suicide & Crisis Lifeline: Call or text 988 · Available 24/7.' UX Heuristic: Help Users With Errors." />
-        <Insight>10/10 users in testing reached this page. 5/10 read through the full content. The helpline got major visibility.</Insight>
-      </Section>
-
-      {/* 07 USER TESTING */}
-      <Section
-        id="impact"
-        number="User testing, three phases"
-        title="10 users. 3 phases. Numbers that shaped every decision."
-      >
-        <Slide src={cap27} caption="Product link: https://app.base44.com/apps/69c1a0c9aa1a1e3081429008/editor/preview" />
-        <StatRow stats={[
-          { value: "8/10",  label: "preferred fast load directly into the experience, removed intro text" },
-          { value: "10/10", label: "correctly identified types of visual hallucination after use" },
-          { value: "7/10",  label: "correctly identified auditory hallucination types" },
-          { value: "10/10", label: "reached the help-seeking page" },
-        ]} />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)", marginTop: "var(--space-1)" }}>
-          {[
-            ["Phase 1 · Landing Page", "8/10 preferred a quick load directly to the experience. Shows preference for visuals over text."],
-            ["Phase 2 · Awareness", "10/10 identified visual hallucination types. 7/10 identified auditory. Architecture worked."],
-            ["Phase 3 · Help-Seeking", "10/10 reached the help page. 5/10 read through fully. Helpline got major visibility."],
-          ].map(([phase, result]) => (
-            <div key={phase} className="hand-bullet">
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", marginBottom: "var(--space-1)" }}>{phase}</p>
-              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{result}</p>
-            </div>
-          ))}
-        </div>
-        <Insight>The architecture decisions worked. Every user reached help-seeking. Awareness transferred. The simulation created empathy, not distress.</Insight>
-      </Section>
-
-      {/* 08 TRADE-OFFS */}
-      <Section
-        id="tradeoffs"
-        number="Trade-offs and challenges"
-        title="What I chose not to build. And why."
-      >
-        <Slide src={cap31} caption="Trade-offs and challenges: For competitor analysis, paper prototypes, wireframes, initial mockups, and secondary research: Access documentation." />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "var(--space-3)", marginTop: "var(--space-4)" }}>
-          <div>
-            <p style={{ ...label, marginBottom: "var(--space-2)" }}>Trade-offs</p>
-            {[
-              "No data-heavy hallucination effects that require strong internet connections, accessibility over spectacle",
-              "English only for V1, validate the model before scaling language support",
-              "No peer-to-peer features, no unsupervised surfaces for this user group",
-            ].map((t, i) => (
-              <div key={i} style={{ display: "flex", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
-                <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>•</span>
-                <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{t}</p>
-              </div>
-            ))}
-          </div>
-          <div>
-            <p style={{ ...label, marginBottom: "var(--space-2)" }}>Challenges</p>
-            {[
-              "Sensitivity of the topic needs continuous care, this is always a work in progress",
-              "Hallucination representation must be clinically validated, not aesthetically driven",
-              "Exit must always be visible, no user should feel trapped in the simulation",
-            ].map((c, i) => (
-              <div key={i} style={{ display: "flex", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
-                <span style={{ color: "var(--color-text-tertiary)", flexShrink: 0, marginTop: 2 }}>•</span>
-                <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>{c}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <ChapterToggle />
+      <ChapterToggle chapters={CHAPTERS} />
 
       <style>{`
         @media (max-width: 680px) {

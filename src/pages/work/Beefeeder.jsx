@@ -43,7 +43,7 @@ function Block({ src, subheading, caption }) {
         }}
       />
       <p style={eyebrow}>{subheading}</p>
-      <p style={{ ...body, fontSize: "var(--type-base)", fontWeight: "var(--weight-thin)" }}>{caption}</p>
+      <p style={{ ...body, fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>{caption}</p>
     </div>
   );
 }

@@ -26,7 +26,7 @@ function Block({ src, subheading, caption }) {
   return <div>
     <img src={src} alt={subheading} style={{ ...img, marginBottom: "var(--padding-small)" }} />
     <p style={{ ...label, marginBottom: "var(--padding-small)" }}>{subheading}</p>
-    <p style={{ ...copy, margin: 0, fontSize: "var(--type-base)", fontWeight: "var(--weight-thin)" }}>{caption}</p>
+    <p style={{ ...copy, margin: 0, fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>{caption}</p>
   </div>;
 }
 

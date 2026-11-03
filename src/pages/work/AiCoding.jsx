@@ -127,8 +127,7 @@ function Slide({ src, number, caption }) {
     <figure style={{ margin: 0 }}>
       <img src={src} alt={`TACC client deck slide ${number}`} style={slideBase} />
       <figcaption style={{ display: "flex", justifyContent: "space-between", gap: "var(--padding-small)", paddingTop: "var(--padding-small)", color: "var(--color-text-tertiary)", fontSize: "var(--type-base)", lineHeight: "var(--leading-subheading)" }}>
-        <span>Client slide {String(number).padStart(2, "0")} / 24</span>
-        {caption ? <span style={{ textAlign: "left", maxWidth: 520, fontSize: "var(--type-caption)", fontWeight: "var(--weight-regular)" }}>{caption}</span> : null}
+        {caption ? <span style={{ textAlign: "left", maxWidth: 520, fontSize: "var(--type-caption)", fontWeight: "var(--weight-thin)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
   );

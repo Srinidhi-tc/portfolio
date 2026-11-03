@@ -201,8 +201,7 @@ function Slide({ src, number, caption }) {
           lineHeight: "var(--leading-subheading)"
         }}
       >
-        <span>Client slide {String(number).padStart(2, "0")} / 20</span>
-        {caption ? <span style={{ textAlign: "left", maxWidth: 520, fontSize: "var(--type-caption)", fontWeight: "var(--weight-regular)" }}>{caption}</span> : null}
+        {caption ? <span style={{ textAlign: "left", maxWidth: 520, fontSize: "var(--type-caption)", fontWeight: "var(--weight-thin)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
   );

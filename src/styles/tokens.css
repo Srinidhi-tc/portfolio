@@ -1,0 +1,301 @@
+/* Type system: one size, three weights.
+ *   --type-base     16px. Page titles, headings, body, bullets, interface text.
+ *   --type-caption  13px. Image captions, a step quieter than body.
+ *   Weights: regular 400 for body, captions and interface text; bold 700 for
+ *   page titles, section headings (h2), bullet labels, card metrics and the
+ *   SRI wordmark.
+ * Sentence case throughout; no italics, no extra letter-spacing.
+ *
+ * Spacing follows the golden ratio (x1.618 per step), rounded to whole pixels.
+ * Steps 1-4 space content inside a section; --space-section (110px) separates
+ * sections.
+ */
+:root {
+  --type-base:      16px;
+  --type-caption:   13px;
+  --weight-regular: 400;
+  --weight-bold:    700;
+
+  --leading-heading: 1.15;
+  --leading-subheading: 1.35;
+  --leading-body: 1.6;
+
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 16px;
+  --space-4: 26px;
+  --space-5: 42px;
+  --space-6: 68px;
+  --space-7: 110px;
+  --space-section: var(--space-7);
+}
+
+/*
+ * Design tokens — Apple Human Interface Guidelines alignment
+ *
+ * Reference (verbatim values only — see DESIGN.md for source links):
+ *   • Typography: Apple HIG → "Typography" (San Francisco / SF Pro system font).
+ *   • Layout & spacing: Apple HIG → "Layout" (8-point grid; iOS standard
+ *     screen-edge margins of 16 pt and 20 pt).
+ *   • Tap targets: Apple HIG → "Buttons / Layout" (44×44 pt minimum).
+ *   • Corner radii: documented in Apple HIG / SF Symbols guidance for
+ *     continuous corners (10 / 12 / 16 / 20 pt are commonly published).
+ *
+ * Values not explicitly documented by Apple are kept as portfolio-specific
+ * choices and labeled as such.
+ */
+
+:root {
+  /* Colors — cool-neutral palette, inspired by emily.jennett.com / Apple.
+     Previously a warm cream + coffee-brown scheme; now near-white + graphite
+     so that colour comes mainly from project imagery (the reference's trick). */
+  --bg: #fbfbfd;
+  --surface: #f1f1f4;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --border: #d2d2d7;
+  --accent: #1d1d1f;
+  --accent-dark: #000000;
+  --accent-light: rgba(0, 0, 0, 0.05);
+  --on-accent: #ffffff;    /* text/icons sitting ON --accent */
+
+  /* Semantic colours that used to be hardcoded in component inline styles.
+     Naming them here is what makes a dark theme possible: a literal #fff card
+     or rgba(0,0,0,.1) hairline cannot invert. */
+  --card: #ffffff;          /* raised surface above --bg (cards, panels)  */
+  --hairline: rgba(0, 0, 0, 0.10);  /* 0.5-1px separators                 */
+  --hairline-strong: rgba(0, 0, 0, 0.12);
+  --hairline-weak: rgba(0, 0, 0, 0.08);
+  --hairline-soft: rgba(0, 0, 0, 0.05);
+  --surface-2: #f5f5f7;     /* the lighter of the two greys in use          */
+  --link: #0055b3;          /* inline text links                          */
+  --scrim: rgba(0, 0, 0, 0.55);     /* overlay behind floating content    */
+
+  /* Frosted-glass surfaces (nav pill, work panels, cards). These layer a
+     translucent white over the page, which is precisely what cannot survive a
+     theme flip unchanged — named here so the dark theme can restate them. */
+  --glass-bg: rgba(240, 240, 243, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  --process-bg: rgba(245, 245, 247, 0.94);  /* near-opaque so text scrolling behind the toggle is hidden */
+  --process-border: rgba(255, 255, 255, 0.7);
+  --card-glass-bg: rgba(255, 255, 255, 0.72);
+  --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 6px 16px rgba(0, 0, 0, 0.05);
+  --hairline-faint: rgba(0, 0, 0, 0.06);
+  --panel-bg-soft: rgba(255, 255, 255, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.35);
+  --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  --panel-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.09), 0 1px 0 rgba(255, 255, 255, 0.95) inset;
+  --pill-active-bg: #ffffff;
+  --pill-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.04);
+
+  /* Aliases for the --color-* names ProjectCard expects (these were never
+     defined → cards rendered with no surface). Mapped to the neutral palette
+     so work/play cards get the soft light-grey card + proper text hierarchy. */
+  --color-bg-card: var(--surface);
+  --color-bg-secondary: #e8e8ed;
+  --color-hover-bg: rgba(0, 0, 0, 0.05);
+  --color-text-primary: var(--text);
+  --color-text-secondary: var(--muted);
+  --color-text-tertiary: #86868b;
+
+  /* Typography — Apple system stack
+     Source: Apple HIG → Typography. The SF families (SF Pro Display / SF
+     Pro Text) are surfaced through `-apple-system` and
+     `BlinkMacSystemFont`, with explicit fallbacks for non-Apple OSes. */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "Helvetica Neue", "Inter", "Segoe UI", Roboto, Arial,
+    sans-serif;
+
+  /* SF text features (kerning, contextual alts) */
+  --font-features: "kern", "liga", "calt";
+
+  /* Layout */
+  --max-width: 1160px; /* wide enough for the full project row at full icon size */
+  --max-width-narrow: 720px;
+  --max-width-wide: 1280px;
+
+  /* Tap target — HIG minimum 44×44 pt */
+  --hit-target: 44px;
+
+  /* Corner radii — values commonly published in Apple HIG (continuous
+     corners). CSS `border-radius` approximates the look. */
+  --radius: 20px;  /* every rounded corner on the site; circles use 50% */
+
+  /* Hairline borders (HIG separator weight is 1 pt). */
+  --hairline: 1px;
+
+  /* Shadows — portfolio choice, not from HIG */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.08);
+
+  /* Motion — portfolio choice */
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration: 0.3s;
+  --duration-fast: 0.15s;
+}
+
+/* Apply SF text features globally */
+html {
+  font-feature-settings: var(--font-features);
+  text-rendering: optimizeLegibility;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Dark theme
+   ───────────────────────────────────────────────────────────────────────────
+   Three states, in this order:
+
+     1. :root                       light palette (defined above)
+     2. prefers-color-scheme: dark  follow the OS, unless the reader has
+                                    explicitly chosen light
+     3. [data-theme="dark"]         an explicit choice wins in both directions
+
+   Only tokens change here; no component defines a colour of its own.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    /* Material 3 tonal surfaces, tinted cool-neutral to match the light
+       palette (M3's own baseline carries a purple tint this site has no use
+       for). M3 moved off the flat #121212 of Material 2: elevation is now
+       expressed as a progressively LIGHTER tone rather than a shadow, since
+       shadows barely register on a dark ground. Hence bg -> surface -> card
+       climbing #1a1b1e -> #212327 -> #26282c. Pure black is avoided
+       deliberately: it causes harsh contrast, OLED smearing, and kills any
+       sense of depth. */
+    --bg: #1a1b1e;
+    --surface: #212327;
+    --surface-2: #2a2c31;
+    --card: #26282c;
+    --text: #e6e7ea;          /* off-white, not #fff: cuts glare/halation */
+    --muted: #b0b3b9;
+    --border: #3a3d43;
+    --accent: #e6e7ea;
+    --accent-dark: #ffffff;
+    --accent-light: rgba(255, 255, 255, 0.08);
+    --on-accent: #1a1b1e;
+
+    --color-bg-card: var(--surface);
+    --color-bg-secondary: #2f3136;
+    --color-hover-bg: rgba(255, 255, 255, 0.07);
+    --color-text-tertiary: #9a9da3;
+
+    --hairline: rgba(255, 255, 255, 0.12);
+    --hairline-strong: rgba(255, 255, 255, 0.16);
+    --hairline-weak: rgba(255, 255, 255, 0.09);
+    --hairline-faint: rgba(255, 255, 255, 0.07);
+    --hairline-soft: rgba(255, 255, 255, 0.06);
+    --link: #7ab3ff;
+    --scrim: rgba(0, 0, 0, 0.7);
+
+    --glass-bg: rgba(33, 35, 39, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.10);
+    --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --panel-bg-soft: rgba(33, 35, 39, 0.6);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+    --panel-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    --process-bg: rgba(33, 35, 39, 0.94);
+    --process-border: rgba(255, 255, 255, 0.09);
+    --card-glass-bg: rgba(38, 40, 44, 0.72);
+    --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 6px 16px rgba(0, 0, 0, 0.45);
+    --pill-active-bg: #3f4248;
+    --pill-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(0, 0, 0, 0.3);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+    /* Material 3 tonal surfaces, tinted cool-neutral to match the light
+       palette (M3's own baseline carries a purple tint this site has no use
+       for). M3 moved off the flat #121212 of Material 2: elevation is now
+       expressed as a progressively LIGHTER tone rather than a shadow, since
+       shadows barely register on a dark ground. Hence bg -> surface -> card
+       climbing #1a1b1e -> #212327 -> #26282c. Pure black is avoided
+       deliberately: it causes harsh contrast, OLED smearing, and kills any
+       sense of depth. */
+    --bg: #1a1b1e;
+    --surface: #212327;
+    --surface-2: #2a2c31;
+    --card: #26282c;
+    --text: #e6e7ea;          /* off-white, not #fff: cuts glare/halation */
+    --muted: #b0b3b9;
+    --border: #3a3d43;
+    --accent: #e6e7ea;
+    --accent-dark: #ffffff;
+    --accent-light: rgba(255, 255, 255, 0.08);
+    --on-accent: #1a1b1e;
+
+    --color-bg-card: var(--surface);
+    --color-bg-secondary: #2f3136;
+    --color-hover-bg: rgba(255, 255, 255, 0.07);
+    --color-text-tertiary: #9a9da3;
+
+    --hairline: rgba(255, 255, 255, 0.12);
+    --hairline-strong: rgba(255, 255, 255, 0.16);
+    --hairline-weak: rgba(255, 255, 255, 0.09);
+    --hairline-faint: rgba(255, 255, 255, 0.07);
+    --hairline-soft: rgba(255, 255, 255, 0.06);
+    --link: #7ab3ff;
+    --scrim: rgba(0, 0, 0, 0.7);
+
+    --glass-bg: rgba(33, 35, 39, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.10);
+    --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --panel-bg-soft: rgba(33, 35, 39, 0.6);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+    --panel-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    --process-bg: rgba(33, 35, 39, 0.94);
+    --process-border: rgba(255, 255, 255, 0.09);
+    --card-glass-bg: rgba(38, 40, 44, 0.72);
+    --card-glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 6px 16px rgba(0, 0, 0, 0.45);
+    --pill-active-bg: #3f4248;
+    --pill-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(0, 0, 0, 0.3);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   VISUAL SYSTEM TOKENS — senior-portfolio accent layer
+   Additive only: does not replace or override anything above. Used by the
+   chapter toggle, DecisionObject, diagram, and paper-annotation components.
+   Ink / muted / paper / line are aliased to the existing theme tokens so
+   they stay correct in light and dark mode automatically.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-paper: var(--card);
+  --color-line: var(--hairline-weak);
+
+  --color-burgundy: #6a3038;
+  --color-burgundy-soft: #efe1e3;
+  --color-sage: #87967f;
+  --color-sage-soft: #e6ece3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-burgundy-soft: rgba(239, 225, 227, 0.14);
+    --color-sage-soft: rgba(230, 236, 227, 0.12);
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-burgundy-soft: rgba(239, 225, 227, 0.14);
+  --color-sage-soft: rgba(230, 236, 227, 0.12);
+}

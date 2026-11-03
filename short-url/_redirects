@@ -1,0 +1,7 @@
+# Netlify and Cloudflare Pages both read this file.
+#
+# A real 301 is what makes this forwarder stale-proof: crawlers follow it to the
+# live page and read that page's Open Graph tags, which CI regenerates on every
+# deploy. Nothing about the preview is duplicated here, so nothing here can rot.
+# index.html is only a fallback for a host that ignores this file.
+/*    https://srinidhi-tc.github.io/portfolio/work/    301

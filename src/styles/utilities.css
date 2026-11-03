@@ -1,0 +1,445 @@
+
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-3);
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius);
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  font-size: var(--type-base);
+  font-weight: var(--weight-regular);
+}
+
+/* Buttons — Apple HIG: 44pt minimum hit target, capsule shape */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: var(--hit-target);
+  padding: 0.6875rem 1.25rem; /* 11pt × 20pt: yields 44pt height with 17pt body */
+  border: none;
+  border-radius: var(--radius);
+  font-weight: var(--weight-regular);
+  font-size: var(--type-base);
+  cursor: pointer;
+  transition: background var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    transform var(--duration-fast) var(--ease);
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Case-study stat + meta grids ----------
+ * These were inline `repeat(3,1fr)` on the case-study pages. `1fr` expands to
+ * `minmax(auto, 1fr)`, and an `auto` minimum refuses to shrink below the track's
+ * min-content width — i.e. its longest unbreakable word. On the Malli page
+ * "Replaceable" (~123px at 22px semibold) exceeded the available track, so the
+ * whole document widened to 383px on a 360-375px phone and the browser zoomed
+ * the page out to compensate.
+ *
+ * `minmax(0, 1fr)` lets the tracks shrink, which removes the blowout; the
+ * media queries then reduce the column count before the cards get cramped.
+ */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+  max-width: 480px;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+/* Grid items default to min-width:auto too — same blowout, one level down. */
+.stat-grid > *,
+.meta-grid > * {
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .meta-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+/* Below this the two-up cards get too tight for a long word like "Replaceable". */
+@media (max-width: 340px) {
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Case-study fine print ----------
+ * Small print on the case-study pages: the label size on desktop, one step
+ * up (caption) on phones where label-sized text reads as too small.
+ */
+.fine-print {
+  font-size: var(--type-base);
+}
+
+.fine-print--eyebrow {
+  color: #86868b;
+  font-weight: var(--weight-regular);
+}
+
+@media (max-width: 600px) {
+  .fine-print {
+    font-size: var(--type-base);
+  }
+}
+
+/* ---------- Project card tags ----------
+ * Tag size on desktop; phones get a floor so the tags stay readable.
+ */
+.project-card-tags {
+  font-size: var(--type-base);
+  line-height: var(--leading-body);
+}
+
+@media (max-width: 600px) {
+  .project-card-tags {
+    font-size: var(--type-base);
+  }
+}
+
+/* ---------- About: Experience / Education ----------
+ * Plain lists: dates, title, organization. No cards, rules or icons.
+ */
+.about-records {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--type-base);
+  line-height: var(--leading-body);
+  color: var(--muted);
+}
+
+.about-records li {
+  padding: 6px 0;
+}
+
+.about-records li > span:first-child {
+  font-variant-numeric: tabular-nums;
+}
+
+.about-records__title {
+  color: var(--text);
+}
+
+.about-records__org {
+  display: block;
+}
+
+/* ---------- Work section card tags ----------
+ * The discipline labels on each case-study card: label size on desktop,
+ * caption size on phones.
+ */
+.work-section-card-tags {
+  font-size: var(--type-base);
+  line-height: var(--leading-body);
+}
+
+@media (max-width: 600px) {
+  .work-section-card-tags {
+    font-size: var(--type-base);
+    line-height: var(--leading-subheading);
+  }
+}
+
+/* ---------- About: profile + paragraph + links ----------
+ * This was an inline `gridTemplateColumns: "200px 1fr"`. A fixed 200px track
+ * plus a 48px gap leaves nothing for the second column on a 320px phone, so
+ * the document widened to 370px and the browser zoomed the page out. Stack the
+ * two below the point where the fixed track stops fitting.
+ */
+.about-profile-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter);
+}
+
+@media (max-width: 600px) {
+  .about-profile-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* Toggle + wordmark share the navbar's first column. They are wrapped in one
+   flex box rather than left to grid auto-placement, because the nav pill
+   between them is position:fixed and auto-placement skips out-of-flow
+   children — two loose items would land in columns 1 and 2, putting the
+   second one directly under the pill, which then swallows its clicks. */
+.navbar-left {
+  grid-column: 1;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  /* The wrapper itself must not swallow clicks: .navbar sets pointer-events
+     none and each control re-enables it. On phones this box spans the full
+     row, so leaving it "auto" would blanket the whole header. */
+  pointer-events: none;
+}
+
+.navbar-left > * {
+  pointer-events: auto;
+}
+
+/* Phones: wordmark and the right-hand controls share the first row; the nav
+   links drop to a second row so nothing crowds the wordmark. */
+@media (max-width: 600px) {
+  .navbar-inner {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand right"
+      "nav   nav";
+  }
+
+  .navbar-left {
+    grid-area: brand;
+  }
+
+  .navbar-right {
+    grid-area: right;
+  }
+
+  .navbar-inner > .nav-links {
+    grid-area: nav;
+    justify-self: start;
+  }
+}
+
+/* ---------- Theme toggle ----------
+ * Sits in the navbar's third grid column, which was previously empty spacing.
+ * Matches the nav pill's frosted treatment so it reads as part of the same
+ * control cluster rather than a bolted-on widget.
+ */
+.theme-toggle {
+  pointer-events: auto; /* .navbar disables these and re-enables per control */
+  position: relative;
+  z-index: 61; /* .nav-links is 60 and is centred over the same row */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Just the glyph, sitting in line with the SF clock — no button chrome. */
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color var(--duration) var(--ease),
+    transform var(--duration-fast) var(--ease);
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Both glyphs occupy the same cell; only one is visible at a time. */
+.theme-toggle__icon {
+  position: relative;
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.theme-toggle__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.theme-toggle__sun,
+.theme-toggle__moon {
+  position: absolute;
+  inset: 0;
+  transition: opacity var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
+}
+
+/* Light theme: sun showing, moon parked. */
+.theme-toggle__sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle__moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+/* Dark theme: the two swap. */
+:root[data-theme="dark"] .theme-toggle__sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+:root[data-theme="dark"] .theme-toggle__moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle__sun,
+  .theme-toggle__moon {
+    transition: none;
+  }
+}
+
+/* 44px minimum touch target on touch screens; the area stays invisible. */
+@media (max-width: 768px), (pointer: coarse) {
+  .theme-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Fixed-ratio column layouts that should become one column on phones. */
+@media (max-width: 600px) {
+  .stack-on-phone {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* ---------- Hand-marked bullets ----------
+ * Project pages don't use grey or outlined boxes. Each item that used to sit
+ * in a box is a bulleted item instead: a hand-marked bullet in the text
+ * colour, hanging to the left of the content. The bullet drawing lives in
+ * src/assets/hand-bullet.svg; swap that file to change it everywhere (any
+ * single-colour SVG or transparent PNG works, since it is used as a mask).
+ */
+:root {
+  --bullet-size: 14px;
+  --bullet-indent: calc(var(--bullet-size) + var(--space-2));
+}
+
+.hand-bullet {
+  position: relative;
+  padding-left: var(--bullet-indent);
+}
+
+.hand-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: var(--bullet-size);
+  height: var(--bullet-size);
+  background-color: var(--text);
+  -webkit-mask: url("../assets/hand-bullet.svg") center / contain no-repeat;
+  mask: url("../assets/hand-bullet.svg") center / contain no-repeat;
+}
+
+/* ---------- Glass bar ----------
+ * The fill shared by the floating bars: the client switcher on the SGX3 case
+ * studies and the Problem / Decisions / Tradeoffs / Impact toggles. The page
+ * background at 88% with a blur behind it, and a hairline border.
+ */
+.glass-bar {
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--hairline-weak);
+}
+
+/* ---------- Central gutter ----------
+ * One gutter runs down the middle of every page: the gap between Work and
+ * About in the nav. Two-column layouts put their halves either side of it;
+ * the left half's text sits flush against the gutter.
+ */
+:root {
+  --gutter: var(--space-4);
+}
+
+/* Layout check: ?guides in the URL draws the gutter as a red band. */
+.show-guides body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--gutter);
+  translate: -50% 0;
+  background: rgba(230, 40, 40, 0.14);
+  border-inline: 1px dashed rgba(230, 40, 40, 0.7);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.center-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: baseline;
+}
+
+.split-left {
+  grid-column: 1;
+  text-align: right;
+}
+
+.split-right {
+  grid-column: 2;
+}
+
+@media (max-width: 720px) {
+  .center-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .split-left,
+  .split-right {
+    grid-column: 1;
+    text-align: left;
+  }
+}

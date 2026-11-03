@@ -9,7 +9,13 @@ export const INSTAGRAM_URL = "https://www.instagram.com/1chapter1day/";
 export const BEHANCE_URL = "https://www.behance.net/TC_UXDesign";
 
 export const contactLinks = [
+  { label: "Email", href: EMAIL_URL },
+  { label: "LinkedIn", href: LINKEDIN_URL, external: true },
   { label: "Resume", href: RESUME_URL, external: true },
+];
+
+// Dormant: not rendered anywhere. Swap into contactLinks to show them again.
+export const socialLinks = [
   { label: "Instagram", href: INSTAGRAM_URL, external: true },
   { label: "Behance", href: BEHANCE_URL, external: true },
 ];

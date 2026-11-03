@@ -1,11 +1,10 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-// Lazy-load the mascot so it doesn't block initial page render
-// (keeps lottie-web out of the main bundle)
-const FloatingMascot = lazy(() => import("../ui/FloatingMascot"));
+// Dormant content for this component lives in ./PageShell.dormant
+// To revive a block, import its named export and render it.
 
 export default function PageShell() {
   const { pathname } = useLocation();
@@ -27,12 +26,6 @@ export default function PageShell() {
         <Outlet />
       </main>
       <Footer />
-      {/* The dog (and the ball you throw to it) only live on the About page. */}
-      {pathname === "/about" && (
-        <Suspense fallback={null}>
-          <FloatingMascot />
-        </Suspense>
-      )}
     </div>
   );
 }

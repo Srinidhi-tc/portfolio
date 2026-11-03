@@ -15,7 +15,7 @@ export const workSectionProjects = [
     title: "Making Azure alerts easier to act on",
     image: workMicrosoft,
     to: "/work/microsoft",
-    tags: ["Enterprise AI", "Cross-functional lead"],
+    tags: ["Enterprise AI", "Cross-functional lead", "LLM prompt design", "API dashboards", "Decision user flows"],
     states: {
       problem: { subheading: "Low visibility", body: "Engineers needed 4–5 steps to detect failures, increasing latency in SRE system health monitoring." },
       decisions: { subheading: "Signal clarity", body: "Introduced radial indicators and prioritized degraded signals aligned with SRE mental models." },
@@ -31,7 +31,7 @@ export const workSectionProjects = [
     title: "Helping beginners know what to do next",
     image: workAiCoding,
     to: "/work/ai-coding",
-    tags: ["Conversation Design", "Summarisation UX"],
+    tags: ["Conversation design", "Summarisation UX", "Human-in-the loop", "Heuristic evaluation", "Visual design"],
     states: {
       problem: { subheading: "Hidden capabilities", body: "Poor UX hid what the AI could do, so adoption stayed low and students never leveraged the coding-interview tool's full potential." },
       decisions: { subheading: "Heuristic-led redesign", body: "Grounded changes in heuristic evaluation and comparative analysis, adding guided onboarding and structured responses to clarify system behavior." },
@@ -47,7 +47,7 @@ export const workSectionProjects = [
     title: "Understanding Geologist fieldtrips in and out",
     image: workStrabospot,
     to: "/work/strabospot",
-    tags: ["UX Audit", "Nielsen Heuristics"],
+    tags: ["UX audit", "Nielsen heuristics", "User interviews", "Task analysis", "Design recommendations"],
     states: {
       problem: { subheading: "Search was hard to scan", body: "Dense results, competing controls, and unclear links between results and the map made scientific search hard to scan, compare, and trust." },
       decisions: { subheading: "Search as the hero", body: "Made search the hero feature, with maps and images as first-class navigation and clearer filters." },
@@ -107,7 +107,7 @@ export const workSectionProjects = [
     title: "Psychosis: A new POV",
     image: workPsychosis,
     to: "/work/psychosis-literacy",
-    tags: ["Health UX", "Motion UI"],
+    tags: ["Health UX", "Motion UI", "Information architecture", "Human computer interaction", "Psychology"],
     states: {
       problem: { subheading: "Care doesn't reach youth", body: "Cost, stigma, and time keep teens from timely psychosis care; existing tools live in research, not app stores." },
       decisions: { subheading: "Modular & co-designed", body: "Animated explainers, EMA self-checks, moderated peer pathways, content designed to be updateable and youth-led." },
@@ -122,7 +122,7 @@ export const workSectionProjects = [
     title: "How people get fooled?",
     image: workDefenseArk,
     to: "/work/defenseark",
-    tags: ["B2B Enterprise Cybersecurity", "Founding design Hire"],
+    tags: ["B2B enterprise cybersecurity", "Founding design hire", "0-to-1 product", "Design systems", "Ships with engineers"],
     // Official product sites: text links on the thumbnail card, and wherever
     // a product name appears in the card copy.
     sites: [

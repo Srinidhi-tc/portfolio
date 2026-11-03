@@ -1,15 +1,14 @@
-import { NavLink, useLocation } from "react-router-dom";
-import TennisBall from "../ui/TennisBall";
+// Dormant content for this component lives in ./Navbar.dormant
+// To revive a block, import its named export and render it.
+import { NavLink } from "react-router-dom";
 import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
 
 const navItems = [
   { label: "Work",  to: "/work"  },
-  { label: "About", to: "/about" },
 ];
 
 export default function Navbar() {
-  const { pathname } = useLocation();
   return (
     <header className="navbar">
       <div className="container navbar-inner">
@@ -31,8 +30,6 @@ export default function Navbar() {
               {item.label}
             </NavLink>
           ))}
-          {/* Tennis ball — throws to the dog on click; the dog is About-only. */}
-          {pathname === "/about" && <span className="nav-ball"><TennisBall /></span>}
         </nav>
         {/* Clock, then the light/dark toggle at the far right edge. */}
         <div className="navbar-right">

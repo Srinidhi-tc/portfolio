@@ -3,7 +3,7 @@
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-3);
+  gap: var(--padding-small);
 }
 
 /* Cards */
@@ -24,7 +24,7 @@
 /* Tags */
 .tag {
   display: inline-block;
-  padding: 0.3rem 0.75rem;
+  padding: var(--padding-small) var(--padding-small);
   border-radius: var(--radius);
   background: var(--accent-light);
   color: var(--accent-dark);
@@ -37,9 +37,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-1);
+  gap: var(--padding-small);
   min-height: var(--hit-target);
-  padding: 0.6875rem 1.25rem; /* 11pt × 20pt: yields 44pt height with 17pt body */
+  padding: var(--padding-small) var(--padding-small); /* 11pt × 20pt: yields 44pt height with 17pt body */
   border: none;
   border-radius: var(--radius);
   font-weight: var(--weight-regular);
@@ -76,14 +76,14 @@
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-2);
+  gap: var(--padding-small);
   max-width: 480px;
 }
 
 .meta-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-5);
+  gap: var(--padding-big);
 }
 
 /* Grid items default to min-width:auto too — same blowout, one level down. */
@@ -99,7 +99,7 @@
 
   .meta-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--padding-small);
   }
 }
 
@@ -156,7 +156,7 @@
 }
 
 .about-records li {
-  padding: 6px 0;
+  padding: var(--padding-small) 0;
 }
 
 .about-records li > span:first-child {
@@ -195,13 +195,13 @@
  */
 .about-profile-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--gutter);
+  gap: var(--col-gap);
 }
 
 @media (max-width: 600px) {
   .about-profile-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-4);
+    gap: var(--padding-small);
   }
 }
 
@@ -215,7 +215,7 @@
   justify-self: start;
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--padding-small);
   /* The wrapper itself must not swallow clicks: .navbar sets pointer-events
      none and each control re-enables it. On phones this box spans the full
      row, so leaving it "auto" would blanket the whole header. */
@@ -231,8 +231,7 @@
 @media (max-width: 600px) {
   .navbar-inner {
     grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "brand right"
+    grid-template-areas: "brand right"
       "nav   nav";
   }
 
@@ -359,13 +358,12 @@
  * single-colour SVG or transparent PNG works, since it is used as a mask).
  */
 :root {
-  --bullet-size: 14px;
-  --bullet-indent: calc(var(--bullet-size) + var(--space-2));
+  --bullet-size: 12px;
 }
 
 .hand-bullet {
   position: relative;
-  padding-left: var(--bullet-indent);
+  padding-left: var(--padding-small);
 }
 
 .hand-bullet::before {
@@ -397,9 +395,6 @@
  * About in the nav. Two-column layouts put their halves either side of it;
  * the left half's text sits flush against the gutter.
  */
-:root {
-  --gutter: var(--space-4);
-}
 
 /* Layout check: ?guides in the URL draws the gutter as a red band. */
 .show-guides body::after {
@@ -408,7 +403,7 @@
   top: 0;
   bottom: 0;
   left: 50%;
-  width: var(--gutter);
+  width: var(--col-gap);
   translate: -50% 0;
   background: rgba(230, 40, 40, 0.14);
   border-inline: 1px dashed rgba(230, 40, 40, 0.7);
@@ -419,7 +414,7 @@
 .center-split {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: var(--gutter);
+  column-gap: var(--col-gap);
   align-items: baseline;
 }
 
@@ -442,4 +437,215 @@
     grid-column: 1;
     text-align: left;
   }
+}
+
+/* ==========================================================================
+   STACKS + Fs layout system
+   A 4-column grid with --edge-margin at both sides and --col-gap between
+   columns. Content lives in vertical stacks aligned to one side (the F
+   pattern). Column 4 stays empty as negative space.
+   ========================================================================== */
+.stacks-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  padding: var(--padding-big) var(--edge-margin);
+  align-items: start;
+}
+
+.stacks-col--1 { grid-column: 1; }
+.stacks-col--x { grid-column: 2 / span 2; }
+.stacks-col--4 { grid-column: 4; }
+
+/* A stack: items one above the other. Big or small gap, left or right. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stack--big { gap: var(--padding-big); }
+.stack--small { gap: var(--padding-small); }
+.stack--right { align-items: flex-end; text-align: right; }
+
+/* ---------- Home ---------- */
+.sri-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+  font-size: var(--type-display);
+  font-weight: var(--weight-bold);
+  line-height: 0.9;
+}
+
+.home-bio {
+  margin: 0;
+  text-align: left;
+  line-height: var(--leading-body);
+}
+
+.bio-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.home-toggle {
+  margin-bottom: var(--padding-big);
+}
+
+.home-toggle__label {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: var(--weight-regular);
+  cursor: pointer;
+}
+
+.home-toggle__label--active {
+  font-weight: var(--weight-bold);
+}
+
+.home-work {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--padding-big);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-big);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-item__title {
+  font-weight: var(--weight-bold);
+  color: inherit;
+}
+
+.home-item__meta {
+  font-weight: var(--weight-thin);
+  color: var(--muted);
+  line-height: var(--leading-body);
+}
+
+/* ---------- Case studies ---------- */
+.cs-toggle {
+  position: sticky;
+  top: var(--padding-big);
+}
+
+.chapter-list ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--padding-small);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.chapter-list__item {
+  font-weight: var(--weight-regular);
+  color: inherit;
+}
+
+.chapter-list__item--active {
+  font-weight: var(--weight-bold);
+}
+
+/* Ledger: X in three equal sub-columns of label/value stacks. */
+.cs-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--padding-small);
+  margin: 0;
+}
+
+.cs-ledger__item dt {
+  font-weight: var(--weight-bold);
+}
+
+.cs-ledger__item dd {
+  margin: 0;
+  font-weight: var(--weight-regular);
+  color: var(--muted);
+  line-height: var(--leading-body);
+}
+
+/* Prose: X in two sub-columns, flowing like a newspaper. */
+.cs-prose {
+  columns: 2;
+  column-gap: var(--padding-small);
+  margin: 0 0 var(--padding-small);
+}
+
+.cs-prose p {
+  margin: 0 0 var(--padding-small);
+  max-width: none;
+}
+
+/* Stacks: X in two sub-columns, one label/description stack per bullet. */
+.cs-stacks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--padding-small);
+  list-style: none;
+  margin: 0 0 var(--padding-small);
+  padding: 0;
+}
+
+.cs-stacks li {
+  display: flex;
+  flex-direction: column;
+  line-height: var(--leading-body);
+}
+
+.cs-stacks strong {
+  font-weight: var(--weight-bold);
+}
+
+.cs-stacks span {
+  color: var(--muted);
+}
+
+/* Two portrait images side by side, one per column. */
+.cs-image-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+}
+
+/* Phones: one column; the toggle sits above the content; column 4 goes. */
+@media (max-width: 720px) {
+  .stacks-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--padding-big);
+    padding: var(--padding-small);
+  }
+
+  .stacks-col--1,
+  .stacks-col--x { grid-column: 1; }
+  .stacks-col--4 { display: none; }
+
+  .cs-toggle { position: static; }
+
+  .home-work,
+  .cs-ledger,
+  .cs-stacks,
+  .cs-image-pair { grid-template-columns: minmax(0, 1fr); }
+
+  .cs-prose { columns: 1; }
 }

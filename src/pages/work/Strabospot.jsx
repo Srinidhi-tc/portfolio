@@ -1,5 +1,5 @@
 import React from "react";
-import ChapterToggle from "../../components/ui/ChapterToggle";
+import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 
 import str5 from "../../assets/str5.jpg";
 import str6 from "../../assets/str6.jpg";
@@ -48,14 +48,14 @@ function ClientSwitcher() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        gap: "var(--space-3)",
-        marginBottom: "var(--space-6)",
-        padding: "8px 10px 8px 14px",
+        gap: "var(--padding-small)",
+        marginBottom: "var(--padding-big)",
+        padding: "var(--padding-small) var(--padding-small) var(--padding-small) var(--padding-small)",
         borderRadius: "var(--radius)"
       }}
     >
       <div style={{ minWidth: 0 }}>
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: 2 }}>SGX3 · Two concurrent client engagements</p>
+        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: 0 }}>SGX3 · Two concurrent client engagements</p>
         <p
           style={{
             margin: 0,
@@ -70,13 +70,13 @@ function ClientSwitcher() {
         </p>
       </div>
 
-      <div style={{ display: "flex", gap: "var(--space-1)", flexShrink: 0 }}>
+      <div style={{ display: "flex", gap: "var(--padding-small)", flexShrink: 0 }}>
         <a
           href="/portfolio/work/ai-coding"
           style={{
             display: "inline-flex",
             alignItems: "center",
-            padding: "9px 13px",
+            padding: "var(--padding-small) var(--padding-small)",
             borderRadius: "var(--radius)",
             background: "transparent",
             color: "var(--text)",
@@ -92,7 +92,7 @@ function ClientSwitcher() {
           style={{
             display: "inline-flex",
             alignItems: "center",
-            padding: "9px 13px",
+            padding: "var(--padding-small) var(--padding-small)",
             borderRadius: "var(--radius)",
             background: "transparent",
             color: "var(--text)",
@@ -110,8 +110,8 @@ function ClientSwitcher() {
 
 function Hero() {
   return (
-    <header style={{ marginBottom: "var(--space-6)" }}>
-      <p style={{ ...label, marginBottom: "var(--space-2)" }}>
+    <header style={{ marginBottom: "var(--padding-big)" }}>
+      <p style={{ ...label, marginBottom: "var(--padding-small)" }}>
         SGX3 · UX consulting · GIS · scientific software
       </p>
       <h1
@@ -119,7 +119,7 @@ function Hero() {
           fontSize: "var(--type-base)",
           lineHeight: "var(--leading-heading)",
           fontWeight: "var(--weight-bold)",
-          margin: "0 0 var(--space-3)"
+          margin: "0 0 var(--padding-small)"
         }}
       >
         Designing for adoption inside<br />
@@ -128,7 +128,7 @@ function Hero() {
       <p style={{ ...body, fontSize: "var(--type-base)" }}>
         Shipped a visual-first redesign of the search, map, and sharing surfaces across the geoscience data platform used by 12,000+ geologists in the field
       </p>
-      <figure style={{ margin: "var(--space-4) 0 0" }}>
+      <figure style={{ margin: "var(--padding-small) 0 0" }}>
         <img
           src={straboCover}
           alt="StraboSpot laptop mockup"
@@ -149,27 +149,8 @@ function RoleAtTop() {
   ];
 
   return (
-    <section
-      style={{
-        marginBottom: "var(--space-6)",
-        padding: "28px 0 32px"
-      }}
-    >
-      <div
-        className="str-role-grid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-          gap: "var(--space-4)"
-        }}
-      >
-        {items.map(([k, v]) => (
-          <div key={k}>
-            <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--space-1)" }}>{k}</p>
-            <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", margin: 0, color: "var(--muted)" }}>{v}</p>
-          </div>
-        ))}
-      </div>
+    <section style={{ marginBottom: "var(--padding-big)" }}>
+      <Ledger items={items} />
     </section>
   );
 }
@@ -185,7 +166,7 @@ const CHAPTERS = [
 function Section({ id, title, children }) {
   return (
     <section id={id}>
-      <h2 style={{ margin: "0 0 var(--space-3)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}>
+      <h2 style={{ margin: "0 0 var(--padding-small)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)" }}>
         {title}
       </h2>
       {children}
@@ -194,25 +175,17 @@ function Section({ id, title, children }) {
 }
 
 function P({ children }) {
-  return <p style={{ ...body, marginBottom: "var(--space-3)" }}>{children}</p>;
+  return <p style={{ ...body, marginBottom: "var(--padding-small)" }}>{children}</p>;
 }
 
 // Label (bold) and description per item; a null label renders the text alone.
 function Bullets({ items }) {
-  return (
-    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 var(--space-4)", maxWidth: 690, display: "grid", gap: "var(--space-2)" }}>
-      {items.map(([lbl, text], i) => (
-        <li key={i} className="hand-bullet" style={body}>
-          {lbl && <strong>{lbl}</strong>}{lbl && " — "}{text}
-        </li>
-      ))}
-    </ul>
-  );
+  return <Stacks items={items} />;
 }
 
 // Stack of slides with the page's usual spacing between them.
 function Slides({ children }) {
-  return <div style={{ display: "grid", gap: "var(--space-4)", marginTop: "var(--space-4)" }}>{children}</div>;
+  return <div style={{ display: "grid", gap: "var(--padding-small)", marginTop: "var(--padding-small)" }}>{children}</div>;
 }
 
 function Slide({ src, number, caption }) {
@@ -223,15 +196,15 @@ function Slide({ src, number, caption }) {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          gap: "var(--space-3)",
-          paddingTop: 10,
+          gap: "var(--padding-small)",
+          paddingTop: "var(--padding-small)",
           color: "var(--color-text-tertiary)",
           fontSize: "var(--type-base)",
           lineHeight: "var(--leading-subheading)"
         }}
       >
         <span>Client slide {String(number).padStart(2, "0")} / 20</span>
-        {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontSize: "var(--type-caption)" }}>{caption}</span> : null}
+        {caption ? <span style={{ textAlign: "right", maxWidth: 520, fontSize: "var(--type-base)", fontWeight: "var(--weight-thin)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
   );
@@ -247,9 +220,9 @@ function EvidenceLinks() {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        gap: "var(--space-2)",
-        marginTop: "var(--space-3)",
-        marginBottom: 2
+        gap: "var(--padding-small)",
+        marginTop: "var(--padding-small)",
+        marginBottom: 0
       }}
     >
       {links.map(([text, href]) => (
@@ -261,7 +234,7 @@ function EvidenceLinks() {
           style={{
             display: "inline-flex",
             alignItems: "center",
-            padding: "10px 14px",
+            padding: "var(--padding-small) var(--padding-small)",
             border: "1px solid var(--hairline-weak)",
             borderRadius: "var(--radius)",
             color: "var(--text)",
@@ -280,32 +253,29 @@ function EvidenceLinks() {
 
 export default function StraboSpot() {
   return (
-    <div
-      style={{
-        color: "var(--text)",
-        maxWidth: 1040,
-        margin: "0 auto",
-        padding: "26px 28px 110px"
-      }}
-    >
+    <CaseStudyGrid chapters={CHAPTERS}>
       <ClientSwitcher />
       <Hero />
       <EvidenceLinks />
 
       <RoleAtTop />
 
-      <main style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
+      <main style={{ display: "flex", flexDirection: "column", gap: "var(--padding-big)" }}>
         <Section id="context" title="Context">
+          <Prose>
           <P>
             StraboSpot is a geospatial data platform used by over 12,000 geologists to document and interpret field observations. Over a decade of expert use, it had accumulated analytical depth that most new users never discovered. The platform served its loyal base; its growth curve was flat.
           </P>
           <P>
             The engagement was discovery and validation research. The ask: find the lever that would scale adoption and retention beyond the existing expert cohort.
           </P>
+          </Prose>
         </Section>
 
         <Section id="problem" title="Problem">
+          <Prose>
           <P>Five expert interviews and a heuristic pass surfaced one pattern underneath the surface issues:</P>
+          </Prose>
           <Bullets items={[
             ["Buried visual value", "geologists mainly use StraboSpot to see images of rocks and field sites, generate shareable documents, and share work with peers. These behaviors were buried behind text-heavy maps and dense data tables."],
             ["Scaling cap in the search layer", "the search engine was product-specific, not pattern-reusable; extending search to more data types required reinventing the layer for each one."],
@@ -313,15 +283,17 @@ export default function StraboSpot() {
             ["Text-first interface for a color-first user", "geologists are visual professionals; they orient to rock color, field color, map color. The product led with text labels."],
           ]} />
           <Slides>
-            <Slide src={str5} number={5} caption="Audit method — heuristic review scoped to find the single lever that would move adoption, not just clean the interface." />
-            <Slide src={str6} number={6} caption="Map view audit — visual clutter and technical naming on a surface geologists actually use for visual orientation. The misalignment the project turned on." />
-            <Slide src={str7} number={7} caption="Search filter audit — dense results, restart friction, unexpected navigation. Search was the scaling bottleneck disguised as a UX problem." />
-            <Slide src={str8} number={8} caption="All Strabo Data audit — the same query returning different results across contexts. Scaling the data model required unifying the search layer first." />
+            <Slide src={str5} number={5} caption="Audit method, heuristic review scoped to find the single lever that would move adoption, not just clean the interface." />
+            <Slide src={str6} number={6} caption="Map view audit, visual clutter and technical naming on a surface geologists actually use for visual orientation. The misalignment the project turned on." />
+            <Slide src={str7} number={7} caption="Search filter audit, dense results, restart friction, unexpected navigation. Search was the scaling bottleneck disguised as a UX problem." />
+            <Slide src={str8} number={8} caption="All Strabo Data audit, the same query returning different results across contexts. Scaling the data model required unifying the search layer first." />
           </Slides>
         </Section>
 
         <Section id="tradeoff" title="Tradeoff">
+          <Prose>
           <P>The real design question was not "clean the interface" but "where does visual priority outweigh expert density, and where does it not."</P>
+          </Prose>
           <Bullets items={[
             ["Image-first versus text-first", "new users convert on visual recognition; experts fall back on text labels. Map and image previews lead; text-dense tables remain available but recede."],
             ["Unified search versus specialized search", "one unified search engine made the code lighter and scalable to more data types and more search patterns, at the cost of per-type tuning."],
@@ -329,12 +301,14 @@ export default function StraboSpot() {
             ["Hook versus depth", "leading with the map (visual, retention-grade) risks hiding the analytical depth experts came for. Depth sits one tap away, not behind five."],
           ]} />
           <Slides>
-            <Slide src={str11} number={11} caption="Interview key findings — geologists are visual professionals. They orient to rock color, image previews, and shareable artifacts. The product led with text." />
+            <Slide src={str11} number={11} caption="Interview key findings, geologists are visual professionals. They orient to rock color, image previews, and shareable artifacts. The product led with text." />
           </Slides>
         </Section>
 
         <Section id="solution" title="Solution">
+          <Prose>
           <P>Three shipped shifts carried the strategy:</P>
+          </Prose>
           <Bullets items={[
             ["Map-first landing", "the search surface opens on the map, with image previews, so the first impression is the visual payload geologists come back for."],
             ["Image-based filters and unified search", "one search layer, lighter in code, with filters that match how geologists actually look for things (image type, rock color, field site, date range)."],
@@ -342,14 +316,14 @@ export default function StraboSpot() {
             ["Shipped once, consumed everywhere", "one unified search engine, extensible to any new data type without reinventing the layer per feature. The gallery-to-document pipeline uses the same pattern for classroom sharing, peer review, and LinkedIn posts."],
           ]} />
           <Slides>
-            <Slide src={str13} number={13} caption="Proposed search surface — map-first, with image previews, filters, bookmarks, help. The hook that drives retention sits above the fold." />
-            <Slide src={str14} number={14} caption="Unified navigation between maps — one mental model across contexts, so switching surfaces preserves state. The groundwork for a scalable search layer." />
-            <Slide src={str15} number={15} caption="Gallery and document pipeline — image gallery, ownership, and credits adjacent to the generator. Sharing becomes a native action, not an export." />
-            <Slide src={str16} number={16} caption="Unified search tool · map view — the shared surface, lighter in code, extensible to new data types without reinventing the layer." />
-            <Slide src={str17} number={17} caption="Map detail — visibility, zoom behaviour, base-map controls. Expert tolerances for density, respected on a surface tuned for new-user conversion." />
-            <Slide src={str18} number={18} caption="Search bar — image filters, map/list toggle, color-aware sorting. One component, three contexts, no re-invention per surface." />
-            <Slide src={str19} number={19} caption="List view — sortable results with image preview. Scanning the gallery, not scrolling the data." />
-            <Slide src={str20} number={20} caption="List detail — image preview before opening on the map. The one-tap return pattern that lets geologists scan a trip before committing." />
+            <Slide src={str13} number={13} caption="Proposed search surface, map-first, with image previews, filters, bookmarks, help. The hook that drives retention sits above the fold." />
+            <Slide src={str14} number={14} caption="Unified navigation between maps, one mental model across contexts, so switching surfaces preserves state. The groundwork for a scalable search layer." />
+            <Slide src={str15} number={15} caption="Gallery and document pipeline, image gallery, ownership, and credits adjacent to the generator. Sharing becomes a native action, not an export." />
+            <Slide src={str16} number={16} caption="Unified search tool · map view, the shared surface, lighter in code, extensible to new data types without reinventing the layer." />
+            <Slide src={str17} number={17} caption="Map detail, visibility, zoom behaviour, base-map controls. Expert tolerances for density, respected on a surface tuned for new-user conversion." />
+            <Slide src={str18} number={18} caption="Search bar, image filters, map/list toggle, color-aware sorting. One component, three contexts, no re-invention per surface." />
+            <Slide src={str19} number={19} caption="List view, sortable results with image preview. Scanning the gallery, not scrolling the data." />
+            <Slide src={str20} number={20} caption="List detail, image preview before opening on the map. The one-tap return pattern that lets geologists scan a trip before committing." />
           </Slides>
         </Section>
 
@@ -357,17 +331,17 @@ export default function StraboSpot() {
           <Bullets items={[
             [null, <>All <strong>eight recommendations adopted</strong> by the StraboSpot stakeholder and engineering clients</>],
             [null, "Prioritized by the StraboSpot team into their roadmap for the following quarter"],
-            [null, <><strong>Unified search layer</strong> reduces per-feature search engineering to one shared pipeline — the groundwork for scaling to new data types without rebuilding</>],
-            [null, <><strong>Shareable document pipeline</strong> opens a viral loop — geologists sharing field trips to classes, peers, and LinkedIn, pulling new users in through artifacts rather than marketing</>],
+            [null, <><strong>Unified search layer</strong> reduces per-feature search engineering to one shared pipeline, the groundwork for scaling to new data types without rebuilding</>],
+            [null, <><strong>Shareable document pipeline</strong> opens a viral loop, geologists sharing field trips to classes, peers, and LinkedIn, pulling new users in through artifacts rather than marketing</>],
             [null, <>Framework <strong>reusable across adjacent science-gateway tools</strong> in the SGX3 portfolio</>],
           ]} />
+          <Prose>
           <P>
-            In mature expert tools, growth doesn't come from new features — it comes from surfacing the behaviors users already love and making them easy to share. The brief was adoption, measured in new users retained and documents shared outward.
+            In mature expert tools, growth doesn't come from new features, it comes from surfacing the behaviors users already love and making them easy to share. The brief was adoption, measured in new users retained and documents shared outward.
           </P>
+          </Prose>
         </Section>
       </main>
-
-      <ChapterToggle chapters={CHAPTERS} />
 
       <style>{`
         @media (max-width: 760px) {
@@ -382,6 +356,6 @@ export default function StraboSpot() {
           }
         }
       `}</style>
-    </div>
+    </CaseStudyGrid>
   );
 }

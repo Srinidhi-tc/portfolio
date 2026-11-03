@@ -86,14 +86,14 @@ export default function ProjectCard({
       )}
 
       {/* Body */}
-      <div style={{ padding: "24px 24px 32px" }}>
+      <div style={{ padding: "var(--padding-small) var(--padding-small) var(--padding-big)" }}>
         {eyebrow && (
           <p
             style={{
               fontSize: "var(--type-base)",
               fontWeight: "var(--weight-regular)",
               color: "var(--color-text-tertiary)",
-              marginBottom: "var(--space-1)"
+              marginBottom: "var(--padding-small)"
             }}
           >
             {eyebrow}
@@ -106,7 +106,7 @@ export default function ProjectCard({
             fontWeight: "var(--weight-regular)",
             lineHeight: "var(--leading-heading)",
             color: "var(--color-text-primary)",
-            marginBottom: "var(--space-1)"
+            marginBottom: "var(--padding-small)"
           }}
         >
           {title}
@@ -131,7 +131,7 @@ export default function ProjectCard({
 
                 {tags && tags.length > 0 && (
           <p className="project-card-tags" style={{
-            margin: "var(--space-2) 0 0",
+            margin: "var(--padding-small) 0 0",
             color: "var(--muted)",
             lineHeight: "var(--leading-body)"
           }}>
@@ -151,18 +151,15 @@ export default function ProjectCard({
 
 // ── Grid wrapper ─────────────────────────────────────────────
 // Usage:
-//   <ProjectGrid>
-//     <ProjectCard featured ... />
-//     <ProjectCard ... />
-//     <ProjectCard ... />
-//   </ProjectGrid>
+//   Wrap ProjectCard elements in a ProjectGrid; give the first card the
+//   featured prop to span two columns.
 export function ProjectGrid({ children }) {
   return (
     <RevealGroup
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(2, 1fr)",
-        gap: "var(--space-4)"
+        gap: "var(--padding-small)"
       }}
       className="card-grid-outer"
     >

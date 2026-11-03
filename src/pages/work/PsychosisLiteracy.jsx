@@ -58,7 +58,7 @@ function Slide({ src, caption, alt }) {
     <figure style={{ margin: "0 0 var(--padding-small)" }}>
       <img src={src} alt={alt ?? (typeof caption === "string" ? caption : "")} style={slideImg} />
       {caption && (
-        <figcaption style={{ marginTop: "var(--padding-small)", textAlign: "left", fontSize: "var(--type-caption)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>
+        <figcaption style={{ marginTop: "var(--padding-small)", textAlign: "left", fontSize: "var(--type-caption)", fontWeight: "var(--weight-thin)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>
           {caption}
         </figcaption>
       )}

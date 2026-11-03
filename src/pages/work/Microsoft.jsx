@@ -32,7 +32,7 @@ function Slide({ src, caption }) {
       <img src={src} alt={caption || ""} loading="lazy"
            style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)" }} />
       {caption && (
-        <figcaption style={{ marginTop:"var(--padding-small)", textAlign:"left", fontSize:"var(--type-caption)", fontWeight:"var(--weight-regular)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
+        <figcaption style={{ marginTop:"var(--padding-small)", textAlign:"left", fontSize:"var(--type-caption)", fontWeight:"var(--weight-thin)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
       )}
     </figure>
   );

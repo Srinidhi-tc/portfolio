@@ -88,8 +88,10 @@ function WorkList() {
         const p = byId(id);
         return (
           <li key={id} className="stack stack--small stack--right">
-            <Link to={p.to} className="home-item__title">{title}</Link>
-            <span className="home-item__meta">{p.tags.join(" · ")}</span>
+            <Link to={p.to} className="home-item__link">
+              <span className="home-item__title">{title}</span>
+              <span className="home-item__meta">{p.tags.join(" · ")}</span>
+            </Link>
           </li>
         );
       })}
@@ -104,8 +106,10 @@ function GalleryList() {
         const p = byId(id);
         return (
           <li key={id} className="stack stack--small stack--right">
-            <Link to={p.to} className="home-item__title">{title}</Link>
-            <span className="home-item__meta">{p.title}</span>
+            <Link to={p.to} className="home-item__link">
+              <span className="home-item__title">{title}</span>
+              <span className="home-item__meta">{p.title}</span>
+            </Link>
           </li>
         );
       })}

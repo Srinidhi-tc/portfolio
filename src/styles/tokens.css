@@ -9,6 +9,8 @@
 :root {
   /* Typography: one body size, three weights, one display size */
   --type-base:      16px;
+  --type-caption: 13px;
+  --header-space: 72px;
   --type-display:   28px;
   --weight-thin:    300;
   --weight-regular: 400;

@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Navbar from "./Navbar";
+// The top bar (Navbar.jsx) is no longer rendered; its height stays as negative space.
 import Footer from "./Footer";
 
 // Dormant content for this component lives in ./PageShell.dormant
@@ -21,7 +21,7 @@ export default function PageShell() {
 
   return (
     <div className="site-shell">
-      <Navbar />
+      <div className="header-space" aria-hidden="true" />
       <main className="site-main">
         <Outlet />
       </main>

@@ -10,6 +10,7 @@
 //
 // Before publishing: confirm the spelling of "Priyank Wilkins" and add Alyssa Berger's role.
 
+import ProjectSummary from "../../components/work/ProjectSummary";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 import mic6      from "../../assets/mic6.jpg";
 import mic7      from "../../assets/mic7.jpg";
@@ -88,6 +89,7 @@ export default function Microsoft() {
         <p style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
           Shipped visibility improvements and compliance-aligned patterns across the SRE Health Observability tool
         </p>
+        <ProjectSummary id="microsoft" />
       </header>
 
       {/* ROLE + BUSINESS IMPACT */}

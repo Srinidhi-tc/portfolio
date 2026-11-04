@@ -6,6 +6,7 @@
 //
 // Before publishing: update the Torus card with what you worked on, if anything.
 
+import ProjectSummary from "../../components/work/ProjectSummary";
 import Kicker from "../../components/ui/Kicker";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 import { workSectionProjects } from "../../data/workSectionProjects";
@@ -80,6 +81,7 @@ export default function DefenseArk() {
         <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--muted)", margin:0, maxWidth:720, lineHeight:"var(--leading-subheading)" }}>
           Founding design hire: unified identity, system, and client intake across Enigma, Brightscan, and Torus
         </p>
+        <ProjectSummary id="defenseark" />
       </header>
 
       {heroImage && (

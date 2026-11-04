@@ -9,6 +9,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
+import { projectSummaries } from "../data/projectSummaries";
 import { EMAIL_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
 
 const ROLES = ["Product owner", "Strategy", "UX Research", "Design"];
@@ -90,7 +91,7 @@ function WorkList() {
           <li key={id} className="stack stack--small stack--right">
             <Link to={p.to} className="home-item__link">
               <span className="home-item__title">{title}</span>
-              <span className="home-item__meta">{p.tags.join(" · ")}</span>
+              <span className="home-item__meta">{projectSummaries[id].homeLine}</span>
             </Link>
           </li>
         );

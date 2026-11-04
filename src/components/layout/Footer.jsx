@@ -6,6 +6,7 @@ import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
 import { LINKEDIN_URL, INSTAGRAM_URL } from "../../data/links";
 import { workSectionProjects } from "../../data/workSectionProjects";
+import { projectSummaries } from "../../data/projectSummaries";
 
 // Same order as the home grid: Work, then Gallery. The last wraps to the first.
 const ORDER = [
@@ -19,11 +20,11 @@ const ORDER = [
   { id: "malli", to: "/work/malli", title: "Malli", gallery: true },
 ];
 
-// The same subtitle the home page shows: tags for Work, card title for Gallery.
+// The same subtitle the home page shows: the one-line summary for Work, card title for Gallery.
 function subtitle({ id, gallery }) {
   const p = workSectionProjects.find((x) => x.id === id);
   if (!p) return null;
-  return gallery ? p.title : p.tags.join(" · ");
+  return gallery ? p.title : projectSummaries[id].homeLine;
 }
 
 export default function Footer() {

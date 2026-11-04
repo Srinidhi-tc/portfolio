@@ -103,7 +103,7 @@ export default function PsychosisLiteracy() {
         <p style={{ ...body, fontSize: "var(--type-base)", color: "var(--muted)" }}>
           Shipped an educational hallucination-simulation tool for ages 15–25, validated by Purdue Psychological Sciences and Purdue CAPS
         </p>
-        <ProjectSummary id="psychosis-literacy" />
+        <ProjectSummary id="psychosis-literacy" hideName />
       </header>
 
       {/* HERO SLIDE, the one full-width image */}

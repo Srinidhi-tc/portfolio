@@ -127,7 +127,7 @@ function Hero() {
       <p style={{ ...body, fontSize: "var(--type-base)" }}>
         Shipped a visual-first redesign of the search, map, and sharing surfaces across the geoscience data platform used by 12,000+ geologists in the field
       </p>
-      <ProjectSummary id="strabospot" />
+      <ProjectSummary id="strabospot" hideName />
       <figure style={{ margin: "var(--padding-small) 0 0" }}>
         <img
           src={straboCover}

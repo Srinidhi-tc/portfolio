@@ -84,7 +84,7 @@ function Hero() {
       <p style={{ ...body, fontSize: "var(--type-base)" }}>
         Shipped conversation design patterns, trust-and-safety architecture, and progress-tracking inside a chat-based AI tutor for the Texas Advanced Computing Center
       </p>
-      <ProjectSummary id="ai-coding" />
+      <ProjectSummary id="ai-coding" hideName />
     </header>
   );
 }

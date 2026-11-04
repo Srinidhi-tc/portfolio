@@ -89,7 +89,7 @@ export default function Microsoft() {
         <p style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
           Shipped visibility improvements and compliance-aligned patterns across the SRE Health Observability tool
         </p>
-        <ProjectSummary id="microsoft" />
+        <ProjectSummary id="microsoft" color="#fff" />
       </header>
 
       {/* ROLE + BUSINESS IMPACT */}

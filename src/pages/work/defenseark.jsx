@@ -70,8 +70,12 @@ export default function DefenseArk() {
   return (
     <CaseStudyGrid chapters={CHAPTERS}>
 
-      {/* HERO */}
+      {/* HERO: picture on top, text below */}
       <header style={{ marginBottom:"var(--padding-big)" }}>
+        {heroImage && (
+        <img src={heroImage} alt="DefenseARK product work"
+             style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)", marginBottom:"var(--padding-small)" }} />
+      )}
         <p style={{ ...lbl, marginBottom:"var(--padding-small)" }}>
           DefenseARK Cybersecurity · A Metasquare Inc company · New York (remote from India)
         </p>
@@ -81,13 +85,9 @@ export default function DefenseArk() {
         <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text-secondary)", margin:0, maxWidth:720, lineHeight:"var(--leading-subheading)" }}>
           Founding design hire: unified identity, system, and client intake across Enigma, Brightscan, and Torus
         </p>
-        <ProjectSummary id="defenseark" />
+        <ProjectSummary id="defenseark" hideName />
       </header>
 
-      {heroImage && (
-        <img src={heroImage} alt="DefenseARK product work"
-             style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)", marginBottom:"var(--padding-big)" }} />
-      )}
 
       {/* FACTS */}
       <div style={{ marginBottom: "var(--padding-big)" }}>

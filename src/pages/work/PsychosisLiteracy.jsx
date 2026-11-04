@@ -2,6 +2,7 @@
 // Images: name your slides cap1.jpg → cap33.jpg and place in src/assets/
 // Only key slides are used, not all 33 are shown
 
+import ProjectSummary from "../../components/work/ProjectSummary";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 import cap2  from "../../assets/cap2.jpg";
 import cap9  from "../../assets/cap9.jpg";
@@ -102,6 +103,7 @@ export default function PsychosisLiteracy() {
         <p style={{ ...body, fontSize: "var(--type-base)", color: "var(--muted)" }}>
           Shipped an educational hallucination-simulation tool for ages 15–25, validated by Purdue Psychological Sciences and Purdue CAPS
         </p>
+        <ProjectSummary id="psychosis-literacy" />
       </header>
 
       {/* HERO SLIDE, the one full-width image */}

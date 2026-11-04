@@ -1,4 +1,5 @@
 import React from "react";
+import ProjectSummary from "../../components/work/ProjectSummary";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 
 import tacc3 from "../../assets/tacc3.jpg";
@@ -83,6 +84,7 @@ function Hero() {
       <p style={{ ...body, fontSize: "var(--type-base)" }}>
         Shipped conversation design patterns, trust-and-safety architecture, and progress-tracking inside a chat-based AI tutor for the Texas Advanced Computing Center
       </p>
+      <ProjectSummary id="ai-coding" />
     </header>
   );
 }

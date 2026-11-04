@@ -1,6 +1,5 @@
 // Home-page objects, keyed by project id. Each file is trimmed to its visible
-// edges and centred in a transparent square, so every object fills the same
-// --object-size box. Sources: the project-row renders (*top.webp) and, for
+// edges, so every object renders at the same height (--object-size-sm). Sources: the project-row renders (*top.webp) and, for
 // StraboSpot, work-strabospot.webp.
 import azure from "../assets/obj-azure.webp";
 import tacc from "../assets/obj-tacc.webp";

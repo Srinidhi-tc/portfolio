@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 // The top bar (Navbar.jsx) is no longer rendered; its height stays as negative space.
 import Footer from "./Footer";
@@ -21,7 +21,18 @@ export default function PageShell() {
 
   return (
     <div className="site-shell">
-      <div className="header-space" aria-hidden="true" />
+      {/* On project pages the S/R/I mark sits in the top space and leads home. */}
+      {pathname.startsWith("/work/") ? (
+        <div className="stacks-grid shell-home">
+          <Link to="/" className="sri-mark sri-mark--link" aria-label="Back to home">
+            <span>S</span>
+            <span>R</span>
+            <span>Iː</span>
+          </Link>
+        </div>
+      ) : (
+        <div className="header-space" aria-hidden="true" />
+      )}
       <main className="site-main">
         <Outlet />
       </main>

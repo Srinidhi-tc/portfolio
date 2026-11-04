@@ -712,3 +712,7 @@ html, body { font-size: var(--type-base); }
 }
 .next-project__label,
 .next-project__meta { font-weight: var(--weight-regular); }
+
+/* S/R/I on project pages: a link home, in column 1, right-aligned. */
+.shell-home { padding-bottom: 0; }
+.sri-mark--link { grid-column: 1; color: inherit; }

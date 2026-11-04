@@ -10,7 +10,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 import { projectSummaries } from "../data/projectSummaries";
-import { projectRenders } from "../data/projectRenders";
+import { projectObjects } from "../data/projectObjects";
 import { EMAIL_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
 
 const ROLES = ["Product owner", "Strategy", "UX Research", "Design"];
@@ -83,12 +83,11 @@ function About() {
   );
 }
 
-// The object replaces the project-name line only. Projects without a render
-// (StraboSpot) keep the name as text.
+// The object replaces the project-name line only.
 function ProjectName({ id, title }) {
-  const render = projectRenders[id];
-  if (!render) return <span className="home-item__title">{title}</span>;
-  return <img className="home-item__object" src={render.image} alt={title} decoding="async" />;
+  const src = projectObjects[id];
+  if (!src) return <span className="home-item__title">{title}</span>;
+  return <img className="home-item__object" src={src} alt={title} decoding="async" />;
 }
 
 function WorkList() {

@@ -20,14 +20,14 @@ import tacc19 from "../../assets/tacc19.jpg";
 const label = {
   fontSize: "var(--type-base)",
   fontWeight: "var(--weight-regular)",
-  color: "var(--color-text-tertiary)",
+  color: "var(--text-secondary)",
   margin: 0,
 };
 
 const body = {
   fontSize: "var(--type-base)",
   lineHeight: "var(--leading-body)",
-  color: "var(--muted)",
+  color: "var(--text-secondary)",
   margin: 0,
   maxWidth: 690,
 };
@@ -62,10 +62,10 @@ function ClientSwitcher() {
         </p>
       </div>
       <div className="client-switcher__links" style={{ display: "flex", gap: "var(--padding-small)", flexShrink: 0 }}>
-      <span style={{ display: "inline-flex", alignItems: "center", padding: "var(--padding-small) var(--padding-small)", borderRadius: "var(--radius)", border: "1px solid var(--text)", color: "var(--text)", background: "transparent", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>
+      <span style={{ display: "inline-flex", alignItems: "center", padding: "var(--padding-small) var(--padding-small)", borderRadius: "var(--radius)", border: "1px solid var(--text)", color: "var(--text-primary)", background: "transparent", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>
   AI Coding Tutor
 </span>
-        <a href="/portfolio/work/strabospot" style={{ display: "inline-flex", alignItems: "center", padding: "var(--padding-small) var(--padding-small)", borderRadius: "var(--radius)", border: "1px solid var(--hairline-weak)", color: "var(--text)", textDecoration: "none", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>
+        <a href="/portfolio/work/strabospot" style={{ display: "inline-flex", alignItems: "center", padding: "var(--padding-small) var(--padding-small)", borderRadius: "var(--radius)", border: "1px solid var(--hairline-weak)", color: "var(--text-primary)", textDecoration: "none", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>
           StraboSpot Inc →
         </a>
       </div>
@@ -128,7 +128,7 @@ function Slide({ src, number, caption }) {
   return (
     <figure style={{ margin: 0 }}>
       <img src={src} alt={`TACC client deck slide ${number}`} style={slideBase} />
-      <figcaption style={{ display: "flex", justifyContent: "space-between", gap: "var(--padding-small)", paddingTop: "var(--padding-small)", color: "var(--color-text-tertiary)", fontSize: "var(--type-base)", lineHeight: "var(--leading-subheading)" }}>
+      <figcaption style={{ display: "flex", justifyContent: "space-between", gap: "var(--padding-small)", paddingTop: "var(--padding-small)", color: "var(--text-secondary)", fontSize: "var(--type-base)", lineHeight: "var(--leading-subheading)" }}>
         {caption ? <span style={{ textAlign: "left", maxWidth: 520, fontSize: "var(--type-caption)", fontWeight: "var(--weight-thin)" }}>{caption}</span> : null}
       </figcaption>
     </figure>
@@ -220,7 +220,7 @@ export default function TACC() {
           <div style={{ marginTop: "var(--padding-small)" }}>
             <a href="https://www.figma.com/design/JwsjQAq1Q5UnJpDNrTqkks/AI-Coder-final-recommendation?node-id=0-1"
                target="_blank" rel="noopener noreferrer"
-               style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"#0055B3", textDecoration:"none" }}>
+               style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text-primary)", textDecoration:"none" }}>
               View full Figma recommendation ↗
             </a>
           </div>

@@ -17,9 +17,9 @@ import form from "../../assets/Form Exploration.png";
 import battery from "../../assets/battery.png";
 
 const label = {
-  fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", marginBottom: "var(--padding-small)"
+  fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text-secondary)", marginBottom: "var(--padding-small)"
 };
-const copy = { fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", maxWidth: 650 };
+const copy = { fontSize: "var(--type-base)", color: "var(--text-secondary)", lineHeight: "var(--leading-body)", maxWidth: 650 };
 const img = { width: "100%", borderRadius: "var(--radius)", display: "block" };
 
 function Block({ src, subheading, caption }) {
@@ -80,20 +80,20 @@ function MarketOpportunity() {
         {nodes.map((n, i) => (
           <div key={n.tag} style={{ display: "flex", alignItems: "center" }}>
             <div className="hand-bullet" style={{ width: "100%" }}>
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", margin: "0 0 var(--padding-small)" }}>
+              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text-secondary)", margin: "0 0 var(--padding-small)" }}>
                 {n.tag}
               </p>
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: "0 0 var(--padding-small)", color: "var(--text)" }}>
+              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: "0 0 var(--padding-small)", color: "var(--text-primary)" }}>
                 {n.value}
               </p>
-              <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-subheading)", margin: 0 }}>
+              <p style={{ fontSize: "var(--type-base)", color: "var(--text-secondary)", lineHeight: "var(--leading-subheading)", margin: 0 }}>
                 {n.detail}
               </p>
             </div>
             {i < nodes.length - 1 && (
               <div aria-hidden="true" style={{
                 flexShrink: 0, width: 28, textAlign: "center",
-                color: "var(--color-text-tertiary)", fontSize: "var(--type-base)"
+                color: "var(--text-secondary)", fontSize: "var(--type-base)"
               }}>
                 →
               </div>
@@ -107,21 +107,21 @@ function MarketOpportunity() {
         border: "1px solid var(--hairline-weak)",
         borderRadius: "var(--radius)", padding: "var(--padding-small) var(--padding-small)", marginBottom: "var(--padding-small)"
       }}>
-        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", margin: "0 0 var(--padding-small)" }}>
+        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text-secondary)", margin: "0 0 var(--padding-small)" }}>
           Connected to the market size above
         </p>
-        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", margin: 0 }}>
+        <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text-primary)", margin: 0 }}>
           Connected, smart-home units: +34% average selling price over standalone devices.
         </p>
         <div style={{ margin: "var(--padding-small) 0 0" }}>
           <AnnotationTag tone="burgundy" rotate={1.5}>Pricing lever</AnnotationTag>
         </div>
-        <p style={{ fontSize: "var(--type-base)", color: "var(--muted)", lineHeight: "var(--leading-body)", margin: 0 }}>
+        <p style={{ fontSize: "var(--type-base)", color: "var(--text-secondary)", lineHeight: "var(--leading-body)", margin: 0 }}>
           The premium that app-connected architecture is positioned to capture inside the category above.
         </p>
       </div>
 
-      <p style={{ fontSize: "var(--type-base)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-body)", margin: 0 }}>
+      <p style={{ fontSize: "var(--type-base)", color: "var(--text-secondary)", lineHeight: "var(--leading-body)", margin: 0 }}>
         References: {" "}
         <a href="https://datahorizzonresearch.com/toilet-cleaning-robot-market-23579" target="_blank" rel="noopener noreferrer" style={{ color: "var(--link)" }}>
           DataHorizzon Research · Toilet Cleaning Robot Market
@@ -172,7 +172,7 @@ function RoleAtTop() {
         </p>
         <div className="hand-bullet" >
           <p className="fine-print" style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--padding-small)" }}>Business Impact</p>
-          <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text)", lineHeight: "var(--leading-body)", margin: 0 }}>
+          <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text-primary)", lineHeight: "var(--leading-body)", margin: 0 }}>
             I designed Malli's modular, app-connected architecture specifically to capture that connected-device premium, treating smart-home integration as a pricing lever, not just a feature.
           </p>
         </div>
@@ -194,7 +194,7 @@ function InsightStrip() {
     {items.map(([n,t,d]) => <div className="hand-bullet" key={n} >
       <p className="fine-print" style={{ ...label, fontSize: "var(--type-base)", marginBottom: "var(--padding-small)" }}>{n}</p>
       <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: "0 0 var(--padding-small)" }}>{t}</p>
-      <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0 }}>{d}</p>
+      <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--text-secondary)", margin: 0 }}>{d}</p>
     </div>)}
   </div>;
 }
@@ -231,14 +231,14 @@ function OutcomeGrid() {
   }}>
     {items.map(([a,b]) => <div className="hand-bullet" key={a} >
       <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: "0 0 var(--padding-small)" }}>{a}</p>
-      <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0 }}>{b}</p>
+      <p style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--text-secondary)", margin: 0 }}>{b}</p>
     </div>)}
   </div>;
 }
 
 export default function Malli() {
   return <div style={{
-    color: "var(--text)", padding: "var(--padding-big) var(--padding-big)", maxWidth: 900, margin: "0 auto"
+    color: "var(--text-primary)", padding: "var(--padding-big) var(--padding-big)", maxWidth: 900, margin: "0 auto"
   }}>
     <header style={{ marginBottom: "var(--padding-big)" }}>
       <p className="fine-print fine-print--eyebrow" style={{ ...label, marginBottom: "var(--padding-small)" }}>
@@ -366,7 +366,7 @@ export default function Malli() {
         ["Tools", "SolidWorks (CAD/fusion360) · KeyShot · Figma · Rapid Protoyping "],
         ["Focus", "Behavioral Design · CMF · DFM"]
       ].map(([k,v]) => <div key={k}>
-        <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 0 }}>{k}</p>
+        <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>{k}</p>
         <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>{v}</p>
       </div>)}
     </div>

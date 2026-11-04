@@ -24,8 +24,8 @@ import micEmail  from "../../assets/mic-email.jpeg";
 import micCall   from "../../assets/mic-call.jpeg";
 import micWcag   from "../../assets/mic-wcag.svg";
 
-const lbl  = { fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--color-text-tertiary)", margin:0 };
-const bd   = { fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:0, maxWidth:680 };
+const lbl  = { fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text-secondary)", margin:0 };
+const bd   = { fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--text-secondary)", margin:0, maxWidth:680 };
 
 function Slide({ src, caption }) {
   return (
@@ -33,7 +33,7 @@ function Slide({ src, caption }) {
       <img src={src} alt={caption || ""} loading="lazy"
            style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)" }} />
       {caption && (
-        <figcaption style={{ marginTop:"var(--padding-small)", textAlign:"left", fontSize:"var(--type-caption)", fontWeight:"var(--weight-thin)", color:"var(--color-text-tertiary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
+        <figcaption style={{ marginTop:"var(--padding-small)", textAlign:"left", fontSize:"var(--type-caption)", fontWeight:"var(--weight-thin)", color:"var(--text-secondary)", lineHeight:"var(--leading-body)" }}>{caption}</figcaption>
       )}
     </figure>
   );
@@ -60,7 +60,7 @@ function Section({ id, title, children }) {
   return (
     <section id={id} style={{ marginBottom:"var(--padding-big)" }}>
       <div style={{ marginBottom:"var(--padding-small)", maxWidth:720 }}>
-        <h2 style={{ margin:"0 0 var(--padding-small)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", color:"var(--text)", fontWeight: "var(--weight-bold)" }}>
+        <h2 style={{ margin:"0 0 var(--padding-small)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", color:"var(--text-primary)", fontWeight: "var(--weight-bold)" }}>
           {title}
         </h2>
       </div>
@@ -94,7 +94,7 @@ export default function Microsoft() {
 
       {/* ROLE + BUSINESS IMPACT */}
       <section style={{ marginBottom: "var(--padding-big)" }}>
-        <h2 style={{ margin: "0 0 var(--padding-small)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", color: "var(--text)", fontWeight: "var(--weight-bold)" }}>My role</h2>
+        <h2 style={{ margin: "0 0 var(--padding-small)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", color: "var(--text-primary)", fontWeight: "var(--weight-bold)" }}>My role</h2>
         <Prose>
         <P>
           Owned the entity editing flow and the AI Ops research, SRE recruiting, contextual inquiry, think-aloud testing, the radial health indicators, the SLA phone-alert flow, and the Add New Signal interaction. Design system primitives were inherited from Azure Monitor; everything shown here is my contribution within that system.
@@ -102,7 +102,7 @@ export default function Microsoft() {
         </Prose>
       </section>
       <section style={{ marginBottom: "var(--padding-big)" }}>
-        <h2 style={{ margin: "0 0 var(--padding-small)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", color: "var(--text)", fontWeight: "var(--weight-bold)" }}>Business impact</h2>
+        <h2 style={{ margin: "0 0 var(--padding-small)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", color: "var(--text-primary)", fontWeight: "var(--weight-bold)" }}>Business impact</h2>
         <Prose>
         <P>
           Engineering time is the most expensive line in this team's budget. Each minute an SRE loses parsing an unclear interface during an incident is a minute closer to an SLA breach, and SLA credits paid to enterprise customers run into millions per outage. The design brief was decision speed, measured in seconds against dollars.

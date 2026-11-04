@@ -351,7 +351,7 @@ export function ContextSections() {
           maxWidth:460,
           padding:"var(--padding-small) var(--padding-small) var(--padding-small)",
           background:"#FBF6E8",
-          color:"#2B2A26",
+          color:"#1D1D1F",
           borderRadius:"var(--radius)",
           borderBottom:"4px solid #E4D9BC",
           boxShadow:"0 6px 14px rgba(0,0,0,0.20)",

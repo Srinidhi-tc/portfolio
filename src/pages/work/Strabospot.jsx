@@ -20,14 +20,14 @@ import straboCover from "../../assets/work-strabospot.webp";
 const label = {
   fontSize: "var(--type-base)",
   fontWeight: "var(--weight-regular)",
-  color: "var(--color-text-tertiary)",
+  color: "var(--text-secondary)",
   margin: 0,
 };
 
 const body = {
   fontSize: "var(--type-base)",
   lineHeight: "var(--leading-body)",
-  color: "var(--muted)",
+  color: "var(--text-secondary)",
   margin: 0,
   maxWidth: 690,
 };
@@ -78,7 +78,7 @@ function ClientSwitcher() {
             padding: "var(--padding-small) var(--padding-small)",
             borderRadius: "var(--radius)",
             background: "transparent",
-            color: "var(--text)",
+            color: "var(--text-primary)",
             border: "1px solid var(--hairline-weak)",
             textDecoration: "none",
             fontSize: "var(--type-base)",
@@ -94,7 +94,7 @@ function ClientSwitcher() {
             padding: "var(--padding-small) var(--padding-small)",
             borderRadius: "var(--radius)",
             background: "transparent",
-            color: "var(--text)",
+            color: "var(--text-primary)",
             border: "1px solid var(--text)",
             fontSize: "var(--type-base)",
             fontWeight: "var(--weight-regular)"
@@ -198,7 +198,7 @@ function Slide({ src, number, caption }) {
           justifyContent: "space-between",
           gap: "var(--padding-small)",
           paddingTop: "var(--padding-small)",
-          color: "var(--color-text-tertiary)",
+          color: "var(--text-secondary)",
           fontSize: "var(--type-base)",
           lineHeight: "var(--leading-subheading)"
         }}
@@ -236,7 +236,7 @@ function EvidenceLinks() {
             padding: "var(--padding-small) var(--padding-small)",
             border: "1px solid var(--hairline-weak)",
             borderRadius: "var(--radius)",
-            color: "var(--text)",
+            color: "var(--text-primary)",
             textDecoration: "none",
             fontSize: "var(--type-base)",
             fontWeight: "var(--weight-regular)",

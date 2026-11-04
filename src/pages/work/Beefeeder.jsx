@@ -18,13 +18,13 @@ import img9 from "../../assets/flowertimeline9.png";
 const eyebrow = {
   fontSize: "var(--type-base)",
   fontWeight: "var(--weight-regular)",
-  color: "var(--color-text-tertiary)",
+  color: "var(--text-secondary)",
   marginBottom: "var(--padding-small)",
 };
 
 const body = {
   fontSize: "var(--type-base)",
-  color: "var(--muted)",
+  color: "var(--text-secondary)",
   lineHeight: "var(--leading-body)",
   maxWidth: 640,
 };
@@ -144,7 +144,7 @@ function JourneyCell({ children, highlighted = false, label }) {
             marginBottom: "var(--padding-small)",
             fontSize: "var(--type-base)",
             fontWeight: "var(--weight-regular)",
-            color: "#5c4c00"
+            color: "#1D1D1F"
           }}
         >
           Key insight
@@ -257,7 +257,7 @@ function ButterflyJourneyChart() {
                 fontSize: "var(--type-base)",
                 fontWeight: "var(--weight-regular)",
                 margin: 0,
-                color: "var(--text)"
+                color: "var(--text-primary)"
               }}
             >
               {stage.title}
@@ -412,7 +412,7 @@ export default function BeeFeeder() {
   return (
     <div
       style={{
-        color: "var(--text)",
+        color: "var(--text-primary)",
         padding: "var(--padding-big) var(--padding-big)",
         maxWidth: 900,
         margin: "0 auto"
@@ -439,7 +439,7 @@ export default function BeeFeeder() {
       <p
         style={{
           fontSize: "var(--type-base)",
-          color: "var(--muted)",
+          color: "var(--text-secondary)",
           marginBottom: "var(--padding-small)",
           maxWidth: 600
         }}
@@ -450,7 +450,7 @@ export default function BeeFeeder() {
       <p
         style={{
           fontSize: "var(--type-base)",
-          color: "var(--muted)",
+          color: "var(--text-secondary)",
           marginBottom: "var(--padding-big)",
           maxWidth: 640,
           lineHeight: "var(--leading-body)"
@@ -476,7 +476,7 @@ export default function BeeFeeder() {
                 display: "block",
                 fontSize: "var(--type-base)",
                 fontWeight: "var(--weight-regular)",
-                color: "var(--text)",
+                color: "var(--text-primary)",
                 marginBottom: 0
               }}
             >
@@ -486,7 +486,7 @@ export default function BeeFeeder() {
             <span
               style={{
                 fontSize: "var(--type-base)",
-                color: "var(--color-text-tertiary)"
+                color: "var(--text-secondary)"
               }}
             >
               {label}
@@ -679,7 +679,7 @@ export default function BeeFeeder() {
             <p
               className="fine-print"
               style={{
-                color: "var(--color-text-tertiary)",
+                color: "var(--text-secondary)",
                 marginBottom: 0
               }}
             >

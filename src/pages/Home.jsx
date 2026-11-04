@@ -70,13 +70,13 @@ function About() {
       </ul>
 
       <p className="home-bio">
-        Grateful to mentors, seniors, teams, fam and friends. Prev., a founding designer at{" "}
+        Prev., a founding designer at{" "}
         <Ext href="https://www.metasquare.com/">Metasquare Inc.</Ext>, has worked across data-dense workflows for{" "}
         <Ext href="https://azure.microsoft.com/">Microsoft Azure</Ext>,{" "}
         <Ext href="https://tacc.utexas.edu/">TACC</Ext>,{" "}
         <Ext href="https://sciencegateways.org/">SGX3</Ext>,{" "}
         <Ext href="https://www.ionixxtech.com/">Ionixx</Ext> and{" "}
-        <Ext href="https://www.purdue.edu/">Purdue University</Ext>. Trained Psychologist.
+        <Ext href="https://www.purdue.edu/">Purdue University</Ext>. Trained Psychologist. Grateful to mentors, seniors, teams, fam and friends.
       </p>
     </div>
   );

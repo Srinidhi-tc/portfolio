@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 import { projectSummaries } from "../data/projectSummaries";
+import { projectRenders } from "../data/projectRenders";
 import { EMAIL_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
 
 const ROLES = ["Product owner", "Strategy", "UX Research", "Design"];
@@ -82,6 +83,14 @@ function About() {
   );
 }
 
+// The object replaces the project-name line only. Projects without a render
+// (StraboSpot) keep the name as text.
+function ProjectName({ id, title }) {
+  const render = projectRenders[id];
+  if (!render) return <span className="home-item__title">{title}</span>;
+  return <img className="home-item__object" src={render.image} alt={title} decoding="async" />;
+}
+
 function WorkList() {
   return (
     <ul className="home-work">
@@ -90,7 +99,7 @@ function WorkList() {
         return (
           <li key={id} className="stack stack--small stack--right">
             <Link to={p.to} className="home-item__link">
-              <span className="home-item__title">{title}</span>
+              <ProjectName id={id} title={title} />
               <span className="home-item__meta">{projectSummaries[id].homeLine}</span>
             </Link>
           </li>
@@ -108,7 +117,7 @@ function GalleryList() {
         return (
           <li key={id} className="stack stack--small stack--right">
             <Link to={p.to} className="home-item__link">
-              <span className="home-item__title">{title}</span>
+              <ProjectName id={id} title={title} />
               <span className="home-item__meta">{p.title}</span>
             </Link>
           </li>

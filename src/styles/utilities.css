@@ -723,3 +723,11 @@ html, body { font-size: var(--type-base); }
 .chapter-list__item, h1, h2, h3 { color: var(--text-primary); }
 .home-bio, .cs-prose, .home-item__meta, .cs-ledger__item dd,
 .cs-stacks span, figcaption, .next-project__meta { color: var(--text-secondary); }
+
+/* Home-page object: square, transparent, sized by token only. */
+.home-item__object {
+  width: var(--object-size-sm);
+  height: var(--object-size-sm);
+  object-fit: contain;
+  display: block;
+}

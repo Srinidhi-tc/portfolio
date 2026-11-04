@@ -673,11 +673,13 @@
 .next-project a { color: inherit; font-weight: var(--weight-bold); }
 
 /* Client switcher (TACC / StraboSpot): stacks on narrow screens. */
-@media (max-width: 720px) {
-  .client-switcher { flex-wrap: wrap; }
-  .client-switcher > div:first-child { flex-basis: 100%; }
-  .client-switcher__links { flex-wrap: wrap; flex-shrink: 1 !important; }
-}
+/* The switcher sits in the two middle columns, which are narrow on tablets
+   too, so it wraps at every width instead of only on phones. */
+.client-switcher { flex-wrap: wrap; }
+.client-switcher > div:first-child { flex: 1 1 240px; }
+.client-switcher > div:first-child p { white-space: normal !important; }
+.client-switcher__links { flex-wrap: wrap; flex-shrink: 1 !important; max-width: 100%; }
+.client-switcher__links > * { white-space: nowrap; }
 
 /* Type system: headings and subheadings are 16px bold. Nothing else is set
    here, so a heading can never fall back to the browser's larger defaults. */

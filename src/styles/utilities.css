@@ -724,9 +724,10 @@ html, body { font-size: var(--type-base); }
 .home-bio, .cs-prose, .home-item__meta, .cs-ledger__item dd,
 .cs-stacks span, figcaption, .next-project__meta { color: var(--text-secondary); }
 
-/* Home-page object: square, transparent, sized by token only. */
+/* Home-page object: transparent, trimmed to its edges; every object is the
+   same height (the token) and keeps its own width. */
 .home-item__object {
-  width: var(--object-size-sm);
+  width: auto;
   height: var(--object-size-sm);
   object-fit: contain;
   display: block;

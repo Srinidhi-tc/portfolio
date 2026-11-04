@@ -119,7 +119,7 @@
 }
 
 .fine-print--eyebrow {
-  color: #86868b;
+  color: var(--text-secondary);
   font-weight: var(--weight-regular);
 }
 
@@ -716,3 +716,10 @@ html, body { font-size: var(--type-base); }
 /* S/R/I on project pages: a link home, in column 1, right-aligned. */
 .shell-home { padding-bottom: 0; }
 .sri-mark--link { grid-column: 1; color: inherit; }
+
+/* Text color hierarchy: primary for names, letterforms, bold labels and
+   section headings; secondary for bio, prose, captions, tags and ledger values. */
+.sri-mark, .home-item__title, .cs-stacks strong, .cs-ledger__item dt,
+.chapter-list__item, h1, h2, h3 { color: var(--text-primary); }
+.home-bio, .cs-prose, .home-item__meta, .cs-ledger__item dd,
+.cs-stacks span, figcaption, .next-project__meta { color: var(--text-secondary); }

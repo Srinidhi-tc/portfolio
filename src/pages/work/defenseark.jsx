@@ -13,14 +13,14 @@ import { workSectionProjects } from "../../data/workSectionProjects";
 
 const heroImage = workSectionProjects.find((p) => p.id === "defenseark")?.image;
 
-const lbl  = { fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--color-text-tertiary)", margin:0 };
-const bd   = { fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--muted)", margin:"0 0 var(--padding-small)", maxWidth:680 };
+const lbl  = { fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text-secondary)", margin:0 };
+const bd   = { fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--text-secondary)", margin:"0 0 var(--padding-small)", maxWidth:680 };
 
 function Section({ id, number, title, children }) {
   return (
     <section id={id} style={{ marginBottom:"var(--padding-big)" }}>
       {number && <Kicker style={{ marginBottom:"var(--padding-small)" }}>{number}</Kicker>}
-      <h2 style={{ margin:"0 0 var(--padding-small)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", color:"var(--text)", maxWidth:720, fontWeight: "var(--weight-bold)" }}>
+      <h2 style={{ margin:"0 0 var(--padding-small)", fontSize:"var(--type-base)", lineHeight:"var(--leading-heading)", color:"var(--text-primary)", maxWidth:720, fontWeight: "var(--weight-bold)" }}>
         {title}
       </h2>
       {children}
@@ -75,10 +75,10 @@ export default function DefenseArk() {
         <p style={{ ...lbl, marginBottom:"var(--padding-small)" }}>
           DefenseARK Cybersecurity · A Metasquare Inc company · New York (remote from India)
         </p>
-        <h1 style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-bold)", lineHeight:"var(--leading-heading)", margin:"0 0 var(--padding-small)", color:"var(--text)" }}>
+        <h1 style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-bold)", lineHeight:"var(--leading-heading)", margin:"0 0 var(--padding-small)", color:"var(--text-primary)" }}>
           Solo designer at a cybersecurity startup.
         </h1>
-        <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--muted)", margin:0, maxWidth:720, lineHeight:"var(--leading-subheading)" }}>
+        <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text-secondary)", margin:0, maxWidth:720, lineHeight:"var(--leading-subheading)" }}>
           Founding design hire: unified identity, system, and client intake across Enigma, Brightscan, and Torus
         </p>
         <ProjectSummary id="defenseark" />
@@ -198,8 +198,8 @@ export default function DefenseArk() {
             <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="lift"
                style={{ display:"block", textDecoration:"none", color:"inherit" }}>
               <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--padding-small)" }}>{p.type}</p>
-              <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text)", margin:"0 0 var(--padding-small)" }}>{p.name}</p>
-              <p style={{ fontSize:"var(--type-base)", color:"var(--muted)", lineHeight:"var(--leading-body)", margin:"0 0 var(--padding-small)" }}>{p.my}</p>
+              <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text-primary)", margin:"0 0 var(--padding-small)" }}>{p.name}</p>
+              <p style={{ fontSize:"var(--type-base)", color:"var(--text-secondary)", lineHeight:"var(--leading-body)", margin:"0 0 var(--padding-small)" }}>{p.my}</p>
               <span style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--link, #0066CC)" }}>Visit {p.name} ↗</span>
             </a>
           ))}

@@ -22,10 +22,10 @@ import cap31 from "../../assets/cap31.jpg";
 
 
 const label = {
-  fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--color-text-tertiary)", margin: 0,
+  fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", color: "var(--text-secondary)", margin: 0,
 };
 const body = {
-  fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--muted)", margin: 0, maxWidth: 680,
+  fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--text-secondary)", margin: 0, maxWidth: 680,
 };
 const slideImg = {
   width: "100%", display: "block", borderRadius: "var(--radius)",
@@ -36,7 +36,7 @@ function Section({ id, title, children }) {
   return (
     <section id={id} style={{ marginBottom: "var(--padding-big)" }}>
       <div style={{ marginBottom: "var(--padding-small)", maxWidth: 720 }}>
-        <h2 style={{ margin: "0 0 var(--padding-small)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", color: "var(--text)", fontWeight: "var(--weight-bold)" }}>
+        <h2 style={{ margin: "0 0 var(--padding-small)", fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", color: "var(--text-primary)", fontWeight: "var(--weight-bold)" }}>
           {title}
         </h2>
       </div>
@@ -59,7 +59,7 @@ function Slide({ src, caption, alt }) {
     <figure style={{ margin: "0 0 var(--padding-small)" }}>
       <img src={src} alt={alt ?? (typeof caption === "string" ? caption : "")} style={slideImg} />
       {caption && (
-        <figcaption style={{ marginTop: "var(--padding-small)", textAlign: "left", fontSize: "var(--type-caption)", fontWeight: "var(--weight-thin)", color: "var(--color-text-tertiary)", lineHeight: "var(--leading-subheading)" }}>
+        <figcaption style={{ marginTop: "var(--padding-small)", textAlign: "left", fontSize: "var(--type-caption)", fontWeight: "var(--weight-thin)", color: "var(--text-secondary)", lineHeight: "var(--leading-subheading)" }}>
           {caption}
         </figcaption>
       )}
@@ -96,11 +96,11 @@ export default function PsychosisLiteracy() {
       {/* HERO */}
       <header style={{ marginBottom: "var(--padding-big)" }}>
         <p style={{ ...label, marginBottom: "var(--padding-small)" }}>Purdue Capstone 2026 · Health Tech · Youth Mental Health</p>
-        <h1 style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--padding-small)", color: "var(--text)" }}>
+        <h1 style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--padding-small)", color: "var(--text-primary)" }}>
           Designing empathy without medicalizing it<br />
           Percepta, a youth psychosis experience
         </h1>
-        <p style={{ ...body, fontSize: "var(--type-base)", color: "var(--muted)" }}>
+        <p style={{ ...body, fontSize: "var(--type-base)", color: "var(--text-secondary)" }}>
           Shipped an educational hallucination-simulation tool for ages 15–25, validated by Purdue Psychological Sciences and Purdue CAPS
         </p>
         <ProjectSummary id="psychosis-literacy" hideName />

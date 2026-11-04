@@ -13,13 +13,13 @@ import heart12 from "../../assets/heart12.png";
 const eyebrow = {
   fontSize: "var(--type-base)",
   fontWeight: "var(--weight-regular)",
-  color: "var(--color-text-tertiary)",
+  color: "var(--text-secondary)",
   marginBottom: "var(--padding-small)",
 };
 
 const body = {
   fontSize: "var(--type-base)",
-  color: "var(--muted)",
+  color: "var(--text-secondary)",
   lineHeight: "var(--leading-body)",
   maxWidth: 640,
   margin: 0,
@@ -29,7 +29,7 @@ const title = {
   fontSize: "var(--type-base)",
   fontWeight: "var(--weight-regular)",
   lineHeight: "var(--leading-heading)",
-  color: "var(--text)",
+  color: "var(--text-primary)",
   margin: "0 0 var(--padding-small)",
 };
 
@@ -82,7 +82,7 @@ function ImpactBox() {
             marginTop: "var(--padding-small)",
             fontSize: "var(--type-base)",
             fontWeight: "var(--weight-regular)",
-            color: "var(--text)",
+            color: "var(--text-primary)",
             textDecoration: "none"
           }}
         >
@@ -99,7 +99,7 @@ export default function HeartsOfInsomnia() {
   return (
     <div
       style={{
-        color: "var(--text)",
+        color: "var(--text-primary)",
         padding: "var(--padding-big) var(--padding-big)",
         maxWidth: 900,
         margin: "0 auto"
@@ -124,7 +124,7 @@ export default function HeartsOfInsomnia() {
         <p
           style={{
             fontSize: "var(--type-base)",
-            color: "var(--muted)",
+            color: "var(--text-secondary)",
             marginBottom: "var(--padding-small)",
             maxWidth: 600
           }}
@@ -135,7 +135,7 @@ export default function HeartsOfInsomnia() {
         <p
           style={{
             fontSize: "var(--type-base)",
-            color: "var(--muted)",
+            color: "var(--text-secondary)",
             marginBottom: "var(--padding-small)",
             maxWidth: 640,
             lineHeight: "var(--leading-body)"
@@ -270,7 +270,7 @@ export default function HeartsOfInsomnia() {
             }}
           >
             <div>
-              <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 0 }}>
+              <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>
                 Team
               </p>
               <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
@@ -279,7 +279,7 @@ export default function HeartsOfInsomnia() {
             </div>
 
             <div>
-              <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 0 }}>
+              <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>
                 Tools
               </p>
               <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
@@ -288,7 +288,7 @@ export default function HeartsOfInsomnia() {
             </div>
 
             <div>
-              <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 0 }}>
+              <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>
                 Project
               </p>
               <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
@@ -297,7 +297,7 @@ export default function HeartsOfInsomnia() {
             </div>
 
             <div>
-              <p className="fine-print" style={{ color: "var(--color-text-tertiary)", marginBottom: 0 }}>
+              <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>
                 Submission
               </p>
               <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>

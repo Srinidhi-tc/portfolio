@@ -73,23 +73,19 @@ export default function Microsoft() {
   return (
     <CaseStudyGrid chapters={CHAPTERS}>
 
-      {/* HERO ... team presenting photo as background */}
-      <header style={{
-        marginBottom:"var(--padding-big)", borderRadius:"var(--radius)", overflow:"hidden",
-        padding:"var(--padding-big)",
-        backgroundImage:`linear-gradient(180deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.62) 100%), url(${micTeam})`,
-        backgroundSize:"cover", backgroundPosition:"center"
-      }}>
-        <p style={{ ...lbl, color:"rgba(255,255,255,0.7)", marginBottom:"var(--padding-small)" }}>
+      {/* HERO: team photo on top, title text below it */}
+      <header style={{ marginBottom:"var(--padding-big)" }}>
+        <img src={micTeam} alt="The Purdue UX team presenting to Microsoft Azure" style={{ width:"100%", display:"block", borderRadius:"var(--radius)", marginBottom:"var(--padding-small)" }} />
+        <p style={{ ...lbl, color:"var(--text-secondary)", marginBottom:"var(--padding-small)" }}>
           Microsoft Azure · Industry Partner Project · Health Observability
         </p>
-        <h1 style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-bold)", lineHeight: "var(--leading-heading)", margin:"0 0 var(--padding-small)", color:"#fff" }}>
+        <h1 style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-bold)", lineHeight: "var(--leading-heading)", margin:"0 0 var(--padding-small)", color:"var(--text-primary)" }}>
           Azure Health Models
         </h1>
-        <p style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"rgba(255,255,255,0.78)", margin:0, maxWidth:680 }}>
+        <p style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--text-secondary)", margin:0, maxWidth:680 }}>
           Shipped visibility improvements and compliance-aligned patterns across the SRE Health Observability tool
         </p>
-        <ProjectSummary id="microsoft" color="#fff" />
+        <ProjectSummary id="microsoft" hideName />
       </header>
 
       {/* ROLE + BUSINESS IMPACT */}

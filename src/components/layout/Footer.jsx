@@ -41,8 +41,8 @@ export default function Footer() {
           <div className="stack stack--small">
             <p className="site-footer__title">Let's build awesome stuff</p>
             <div className="site-footer__time">
-              <SFClock />
               <ThemeToggle />
+              <SFClock />
             </div>
           </div>
           <ul className="stack stack--small stack--right">

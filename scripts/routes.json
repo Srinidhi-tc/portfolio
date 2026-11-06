@@ -31,7 +31,7 @@
     },
     {
       "path": "/work/microsoft",
-      "title": "Azure Alerts · Microsoft Azure",
+      "title": "Reducing decision time against compliance clock ▴ Microsoft Azure Health Monitor",
       "description": "Improving system health status by reducing the time it takes to make decisions. Cut detection time ~25% for SRE incident response.",
       "og": "microsoft",
       "eyebrow": "MICROSOFT AZURE",
@@ -39,7 +39,7 @@
     },
     {
       "path": "/work/ai-coding",
-      "title": "AI Coding Tutor · SGX3",
+      "title": "Designing institutional trust into an AI tutor ▴ TACC",
       "description": "How we boosted noticeability and traffic in an existing AI coding-interview tool for a CS course at Purdue.",
       "og": "ai-coding",
       "eyebrow": "SGX3",
@@ -47,7 +47,7 @@
     },
     {
       "path": "/work/strabospot",
-      "title": "StraboSpot · GIS Data · Srinidhi Chakravarthy",
+      "title": "Scaling adoption with GIS dense-data ▴ StraboSpot Field Data Platform",
       "description": "UX secrets to making geo-data feel human again: increasing intuitive use through heuristic analysis and interviews.",
       "og": "strabospot",
       "eyebrow": "SCIENTIFIC SOFTWARE",
@@ -55,7 +55,7 @@
     },
     {
       "path": "/work/psychosis-literacy",
-      "title": "Psychosis Psychoeducation App · Srinidhi Chakravarthy",
+      "title": "Designing empathy into a psychosis experience ▴ Percepta",
       "description": "A youth-first mobile companion (ages 15–25) for early-psychosis education, EMA self-checks, and safe peer/caregiver pathways.",
       "og": "psychosis-literacy",
       "eyebrow": "HEALTH · CAPSTONE",
@@ -79,7 +79,7 @@
     },
     {
       "path": "/work/defenseark",
-      "title": "DefenseARK Ransomware Portal",
+      "title": "Bringing three products under one brand ▴ DefenseARK Cybersecurity",
       "description": "Replacing email-based intake with an instant upload portal to accelerate ransomware threat response. Inbound leads up ~30%.",
       "og": "defenseark",
       "eyebrow": "CYBERSECURITY",

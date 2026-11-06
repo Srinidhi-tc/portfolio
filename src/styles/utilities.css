@@ -772,12 +772,12 @@ html, body { font-size: var(--type-base); }
 .primary-link {
   display: inline-flex;
   align-items: center;
-  gap: calc(var(--padding-small) / 2);
+  gap: 0.25em; /* one space between icon and text */
   color: var(--link-blue);
   line-height: var(--leading-body);
 }
 .primary-link__text { text-decoration: underline; text-underline-offset: 3px; }
-.eye-globe { height: 0.75em; width: auto; aspect-ratio: 128 / 88; flex-shrink: 0; overflow: visible; }
+.eye-globe { height: calc(0.75em + 1px); width: auto; aspect-ratio: 128 / 88; flex-shrink: 0; overflow: visible; }
 .eye-globe path {
   fill: none;
   stroke: currentColor;
@@ -828,3 +828,11 @@ html, body { font-size: var(--type-base); }
 /* Primary links stay blue wherever they sit (the footer resets link colour). */
 a.primary-link,
 .site-footer a.primary-link { color: var(--link-blue); }
+
+/* S/R/I: a bigger tap area on every screen without moving the letters. */
+.sri-mark--link {
+  padding: var(--padding-small);
+  margin: calc(-1 * var(--padding-small));
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}

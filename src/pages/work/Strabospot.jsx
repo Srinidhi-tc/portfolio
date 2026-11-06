@@ -1,5 +1,7 @@
 import React from "react";
-import ProjectSummary from "../../components/work/ProjectSummary";
+import PrimaryLink from "../../components/ui/PrimaryLink";
+import Sgx3Toggle from "../../components/work/Sgx3Toggle";
+import { ProjectHeader } from "../../components/work/ProjectSummary";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 
 import str5 from "../../assets/str5.jpg";
@@ -39,95 +41,13 @@ const slideBase = {
   background: "var(--surface-2)",
 };
 
-function ClientSwitcher() {
-  return (
-    <div className="glass-bar client-switcher"
-      style={{
-        zIndex: 20,
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: "var(--padding-small)",
-        marginBottom: "var(--padding-big)",
-        padding: "var(--padding-small) var(--padding-small) var(--padding-small) var(--padding-small)",
-        borderRadius: "var(--radius)"
-      }}
-    >
-      <div style={{ minWidth: 0 }}>
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: 0 }}>SGX3 · Two concurrent client engagements</p>
-        <p
-          style={{
-            margin: 0,
-            fontSize: "var(--type-base)",
-            fontWeight: "var(--weight-regular)",
-            whiteSpace: "nowrap",
-            overflow: "hidden",
-            textOverflow: "ellipsis"
-          }}
-        >
-          Client 02 · GIS Tool
-        </p>
-      </div>
-
-      <div className="client-switcher__links" style={{ display: "flex", gap: "var(--padding-small)", flexShrink: 0 }}>
-        <a
-          href="/portfolio/work/ai-coding"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            padding: "var(--padding-small) var(--padding-small)",
-            borderRadius: "var(--radius)",
-            background: "transparent",
-            color: "var(--text-primary)",
-            border: "1px solid var(--hairline-weak)",
-            textDecoration: "none",
-            fontSize: "var(--type-base)",
-            fontWeight: "var(--weight-regular)"
-          }}
-        >
-          AI Coding Tutor →
-        </a>
-        <span
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            padding: "var(--padding-small) var(--padding-small)",
-            borderRadius: "var(--radius)",
-            background: "transparent",
-            color: "var(--text-primary)",
-            border: "1px solid var(--text)",
-            fontSize: "var(--type-base)",
-            fontWeight: "var(--weight-regular)"
-          }}
-        >
-          StraboSpot
-        </span>
-      </div>
-    </div>
-  );
-}
 
 function Hero() {
   return (
     <header style={{ marginBottom: "var(--padding-big)" }}>
-      <p style={{ ...label, marginBottom: "var(--padding-small)" }}>
-        SGX3 · UX consulting · GIS · scientific software
-      </p>
-      <h1
-        style={{
-          fontSize: "var(--type-base)",
-          lineHeight: "var(--leading-heading)",
-          fontWeight: "var(--weight-bold)",
-          margin: "0 0 var(--padding-small)"
-        }}
-      >
-        Designing for adoption inside<br />
-        StraboSpot Field Data Platform
-      </h1>
-      <p style={{ ...body, fontSize: "var(--type-base)" }}>
+      <ProjectHeader id="strabospot">
         Shipped a visual-first redesign of the search, map, and sharing surfaces across the geoscience data platform used by 12,000+ geologists in the field
-      </p>
-      <ProjectSummary id="strabospot" hideName />
+      </ProjectHeader>
       <figure style={{ margin: "var(--padding-small) 0 0" }}>
         <img
           src={straboCover}
@@ -211,7 +131,7 @@ function Slide({ src, number, caption }) {
 
 function EvidenceLinks() {
   const links = [
-    ["View Figma Design File ↗", "https://www.figma.com/design/8UaP0xVxXyXx0FzdMHae9e/Strabospot?node-id=0-1&p=f"],
+    ["View Figma design file", "https://www.figma.com/design/8UaP0xVxXyXx0FzdMHae9e/Strabospot?node-id=0-1&p=f"],
   ];
 
   return (
@@ -225,26 +145,7 @@ function EvidenceLinks() {
       }}
     >
       {links.map(([text, href]) => (
-        <a
-          key={text}
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            padding: "var(--padding-small) var(--padding-small)",
-            border: "1px solid var(--hairline-weak)",
-            borderRadius: "var(--radius)",
-            color: "var(--text-primary)",
-            textDecoration: "none",
-            fontSize: "var(--type-base)",
-            fontWeight: "var(--weight-regular)",
-            background: "var(--surface-2)"
-          }}
-        >
-          {text}
-        </a>
+        <PrimaryLink key={text} href={href}>{text}</PrimaryLink>
       ))}
     </div>
   );
@@ -253,7 +154,7 @@ function EvidenceLinks() {
 export default function StraboSpot() {
   return (
     <CaseStudyGrid chapters={CHAPTERS}>
-      <ClientSwitcher />
+      <Sgx3Toggle active="strabospot" />
       <Hero />
       <EvidenceLinks />
 
@@ -318,7 +219,7 @@ export default function StraboSpot() {
             <Slide src={str13} number={13} caption="Proposed search surface, map-first, with image previews, filters, bookmarks, help. The hook that drives retention sits above the fold." />
             <Slide src={str14} number={14} caption="Unified navigation between maps, one mental model across contexts, so switching surfaces preserves state. The groundwork for a scalable search layer." />
             <Slide src={str15} number={15} caption="Gallery and document pipeline, image gallery, ownership, and credits adjacent to the generator. Sharing becomes a native action, not an export." />
-            <Slide src={str16} number={16} caption="Unified search tool · map view, the shared surface, lighter in code, extensible to new data types without reinventing the layer." />
+            <Slide src={str16} number={16} caption="Unified search tool ▴ map view, the shared surface, lighter in code, extensible to new data types without reinventing the layer." />
             <Slide src={str17} number={17} caption="Map detail, visibility, zoom behaviour, base-map controls. Expert tolerances for density, respected on a surface tuned for new-user conversion." />
             <Slide src={str18} number={18} caption="Search bar, image filters, map/list toggle, color-aware sorting. One component, three contexts, no re-invention per surface." />
             <Slide src={str19} number={19} caption="List view, sortable results with image preview. Scanning the gallery, not scrolling the data." />

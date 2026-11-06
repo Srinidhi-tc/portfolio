@@ -288,8 +288,8 @@
 .theme-toggle__icon {
   position: relative;
   display: block;
-  width: 14px;
-  height: 14px;
+  width: var(--type-display);
+  height: var(--type-display);
 }
 
 .theme-toggle__icon svg {
@@ -714,8 +714,6 @@ html, body { font-size: var(--type-base); }
 .next-project__meta { font-weight: var(--weight-regular); }
 
 /* S/R/I on project pages: a link home, in column 1, right-aligned. */
-.shell-home { padding-bottom: 0; }
-.sri-mark--link { grid-column: 1; color: inherit; }
 
 /* Text color hierarchy: primary for names, letterforms, bold labels and
    section headings; secondary for bio, prose, captions, tags and ledger values. */
@@ -732,3 +730,90 @@ html, body { font-size: var(--type-base); }
   object-fit: contain;
   display: block;
 }
+
+/* ---------- Page header row ----------
+ * S/R/I in column 1 and the page toggle in columns 2 + 3, at the same spot on
+ * every page. The old top bar's height stays above it as negative space.
+ */
+.shell-head { padding-top: var(--header-space); padding-bottom: 0; }
+.shell-head__mark { display: flex; justify-content: flex-end; }
+.header-toggle__label { margin: 0; color: var(--text-secondary); text-align: right; }
+.home-toggle__label { color: var(--text-primary); text-decoration: none; }
+
+.sri-mark--link { color: var(--text-primary); text-decoration: none; transform-origin: 0% 100%; }
+.sri-mark--topple { animation: sri-topple 420ms cubic-bezier(0.3, 0.7, 0.3, 1); }
+@keyframes sri-topple {
+  0%   { transform: rotate(0deg); }
+  45%  { transform: rotate(-23deg); }
+  100% { transform: rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) { .sri-mark--topple { animation: none; } }
+
+/* ---------- Text colours ---------- */
+.home-roles { color: var(--text-secondary); }
+.home-item__meta { color: var(--text-primary); }
+.site-footer__title { margin: 0; color: var(--text-secondary); }
+.theme-toggle, .theme-toggle:hover { color: var(--text-primary); }
+
+/* ---------- Project header ---------- */
+.project-header { display: flex; flex-direction: column; gap: var(--padding-small); }
+.project-header__headline { margin: 0; color: var(--text-primary); line-height: var(--leading-body); }
+.project-header__org { margin: 0; color: var(--text-secondary); line-height: var(--leading-body); }
+.project-header__line { margin: 0; color: var(--text-secondary); line-height: var(--leading-body); }
+
+/* ---------- Links ----------
+ * Primary (contacts, GitHub, Figma, DefenseARK products): eye-globe icon,
+ * blue, underlined. Every other text link: text colour, underlined.
+ */
+:root { --link-blue: #2563EB; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --link-blue: #60A5FA; } }
+:root[data-theme="dark"] { --link-blue: #60A5FA; }
+
+.primary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--padding-small) / 2);
+  color: var(--link-blue);
+  line-height: var(--leading-body);
+}
+.primary-link__text { text-decoration: underline; text-underline-offset: 3px; }
+.eye-globe { height: 1em; width: auto; aspect-ratio: 128 / 88; flex-shrink: 0; overflow: visible; }
+.eye-globe path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+.eye-globe__outer { stroke-width: 9; }
+.eye-globe__grid { stroke-width: 4.5; }
+.next-project a span:nth-child(2) { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Objects: one studio look ----------
+ * The renders come from different sources; one shared filter evens out
+ * contrast and colour, and one shadow grounds every object on the same floor.
+ */
+.home-item__object {
+  filter: saturate(0.92) contrast(1.04) drop-shadow(0 6px 5px rgba(0, 0, 0, 0.16));
+}
+
+/* ---------- GitHub stack + heatmap on hover ---------- */
+.github-stack { position: relative; display: flex; flex-direction: column; align-items: flex-end; }
+.github-stack__count { color: var(--text-secondary); }
+.github-heatmap {
+  position: absolute;
+  right: calc(100% + var(--padding-small));
+  bottom: 0;
+  display: none;
+  gap: 2px;
+  padding: var(--padding-small);
+  background: var(--background);
+  border: 1px solid var(--hairline-weak);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+.github-stack:hover .github-heatmap,
+.github-stack:focus-within .github-heatmap { display: flex; }
+.github-heatmap__week { display: flex; flex-direction: column; gap: 2px; }
+.github-heatmap__day { width: 8px; height: 8px; border-radius: 2px; background: var(--hairline-weak); }
+.github-heatmap__day.is-empty { background: transparent; }
+.github-heatmap__day.lvl-1 { background: #9be9a8; }
+.github-heatmap__day.lvl-2 { background: #40c463; }
+.github-heatmap__day.lvl-3 { background: #30a14e; }
+.github-heatmap__day.lvl-4 { background: #216e39; }
+@media (max-width: 720px) { .github-heatmap { display: none !important; } }

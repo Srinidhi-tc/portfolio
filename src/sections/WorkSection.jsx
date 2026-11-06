@@ -102,7 +102,7 @@ export default function WorkSection() {
         <ProjectRow />
 
         <h2 className="home-section-label home-landing__link">
-          <a href={`#${PANEL_ID}`}>What's behind the objects? ↓</a>
+          <a href={`#${PANEL_ID}`}>What's behind the objects?</a>
         </h2>
         </div>
 
@@ -134,13 +134,13 @@ export default function WorkSection() {
                   {media}
                   <div className="work-section-card-copy">
                     <p className="work-section-meta">
-                      {[project.name, project.brand, project.date].filter(Boolean).join(" · ")}
+                      {[project.name, project.brand, project.date].filter(Boolean).join(" ▴ ")}
                     </p>
                     <div className="work-section-head">
                       <h3 className="work-section-title">{project.title}</h3>
                       {project.tags && project.tags.length > 0 && (
                         <p className="work-section-card-tags" style={{ margin:0, color:"var(--muted)", fontWeight:"var(--weight-regular)" }}>
-                          {project.tags.join(" · ")}
+                          {project.tags.join(" ▴ ")}
                         </p>
                       )}
                     </div>
@@ -233,7 +233,7 @@ export default function WorkSection() {
         <section className="home-lens center-split" aria-labelledby="home-lens-heading">
           <div className="split-left">
             <h2 id="home-lens-heading" className="home-section-label">What I pay attention to</h2>
-            <p className="home-lens__list">Time · Attention · Emotion · Environment · Access · Trust</p>
+            <p className="home-lens__list">Time ▴ Attention ▴ Emotion ▴ Environment ▴ Access ▴ Trust</p>
           </div>
           <div className="split-right">
             <h3 className="home-lens__title">Design is more than making things usable.</h3>

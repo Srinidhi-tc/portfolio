@@ -40,7 +40,7 @@ const METRICS = {
   },
   microsoft: {
     accent: "#7fa8f0",
-    metrics: [{ value: "↓ ~45%", caption: "Decision Time", label: "About 45 percent less decision time" }],
+    metrics: [{ value: "~45%", caption: "Decision Time", label: "About 45 percent less decision time" }],
   },
 };
 
@@ -74,7 +74,7 @@ function Metric({ metrics, accent, rotateMs }) {
   const label = shown.map((m) => m.label).join(" and ");
   const fade = (i) => ({ opacity: i === active ? 1 : 0 });
 
-  // One line, "↓ ~45% Decision Time". Every value shares one grid cell, so
+  // One line, "~45% Decision Time". Every value shares one grid cell, so
   // crossfading between them never shifts the layout.
   return (
     <span

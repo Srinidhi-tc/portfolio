@@ -10,7 +10,7 @@
 //
 // Before publishing: confirm the spelling of "Priyank Wilkins" and add Alyssa Berger's role.
 
-import ProjectSummary from "../../components/work/ProjectSummary";
+import { ProjectHeader } from "../../components/work/ProjectSummary";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 import mic6      from "../../assets/mic6.jpg";
 import mic7      from "../../assets/mic7.jpg";
@@ -76,16 +76,9 @@ export default function Microsoft() {
       {/* HERO: team photo on top, title text below it */}
       <header style={{ marginBottom:"var(--padding-big)" }}>
         <img src={micTeam} alt="The Purdue UX team presenting to Microsoft Azure" style={{ width:"100%", display:"block", borderRadius:"var(--radius)", marginBottom:"var(--padding-small)" }} />
-        <p style={{ ...lbl, color:"var(--text-secondary)", marginBottom:"var(--padding-small)" }}>
-          Microsoft Azure · Industry Partner Project · Health Observability
-        </p>
-        <h1 style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-bold)", lineHeight: "var(--leading-heading)", margin:"0 0 var(--padding-small)", color:"var(--text-primary)" }}>
-          Azure Health Models
-        </h1>
-        <p style={{ fontSize:"var(--type-base)", lineHeight:"var(--leading-body)", color:"var(--text-secondary)", margin:0, maxWidth:680 }}>
+        <ProjectHeader id="microsoft">
           Shipped visibility improvements and compliance-aligned patterns across the SRE Health Observability tool
-        </p>
-        <ProjectSummary id="microsoft" hideName />
+        </ProjectHeader>
       </header>
 
       {/* ROLE + BUSINESS IMPACT */}
@@ -111,14 +104,14 @@ export default function Microsoft() {
         <Ledger items={[
           ["Industry partners", <>Callum Collin<br />Martin Simecek<br />Microsoft Azure</>],
           ["Project leads", <>Prof. Nancy Rasche<br />Prof. Shobhan Shah<br />Purdue University</>],
-          ["Tools", "Figma · Azure Portal · WCAG 2.1 Audit"],
-          ["Purdue UX team", <>Sri Chakravarthy ( everything shown in case study here · Entity Visual Design, and AI Ops<br />
-            Alyssa Berger · Accessibility <br />
-            Natalie Falzone · Competitor Analysis<br />
-            Norah Miller · Heuristics and Timestamps Visual<br />
-            Priscilla Tam · Icons, and Hover States<br />
-            Ashmi Roy · Health Status Graphs<br />
-            Ani Berry · Drag and Select motion animation</>],
+          ["Tools", "Figma ▴ Azure Portal ▴ WCAG 2.1 Audit"],
+          ["Purdue UX team", <>Sri Chakravarthy ( everything shown in case study here ▴ Entity Visual Design, and AI Ops<br />
+            Alyssa Berger ▴ Accessibility <br />
+            Natalie Falzone ▴ Competitor Analysis<br />
+            Norah Miller ▴ Heuristics and Timestamps Visual<br />
+            Priscilla Tam ▴ Icons, and Hover States<br />
+            Ashmi Roy ▴ Health Status Graphs<br />
+            Ani Berry ▴ Drag and Select motion animation</>],
         ]} />
       </div>
 

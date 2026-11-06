@@ -1,8 +1,9 @@
 // Home: the STACKS + Fs home grid.
 //
-// Column 1 (About) stacks the SRI letterform, the role list, the contact list
-// and the bio. Columns 2 + 3 hold the Work / Gallery toggle and its content.
-// Column 4 is empty on purpose: negative space that keeps the grid's rhythm.
+// The S/R/I stack lives in the page header (PageShell), at the same spot on
+// every page; the Work / Gallery toggle goes into the header slot beside it.
+// Column 1 (About) stacks the role list, the contact links and the bio.
+// Columns 2 + 3 hold the Work / Gallery content. Column 4 is empty on purpose.
 //
 // Dormant content for this page lives in ./Home.dormant
 // To revive a block, import its named export and render it.
@@ -11,14 +12,15 @@ import { Link } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 import { projectSummaries } from "../data/projectSummaries";
 import { projectObjects } from "../data/projectObjects";
-import { EMAIL_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
+import { LINKEDIN_URL, RESUME_URL } from "../data/links";
+import { HeaderPortal } from "../components/layout/HeaderSlot";
+import PrimaryLink from "../components/ui/PrimaryLink";
 
 const ROLES = ["Product owner", "Strategy", "UX Research", "Design"];
 
 const CONTACT = [
-  { label: "Email", href: EMAIL_URL },
-  { label: "Linkedin", href: LINKEDIN_URL, external: true },
-  { label: "Resume", href: RESUME_URL, external: true },
+  { label: "Resume", href: RESUME_URL },
+  { label: "Linkedin", href: LINKEDIN_URL },
 ];
 
 // Work: in this order, laid out 2, 2, 1.
@@ -30,11 +32,10 @@ const WORK = [
   { id: "psychosis-literacy", title: "Psychosis" },
 ];
 
-// Gallery: physical objects, one per row.
+// Gallery: physical objects, one per row. Malli is dormant (see Home.dormant).
 const GALLERY = [
   { id: "hearts-of-insomnia", title: "Heart" },
   { id: "bee-feeder",         title: "Bloom" },
-  { id: "malli",              title: "Malli" },
 ];
 
 const byId = (id) => workSectionProjects.find((p) => p.id === id);
@@ -50,22 +51,14 @@ function Ext({ href, children }) {
 function About() {
   return (
     <div className="stack stack--big">
-      <p className="sri-mark" aria-label="SRI, pronounced Sree">
-        <span>S</span>
-        <span>R</span>
-        <span>Iː</span>
-      </p>
-
-      <ul className="stack stack--small">
+      <ul className="stack stack--small home-roles">
         {ROLES.map((r) => <li key={r}>{r}</li>)}
       </ul>
 
       <ul className="stack stack--small stack--right">
-        {CONTACT.map(({ label, href, external }) => (
+        {CONTACT.map(({ label, href }) => (
           <li key={label}>
-            <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
-              {label}
-            </a>
+            <PrimaryLink href={href}>{label}</PrimaryLink>
           </li>
         ))}
       </ul>
@@ -134,12 +127,8 @@ export default function Home() {
 
   return (
     <div className="stacks-grid home-grid">
-      <section className="stacks-col stacks-col--1" aria-label="About">
-        <About />
-      </section>
-
-      <section className="stacks-col stacks-col--x" aria-label="Work and gallery">
-        <div className="stack stack--small stack--right home-toggle" role="tablist" aria-label="Work or gallery">
+      <HeaderPortal>
+        <div className="stack stack--small stack--right" role="tablist" aria-label="Work or gallery">
           {order.map((key) => (
             <button
               key={key}
@@ -153,6 +142,13 @@ export default function Home() {
             </button>
           ))}
         </div>
+      </HeaderPortal>
+
+      <section className="stacks-col stacks-col--1" aria-label="About">
+        <About />
+      </section>
+
+      <section className="stacks-col stacks-col--x" aria-label="Work and gallery">
         {view === "work" ? <WorkList /> : <GalleryList />}
       </section>
 

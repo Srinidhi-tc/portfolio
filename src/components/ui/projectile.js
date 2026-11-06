@@ -9,7 +9,7 @@
 // velocity proportional to launch speed, so harder throws spin faster.
 
 // px / ms². With a ~900ms throw the ball rises a little, slows to a stop at
-// the top (v = v0 − g·t on the way up) and speeds up as it falls; the kick
+// the top (v = v0 − g▴t on the way up) and speeds up as it falls; the kick
 // back climbs against gravity and visibly slows before dropping home.
 export const GRAVITY = 0.002;
 
@@ -68,7 +68,7 @@ export function flyProjectile({ start, end, T, g = GRAVITY, spinSign = 1, rotati
 /**
  * Flight time for a ball launched `rise` px upward (screen y decreasing) that
  * peaks `overshoot` px above its landing point and then falls onto it.
- * Solves 0.5·g·T² − v·T − rise = 0, where v = sqrt(2·g·overshoot) is the
+ * Solves 0.5▴g▴T² − v▴T − rise = 0, where v = sqrt(2▴g▴overshoot) is the
  * downward speed it lands with.
  */
 export function returnFlightTime(rise, overshoot, g = GRAVITY) {

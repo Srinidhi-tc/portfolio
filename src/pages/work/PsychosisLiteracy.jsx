@@ -2,7 +2,7 @@
 // Images: name your slides cap1.jpg → cap33.jpg and place in src/assets/
 // Only key slides are used, not all 33 are shown
 
-import ProjectSummary from "../../components/work/ProjectSummary";
+import { ProjectHeader } from "../../components/work/ProjectSummary";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 import cap2  from "../../assets/cap2.jpg";
 import cap9  from "../../assets/cap9.jpg";
@@ -95,15 +95,9 @@ export default function PsychosisLiteracy() {
 
       {/* HERO */}
       <header style={{ marginBottom: "var(--padding-big)" }}>
-        <p style={{ ...label, marginBottom: "var(--padding-small)" }}>Purdue Capstone 2026 · Health Tech · Youth Mental Health</p>
-        <h1 style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--padding-small)", color: "var(--text-primary)" }}>
-          Designing empathy without medicalizing it<br />
-          Percepta, a youth psychosis experience
-        </h1>
-        <p style={{ ...body, fontSize: "var(--type-base)", color: "var(--text-secondary)" }}>
+        <ProjectHeader id="psychosis-literacy">
           Shipped an educational hallucination-simulation tool for ages 15–25, validated by Purdue Psychological Sciences and Purdue CAPS
-        </p>
-        <ProjectSummary id="psychosis-literacy" hideName />
+        </ProjectHeader>
       </header>
 
       {/* HERO SLIDE, the one full-width image */}
@@ -115,7 +109,7 @@ export default function PsychosisLiteracy() {
       {/* ROLE */}
       <div style={{ marginBottom: "var(--padding-big)" }}>
         <Ledger items={[
-            ["Role", "Capstone Lead · Product Design, Research, Shipped Prototype (Base44), Expert Validation"],
+            ["Role", "Capstone Lead ▴ Product Design, Research, Shipped Prototype (Base44), Expert Validation"],
             ["Context", "Timeline: Jan 2026 – May 2026. Purdue MS UX Capstone. Youth psychosis education, ages 15–25."],
             ["Client", "Purdue CGT Faculty Review Board. Clinical reviewers: Purdue Psychological Sciences and Purdue CAPS."],
             ["Team", "Solo capstone. Partner, Brianna (research)."],
@@ -156,7 +150,7 @@ export default function PsychosisLiteracy() {
         </Prose>
         <Bullets items={[
           ["Simulation fidelity versus trigger risk", "authentic hallucination experiences validated against medical literature were essential for credibility; those same experiences, delivered without framing, risked harm. The resolution: a hallucination taxonomy of 10 categories was validated against clinical case studies, then wrapped in opt-in framing, exit controls, and context on every screen."],
-          ["Education versus intervention", "the tool had to teach without ever presenting itself as treatment. Every surface declares its scope: \"Designed for ages 15–25 · Educational purposes only.\""],
+          ["Education versus intervention", "the tool had to teach without ever presenting itself as treatment. Every surface declares its scope: \"Designed for ages 15–25 ▴ Educational purposes only.\""],
           ["Expert voice versus student voice", "too clinical and the audience tunes out; too casual and the authority disappears. Clinical reviewers from Purdue Psychological Sciences and CAPS validated voice as well as content."],
           ["Scope the system, not the user", "exit, help, and crisis-escalation paths are built into the system layer so no user has to find them under duress. The 988 Suicide & Crisis Lifeline is one tap from every screen."],
         ]} />

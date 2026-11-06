@@ -1,5 +1,6 @@
 import React from "react";
-import ProjectSummary from "../../components/work/ProjectSummary";
+import Sgx3Toggle from "../../components/work/Sgx3Toggle";
+import { ProjectHeader } from "../../components/work/ProjectSummary";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 
 import tacc3 from "../../assets/tacc3.jpg";
@@ -47,44 +48,13 @@ const CHAPTERS = [
   { id: "impact",   label: "Impact" },
 ];
 
-function ClientSwitcher() {
-  return (
-    <div className="glass-bar client-switcher" style={{
-      zIndex: 20,
-      display: "flex", justifyContent: "space-between", alignItems: "center",
-      gap: "var(--padding-small)", marginBottom: "var(--padding-big)", padding: "var(--padding-small) var(--padding-small) var(--padding-small) var(--padding-small)",
-      borderRadius: "var(--radius)"
-    }}>
-      <div style={{ minWidth: 0 }}>
-        <p style={{ ...label, fontSize: "var(--type-base)", marginBottom: 0 }}>SGX3 · Two Concurrent Clients </p>
-        <p style={{ margin: 0, fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-          Client 01 · AI Coding Tutor
-        </p>
-      </div>
-      <div className="client-switcher__links" style={{ display: "flex", gap: "var(--padding-small)", flexShrink: 0 }}>
-      <span style={{ display: "inline-flex", alignItems: "center", padding: "var(--padding-small) var(--padding-small)", borderRadius: "var(--radius)", border: "1px solid var(--text)", color: "var(--text-primary)", background: "transparent", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>
-  AI Coding Tutor
-</span>
-        <a href="/portfolio/work/strabospot" style={{ display: "inline-flex", alignItems: "center", padding: "var(--padding-small) var(--padding-small)", borderRadius: "var(--radius)", border: "1px solid var(--hairline-weak)", color: "var(--text-primary)", textDecoration: "none", fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>
-          StraboSpot Inc →
-        </a>
-      </div>
-    </div>
-  );
-}
 
 function Hero() {
   return (
     <header style={{ marginBottom: "var(--padding-big)" }}>
-      <p style={{ ...label, marginBottom: "var(--padding-small)" }}>SGX3 · UX consulting · AI · education</p>
-      <h1 style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-heading)", fontWeight: "var(--weight-bold)", margin: "0 0 var(--padding-small)" }}>
-        Designing institutional trust into<br />
-        TACC Coding Tutor Assistant
-      </h1>
-      <p style={{ ...body, fontSize: "var(--type-base)" }}>
+      <ProjectHeader id="ai-coding">
         Shipped conversation design patterns, trust-and-safety architecture, and progress-tracking inside a chat-based AI tutor for the Texas Advanced Computing Center
-      </p>
-      <ProjectSummary id="ai-coding" hideName />
+      </ProjectHeader>
     </header>
   );
 }
@@ -143,7 +113,7 @@ function Slides({ children }) {
 export default function TACC() {
   return (
     <CaseStudyGrid chapters={CHAPTERS}>
-      <ClientSwitcher />
+      <Sgx3Toggle active="ai-coding" />
       <Hero />
       <RoleAtTop />
 

@@ -41,7 +41,7 @@ export const workSectionProjects = [
   },
   {
     id: "strabospot",
-    brand: "SGX3 · UX Consulting",
+    brand: "SGX3 ▴ UX Consulting",
     date: "Aug 2025 – Dec 2025",
     name: "StraboSpot",
     title: "Understanding Geologist fieldtrips in and out",
@@ -57,7 +57,7 @@ export const workSectionProjects = [
   },
   {
     id: "hearts-of-insomnia",
-    brand: "Arduino · 3D Fabrication",
+    brand: "Arduino ▴ 3D Fabrication",
     name: "Heart of Insomnia",
     title: "When a lamp becomes a quiet companion",
     image: workHeartsOfInsomnia,
@@ -87,7 +87,7 @@ export const workSectionProjects = [
   },
   {
     id: "bee-feeder",
-    brand: "Solidworks · Blender",
+    brand: "Solidworks ▴ Blender",
     name: "Butterfly Feeder",
     title: "Designing for the moment before a butterfly lands",
     image: workBeeFeeder,

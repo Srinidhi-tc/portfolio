@@ -1,4 +1,5 @@
 import heart1 from "../../assets/heart1.png";
+import PrimaryLink from "../../components/ui/PrimaryLink";
 import heart3 from "../../assets/heart3.png";
 import heart4 from "../../assets/heart4.png";
 import heart5 from "../../assets/heart5.png";
@@ -71,23 +72,7 @@ function ImpactBox() {
       </p>
 
       {PROJECT_DOC_URL && (
-        <a
-          href={PROJECT_DOC_URL}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "var(--padding-small)",
-            marginTop: "var(--padding-small)",
-            fontSize: "var(--type-base)",
-            fontWeight: "var(--weight-regular)",
-            color: "var(--text-primary)",
-            textDecoration: "none"
-          }}
-        >
-          Project documentation ↗
-        </a>
+        <PrimaryLink href={PROJECT_DOC_URL}>Project documentation</PrimaryLink>
       )}
     </section>
   );
@@ -107,7 +92,7 @@ export default function HeartsOfInsomnia() {
     >
       <header style={{ marginBottom: "var(--padding-big)" }}>
         <p className="fine-print fine-print--eyebrow" style={{ marginBottom: "var(--padding-small)" }}>
-          Physical Computing · Emotional Design
+          Physical Computing ▴ Emotional Design
         </p>
 
         <h1
@@ -129,7 +114,7 @@ export default function HeartsOfInsomnia() {
             maxWidth: 600
           }}
         >
-          CHI 2026 · Interactive Demo
+          CHI 2026 ▴ Interactive Demo
         </p>
 
         <p
@@ -274,7 +259,7 @@ export default function HeartsOfInsomnia() {
                 Team
               </p>
               <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
-                Srinidhi Chakravarthy · Bri Baehl
+                Srinidhi Chakravarthy ▴ Bri Baehl
               </p>
             </div>
 
@@ -283,7 +268,7 @@ export default function HeartsOfInsomnia() {
                 Tools
               </p>
               <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
-                Arduino · Blender · p5.js · 3D Printing
+                Arduino ▴ Blender ▴ p5.js ▴ 3D Printing
               </p>
             </div>
 
@@ -292,7 +277,7 @@ export default function HeartsOfInsomnia() {
                 Project
               </p>
               <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
-                Physical Computing · UX Research
+                Physical Computing ▴ UX Research
               </p>
             </div>
 

@@ -385,19 +385,6 @@
  */
 
 /* Layout check: ?guides in the URL draws the gutter as a red band. */
-.show-guides body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: var(--col-gap);
-  translate: -50% 0;
-  background: rgba(230, 40, 40, 0.14);
-  border-inline: 1px dashed rgba(230, 40, 40, 0.7);
-  pointer-events: none;
-  z-index: 9999;
-}
 
 .center-split {
   display: grid;
@@ -913,4 +900,54 @@ body { line-height: var(--space-m); }
   border-radius: 2px;
   border: 1px solid var(--background); /* a hairline, not a gap */
   box-sizing: border-box;
+}
+
+/* ---------- Home rows ----------
+ * Column 1 and columns 2 + 3 share row lines: the bio starts on the same
+ * line as the second row of projects. Rows are separated by one 48 gutter.
+ */
+.home-grid { row-gap: var(--space-l); }
+.home-contact { width: max-content; margin-left: auto; align-items: flex-start; }
+
+/* ---------- Header row: S, R and I are three 24px lines. The toggle's lines
+ * sit on the same three lines (gap 0), nudged down so the 16px text shares
+ * the 28px letters' baseline. The nudge is derived from the two type sizes,
+ * not a new space value.
+ */
+.shell-head__slot { gap: 0; padding-top: calc(0.35 * (var(--type-display) - var(--type-base))); }
+.shell-head__slot .stack--small { gap: 0; }
+
+/* ---------- Grid overlay (?guides) ---------- */
+.grid-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 9999; }
+.site-shell { position: relative; }
+.grid-overlay__baseline {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(to bottom,
+    transparent 0, transparent calc(var(--space-m) - 1px),
+    rgba(0, 160, 80, 0.35) calc(var(--space-m) - 1px), rgba(0, 160, 80, 0.35) var(--space-m));
+}
+.grid-overlay__cols { position: absolute; inset: 0; padding-top: 0; padding-bottom: 0; height: 100%; }
+.grid-overlay__col {
+  background: rgba(236, 72, 153, 0.08);
+  border-inline: 1px solid rgba(236, 72, 153, 0.55);
+  height: 100%;
+}
+.grid-overlay__col:last-child { background: rgba(236, 72, 153, 0.03); }
+.grid-overlay__label, .grid-overlay__tag {
+  position: sticky; top: 0;
+  display: inline-block;
+  font-size: var(--type-caption);
+  line-height: var(--space-m);
+  color: #DB2777;
+  background: rgba(255, 255, 255, 0.85);
+}
+.grid-overlay__tag { position: fixed; top: var(--space-m); }
+.grid-overlay__tag--margin-l { left: 0; }
+.grid-overlay__tag--margin-r { right: 0; }
+.grid-overlay__tag--gutter { left: 50%; translate: -50% 0; }
+.grid-overlay__tag--row { left: 0; top: var(--space-l); color: rgb(0, 130, 65); }
+@media (max-width: 720px) { .grid-overlay__col:not(:first-child) { display: none; } }
+/* Phones: one column, blocks in reading order. */
+@media (max-width: 720px) {
+  .home-grid > * { grid-column: 1 !important; grid-row: auto !important; }
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // The top bar (Navbar.jsx) is no longer rendered.
 import Footer from "./Footer";
 import { HeaderSlotContext } from "./HeaderSlot";
+import GridOverlay from "./GridOverlay";
 import routeMeta from "../../../scripts/routes.json";
 
 // Dormant content for this component lives in ./PageShell.dormant
@@ -66,10 +67,10 @@ export default function PageShell() {
     if (hit?.title) document.title = hit.title;
   }, [pathname]);
 
-  // Add ?guides to any URL to see the central gutter drawn over the page.
+  // Add ?guides to any URL to see the grid drawn over the page.
+  const [guides, setGuides] = useState(false);
   useEffect(() => {
-    const on = new URLSearchParams(window.location.search).has("guides");
-    document.documentElement.classList.toggle("show-guides", on);
+    setGuides(new URLSearchParams(window.location.search).has("guides"));
   }, [pathname]);
 
   return (
@@ -87,6 +88,7 @@ export default function PageShell() {
           <Outlet />
         </main>
         <Footer />
+        {guides && <GridOverlay />}
       </div>
     </HeaderSlotContext.Provider>
   );

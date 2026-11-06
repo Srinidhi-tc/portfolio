@@ -48,31 +48,39 @@ function Ext({ href, children }) {
   );
 }
 
-function About() {
+// Column 1, row 1: roles and contact links. Row 2: the bio, so it starts on
+// the same row line as the second row of projects.
+function AboutTop() {
   return (
     <div className="stack stack--big">
       <ul className="stack stack--small home-roles">
         {ROLES.map((r) => <li key={r}>{r}</li>)}
       </ul>
 
-      <ul className="stack stack--small stack--right">
+      {/* One shared left edge, so every eye icon lines up; the block itself
+          sits at the right of the column, like every link. */}
+      <ul className="stack stack--small home-contact">
         {CONTACT.map(({ label, href }) => (
           <li key={label}>
             <PrimaryLink href={href}>{label}</PrimaryLink>
           </li>
         ))}
       </ul>
-
-      <p className="home-bio">
-        Prev., a founding designer at{" "}
-        <Ext href="https://www.metasquare.com/">Metasquare Inc.</Ext>, has worked across data-dense workflows for{" "}
-        <Ext href="https://azure.microsoft.com/">Microsoft Azure</Ext>,{" "}
-        <Ext href="https://tacc.utexas.edu/">TACC</Ext>,{" "}
-        <Ext href="https://sciencegateways.org/">SGX3</Ext>,{" "}
-        <Ext href="https://www.ionixxtech.com/">Ionixx</Ext> and{" "}
-        <Ext href="https://www.purdue.edu/">Purdue University</Ext>. Trained Psychologist. The connective tissue between research, design, code, legal, and compliance.
-      </p>
     </div>
+  );
+}
+
+function Bio() {
+  return (
+    <p className="home-bio">
+      Prev., a founding designer at{" "}
+      <Ext href="https://www.metasquare.com/">Metasquare Inc.</Ext>, has worked across data-dense workflows for{" "}
+      <Ext href="https://azure.microsoft.com/">Microsoft Azure</Ext>,{" "}
+      <Ext href="https://tacc.utexas.edu/">TACC</Ext>,{" "}
+      <Ext href="https://sciencegateways.org/">SGX3</Ext>,{" "}
+      <Ext href="https://www.ionixxtech.com/">Ionixx</Ext> and{" "}
+      <Ext href="https://www.purdue.edu/">Purdue University</Ext>. Trained Psychologist. The connective tissue between research, design, code, legal, and compliance.
+    </p>
   );
 }
 
@@ -83,39 +91,17 @@ function ProjectName({ id, title }) {
   return <img className="home-item__object" src={src} alt={title} decoding="async" />;
 }
 
-function WorkList() {
+// One item per grid cell: Work fills columns 2 and 3 row by row;
+// Gallery uses column 3, one per row.
+function Item({ id, title, meta, col, row }) {
+  const p = byId(id);
   return (
-    <ul className="home-work">
-      {WORK.map(({ id, title }) => {
-        const p = byId(id);
-        return (
-          <li key={id} className="stack stack--small stack--right">
-            <Link to={p.to} className="home-item__link">
-              <ProjectName id={id} title={title} />
-              <span className="home-item__meta">{projectSummaries[id].headline}</span>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
-function GalleryList() {
-  return (
-    <ul className="home-gallery">
-      {GALLERY.map(({ id, title }) => {
-        const p = byId(id);
-        return (
-          <li key={id} className="stack stack--small stack--right">
-            <Link to={p.to} className="home-item__link">
-              <ProjectName id={id} title={title} />
-              <span className="home-item__meta">{p.title}</span>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="stack stack--small stack--right" style={{ gridColumn: col, gridRow: row }}>
+      <Link to={p.to} className="home-item__link">
+        <ProjectName id={id} title={title} />
+        <span className="home-item__meta">{meta}</span>
+      </Link>
+    </div>
   );
 }
 
@@ -144,15 +130,23 @@ export default function Home() {
         </div>
       </HeaderPortal>
 
-      <section className="stacks-col stacks-col--1" aria-label="About">
-        <About />
+      <section className="home-about-top" style={{ gridColumn: 1, gridRow: 1 }} aria-label="About">
+        <AboutTop />
+      </section>
+      <section style={{ gridColumn: 1, gridRow: 2 }}>
+        <Bio />
       </section>
 
-      <section className="stacks-col stacks-col--x" aria-label="Work and gallery">
-        {view === "work" ? <WorkList /> : <GalleryList />}
-      </section>
+      {view === "work"
+        ? WORK.map(({ id, title }, i) => (
+            <Item key={id} id={id} title={title} meta={projectSummaries[id].headline}
+                  col={2 + (i % 2)} row={1 + Math.floor(i / 2)} />
+          ))
+        : GALLERY.map(({ id, title }, i) => (
+            <Item key={id} id={id} title={title} meta={byId(id).title} col={3} row={1 + i} />
+          ))}
 
-      <div className="stacks-col stacks-col--4" aria-hidden="true" />
+      <div className="stacks-col stacks-col--4" style={{ gridRow: 1 }} aria-hidden="true" />
     </div>
   );
 }

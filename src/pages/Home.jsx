@@ -93,7 +93,6 @@ function WorkList() {
             <Link to={p.to} className="home-item__link">
               <ProjectName id={id} title={title} />
               <span className="home-item__meta">{projectSummaries[id].headline}</span>
-              <span className="home-item__org">{projectSummaries[id].org}</span>
             </Link>
           </li>
         );

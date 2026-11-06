@@ -993,3 +993,7 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
 /* Theme toggle: pixel sun / moon, 24px (one grid line), whole-pixel scale. */
 .theme-toggle__icon { width: var(--space-m); height: var(--space-m); }
 .theme-toggle__icon svg { image-rendering: pixelated; }
+
+/* Pixel sun sits on a pink square, pixel moon on a light blue square. */
+.theme-toggle__sun { background: #FAD4E4; }
+.theme-toggle__moon { background: #DBEAFE; }

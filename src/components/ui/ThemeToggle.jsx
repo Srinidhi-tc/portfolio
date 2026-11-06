@@ -1,3 +1,5 @@
+import sunArt from "../../assets/toggle-sun.webp";
+import moonArt from "../../assets/toggle-moon.webp";
 import { useCallback, useEffect, useState } from "react";
 
 /**
@@ -23,50 +25,6 @@ function currentTheme() {
   return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
-// Pixel art on a 12 x 12 grid. Sun in the StraboSpot object's yellows,
-// moon in the link blue. Each character is one pixel; "." is empty.
-const SUN = [
-  "....a..a....",
-  ".a........a.",
-  "....yyyy....",
-  "a..yyyyyy..a",
-  "..yyyyyyyy..",
-  "..yyyyyyyp..",
-  "..yyyyyypp..",
-  "..yyyyyppp..",
-  "a..yyyppp..a",
-  "....pppp....",
-  ".a........a.",
-  "....a..a....",
-];
-const SUN_COLORS = { y: "#ECF451", p: "#C9B800", a: "#8A7A00" };
-const MOON = [
-  "....bbbb....",
-  "..bbbb......",
-  ".bbbb.......",
-  ".bbb........",
-  "bbbb........",
-  "bbbb........",
-  "bbbb.......b",
-  "bbbbb.....bb",
-  ".bbbbb..bbbb",
-  ".bbbbbbbbbb.",
-  "..bbbbbbbb..",
-  "....bbbb....",
-];
-const MOON_COLORS = { b: "var(--link-blue)" };
-
-function PixelArt({ rows, colors, className }) {
-  return (
-    <svg className={className} viewBox="0 0 12 12" shapeRendering="crispEdges">
-      {rows.flatMap((row, y) =>
-        [...row].map((c, x) =>
-          colors[c] ? <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" fill={colors[c]} /> : null
-        )
-      )}
-    </svg>
-  );
-}
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState(currentTheme);
@@ -121,8 +79,8 @@ export default function ThemeToggle() {
       <span className="theme-toggle__icon" aria-hidden="true">
         {/* Both glyphs are always present; CSS cross-fades and rotates between
             them so the control animates rather than swapping abruptly. */}
-        <PixelArt className="theme-toggle__sun" rows={SUN} colors={SUN_COLORS} />
-        <PixelArt className="theme-toggle__moon" rows={MOON} colors={MOON_COLORS} />
+        <img className="theme-toggle__sun" src={sunArt} alt="" />
+        <img className="theme-toggle__moon" src={moonArt} alt="" />
       </span>
     </button>
   );

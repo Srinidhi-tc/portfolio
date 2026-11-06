@@ -1008,3 +1008,12 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
   outline: 1px solid var(--text-primary);
   outline-offset: -1px;
 }
+
+/* Theme toggle: pixel paintings (sunset / moon) at object size, thin black frame. */
+.theme-toggle__sun, .theme-toggle__moon {
+  background: none; padding: 0; outline: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  image-rendering: pixelated;
+}

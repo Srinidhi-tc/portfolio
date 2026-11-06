@@ -39,7 +39,7 @@ const SUN = [
   ".a........a.",
   "....a..a....",
 ];
-const SUN_COLORS = { y: "#ECF451", p: "#D9DE3E", a: "#EFEFA4" };
+const SUN_COLORS = { y: "#ECF451", p: "#C9B800", a: "#8A7A00" };
 const MOON = [
   "....bbbb....",
   "..bbbb......",

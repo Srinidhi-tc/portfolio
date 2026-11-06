@@ -836,3 +836,15 @@ a.primary-link,
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
+
+/* Phones: the header row stacks, so keep the toggle clear of the chapter list,
+   and give each toggle label a finger-sized tap area. */
+@media (max-width: 720px) {
+  .shell-head { row-gap: var(--padding-big); padding-bottom: var(--padding-big); }
+  .shell-head__slot .home-toggle__label {
+    padding: calc(var(--padding-small) / 2) 0;
+    margin: calc(var(--padding-small) / -2) 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}

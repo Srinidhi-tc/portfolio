@@ -50,9 +50,11 @@ export default function Footer() {
             <li><GithubStack /></li>
           </ul>
         </div>
-        <p className="site-footer__copy" style={{ marginTop: "var(--padding-small)" }}>
-          © 2026 Srinidhi Chakravarthy. All rights reserved.
-        </p>
+        <div className="stack stack--small" style={{ marginTop: "var(--padding-big)" }}>
+          <p className="site-footer__title">Thanks for stopping by</p>
+          <p className="site-footer__copy">Built with Vite, React, CSS and Claude</p>
+          <p className="site-footer__copy">© 2026 Srinidhi Chakravarthy. All rights reserved.</p>
+        </div>
       </div>
       {next && (
         <div className="next-project">

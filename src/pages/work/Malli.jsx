@@ -124,11 +124,11 @@ function MarketOpportunity() {
       <p style={{ fontSize: "var(--type-base)", color: "var(--text-secondary)", lineHeight: "var(--leading-body)", margin: 0 }}>
         References: {" "}
         <a href="https://datahorizzonresearch.com/toilet-cleaning-robot-market-23579" target="_blank" rel="noopener noreferrer" style={{ color: "var(--link)" }}>
-          DataHorizzon Research · Toilet Cleaning Robot Market
+          DataHorizzon Research ▴ Toilet Cleaning Robot Market
         </a>
-        {" "}· {" "}
+        {" "}▴ {" "}
         <a href="https://futurefive.com.au/story/how-smart-cleaning-devices-became-a-serious-retail-category" target="_blank" rel="noopener noreferrer" style={{ color: "var(--link)" }}>
-          FutureFive Australia · How Smart Cleaning Devices Became a Serious Retail Category
+          FutureFive Australia ▴ How Smart Cleaning Devices Became a Serious Retail Category
         </a>
       </p>
     </section>
@@ -138,10 +138,10 @@ function MarketOpportunity() {
 function RoleAtTop() {
   const details = [
     ["Role", "Product Designer"],
-    ["Context", "Malli 2.0 · Product Design · Human–Robot Interaction"],
+    ["Context", "Malli 2.0 ▴ Product Design ▴ Human–Robot Interaction"],
     ["Ownership", "Solo project"],
-    ["Focus", "Product architecture · Mechanical design · UX · CMF · DFM"],
-    ["Tools", "SolidWorks · Blender · Keyshot"]
+    ["Focus", "Product architecture ▴ Mechanical design ▴ UX ▴ CMF ▴ DFM"],
+    ["Tools", "SolidWorks ▴ Blender ▴ Keyshot"]
   ];
   return <section style={{
     marginBottom: "var(--padding-big)", padding: "var(--padding-small) 0 var(--padding-big)"}}>
@@ -242,7 +242,7 @@ export default function Malli() {
   }}>
     <header style={{ marginBottom: "var(--padding-big)" }}>
       <p className="fine-print fine-print--eyebrow" style={{ ...label, marginBottom: "var(--padding-small)" }}>
-        Product Design · Human–Robot Interaction
+        Product Design ▴ Human–Robot Interaction
       </p>
       <h1 style={{
         fontSize: "var(--type-base)", fontWeight: "var(--weight-bold)", lineHeight: "var(--leading-heading)", margin: "0 0 var(--padding-small)"
@@ -331,7 +331,7 @@ export default function Malli() {
         <SideBySide
           left={{ src: battery, subheading: "Battery supported",
             caption: "An alternative floor-mounted charging configuration explored another way to place the system in the bathroom." }}
-          right={{ src: chargingFloor, subheading: "Charging dock · floor model",
+          right={{ src: chargingFloor, subheading: "Charging dock ▴ floor model",
             caption: "The floor configuration treated charging as part of the product's physical footprint rather than an afterthought." }}
         />
       </section>
@@ -363,8 +363,8 @@ export default function Malli() {
     }}>
       {[
         ["Type", " Hardware Product Design & Human Robot Interaction"],
-        ["Tools", "SolidWorks (CAD/fusion360) · KeyShot · Figma · Rapid Protoyping "],
-        ["Focus", "Behavioral Design · CMF · DFM"]
+        ["Tools", "SolidWorks (CAD/fusion360) ▴ KeyShot ▴ Figma ▴ Rapid Protoyping "],
+        ["Focus", "Behavioral Design ▴ CMF ▴ DFM"]
       ].map(([k,v]) => <div key={k}>
         <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>{k}</p>
         <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>{v}</p>

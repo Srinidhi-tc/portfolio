@@ -19,11 +19,15 @@
 //   SocialLinks         Instagram and Behance links
 //   TennisBallToy       the ball you throw to the dog (src/components/ui/TennisBall.jsx)
 //   DogMascot           the dog mascot (src/components/ui/FloatingMascot.jsx)
+//   MalliProject        the Malli 2.0 gallery page (src/pages/work/Malli.jsx);
+//                       to revive, add its route in App.jsx and list it in
+//                       GALLERY (Home.jsx) and ORDER (Footer.jsx)
 import WorkSection from "../sections/WorkSection";
 import { GanttChart, RecordList, ContextSections, EXPERIENCE, EDUCATION } from "./About";
 import { socialLinks } from "../data/links";
 import TennisBall from "../components/ui/TennisBall";
 import FloatingMascot from "../components/ui/FloatingMascot";
+import Malli from "./work/Malli";
 
 export function WorkLanding() {
   return <WorkSection />;
@@ -61,4 +65,8 @@ export function TennisBallToy() {
 
 export function DogMascot() {
   return <FloatingMascot />;
+}
+
+export function MalliProject() {
+  return <Malli />;
 }

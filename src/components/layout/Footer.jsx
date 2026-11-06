@@ -1,14 +1,17 @@
 // Footer: a thin strip. "Let's build awesome stuff" with SF time and the
-// light/dark toggle below it, LinkedIn / Instagram, then the copyright.
-// On project pages a full-width line follows, then "Next project ↓".
+// light/dark toggle below it, LinkedIn and GitHub, then the copyright.
+// On project pages a full-width line follows, then the next project.
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
-import { LINKEDIN_URL, INSTAGRAM_URL } from "../../data/links";
+import PrimaryLink from "../ui/PrimaryLink";
+import GithubStack from "../ui/GithubStack";
+import { LINKEDIN_URL } from "../../data/links";
 import { workSectionProjects } from "../../data/workSectionProjects";
 import { projectSummaries } from "../../data/projectSummaries";
 
 // Same order as the home grid: Work, then Gallery. The last wraps to the first.
+// Malli is dormant, so it is not in the loop.
 const ORDER = [
   { id: "ai-coding", to: "/work/ai-coding", title: "Tutor", gallery: false },
   { id: "microsoft", to: "/work/microsoft", title: "Azure", gallery: false },
@@ -17,7 +20,6 @@ const ORDER = [
   { id: "psychosis-literacy", to: "/work/psychosis-literacy", title: "Psychosis", gallery: false },
   { id: "hearts-of-insomnia", to: "/work/hearts-of-insomnia", title: "Heart", gallery: true },
   { id: "bee-feeder", to: "/work/bee-feeder", title: "Bloom", gallery: true },
-  { id: "malli", to: "/work/malli", title: "Malli", gallery: true },
 ];
 
 // The same subtitle the home page shows: the one-line summary for Work, card title for Gallery.
@@ -37,15 +39,15 @@ export default function Footer() {
       <div className="site-footer">
         <div className="site-footer__strip">
           <div className="stack stack--small">
-            <p style={{ margin: 0 }}>Let's build awesome stuff</p>
+            <p className="site-footer__title">Let's build awesome stuff</p>
             <div className="site-footer__time">
               <SFClock />
               <ThemeToggle />
             </div>
           </div>
           <ul className="stack stack--small stack--right">
-            <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">Linkedin</a></li>
-            <li><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><PrimaryLink href={LINKEDIN_URL}>Linkedin</PrimaryLink></li>
+            <li><GithubStack /></li>
           </ul>
         </div>
         <p className="site-footer__copy" style={{ marginTop: "var(--padding-small)" }}>
@@ -55,7 +57,7 @@ export default function Footer() {
       {next && (
         <div className="next-project">
           <Link to={next.to}>
-            <span className="next-project__label">Next project ↓</span>
+            <span className="next-project__label">Next project</span>
             <span>{next.title}</span>
             <span className="next-project__meta">{subtitle(next)}</span>
           </Link>

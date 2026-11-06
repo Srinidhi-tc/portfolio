@@ -7,7 +7,6 @@ import Microsoft from "./pages/work/Microsoft";
 import AiCoding from "./pages/work/AiCoding";
 import Strabospot from "./pages/work/Strabospot";
 import PsychosisLiteracy from "./pages/work/PsychosisLiteracy";
-import Malli from "./pages/work/Malli";
 import BeeFeeder from "./pages/work/Beefeeder";
 import HeartsOfInsomnia from "./pages/work/HeartsOfInsomnia";
 import DefenseArk from "./pages/work/defenseark";
@@ -22,7 +21,6 @@ export default function App() {
         <Route path="/work/ai-coding" element={<AiCoding />} />
         <Route path="/work/strabospot" element={<Strabospot />} />
         <Route path="/work/psychosis-literacy" element={<PsychosisLiteracy />} />
-        <Route path="/work/malli" element={<Malli />} />
         <Route path="/work/bee-feeder" element={<BeeFeeder />} />
         <Route path="/work/hearts-of-insomnia" element={<HeartsOfInsomnia />} />
         <Route path="/work/defenseark" element={<DefenseArk />} />

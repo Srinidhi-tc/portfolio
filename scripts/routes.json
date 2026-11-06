@@ -62,14 +62,6 @@
       "source": "src/assets/work-psychosis-og.jpg"
     },
     {
-      "path": "/work/malli",
-      "title": "Malli 2.0 · Toilet Cleaning Robot",
-      "description": "Analyzing the cleaning ritual as a chore and making it happen without thinking, to increase accessibility to a clean toilet.",
-      "og": "malli",
-      "eyebrow": "PRODUCT DESIGN",
-      "source": "src/assets/Experience Details Selfclean System.png"
-    },
-    {
       "path": "/work/bee-feeder",
       "title": "Butterfly Feeder",
       "description": "Journey mapping for butterflies revealed they use UV light for vision, and that changed the entire product scope.",

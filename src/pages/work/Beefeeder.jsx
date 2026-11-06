@@ -344,8 +344,8 @@ function UVInsightCard() {
 
 function RoleImpact() {
   const items = [
-    "Fall 2025 · Purdue University",
-    "Team · Solo project",
+    "Fall 2025 ▴ Purdue University",
+    "Team ▴ Solo project",
     "Designed the flower, feeder geometry, stem, seating disc, and drainage system.",
     "Built and iterated the parametric model, then translated it into 3D-printed prototypes.",
     "Mapped the butterfly experience and translated UV-vision research into the final surface treatment.",
@@ -422,7 +422,7 @@ export default function BeeFeeder() {
         className="fine-print fine-print--eyebrow"
         style={{ marginBottom: "var(--padding-small)" }}
       >
-        Parametric product design · animal-centered design
+        Parametric product design ▴ animal-centered design
       </p>
 
       <h1
@@ -668,11 +668,11 @@ export default function BeeFeeder() {
           { label: "Type", value: "Parametric Product Design" },
           {
             label: "Tools",
-            value: "Blender · SolidWorks · 3D Printing",
+            value: "Blender ▴ SolidWorks ▴ 3D Printing",
           },
           {
             label: "Focus",
-            value: "Bio-inspired Design · Animal Experience",
+            value: "Bio-inspired Design ▴ Animal Experience",
           },
         ].map(({ label, value }) => (
           <div key={label}>

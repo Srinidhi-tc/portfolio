@@ -3,7 +3,7 @@
 // Hover: scale(1.02), no shadow
 //
 // Props:
-//   eyebrow  — "Microsoft · 2024" (small uppercase)
+//   eyebrow  — "Microsoft ▴ 2024" (small uppercase)
 //   title    — "Redesigning AI-assisted workflows"
 //   desc     — 1-2 sentence description
 //   tags     — ["AI", "Enterprise UX", "Design systems"]
@@ -135,7 +135,7 @@ export default function ProjectCard({
             color: "var(--muted)",
             lineHeight: "var(--leading-body)"
           }}>
-            {tags.join(" · ")}
+            {tags.join(" ▴ ")}
           </p>
         )}}
               >

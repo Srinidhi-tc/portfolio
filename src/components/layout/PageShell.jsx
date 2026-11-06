@@ -1,5 +1,5 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 // The top bar (Navbar.jsx) is no longer rendered.
 import Footer from "./Footer";
 import { HeaderSlotContext } from "./HeaderSlot";
@@ -50,6 +50,31 @@ function SriMark({ isHome }) {
   );
 }
 
+// The baseline: where this browser's font puts the baseline of 16px text
+// inside a 24px line (and of the 28px S/R/I letters). Measured, not guessed,
+// so objects, letters and the overlay sit on the real text baseline.
+function measureBaseline(size) {
+  const box = document.createElement("div");
+  box.style.cssText = `position:absolute;visibility:hidden;font-size:${size};line-height:var(--space-m);`;
+  box.innerHTML = 'Hg<span style="display:inline-block;width:0;height:0;vertical-align:baseline"></span>';
+  document.body.appendChild(box);
+  const y = box.lastChild.getBoundingClientRect().top - box.getBoundingClientRect().top;
+  box.remove();
+  return y;
+}
+
+// Images in content snap to a whole number of 24px lines (cropped by
+// object-fit), so text after an image stays on the baseline grid.
+function snapImages(root) {
+  const line = 24;
+  root.querySelectorAll("img:not(.home-item__object)").forEach((img) => {
+    if (!img.naturalWidth || !img.clientWidth) return;
+    const h = (img.clientWidth * img.naturalHeight) / img.naturalWidth;
+    img.style.height = `${Math.max(line, Math.round(h / line) * line)}px`;
+    img.style.objectFit = "cover";
+  });
+}
+
 export default function PageShell() {
   const { pathname } = useLocation();
   const [slot, setSlot] = useState(null);
@@ -57,6 +82,23 @@ export default function PageShell() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [pathname]);
+
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--bl", `${measureBaseline("var(--type-base)")}px`);
+    root.style.setProperty("--bl-display", `${measureBaseline("var(--type-display)")}px`);
+  }, []);
+
+  useEffect(() => {
+    const main = document.querySelector(".site-main");
+    if (!main) return undefined;
+    const run = () => snapImages(main);
+    run();
+    const ro = new ResizeObserver(run);
+    ro.observe(main);
+    main.addEventListener("load", run, true);
+    return () => { ro.disconnect(); main.removeEventListener("load", run, true); };
   }, [pathname]);
 
   // Keep the tab title in step with the page (same titles as the prerendered HTML).

@@ -634,7 +634,8 @@
 /* ---------- Footer strip ---------- */
 .site-footer {
   padding: var(--padding-big) var(--edge-margin);
-  border-top: 1px solid var(--hairline-weak);
+  border-top: 0;
+  box-shadow: inset 0 1px 0 var(--hairline-weak); /* a line that takes no height */
 }
 .site-footer__strip {
   display: flex;
@@ -655,7 +656,8 @@
   display: flex;
   justify-content: flex-end;
   padding: var(--padding-big) var(--edge-margin);
-  border-top: 1px solid var(--hairline-weak);
+  border-top: 0;
+  box-shadow: inset 0 1px 0 var(--hairline-weak); /* a line that takes no height */
 }
 .next-project a { color: inherit; font-weight: var(--weight-bold); }
 
@@ -829,8 +831,8 @@ a.primary-link,
 @media (max-width: 720px) {
   .shell-head { row-gap: var(--padding-big); padding-bottom: var(--padding-big); }
   .shell-head__slot .home-toggle__label {
-    padding: var(--space-s) 0;
-    margin: calc(-1 * var(--space-s)) 0;
+    padding: 0;
+    margin: 0;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
@@ -851,7 +853,7 @@ a.primary-link,
    text and images always start and end on a column edge.
    ========================================================================== */
 body { line-height: var(--space-m); }
-.stack--small { gap: var(--space-s); }
+.stack--small { gap: 0; } /* lines stack on the 24px rhythm */
 .stack--big { gap: var(--space-l); }
 
 .home-work { column-gap: var(--col-gap); row-gap: var(--space-l); }
@@ -871,16 +873,17 @@ body { line-height: var(--space-m); }
 .site-footer {
   padding: var(--space-l) var(--edge-margin);
   row-gap: var(--space-l);
-  border-top: 1px solid var(--hairline-weak);
+  border-top: 0;
+  box-shadow: inset 0 1px 0 var(--hairline-weak); /* a line that takes no height */
 }
 .site-footer p { margin: 0; }
-.next-project { padding: var(--space-l) var(--edge-margin); border-top: 1px solid var(--hairline-weak); display: grid; }
-.next-project a { gap: var(--space-s); }
+.next-project { padding: var(--space-l) var(--edge-margin); border-top: 0; box-shadow: inset 0 1px 0 var(--hairline-weak); display: grid; }
+.next-project a { gap: 0; }
 @media (max-width: 720px) { .site-footer, .next-project { padding: var(--space-l) var(--space-m); } }
 
 /* GitHub: hovering opens the heatmap right under it, in the flow, so
    LinkedIn moves down. It fills the column 2 + 3 width and no more. */
-.github-stack { position: static; width: 100%; align-items: flex-end; gap: var(--space-s); }
+.github-stack { position: static; width: 100%; align-items: flex-end; gap: 0; }
 .github-heatmap {
   position: static;
   display: none;
@@ -914,7 +917,7 @@ body { line-height: var(--space-m); }
  * the 28px letters' baseline. The nudge is derived from the two type sizes,
  * not a new space value.
  */
-.shell-head__slot { gap: 0; padding-top: calc(0.35 * (var(--type-display) - var(--type-base))); }
+.shell-head__slot { gap: 0; }
 .shell-head__slot .stack--small { gap: 0; }
 
 /* ---------- Grid overlay (?guides) ---------- */
@@ -951,3 +954,38 @@ body { line-height: var(--space-m); }
 @media (max-width: 720px) {
   .home-grid > * { grid-column: 1 !important; grid-row: auto !important; }
 }
+
+/* ==========================================================================
+   Baseline grid
+   --bl is the measured baseline of 16px text inside a 24px line. Every block
+   height is a whole number of 24px lines, so every line of text, every
+   object bottom and the S/R/I letters land on y = 24n + --bl.
+   ========================================================================== */
+:root { --bl: 18px; --bl-display: 21px; } /* fallbacks; measured at load */
+
+/* S/R/I: move the 28px letters so their baseline is the 16px baseline. */
+.sri-mark span { position: relative; top: calc(var(--bl) - var(--bl-display)); }
+
+/* Home objects: start on one baseline and end two lines later on another.
+   Three lines tall in all (24 - bl above isn't needed: bl above, 24 - bl below). */
+.home-item__link { gap: 0; }
+.home-item__object {
+  height: var(--object-size-sm);
+  margin-top: var(--bl);
+  margin-bottom: calc(var(--space-m) - var(--bl));
+}
+
+/* Bio: first line sits on the baseline where the row-2 objects end. */
+.home-bio { padding-top: calc(var(--object-size-sm)); }
+
+/* Overlay baseline lines drawn at the measured baseline, not the line box. */
+.grid-overlay__baseline {
+  background: repeating-linear-gradient(to bottom,
+    rgba(0, 160, 80, 0.45) 0, rgba(0, 160, 80, 0.45) 1px,
+    transparent 1px, transparent var(--space-m));
+  background-position: 0 var(--bl);
+}
+
+/* A primary link is exactly one 24px line tall, wherever it sits. */
+.primary-link { height: var(--space-m); vertical-align: top; }
+li:has(> .primary-link) { display: flex; height: var(--space-m); }

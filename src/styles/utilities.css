@@ -997,3 +997,14 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
 /* Pixel sun sits on a pink square, pixel moon on a light blue square. */
 .theme-toggle__sun { background: #FAD4E4; }
 .theme-toggle__moon { background: #DBEAFE; }
+
+/* Theme toggle as a small framed painting: object size (48px = two lines),
+   thin black frame drawn inside the box (no extra height), 6px mat so the
+   12-pixel art scales by a whole 3x. */
+.theme-toggle__icon { width: var(--object-size-sm); height: var(--object-size-sm); }
+.theme-toggle__sun, .theme-toggle__moon {
+  box-sizing: border-box;
+  padding: 6px;
+  outline: 1px solid var(--text-primary);
+  outline-offset: -1px;
+}

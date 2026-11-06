@@ -989,3 +989,7 @@ body { line-height: var(--space-m); }
 /* A primary link is exactly one 24px line tall, wherever it sits. */
 .primary-link { height: var(--space-m); vertical-align: top; }
 li:has(> .primary-link) { display: flex; height: var(--space-m); }
+
+/* Theme toggle: pixel sun / moon, 24px (one grid line), whole-pixel scale. */
+.theme-toggle__icon { width: var(--space-m); height: var(--space-m); }
+.theme-toggle__icon svg { image-rendering: pixelated; }

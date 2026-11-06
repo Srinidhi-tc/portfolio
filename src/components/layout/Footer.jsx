@@ -36,33 +36,34 @@ export default function Footer() {
 
   return (
     <footer>
-      <div className="site-footer">
-        <div className="site-footer__strip">
-          <div className="stack stack--small">
-            <p className="site-footer__title">Let's build awesome stuff</p>
-            <div className="site-footer__time">
-              <ThemeToggle />
-              <SFClock />
-            </div>
+      <div className="stacks-grid site-footer">
+        <div className="stacks-col stacks-col--1 stack stack--small">
+          <p className="site-footer__title">Let's build awesome stuff</p>
+          <div className="site-footer__time">
+            <ThemeToggle />
+            <SFClock />
           </div>
-          <ul className="stack stack--small stack--right">
-            <li><PrimaryLink href={LINKEDIN_URL}>Linkedin</PrimaryLink></li>
-            <li><GithubStack /></li>
-          </ul>
         </div>
-        <div className="stack stack--small" style={{ marginTop: "var(--padding-big)" }}>
+        <ul className="stacks-col stacks-col--x stack stack--small stack--right">
+          <li style={{ width: "100%" }}><GithubStack /></li>
+          <li><PrimaryLink href={LINKEDIN_URL}>Linkedin</PrimaryLink></li>
+        </ul>
+        <div className="stacks-col stacks-col--4" aria-hidden="true" />
+        <div className="stacks-col stacks-col--1 stack stack--small">
           <p className="site-footer__title">Thanks for stopping by</p>
           <p className="site-footer__copy">Built with Vite, React, CSS and Claude</p>
           <p className="site-footer__copy">© 2026 Srinidhi Chakravarthy. All rights reserved.</p>
         </div>
       </div>
       {next && (
-        <div className="next-project">
-          <Link to={next.to}>
-            <span className="next-project__label">Next project</span>
-            <span>{next.title}</span>
-            <span className="next-project__meta">{subtitle(next)}</span>
-          </Link>
+        <div className="stacks-grid next-project">
+          <div className="stacks-col stacks-col--x">
+            <Link to={next.to}>
+              <span className="next-project__label">Next project</span>
+              <span>{next.title}</span>
+              <span className="next-project__meta">{subtitle(next)}</span>
+            </Link>
+          </div>
         </div>
       )}
     </footer>

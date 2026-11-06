@@ -140,7 +140,7 @@ border: "1px solid var(--hairline-weak)";
   font-family: "Playfair Display", "Didot", "Bodoni 72", Georgia, serif;
   font-size: var(--type-base);
   font-weight: var(--weight-bold);
-  line-height: 1;
+  line-height: var(--space-m);
   color: var(--text);
 }
 

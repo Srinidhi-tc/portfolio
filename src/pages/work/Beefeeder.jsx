@@ -1,4 +1,5 @@
 import Kicker from "../../components/ui/Kicker";
+import GalleryGrid from "../../components/layout/GalleryGrid";
 import AnnotationTag from "../../components/ui/AnnotationTag";
 import ChapterToggle from "../../components/ui/ChapterToggle";
 import img1 from "../../assets/flowerfinal1.png";
@@ -53,7 +54,7 @@ function SideBySide({ left, right }) {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
+        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
         gap: "var(--padding-small)"
       }}
     >
@@ -410,11 +411,10 @@ function RoleImpact() {
 
 export default function BeeFeeder() {
   return (
+    <GalleryGrid>
     <div
       style={{
         color: "var(--text-primary)",
-        padding: "var(--padding-big) var(--padding-big)",
-        maxWidth: 900,
         margin: "0 auto"
       }}
     >
@@ -693,5 +693,6 @@ export default function BeeFeeder() {
         ))}
       </div>
     </div>
+    </GalleryGrid>
   );
 }

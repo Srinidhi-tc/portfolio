@@ -1,4 +1,5 @@
 import heart1 from "../../assets/heart1.png";
+import GalleryGrid from "../../components/layout/GalleryGrid";
 import PrimaryLink from "../../components/ui/PrimaryLink";
 import heart3 from "../../assets/heart3.png";
 import heart4 from "../../assets/heart4.png";
@@ -82,11 +83,10 @@ const PROJECT_DOC_URL = "";
 
 export default function HeartsOfInsomnia() {
   return (
+    <GalleryGrid>
     <div
       style={{
         color: "var(--text-primary)",
-        padding: "var(--padding-big) var(--padding-big)",
-        maxWidth: 900,
         margin: "0 auto"
       }}
     >
@@ -250,7 +250,7 @@ export default function HeartsOfInsomnia() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
               gap: "var(--padding-small)"
             }}
           >
@@ -293,5 +293,6 @@ export default function HeartsOfInsomnia() {
         </section>
       </main>
     </div>
+    </GalleryGrid>
   );
 }

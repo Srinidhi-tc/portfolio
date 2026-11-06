@@ -44,25 +44,36 @@
   /* Typography: one body size, three weights, one display size */
   --type-base:      16px;
   --type-caption: 13px;
-  --header-space: 72px;
+  --header-space: var(--space-l);  /* top negative space: one margin */
   --type-display:   28px;
   --weight-thin:    300;
   --weight-regular: 400;
   --weight-bold:    700;
 
   /* Padding: only two values across the entire system */
-  --padding-big:    48px;
-  --padding-small:  16px;   /* padding-big / 3, rounded */
+  /* Spacing: three values across the whole site, line heights included.
+   *   --space-s   8px  tight: inside a stack (label to value, icon to text)
+   *   --space-m  24px  one line: line height, paragraph gap, column + row gutter
+   *   --space-l  48px  two lines: page margin, section gap
+   * Every vertical value is a multiple of the 24px line, so text sits on one
+   * baseline grid across all four columns. */
+  --space-s:        8px;
+  --space-m:        24px;
+  --space-l:        48px;
+
+  --padding-big:    var(--space-l);
+  --padding-small:  var(--space-m);
 
   /* Layout grid */
   --col-count:      4;
-  --col-gap:        var(--padding-big);
-  --edge-margin:    var(--padding-big);
+  --col-gap:        var(--space-m);   /* gutter: always empty */
+  --edge-margin:    var(--space-l);   /* margin */
 
   /* Line heights (not part of the size scale) */
-  --leading-heading: 1.15;
-  --leading-subheading: 1.35;
-  --leading-body: 1.6;
+  /* Line height: one value (the 24px line) for every text style */
+  --leading-heading: var(--space-m);
+  --leading-subheading: var(--space-m);
+  --leading-body: var(--space-m);
 }
 
 /*

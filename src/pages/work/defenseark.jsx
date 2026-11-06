@@ -187,7 +187,7 @@ export default function DefenseArk() {
 
       {/* PRODUCTS */}
       <Section number="The products" title="See them live.">
-        <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap:"var(--padding-small)" }}>
+        <div className="da-grid" style={{ display:"grid", gridTemplateColumns:"repeat(2, minmax(0, 1fr))", gap:"var(--padding-small)" }}>
           {PRODUCTS.map((p) => (
             <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="lift"
                style={{ display:"block", textDecoration:"none", color:"inherit" }}>

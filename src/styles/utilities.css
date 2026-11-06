@@ -466,7 +466,7 @@
   margin: 0;
   font-size: var(--type-display);
   font-weight: var(--weight-bold);
-  line-height: 0.9;
+  line-height: var(--space-m);
 }
 
 .home-bio {
@@ -772,7 +772,7 @@ html, body { font-size: var(--type-base); }
 .primary-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.25em; /* one space between icon and text */
+  gap: var(--space-s);
   color: var(--link-blue);
   line-height: var(--leading-body);
 }
@@ -806,7 +806,7 @@ html, body { font-size: var(--type-base); }
   right: calc(100% + var(--padding-small));
   bottom: 0;
   display: none;
-  gap: 2px;
+  gap: 0;
   padding: var(--padding-small);
   background: var(--background);
   border: 1px solid var(--hairline-weak);
@@ -816,7 +816,7 @@ html, body { font-size: var(--type-base); }
 }
 .github-stack:hover .github-heatmap,
 .github-stack:focus-within .github-heatmap { display: flex; }
-.github-heatmap__week { display: flex; flex-direction: column; gap: 2px; }
+.github-heatmap__week { display: flex; flex-direction: column; gap: 0; }
 .github-heatmap__day { width: 8px; height: 8px; border-radius: 2px; background: var(--hairline-weak); }
 .github-heatmap__day.is-empty { background: transparent; }
 .github-heatmap__day.lvl-1 { background: #9be9a8; }
@@ -842,17 +842,75 @@ a.primary-link,
 @media (max-width: 720px) {
   .shell-head { row-gap: var(--padding-big); padding-bottom: var(--padding-big); }
   .shell-head__slot .home-toggle__label {
-    padding: calc(var(--padding-small) / 2) 0;
-    margin: calc(var(--padding-small) / -2) 0;
+    padding: var(--space-s) 0;
+    margin: calc(-1 * var(--space-s)) 0;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
 }
 
 /* Home: the title alone (black), the org on its own line below (grey). */
-.home-item__org { color: var(--text-secondary); margin-top: calc(var(--padding-small) * -1); }
 
 /* Home titles: two balanced lines on desktop. */
 @media (min-width: 721px) {
   .home-item__meta { max-width: 24ch; text-wrap: balance; }
+}
+
+/* ==========================================================================
+   Grid discipline
+   Margin 48 | 4 columns | gutter 24 between columns and between rows.
+   Gutters stay empty: every inner layout (ledger, prose, stacks, image pairs,
+   the home work list, footer) splits columns 2 + 3 along the same gutter, so
+   text and images always start and end on a column edge.
+   ========================================================================== */
+body { line-height: var(--space-m); }
+.stack--small { gap: var(--space-s); }
+.stack--big { gap: var(--space-l); }
+
+.home-work { column-gap: var(--col-gap); row-gap: var(--space-l); }
+.cs-ledger { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--col-gap); row-gap: var(--space-m); }
+.cs-prose { column-gap: var(--col-gap); }
+.cs-prose p { margin: 0 0 var(--space-m); }
+.cs-stacks { column-gap: var(--col-gap); row-gap: var(--space-m); }
+.cs-image-pair { column-gap: var(--col-gap); }
+.cs-ledger__item, .cs-stacks li { display: flex; flex-direction: column; gap: 0; }
+
+/* Phones: margin and gutter drop one step (48 -> 24), still the same 3 values. */
+@media (max-width: 720px) {
+  .stacks-grid { padding: var(--space-l) var(--space-m); row-gap: var(--space-l); }
+}
+
+/* ---------- Footer on the same 4 columns ---------- */
+.site-footer {
+  padding: var(--space-l) var(--edge-margin);
+  row-gap: var(--space-l);
+  border-top: 1px solid var(--hairline-weak);
+}
+.site-footer p { margin: 0; }
+.next-project { padding: var(--space-l) var(--edge-margin); border-top: 1px solid var(--hairline-weak); display: grid; }
+.next-project a { gap: var(--space-s); }
+@media (max-width: 720px) { .site-footer, .next-project { padding: var(--space-l) var(--space-m); } }
+
+/* GitHub: hovering opens the heatmap right under it, in the flow, so
+   LinkedIn moves down. It fills the column 2 + 3 width and no more. */
+.github-stack { position: static; width: 100%; align-items: flex-end; gap: var(--space-s); }
+.github-heatmap {
+  position: static;
+  display: none;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: none;
+}
+.github-stack:hover .github-heatmap,
+.github-stack:focus-within .github-heatmap { display: flex; }
+.github-heatmap__week { flex: 1 1 0; display: flex; flex-direction: column; }
+.github-heatmap__day {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  border: 1px solid var(--background); /* a hairline, not a gap */
+  box-sizing: border-box;
 }

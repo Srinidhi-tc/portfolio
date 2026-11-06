@@ -848,3 +848,6 @@ a.primary-link,
     -webkit-tap-highlight-color: transparent;
   }
 }
+
+/* Home: the title alone (black), the org on its own line below (grey). */
+.home-item__org { color: var(--text-secondary); margin-top: calc(var(--padding-small) * -1); }

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // The top bar (Navbar.jsx) is no longer rendered.
 import Footer from "./Footer";
 import { HeaderSlotContext } from "./HeaderSlot";
+import routeMeta from "../../../scripts/routes.json";
 
 // Dormant content for this component lives in ./PageShell.dormant
 // To revive a block, import its named export and render it.
@@ -55,6 +56,14 @@ export default function PageShell() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [pathname]);
+
+  // Keep the tab title in step with the page (same titles as the prerendered HTML).
+  useEffect(() => {
+    const path = pathname.replace(/\/$/, "") || "/";
+    const list = Array.isArray(routeMeta) ? routeMeta : routeMeta.routes || [];
+    const hit = list.find((r) => r.path === path);
+    if (hit?.title) document.title = hit.title;
   }, [pathname]);
 
   // Add ?guides to any URL to see the central gutter drawn over the page.

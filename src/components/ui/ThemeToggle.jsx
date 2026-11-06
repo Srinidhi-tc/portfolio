@@ -23,6 +23,51 @@ function currentTheme() {
   return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
+// Pixel art on a 12 x 12 grid. Sun in the StraboSpot object's yellows,
+// moon in the link blue. Each character is one pixel; "." is empty.
+const SUN = [
+  "....a..a....",
+  ".a........a.",
+  "....yyyy....",
+  "a..yyyyyy..a",
+  "..yyyyyyyy..",
+  "..yyyyyyyp..",
+  "..yyyyyypp..",
+  "..yyyyyppp..",
+  "a..yyyppp..a",
+  "....pppp....",
+  ".a........a.",
+  "....a..a....",
+];
+const SUN_COLORS = { y: "#ECF451", p: "#D9DE3E", a: "#EFEFA4" };
+const MOON = [
+  "....bbbb....",
+  "..bbbb......",
+  ".bbbb.......",
+  ".bbb........",
+  "bbbb........",
+  "bbbb........",
+  "bbbb.......b",
+  "bbbbb.....bb",
+  ".bbbbb..bbbb",
+  ".bbbbbbbbbb.",
+  "..bbbbbbbb..",
+  "....bbbb....",
+];
+const MOON_COLORS = { b: "var(--link-blue)" };
+
+function PixelArt({ rows, colors, className }) {
+  return (
+    <svg className={className} viewBox="0 0 12 12" shapeRendering="crispEdges">
+      {rows.flatMap((row, y) =>
+        [...row].map((c, x) =>
+          colors[c] ? <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" fill={colors[c]} /> : null
+        )
+      )}
+    </svg>
+  );
+}
+
 export default function ThemeToggle() {
   const [theme, setTheme] = useState(currentTheme);
 
@@ -76,27 +121,8 @@ export default function ThemeToggle() {
       <span className="theme-toggle__icon" aria-hidden="true">
         {/* Both glyphs are always present; CSS cross-fades and rotates between
             them so the control animates rather than swapping abruptly. */}
-        <svg className="theme-toggle__sun" viewBox="0 0 24 24" width="18" height="18">
-          <circle cx="12" cy="12" r="4.2" fill="currentColor" />
-          {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
-            <rect
-              key={deg}
-              x="11.25"
-              y="1.4"
-              width="1.5"
-              height="3.4"
-              rx="0.75"
-              fill="currentColor"
-              transform={`rotate(${deg} 12 12)`}
-            />
-          ))}
-        </svg>
-        <svg className="theme-toggle__moon" viewBox="0 0 24 24" width="18" height="18">
-          <path
-            d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"
-            fill="currentColor"
-          />
-        </svg>
+        <PixelArt className="theme-toggle__sun" rows={SUN} colors={SUN_COLORS} />
+        <PixelArt className="theme-toggle__moon" rows={MOON} colors={MOON_COLORS} />
       </span>
     </button>
   );

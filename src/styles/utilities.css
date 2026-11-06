@@ -777,7 +777,7 @@ html, body { font-size: var(--type-base); }
   line-height: var(--leading-body);
 }
 .primary-link__text { text-decoration: underline; text-underline-offset: 3px; }
-.eye-globe { height: calc(0.75em + 1px); width: auto; aspect-ratio: 128 / 88; flex-shrink: 0; overflow: visible; }
+.eye-globe { height: calc(0.75em + 3px); width: auto; aspect-ratio: 128 / 88; flex-shrink: 0; overflow: visible; }
 .eye-globe path {
   fill: none;
   stroke: currentColor;
@@ -786,8 +786,8 @@ html, body { font-size: var(--type-base); }
   vector-effect: non-scaling-stroke; /* stroke in screen pixels, not icon units */
 }
 /* Outer eye matches the stem of 16px regular text; inner lines are lighter. */
-.eye-globe__outer { stroke-width: 1.5px; }
-.eye-globe__grid { stroke-width: 1px; }
+.eye-globe__outer { stroke-width: 1.35px; }
+.eye-globe__grid { stroke-width: 0.9px; }
 .next-project a span:nth-child(2) { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Objects: one studio look ----------
@@ -851,3 +851,8 @@ a.primary-link,
 
 /* Home: the title alone (black), the org on its own line below (grey). */
 .home-item__org { color: var(--text-secondary); margin-top: calc(var(--padding-small) * -1); }
+
+/* Home titles: two balanced lines on desktop. */
+@media (min-width: 721px) {
+  .home-item__meta { max-width: 24ch; text-wrap: balance; }
+}

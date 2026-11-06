@@ -824,3 +824,7 @@ html, body { font-size: var(--type-base); }
 .github-heatmap__day.lvl-3 { background: #30a14e; }
 .github-heatmap__day.lvl-4 { background: #216e39; }
 @media (max-width: 720px) { .github-heatmap { display: none !important; } }
+
+/* Primary links stay blue wherever they sit (the footer resets link colour). */
+a.primary-link,
+.site-footer a.primary-link { color: var(--link-blue); }

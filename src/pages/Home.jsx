@@ -70,7 +70,7 @@ function About() {
         <Ext href="https://tacc.utexas.edu/">TACC</Ext>,{" "}
         <Ext href="https://sciencegateways.org/">SGX3</Ext>,{" "}
         <Ext href="https://www.ionixxtech.com/">Ionixx</Ext> and{" "}
-        <Ext href="https://www.purdue.edu/">Purdue University</Ext>. Trained Psychologist. Grateful to mentors, seniors, teams, fam and friends.
+        <Ext href="https://www.purdue.edu/">Purdue University</Ext>. Trained Psychologist. The connective tissue between research, design, code, legal, and compliance.
       </p>
     </div>
   );

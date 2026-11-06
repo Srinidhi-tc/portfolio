@@ -26,7 +26,7 @@ const ORDER = [
 function subtitle({ id, gallery }) {
   const p = workSectionProjects.find((x) => x.id === id);
   if (!p) return null;
-  return gallery ? p.title : projectSummaries[id].homeLine;
+  return gallery ? p.title : projectSummaries[id].headline;
 }
 
 export default function Footer() {

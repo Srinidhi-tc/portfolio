@@ -46,8 +46,8 @@ export default function Footer() {
         </div>
         <ul className="stacks-col stacks-col--x stack stack--small stack--right">
           <li style={{ width: "100%" }}><GithubStack /></li>
-          <li><PrimaryLink href={LINKEDIN_URL}>Linkedin</PrimaryLink></li>
-          <li><Link className="primary-link" to="/design-system"><EyeGlobe /><span className="primary-link__text">Design system</span></Link></li>
+          <li><PrimaryLink href={LINKEDIN_URL}>LinkedIn</PrimaryLink></li>
+          <li><Link className="primary-link" to="/design-system"><EyeGlobe /><span className="primary-link__text">Design System</span></Link></li>
         </ul>
         <div className="stacks-col stacks-col--4" aria-hidden="true" />
         <div className="stacks-col stacks-col--1 stack stack--small">

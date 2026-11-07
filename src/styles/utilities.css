@@ -1061,3 +1061,10 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
    The bio keeps its first line on the last title line beside it. */
 .home-item__object { height: var(--object-size-md); }
 .home-bio { padding-top: calc(var(--object-size-md) + var(--space-l)); }
+
+/* Home rows: every project row is the same height (nine lines, the About
+   block), so Tutor -> DefenseARK -> Psychosis step down by equal amounts.
+   The bio spans rows 2 + 3 so its length can't push row 3 down. */
+@media (min-width: 721px) {
+  .home-grid { grid-auto-rows: minmax(calc(var(--space-m) * 9), auto); }
+}

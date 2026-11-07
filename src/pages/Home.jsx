@@ -134,7 +134,7 @@ export default function Home() {
       <section className="home-about-top" style={{ gridColumn: 1, gridRow: 1 }} aria-label="About">
         <AboutTop />
       </section>
-      <section style={{ gridColumn: 1, gridRow: 2 }}>
+      <section style={{ gridColumn: 1, gridRow: "2 / span 2" }}>
         <Bio />
       </section>
 

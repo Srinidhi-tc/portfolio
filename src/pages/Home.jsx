@@ -16,12 +16,12 @@ import { DESIGN_SYSTEM_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
 import { HeaderPortal } from "../components/layout/HeaderSlot";
 import PrimaryLink from "../components/ui/PrimaryLink";
 
-const ROLES = ["Product owner", "Strategy", "UX Research", "Design"];
+const ROLES = ["Product Owner", "Strategy", "UX Research", "Design"];
 
 const CONTACT = [
   { label: "Design System", href: DESIGN_SYSTEM_URL },
   { label: "Resume", href: RESUME_URL },
-  { label: "Linkedin", href: LINKEDIN_URL },
+  { label: "LinkedIn", href: LINKEDIN_URL },
 ];
 
 // Work: in this order, laid out 2, 2, 1.

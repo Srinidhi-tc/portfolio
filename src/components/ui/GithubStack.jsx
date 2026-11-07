@@ -27,7 +27,7 @@ function weeks() {
 export default function GithubStack() {
   return (
     <div className="github-stack">
-      <PrimaryLink href={GITHUB_URL}>Github</PrimaryLink>
+      <PrimaryLink href={GITHUB_URL}>GitHub</PrimaryLink>
       <span className="github-stack__count">{GITHUB_CONTRIBUTIONS} code contributions</span>
       <div className="github-heatmap" role="img" aria-label={`${GITHUB_CONTRIBUTIONS} contributions in the last year`}>
         {weeks().map((w, i) => (

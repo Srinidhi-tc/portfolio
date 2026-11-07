@@ -1056,3 +1056,8 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
 .ds { row-gap: var(--space-m); }
 .ds-purpose { margin: 0; color: var(--text-secondary); line-height: var(--space-m); }
 .ds-sheet { display: block; width: 100%; height: auto; }
+
+/* Home thumbnails: 96px (four lines), still baseline to baseline.
+   The bio keeps its first line on the last title line beside it. */
+.home-item__object { height: var(--object-size-md); }
+.home-bio { padding-top: calc(var(--object-size-md) + var(--space-l)); }

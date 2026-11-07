@@ -1,13 +1,15 @@
 // GitHub link with the contribution count under it. Hovering (or focusing)
 // shows the contribution heatmap for the last year.
 //
-// The count and heatmap are a snapshot from github.com/Srinidhi-tc, saved in
-// src/data/githubHeatmap.json. Update both when the number changes.
+// The count and heatmap come from github.com/Srinidhi-tc. scripts/github-heatmap.mjs
+// refreshes src/data/githubHeatmap.json before every build (so every deploy).
 import PrimaryLink from "./PrimaryLink";
-import heatmap from "../../data/githubHeatmap.json";
+import data from "../../data/githubHeatmap.json";
+
+const heatmap = data.days;
 
 export const GITHUB_URL = "https://github.com/Srinidhi-tc";
-export const GITHUB_CONTRIBUTIONS = 288;
+export const GITHUB_CONTRIBUTIONS = data.total;
 
 // Days in columns of seven (one column per week), oldest first.
 function weeks() {

@@ -754,9 +754,6 @@ html, body { font-size: var(--type-base); }
  * Primary (contacts, GitHub, Figma, DefenseARK products): eye-globe icon,
  * blue, underlined. Every other text link: text colour, underlined.
  */
-:root { --link-blue: #2563EB; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --link-blue: #60A5FA; } }
-:root[data-theme="dark"] { --link-blue: #60A5FA; }
 
 .primary-link {
   display: inline-flex;
@@ -1033,3 +1030,26 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
 }
 /* About links: right-aligned to the column edge. */
 .home-contact { align-items: flex-end; }
+
+/* ---------- Design system page: tokens only ---------- */
+.ds { row-gap: var(--space-l); }
+.ds-h { font-size: var(--type-base); font-weight: var(--weight-bold); line-height: var(--space-m); margin: 0; }
+.ds-meta { color: var(--text-secondary); line-height: var(--space-m); margin: 0; }
+.ds-gap { height: var(--space-m); }
+.ds-row { display: flex; justify-content: space-between; align-items: center; gap: var(--space-s); height: var(--space-m); }
+.ds-row:has(.ds-object--inline) { height: var(--space-m); }
+.ds-swatch { display: block; width: var(--space-l); height: calc(var(--space-m) - var(--space-s)); }
+.ds-bar { display: block; height: calc(var(--space-m) - var(--space-s)); background: var(--text-primary); }
+.ds-baseline {
+  position: relative;
+  height: calc(var(--space-m) * 3);
+  background: repeating-linear-gradient(to bottom,
+    transparent 0 calc(var(--bl) - 1px),
+    color-mix(in srgb, var(--link-blue) 45%, transparent) calc(var(--bl) - 1px) var(--bl),
+    transparent var(--bl) var(--space-m));
+}
+.ds-object { display: block; width: var(--object-size-sm); height: var(--object-size-sm); background: var(--text-primary); }
+.ds-baseline .ds-object { position: absolute; left: 0; top: var(--bl); }
+.ds-baseline__text { position: absolute; left: calc(var(--object-size-sm) + var(--space-s)); top: var(--space-m); line-height: var(--space-m); }
+.ds-object--inline { width: var(--space-m); height: var(--space-m); }
+@media (max-width: 720px) { .ds > * { grid-column: 1 !important; grid-row: auto !important; } }

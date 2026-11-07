@@ -10,6 +10,7 @@ import PsychosisLiteracy from "./pages/work/PsychosisLiteracy";
 import BeeFeeder from "./pages/work/Beefeeder";
 import HeartsOfInsomnia from "./pages/work/HeartsOfInsomnia";
 import DefenseArk from "./pages/work/defenseark";
+import DesignSystem from "./pages/DesignSystem";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/work/hearts-of-insomnia" element={<HeartsOfInsomnia />} />
         <Route path="/work/defenseark" element={<DefenseArk />} />
         {/* Dormant: reachable by URL only, not linked from the home grid. */}
+        <Route path="/design-system" element={<DesignSystem />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>

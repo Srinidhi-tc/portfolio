@@ -12,13 +12,14 @@ import { Link } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 import { projectSummaries } from "../data/projectSummaries";
 import { projectObjects } from "../data/projectObjects";
-import { LINKEDIN_URL, RESUME_URL } from "../data/links";
+import { DESIGN_SYSTEM_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
 import { HeaderPortal } from "../components/layout/HeaderSlot";
 import PrimaryLink from "../components/ui/PrimaryLink";
 
 const ROLES = ["Product owner", "Strategy", "UX Research", "Design"];
 
 const CONTACT = [
+  { label: "Design system", href: DESIGN_SYSTEM_URL },
   { label: "Resume", href: RESUME_URL },
   { label: "Linkedin", href: LINKEDIN_URL },
 ];

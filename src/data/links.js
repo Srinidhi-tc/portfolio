@@ -19,3 +19,6 @@ export const socialLinks = [
   { label: "Instagram", href: INSTAGRAM_URL, external: true },
   { label: "Behance", href: BEHANCE_URL, external: true },
 ];
+
+export const DESIGN_SYSTEM_URL =
+  "https://docs.google.com/document/d/1GwpB2Ycvqxd9X0Xw5gGk-ire4rXnRyWs/edit?usp=sharing&ouid=113867948688877731321&rtpof=true&sd=true";

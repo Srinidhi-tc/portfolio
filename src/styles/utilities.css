@@ -1022,3 +1022,14 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
    beside it ("under one brand"): object (2 lines) + two title lines. */
 .home-bio { padding-top: calc(var(--object-size-sm) + var(--space-l)); }
 @media (max-width: 720px) { .home-bio { padding-top: 0; } }
+
+/* Selected item in every toggle / section list is underlined. */
+.home-toggle__label--active,
+.chapter-list__item--active,
+.work-section-process-step--active {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+/* About links: right-aligned to the column edge. */
+.home-contact { align-items: flex-end; }

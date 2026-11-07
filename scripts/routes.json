@@ -84,6 +84,11 @@
       "og": "defenseark",
       "eyebrow": "CYBERSECURITY",
       "source": "src/assets/work-DefenseArk.png"
+    },
+    {
+      "path": "/design-system",
+      "title": "Design system ▴ Srinidhi Chakravarthy",
+      "description": "The portfolio's design system on one screen: grid, spacing, type, color, baseline and components, rendered from the real tokens."
     }
   ]
 }

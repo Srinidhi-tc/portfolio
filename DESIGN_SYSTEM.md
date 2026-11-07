@@ -1,10 +1,12 @@
 # Design system: Stacks + Fs + Objects
 
 The portfolio runs on a small, closed system. Every value lives in
-[`src/styles/tokens.css`](src/styles/tokens.css); components use tokens only.
+[`src/styles/tokens.css`](src/styles/tokens.css). Components reference tokens. This is a
+convention; no lint rule checks it yet.
 Add `?guides` to any page URL to see the grid and baseline drawn over the page.
 
-One-page summary: [`design-system/cheatsheet.png`](design-system/cheatsheet.png)
+Live one-screen version, rendered from the real tokens: `/design-system` on the site
+(source: [`src/pages/DesignSystem.jsx`](src/pages/DesignSystem.jsx)).
 
 ## 1. Grid
 
@@ -72,7 +74,7 @@ Third primitive, next to stacks and Fs.
 - **Stack:** a vertical list in one column, aligned left or right (the F).
 - **Selected:** bold + underline (Work / Gallery, project toggle, section list).
 - **Primary link:** blue eye-globe icon + underline, one row tall.
-- **Separator:** ▴. No arrows, no gray rules between content.
+- **Separator:** ▴. No arrows.
 - **Theme toggle:** a framed pixel painting at object size (sunset / moon),
   matched in brightness.
 - **Header:** S/R/Iː in column 1, the page's toggle in columns 2 + 3. Not sticky.

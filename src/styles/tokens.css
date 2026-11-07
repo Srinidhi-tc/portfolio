@@ -34,6 +34,7 @@
   /* Text color hierarchy — two tones only */
   --text-primary:   #1D1D1F;   /* project names, display letterforms, bold labels */
   --text-secondary: #6E6E73;   /* about text, prose, captions, secondary meta */
+  --link-blue:      #2563EB;   /* primary links: eye-globe icon + underline */
 
   /* Object primitive — the third design-system layer alongside type and padding */
   --object-size-sm: 48px;      /* home-page tile object: two 24px lines, baseline to baseline */
@@ -347,3 +348,7 @@ html {
   --color-burgundy-soft: rgba(239, 225, 227, 0.14);
   --color-sage-soft: rgba(230, 236, 227, 0.12);
 }
+
+:root { --link-blue: #2563EB; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --link-blue: #60A5FA; } }
+:root[data-theme="dark"] { --link-blue: #60A5FA; }

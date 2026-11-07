@@ -4,7 +4,7 @@
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
-import PrimaryLink from "../ui/PrimaryLink";
+import PrimaryLink, { EyeGlobe } from "../ui/PrimaryLink";
 import GithubStack from "../ui/GithubStack";
 import { LINKEDIN_URL } from "../../data/links";
 import { workSectionProjects } from "../../data/workSectionProjects";
@@ -47,6 +47,7 @@ export default function Footer() {
         <ul className="stacks-col stacks-col--x stack stack--small stack--right">
           <li style={{ width: "100%" }}><GithubStack /></li>
           <li><PrimaryLink href={LINKEDIN_URL}>Linkedin</PrimaryLink></li>
+          <li><Link className="primary-link" to="/design-system"><EyeGlobe /><span className="primary-link__text">Design system</span></Link></li>
         </ul>
         <div className="stacks-col stacks-col--4" aria-hidden="true" />
         <div className="stacks-col stacks-col--1 stack stack--small">

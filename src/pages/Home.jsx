@@ -73,15 +73,18 @@ function AboutTop() {
 
 function Bio() {
   return (
-    <p className="home-bio">
-      Prev., a founding designer at{" "}
-      <Ext href="https://www.metasquare.com/">Metasquare Inc.</Ext>, has worked across data-dense workflows for{" "}
-      <Ext href="https://azure.microsoft.com/">Microsoft Azure</Ext>,{" "}
-      <Ext href="https://tacc.utexas.edu/">TACC</Ext>,{" "}
-      <Ext href="https://sciencegateways.org/">SGX3</Ext>,{" "}
-      <Ext href="https://www.ionixxtech.com/">Ionixx</Ext> and{" "}
-      <Ext href="https://www.purdue.edu/">Purdue University</Ext>. Trained Psychologist. The connective tissue between research, design, code, legal, and compliance.
-    </p>
+    <div className="home-bio stack">
+      <p>
+        Founding designer, psychology-trained, ships in code. I design AI products where mistakes are expensive.
+      </p>
+      <p>
+        Previously at{" "}
+        <Ext href="https://www.metasquare.com/">Metasquare</Ext>,{" "}
+        <Ext href="https://azure.microsoft.com/">Microsoft Azure</Ext>,{" "}
+        <Ext href="https://tacc.utexas.edu/">TACC</Ext> and{" "}
+        <Ext href="https://www.purdue.edu/">Purdue</Ext>. The connective tissue between research, design, code, legal and compliance.
+      </p>
+    </div>
   );
 }
 

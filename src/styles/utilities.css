@@ -1068,3 +1068,5 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
 @media (min-width: 721px) {
   .home-grid { grid-auto-rows: minmax(calc(var(--space-m) * 9), auto); }
 }
+.home-bio.stack { gap: var(--space-m); }
+.home-bio p { margin: 0; }

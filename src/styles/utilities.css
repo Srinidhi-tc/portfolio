@@ -1053,3 +1053,6 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
 .ds-baseline__text { position: absolute; left: calc(var(--object-size-sm) + var(--space-s)); top: var(--space-m); line-height: var(--space-m); }
 .ds-object--inline { width: var(--space-m); height: var(--space-m); }
 @media (max-width: 720px) { .ds > * { grid-column: 1 !important; grid-row: auto !important; } }
+.ds { row-gap: var(--space-m); }
+.ds-purpose { margin: 0; color: var(--text-secondary); line-height: var(--space-m); }
+.ds-sheet { display: block; width: 100%; height: auto; }

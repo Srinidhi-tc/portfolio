@@ -1017,3 +1017,8 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
   border: 1px solid #000;
   image-rendering: pixelated;
 }
+
+/* Bio: first line "Prev., ..." shares the baseline of the last title line
+   beside it ("under one brand"): object (2 lines) + two title lines. */
+.home-bio { padding-top: calc(var(--object-size-sm) + var(--space-l)); }
+@media (max-width: 720px) { .home-bio { padding-top: 0; } }

@@ -1,0 +1,190 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Design system cheat sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1D1D1F; --soft: #6E6E73; --blue: #2563EB; --bg: #FBFBFD;
+    --s: 8px; --m: 24px; --l: 48px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); }
+  body {
+    width: 1240px; height: 1754px; overflow: hidden;
+    font: 400 16px/24px Inter, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink); padding: var(--l);
+  }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: var(--m); row-gap: var(--l); }
+  .stack { display: flex; flex-direction: column; }
+  .r { text-align: right; align-items: flex-end; }
+  .sri { font: 700 28px/24px Inter, sans-serif; display: flex; flex-direction: column; }
+  .sri span { height: 24px; }
+  h1 { font: 700 16px/24px Inter, sans-serif; }
+  h2 { font: 700 16px/24px Inter, sans-serif; }
+  p, li { list-style: none; }
+  .soft { color: var(--soft); }
+  .cap { font-size: 13px; font-weight: 300; color: var(--soft); }
+  .gap-m { height: var(--m); }
+  .gap-l { height: var(--l); }
+  .num { font: 700 28px/48px Inter, sans-serif; letter-spacing: 0; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s); }
+
+  /* grid diagram */
+  .mini { display: grid; grid-template-columns: 12px repeat(4, 1fr) 12px; column-gap: 6px; height: 96px; }
+  .mini div { background: var(--ink); }
+  .mini .m { background: transparent; }
+  .mini .c4 { background: transparent; box-shadow: inset 0 0 0 1px var(--ink); }
+  .mini .c1 { background: var(--soft); }
+
+  /* space bars */
+  .bar { height: 24px; background: var(--ink); }
+  /* baseline demo */
+  .base { position: relative; height: 96px; }
+  .base i { position: absolute; left: 0; right: 0; height: 1px; background: #2563EB; opacity: .35; }
+  .base .obj { position: absolute; left: 0; width: 48px; height: 48px; background: var(--ink); top: 18px; }
+  .base .t { position: absolute; left: 64px; font: 400 16px/24px Inter; }
+  .sw { width: 48px; height: 48px; } .row:has(.sw), .row:has(.bar) { align-items: center; }
+  .link { color: var(--blue); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; gap: 8px; align-items: center; }
+  .sel { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+
+<!-- Row 1: identity -->
+<section class="grid">
+  <div class="sri"><span>S</span><span>R</span><span>IË</span></div>
+  <div class="stack" style="grid-column: 2 / 4">
+    <h1>Design system â–´ Stacks + Fs + Objects</h1>
+    <p class="soft">A closed system for a portfolio: every value is a token, every line sits on one 24px baseline across four columns.</p>
+  </div>
+  <div class="stack r">
+    <p class="cap">srinidhi-tc.github.io/portfolio</p>
+    <p class="cap">src/styles/tokens.css</p>
+  </div>
+</section>
+
+<div class="gap-l"></div><div class="gap-l"></div>
+
+<!-- Row 2: the numbers -->
+<section class="grid">
+  <div class="stack"><p class="num">4</p><p>columns</p><p class="cap">1 identity â–´ 2 + 3 content â–´ 4 negative space</p></div>
+  <div class="stack"><p class="num">3</p><p>space values</p><p class="cap">8 â–´ 24 â–´ 48. Line heights included</p></div>
+  <div class="stack"><p class="num">1</p><p>line height</p><p class="cap">24px for every style. Baseline measured, not guessed</p></div>
+  <div class="stack"><p class="num">2</p><p>text tones</p><p class="cap">Color comes from the work, not the chrome</p></div>
+</section>
+
+<div class="gap-l"></div><div class="gap-l"></div>
+
+<!-- Row 3: Grid / Space / Type / Color -->
+<section class="grid">
+  <div class="stack">
+    <h2>Grid</h2>
+    <div class="gap-m"></div>
+    <div class="mini"><div class="m"></div><div class="c1"></div><div></div><div></div><div class="c4"></div><div class="m"></div></div>
+    <div class="gap-m"></div>
+    <div class="row"><span>Margin</span><span class="soft">48</span></div>
+    <div class="row"><span>Gutter</span><span class="soft">24, always empty</span></div>
+    <div class="row"><span>Row</span><span class="soft">24</span></div>
+    <div class="row"><span>Phones</span><span class="soft">margin 24, one column</span></div>
+  </div>
+
+  <div class="stack">
+    <h2>Space</h2>
+    <div class="gap-m"></div>
+    <div class="row"><div class="bar" style="width:8px"></div><span class="soft">8 â–´ inside a stack</span></div>
+    <div class="gap-m"></div>
+    <div class="row"><div class="bar" style="width:24px"></div><span class="soft">24 â–´ one line, gutter</span></div>
+    <div class="gap-m"></div>
+    <div class="row"><div class="bar" style="width:48px"></div><span class="soft">48 â–´ margin, section</span></div>
+  </div>
+
+  <div class="stack">
+    <h2>Type</h2>
+    <div class="gap-m"></div>
+    <div class="row"><span style="font:700 28px/24px Inter">Aa</span><span class="soft">28 display</span></div>
+    <div class="row"><span style="font-weight:700">Aa</span><span class="soft">16 heading</span></div>
+    <div class="row"><span>Aa</span><span class="soft">16 body</span></div>
+    <div class="row"><span class="cap" style="color:var(--ink)">Aa</span><span class="soft">13 caption, thin</span></div>
+    <div class="gap-m"></div>
+    <p class="cap">Sentence case â–´ no italics â–´ no letter-spacing</p>
+  </div>
+
+  <div class="stack">
+    <h2>Color</h2>
+    <div class="gap-m"></div>
+    <div class="row"><div class="sw" style="background:#1D1D1F"></div><span class="soft">#1D1D1F primary</span></div>
+    <div class="gap-m"></div>
+    <div class="row"><div class="sw" style="background:#6E6E73"></div><span class="soft">#6E6E73 secondary</span></div>
+    <div class="gap-m"></div>
+    <div class="row"><div class="sw" style="background:#2563EB"></div><span class="soft">#2563EB link</span></div>
+  </div>
+</section>
+
+<div class="gap-l"></div><div class="gap-l"></div>
+
+<!-- Row 4: Baseline / Objects / Patterns / Rules -->
+<section class="grid">
+  <div class="stack">
+    <h2>Baseline</h2>
+    <div class="gap-m"></div>
+    <div class="base">
+      <i style="top:18px"></i><i style="top:42px"></i><i style="top:66px"></i><i style="top:90px"></i>
+      <div class="obj"></div>
+      <span class="t" style="top:48px">Object ends here</span>
+    </div>
+    <div class="gap-m"></div>
+    <p class="cap">Objects, letters, links and images all land on the text baseline</p>
+  </div>
+
+  <div class="stack">
+    <h2>Objects</h2>
+    <div class="gap-m"></div>
+    <div class="row"><span>Small</span><span class="soft">48, two lines</span></div>
+    <div class="row"><span>Medium</span><span class="soft">96</span></div>
+    <div class="row"><span>Large</span><span class="soft">160</span></div>
+    <div class="gap-m"></div>
+    <p class="cap">One rendering style â–´ transparent â–´ sized by token only</p>
+  </div>
+
+  <div class="stack">
+    <h2>Patterns</h2>
+    <div class="gap-m"></div>
+    <div class="row"><span class="sel">Work</span><span class="soft">selected</span></div>
+    <div class="row"><span class="link"><svg width="18" height="13" viewBox="0 0 128 88" fill="none" stroke="currentColor" stroke-width="8"><path d="M4 44C20 14 44 4 64 4s44 10 60 40c-16 30-40 40-60 40S20 74 4 44Z"/><path d="M64 4v80M4 44h120M40 8c-12 24-12 48 0 72M88 8c12 24 12 48 0 72"/></svg>Resume</span><span class="soft">link</span></div>
+    <div class="row"><span>â–´</span><span class="soft">separator</span></div>
+    <div class="row"><span>S R IË</span><span class="soft">home, same spot</span></div>
+  </div>
+
+  <div class="stack r">
+    <h2>Rules</h2>
+    <div class="gap-m"></div>
+    <p>Gutters stay empty</p>
+    <p>No gray rules</p>
+    <p>No arrows</p>
+    <p>Borders take no height</p>
+    <p>Images snap to whole lines</p>
+    <p>Tokens only</p>
+  </div>
+</section>
+
+<div class="gap-l"></div><div class="gap-l"></div>
+
+<!-- Row 5: proof -->
+<section class="grid">
+  <div class="stack">
+    <h2>Proof</h2>
+  </div>
+  <div class="stack" style="grid-column: 2 / 4">
+    <p>Add <span style="font-weight:700">?guides</span> to any page to see margins, columns, gutters and baselines drawn over the live site.</p>
+    <div class="gap-m"></div>
+    <p class="soft">Contribution data refreshes on every deploy. Dark mode swaps tokens only: no component owns a color.</p>
+  </div>
+  <div class="stack r">
+    <p class="cap">DESIGN_SYSTEM.md</p>
+  </div>
+</section>
+
+</body>
+</html>

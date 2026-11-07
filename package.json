@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs",
+    "build": "node scripts/github-heatmap.mjs && vite build && node scripts/prerender.mjs",
     "prerender": "node scripts/prerender.mjs",
     "og": "python3 scripts/gen-og-images.py",
     "lint": "eslint .",

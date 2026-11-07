@@ -19,7 +19,7 @@ import PrimaryLink from "../components/ui/PrimaryLink";
 const ROLES = ["Product owner", "Strategy", "UX Research", "Design"];
 
 const CONTACT = [
-  { label: "Design system", href: DESIGN_SYSTEM_URL },
+  { label: "Design System", href: DESIGN_SYSTEM_URL },
   { label: "Resume", href: RESUME_URL },
   { label: "Linkedin", href: LINKEDIN_URL },
 ];

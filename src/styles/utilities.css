@@ -1233,3 +1233,6 @@ a:hover, a:focus-visible,
     background: var(--border);
   }
 }
+
+/* SGX3 header: one line of context, then a ▴ link to the other client. */
+.header-toggle__other { color: var(--text-primary); text-decoration: none; line-height: var(--space-m); }

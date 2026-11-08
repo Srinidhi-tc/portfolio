@@ -1,32 +1,22 @@
-// Sgx3Toggle: switches between the two SGX3 clients. Plain text, no buttons,
-// the active one bold and at the bottom, exactly like Work / Gallery on home.
-// Rendered into the header slot so it sits at the same spot as that toggle.
+// Sgx3Toggle: the two SGX3 clients were run together. The header says so and
+// links to the other one, marked with a ▴. Rendered into the header slot, at
+// the same spot as the Work / Gallery toggle on home.
 import { Link } from "react-router-dom";
 import { HeaderPortal } from "../layout/HeaderSlot";
 
-const CLIENTS = {
-  "ai-coding": { label: "AI Coding Tutor", to: "/work/ai-coding" },
-  strabospot: { label: "StraboSpot", to: "/work/strabospot" },
+const OTHER = {
+  "ai-coding": { label: "StraboSpot", to: "/work/strabospot" },
+  strabospot: { label: "TACC", to: "/work/ai-coding" },
 };
 
 export default function Sgx3Toggle({ active }) {
-  const order = active === "ai-coding" ? ["strabospot", "ai-coding"] : ["ai-coding", "strabospot"];
+  const other = OTHER[active];
   return (
     <HeaderPortal>
-      <p className="header-toggle__label">SGX3 ▴ Two Concurrent Clients</p>
-      <nav className="stack stack--small stack--right" aria-label="SGX3 clients">
-        {order.map((key) => (
-          <Link
-            key={key}
-            to={CLIENTS[key].to}
-            aria-current={key === active ? "page" : undefined}
-            data-label={CLIENTS[key].label}
-            className={"home-toggle__label" + (key === active ? " home-toggle__label--active" : "")}
-          >
-            {CLIENTS[key].label}
-          </Link>
-        ))}
-      </nav>
+      <p className="header-toggle__label">I managed 2 clients together.</p>
+      <Link to={other.to} className="header-toggle__other">
+        <span aria-hidden="true">▴</span> {other.label}
+      </Link>
     </HeaderPortal>
   );
 }

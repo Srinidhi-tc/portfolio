@@ -20,6 +20,7 @@ export default function Sgx3Toggle({ active }) {
             key={key}
             to={CLIENTS[key].to}
             aria-current={key === active ? "page" : undefined}
+            data-label={CLIENTS[key].label}
             className={"home-toggle__label" + (key === active ? " home-toggle__label--active" : "")}
           >
             {CLIENTS[key].label}

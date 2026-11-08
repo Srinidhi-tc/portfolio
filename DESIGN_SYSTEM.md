@@ -14,7 +14,7 @@ Live one-screen version, rendered from the real tokens: `/design-system` on the 
 |---|---|---|
 | Margin | 48px (`--edge-margin`) | 24px on phones |
 | Columns | 4 (`--col-count`) | 1: identity and labels. 2 + 3: content. 4: negative space |
-| Gutter | 24px (`--col-gap`) | Always empty. Inner layouts split columns 2 + 3 on the same gutter |
+| Gutter | 24px (`--col-gap`) | No content. Inner layouts split columns 2 + 3 on the same gutter. Home carries one hairline in the column 1/2 gutter (see Lines) |
 | Row | 24px | Every line of text is one row |
 
 ## 2. Space: three values, line heights included
@@ -80,7 +80,31 @@ Third primitive, next to stacks and Fs.
 - **Header:** S/R/Iː in column 1, the page's toggle in columns 2 + 3. Not sticky.
   On project pages S/R/Iː is the way home.
 
-## 8. Data that stays current
+## 8. Interaction
+
+Hover: link blue. Active: ink, bold, underline.
+
+- Hover and keyboard focus (`:focus-visible`) change colour only, to `--link-blue`:
+  no scale, no underline, no shadow. `color 150ms ease`, off under
+  `prefers-reduced-motion`.
+- Active (Work / Gallery, SGX3 clients, case-study sections): `--text-primary`,
+  `--weight-bold`, 1px underline 3px below.
+- Bold never shifts layout: each toggle item has `data-label`, and a hidden bold
+  copy (`::after`) reserves its width.
+- Case-study toggle: body text format, `--text-secondary`, each word followed by a
+  light ▴ (`--color-line`, decorative, `aria-hidden`) that changes colour with it.
+
+## 9. Lines
+
+Two hairlines: col 1/2 gutter and footer, joined by a ▴.
+
+- 1px, `--color-line`. Vertical in the column 1/2 gutter on home, from below the
+  header to the footer; horizontal at the top of the footer.
+- An 8px (`--space-s`) ▴ sits centred where they meet.
+- These are the only lines. The vertical one is hidden once the columns collapse
+  (720px and below).
+
+## 10. Data that stays current
 
 `scripts/github-heatmap.mjs` refreshes the GitHub contribution count and heatmap
 before every build, so every deploy.

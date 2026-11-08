@@ -126,6 +126,7 @@ export default function Home() {
               role="tab"
               aria-selected={view === key}
               className={"home-toggle__label" + (view === key ? " home-toggle__label--active" : "")}
+              data-label={LABEL[key]}
               onClick={() => setView(key)}
             >
               {LABEL[key]}

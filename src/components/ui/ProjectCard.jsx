@@ -42,8 +42,6 @@ export default function ProjectCard({
       to={to}
       style={cardStyle}
       data-reveal
-      onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.015)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
     >
       {/* Media — video takes priority over image */}
       {video ? (

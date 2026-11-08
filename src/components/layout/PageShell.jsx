@@ -86,8 +86,14 @@ export default function PageShell() {
 
   useLayoutEffect(() => {
     const root = document.documentElement;
-    root.style.setProperty("--bl", `${measureBaseline("var(--type-base)")}px`);
-    root.style.setProperty("--bl-display", `${measureBaseline("var(--type-display)")}px`);
+    const measure = () => {
+      root.style.setProperty("--bl", `${measureBaseline("var(--type-base)")}px`);
+      root.style.setProperty("--bl-display", `${measureBaseline("var(--type-display)")}px`);
+    };
+    measure();
+    // Measure again once the web font has loaded, so the result never
+    // depends on load timing.
+    document.fonts?.ready.then(measure);
   }, []);
 
   useEffect(() => {

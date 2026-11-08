@@ -69,7 +69,8 @@ export default function ChapterToggle({ chapters = DEFAULT_CHAPTERS, variant = "
                 aria-current={active === c.id ? "true" : undefined}
                 onClick={(e) => handleClick(e, c.id)}
               >
-                {c.label}
+                <span className="chapter-list__label" data-label={c.label}>{c.label}</span>
+                <span className="chapter-list__tri" aria-hidden="true">▴</span>
               </a>
             </li>
           ))}

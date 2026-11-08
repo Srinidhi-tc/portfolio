@@ -1070,3 +1070,111 @@ li:has(> .primary-link) { display: flex; height: var(--space-m); }
 }
 .home-bio.stack { gap: var(--space-m); }
 .home-bio p { margin: 0; }
+
+/* ==========================================================================
+   Interaction + lines pass. Existing tokens only.
+   ========================================================================== */
+
+/* 1. Hover / keyboard focus: colour only, link blue. */
+a, .home-toggle__label, .home-item__link * {
+  transition: color 150ms ease;
+}
+a:hover, a:focus-visible,
+.home-toggle__label:hover, .home-toggle__label:focus-visible,
+.home-item__link:hover, .home-item__link:focus-visible,
+.home-item__link:hover *, .home-item__link:focus-visible *,
+.chapter-list__item:hover, .chapter-list__item:focus-visible,
+.chapter-list__item:hover .chapter-list__tri, .chapter-list__item:focus-visible .chapter-list__tri {
+  color: var(--link-blue);
+}
+@media (prefers-reduced-motion: reduce) {
+  a, .home-toggle__label, .home-item__link * { transition: none; }
+}
+
+/* 2. Active: ink, bold, 1px underline 3px below. Wins over hover. */
+.home-toggle__label--active,
+.home-toggle__label--active:hover,
+.chapter-list__item--active,
+.chapter-list__item--active:hover {
+  color: var(--text-primary);
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+}
+.home-toggle__label--active,
+.chapter-list__item--active .chapter-list__label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.chapter-list__item--active .chapter-list__tri { color: var(--text-primary); }
+
+/* Reserve the bold width so nothing shifts when an item becomes active. */
+.home-toggle__label[data-label],
+.chapter-list__label[data-label] {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.home-toggle__label[data-label]::after,
+.chapter-list__label[data-label]::after {
+  content: attr(data-label);
+  font-weight: var(--weight-bold);
+  visibility: hidden;
+  height: 0;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* 3. Case-study toggle: body text format; a light ▴ after each word. */
+.chapter-list__item {
+  font-size: var(--type-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.chapter-list__tri {
+  margin-left: 0.4em;
+  color: var(--color-line);
+  transition: color 150ms ease;
+}
+@media (prefers-reduced-motion: reduce) { .chapter-list__tri { transition: none; } }
+
+/* 4. Case studies: more negative space between the toggle and the content. */
+.cs-main { padding-left: var(--padding-big); }
+@media (max-width: 720px) { .cs-main { padding-left: 0; } }
+
+/* 5. Lines: the only two. A vertical hairline in the column 1/2 gutter on
+   home, and the footer hairline, joined by a ▴ where they meet. */
+.next-project { box-shadow: none; }
+@media (min-width: 721px) {
+  .home-grid { position: relative; }
+  .home-grid::before,
+  .home-grid::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    left: calc(var(--edge-margin)
+      + (100% - 2 * var(--edge-margin) - 3 * var(--col-gap)) / 4
+      + var(--col-gap) / 2);
+  }
+  .home-grid::before {
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-line);
+  }
+  .home-grid::after {
+    bottom: 0;
+    width: var(--space-s);
+    height: var(--space-s);
+    transform: translate(-50%, 50%);
+    background: var(--color-line);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+}
+/* Active beats the body-text format above. */
+.chapter-list__item.chapter-list__item--active { color: var(--text-primary); font-weight: var(--weight-bold); }
+/* The ▴ keeps one weight so the active word never shifts. */
+.chapter-list__tri { font-weight: var(--weight-regular); }

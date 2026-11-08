@@ -24,14 +24,16 @@ const CONTACT = [
   { label: "LinkedIn", href: LINKEDIN_URL },
 ];
 
-// Work: in this order, laid out 2, 2, 1.
+// Work: in this order, laid out 2, 2. StraboSpot is tucked under TACC.
 const WORK = [
   { id: "ai-coding",          title: "Tutor" },
   { id: "microsoft",          title: "Azure" },
   { id: "defenseark",         title: "DefenseARK" },
-  { id: "strabospot",         title: "StraboSpot" },
   { id: "psychosis-literacy", title: "Psychosis" },
 ];
+
+// Shown only when the ▴ next to the TACC object is opened.
+const TUCKED = { "ai-coding": { id: "strabospot", title: "StraboSpot" } };
 
 // Gallery: physical objects, one per row. Malli is dormant (see Home.dormant).
 const GALLERY = [
@@ -97,14 +99,48 @@ function ProjectName({ id, title }) {
 
 // One item per grid cell: Work fills columns 2 and 3 row by row;
 // Gallery uses column 3, one per row.
-function Item({ id, title, meta, col, row }) {
+function Item({ id, title, meta, col, row, tucked }) {
   const p = byId(id);
+  const [open, setOpen] = useState(false);
+  if (!tucked) {
+    return (
+      <div className="stack stack--small stack--right" style={{ gridColumn: col, gridRow: row }}>
+        <Link to={p.to} className="home-item__link">
+          <ProjectName id={id} title={title} />
+          <span className="home-item__meta">{meta}</span>
+        </Link>
+      </div>
+    );
+  }
+  // A project with a second client tucked under it (TACC -> StraboSpot, both
+  // SGX3). The ▴ next to the object opens it: object + title, same as above.
+  const t = byId(tucked.id);
   return (
     <div className="stack stack--small stack--right" style={{ gridColumn: col, gridRow: row }}>
+      <div className="home-item__objrow">
+        <button
+          type="button"
+          className={"home-item__tuck" + (open ? " home-item__tuck--open" : "")}
+          aria-expanded={open}
+          aria-controls={`tucked-${tucked.id}`}
+          aria-label={open ? `Hide ${tucked.title}` : `Show ${tucked.title}, the other SGX3 client`}
+          onClick={() => setOpen((o) => !o)}
+        >
+          <span aria-hidden="true">▴</span>
+        </button>
+        <Link to={p.to} className="home-item__link" tabIndex={-1} aria-hidden="true">
+          <ProjectName id={id} title={title} />
+        </Link>
+      </div>
       <Link to={p.to} className="home-item__link">
-        <ProjectName id={id} title={title} />
         <span className="home-item__meta">{meta}</span>
       </Link>
+      {open && (
+        <Link to={t.to} id={`tucked-${tucked.id}`} className="home-item__link home-item__tucked">
+          <ProjectName id={tucked.id} title={tucked.title} />
+          <span className="home-item__meta">{projectSummaries[tucked.id].headline}</span>
+        </Link>
+      )}
     </div>
   );
 }
@@ -145,7 +181,8 @@ export default function Home() {
       {view === "work"
         ? WORK.map(({ id, title }, i) => (
             <Item key={id} id={id} title={title} meta={projectSummaries[id].headline}
-                  col={2 + (i % 2)} row={1 + Math.floor(i / 2)} />
+                  col={2 + (i % 2)} row={1 + Math.floor(i / 2)}
+                  tucked={TUCKED[id]} />
           ))
         : GALLERY.map(({ id, title }, i) => (
             <Item key={id} id={id} title={title} meta={byId(id).title} col={3} row={1 + i} />

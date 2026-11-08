@@ -73,12 +73,12 @@ export default function Microsoft() {
   return (
     <CaseStudyGrid chapters={CHAPTERS}>
 
-      {/* HERO: team photo on top, title text below it */}
+      {/* HERO: object + title on top, team photo below */}
       <header style={{ marginBottom:"var(--padding-big)" }}>
-        <img src={micTeam} alt="The Purdue UX team presenting to Microsoft Azure" style={{ width:"100%", display:"block", borderRadius:"var(--radius)", marginBottom:"var(--padding-small)" }} />
         <ProjectHeader id="microsoft">
           Shipped visibility improvements and compliance-aligned patterns across the SRE Health Observability tool
         </ProjectHeader>
+        <img src={micTeam} alt="The Purdue UX team presenting to Microsoft Azure" style={{ width:"100%", display:"block", borderRadius:"var(--radius)", marginTop:"var(--padding-small)" }} />
       </header>
 
       {/* ROLE + BUSINESS IMPACT */}

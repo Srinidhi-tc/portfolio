@@ -71,15 +71,15 @@ export default function DefenseArk() {
   return (
     <CaseStudyGrid chapters={CHAPTERS}>
 
-      {/* HERO: picture on top, text below */}
+      {/* HERO: object + title on top, picture below */}
       <header style={{ marginBottom:"var(--padding-big)" }}>
-        {heroImage && (
-        <img src={heroImage} alt="DefenseARK product work"
-             style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)", marginBottom:"var(--padding-small)" }} />
-      )}
         <ProjectHeader id="defenseark">
           Founding design hire: unified identity, system, and client intake across Enigma, Brightscan, and Torus
         </ProjectHeader>
+        {heroImage && (
+        <img src={heroImage} alt="DefenseARK product work"
+             style={{ width:"100%", display:"block", borderRadius:"var(--radius)", background:"var(--surface-2)", marginTop:"var(--padding-small)" }} />
+      )}
       </header>
 
 

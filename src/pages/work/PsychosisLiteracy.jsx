@@ -89,16 +89,16 @@ export default function PsychosisLiteracy() {
     <CaseStudyGrid chapters={CHAPTERS}>
 
       {/* DISCLAIMER */}
-      <div style={{ background: "var(--text)", color: "var(--surface-2)", borderRadius: "var(--radius)", padding: "var(--padding-small) var(--padding-small)", marginBottom: "var(--padding-big)", fontSize: "var(--type-base)", lineHeight: "var(--leading-body)" }}>
-        <strong>Disclaimer:</strong> This project contains psychoeducation content and simulated visual imagery of hallucinations. Designed for educational purposes only.
-      </div>
-
       {/* HERO */}
       <header style={{ marginBottom: "var(--padding-big)" }}>
         <ProjectHeader id="psychosis-literacy">
           Shipped an educational hallucination-simulation tool for ages 15–25, validated by Purdue Psychological Sciences and Purdue CAPS
         </ProjectHeader>
       </header>
+
+      <div style={{ background: "var(--text)", color: "var(--surface-2)", borderRadius: "var(--radius)", padding: "var(--padding-small) var(--padding-small)", marginBottom: "var(--padding-big)", fontSize: "var(--type-base)", lineHeight: "var(--leading-body)" }}>
+        <strong>Disclaimer:</strong> This project contains psychoeducation content and simulated visual imagery of hallucinations. Designed for educational purposes only.
+      </div>
 
       {/* HERO SLIDE, the one full-width image */}
       <div style={{ marginBottom: "var(--padding-big)" }}>

@@ -1178,3 +1178,58 @@ a:hover, a:focus-visible,
 .chapter-list__item.chapter-list__item--active { color: var(--text-primary); font-weight: var(--weight-bold); }
 /* The ▴ keeps one weight so the active word never shifts. */
 .chapter-list__tri { font-weight: var(--weight-regular); }
+
+/* ---------- Case-study header: object, then title (same as home) ---------- */
+.project-header__object {
+  display: block;
+  height: var(--object-size-md);
+  width: auto;
+  margin-top: var(--bl);
+  margin-bottom: calc(var(--space-m) - var(--bl));
+}
+
+/* ---------- Home: StraboSpot tucked under TACC ---------- */
+.home-item__objrow { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-s); }
+.home-item__tuck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-m);
+  height: var(--space-m);
+  margin-top: var(--bl);
+  margin-bottom: calc(var(--space-m) - var(--bl));
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+.home-item__tuck span { display: block; transform: rotate(180deg); transition: transform 150ms ease; }
+.home-item__tuck--open span { transform: none; }
+.home-item__tuck:hover, .home-item__tuck:focus-visible { color: var(--link-blue); }
+.home-item__tucked { margin-top: var(--space-m); }
+@media (prefers-reduced-motion: reduce) {
+  .home-item__tuck, .home-item__tuck span { transition: none; }
+}
+
+/* ---------- Line join, polished ----------
+   The vertical line stops at the tip of the ▴; the ▴'s base sits on the
+   footer line. Both snap to whole pixels, so the edges stay crisp. */
+@media (min-width: 721px) {
+  .home-grid::before,
+  .home-grid::after {
+    left: round(down, calc(var(--edge-margin)
+      + (100% - 2 * var(--edge-margin) - 3 * var(--col-gap)) / 4
+      + var(--col-gap) / 2), 1px);
+  }
+  .home-grid::before { bottom: var(--space-s); }
+  .home-grid::after {
+    /* odd width so the tip sits on the 1px line's centre */
+    width: calc(var(--space-s) + 1px);
+    height: var(--space-s);
+    transform: translateX(-50%) translateX(0.5px);
+    background: var(--border);
+  }
+}

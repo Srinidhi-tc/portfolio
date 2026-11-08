@@ -1236,3 +1236,5 @@ a:hover, a:focus-visible,
 
 /* SGX3 header: one line of context, then a ▴ link to the other client. */
 .header-toggle__other { color: var(--text-primary); text-decoration: none; line-height: var(--space-m); }
+.header-toggle__other:hover, .header-toggle__other:focus-visible,
+.header-toggle__other:hover span, .header-toggle__other:focus-visible span { color: var(--link-blue); }

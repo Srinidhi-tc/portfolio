@@ -124,7 +124,7 @@ export default function PageShell() {
 
   return (
     <HeaderSlotContext.Provider value={slot}>
-      <SkyBackground home={isHome} />
+      <SkyBackground />
       <div className="site-shell">
         {/* One header row on every page: S/R/I in column 1, the page's toggle
             (if it has one) in columns 2 + 3. Not sticky. */}

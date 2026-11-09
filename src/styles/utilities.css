@@ -1274,3 +1274,10 @@ a:hover, a:focus-visible,
 }
 /* The gutter and footer junction: a green ▴. */
 .home-grid::after { background: var(--color-sage) !important; }
+
+/* Home, light mode: the design system white, as on the cheat sheet. */
+.sky-background--home { background: #FBFBFD; }
+:root[data-theme="dark"] .sky-background--home { background: var(--surface); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .sky-background--home { background: var(--surface); }
+}

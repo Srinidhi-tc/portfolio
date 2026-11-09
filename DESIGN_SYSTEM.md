@@ -53,11 +53,15 @@ One line height (24px) for every style. Sentence case. No italics. No letter-spa
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `--text-primary` | `#1D1D1F` | `#E6E7EA` | Names, headings, selected items |
-| `--text-secondary` | `#6E6E73` | `#B0B3B9` | Prose, captions, meta |
-| `--link-blue` | `#2563EB` | `#60A5FA` | Primary links (eye-globe icon + underline) |
+| `--text-primary` | `#202832` | `#E6E7EA` | Names, headings, selected items |
+| `--text-secondary` | `#5B6470` | `#B0B3B9` | Prose, captions, meta |
+| `--link-blue` | `#1A56B8` | `#60A5FA` | Primary links (eye-globe icon + underline) |
 
 Color otherwise comes from the work itself: objects and project images.
+
+**Backdrop:** no image. One overcast tone (`--surface`) across all four columns. A 1px tick, 8px tall, marks each column edge at the top. No
+pattern behind text, so contrast is measured once: ink 13.2:1, links 6.1:1, muted 5.3:1
+on the overcast.
 
 ## 6. Objects
 
@@ -100,7 +104,7 @@ Two hairlines: col 1/2 gutter and footer, joined by a ▴.
 
 - 1px, `--color-line`. Vertical in the column 1/2 gutter on home, from below the
   header to the footer; horizontal at the top of the footer.
-- An 8px (`--space-s`) ▴ sits centred where they meet.
+- An 8px (`--space-s`) ▴ in `--color-sage` sits centred where they meet.
 - These are the only lines. The vertical one is hidden once the columns collapse
   (720px and below).
 

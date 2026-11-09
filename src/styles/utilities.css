@@ -1238,3 +1238,39 @@ a:hover, a:focus-visible,
 .header-toggle__other { color: var(--text-primary); text-decoration: none; line-height: var(--space-m); }
 .header-toggle__other:hover, .header-toggle__other:focus-visible,
 .header-toggle__other:hover span, .header-toggle__other:focus-visible span { color: var(--link-blue); }
+
+/* ---------- Backdrop: overcast, grid ticks ---------- */
+.sky-background {
+  --c: calc((100% - 2 * var(--edge-margin) - 3 * var(--col-gap)) / 4);
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--surface);
+}
+.sky-background::after { content: ""; position: absolute; }
+/* One 1px tick, 8px tall, at each column edge along the top. */
+.sky-background::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--space-s);
+  --t: linear-gradient(var(--color-line), var(--color-line));
+  background: var(--t), var(--t), var(--t), var(--t), var(--t), var(--t), var(--t), var(--t);
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+  background-position:
+    calc(var(--edge-margin)) 0,
+    calc(var(--edge-margin) + var(--c) - 1px) 0,
+    calc(var(--edge-margin) + var(--c) + var(--col-gap)) 0,
+    calc(var(--edge-margin) + 2 * var(--c) + var(--col-gap) - 1px) 0,
+    calc(var(--edge-margin) + 2 * (var(--c) + var(--col-gap))) 0,
+    calc(var(--edge-margin) + 3 * var(--c) + 2 * var(--col-gap) - 1px) 0,
+    calc(var(--edge-margin) + 3 * (var(--c) + var(--col-gap))) 0,
+    calc(var(--edge-margin) + 4 * var(--c) + 3 * var(--col-gap) - 1px) 0;
+}
+@media (max-width: 720px) {
+  .sky-background::after { display: none; }
+}
+/* The gutter and footer junction: a green ▴. */
+.home-grid::after { background: var(--color-sage) !important; }

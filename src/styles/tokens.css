@@ -32,9 +32,9 @@
  */
 :root {
   /* Text color hierarchy — two tones only */
-  --text-primary:   #1D1D1F;   /* project names, display letterforms, bold labels */
-  --text-secondary: #6E6E73;   /* about text, prose, captions, secondary meta */
-  --link-blue:      #2563EB;   /* primary links: eye-globe icon + underline */
+  --text-primary:   #202832;   /* project names, display letterforms, bold labels */
+  --text-secondary: #5B6470;   /* about text, prose, captions, secondary meta (5:1 on --bg) */
+  --link-blue:      #1A56B8;   /* links: a clear saturated blue, 5.8:1 on --bg */
 
   /* Object primitive — the third design-system layer alongside type and padding */
   --object-size-sm: 48px;      /* home-page tile object: two 24px lines, baseline to baseline */
@@ -96,10 +96,10 @@
   /* Colors — cool-neutral palette, inspired by emily.jennett.com / Apple.
      Previously a warm cream + coffee-brown scheme; now near-white + graphite
      so that colour comes mainly from project imagery (the reference's trick). */
-  --bg: #fbfbfd;
+  --bg: #E8ECF1;   /* light slate blue-grey */
   --surface: #f1f1f4;
-  --text: #1d1d1f;
-  --muted: #6e6e73;
+  --text: #202832;
+  --muted: #5B6470;
   --border: #d2d2d7;
   --accent: #1d1d1f;
   --accent-dark: #000000;
@@ -349,6 +349,7 @@ html {
   --color-sage-soft: rgba(230, 236, 227, 0.12);
 }
 
-:root { --link-blue: #2563EB; }
+:root { --link-blue: #1A56B8; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --link-blue: #60A5FA; } }
 :root[data-theme="dark"] { --link-blue: #60A5FA; }
+

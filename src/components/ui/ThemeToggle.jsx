@@ -16,7 +16,7 @@ import { useCallback, useEffect, useState } from "react";
  */
 
 const STORAGE_KEY = "theme";
-const CHROME = { dark: "#1a1b1e", light: "#fbfbfd" };
+const CHROME = { dark: "#1a1b1e", light: "#E8ECF1" };
 
 function currentTheme() {
   if (typeof document === "undefined") return "light";

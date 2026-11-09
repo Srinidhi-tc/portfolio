@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import Footer from "./Footer";
 import { HeaderSlotContext } from "./HeaderSlot";
 import GridOverlay from "./GridOverlay";
+import SkyBackground from "./SkyBackground";
 import routeMeta from "../../../scripts/routes.json";
 
 // Dormant content for this component lives in ./PageShell.dormant
@@ -123,6 +124,7 @@ export default function PageShell() {
 
   return (
     <HeaderSlotContext.Provider value={slot}>
+      <SkyBackground />
       <div className="site-shell">
         {/* One header row on every page: S/R/I in column 1, the page's toggle
             (if it has one) in columns 2 + 3. Not sticky. */}

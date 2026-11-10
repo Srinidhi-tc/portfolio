@@ -1275,11 +1275,20 @@ a:hover, a:focus-visible,
 /* The gutter and footer junction: a green ▴. */
 .home-grid::after { background: var(--color-sage) !important; }
 
-/* Light mode: every page, footer included, on the design system white. */
-html body, .sky-background { background: #FBFBFD; }
+/* Light mode: every page, footer included, on pure white. */
+html body, .sky-background { background: #FFFFFF; }
 :root[data-theme="dark"] body { background: var(--bg); }
 :root[data-theme="dark"] .sky-background { background: var(--surface); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) body { background: var(--bg); }
   :root:not([data-theme="light"]) .sky-background { background: var(--surface); }
+}
+
+/* Work / Gallery: display size (28px), one 24px line each, letters on the
+   same baseline as S/R/I. */
+.shell-head__slot .home-toggle__label {
+  font-size: var(--type-display);
+  line-height: var(--space-m);
+  position: relative;
+  top: calc(var(--bl) - var(--bl-display));
 }

@@ -15,8 +15,8 @@ import { projectObjects } from "../data/projectObjects";
 import { DESIGN_SYSTEM_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
 import { HeaderPortal } from "../components/layout/HeaderSlot";
 import PrimaryLink from "../components/ui/PrimaryLink";
+import BlockWords from "../components/ui/BlockWords";
 
-const ROLES = ["Product Owner", "Strategy", "UX Research", "Design"];
 
 const CONTACT = [
   { label: "Design System", href: DESIGN_SYSTEM_URL },
@@ -56,9 +56,7 @@ function Ext({ href, children }) {
 function AboutTop() {
   return (
     <div className="stack stack--big">
-      <ul className="stack stack--small home-roles">
-        {ROLES.map((r) => <li key={r}>{r}</li>)}
-      </ul>
+      <BlockWords words={["Research", "+", "Design"]} label="Research + Design" />
 
       {/* One shared left edge, so every eye icon lines up; the block itself
           sits at the right of the column, like every link. */}

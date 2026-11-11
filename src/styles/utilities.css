@@ -1292,3 +1292,24 @@ html body, .sky-background { background: #FFFFFF; }
   position: relative;
   top: calc(var(--bl) - var(--bl-display));
 }
+
+/* Block words (About): letters built from 4px blocks, 28px capitals.
+   Each word is two 24px lines tall, so the grid below stays on the baseline. */
+.block-words {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-m);
+  row-gap: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+.block-words__word { position: relative; display: block; }
+.block-words__word i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--text-primary);
+}

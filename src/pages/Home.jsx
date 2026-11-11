@@ -43,14 +43,6 @@ const GALLERY = [
 
 const byId = (id) => workSectionProjects.find((p) => p.id === id);
 
-function Ext({ href, children }) {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="bio-link">
-      {children}
-    </a>
-  );
-}
-
 // Column 1, row 1: roles and contact links. Row 2: the bio, so it starts on
 // the same row line as the second row of projects.
 function AboutTop() {
@@ -75,14 +67,10 @@ function Bio() {
   return (
     <div className="home-bio stack">
       <p>
-        Founding designer, psychology-trained, ships in code. I design AI products where mistakes are expensive.
+        I’m a product designer working at the intersection of AI, computer vision, and data-dense systems. My users are rarely “everyone”. I take pride in understanding my users.
       </p>
       <p>
-        Previously at{" "}
-        <Ext href="https://www.metasquare.com/">Metasquare</Ext>,{" "}
-        <Ext href="https://azure.microsoft.com/">Microsoft Azure</Ext>,{" "}
-        <Ext href="https://tacc.utexas.edu/">TACC</Ext> and{" "}
-        <Ext href="https://www.purdue.edu/">Purdue</Ext>. The connective tissue between research, design, code, legal and compliance.
+        I’ve worked on research-driven design for geologists, security analysts, ML engineers, and developers. I design interfaces that are intuitive for experts and beginners.
       </p>
     </div>
   );

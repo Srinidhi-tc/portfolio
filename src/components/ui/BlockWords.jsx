@@ -65,14 +65,14 @@ export default function BlockWords({ words, label }) {
         col.forEach((b, k) => { b.drop = (ROWS - 1 - k - b.y) * PITCH; b.k = k; });
       });
       items.forEach((b) => {
-        const fall = 260 + b.drop * 6;                // farther falls take longer
-        const delay = Math.random() * 120;
+        const fall = 700 + b.drop * 14;               // slow; farther falls take longer
+        const delay = Math.random() * 300;
         const rise = 520;
         const riseDelay = fall + 380 + b.k * 45;       // rebuilt bottom-up, like stacking
         const tilt = (Math.random() - 0.5) * 24;
         b.el.animate(
           [{ transform: "none" }, { transform: `translateY(${b.drop}px) rotate(${tilt}deg)` }],
-          { duration: fall, delay, easing: "cubic-bezier(.55,0,1,.45)", fill: "forwards" },
+          { duration: fall, delay, easing: "cubic-bezier(.45,0,.55,1)", fill: "forwards" },
         );
         b.el.animate(
           [

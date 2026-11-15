@@ -1313,3 +1313,9 @@ html body, .sky-background { background: #FFFFFF; }
   height: 3px;
   background: var(--text-primary);
 }
+
+/* About column: bio first (right below S/R/Iː), links, then the block words
+   pushed to the end of the column. */
+.home-about { display: flex; flex-direction: column; gap: var(--space-l); height: 100%; }
+.home-about .home-bio { padding-top: 0; }
+.home-about__blocks { margin-top: auto; }

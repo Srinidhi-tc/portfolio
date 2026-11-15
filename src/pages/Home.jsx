@@ -43,12 +43,20 @@ const GALLERY = [
 
 const byId = (id) => workSectionProjects.find((p) => p.id === id);
 
-// Column 1, row 1: roles and contact links. Row 2: the bio, so it starts on
-// the same row line as the second row of projects.
-function AboutTop() {
+// Column 1, top to bottom: the bio right below S/R/Iː, the contact links,
+// then Research + Design in block letters at the end of the column.
+function About() {
   return (
-    <div className="stack stack--big">
-      <BlockWords words={["Research", "+", "Design"]} label="Research + Design" />
+    <div className="home-about">
+      <div className="home-bio stack">
+        <p>
+          Hi. I’m a product designer working at the intersection of AI, computer vision, and data-dense systems. My users are rarely “everyone”. I take pride in understanding my users.
+        </p>
+        <p>
+          I’ve shipped research-driven software design for geologists, security analysts, ML engineers, and developers.
+        </p>
+        <p>Passionate about physical AI, and hardware for health.</p>
+      </div>
 
       {/* One shared left edge, so every eye icon lines up; the block itself
           sits at the right of the column, like every link. */}
@@ -59,19 +67,10 @@ function AboutTop() {
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
 
-function Bio() {
-  return (
-    <div className="home-bio stack">
-      <p>
-        I’m a product designer working at the intersection of AI, computer vision, and data-dense systems. My users are rarely “everyone”. I take pride in understanding my users.
-      </p>
-      <p>
-        I’ve worked on research-driven design for geologists, security analysts, ML engineers, and developers. I design interfaces that are intuitive for experts and beginners.
-      </p>
+      <div className="home-about__blocks">
+        <BlockWords words={["Research", "+", "Design"]} label="Research + Design" />
+      </div>
     </div>
   );
 }
@@ -157,11 +156,8 @@ export default function Home() {
         </div>
       </HeaderPortal>
 
-      <section className="home-about-top" style={{ gridColumn: 1, gridRow: 1 }} aria-label="About">
-        <AboutTop />
-      </section>
-      <section style={{ gridColumn: 1, gridRow: "2 / span 2" }}>
-        <Bio />
+      <section className="home-about-top" style={{ gridColumn: 1, gridRow: "1 / span 2" }} aria-label="About">
+        <About />
       </section>
 
       {view === "work"

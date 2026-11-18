@@ -1371,3 +1371,8 @@ html body, .sky-background { background: #FFFFFF; }
 .home-v2 .home-item__meta { max-width: none; white-space: nowrap; }
 /* The theme frame is only as wide as itself, on the left edge, right above the time. */
 .home-v2__end .theme-toggle { align-self: flex-start; width: auto; margin: 0; padding: 0; }
+
+/* Theme toggle as a matrix (same blocks as Research + Design): no frame. */
+canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; background: none; padding: 0; }
+/* One design-system space (24px) between the frame and the time. */
+.home-v2__end .theme-toggle { margin-bottom: var(--space-m); }

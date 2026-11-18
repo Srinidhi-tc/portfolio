@@ -15,7 +15,7 @@ const TOPPLE_MS = 420;
 // S/R/I: the same spot on every page. On project pages it is the way home:
 // on click the whole stack topples 23 degrees anticlockwise and settles back,
 // then the home page opens.
-function SriMark({ isHome }) {
+export function SriMark({ isHome }) {
   const navigate = useNavigate();
   const [toppling, setToppling] = useState(false);
   const letters = (
@@ -128,16 +128,19 @@ export default function PageShell() {
       <div className="site-shell">
         {/* One header row on every page: S/R/I in column 1, the page's toggle
             (if it has one) in columns 2 + 3. Not sticky. */}
-        <header className="stacks-grid shell-head">
-          <div className="stacks-col stacks-col--1 shell-head__mark">
-            <SriMark key={pathname} isHome={isHome} />
-          </div>
-          <div className="stacks-col stacks-col--x stack stack--small stack--right shell-head__slot" ref={setSlot} />
-        </header>
+        {/* Home (interim layout) carries its own S/R/Iː and end lines. */}
+        {!isHome && (
+          <header className="stacks-grid shell-head">
+            <div className="stacks-col stacks-col--1 shell-head__mark">
+              <SriMark key={pathname} isHome={isHome} />
+            </div>
+            <div className="stacks-col stacks-col--x stack stack--small stack--right shell-head__slot" ref={setSlot} />
+          </header>
+        )}
         <main className="site-main">
           <Outlet />
         </main>
-        <Footer />
+        {!isHome && <Footer />}
         {guides && <GridOverlay />}
       </div>
     </HeaderSlotContext.Provider>

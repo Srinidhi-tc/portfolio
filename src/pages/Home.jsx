@@ -1,9 +1,10 @@
-// Home: the STACKS + Fs home grid.
+// Home (interim layout): everything in columns 2 + 3, one stack.
 //
-// The S/R/I stack lives in the page header (PageShell), at the same spot on
-// every page; the Work / Gallery toggle goes into the header slot beside it.
-// Column 1 (About) stacks the role list, the contact links and the bio.
-// Columns 2 + 3 hold the Work / Gallery content. Column 4 is empty on purpose.
+// Scroll 1: S/R/Iː (right, column 3), the bio (left, columns 2 + 3), links
+//   with the GitHub grid (right, column 3), Research + Design (left, column 2).
+// Scroll 2: Work / Gallery (right), the projects one per row (right), the
+//   theme toggle (right), then SF time, thanks and copyright (left, column 2).
+// No header row and no footer on this page. Columns 1 and 4 stay empty.
 //
 // Dormant content for this page lives in ./Home.dormant
 // To revive a block, import its named export and render it.
@@ -13,15 +14,18 @@ import { workSectionProjects } from "../data/workSectionProjects";
 import { projectSummaries } from "../data/projectSummaries";
 import { projectObjects } from "../data/projectObjects";
 import { DESIGN_SYSTEM_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
-import { HeaderPortal } from "../components/layout/HeaderSlot";
+import { SriMark } from "../components/layout/PageShell";
+import GithubStack from "../components/ui/GithubStack";
+import ThemeToggle from "../components/ui/ThemeToggle";
+import SFClock from "../components/ui/SFClock";
 import PrimaryLink from "../components/ui/PrimaryLink";
 import BlockWords from "../components/ui/BlockWords";
 
 
 const CONTACT = [
-  { label: "Design System", href: DESIGN_SYSTEM_URL },
   { label: "Resume", href: RESUME_URL },
   { label: "LinkedIn", href: LINKEDIN_URL },
+  { label: "Design System", href: DESIGN_SYSTEM_URL },
 ];
 
 // Work: in this order, laid out 2, 2. StraboSpot is tucked under TACC.
@@ -43,38 +47,6 @@ const GALLERY = [
 
 const byId = (id) => workSectionProjects.find((p) => p.id === id);
 
-// Column 1, top to bottom: the bio right below S/R/Iː, the contact links,
-// then Research + Design in block letters at the end of the column.
-function About() {
-  return (
-    <div className="home-about">
-      <div className="home-bio stack">
-        <p>
-          Hi. I’m a product designer working at the intersection of AI, computer vision, and data-dense systems. My users are rarely “everyone”. I take pride in understanding my users.
-        </p>
-        <p>
-          I’ve shipped research-driven software design for geologists, security analysts, ML engineers, and developers.
-        </p>
-        <p>Passionate about physical AI, and hardware for health.</p>
-      </div>
-
-      {/* One shared left edge, so every eye icon lines up; the block itself
-          sits at the right of the column, like every link. */}
-      <ul className="stack stack--small home-contact">
-        {CONTACT.map(({ label, href }) => (
-          <li key={label}>
-            <PrimaryLink href={href}>{label}</PrimaryLink>
-          </li>
-        ))}
-      </ul>
-
-      <div className="home-about__blocks">
-        <BlockWords words={["Research", "+", "Design"]} label="Research + Design" />
-      </div>
-    </div>
-  );
-}
-
 // The object replaces the project-name line only.
 function ProjectName({ id, title }) {
   const src = projectObjects[id];
@@ -82,14 +54,13 @@ function ProjectName({ id, title }) {
   return <img className="home-item__object" src={src} alt={title} decoding="async" />;
 }
 
-// One item per grid cell: Work fills columns 2 and 3 row by row;
-// Gallery uses column 3, one per row.
-function Item({ id, title, meta, col, row, tucked }) {
+// One project: object, then its one-line title, right aligned.
+function Item({ id, title, meta, tucked }) {
   const p = byId(id);
   const [open, setOpen] = useState(false);
   if (!tucked) {
     return (
-      <div className="stack stack--small stack--right" style={{ gridColumn: col, gridRow: row }}>
+      <div className="stack stack--small stack--right home-v2__right">
         <Link to={p.to} className="home-item__link">
           <ProjectName id={id} title={title} />
           <span className="home-item__meta">{meta}</span>
@@ -101,7 +72,7 @@ function Item({ id, title, meta, col, row, tucked }) {
   // SGX3). The ▴ next to the object opens it: object + title, same as above.
   const t = byId(tucked.id);
   return (
-    <div className="stack stack--small stack--right" style={{ gridColumn: col, gridRow: row }}>
+    <div className="stack stack--small stack--right home-v2__right">
       <div className="home-item__objrow">
         <button
           type="button"
@@ -132,45 +103,77 @@ function Item({ id, title, meta, col, row, tucked }) {
 
 export default function Home() {
   const [view, setView] = useState("work");
-  // The active label always sits at the bottom of the toggle, next to its content.
-  const order = view === "work" ? ["gallery", "work"] : ["work", "gallery"];
   const LABEL = { work: "Work", gallery: "Gallery" };
+  const list = view === "work"
+    ? WORK.map((w) => ({ ...w, meta: projectSummaries[w.id].headline, tucked: TUCKED[w.id] }))
+    : GALLERY.map((g) => ({ ...g, meta: byId(g.id).title }));
 
   return (
-    <div className="stacks-grid home-grid">
-      <HeaderPortal>
-        <div className="stack stack--small stack--right" role="tablist" aria-label="Work or gallery">
-          {order.map((key) => (
-            <button
-              key={key}
-              type="button"
-              role="tab"
-              aria-selected={view === key}
-              className={"home-toggle__label" + (view === key ? " home-toggle__label--active" : "")}
-              data-label={LABEL[key]}
-              onClick={() => setView(key)}
-            >
-              {LABEL[key]}
-            </button>
+    <div className="stacks-grid home-v2">
+      <div className="home-v2__col">
+        {/* Scroll 1 */}
+        <section className="home-v2__fold" aria-label="About">
+          <div className="home-v2__right">
+            <SriMark isHome />
+          </div>
+
+          <div className="home-bio stack home-v2__wide">
+            <p>
+              Hi. I’m a product designer working at the intersection of AI, computer vision, and data-dense systems. My users are rarely “everyone”. I take pride in understanding my users.
+            </p>
+            <p>
+              I’ve shipped research-driven software design for geologists, security analysts, ML engineers, and developers.
+            </p>
+            <p>Passionate about physical AI, and hardware for health.</p>
+          </div>
+
+          <ul className="stack stack--small stack--right home-v2__right home-v2__links">
+            {CONTACT.map(({ label, href }) => (
+              <li key={label}>
+                <PrimaryLink href={href}>{label}</PrimaryLink>
+              </li>
+            ))}
+            <li><GithubStack /></li>
+          </ul>
+
+          <div className="home-v2__left home-v2__motif">
+            <BlockWords words={["Research", "+", "Design"]} label="Research + Design" />
+          </div>
+        </section>
+
+        {/* Scroll 2 */}
+        <section className="home-v2__work" aria-label="Work">
+          <div className="stack stack--small stack--right home-v2__right" role="tablist" aria-label="Work or gallery">
+            {["work", "gallery"].map((key) => (
+              <button
+                key={key}
+                type="button"
+                role="tab"
+                aria-selected={view === key}
+                className={"home-toggle__label home-v2__toggle" + (view === key ? " home-toggle__label--active" : "")}
+                data-label={LABEL[key]}
+                onClick={() => setView(key)}
+              >
+                {LABEL[key]}
+              </button>
+            ))}
+          </div>
+
+          {list.map(({ id, title, meta, tucked }) => (
+            <Item key={id} id={id} title={title} meta={meta} tucked={tucked} />
           ))}
-        </div>
-      </HeaderPortal>
 
-      <section className="home-about-top" style={{ gridColumn: 1, gridRow: "1 / span 2" }} aria-label="About">
-        <About />
-      </section>
+          <div className="home-v2__right">
+            <ThemeToggle />
+          </div>
 
-      {view === "work"
-        ? WORK.map(({ id, title }, i) => (
-            <Item key={id} id={id} title={title} meta={projectSummaries[id].headline}
-                  col={2 + (i % 2)} row={1 + Math.floor(i / 2)}
-                  tucked={TUCKED[id]} />
-          ))
-        : GALLERY.map(({ id, title }, i) => (
-            <Item key={id} id={id} title={title} meta={byId(id).title} col={3} row={1 + i} />
-          ))}
-
-      <div className="stacks-col stacks-col--4" style={{ gridRow: 1 }} aria-hidden="true" />
+          <div className="stack stack--small home-v2__left home-v2__end">
+            <SFClock />
+            <p className="site-footer__title">Thanks for stopping by</p>
+            <p className="site-footer__copy">© 2026 Srinidhi Chakravarthy. All rights reserved.</p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

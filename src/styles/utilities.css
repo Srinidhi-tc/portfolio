@@ -1319,3 +1319,53 @@ html body, .sky-background { background: #FFFFFF; }
 .home-about { display: flex; flex-direction: column; gap: var(--space-l); height: 100%; }
 .home-about .home-bio { padding-top: 0; }
 .home-about__blocks { margin-top: auto; }
+
+/* ==========================================================================
+   Home, interim layout: one stack in columns 2 + 3.
+   Inside it, two equal tracks on the column gutter: track 1 = column 2,
+   track 2 = column 3.
+   ========================================================================== */
+.home-v2 { padding-top: var(--header-space); }
+.home-v2__col { grid-column: 2 / span 2; }
+.home-v2__fold,
+.home-v2__work {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: var(--space-l);
+  align-content: start;
+}
+/* Scroll 1 fills the first screen; the motif sits at its end. */
+.home-v2__fold { min-height: calc(100svh - var(--header-space)); grid-template-rows: auto auto auto 1fr; }
+.home-v2__motif { align-self: end; padding-bottom: var(--space-l); }
+.home-v2__work { padding-top: var(--space-l); padding-bottom: var(--space-l); }
+.home-v2__right { grid-column: 2; justify-self: end; text-align: right; }
+.home-v2__wide { grid-column: 1 / -1; }
+.home-v2__left { grid-column: 1; justify-self: start; }
+.home-v2 .home-bio { padding-top: 0; }
+.home-v2__end p { margin: 0; }
+.home-v2 .sri-mark span { top: 0; }
+
+/* Work / Gallery at display size, one 24px line each. */
+.home-v2__toggle { font-size: var(--type-display); line-height: var(--space-m); }
+
+/* GitHub: the contribution grid always shows, small, to the left of the
+   link. Absolutely placed, so it moves nothing. */
+.home-v2__links .github-stack { position: relative; width: auto; }
+.home-v2__links .github-heatmap {
+  display: flex;
+  position: absolute;
+  right: calc(100% + var(--space-m));
+  top: 0;
+  width: auto;
+}
+.home-v2__links .github-heatmap__week { flex: none; }
+.home-v2__links .github-heatmap__day { width: 3px; height: 3px; aspect-ratio: auto; border-width: 0; margin: 0 1px 1px 0; border-radius: 0; }
+.home-v2__links .github-stack__count { color: var(--color-text-tertiary); }
+
+@media (max-width: 720px) {
+  .home-v2__col { grid-column: 1 / -1; }
+  .home-v2__links .github-heatmap { display: none !important; }
+}
+/* One-line project titles, as in the reference. */
+.home-v2 .home-item__meta { max-width: none; white-space: nowrap; }

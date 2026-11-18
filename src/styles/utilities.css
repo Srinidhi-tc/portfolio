@@ -1369,3 +1369,5 @@ html body, .sky-background { background: #FFFFFF; }
 }
 /* One-line project titles, as in the reference. */
 .home-v2 .home-item__meta { max-width: none; white-space: nowrap; }
+/* The theme frame is only as wide as itself, on the left edge, right above the time. */
+.home-v2__end .theme-toggle { align-self: flex-start; width: auto; margin: 0; padding: 0; }

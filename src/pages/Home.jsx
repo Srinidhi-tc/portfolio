@@ -163,11 +163,8 @@ export default function Home() {
             <Item key={id} id={id} title={title} meta={meta} tucked={tucked} />
           ))}
 
-          <div className="home-v2__right">
-            <ThemeToggle />
-          </div>
-
           <div className="stack stack--small home-v2__left home-v2__end">
+            <ThemeToggle />
             <SFClock />
             <p className="site-footer__title">Thanks for stopping by</p>
             <p className="site-footer__copy">© 2026 Srinidhi Chakravarthy. All rights reserved.</p>

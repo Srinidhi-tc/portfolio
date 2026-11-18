@@ -1349,15 +1349,15 @@ html body, .sky-background { background: #FFFFFF; }
 /* Work / Gallery at display size, one 24px line each. */
 .home-v2__toggle { font-size: var(--type-display); line-height: var(--space-m); }
 
-/* GitHub: the contribution grid always shows, small, to the left of the
-   link. Absolutely placed, so it moves nothing. */
+/* GitHub: the contribution grid always shows, small, right below the
+   contribution count, right aligned. */
 .home-v2__links .github-stack { position: relative; width: auto; }
 .home-v2__links .github-heatmap {
   display: flex;
-  position: absolute;
-  right: calc(100% + var(--space-m));
-  top: 0;
+  position: static;
   width: auto;
+  align-self: flex-end;
+  margin-top: var(--space-s);
 }
 .home-v2__links .github-heatmap__week { flex: none; }
 .home-v2__links .github-heatmap__day { width: 3px; height: 3px; aspect-ratio: auto; border-width: 0; margin: 0 1px 1px 0; border-radius: 0; }

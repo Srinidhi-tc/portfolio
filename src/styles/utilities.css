@@ -1394,3 +1394,6 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 /* Home: the bio starts on the seventh baseline line (?guides), below the
    S/R/I stack, so the stack stays apart. */
 .home-v2__fold { padding-top: calc(var(--space-m) * 5); }
+/* Research + Design: right aligned in column 3, like Work / Gallery. */
+.home-v2__motif { justify-self: end; text-align: right; }
+.home-v2__motif .block-words { justify-content: flex-end; }

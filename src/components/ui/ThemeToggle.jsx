@@ -26,45 +26,94 @@ function currentTheme() {
 }
 
 
-// The picture as a matrix: 12 x 12 blocks, 3px squares on a 4px pitch (the
-// same blocks as Research + Design and the GitHub grid), each block the
-// average colour of that part of the picture.
+// The sun and moon as one matrix: 12 x 12 blocks, 3px squares on a 4px
+// pitch (the same blocks as Research + Design and the GitHub grid), each the
+// average colour of that part of the picture. Switching theme dissolves one
+// picture into the other, block by block in a random order. No rotation.
 const CELLS = 12;
 const PITCH = 4;
 const BLOCK = 3;
+const DISSOLVE_MS = 700;   // whole dissolve
+const BLOCK_MS = 160;      // each block's own cross-fade
 
-function MatrixArt({ src, className }) {
+function cellsOf(img) {
+  const probe = document.createElement("canvas");
+  probe.width = CELLS;
+  probe.height = CELLS;
+  const ctx = probe.getContext("2d", { willReadFrequently: true });
+  ctx.imageSmoothingQuality = "high";
+  ctx.drawImage(img, 0, 0, CELLS, CELLS);
+  return ctx.getImageData(0, 0, CELLS, CELLS).data;
+}
+
+function MatrixDissolve({ dark }) {
   const ref = useRef(null);
+  const art = useRef(null);       // { sun, moon } colour arrays
+  const shown = useRef(dark ? 1 : 0);   // 0 = sun, 1 = moon, per block below
+  const mix = useRef(null);       // per-block mix, 0..1
+  const order = useRef(null);     // per-block start time, 0..1
+  const frame = useRef(0);
+
+  const draw = () => {
+    const canvas = ref.current;
+    if (!canvas || !art.current) return;
+    const size = CELLS * PITCH;
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    if (canvas.width !== size * dpr) { canvas.width = size * dpr; canvas.height = size * dpr; }
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, size, size);
+    const { sun, moon } = art.current;
+    for (let i = 0; i < CELLS * CELLS; i += 1) {
+      const m = mix.current[i];
+      const n = i * 4;
+      const c = (k) => Math.round(sun[n + k] * (1 - m) + moon[n + k] * m);
+      const a = (sun[n + 3] * (1 - m) + moon[n + 3] * m) / 255;
+      ctx.fillStyle = `rgba(${c(0)},${c(1)},${c(2)},${a})`;
+      ctx.fillRect((i % CELLS) * PITCH, Math.floor(i / CELLS) * PITCH, BLOCK, BLOCK);
+    }
+  };
+
+  // Load both pictures once.
   useEffect(() => {
-    const img = new Image();
-    img.src = src;
-    img.onload = () => {
-      const canvas = ref.current;
-      if (!canvas) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 3);
-      const size = CELLS * PITCH;
-      canvas.width = size * dpr;
-      canvas.height = size * dpr;
-      const ctx = canvas.getContext("2d");
-      const probe = document.createElement("canvas");
-      probe.width = CELLS;
-      probe.height = CELLS;
-      const pctx = probe.getContext("2d", { willReadFrequently: true });
-      pctx.imageSmoothingQuality = "high";
-      pctx.drawImage(img, 0, 0, CELLS, CELLS);
-      const { data } = pctx.getImageData(0, 0, CELLS, CELLS);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, size, size);
-      for (let y = 0; y < CELLS; y += 1) {
-        for (let x = 0; x < CELLS; x += 1) {
-          const n = (y * CELLS + x) * 4;
-          ctx.fillStyle = `rgba(${data[n]},${data[n + 1]},${data[n + 2]},${data[n + 3] / 255})`;
-          ctx.fillRect(x * PITCH, y * PITCH, BLOCK, BLOCK);
-        }
+    let alive = true;
+    const load = (src) => new Promise((ok) => { const im = new Image(); im.onload = () => ok(im); im.src = src; });
+    Promise.all([load(sunArt), load(moonArt)]).then(([s, m]) => {
+      if (!alive) return;
+      art.current = { sun: cellsOf(s), moon: cellsOf(m) };
+      mix.current = new Float32Array(CELLS * CELLS).fill(shown.current);
+      draw();
+    });
+    return () => { alive = false; cancelAnimationFrame(frame.current); };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Dissolve on every theme change.
+  useEffect(() => {
+    const target = dark ? 1 : 0;
+    if (!art.current || shown.current === target) { shown.current = target; return; }
+    shown.current = target;
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (still) { mix.current.fill(target); draw(); return; }
+    const from = Float32Array.from(mix.current);
+    order.current = Float32Array.from({ length: CELLS * CELLS }, () => Math.random());
+    const span = DISSOLVE_MS - BLOCK_MS;
+    const t0 = performance.now();
+    cancelAnimationFrame(frame.current);
+    const tick = (now) => {
+      const t = now - t0;
+      let done = true;
+      for (let i = 0; i < CELLS * CELLS; i += 1) {
+        const local = Math.min(1, Math.max(0, (t - order.current[i] * span) / BLOCK_MS));
+        if (local < 1) done = false;
+        mix.current[i] = from[i] + (target - from[i]) * local;
       }
+      draw();
+      if (!done) frame.current = requestAnimationFrame(tick);
     };
-  }, [src]);
-  return <canvas ref={ref} className={className} width={CELLS * PITCH} height={CELLS * PITCH} />;
+    frame.current = requestAnimationFrame(tick);
+  }, [dark]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return <canvas ref={ref} className="theme-toggle__matrix" width={CELLS * PITCH} height={CELLS * PITCH} />;
 }
 
 export default function ThemeToggle() {
@@ -118,10 +167,7 @@ export default function ThemeToggle() {
       aria-pressed={isDark}
     >
       <span className="theme-toggle__icon" aria-hidden="true">
-        {/* Both glyphs are always present; CSS cross-fades and rotates between
-            them so the control animates rather than swapping abruptly. */}
-        <MatrixArt className="theme-toggle__sun" src={sunArt} />
-        <MatrixArt className="theme-toggle__moon" src={moonArt} />
+        <MatrixDissolve dark={isDark} />
       </span>
     </button>
   );

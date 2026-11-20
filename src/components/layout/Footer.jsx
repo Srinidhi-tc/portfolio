@@ -1,12 +1,10 @@
 // Footer: a thin strip. "Let's build awesome stuff" with SF time and the
-// light/dark toggle below it, LinkedIn and GitHub, then the copyright.
+// light/dark toggle below it, the Design System link, then the copyright.
 // On project pages a full-width line follows, then the next project.
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
-import PrimaryLink, { EyeGlobe } from "../ui/PrimaryLink";
-import GithubStack from "../ui/GithubStack";
-import { LINKEDIN_URL } from "../../data/links";
+import { EyeGlobe } from "../ui/PrimaryLink";
 import { workSectionProjects } from "../../data/workSectionProjects";
 import { projectSummaries } from "../../data/projectSummaries";
 
@@ -45,8 +43,6 @@ export default function Footer() {
           </div>
         </div>
         <ul className="stacks-col stacks-col--x stack stack--small stack--right">
-          <li style={{ width: "100%" }}><GithubStack /></li>
-          <li><PrimaryLink href={LINKEDIN_URL}>LinkedIn</PrimaryLink></li>
           <li><Link className="primary-link" to="/design-system"><EyeGlobe /><span className="primary-link__text">Design System</span></Link></li>
         </ul>
         <div className="stacks-col stacks-col--4" aria-hidden="true" />

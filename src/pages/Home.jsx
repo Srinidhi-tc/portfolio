@@ -1,10 +1,11 @@
 // Home (interim layout): everything in columns 2 + 3, one stack.
 //
-// Scroll 1: S/R/Iː (right, column 3), the bio (left, columns 2 + 3), links
-//   with the GitHub grid (right, column 3), Research + Design (left, column 2).
+// S/R/Iː sits in column 1, right aligned.
+// Scroll 1: the bio (left, columns 2 + 3), links with the GitHub grid
+//   (right, column 3), Research + Design (right, column 3).
 // Scroll 2: Work / Gallery (right), the projects one per row (right), the
 //   theme toggle (right), then SF time, thanks and copyright (left, column 2).
-// No header row and no footer on this page. Columns 1 and 4 stay empty.
+// No header row and no footer on this page. Column 4 stays empty.
 //
 // Dormant content for this page lives in ./Home.dormant
 // To revive a block, import its named export and render it.
@@ -110,12 +111,14 @@ export default function Home() {
 
   return (
     <div className="stacks-grid home-v2">
+      {/* S/R/Iː: column 1, right aligned. */}
+      <div className="home-v2__sri">
+        <SriMark isHome />
+      </div>
+
       <div className="home-v2__col">
         {/* Scroll 1 */}
         <section className="home-v2__fold" aria-label="About">
-          <div className="home-v2__right">
-            <SriMark isHome />
-          </div>
 
           <div className="home-bio stack home-v2__wide">
             <p>
@@ -136,7 +139,7 @@ export default function Home() {
             <li><GithubStack /></li>
           </ul>
 
-          <div className="home-v2__left home-v2__motif">
+          <div className="home-v2__right home-v2__motif">
             <BlockWords words={["Research", "+", "Design"]} label="Research + Design" />
           </div>
         </section>

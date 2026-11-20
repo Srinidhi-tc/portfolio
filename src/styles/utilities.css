@@ -1336,7 +1336,7 @@ html body, .sky-background { background: #FFFFFF; }
   align-content: start;
 }
 /* Scroll 1 fills the first screen; the motif sits at its end. */
-.home-v2__fold { min-height: calc(100svh - var(--header-space)); grid-template-rows: auto auto auto 1fr; }
+.home-v2__fold { min-height: calc(100svh - var(--header-space)); grid-template-rows: auto auto 1fr; }
 .home-v2__motif { align-self: end; padding-bottom: var(--space-l); }
 .home-v2__work { padding-top: var(--space-l); padding-bottom: var(--space-l); }
 .home-v2__right { grid-column: 2; justify-self: end; text-align: right; }
@@ -1376,3 +1376,11 @@ html body, .sky-background { background: #FFFFFF; }
 canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; background: none; padding: 0; }
 /* One design-system space (24px) between the frame and the time. */
 .home-v2__end .theme-toggle { margin-bottom: var(--space-m); }
+
+/* Home: S/R/Iː in column 1, right aligned, level with the top of the bio. */
+.home-v2__sri { grid-column: 1; grid-row: 1; justify-self: end; align-self: start; }
+.home-v2__col { grid-row: 1; }
+@media (max-width: 720px) {
+  .home-v2__sri { grid-row: auto; justify-self: start; margin-bottom: var(--space-l); }
+  .home-v2__col { grid-row: auto; }
+}

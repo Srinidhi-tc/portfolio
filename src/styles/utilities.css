@@ -1384,3 +1384,13 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
   .home-v2__sri { grid-row: auto; justify-self: start; margin-bottom: var(--space-l); }
   .home-v2__col { grid-row: auto; }
 }
+
+/* Project footer: Design System and the next project sit together at the top. */
+.next-project .primary-link { font-weight: var(--weight-regular); }
+.next-project__link { margin-top: var(--space-m); }
+
+/* Home: Research + Design at the left edge of column 3. */
+.home-v2__motif { grid-column: 2; justify-self: start; text-align: left; }
+/* Home: the bio starts on the seventh baseline line (?guides), below the
+   S/R/I stack, so the stack stays apart. */
+.home-v2__fold { padding-top: calc(var(--space-m) * 5); }

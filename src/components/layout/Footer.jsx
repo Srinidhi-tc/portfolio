@@ -1,6 +1,6 @@
-// Footer: a thin strip. "Let's build awesome stuff" with SF time and the
-// light/dark toggle below it, the Design System link, then the copyright.
-// On project pages a full-width line follows, then the next project.
+// Footer: at the top, the Design System link with the next project right
+// under it; at the bottom, "Let's build awesome stuff" with the toggle and SF
+// time, then thanks and copyright.
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
@@ -34,6 +34,20 @@ export default function Footer() {
 
   return (
     <footer>
+      {/* Top: the Design System link and the next project, close together. */}
+      <div className="stacks-grid next-project">
+        <div className="stacks-col stacks-col--x stack stack--small stack--right">
+          <Link className="primary-link" to="/design-system"><EyeGlobe /><span className="primary-link__text">Design System</span></Link>
+          {next && (
+            <Link to={next.to} className="next-project__link">
+              <span className="next-project__label">Next project</span>
+              <span>{next.title}</span>
+              <span className="next-project__meta">{subtitle(next)}</span>
+            </Link>
+          )}
+        </div>
+      </div>
+      {/* Bottom: the sign-off, the time, thanks and copyright. */}
       <div className="stacks-grid site-footer">
         <div className="stacks-col stacks-col--1 stack stack--small">
           <p className="site-footer__title">Let's build awesome stuff</p>
@@ -42,27 +56,12 @@ export default function Footer() {
             <SFClock />
           </div>
         </div>
-        <ul className="stacks-col stacks-col--x stack stack--small stack--right">
-          <li><Link className="primary-link" to="/design-system"><EyeGlobe /><span className="primary-link__text">Design System</span></Link></li>
-        </ul>
-        <div className="stacks-col stacks-col--4" aria-hidden="true" />
         <div className="stacks-col stacks-col--1 stack stack--small">
           <p className="site-footer__title">Thanks for stopping by</p>
           <p className="site-footer__copy">Built with Vite, React, CSS and Claude</p>
           <p className="site-footer__copy">© 2026 Srinidhi Chakravarthy. All rights reserved.</p>
         </div>
       </div>
-      {next && (
-        <div className="stacks-grid next-project">
-          <div className="stacks-col stacks-col--x">
-            <Link to={next.to}>
-              <span className="next-project__label">Next project</span>
-              <span>{next.title}</span>
-              <span className="next-project__meta">{subtitle(next)}</span>
-            </Link>
-          </div>
-        </div>
-      )}
     </footer>
   );
 }

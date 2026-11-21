@@ -234,7 +234,28 @@ function ButterflyJourneyChart() {
         </p>
       </div>
 
+      {/* Phone: one stage per block, rows stacked under it. */}
+      <div className="journey-stack">
+        {stages.map((stage) => (
+          <div key={stage.title} className="journey-stack__stage">
+            <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0, color: "var(--text-primary)" }}>
+              {stage.title}
+            </p>
+            {rows.map((row) => (
+              <JourneyCell
+                key={row.key}
+                label={row.label}
+                highlighted={stage.highlighted && row.key === "senses"}
+              >
+                {stage[row.key]}
+              </JourneyCell>
+            ))}
+          </div>
+        ))}
+      </div>
+
       <div
+        className="journey-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "110px repeat(5, minmax(0, 1fr))",

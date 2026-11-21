@@ -1424,3 +1424,13 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
   color: var(--text-primary);
   white-space: pre;
 }
+
+/* Bloom butterfly journey: table on wide screens, stacked stages on phones. */
+.journey-stack { display: none; }
+@media (max-width: 767px) {
+  .journey-grid { display: none !important; }
+  .journey-stack { display: grid; gap: var(--space-l); }
+  .journey-stack__stage { display: grid; gap: var(--space-m); }
+  .journey-stack__stage > div { min-height: 0 !important; }
+  .journey-stack__stage p { max-width: none !important; }
+}

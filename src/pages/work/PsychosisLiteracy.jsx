@@ -2,6 +2,7 @@
 // Images: name your slides cap1.jpg → cap33.jpg and place in src/assets/
 // Only key slides are used, not all 33 are shown
 
+import CodeSnippet from "../../components/work/CodeSnippet";
 import { ProjectHeader } from "../../components/work/ProjectSummary";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
 import cap2  from "../../assets/cap2.jpg";
@@ -171,6 +172,23 @@ export default function PsychosisLiteracy() {
           ["Safety architecture woven into the interaction", "opt-in framing on entry, exit controls visible at all times, reflection prompts after the experience, and a persistent crisis-help pathway. The 988 Lifeline is one tap from every screen, with three progressive support options (trusted person → counselor → professional care)."],
           ["Shipped once, consumed everywhere", "the same hallucination taxonomy and safety architecture is applied across all five sections of the Percepta experience: onboarding, visual simulation, auditory simulation, reflection, and help. One pattern, five surfaces, one clinical review packet for Purdue Psychological Sciences and CAPS."],
         ]} />
+        <CodeSnippet
+          label="Percepta safety layer written as data"
+          code={`
+// Percepta: one safety layer wraps every screen
+const safety = {
+  entry: "opt-in",                  // scope and consent on screen one
+  exit: "always-visible",           // leave at any moment
+  after: "Did anything feel off?",  // reflection prompt
+  help: ["trusted person", "counselor", "professional care"],
+  crisisLine: "988",                // one tap from every screen
+};
+
+const sections = ["onboarding", "visual", "auditory", "reflection", "help"];
+sections.forEach((s) => wrap(s, safety));  // one pattern, five surfaces
+`}
+          caption="The safety architecture written as data: the same layer wraps all five sections. A summary of the design, not the Base44 source."
+        />
         <Slide src={cap14} caption={"Percepta onboarding, \"100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.\" Scope and consent declared in the opening screen; the safety architecture begins here."} />
         <Slide src={cap19} caption="Five visual hallucination types, colours, blur, smoke, bubbles, shadows, faces and hands. Each validated against medical case studies before being surfaced to the student." />
         <Slide src={cap20} caption="Five auditory hallucination types, whispers, self-talk, two voices, footsteps, commands. The same validation protocol applied to the auditory channel." />

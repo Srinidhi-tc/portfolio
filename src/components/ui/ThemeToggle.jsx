@@ -22,7 +22,7 @@ function currentTheme() {
   if (typeof document === "undefined") return "light";
   const stamped = document.documentElement.dataset.theme;
   if (stamped === "dark" || stamped === "light") return stamped;
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "dark";   // dark by default
 }
 
 
@@ -125,23 +125,6 @@ export default function ThemeToggle() {
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", CHROME[theme]);
   }, [theme]);
-
-  // Follow the OS for as long as no explicit choice has been stored.
-  useEffect(() => {
-    const mq = window.matchMedia?.("(prefers-color-scheme: dark)");
-    if (!mq) return undefined;
-    const onChange = (e) => {
-      let stored = null;
-      try {
-        stored = localStorage.getItem(STORAGE_KEY);
-      } catch {
-        /* private mode / blocked storage — treat as no preference */
-      }
-      if (!stored) setTheme(e.matches ? "dark" : "light");
-    };
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
 
   const toggle = useCallback(() => {
     setTheme((prev) => {

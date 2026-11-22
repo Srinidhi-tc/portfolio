@@ -29,16 +29,17 @@ const CONTACT = [
   { label: "Design System", href: DESIGN_SYSTEM_URL },
 ];
 
-// Work: in this order, laid out 2, 2. StraboSpot is tucked under TACC.
+// Work: in this order. StraboSpot shows by default, after Tutor.
 const WORK = [
   { id: "ai-coding",          title: "Tutor" },
+  { id: "strabospot",         title: "StraboSpot" },
   { id: "microsoft",          title: "Azure" },
   { id: "defenseark",         title: "DefenseARK" },
   { id: "psychosis-literacy", title: "Psychosis" },
 ];
 
 // Shown only when the ▴ next to the TACC object is opened.
-const TUCKED = { "ai-coding": { id: "strabospot", title: "StraboSpot" } };
+const TUCKED = {};
 
 // Gallery: physical objects, one per row. Malli is dormant (see Home.dormant).
 const GALLERY = [
@@ -47,6 +48,14 @@ const GALLERY = [
 ];
 
 const byId = (id) => workSectionProjects.find((p) => p.id === id);
+
+// Headlines stack four words to a line.
+function Meta({ text }) {
+  const w = String(text).split(" ");
+  const lines = [];
+  for (let i = 0; i < w.length; i += 4) lines.push(w.slice(i, i + 4).join(" "));
+  return <span className="home-item__meta">{lines.map((l, i) => <span key={i} style={{ display: "block" }}>{l}</span>)}</span>;
+}
 
 // The object replaces the project-name line only.
 function ProjectName({ id, title }) {
@@ -64,7 +73,7 @@ function Item({ id, title, meta, tucked }) {
       <div className="stack stack--small stack--right home-v2__right">
         <Link to={p.to} className="home-item__link">
           <ProjectName id={id} title={title} />
-          <span className="home-item__meta">{meta}</span>
+          <Meta text={meta} />
         </Link>
       </div>
     );
@@ -90,12 +99,12 @@ function Item({ id, title, meta, tucked }) {
         </Link>
       </div>
       <Link to={p.to} className="home-item__link">
-        <span className="home-item__meta">{meta}</span>
+        <Meta text={meta} />
       </Link>
       {open && (
         <Link to={t.to} id={`tucked-${tucked.id}`} className="home-item__link home-item__tucked">
           <ProjectName id={tucked.id} title={tucked.title} />
-          <span className="home-item__meta">{projectSummaries[tucked.id].headline}</span>
+          <Meta text={projectSummaries[tucked.id].headline} />
         </Link>
       )}
     </div>

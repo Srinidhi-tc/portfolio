@@ -1,6 +1,7 @@
 // Footer: at the top, the Design System link with the next project right
 // under it; at the bottom, "Let's build awesome stuff" with the toggle and SF
 // time, then thanks and copyright.
+import { useLayoutEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
@@ -32,8 +33,25 @@ export default function Footer() {
   const i = ORDER.findIndex((p) => p.to === pathname.replace(/\/$/, ""));
   const next = i >= 0 ? ORDER[(i + 1) % ORDER.length] : null;
 
+  // Snap the footer to the 24px grid: case studies end at any height, so a
+  // small top margin puts the footer's first line back on a guide line.
+  const ref = useRef(null);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    const snap = () => {
+      const cur = parseFloat(el.style.marginTop) || 0;
+      const top = el.getBoundingClientRect().top + window.scrollY - cur;
+      el.style.marginTop = `${(24 - (top % 24)) % 24}px`;
+    };
+    snap();
+    const ro = new ResizeObserver(snap);
+    ro.observe(document.body);
+    return () => ro.disconnect();
+  }, [pathname]);
+
   return (
-    <footer>
+    <footer ref={ref}>
       {/* Top: the Design System link and the next project, close together. */}
       <div className="stacks-grid next-project">
         <div className="stacks-col stacks-col--x stack stack--small stack--right">

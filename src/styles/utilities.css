@@ -1344,7 +1344,6 @@ html body, .sky-background { background: #FFFFFF; }
 .home-v2__left { grid-column: 1; justify-self: start; }
 .home-v2 .home-bio { padding-top: 0; }
 .home-v2__end p { margin: 0; }
-.home-v2 .sri-mark span { top: 0; }
 
 /* Work / Gallery at display size, one 24px line each. */
 .home-v2__toggle { font-size: var(--type-display); line-height: var(--space-m); }
@@ -1552,3 +1551,18 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 
 /* Work / Gallery: 28px letters on the 16px baseline grid, like S/R/I. */
 .primary-nav__link { position: relative; top: calc(var(--bl) - var(--bl-display)); }
+
+/* Work sits directly on top of Gallery: consecutive grid lines. */
+.primary-nav { gap: 0; }
+
+/* Baseline pass. */
+/* Design System link in the project footer: eye beside the text (not above
+   it), so the text sits on the baseline. */
+.next-project .primary-link { flex-direction: row; align-items: center; gap: var(--space-s); }
+/* Sun / moon: its bottom on a guide line, SF time on the next line down. */
+.home-v2__end .theme-toggle { margin-top: var(--bl); margin-bottom: calc(var(--space-l) - var(--bl)); }
+/* Project footer: sun / moon bottom on a guide line, SF time on the same line;
+   the row stays three lines tall. */
+.site-footer__time { align-items: flex-start; }
+.site-footer__time .theme-toggle { margin: var(--bl) 0 0; }
+.site-footer__time .sf-clock { margin-top: var(--space-l); }

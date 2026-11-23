@@ -101,10 +101,7 @@ Hover: link blue. Active: ink, bold, underline.
 ### Navigation
 
 Two primary links, stacked at the top of column 3, display size, bold.
-Hover link blue. Current page uppercase and underlined. SRI is home.
-
-Uppercase plus underline is the nav's active state only; everything else
-uses bold plus underline.
+Hover link blue. Current page underlined. SRI is home.
 
 ## 9. Lines
 

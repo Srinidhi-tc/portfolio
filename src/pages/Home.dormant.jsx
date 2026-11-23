@@ -92,7 +92,10 @@ export function GalleryList() {
         <Link to={p.to} className="home-item__link">
           {src ? <img className="home-item__object" src={src} alt={title} decoding="async" />
                : <span className="home-item__title">{title}</span>}
-          <span className="home-item__meta">{p.title}</span>
+          <span className="home-item__meta">
+            {p.title.split(" ").reduce((rows, w, i) => (i % 4 ? rows[rows.length - 1].push(w) : rows.push([w]), rows), [])
+              .map((r, i) => <span key={i} style={{ display: "block" }}>{r.join(" ")}</span>)}
+          </span>
         </Link>
       </div>
     );

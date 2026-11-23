@@ -1566,3 +1566,13 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 .site-footer__time { align-items: flex-start; }
 .site-footer__time .theme-toggle { margin: var(--bl) 0 0; }
 .site-footer__time .sf-clock { margin-top: var(--space-l); }
+
+/* Nav active state: underline only, no casing change. */
+.primary-nav__link[aria-current="page"] { text-transform: none; }
+.primary-nav__link::after { content: none; }
+
+/* Intro links on the guide lines: the icon row is one 24px line, icons drawn
+   so their bottoms sit on the baseline; the eye links and the count follow,
+   one line each. */
+.home-v2__links > li:first-child { display: flex; height: var(--space-m); }
+.home-v2__links .icon-links { position: relative; top: calc(var(--bl) - var(--space-m)); }

@@ -23,7 +23,7 @@ import ThemeToggle from "../components/ui/ThemeToggle";
 import SFClock from "../components/ui/SFClock";
 import PrimaryLink from "../components/ui/PrimaryLink";
 import BlockWords from "../components/ui/BlockWords";
-import LabStacks from "../components/ui/LabStacks";
+import { GalleryList } from "./Home.dormant";
 
 
 // GitHub, LinkedIn and Email are square line icons (IconLinks).
@@ -192,7 +192,7 @@ export default function Home() {
             ? list.map(({ id, title, meta, tucked }) => (
                 <Item key={id} id={id} title={title} meta={meta} tucked={tucked} />
               ))
-            : <LabStacks />}
+            : <GalleryList />}
 
           <div className="stack stack--small home-v2__left home-v2__end">
             <ThemeToggle />

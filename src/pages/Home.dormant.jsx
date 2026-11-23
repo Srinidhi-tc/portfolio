@@ -22,8 +22,9 @@
 //   MalliProject        the Malli 2.0 gallery page (src/pages/work/Malli.jsx);
 //                       to revive, add its route in App.jsx and list it in
 //                       GALLERY (below) and ORDER (Footer.jsx)
-//   GalleryList         the previous Gallery view: Heart and Bloom as project
-//                       rows (replaced by LabStacks, the Gallery lab)
+//   GalleryList         the Gallery view: Heart and Bloom as project rows
+//                       (rendered by Home.jsx). The Gallery lab
+//                       (src/components/ui/LabStacks.jsx) is parked, not shown.
 import WorkSection from "../sections/WorkSection";
 import { GanttChart, RecordList, ContextSections, EXPERIENCE, EDUCATION } from "./About";
 import { socialLinks } from "../data/links";

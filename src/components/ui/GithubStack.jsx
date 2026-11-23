@@ -3,7 +3,6 @@
 //
 // The count and heatmap come from github.com/Srinidhi-tc. scripts/github-heatmap.mjs
 // refreshes src/data/githubHeatmap.json before every build (so every deploy).
-import PrimaryLink from "./PrimaryLink";
 import data from "../../data/githubHeatmap.json";
 
 const heatmap = data.days;
@@ -27,7 +26,6 @@ function weeks() {
 export default function GithubStack() {
   return (
     <div className="github-stack">
-      <PrimaryLink href={GITHUB_URL}>GitHub</PrimaryLink>
       <span className="github-stack__count">{GITHUB_CONTRIBUTIONS} code contributions</span>
       <div className="github-heatmap" role="img" aria-label={`${GITHUB_CONTRIBUTIONS} contributions in the last year`}>
         {weeks().map((w, i) => (

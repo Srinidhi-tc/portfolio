@@ -9,10 +9,6 @@ export default function DesignSystem() {
         Stacks and Fs give the eye one edge to return to and one line to follow, which
         cuts scanning effort and keeps the reading order the same for screen readers.
       </p>
-      <p className="ds-purpose" style={{ gridColumn: "1 / -1" }}>
-        Gallery lab: Gallery shows physical objects as posters, three stacks, quote as
-        live text, hover blue, click bold and underline.
-      </p>
       <img
         className="ds-sheet"
         style={{ gridColumn: "1 / -1" }}

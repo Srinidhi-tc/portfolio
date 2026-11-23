@@ -1,6 +1,7 @@
-import heart1 from "../../assets/heart1.png";
+// Hearts of Insomnia: the header and brief, then every picture with one
+// friendly line under it, narrating the build in order.
 import GalleryGrid from "../../components/layout/GalleryGrid";
-import PrimaryLink from "../../components/ui/PrimaryLink";
+import heart1 from "../../assets/heart1.png";
 import heart3 from "../../assets/heart3.png";
 import heart4 from "../../assets/heart4.png";
 import heart5 from "../../assets/heart5.png";
@@ -12,287 +13,68 @@ import heart10 from "../../assets/heart10.png";
 import heart11 from "../../assets/heart11.png";
 import heart12 from "../../assets/heart12.png";
 
-const eyebrow = {
+const STORY = [
+  { src: heart1, line: "This began on sleepless nights, with racing thoughts and a heartbeat you can feel." },
+  { src: heart3, line: "Early sketches had sensors, light and sound; we kept only what the heart really needed." },
+  { src: heart4, line: "Most of the time it should just be a bedside lamp, not another health dashboard." },
+  { src: heart5, line: "Then the prototype got messy: wires, LEDs, audio and jumpy sensor readings." },
+  { src: heart6, line: "We tuned it so every little flicker in the signal wouldn't feel like an alarm." },
+  { src: heart7, line: "Fitting the electronics inside while keeping a real heart shape took many rounds." },
+  { src: heart8, line: "Printing showed a seam we hadn't seen on screen, so we kept printing and adjusting." },
+  { src: heart9, line: "The pedestal grew from a plain support into part of the piece, hiding every wire." },
+  { src: heart10, line: "Light became the language: five soft phases, from ordinary lamp to something you notice." },
+  { src: heart11, line: "Sound moved into its own interactive layer, so we could actually tune it." },
+  { src: heart12, line: "We also tried a tiny heart keychain, just to see it leave the nightstand." },
+];
+
+const brief = {
   fontSize: "var(--type-base)",
-  fontWeight: "var(--weight-regular)",
   color: "var(--text-secondary)",
   marginBottom: "var(--padding-small)",
-};
-
-const body = {
-  fontSize: "var(--type-base)",
-  color: "var(--text-secondary)",
-  lineHeight: "var(--leading-body)",
   maxWidth: 640,
-  margin: 0,
+  lineHeight: "var(--leading-body)",
 };
-
-const title = {
-  fontSize: "var(--type-base)",
-  fontWeight: "var(--weight-regular)",
-  lineHeight: "var(--leading-heading)",
-  color: "var(--text-primary)",
-  margin: "0 0 var(--padding-small)",
-};
-
-function Block({ src, subheading, caption, alt }) {
-  return (
-    <section>
-      {src && (
-        <img
-          src={src}
-          alt={alt || subheading}
-          style={{
-            width: "100%",
-            borderRadius: "var(--radius)",
-            display: "block",
-            marginBottom: "var(--padding-small)"
-          }}
-        />
-      )}
-      <p style={eyebrow}>{subheading}</p>
-      <p style={{ ...body, fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)" }}>{caption}</p>
-    </section>
-  );
-}
-
-function ImpactBox() {
-  return (
-    <section className="hand-bullet"
-      
-    >
-      <p style={{ ...eyebrow, marginBottom: "var(--padding-small)" }}>Role & Impact</p>
-      <h2 style={{ ...title, fontSize: "var(--type-base)", marginBottom: "var(--padding-small)", fontWeight: "var(--weight-bold)" }}>
-        The physical experience depended on both form and system.
-      </h2>
-      <p style={body}>
-        3D modeling shaped the anatomical heart and its internal structure.
-        Bambu Lab tools supported fabrication and iteration. Coding issues
-        during hardware integration were resolved, and the paper documentation
-        for CHI 2026 was written as part of the project submission.
-      </p>
-
-      {PROJECT_DOC_URL && (
-        <PrimaryLink href={PROJECT_DOC_URL}>Project documentation</PrimaryLink>
-      )}
-    </section>
-  );
-}
-
-const PROJECT_DOC_URL = "";
 
 export default function HeartsOfInsomnia() {
   return (
     <GalleryGrid>
-    <div
-      style={{
-        color: "var(--text-primary)",
-        margin: "0 auto"
-      }}
-    >
-      <header style={{ marginBottom: "var(--padding-big)" }}>
-        <p className="fine-print fine-print--eyebrow" style={{ marginBottom: "var(--padding-small)" }}>
-          Physical Computing ▴ Emotional Design
-        </p>
-
-        <h1
-          style={{
-            fontSize: "var(--type-base)",
-            fontWeight: "var(--weight-bold)",
-            lineHeight: "var(--leading-heading)",
-            marginBottom: "var(--padding-small)"
-          }}
-        >
-          Hearts of Insomnia
-        </h1>
-
-        <p
-          style={{
-            fontSize: "var(--type-base)",
-            color: "var(--text-secondary)",
-            marginBottom: "var(--padding-small)",
-            maxWidth: 600
-          }}
-        >
-          CHI 2026 ▴ Interactive Demo
-        </p>
-
-        <p
-          style={{
-            fontSize: "var(--type-base)",
-            color: "var(--text-secondary)",
-            marginBottom: "var(--padding-small)",
-            maxWidth: 640,
-            lineHeight: "var(--leading-body)"
-          }}
-        >
-          What if a bedside lamp could notice when the body starts to change,
-          without turning the moment into another notification?
-        </p>
-
-        <ImpactBox />
-      </header>
-
-      <main style={{ display: "flex", flexDirection: "column", gap: "var(--padding-big)" }}>
-        <Block
-          src={heart1}
-          subheading="The Starting Point"
-          caption="Racing thoughts, a fast heartbeat, and the strange quiet of being awake at night became the starting point. The concept focused on a bedside object that could make a physical change easier to notice without requiring a phone screen."
-        />
-
-        <Block
-          src={null}
-          subheading="Why a Heart"
-          caption="A heart-rate number tells a person what happened. A physical heart can show that change as an experience. The anatomical form became both the object and the visual language, connecting something measurable to something immediately familiar."
-        />
-
-        <Block
-          src={heart3}
-          subheading="The First Direction"
-          caption="Early concepts combined an anatomical heart, light, sensors, and sound. Extra interactions were removed as the direction became clearer: heart-rate input, ambient light, and audio were enough to carry the experience."
-        />
-
-        <Block
-          src={heart4}
-          subheading="The Signal Had to Feel Natural"
-          caption="The bedside setting changed the design. Most of the time, the object should behave like a lamp rather than a health dashboard. The response could stay in the environment until a meaningful heart-rate change occurred."
-        />
-
-        <Block
-          src={heart5}
-          subheading="The Prototype Got Messy"
-          caption="Sensor readings were not always stable. Code, wiring, LEDs, and audio had to work together before the physical interaction could make sense. The unreliable signal became a design problem, not only a technical one."
-        />
-
-        <Block
-          src={heart6}
-          subheading="A Noisy Input Changes the Experience"
-          caption="A dramatic light response only works when the input can be trusted. Unstable readings raised a difficult question: should every fluctuation trigger an obvious reaction? The interaction was kept expressive without treating every reading as an alarm."
-        />
-
-        <Block
-          src={heart7}
-          subheading="The Form Had to Hold the System"
-          caption="The heart looked simple from the outside. Inside, it had to make room for electronics while preserving an anatomical shape and allowing light to travel through the material. Size, wall thickness, internal structure, and print behavior kept changing together."
-        />
-
-        <Block
-          src={heart8}
-          subheading="The Print Became Part of the Design"
-          caption="Fabrication exposed details that were easy to miss on screen. A visible seam appeared between printed sections and became difficult to hide. The heart and pedestal were adjusted through repeated physical tests instead of treating the first print as final."
-        />
-
-        <Block
-          src={heart9}
-          subheading="The Pedestal Changed Too"
-          caption="The pedestal started as a structural support, then became part of the visual composition. Slants, bevels, dimensions, and internal space were adjusted to keep the heart stable while hiding wires and electronics."
-        />
-
-        <Block
-          src={heart10}
-          subheading="Light Became the Language"
-          caption="Five ambient light phases carried the main interaction. A normal state stayed close to an ordinary lamp. Changes in heart-rate input could move the heart into more noticeable states, while the return toward a calmer state was shown through softer transitions."
-        />
-
-        <Block
-          src={heart11}
-          subheading="Sound Needed More Control"
-          caption="Audio started inside the hardware setup. Testing exposed limits in control and quality, so the audio interaction moved into a separate interactive layer. Separating the sound layer from the physical input made the final experience easier to tune."
-        />
-
-        <Block
-          src={null}
-          subheading="Privacy Changed the Interaction"
-          caption="A heart-rate number does not always need to be visible. A bedside object can communicate that something changed without displaying a personal measurement to everyone nearby. The signal became ambient: noticeable when useful, quiet when not."
-        />
-
-        <Block
-          src={heart12}
-          subheading="The Idea Left the Nightstand"
-          caption="A smaller heart was also explored as a handheld keychain. The form made the interaction portable and opened possibilities beyond the bedside setting. This direction remained an exploration rather than a final product path."
-        />
-
-        <section
-          style={{
-            paddingTop: "var(--padding-big)"
-          }}
-        >
-          <p style={eyebrow}>Pilot & Outcome</p>
-          <h2 style={{ ...title, fontWeight: "var(--weight-bold)" }}>Five people tested the concept.</h2>
-          <p style={body}>
-            The pilot produced a positive response and supported the core idea
-            of using a physical object to make heart-rate changes easier to
-            perceive. The prototype also surfaced open questions around sensor
-            reliability, privacy, and how much information an ambient object
-            should communicate.
+      <div style={{ color: "var(--text-primary)", margin: "0 auto" }}>
+        <header style={{ marginBottom: "var(--padding-big)" }}>
+          <p className="fine-print fine-print--eyebrow" style={{ marginBottom: "var(--padding-small)" }}>
+            Physical Computing ▴ Emotional Design
           </p>
-        </section>
-
-        <section className="hand-bullet"
-          
-        >
-          <p style={{ ...eyebrow, marginBottom: "var(--padding-small)" }}>Final Interaction</p>
-          <h2 style={{ ...title, fontWeight: "var(--weight-bold)" }}>Body → signal → light → awareness.</h2>
-          <p style={body}>
-            The final concept turns heart-rate input into an ambient physical
-            response designed to help a person notice a change and observe the
-            transition back toward a calmer state. It does not diagnose a
-            condition or replace clinical monitoring.
-          </p>
-        </section>
-
-        <section
-          style={{
-            paddingTop: "var(--padding-big)",
-            marginTop: "var(--padding-small)"
-          }}
-        >
-          <div
+          <h1
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-              gap: "var(--padding-small)"
+              fontSize: "var(--type-base)",
+              fontWeight: "var(--weight-bold)",
+              lineHeight: "var(--leading-heading)",
+              marginBottom: "var(--padding-small)",
             }}
           >
-            <div>
-              <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>
-                Team
-              </p>
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
-                Srinidhi Chakravarthy ▴ Bri Baehl
-              </p>
-            </div>
+            Hearts of Insomnia
+          </h1>
+          <p style={brief}>CHI 2026 ▴ Interactive Demo</p>
+          <p style={{ ...brief, marginBottom: 0 }}>
+            What if a bedside lamp could notice when the body starts to change,
+            without turning the moment into another notification?
+          </p>
+        </header>
 
-            <div>
-              <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>
-                Tools
-              </p>
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
-                Arduino ▴ Blender ▴ p5.js ▴ 3D Printing
-              </p>
-            </div>
-
-            <div>
-              <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>
-                Project
-              </p>
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
-                Physical Computing ▴ UX Research
-              </p>
-            </div>
-
-            <div>
-              <p className="fine-print" style={{ color: "var(--text-secondary)", marginBottom: 0 }}>
-                Submission
-              </p>
-              <p style={{ fontSize: "var(--type-base)", fontWeight: "var(--weight-regular)", margin: 0 }}>
-                CHI 2026 Interactive Demo
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+        <main style={{ display: "flex", flexDirection: "column", gap: "var(--padding-big)" }}>
+          {STORY.map(({ src, line }) => (
+            <figure key={src} style={{ margin: 0 }}>
+              <img
+                src={src}
+                alt={line}
+                style={{ width: "100%", borderRadius: "var(--radius)", display: "block", marginBottom: "var(--padding-small)" }}
+              />
+              <figcaption style={{ fontSize: "var(--type-base)", lineHeight: "var(--leading-body)", color: "var(--text-secondary)", maxWidth: 640 }}>
+                {line}
+              </figcaption>
+            </figure>
+          ))}
+        </main>
+      </div>
     </GalleryGrid>
   );
 }

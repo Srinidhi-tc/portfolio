@@ -22,7 +22,6 @@ import GithubStack from "../components/ui/GithubStack";
 import ThemeToggle from "../components/ui/ThemeToggle";
 import SFClock from "../components/ui/SFClock";
 import PrimaryLink from "../components/ui/PrimaryLink";
-import BlockWords from "../components/ui/BlockWords";
 import { GalleryList } from "./Home.dormant";
 import PrimaryNav from "../components/layout/PrimaryNav";
 
@@ -129,13 +128,6 @@ function Item({ id, title, meta, tucked }) {
   );
 }
 
-// Back to top: scroll up, then hand focus to the SRI home link.
-function toTop() {
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-  document.getElementById("sri-home")?.focus({ preventScroll: true });
-}
-
 export default function Home() {
   const { pathname } = useLocation();
   const path = pathname.replace(/\/+$/, "") || "/";
@@ -190,9 +182,6 @@ export default function Home() {
         )}
 
         <section className="home-v2__foot" aria-label="Footer">
-          <div className="home-v2__right home-v2__motif">
-            <BlockWords words={["Product", "+", "Design"]} plus="↑" label="Back to top" onActivate={toTop} />
-          </div>
           <div className="stack stack--small home-v2__left home-v2__end">
             <ThemeToggle />
             <SFClock />

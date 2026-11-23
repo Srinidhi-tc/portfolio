@@ -1549,3 +1549,6 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
   .home-v2__sri { grid-row: 1; margin-bottom: 0; }
   .home-v2__col { grid-row: 1; }
 }
+
+/* Work / Gallery: 28px letters on the 16px baseline grid, like S/R/I. */
+.primary-nav__link { position: relative; top: calc(var(--bl) - var(--bl-display)); }

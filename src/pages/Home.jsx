@@ -1,9 +1,9 @@
 // Home (interim layout): everything in columns 2 + 3, one stack.
 //
 // S/R/Iː sits in column 1, right aligned.
-// Scroll 1: the bio (left, columns 2 + 3), links with the GitHub grid
-//   (right, column 3), Research + Design (right, column 3).
-// Scroll 2: Work / Gallery (right), the projects one per row (right), the
+// Scroll 1: the fact-first bio (left, columns 2 + 3), icon links, eye links and the GitHub grid
+//   (right, column 3).
+// Scroll 2: Product + Design blocks, Work / Gallery (right), the projects one per row (right), the
 //   theme toggle (right), then SF time, thanks and copyright (left, column 2).
 // No header row and no footer on this page. Column 4 stays empty.
 //
@@ -14,19 +14,41 @@ import { Link } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 import { projectSummaries } from "../data/projectSummaries";
 import { projectObjects } from "../data/projectObjects";
-import { DESIGN_SYSTEM_URL, LINKEDIN_URL, RESUME_URL } from "../data/links";
+import { DESIGN_SYSTEM_URL, RESUME_URL } from "../data/links";
+import FadeWords from "../components/ui/FadeWords";
+import IconLinks from "../components/ui/IconLinks";
 import { SriMark } from "../components/layout/PageShell";
 import GithubStack from "../components/ui/GithubStack";
 import ThemeToggle from "../components/ui/ThemeToggle";
 import SFClock from "../components/ui/SFClock";
 import PrimaryLink from "../components/ui/PrimaryLink";
 import BlockWords from "../components/ui/BlockWords";
+import LabStacks from "../components/ui/LabStacks";
 
 
+// GitHub, LinkedIn and Email are square line icons (IconLinks).
+// Resume and Design System stay as eye links, lighter than body text.
 const CONTACT = [
   { label: "Resume", href: RESUME_URL },
-  { label: "LinkedIn", href: LINKEDIN_URL },
   { label: "Design System", href: DESIGN_SYSTEM_URL },
+];
+
+// Paragraph 1: one phrase at a time, fading into the next.
+const BIO_PHRASES = [
+  "ships and builds.",
+  "vibe-codes.",
+  "works in AI and data-dense workflows.",
+  "tests with ANOVA in Python and SPSS.",
+  "does field research and interviews.",
+  "takes pride in understanding niche users.",
+];
+
+// Paragraph 2: facts, the label in bold.
+const FACTS = [
+  { label: "Prev.", text: "Founding designer at Metasquare Inc." },
+  { label: "Recently", text: "MS in HCI, Purdue University." },
+  { label: "Hustled hard:", text: "grad TA, and product design for Microsoft Azure, SGX3, TAPD INTO-STEM and StraboSpot GIS." },
+  { label: "Loves", text: "cheese, hikes and long drives." },
 ];
 
 // Work: in this order. StraboSpot shows by default, after Tutor.
@@ -41,11 +63,6 @@ const WORK = [
 // Shown only when the ▴ next to the TACC object is opened.
 const TUCKED = {};
 
-// Gallery: physical objects, one per row. Malli is dormant (see Home.dormant).
-const GALLERY = [
-  { id: "hearts-of-insomnia", title: "Heart" },
-  { id: "bee-feeder",         title: "Bloom" },
-];
 
 const byId = (id) => workSectionProjects.find((p) => p.id === id);
 
@@ -114,9 +131,7 @@ function Item({ id, title, meta, tucked }) {
 export default function Home() {
   const [view, setView] = useState("work");
   const LABEL = { work: "Work", gallery: "Gallery" };
-  const list = view === "work"
-    ? WORK.map((w) => ({ ...w, meta: projectSummaries[w.id].headline, tucked: TUCKED[w.id] }))
-    : GALLERY.map((g) => ({ ...g, meta: byId(g.id).title }));
+  const list = WORK.map((w) => ({ ...w, meta: projectSummaries[w.id].headline, tucked: TUCKED[w.id] }));
 
   return (
     <div className="stacks-grid home-v2">
@@ -131,30 +146,32 @@ export default function Home() {
 
           <div className="home-bio stack home-v2__wide">
             <p>
-              Hi. I’m a product designer working at the intersection of AI, computer vision, and data-dense systems. My users are rarely “everyone”. I take pride in understanding my users.
+              I’m a product designer who
+              <FadeWords phrases={BIO_PHRASES} />
             </p>
-            <p>
-              I’ve shipped research-driven software design for geologists, security analysts, ML engineers, and developers.
-            </p>
-            <p>Passionate about physical AI, and hardware for health.</p>
+            <ul className="home-facts">
+              {FACTS.map(({ label, text }) => (
+                <li key={label}><strong>{label}</strong> {text}</li>
+              ))}
+            </ul>
           </div>
 
           <ul className="stack stack--small stack--right home-v2__right home-v2__links">
+            <li><IconLinks /></li>
             {CONTACT.map(({ label, href }) => (
               <li key={label}>
-                <PrimaryLink href={href}>{label}</PrimaryLink>
+                <PrimaryLink href={href} className="primary-link--light">{label}</PrimaryLink>
               </li>
             ))}
             <li><GithubStack /></li>
           </ul>
-
-          <div className="home-v2__right home-v2__motif">
-            <BlockWords words={["Research", "+", "Design"]} label="Research + Design" />
-          </div>
         </section>
 
         {/* Scroll 2 */}
         <section className="home-v2__work" aria-label="Work">
+          <div className="home-v2__right home-v2__motif home-v2__motif--work">
+            <BlockWords words={["Product", "+", "Design"]} label="Product + Design" />
+          </div>
           <div className="stack stack--small stack--right home-v2__right" role="tablist" aria-label="Work or gallery">
             {["work", "gallery"].map((key) => (
               <button
@@ -171,9 +188,11 @@ export default function Home() {
             ))}
           </div>
 
-          {list.map(({ id, title, meta, tucked }) => (
-            <Item key={id} id={id} title={title} meta={meta} tucked={tucked} />
-          ))}
+          {view === "work"
+            ? list.map(({ id, title, meta, tucked }) => (
+                <Item key={id} id={id} title={title} meta={meta} tucked={tucked} />
+              ))
+            : <LabStacks />}
 
           <div className="stack stack--small home-v2__left home-v2__end">
             <ThemeToggle />

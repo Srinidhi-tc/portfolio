@@ -98,6 +98,11 @@ Hover: link blue. Active: ink, bold, underline.
 - Case-study toggle: body text format, `--text-secondary`, each word followed by a
   light ▴ (`--color-line`, decorative, `aria-hidden`) that changes colour with it.
 
+### Gallery lab
+
+Gallery shows physical objects as posters, three stacks, quote as live text,
+hover blue, click bold and underline.
+
 ## 9. Lines
 
 Two hairlines: col 1/2 gutter and footer, joined by a ▴.

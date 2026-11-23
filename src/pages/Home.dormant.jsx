@@ -21,13 +21,18 @@
 //   DogMascot           the dog mascot (src/components/ui/FloatingMascot.jsx)
 //   MalliProject        the Malli 2.0 gallery page (src/pages/work/Malli.jsx);
 //                       to revive, add its route in App.jsx and list it in
-//                       GALLERY (Home.jsx) and ORDER (Footer.jsx)
+//                       GALLERY (below) and ORDER (Footer.jsx)
+//   GalleryList         the previous Gallery view: Heart and Bloom as project
+//                       rows (replaced by LabStacks, the Gallery lab)
 import WorkSection from "../sections/WorkSection";
 import { GanttChart, RecordList, ContextSections, EXPERIENCE, EDUCATION } from "./About";
 import { socialLinks } from "../data/links";
 import TennisBall from "../components/ui/TennisBall";
 import FloatingMascot from "../components/ui/FloatingMascot";
 import Malli from "./work/Malli";
+import { Link } from "react-router-dom";
+import { workSectionProjects } from "../data/workSectionProjects";
+import { projectObjects } from "../data/projectObjects";
 
 export function WorkLanding() {
   return <WorkSection />;
@@ -69,4 +74,26 @@ export function DogMascot() {
 
 export function MalliProject() {
   return <Malli />;
+}
+
+// The previous Gallery list: physical objects, one per row, right aligned.
+export const GALLERY = [
+  { id: "hearts-of-insomnia", title: "Heart" },
+  { id: "bee-feeder",         title: "Bloom" },
+];
+
+export function GalleryList() {
+  return GALLERY.map(({ id, title }) => {
+    const p = workSectionProjects.find((x) => x.id === id);
+    const src = projectObjects[id];
+    return (
+      <div key={id} className="stack stack--small stack--right home-v2__right">
+        <Link to={p.to} className="home-item__link">
+          {src ? <img className="home-item__object" src={src} alt={title} decoding="async" />
+               : <span className="home-item__title">{title}</span>}
+          <span className="home-item__meta">{p.title}</span>
+        </Link>
+      </div>
+    );
+  });
 }

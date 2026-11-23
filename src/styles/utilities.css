@@ -1576,3 +1576,15 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
    one line each. */
 .home-v2__links > li:first-child { display: flex; height: var(--space-m); }
 .home-v2__links .icon-links { position: relative; top: calc(var(--bl) - var(--space-m)); }
+
+/* Work: "More" opens the remaining projects. Body size, ink, underlined;
+   hover link blue like every other link. */
+.home-more {
+  all: unset; cursor: pointer;
+  font-size: var(--type-base); line-height: var(--space-m);
+  color: var(--text-primary);
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
+  transition: color 150ms ease;
+}
+.home-more:hover, .home-more:focus-visible { color: var(--link-blue); }
+@media (prefers-reduced-motion: reduce) { .home-more { transition: none; } }

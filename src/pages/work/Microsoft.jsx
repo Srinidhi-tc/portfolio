@@ -54,6 +54,7 @@ const CHAPTERS = [
   { id: "problem",  label: "Problem" },
   { id: "approach", label: "Approach" },
   { id: "solution", label: "Solution" },
+  { id: "collaboration", label: "Collaboration" },
   { id: "impact",   label: "Impact" },
 ];
 
@@ -185,6 +186,15 @@ export default function Microsoft() {
         <Bullets items={[
           [null, <><strong>Shipped once, consumed everywhere</strong>, one component vocabulary applied across four adjacent product flows, with recommendations grouped into a single compliance review cycle. The design system was inherited; the coordination move was mine.</>],
         ]} />
+      </Section>
+
+      {/* COLLABORATION */}
+      <Section id="collaboration" title="Collaboration">
+        <Prose>
+        <P>
+          I worked inside a group of designers running parallel streams, where every change had to clear 4–12 weeks of compliance review. I made sure we worked as one team: each designer owned a product flow, and we reviewed together on a shared cadence, so our recommendations reached compliance as one set. I handed off to engineering through Martin and Callum, with every change covered.
+        </P>
+        </Prose>
       </Section>
 
       {/* IMPACT */}

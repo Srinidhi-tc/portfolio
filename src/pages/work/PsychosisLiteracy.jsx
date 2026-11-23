@@ -152,8 +152,6 @@ export default function PsychosisLiteracy() {
         <Bullets items={[
           ["Simulation fidelity versus trigger risk", "authentic hallucination experiences validated against medical literature were essential for credibility; those same experiences, delivered without framing, risked harm. The resolution: a hallucination taxonomy of 10 categories was validated against clinical case studies, then wrapped in opt-in framing, exit controls, and context on every screen."],
           ["Education versus intervention", "the tool had to teach without ever presenting itself as treatment. Every surface declares its scope: \"Designed for ages 15–25 ▴ Educational purposes only.\""],
-          ["Expert voice versus student voice", "too clinical and the audience tunes out; too casual and the authority disappears. Clinical reviewers from Purdue Psychological Sciences and CAPS validated voice as well as content."],
-          ["Scope the system", "exit, help, and crisis-escalation paths are built into the system layer so no user has to find them under duress. The 988 Suicide & Crisis Lifeline is one tap from every screen."],
         ]} />
         <Prose>
         <P>I made safety and education one architecture from the start.</P>

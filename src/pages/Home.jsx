@@ -53,10 +53,14 @@ const FACTS = [
 
 // Work: in this order. StraboSpot shows by default, after Tutor.
 const WORK = [
-  { id: "ai-coding",          title: "Tutor" },
   { id: "strabospot",         title: "StraboSpot" },
   { id: "microsoft",          title: "Azure" },
   { id: "defenseark",         title: "DefenseARK" },
+];
+
+// Behind "More": shown once it is clicked.
+const MORE = [
+  { id: "ai-coding",          title: "Tutor" },
   { id: "psychosis-literacy", title: "Psychosis" },
 ];
 
@@ -130,6 +134,7 @@ function Item({ id, title, meta, tucked }) {
 
 export default function Home() {
   const { pathname } = useLocation();
+  const [more, setMore] = useState(false);
   const path = pathname.replace(/\/+$/, "") || "/";
   const view = path === "/work" ? "work" : path === "/gallery" ? "gallery" : "intro";
   const list = WORK.map((w) => ({ ...w, meta: projectSummaries[w.id].headline, tucked: TUCKED[w.id] }));
@@ -174,9 +179,24 @@ export default function Home() {
         {view !== "intro" && (
         <section className="home-v2__work" aria-label={view === "work" ? "Work" : "Gallery"}>
           {view === "work"
-            ? list.map(({ id, title, meta, tucked }) => (
-                <Item key={id} id={id} title={title} meta={meta} tucked={tucked} />
-              ))
+            ? <>
+                {list.map(({ id, title, meta, tucked }) => (
+                  <Item key={id} id={id} title={title} meta={meta} tucked={tucked} />
+                ))}
+                <div className="home-v2__right">
+                  <button
+                    type="button"
+                    className="home-more"
+                    aria-expanded={more}
+                    onClick={() => setMore((m) => !m)}
+                  >
+                    {more ? "Less" : "More"}
+                  </button>
+                </div>
+                {more && MORE.map(({ id, title }) => (
+                  <Item key={id} id={id} title={title} meta={projectSummaries[id].headline} />
+                ))}
+              </>
             : <GalleryList />}
         </section>
         )}

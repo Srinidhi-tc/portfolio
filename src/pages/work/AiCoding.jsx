@@ -155,8 +155,6 @@ export default function TACC() {
           <Bullets items={[
             ["Teach versus do", "sharper teaching slowed task completion; faster task completion collapsed the learning. I made sure the tutor moved the student one step forward without taking the step for them."],
             ["Guardrail versus flow", "a legal check at every turn killed the conversation; none exposed the institution. I built trust-and-safety into the structure: it routes between answer, scaffold, and refuse based on the kind of prompt as well as its content."],
-            ["Model authority versus student agency", "the more the tutor acted authoritatively, the more students outsourced their learning. The more deferential it acted, the less institutional trust it carried. The resolution: the tutor speaks with institutional voice but defers to student decision-making at every scaffold."],
-            ["Scope the system", "I pushed scope decisions onto the model layer (what the model would and would not do, when). I kept that weight off the student. This moved compliance into the design layer where it could be reviewed holistically."],
           ]} />
           <Prose>
           <P>

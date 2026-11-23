@@ -196,9 +196,7 @@ export default function StraboSpot() {
           </Prose>
           <Bullets items={[
             ["Image-first versus text-first", "new users convert on visual recognition; experts fall back on text labels. Map and image previews lead; text-dense tables remain available but recede."],
-            ["Unified search versus specialized search", "one unified search engine made the code lighter and scalable to more data types and more search patterns, at the cost of per-type tuning."],
             ["Virality versus restriction", "field trip documents are inherently shareable, but field data has restricted scientific value. I made sharing permissioned by default."],
-            ["Hook versus depth", "leading with the map (visual, retention-grade) risks hiding the analytical depth experts came for. I kept the depth one tap away."],
           ]} />
           <Slides>
             <Slide src={str11} number={11} caption="Interview key findings, geologists are visual professionals. They orient to rock color, image previews, and shareable artifacts. The product led with text." />

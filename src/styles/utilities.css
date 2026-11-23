@@ -1484,3 +1484,68 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 .lab-row .lab-card { align-self: stretch; }
 .lab-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-s); width: 100%; }
 @media (prefers-reduced-motion: reduce) { .lab-card__title, .lab-card__quote { transition: none; } }
+
+/* ==========================================================================
+   Primary nav: Work and Gallery stacked at the top of column 3, level with
+   the top of SRI. Display size, bold, ink. Hover link blue. Current page
+   uppercase + 1px underline (the nav's active state; everything else uses
+   bold + underline). The column overlays nav and content in one cell so
+   the nav never pushes the page down.
+   ========================================================================== */
+.home-v2__col { display: grid; align-content: start; }
+.home-v2__col > * { grid-column: 1; }
+.primary-nav {
+  grid-row: 1; z-index: 1;
+  justify-self: end; align-self: start;
+  display: flex; flex-direction: column; align-items: flex-end;
+  gap: var(--padding-small);
+}
+.home-v2__col > section:first-of-type { grid-row: 1; }
+.primary-nav__link {
+  display: flex; flex-direction: column; align-items: flex-end;
+  font-size: var(--type-display);
+  font-weight: var(--weight-bold);
+  line-height: var(--space-m);
+  color: var(--text-primary);
+  text-decoration: none;
+  /* 44px hit area, no change to the visible layout */
+  padding-block: calc((44px - var(--space-m)) / 2);
+  margin-block: calc((var(--space-m) - 44px) / 2);
+  transition: color 150ms ease;
+}
+.primary-nav__link::after {
+  content: attr(data-label);
+  text-transform: uppercase;
+  height: 0; overflow: hidden; visibility: hidden;
+  user-select: none; pointer-events: none;
+}
+.primary-nav__link:hover,
+.primary-nav__link:focus-visible { color: var(--link-blue); }
+.primary-nav__link[aria-current="page"] {
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.primary-nav__link[aria-current="page"]:not(:hover):not(:focus-visible) { color: var(--text-primary); }
+@media (prefers-reduced-motion: reduce) { .primary-nav__link { transition: none; } }
+
+/* Work and Gallery views start on the same line as the bio does on "/". */
+.home-v2__work { padding-top: calc(var(--space-m) * 5); }
+/* Footer block: Product + Design (points up, back to top), then the end. */
+.home-v2__foot {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: var(--space-l);
+  padding-top: var(--space-l);
+  padding-bottom: var(--space-l);
+}
+.home-v2__foot .home-v2__motif { align-self: auto; padding-bottom: 0; }
+
+
+/* Phones: SRI on the left and the nav on the right share the top row. */
+@media (max-width: 720px) {
+  .home-v2__sri { grid-row: 1; margin-bottom: 0; }
+  .home-v2__col { grid-row: 1; }
+}

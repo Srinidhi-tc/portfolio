@@ -98,6 +98,15 @@ Hover: link blue. Active: ink, bold, underline.
 - Case-study toggle: body text format, `--text-secondary`, each word followed by a
   light ▴ (`--color-line`, decorative, `aria-hidden`) that changes colour with it.
 
+### Navigation
+
+Two primary links, stacked at the top of column 3, display size, bold.
+Hover link blue. Current page uppercase and underlined. SRI is home.
+Product + Design sits in the footer, points up, and returns to top.
+
+Uppercase plus underline is the nav's active state only; everything else
+uses bold plus underline.
+
 ## 9. Lines
 
 Two hairlines: col 1/2 gutter and footer, joined by a ▴.

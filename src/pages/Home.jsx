@@ -10,7 +10,7 @@
 // Dormant content for this page lives in ./Home.dormant
 // To revive a block, import its named export and render it.
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 import { projectSummaries } from "../data/projectSummaries";
 import { projectObjects } from "../data/projectObjects";
@@ -24,6 +24,7 @@ import SFClock from "../components/ui/SFClock";
 import PrimaryLink from "../components/ui/PrimaryLink";
 import BlockWords from "../components/ui/BlockWords";
 import { GalleryList } from "./Home.dormant";
+import PrimaryNav from "../components/layout/PrimaryNav";
 
 
 // GitHub, LinkedIn and Email are square line icons (IconLinks).
@@ -128,9 +129,17 @@ function Item({ id, title, meta, tucked }) {
   );
 }
 
+// Back to top: scroll up, then hand focus to the SRI home link.
+function toTop() {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  document.getElementById("sri-home")?.focus({ preventScroll: true });
+}
+
 export default function Home() {
-  const [view, setView] = useState("work");
-  const LABEL = { work: "Work", gallery: "Gallery" };
+  const { pathname } = useLocation();
+  const path = pathname.replace(/\/+$/, "") || "/";
+  const view = path === "/work" ? "work" : path === "/gallery" ? "gallery" : "intro";
   const list = WORK.map((w) => ({ ...w, meta: projectSummaries[w.id].headline, tucked: TUCKED[w.id] }));
 
   return (
@@ -141,7 +150,8 @@ export default function Home() {
       </div>
 
       <div className="home-v2__col">
-        {/* Scroll 1 */}
+        <PrimaryNav />
+        {view === "intro" && (
         <section className="home-v2__fold" aria-label="About">
 
           <div className="home-bio stack home-v2__wide">
@@ -167,33 +177,22 @@ export default function Home() {
           </ul>
         </section>
 
-        {/* Scroll 2 */}
-        <section className="home-v2__work" aria-label="Work">
-          <div className="home-v2__right home-v2__motif home-v2__motif--work">
-            <BlockWords words={["Product", "+", "Design"]} label="Product + Design" />
-          </div>
-          <div className="stack stack--small stack--right home-v2__right" role="tablist" aria-label="Work or gallery">
-            {["work", "gallery"].map((key) => (
-              <button
-                key={key}
-                type="button"
-                role="tab"
-                aria-selected={view === key}
-                className={"home-toggle__label home-v2__toggle" + (view === key ? " home-toggle__label--active" : "")}
-                data-label={LABEL[key]}
-                onClick={() => setView(key)}
-              >
-                {LABEL[key]}
-              </button>
-            ))}
-          </div>
+        )}
 
+        {view !== "intro" && (
+        <section className="home-v2__work" aria-label={view === "work" ? "Work" : "Gallery"}>
           {view === "work"
             ? list.map(({ id, title, meta, tucked }) => (
                 <Item key={id} id={id} title={title} meta={meta} tucked={tucked} />
               ))
             : <GalleryList />}
+        </section>
+        )}
 
+        <section className="home-v2__foot" aria-label="Footer">
+          <div className="home-v2__right home-v2__motif">
+            <BlockWords words={["Product", "+", "Design"]} plus="↑" label="Back to top" onActivate={toTop} />
+          </div>
           <div className="stack stack--small home-v2__left home-v2__end">
             <ThemeToggle />
             <SFClock />

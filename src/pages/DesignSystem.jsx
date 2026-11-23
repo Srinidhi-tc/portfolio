@@ -9,6 +9,13 @@ export default function DesignSystem() {
         Stacks and Fs give the eye one edge to return to and one line to follow, which
         cuts scanning effort and keeps the reading order the same for screen readers.
       </p>
+      <p className="ds-purpose" style={{ gridColumn: "1 / -1" }}>
+        Navigation: two primary links, stacked at the top of column 3, display size,
+        bold. Hover link blue. Current page uppercase and underlined. SRI is home.
+        Product + Design sits in the footer, points up, and returns to top.
+        Uppercase plus underline is the nav&apos;s active state; everything else uses
+        bold plus underline.
+      </p>
       <img
         className="ds-sheet"
         style={{ gridColumn: "1 / -1" }}

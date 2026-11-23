@@ -30,6 +30,7 @@ const GLYPHS = {
   n: [".....", ".....", "#.##.", "##..#", "#...#", "#...#", "#...#"],
   "+": [".....", "..#..", "..#..", "#####", "..#..", "..#..", "....."],
   "↓": ["..#..", "..#..", "..#..", "#.#.#", ".###.", "..#..", "....."],
+  "↑": ["..#..", ".###.", "#.#.#", "..#..", "..#..", "..#..", "....."],
 };
 
 // The blocks of one word, as [col, row].
@@ -73,7 +74,9 @@ function piles(root) {
   return out;
 }
 
-export default function BlockWords({ words, label }) {
+// plus: when set, the "+" is drawn as this glyph at rest and while piled (no
+// swap). onActivate: called on click, after the animation starts.
+export default function BlockWords({ words, label, plus, onActivate }) {
   const ref = useRef(null);
   const busy = useRef(false);
   const want = useRef(false);      // where the pointer wants it: arrow or plus
@@ -137,7 +140,7 @@ export default function BlockWords({ words, label }) {
   }, [rise]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const go = (next) => { want.current = next; if (next !== arrow) play(next); };
-  const shown = words.map((w) => (w === "+" && arrow ? "↓" : w));
+  const shown = words.map((w) => (w === "+" ? (plus ?? (arrow ? "↓" : "+")) : w));
 
   return (
     <button
@@ -147,7 +150,7 @@ export default function BlockWords({ words, label }) {
       aria-label={label}
       onMouseEnter={() => go(true)}
       onMouseLeave={() => go(false)}
-      onClick={() => go(!want.current)}
+      onClick={() => { go(!want.current); onActivate?.(); }}
     >
       {shown.map((w, i) => <Word key={i} id={i} word={w} />)}
     </button>

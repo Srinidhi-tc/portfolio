@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, Link } from "react-router-dom";
 import { useEffect, useLayoutEffect, useState } from "react";
 // The top bar (Navbar.jsx) is no longer rendered.
 import Footer from "./Footer";
@@ -26,8 +26,13 @@ export function SriMark({ isHome }) {
     </>
   );
 
+  // On the home shell (/, /work, /gallery) SRI is a plain link home.
   if (isHome) {
-    return <p className="sri-mark" aria-label="SRI, pronounced Sree">{letters}</p>;
+    return (
+      <Link to="/" id="sri-home" className="sri-mark sri-mark--link" aria-label="Srinidhi, home">
+        {letters}
+      </Link>
+    );
   }
 
   const onClick = (e) => {
@@ -44,7 +49,7 @@ export function SriMark({ isHome }) {
       href={`${import.meta.env.BASE_URL}`}
       onClick={onClick}
       className={"sri-mark sri-mark--link" + (toppling ? " sri-mark--topple" : "")}
-      aria-label="Back to home"
+      aria-label="Srinidhi, home"
     >
       {letters}
     </a>
@@ -79,7 +84,7 @@ function snapImages(root) {
 export default function PageShell() {
   const { pathname } = useLocation();
   const [slot, setSlot] = useState(null);
-  const isHome = pathname === "/" || pathname === "/work" || pathname === "/work/";
+  const isHome = ["/", "/work", "/work/", "/gallery", "/gallery/"].includes(pathname);
 
   useEffect(() => {
     window.scrollTo(0, 0);

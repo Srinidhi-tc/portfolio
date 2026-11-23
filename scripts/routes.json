@@ -22,6 +22,14 @@
       "source": "src/assets/5.png"
     },
     {
+      "path": "/gallery",
+      "title": "Gallery · Srinidhi Chakravarthy",
+      "description": "Physical objects: a 3D-printed flower for butterflies and a heart-shaped bedside lamp.",
+      "og": "work",
+      "eyebrow": "GALLERY",
+      "source": "src/assets/flowerfinal1.png"
+    },
+    {
       "path": "/about",
       "title": "About · Srinidhi Chakravarthy",
       "description": "I started in psychology, pivoted to design. Both ask the same question: how could I give someone more agency? Master's in UX from Purdue.",

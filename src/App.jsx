@@ -18,6 +18,7 @@ export default function App() {
       <Route element={<PageShell />}>
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Home />} />
+        <Route path="/gallery" element={<Home />} />
         <Route path="/work/microsoft" element={<Microsoft />} />
         <Route path="/work/ai-coding" element={<AiCoding />} />
         <Route path="/work/strabospot" element={<Strabospot />} />

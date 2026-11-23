@@ -125,7 +125,7 @@ export default function PsychosisLiteracy() {
           48% of U.S. public schools report they cannot effectively provide mental health services to students who need them (Institute of Educational Sciences, 2024). Over 100,000 teenagers in the U.S. experience psychosis for the first time each year; most do so without the language, context, or peer understanding to make sense of what is happening to them.
         </P>
         <P>
-          The question for this capstone was not "how do we treat psychosis." That belongs to clinicians. The question was: how do you design an empathy tool that teaches 15- to 25-year-olds what psychosis actually feels like, without medicalizing the experience, triggering vulnerable users, or overstepping into clinical territory a designer has no business entering.
+          I didn't try to treat psychosis. That belongs to clinicians. What I set out to do was design an empathy tool that teaches 15- to 25-year-olds what psychosis actually feels like, without medicalizing the experience, triggering vulnerable users, or overstepping into clinical territory a designer has no business entering.
         </P>
         </Prose>
         <Slide src={cap2} caption="The ground problem, 48% of U.S. public schools cannot effectively provide mental health services (Institute of Educational Sciences, May 2024). The gap the capstone was scoped to address." />
@@ -139,9 +139,9 @@ export default function PsychosisLiteracy() {
         <Bullets items={[
           ["No consumer-grade empathy tool for psychosis education", "existing resources are either clinical (DSM-5, patient brochures) or sensationalized (horror media, misinformation). Nothing sat between."],
           ["Safety-by-design is non-negotiable", "the primary audience includes users at elevated risk. Any interactive experience must assume someone in distress will encounter it and must not harm them."],
-          ["Educational framing versus simulation fidelity", "too clinical and students disengage; too realistic and the experience triggers rather than teaches. The design had to carry authority without triggering."],
+          ["Educational framing versus simulation fidelity", "too clinical and students disengage; too realistic and the experience can trigger students. The design had to carry authority without triggering."],
         ]} />
-        <Slide src={cap9} caption="Customer journey map, Mr. KP's day from waking through night. Emotional hallucinations peak at work; night is most frightening. Ethnographic input, not clinical data." />
+        <Slide src={cap9} caption="Customer journey map, Mr. KP's day from waking through night. Emotional hallucinations peak at work; night is most frightening. This is ethnographic input." />
       </Section>
 
       {/* TRADEOFF */}
@@ -153,10 +153,10 @@ export default function PsychosisLiteracy() {
           ["Simulation fidelity versus trigger risk", "authentic hallucination experiences validated against medical literature were essential for credibility; those same experiences, delivered without framing, risked harm. The resolution: a hallucination taxonomy of 10 categories was validated against clinical case studies, then wrapped in opt-in framing, exit controls, and context on every screen."],
           ["Education versus intervention", "the tool had to teach without ever presenting itself as treatment. Every surface declares its scope: \"Designed for ages 15–25 ▴ Educational purposes only.\""],
           ["Expert voice versus student voice", "too clinical and the audience tunes out; too casual and the authority disappears. Clinical reviewers from Purdue Psychological Sciences and CAPS validated voice as well as content."],
-          ["Scope the system, not the user", "exit, help, and crisis-escalation paths are built into the system layer so no user has to find them under duress. The 988 Suicide & Crisis Lifeline is one tap from every screen."],
+          ["Scope the system", "exit, help, and crisis-escalation paths are built into the system layer so no user has to find them under duress. The 988 Suicide & Crisis Lifeline is one tap from every screen."],
         ]} />
         <Prose>
-        <P>The resulting product treats safety and education as the same architecture, not two downstream reviews.</P>
+        <P>I made safety and education one architecture from the start.</P>
         </Prose>
         <Slide src={cap22} caption="Hallucination image architecture, ten visual categories validated against medical case studies: neutral, shadows, hands, fireworks, smoke, shaky/blurred, animals, slight distortions, colours, random patterns. The taxonomy underneath the product." />
         <Slide src={cap31} caption="Trade-offs and challenges, competitor analysis, paper prototypes, wireframes, initial mockups, and secondary research. Access documentation separately." />
@@ -187,14 +187,14 @@ const safety = {
 const sections = ["onboarding", "visual", "auditory", "reflection", "help"];
 sections.forEach((s) => wrap(s, safety));  // one pattern, five surfaces
 `}
-          caption="The safety architecture written as data: the same layer wraps all five sections. A summary of the design, not the Base44 source."
+          caption="The safety architecture written as data: the same layer wraps all five sections. I wrote this as a summary of the design for this page."
         />
         <Slide src={cap14} caption={"Percepta onboarding, \"100,000+ teenagers experience psychosis each year for the first time. This experience simulates mild perceptual changes to build empathy and understanding. You can exit at any time.\" Scope and consent declared in the opening screen; the safety architecture begins here."} />
         <Slide src={cap19} caption="Five visual hallucination types, colours, blur, smoke, bubbles, shadows, faces and hands. Each validated against medical case studies before being surfaced to the student." />
         <Slide src={cap20} caption="Five auditory hallucination types, whispers, self-talk, two voices, footsteps, commands. The same validation protocol applied to the auditory channel." />
         <Slide src={cap18} caption={"Filter selection, UX heuristic: match between system and real world. Filters work like gallery filters, a mental model youth already carry. \"Did anything feel off?\" reflection prompt after the experience."} />
         <Slide src={cap21} caption={"\"3 Ways to Ask for Help\", trusted person, counselor, professional support. 988 Suicide & Crisis Lifeline persistent in the frame. UX heuristic: help users recognize, diagnose, and recover from errors, applied to crisis safety."} />
-        <Slide src={cap27} caption="Shipped product on Base44, reviewable, usable, extensible. The deliverable was a working artifact, not a mockup. https://app.base44.com/apps/69c1a0c9aa1a1e3081429008/editor/preview" />
+        <Slide src={cap27} caption="Shipped product on Base44, reviewable, usable, extensible. I delivered a working product. https://app.base44.com/apps/69c1a0c9aa1a1e3081429008/editor/preview" />
       </Section>
 
       {/* IMPACT */}
@@ -207,7 +207,7 @@ sections.forEach((s) => wrap(s, safety));  // one pattern, five surfaces
         ]} />
         <Prose>
         <P>
-          In healthcare-adjacent design, the design system is not just visual, it is the architecture that governs who the product can and cannot harm. The brief was educational empathy, measured in clinical review acceptance and the number of surfaces a vulnerable user could safely interact with without a designer in the room.
+          In healthcare-adjacent design, I treated the design system as the architecture that governs who the product can and cannot harm. The brief was educational empathy, measured in clinical review acceptance and the number of surfaces a vulnerable user could safely interact with without a designer in the room.
         </P>
         </Prose>
         <Slide

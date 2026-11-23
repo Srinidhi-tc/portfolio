@@ -120,14 +120,14 @@ export default function Microsoft() {
       <Section id="context" title="Context">
         <Prose>
         <P>
-          Microsoft Azure already had a mature design system when I joined the Health Observability team. The question wasn't what to build with; it was how to make a dense enterprise tool legible for internal SRE engineers when every design decision had to clear 4–12 weeks of compliance review and align across parallel designer streams.
+          Microsoft Azure already had a mature design system when I joined the Health Observability team. I didn't need new tools. What I worked on was making a dense enterprise tool easy to read for internal SRE engineers, while every design decision had to clear 4–12 weeks of compliance review and line up across parallel designer streams.
         </P>
         <P>
           The product surfaced accurate telemetry across hundreds of distributed services. The problem was that each product-flow owner was improving their own slice without visibility into what other designers were changing nearby. Users saw inconsistency; the compliance cycle amplified it.
         </P>
         </Prose>
           <Slide src={mic6} caption="Azure Health Models: the enterprise surface SRE engineers monitor at scale, and the one where every change ran through a 4–12 week compliance review." />
-          <Slide src={mic7} caption="Azure Monitor baseline: the inherited surface showing error rates, resolution speed, log density, and real-time alerts. The ask was to make it legible, not to replace it." />
+          <Slide src={mic7} caption="Azure Monitor baseline: the inherited surface showing error rates, resolution speed, log density, and real-time alerts. I didn't replace it. I made it easier to read." />
       </Section>
 
       {/* PROBLEM */}
@@ -150,7 +150,7 @@ export default function Microsoft() {
       <Section id="approach" title="Approach">
         <Prose>
         <P>
-          I treated the Health Monitor as one decision surface and the designer group as one team that needed shared review, not parallel ownership.
+          I treated the Health Monitor as one decision surface. I made sure the designer group worked as one team with shared review.
         </P>
         </Prose>
         <Bullets items={[
@@ -161,7 +161,7 @@ export default function Microsoft() {
         ]} />
         <Prose>
         <P>
-          Inside a mature design system, the move wasn't to redesign primitives; it was to use them more coherently across adjacent surfaces.
+          I didn't redesign the design system's primitives. I used them more consistently across neighbouring surfaces.
         </P>
         </Prose>
         <ImagePair>
@@ -169,14 +169,14 @@ export default function Microsoft() {
           <Slide src={micCall}  caption="Remote interview with SRE engineers: the research input that identified where the compliance window and the alignment gap compounded." />
         </ImagePair>
         <Slide src={mic77} caption="Iteration: plain cards and double-click state (left) versus radial status indicators for root-cause entities (right). The right side introduces one visual token the whole surface can share." />
-        <Slide src={micWcag} caption="Accessibility pass. Contrast ratios against white, deuteranopia simulation, and the final proposal: status symbols plus number plus a darker orange (#B35900). Compliance precondition, not afterthought." />
+        <Slide src={micWcag} caption="Accessibility pass. Contrast ratios against white, deuteranopia simulation, and the final proposal: status symbols plus number plus a darker orange (#B35900). I did this before compliance review, as a precondition." />
       </Section>
 
       {/* SOLUTION */}
       <Section id="solution" title="Solution">
         <Prose>
         <P>
-          The redesigned surface unified health, cost, and incident context on one page. Natural language queries resolved inline when the model was confident and surfaced structured fallbacks when it wasn't. Designer-level ownership of each product flow combined with a shared review cadence meant recommendations landed in compliance as a coherent set, not a trickle.
+          The redesigned surface unified health, cost, and incident context on one page. Natural language queries resolved inline when the model was confident and surfaced structured fallbacks when it wasn't. Designer-level ownership of each product flow combined with a shared review cadence meant recommendations landed in compliance together, as one coherent set.
         </P>
         </Prose>
         <ConfidenceFlow />

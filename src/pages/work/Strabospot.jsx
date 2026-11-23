@@ -178,12 +178,12 @@ export default function StraboSpot() {
           </Prose>
           <Bullets items={[
             ["Buried visual value", "geologists mainly use StraboSpot to see images of rocks and field sites, generate shareable documents, and share work with peers. These behaviors were buried behind text-heavy maps and dense data tables."],
-            ["Scaling cap in the search layer", "the search engine was product-specific, not pattern-reusable; extending search to more data types required reinventing the layer for each one."],
+            ["Scaling cap in the search layer", "the search engine was built for one product and couldn't be reused; extending search to more data types required reinventing the layer for each one."],
             ["No viral loop", "the artifacts geologists produced (field trip documents, image galleries) could not be shared cleanly outside the tool."],
             ["Text-first interface for a color-first user", "geologists are visual professionals; they orient to rock color, field color, map color. The product led with text labels."],
           ]} />
           <Slides>
-            <Slide src={str5} number={5} caption="Audit method, heuristic review scoped to find the single lever that would move adoption, not just clean the interface." />
+            <Slide src={str5} number={5} caption="Audit method: I scoped the heuristic review to find the single lever that would move adoption." />
             <Slide src={str6} number={6} caption="Map view audit, visual clutter and technical naming on a surface geologists actually use for visual orientation. The misalignment the project turned on." />
             <Slide src={str7} number={7} caption="Search filter audit, dense results, restart friction, unexpected navigation. Search was the scaling bottleneck disguised as a UX problem." />
             <Slide src={str8} number={8} caption="All Strabo Data audit, the same query returning different results across contexts. Scaling the data model required unifying the search layer first." />
@@ -192,13 +192,13 @@ export default function StraboSpot() {
 
         <Section id="tradeoff" title="Tradeoff">
           <Prose>
-          <P>The real design question was not "clean the interface" but "where does visual priority outweigh expert density, and where does it not."</P>
+          <P>I didn't stop at cleaning the interface. I asked where visual priority should outweigh expert density, and where it shouldn't.</P>
           </Prose>
           <Bullets items={[
             ["Image-first versus text-first", "new users convert on visual recognition; experts fall back on text labels. Map and image previews lead; text-dense tables remain available but recede."],
             ["Unified search versus specialized search", "one unified search engine made the code lighter and scalable to more data types and more search patterns, at the cost of per-type tuning."],
-            ["Virality versus restriction", "field trip documents are inherently shareable, but field data has restricted scientific value. Sharing routes default to permissioned, not open."],
-            ["Hook versus depth", "leading with the map (visual, retention-grade) risks hiding the analytical depth experts came for. Depth sits one tap away, not behind five."],
+            ["Virality versus restriction", "field trip documents are inherently shareable, but field data has restricted scientific value. I made sharing permissioned by default."],
+            ["Hook versus depth", "leading with the map (visual, retention-grade) risks hiding the analytical depth experts came for. I kept the depth one tap away."],
           ]} />
           <Slides>
             <Slide src={str11} number={11} caption="Interview key findings, geologists are visual professionals. They orient to rock color, image previews, and shareable artifacts. The product led with text." />
@@ -218,11 +218,11 @@ export default function StraboSpot() {
           <Slides>
             <Slide src={str13} number={13} caption="Proposed search surface, map-first, with image previews, filters, bookmarks, help. The hook that drives retention sits above the fold." />
             <Slide src={str14} number={14} caption="Unified navigation between maps, one mental model across contexts, so switching surfaces preserves state. The groundwork for a scalable search layer." />
-            <Slide src={str15} number={15} caption="Gallery and document pipeline, image gallery, ownership, and credits adjacent to the generator. Sharing becomes a native action, not an export." />
+            <Slide src={str15} number={15} caption="Gallery and document pipeline, image gallery, ownership, and credits adjacent to the generator. Sharing becomes a built-in action." />
             <Slide src={str16} number={16} caption="Unified search tool ▴ map view, the shared surface, lighter in code, extensible to new data types without reinventing the layer." />
             <Slide src={str17} number={17} caption="Map detail, visibility, zoom behaviour, base-map controls. Expert tolerances for density, respected on a surface tuned for new-user conversion." />
             <Slide src={str18} number={18} caption="Search bar, image filters, map/list toggle, color-aware sorting. One component, three contexts, no re-invention per surface." />
-            <Slide src={str19} number={19} caption="List view, sortable results with image preview. Scanning the gallery, not scrolling the data." />
+            <Slide src={str19} number={19} caption="List view, sortable results with image preview. Users scan images to find what they need." />
             <Slide src={str20} number={20} caption="List detail, image preview before opening on the map. The one-tap return pattern that lets geologists scan a trip before committing." />
           </Slides>
         </Section>
@@ -232,12 +232,12 @@ export default function StraboSpot() {
             [null, <>All <strong>eight recommendations adopted</strong> by the StraboSpot stakeholder and engineering clients</>],
             [null, "Prioritized by the StraboSpot team into their roadmap for the following quarter"],
             [null, <><strong>Unified search layer</strong> reduces per-feature search engineering to one shared pipeline, the groundwork for scaling to new data types without rebuilding</>],
-            [null, <><strong>Shareable document pipeline</strong> opens a viral loop, geologists sharing field trips to classes, peers, and LinkedIn, pulling new users in through artifacts rather than marketing</>],
+            [null, <><strong>Shareable document pipeline</strong> opens a viral loop, geologists sharing field trips to classes, peers, and LinkedIn, pulling new users in through the documents they share</>],
             [null, <>Framework <strong>reusable across adjacent science-gateway tools</strong> in the SGX3 portfolio</>],
           ]} />
           <Prose>
           <P>
-            In mature expert tools, growth doesn't come from new features, it comes from surfacing the behaviors users already love and making them easy to share. The brief was adoption, measured in new users retained and documents shared outward.
+            I didn't add new features to drive growth. What I did was surface what users already loved doing and make it easy to share. The brief was adoption, measured in new users retained and documents shared outward.
           </P>
           </Prose>
         </Section>

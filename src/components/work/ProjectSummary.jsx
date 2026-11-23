@@ -18,7 +18,9 @@ export function ProjectHeader({ id, children }) {
         <p className="project-header__org">{s.org}</p>
       </div>
       {children && <p className="project-header__line">{children}</p>}
-      <p className="project-header__line">{s.outcome}</p>
+      <p className="project-header__line">
+        <strong>My impact</strong> {s.need && <>{s.need} </>}{s.outcome}
+      </p>
     </div>
   );
 }

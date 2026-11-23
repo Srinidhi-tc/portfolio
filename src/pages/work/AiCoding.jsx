@@ -122,10 +122,10 @@ export default function TACC() {
         <Section id="context" title="Context">
           <Prose>
           <P>
-            Conversational AI in institutional contexts is not a UX problem; it is a relationship design problem. TACC's tutor needed to teach students who ranged from "has never written a line of code" to "writing scientific compute pipelines at the national supercomputing center", under institutional constraints most consumer AI products do not face. Legal, compliance, pedagogical ethics, and institutional reputation all converged on a single surface: the chat window.
+            I treated conversational AI at an institution as a relationship design problem. TACC's tutor needed to teach students who ranged from "has never written a line of code" to "writing scientific compute pipelines at the national supercomputing center", under institutional constraints most consumer AI products do not face. Legal, compliance, pedagogical ethics, and institutional reputation all converged on a single surface: the chat window.
           </P>
           <P>
-            The engineering team had built a working model layer. The design question was not "what can the model do" but "how should the model behave as an institutional actor."
+            The engineering team had built a working model layer. I didn't focus on what the model could do. I focused on how it should behave on behalf of the institution.
           </P>
           </Prose>
         </Section>
@@ -153,14 +153,14 @@ export default function TACC() {
           <P>Every decision in this project traded conversational freedom against institutional responsibility.</P>
           </Prose>
           <Bullets items={[
-            ["Teach versus do", "sharper teaching slowed task completion; faster task completion collapsed the learning. The pedagogical ask was not \"answer the question\" but \"move the student one step forward without taking the step for them.\""],
-            ["Guardrail versus flow", "a legal check at every turn killed the conversation; none exposed the institution. Trust-and-safety had to be an architecture, not a filter, routing between answer, scaffold, and refuse based on prompt class, not just prompt content."],
+            ["Teach versus do", "sharper teaching slowed task completion; faster task completion collapsed the learning. I made sure the tutor moved the student one step forward without taking the step for them."],
+            ["Guardrail versus flow", "a legal check at every turn killed the conversation; none exposed the institution. I built trust-and-safety into the structure: it routes between answer, scaffold, and refuse based on the kind of prompt as well as its content."],
             ["Model authority versus student agency", "the more the tutor acted authoritatively, the more students outsourced their learning. The more deferential it acted, the less institutional trust it carried. The resolution: the tutor speaks with institutional voice but defers to student decision-making at every scaffold."],
-            ["Scope the system, not the user", "I pushed scope decisions onto the model layer (what the model would and would not do, when) rather than onto the student. This moved compliance into the design layer where it could be reviewed holistically."],
+            ["Scope the system", "I pushed scope decisions onto the model layer (what the model would and would not do, when). I kept that weight off the student. This moved compliance into the design layer where it could be reviewed holistically."],
           ]} />
           <Prose>
           <P>
-            The resulting interaction model treats trust-and-safety as an architecture, pedagogy as an interaction pattern, and institutional voice as a conversation design decision, not three downstream checks.
+            The resulting interaction model treats trust-and-safety as an architecture, pedagogy as an interaction pattern, and institutional voice as a conversation design decision. I built all three in from the start.
           </P>
           </Prose>
           <Slides>
@@ -175,12 +175,12 @@ export default function TACC() {
           </Prose>
           <Bullets items={[
             ["Trust-and-safety routing layer", "the model classifies incoming prompts into answer, scaffold, or refuse at the system level, with institutional disclosure patterns for each class. One review packet; one source of truth for legal."],
-            ["Session summarisation", "the model generates a session recap on demand, persisted to the student's progress view. The artifact of the session is the learning, not the chat."],
+            ["Session summarisation", "the model generates a session recap on demand, persisted to the student's progress view. What the student keeps is the learning."],
             ["Progress tracker", "a thin header bar legible without expanding the chat, carried across sessions. The tutor remembers; the student does not have to."],
           ]} />
           <Slides>
             <Slide src={tacc9} number={9} caption="Proposed first interaction, the model announces its scope, authority, and refusal boundaries before the student asks the first question. Trust is set in the opening turn." />
-            <Slide src={tacc10} number={10} caption="Suggested prompts, guidance, and expectations, scaffolding that teaches the student how to use the tutor, not just the subject. Pedagogy as interface." />
+            <Slide src={tacc10} number={10} caption="Suggested prompts, guidance, and expectations, scaffolding that teaches the student how to use the tutor as well as the subject. Pedagogy as interface." />
             <Slide src={tacc12} number={12} caption="Guided questions, the model prompts the student toward the next move. Model authority deferred to student decision-making at every scaffold." />
             <Slide src={tacc13} number={13} caption="Clearer structure and next steps, every turn ends with a visible path forward, reducing session drop-off and formalizing where the tutor's authority ends." />
             <Slide src={tacc15} number={15} caption="Proposed feedback model, concepts, attempts, and actionable next steps as the durable artifact. The artifact of the session is the learning." />

@@ -109,7 +109,7 @@ export default function DefenseArk() {
           When I joined DefenseARK as its first designer, the company had three products in flight (Enigma, Brightscan, and Torus) and no shared visual identity. Each had been engineered independently in Vue, with its own color, type, and interaction patterns. The public website and internal narratives had evolved separately from the products themselves.
         </P>
         <P>
-          In a security domain where enterprise clients evaluate trust in seconds, the fragmentation was a credibility risk, not an aesthetic one.
+          In a security domain where enterprise clients evaluate trust in seconds, the fragmentation was a credibility risk.
         </P>
         </Prose>
       </Section>
@@ -130,13 +130,13 @@ export default function DefenseArk() {
       {/* APPROACH */}
       <Section id="approach" title="Approach">
         <Prose>
-        <P>I approached the work as product alignment and leadership exercise, not a visual refresh.</P>
+        <P>I didn't treat this as a visual refresh. I approached it as product alignment and leadership.</P>
         </Prose>
         <Bullets items={[
           ["Credibility over decoration", "in a trust-sensitive domain, visual restraint signals seriousness more than ornament"],
-          ["Brand as system, not surface", "identity, typography, components, and motion defined once at the token layer, then applied across the three products and the marketing site"],
+          ["Brand as system", "identity, typography, components, and motion defined once at the token layer, then applied across the three products and the marketing site"],
           ["Governance by convenience", "make the system easier to use than to work around, so engineers adopt it without being asked"],
-          ["Ship with engineering, not to it", "I committed Vue, React, and CSS directly so the system existed in code, not Figma alone"],
+          ["Ship with engineering", "I committed Vue, React, and CSS directly so the system existed in code as well as Figma"],
         ]} />
         <Prose>
         <P>
@@ -149,7 +149,7 @@ export default function DefenseArk() {
       <Section title="Business impact">
         <Prose>
         <P>
-          Enterprise clients in cybersecurity evaluate trust in seconds. Fragmented presentation is lost pipeline, not an aesthetic problem. CEO time on manual client intake was the second most expensive hour in the company; routing it to a self-service pathway freed leadership capacity for sales calls. The brief was credibility, measured in inbound leads.
+          Enterprise clients in cybersecurity evaluate trust in seconds. Fragmented presentation loses pipeline. CEO time on manual client intake was the second most expensive hour in the company; routing it to a self-service pathway freed leadership capacity for sales calls. The brief was credibility, measured in inbound leads.
         </P>
         </Prose>
       </Section>
@@ -179,7 +179,7 @@ export default function DefenseArk() {
         ]} />
         <Prose>
         <P>
-          In a 0→1 context, brand isn't decoration; it's the system that lets a small company present as a single credible voice. The job was less to design, and more to decide what the company would look and sound like consistently as it scaled.
+          In a 0→1 context, I treated brand as the system that lets a small company present as a single credible voice. My job was mostly to decide what the company would look and sound like consistently as it scaled.
         </P>
         </Prose>
       </Section>

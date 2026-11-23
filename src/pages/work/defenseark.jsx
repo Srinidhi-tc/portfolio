@@ -6,7 +6,6 @@
 //
 // Before publishing: update the Torus card with what you worked on, if anything.
 
-import { EyeGlobe } from "../../components/ui/PrimaryLink";
 import { ProjectHeader } from "../../components/work/ProjectSummary";
 import Kicker from "../../components/ui/Kicker";
 import CaseStudyGrid, { Ledger, Prose, Stacks, ImagePair } from "../../components/layout/CaseStudyGrid";
@@ -194,7 +193,7 @@ export default function DefenseArk() {
               <p style={{ ...lbl, fontSize:"var(--type-base)", marginBottom:"var(--padding-small)" }}>{p.type}</p>
               <p style={{ fontSize:"var(--type-base)", fontWeight:"var(--weight-regular)", color:"var(--text-primary)", margin:"0 0 var(--padding-small)" }}>{p.name}</p>
               <p style={{ fontSize:"var(--type-base)", color:"var(--text-secondary)", lineHeight:"var(--leading-body)", margin:"0 0 var(--padding-small)" }}>{p.my}</p>
-              <span className="primary-link"><EyeGlobe /><span className="primary-link__text">Visit {p.name}</span></span>
+              <span className="primary-link"><span className="primary-link__text">Visit {p.name}</span></span>
             </a>
           ))}
         </div>

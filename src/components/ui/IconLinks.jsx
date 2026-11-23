@@ -22,8 +22,8 @@ const ICONS = {
   ),
   Email: (
     <svg viewBox="3 3 18 18" overflow="visible" aria-hidden="true" focusable="false">
-      <rect x="3" y="7" width="18" height="14" {...P} />
-      <path d="M3 7 L12 15 L21 7" {...P} />
+      <rect x="3" y="3" width="18" height="18" {...P} />
+      <path d="M3 3 L12 12 L21 3" {...P} />
     </svg>
   ),
 };

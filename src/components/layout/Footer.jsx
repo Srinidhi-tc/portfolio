@@ -5,7 +5,6 @@ import { useLayoutEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "../ui/ThemeToggle";
 import SFClock from "../ui/SFClock";
-import { EyeGlobe } from "../ui/PrimaryLink";
 import { workSectionProjects } from "../../data/workSectionProjects";
 import { projectSummaries } from "../../data/projectSummaries";
 
@@ -55,7 +54,7 @@ export default function Footer() {
       {/* Top: the Design System link and the next project, close together. */}
       <div className="stacks-grid next-project">
         <div className="stacks-col stacks-col--x stack stack--small stack--right">
-          <Link className="primary-link" to="/design-system"><EyeGlobe /><span className="primary-link__text">Design System</span></Link>
+          <Link className="primary-link" to="/design-system"><span className="primary-link__text">Design System</span></Link>
           {next && (
             <Link to={next.to} className="next-project__link">
               <span className="next-project__label">Next project</span>

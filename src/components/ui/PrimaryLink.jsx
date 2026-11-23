@@ -1,6 +1,6 @@
 // PrimaryLink: the highest-priority link in the system (contacts, GitHub,
-// Figma files, DefenseARK products). Eye-globe icon first, then blue,
-// underlined text. Every other link is plain text colour with an underline
+// Figma files, DefenseARK products): blue, underlined text, no icon.
+// (EyeGlobe is kept for reference but no longer drawn.) Every other link is plain text colour with an underline
 // and no icon.
 export function EyeGlobe() {
   return (
@@ -25,7 +25,6 @@ export default function PrimaryLink({ href, children, external = true, className
       rel={external ? "noopener noreferrer" : undefined}
       {...rest}
     >
-      <EyeGlobe />
       <span className="primary-link__text">{children}</span>
     </a>
   );

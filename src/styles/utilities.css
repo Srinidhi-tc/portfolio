@@ -1592,3 +1592,8 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 /* Work and Gallery in link blue, at rest, on hover and when current. */
 .primary-nav__link,
 .primary-nav__link[aria-current="page"]:not(:hover):not(:focus-visible) { color: var(--link-blue); }
+
+/* GitHub grid on the intro: visible on phones too. */
+@media (max-width: 720px) {
+  .home-v2__links .github-heatmap { display: flex !important; }
+}

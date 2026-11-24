@@ -1588,3 +1588,7 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 }
 .home-more:hover, .home-more:focus-visible { color: var(--link-blue); }
 @media (prefers-reduced-motion: reduce) { .home-more { transition: none; } }
+
+/* Work and Gallery in link blue, at rest, on hover and when current. */
+.primary-nav__link,
+.primary-nav__link[aria-current="page"]:not(:hover):not(:focus-visible) { color: var(--link-blue); }

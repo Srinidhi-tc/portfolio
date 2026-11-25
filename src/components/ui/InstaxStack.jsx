@@ -36,6 +36,7 @@ export default function InstaxStack() {
   const raf = useRef(0);
   const drag = useRef(null);
   const busy = useRef(false);
+  const touchTimer = useRef(0);
 
   const paint = (i) => {
     const s = sim.current[i], el = els.current[i];
@@ -153,7 +154,10 @@ export default function InstaxStack() {
       tabIndex={0}
       aria-label={`${top.rank} of hearts: ${top.bottom} ${top.side}. Press to show the next card.`}
       onPointerEnter={() => canHover() && setFan(true)}
-      onPointerLeave={() => { setFan(false); setSpec(false); }}
+      onPointerLeave={() => { if (canHover()) setFan(false); setSpec(false); }}
+      // Touch: the hand fans open while a finger is on it, and a moment after.
+      onPointerDownCapture={(e) => { if (e.pointerType !== "mouse") { clearTimeout(touchTimer.current); setFan(true); } }}
+      onPointerUpCapture={(e) => { if (e.pointerType !== "mouse") { clearTimeout(touchTimer.current); touchTimer.current = window.setTimeout(() => setFan(false), 1400); } }}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cycle(); } }}
     >
       {CARDS.map((c, i) => {
@@ -177,6 +181,7 @@ export default function InstaxStack() {
             </span>
             <span className="instax__bottom">{c.bottom}</span>
             <span className="instax__side">{c.side}</span>
+            <span className="instax__index instax__index--br"><span>{c.rank}</span><span>♥</span></span>
             {isTop && <span className={"instax__spec" + (spec ? " instax__spec--on" : "")} aria-hidden="true">
               <i /><i /><i /><i />
               <b>{els.current[i]?.offsetWidth || ""} × {els.current[i]?.offsetHeight || ""}</b>

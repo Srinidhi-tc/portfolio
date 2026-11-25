@@ -1967,3 +1967,14 @@ body::before {
   .instax__img--develop { animation: none; }
   .instax__spec { transition: none; }
 }
+
+/* Instax, pass 2: whole photos (9:16, no crop), a mirrored index in the
+   bottom-right corner, side text lifted above it. */
+.instax { --ih: calc(var(--space-m) * 16); }
+.instax__photo { aspect-ratio: 9 / 16; }
+.instax__photo img { object-fit: contain; }
+.instax__index--br { left: auto; top: auto; right: 6px; bottom: 10px; transform: rotate(180deg); }
+.instax__side { bottom: 44px; }
+@media (max-width: 720px) {
+  .instax { --iw: 168px; --ih: calc(var(--space-m) * 12); }
+}

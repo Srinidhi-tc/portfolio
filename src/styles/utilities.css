@@ -1978,3 +1978,10 @@ body::before {
 @media (max-width: 720px) {
   .instax { --iw: 168px; --ih: calc(var(--space-m) * 12); }
 }
+
+/* Instax, pass 3: the same 1px light rim as the Work / Gallery buttons,
+   and a bevel that stays light all the way round. */
+.instax { --rim: rgba(255, 255, 255, 0.8); }
+:root[data-theme="dark"] .instax { --rim: rgba(255, 255, 255, 0.15); }
+.instax__card::before { background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.45)); }
+:root[data-theme="dark"] .instax__card::before { background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.18)); }

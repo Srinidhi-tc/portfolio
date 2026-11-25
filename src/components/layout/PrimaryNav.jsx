@@ -1,10 +1,12 @@
-// PrimaryNav: Work fills column 2, Gallery fills column 3. Each is a light grey,
-// square-cornered button as tall as the S/R/I stack, text right aligned.
+// PrimaryNav: Work fills column 2, Gallery fills column 3. Each is a grey,
+// square-cornered button that sits between the same guide lines as the
+// S/R/I stack, white label right aligned on its second guide line.
 // Hover: wherever the pointer goes, a small eye-tracking heatmap blooms
 // (green, yellow, orange, red) and slowly cools.
-// Click: blue floods the button from the point that was clicked, then the page
-// opens. The current page stays filled blue.
-// Reduced motion: no heat, no flood; the click just navigates.
+// Click: the blue drains out of the current button and flows into the one
+// clicked, then that page opens. From the intro (nothing blue yet) the blue
+// floods in from the point that was clicked.
+// Reduced motion: no heat, no flow; the click just navigates.
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -13,7 +15,7 @@ const LINKS = [
   { to: "/gallery", label: "Gallery" },
 ];
 
-const FILL_MS = 520;
+const FLOW_MS = 640;
 const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // 256-step palette: transparent, then green, yellow, orange, red.
@@ -39,9 +41,9 @@ function palette() {
 }
 const PALETTE = typeof window !== "undefined" ? palette() : null;
 
-function Heat({ active }) {
+function Heat({ live }) {
   const ref = useRef(null);
-  const state = useRef({ heat: null, w: 0, h: 0, raf: 0, last: null });
+  const state = useRef({ heat: null, w: 0, h: 0, raf: 0 });
 
   useEffect(() => {
     const cv = ref.current;
@@ -62,7 +64,7 @@ function Heat({ active }) {
       const img = ctx.createImageData(s.w, s.h);
       let any = false;
       for (let i = 0; i < s.heat.length; i++) {
-        const v = s.heat[i] *= 0.985;               // slow cooling
+        const v = (s.heat[i] *= 0.985);              // slow cooling
         if (v < 0.004) { s.heat[i] = 0; continue; }
         any = true;
         const p = Math.min(255, (v * 255) | 0) * 4;
@@ -77,13 +79,12 @@ function Heat({ active }) {
 
     const btn = cv.parentElement;
     const add = (e) => {
-      if (reduced() || !active.current) return;
+      if (reduced() || !live.current) return;
       const r = cv.getBoundingClientRect();
       const cx = e.clientX - r.left, cy = e.clientY - r.top;
-      const R = 22;                                   // small blob, not the whole button
-      for (let y = Math.max(0, cy - R | 0); y < Math.min(s.h, cy + R); y++) {
-        for (let x = Math.max(0, cx - R | 0); x < Math.min(s.w, cx + R); x++) {
-          // slightly wider than tall, like a fixation blob
+      const R = 22;                                   // a small blob, not the whole button
+      for (let y = Math.max(0, (cy - R) | 0); y < Math.min(s.h, cy + R); y++) {
+        for (let x = Math.max(0, (cx - R) | 0); x < Math.min(s.w, cx + R); x++) {
           const d = ((x - cx) / R) ** 2 + ((y - cy) / (R * 0.8)) ** 2;
           if (d < 1) {
             const i = y * s.w + x;
@@ -95,44 +96,46 @@ function Heat({ active }) {
     };
     btn.addEventListener("pointermove", add);
     return () => { ro.disconnect(); btn.removeEventListener("pointermove", add); cancelAnimationFrame(s.raf); };
-  }, [active]);
+  }, [live]);
 
   return <canvas ref={ref} className="primary-nav__heat" aria-hidden="true" />;
 }
 
-function NavButton({ to, label, current }) {
-  const navigate = useNavigate();
-  const [fill, setFill] = useState(null);   // {x, y, r} while flooding
+// flow: null, or { mode: "drain" | "fill" | "flood", dir: "right" | "left", x, y, r }
+function NavButton({ to, label, current, flow, onGo }) {
   const live = useRef(true);
-  live.current = !current;
+  live.current = !current && !flow;
 
-  const onClick = (e) => {
-    e.preventDefault();
-    if (current || fill) return;
-    if (reduced()) return navigate(to);
-    const r = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX ? e.clientX - r.left : r.width;   // keyboard: from the right corner
-    const y = e.clientY ? e.clientY - r.top : r.height;
-    const far = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y));
-    setFill({ x, y, r: far });
-    window.setTimeout(() => { setFill(null); navigate(to); }, FILL_MS);
-  };
+  let blue = null;
+  if (flow?.mode === "flood") {
+    blue = (
+      <span
+        className="primary-nav__flood"
+        aria-hidden="true"
+        style={{ "--fx": `${flow.x}px`, "--fy": `${flow.y}px`, "--fr": `${flow.r}px`, "--flow-ms": `${FLOW_MS}ms` }}
+      />
+    );
+  } else if (flow) {
+    blue = (
+      <span
+        className={`primary-nav__blue primary-nav__blue--${flow.mode}-${flow.dir}`}
+        aria-hidden="true"
+        style={{ "--flow-ms": `${FLOW_MS}ms` }}
+      />
+    );
+  } else if (current) {
+    blue = <span className="primary-nav__blue" aria-hidden="true" />;
+  }
 
   return (
     <a
       href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}${to}`}
-      onClick={onClick}
+      onClick={(e) => { e.preventDefault(); onGo(to, e); }}
       aria-current={current ? "page" : undefined}
-      className={"primary-nav__link" + (fill ? " primary-nav__link--filling" : "")}
+      className="primary-nav__link"
     >
-      <Heat active={live} />
-      {fill && (
-        <span
-          className="primary-nav__flood"
-          aria-hidden="true"
-          style={{ "--fx": `${fill.x}px`, "--fy": `${fill.y}px`, "--fr": `${fill.r}px`, "--fill-ms": `${FILL_MS}ms` }}
-        />
-      )}
+      <Heat live={live} />
+      {blue}
       <span className="primary-nav__label">{label}</span>
     </a>
   );
@@ -140,11 +143,36 @@ function NavButton({ to, label, current }) {
 
 export default function PrimaryNav() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const path = pathname.replace(/\/+$/, "") || "/";
+  const [flows, setFlows] = useState(null);   // { [to]: flow }
+
+  useEffect(() => { setFlows(null); }, [path]);
+
+  const go = (to, e) => {
+    if (to === path || flows) return;
+    if (reduced()) return navigate(to);
+    const from = LINKS.find((l) => l.to === path);
+    const iFrom = LINKS.findIndex((l) => l.to === path);
+    const iTo = LINKS.findIndex((l) => l.to === to);
+    if (from) {
+      // Drain out of the current button toward the one clicked; fill in from the near side.
+      const dir = iTo > iFrom ? "right" : "left";
+      setFlows({ [from.to]: { mode: "drain", dir }, [to]: { mode: "fill", dir } });
+    } else {
+      const r = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX ? e.clientX - r.left : r.width;
+      const y = e.clientY ? e.clientY - r.top : r.height;
+      const far = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y));
+      setFlows({ [to]: { mode: "flood", x, y, r: far } });
+    }
+    window.setTimeout(() => navigate(to), FLOW_MS);
+  };
+
   return (
     <nav aria-label="Primary" className="primary-nav">
       {LINKS.map(({ to, label }) => (
-        <NavButton key={to} to={to} label={label} current={path === to} />
+        <NavButton key={to} to={to} label={label} current={path === to} flow={flows?.[to] ?? null} onGo={go} />
       ))}
     </nav>
   );

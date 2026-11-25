@@ -19,7 +19,7 @@ function weeks() {
     col.push(day);
     if (col.length === 7) { out.push(col); col = []; }
   }
-  if (col.length) out.push(col);
+  if (col.length) out.push(col.concat(new Array(7 - col.length).fill(null)));
   return out;
 }
 

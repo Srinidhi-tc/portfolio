@@ -28,6 +28,7 @@ export function SriMark({ isHome }) {
 
   const { pathname } = useLocation();
   const atHome = (pathname.replace(/\/+$/, "") || "/") === "/";
+  useEffect(() => { setToppling(false); }, [pathname]);
 
   // On "/" itself SRI is a plain link; from anywhere else (including /work
   // and /gallery) it topples on the way home.

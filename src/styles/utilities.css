@@ -1672,3 +1672,44 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 .home-v2__foot > .home-v2__links { justify-self: stretch; }
 .home-v2__links > li:last-child { width: 100%; }
 .home-v2__links .github-stack { width: 100%; }
+
+/* ---- Nav buttons, pass 2 ----
+   The buttons sit between the same guide lines as S/R/I: top on a green
+   line, three lines tall. White label, right aligned, on the button's
+   second inner guide line. */
+.primary-nav { margin-top: calc(var(--bl) - var(--space-m)); }
+.primary-nav__link,
+.primary-nav__link:hover,
+.primary-nav__link:focus-visible,
+.primary-nav__link[aria-current="page"],
+.primary-nav__link[aria-current="page"]:not(:hover):not(:focus-visible) {
+  background: var(--color-bg-secondary);
+  color: #fff;
+}
+.primary-nav__label {
+  margin-top: calc(var(--space-l) - var(--bl));
+  color: #fff;
+}
+.primary-nav__link--filling .primary-nav__label { color: #fff; }
+.primary-nav__blue {
+  position: absolute; inset: 0; z-index: 1;
+  background: var(--link-blue);
+}
+.primary-nav__blue--drain-right { animation: nav-drain-right calc(var(--flow-ms) * 0.6) ease-in forwards; }
+.primary-nav__blue--drain-left  { animation: nav-drain-left  calc(var(--flow-ms) * 0.6) ease-in forwards; }
+.primary-nav__blue--fill-right  { clip-path: inset(0 100% 0 0); animation: nav-fill-right calc(var(--flow-ms) * 0.6) ease-out calc(var(--flow-ms) * 0.4) forwards; }
+.primary-nav__blue--fill-left   { clip-path: inset(0 0 0 100%); animation: nav-fill-left  calc(var(--flow-ms) * 0.6) ease-out calc(var(--flow-ms) * 0.4) forwards; }
+@keyframes nav-drain-right { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 0 100%); } }
+@keyframes nav-drain-left  { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 100% 0 0); } }
+@keyframes nav-fill-right  { to { clip-path: inset(0 0 0 0); } }
+@keyframes nav-fill-left   { to { clip-path: inset(0 0 0 0); } }
+.primary-nav__flood { animation-duration: var(--flow-ms); }
+
+/* GitHub grid: a full rectangle (empty days drawn like quiet days). */
+.home-v2__links .github-heatmap__day.is-empty { background: var(--hairline-weak); }
+
+/* Footer icons: square tops level with the top of the sun / moon matrix,
+   bottoms on a guide line; the icon row takes two lines. */
+.home-v2__links .icon-links { top: var(--bl); }
+.home-v2__links > li:first-child { height: var(--space-l); }
+.home-v2__links .github-heatmap { border-radius: 0; padding: 0; background: none; }

@@ -25,6 +25,7 @@ import SFClock from "../components/ui/SFClock";
 import PrimaryLink from "../components/ui/PrimaryLink";
 import { GalleryList } from "./Home.dormant";
 import PrimaryNav from "../components/layout/PrimaryNav";
+import InstaxStack from "../components/ui/InstaxStack";
 
 
 // GitHub, LinkedIn and Email are square line icons (IconLinks).
@@ -164,6 +165,10 @@ export default function Home() {
                 <li key={label}><strong>{label}</strong> {text}</li>
               ))}
             </ul>
+          </div>
+
+          <div className="home-v2__wide home-v2__instax">
+            <InstaxStack />
           </div>
 
         </section>

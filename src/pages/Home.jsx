@@ -9,7 +9,8 @@
 //
 // Dormant content for this page lives in ./Home.dormant
 // To revive a block, import its named export and render it.
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useGridSnap from "../components/layout/useGridSnap";
 import { Link, useLocation } from "react-router-dom";
 import { workSectionProjects } from "../data/workSectionProjects";
 import { projectSummaries } from "../data/projectSummaries";
@@ -135,6 +136,8 @@ function Item({ id, title, meta, tucked }) {
 export default function Home() {
   const { pathname } = useLocation();
   const [more, setMore] = useState(false);
+  const footRef = useRef(null);
+  useGridSnap(footRef, [pathname, more]);
   const path = pathname.replace(/\/+$/, "") || "/";
   const view = path === "/work" ? "work" : path === "/gallery" ? "gallery" : "intro";
   const list = WORK.map((w) => ({ ...w, meta: projectSummaries[w.id].headline, tucked: TUCKED[w.id] }));
@@ -163,15 +166,6 @@ export default function Home() {
             </ul>
           </div>
 
-          <ul className="stack stack--small stack--right home-v2__right home-v2__links">
-            <li><IconLinks /></li>
-            {CONTACT.map(({ label, href }) => (
-              <li key={label}>
-                <PrimaryLink href={href} className="primary-link--light">{label}</PrimaryLink>
-              </li>
-            ))}
-            <li><GithubStack /></li>
-          </ul>
         </section>
 
         )}
@@ -201,13 +195,22 @@ export default function Home() {
         </section>
         )}
 
-        <section className="home-v2__foot" aria-label="Footer">
+        <section className="home-v2__foot" aria-label="Footer" ref={footRef}>
           <div className="stack stack--small home-v2__left home-v2__end">
             <ThemeToggle />
             <SFClock />
             <p className="site-footer__title">Thanks for stopping by</p>
             <p className="site-footer__copy">© 2026 Srinidhi Chakravarthy. All rights reserved.</p>
           </div>
+          <ul className="stack stack--small stack--right home-v2__right home-v2__links">
+            <li><IconLinks /></li>
+            {CONTACT.map(({ label, href }) => (
+              <li key={label}>
+                <PrimaryLink href={href} className="primary-link--light">{label}</PrimaryLink>
+              </li>
+            ))}
+            <li><GithubStack /></li>
+          </ul>
         </section>
       </div>
     </div>

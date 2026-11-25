@@ -26,8 +26,12 @@ export function SriMark({ isHome }) {
     </>
   );
 
-  // On the home shell (/, /work, /gallery) SRI is a plain link home.
-  if (isHome) {
+  const { pathname } = useLocation();
+  const atHome = (pathname.replace(/\/+$/, "") || "/") === "/";
+
+  // On "/" itself SRI is a plain link; from anywhere else (including /work
+  // and /gallery) it topples on the way home.
+  if (isHome && atHome) {
     return (
       <Link to="/" id="sri-home" className="sri-mark sri-mark--link" aria-label="Srinidhi, home">
         {letters}
@@ -48,6 +52,7 @@ export function SriMark({ isHome }) {
     <a
       href={`${import.meta.env.BASE_URL}`}
       onClick={onClick}
+      id={isHome ? "sri-home" : undefined}
       className={"sri-mark sri-mark--link" + (toppling ? " sri-mark--topple" : "")}
       aria-label="Srinidhi, home"
     >

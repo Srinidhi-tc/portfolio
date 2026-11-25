@@ -1597,3 +1597,78 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 @media (max-width: 720px) {
   .home-v2__links .github-heatmap { display: flex !important; }
 }
+
+/* ==========================================================================
+   Primary nav as two buttons: Work fills column 2, Gallery column 3. Light
+   grey, square corners, as tall as the S/R/I stack (three lines), label
+   right aligned on the first line. The current page is filled blue.
+   ========================================================================== */
+.primary-nav {
+  justify-self: stretch;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  gap: 0 var(--col-gap);
+  align-items: start;
+}
+.primary-nav__link {
+  position: relative; top: 0;
+  display: block; overflow: hidden;
+  height: calc(var(--space-m) * 3);
+  margin: 0; padding: 0 var(--space-s);
+  background: var(--color-bg-secondary);
+  border-radius: 0;
+  color: var(--link-blue);
+  text-align: right; text-decoration: none;
+  font-size: var(--type-display); font-weight: var(--weight-bold);
+  line-height: var(--space-m);
+}
+.primary-nav__link:hover, .primary-nav__link:focus-visible { color: var(--link-blue); }
+.primary-nav__link:focus-visible { outline: 1px solid var(--link-blue); outline-offset: 2px; }
+.primary-nav__link[aria-current="page"],
+.primary-nav__link[aria-current="page"]:not(:hover):not(:focus-visible) {
+  background: var(--link-blue); color: var(--bg); text-decoration: none;
+}
+/* Label on the S line, letters on the baseline grid like S/R/I. */
+.primary-nav__label {
+  position: relative; z-index: 2; display: block;
+  top: calc(var(--bl) - var(--bl-display));
+  transition: color 150ms ease;
+}
+.primary-nav__heat {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 1; pointer-events: none;
+}
+.primary-nav__flood {
+  position: absolute; z-index: 1;
+  left: var(--fx); top: var(--fy);
+  width: calc(var(--fr) * 2); height: calc(var(--fr) * 2);
+  margin: calc(var(--fr) * -1) 0 0 calc(var(--fr) * -1);
+  border-radius: 50%;
+  background: var(--link-blue);
+  transform: scale(0);
+  animation: nav-flood var(--fill-ms) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.primary-nav__link--filling .primary-nav__label { color: var(--bg); }
+@keyframes nav-flood { to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .primary-nav__flood { animation: none; transform: scale(1); }
+  .primary-nav__label { transition: none; }
+}
+
+/* Intro links sit in the footer now, right aligned in column 3, level with
+   the footer text in column 2. */
+.home-v2__foot > .home-v2__end,
+.home-v2__foot > .home-v2__links { grid-row: 1; align-self: start; }
+
+/* The rotating words in the bio are bold. */
+.fade-words__item { font-weight: var(--weight-bold); }
+
+/* GitHub grid never wider than its column: the latest weeks stay, the
+   oldest are cropped on the left. */
+.home-v2__links { min-width: 0; max-width: 100%; }
+.home-v2__links .github-stack { max-width: 100%; }
+.home-v2__links .github-heatmap { max-width: 100%; overflow: hidden; justify-content: flex-end; }
+.home-v2__foot > .home-v2__links { justify-self: stretch; }
+.home-v2__links > li:last-child { width: 100%; }
+.home-v2__links .github-stack { width: 100%; }

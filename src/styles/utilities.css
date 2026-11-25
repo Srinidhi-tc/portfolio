@@ -1737,7 +1737,7 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
 /* Footer: the same gap below the icons, and between Resume and Design
    System, as between the sun / moon and the SF time (two lines). Hover
    like the icons. */
-.home-v2__links > li:first-child { height: calc(var(--space-m) * 3); }
+.home-v2__links > li:first-child { height: calc(var(--space-m) * 4); }
 .home-v2__links > li:has(> .primary-link) { height: var(--space-l); }
 .home-v2__links .primary-link:hover,
 .home-v2__links .primary-link:focus-visible { opacity: .75; }
@@ -1747,3 +1747,16 @@ canvas.theme-toggle__sun, canvas.theme-toggle__moon { border: 0; outline: 0; bac
   .primary-nav { margin-left: var(--space-l); }
   .home-v2__sri { position: relative; z-index: 2; }
 }
+
+/* Background: glossy satin folds behind everything, fixed; black in dark
+   mode, milky white in light mode. */
+html body { background: transparent !important; }
+html { background-color: var(--bg); }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: url("../assets/bg-dark.svg") center / cover no-repeat;
+}
+:root[data-theme="light"] body::before { background-image: url("../assets/bg-light.svg"); }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) body::before { background-image: url("../assets/bg-light.svg"); } }
+:root .sky-background, :root[data-theme] .sky-background { background: transparent !important; }
+:root .sky-background::after { display: none; }
